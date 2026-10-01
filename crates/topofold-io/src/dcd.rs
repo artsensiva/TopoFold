@@ -468,6 +468,22 @@ impl<W: Write> DcdWriter<W> {
     }
 }
 
+/// Convenience helper to stream all frames from a DCD reader into a vector of [`BackboneTrace`]s.
+pub fn read_dcd_trajectory<R: Read>(
+    reader: R,
+    ca_indices: &[usize],
+) -> Result<Vec<BackboneTrace>, TrajectoryError> {
+    let mut dcd = DcdReader::new(reader)?;
+    let mut traces = Vec::new();
+    while let Some(frame) = dcd.next_frame()? {
+        traces.push(frame.to_backbone_trace(ca_indices)?);
+    }
+    if traces.is_empty() {
+        return Err(TrajectoryError::EmptyTrajectory);
+    }
+    Ok(traces)
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
