@@ -14,9 +14,11 @@ use topofold_core::invariants::CurveInvariants;
 use topofold_core::pdb::{parse_pdb_ca, PdbError};
 use topofold_core::{
     compute_bimodality_profile as core_bimodality_profile, compute_idp_density_profile,
-    compute_intrinsic_allosteric_network, compute_local_writhe, detect_bistable_segments,
-    detect_transient_motifs_with_params, discrete_frechet_distance_coords,
-    extract_curve_invariants, BackboneTrace,
+    compute_intermolecular_allosteric_network as core_intermolecular_allosteric_network,
+    compute_intrinsic_allosteric_network, compute_local_writhe,
+    compute_ternary_cooperativity_index as core_ternary_cooperativity_index,
+    detect_bistable_segments, detect_transient_motifs_with_params,
+    discrete_frechet_distance_coords, extract_curve_invariants, BackboneTrace,
 };
 use topofold_index::{ConformerFrame, ConformationalIndex as RustConformationalIndex};
 use topofold_io::{DcdReader, TrajectoryError};
@@ -932,6 +934,74 @@ pub fn compute_allosteric_network<'py>(
     Ok(py_arr.unbind())
 }
 
+/// Computes the N_A x N_B Inter-Molecular Allosteric Communication Network matrix between two chains.
+///
+/// Parameters
+/// ----------
+/// coords_a : numpy.ndarray of shape (F, N_A, 3), dtype=float32
+///     Trajectory coordinates of Chain A across F frames.
+/// coords_b : numpy.ndarray of shape (F, N_B, 3), dtype=float32
+///     Trajectory coordinates of Chain B across F frames.
+/// cb_coords_a : numpy.ndarray of shape (F, N_A, 3), dtype=float32, optional
+///     Optional C-beta coordinates for Chain A.
+/// cb_coords_b : numpy.ndarray of shape (F, N_B, 3), dtype=float32, optional
+///     Optional C-beta coordinates for Chain B.
+/// regularizer_eps : float, default=1e-6
+///     Diagonal regularizer jitter added to covariance matrices.
+///
+/// Returns
+/// -------
+/// numpy.ndarray of shape (N_A, N_B), dtype=float64
+///     Cross-chain matrix of generalized correlation coefficients r_MI in [0, 1].
+#[pyfunction]
+#[pyo3(signature = (coords_a, coords_b, cb_coords_a = None, cb_coords_b = None, regularizer_eps = 1e-6))]
+pub fn compute_intermolecular_allosteric_network<'py>(
+    py: Python<'py>,
+    coords_a: PyReadonlyArray3<'py, f32>,
+    coords_b: PyReadonlyArray3<'py, f32>,
+    cb_coords_a: Option<PyReadonlyArray3<'py, f32>>,
+    cb_coords_b: Option<PyReadonlyArray3<'py, f32>>,
+    regularizer_eps: f64,
+) -> PyResult<Py<PyArray2<f64>>> {
+    let a_view = coords_a.as_array();
+    let b_view = coords_b.as_array();
+    let cb_a_view = cb_coords_a.as_ref().map(|cb| cb.as_array());
+    let cb_b_view = cb_coords_b.as_ref().map(|cb| cb.as_array());
+
+    let traces_a = array3_to_traces(&a_view, cb_a_view.as_ref())?;
+    let traces_b = array3_to_traces(&b_view, cb_b_view.as_ref())?;
+
+    let matrix = py.detach(|| {
+        core_intermolecular_allosteric_network(&traces_a, &traces_b, regularizer_eps)
+            .map_err(to_py_err)
+    })?;
+    let py_arr = PyArray2::from_owned_array(py, matrix);
+    Ok(py_arr.unbind())
+}
+
+/// Computes the average dynamic allosteric cooperativity index across an inter-protein contact interface.
+///
+/// Parameters
+/// ----------
+/// inter_matrix : numpy.ndarray of shape (N_A, N_B), dtype=float64
+///     The cross-chain generalized correlation matrix r_MI.
+/// interface_pairs : list of tuple of int (i_A, j_B)
+///     List of 0-based residue pairs located at the physical contact interface.
+///
+/// Returns
+/// -------
+/// float
+///     The mean dynamic cooperativity score across the interface contacts in [0, 1].
+#[pyfunction]
+pub fn compute_ternary_cooperativity_index(
+    inter_matrix: PyReadonlyArray2<'_, f64>,
+    interface_pairs: Vec<(usize, usize)>,
+) -> PyResult<f64> {
+    let arr = inter_matrix.as_array();
+    let score = core_ternary_cooperativity_index(&arr.to_owned(), &interface_pairs);
+    Ok(score)
+}
+
 /// Computes the Discrete Fréchet Distance between two 3D polygonal curves P and Q.
 ///
 /// Parameters
@@ -1084,6 +1154,8 @@ fn topofold(m: &Bound<'_, PyModule>) -> PyResult<()> {
     m.add_function(wrap_pyfunction!(scan_cryptic_pockets, m)?)?;
     m.add_function(wrap_pyfunction!(compute_bimodality_profile, m)?)?;
     m.add_function(wrap_pyfunction!(compute_allosteric_network, m)?)?;
+    m.add_function(wrap_pyfunction!(compute_intermolecular_allosteric_network, m)?)?;
+    m.add_function(wrap_pyfunction!(compute_ternary_cooperativity_index, m)?)?;
     m.add_function(wrap_pyfunction!(compute_idp_topological_density, m)?)?;
     m.add_function(wrap_pyfunction!(compute_idp_density_profile_py, m)?)?;
     m.add_function(wrap_pyfunction!(detect_transient_motifs_py, m)?)?;

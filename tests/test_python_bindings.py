@@ -242,3 +242,40 @@ def test_idp_transient_motif_detection():
     assert top[5] > 1.5, f"Expected elevated Z-score, got {top[5]}"
 
 
+def test_intermolecular_allosteric_network_and_cooperativity():
+    # 2 chains: Chain A (12 residues) and Chain B (16 residues) across 20 frames
+    n_frames = 20
+    n_a = 12
+    n_b = 16
+
+    traj_a = np.zeros((n_frames, n_a, 3), dtype=np.float32)
+    traj_b = np.zeros((n_frames, n_b, 3), dtype=np.float32)
+
+    for f in range(n_frames):
+        # Coupled conformational breathing in curvature and torsion
+        rad_a = 2.0 + f * 0.15
+        pitch_a = 3.8 + f * 0.05
+        for i in range(n_a):
+            ang = i * 0.6
+            traj_a[f, i] = [i * pitch_a, rad_a * np.cos(ang), rad_a * np.sin(ang)]
+
+        rad_b = 2.5 + f * 0.20
+        pitch_b = 3.8 + f * 0.05
+        for j in range(n_b):
+            ang = j * 0.4
+            traj_b[f, j] = [j * pitch_b, rad_b * np.cos(ang), rad_b * np.sin(ang)]
+
+    inter_mat = tf.compute_intermolecular_allosteric_network(traj_a, traj_b)
+    assert inter_mat.shape == (n_a, n_b)
+    assert np.all(inter_mat >= 0.0)
+    assert np.all(inter_mat <= 1.0)
+
+    # All interface pairs between coupled breathing chains should have high cooperativity
+    interface_pairs = [(2, 3), (3, 4), (4, 5)]
+    coop = tf.compute_ternary_cooperativity_index(inter_mat, interface_pairs)
+    assert coop > 0.50
+    assert coop <= 1.0
+
+
+
+

@@ -33,7 +33,10 @@ pub mod types;
 pub mod writhe;
 
 // Re-export primary types and functions for ergonomic top-level use
-pub use allostery::compute_intrinsic_allosteric_network;
+pub use allostery::{
+    compute_intermolecular_allosteric_network, compute_intermolecular_allosteric_network_ribbon,
+    compute_intrinsic_allosteric_network, compute_ternary_cooperativity_index,
+};
 pub use bimodality::{
     compute_bimodality_profile, detect_bistable_segments, detect_bistable_segments_with_gap,
     sarles_bimodality_coefficient, PocketCandidate, StreamingMoments, WindowBimodality,
