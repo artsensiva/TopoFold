@@ -13,8 +13,9 @@ use topofold_core::error::GeometryError;
 use topofold_core::invariants::CurveInvariants;
 use topofold_core::pdb::{parse_pdb_ca, PdbError};
 use topofold_core::{
-    compute_bimodality_profile as core_bimodality_profile, compute_local_writhe,
-    detect_bistable_segments, extract_curve_invariants, BackboneTrace,
+    compute_bimodality_profile as core_bimodality_profile, compute_intrinsic_allosteric_network,
+    compute_local_writhe, detect_bistable_segments, discrete_frechet_distance_coords,
+    extract_curve_invariants, BackboneTrace,
 };
 use topofold_index::{ConformerFrame, ConformationalIndex as RustConformationalIndex};
 use topofold_io::{DcdReader, TrajectoryError};
@@ -897,6 +898,65 @@ pub fn compute_bimodality_profile<'py>(
     }
 }
 
+/// Computes the Intrinsic Allosteric Communication Network matrix across a trajectory.
+///
+/// Parameters
+/// ----------
+/// coords : numpy.ndarray of shape (F, N, 3), dtype=float32
+///     Trajectory coordinates of F frames across N residues.
+/// cb_coords : numpy.ndarray of shape (F, N, 3), dtype=float32, optional
+///     Optional C-beta coordinates for side-chain rotamer orientation.
+/// regularizer_eps : float, default=1e-6
+///     Diagonal regularizer jitter added to covariance matrices.
+///
+/// Returns
+/// -------
+/// numpy.ndarray of shape (N, N), dtype=float64
+///     Symmetric matrix of generalized correlation coefficients r_MI in [0, 1].
+#[pyfunction]
+#[pyo3(signature = (coords, cb_coords = None, regularizer_eps = 1e-6))]
+pub fn compute_allosteric_network<'py>(
+    py: Python<'py>,
+    coords: PyReadonlyArray3<'py, f32>,
+    cb_coords: Option<PyReadonlyArray3<'py, f32>>,
+    regularizer_eps: f64,
+) -> PyResult<Py<PyArray2<f64>>> {
+    let array_view = coords.as_array();
+    let cb_view = cb_coords.as_ref().map(|cb| cb.as_array());
+    let traces = array3_to_traces(&array_view, cb_view.as_ref())?;
+    let matrix = py.detach(|| {
+        compute_intrinsic_allosteric_network(&traces, regularizer_eps).map_err(to_py_err)
+    })?;
+    let py_arr = PyArray2::from_owned_array(py, matrix);
+    Ok(py_arr.unbind())
+}
+
+/// Computes the Discrete Fréchet Distance between two 3D polygonal curves P and Q.
+///
+/// Parameters
+/// ----------
+/// coords_a : numpy.ndarray of shape (N, 3), dtype=float32
+///     First curve coordinates.
+/// coords_b : numpy.ndarray of shape (M, 3), dtype=float32
+///     Second curve coordinates.
+///
+/// Returns
+/// -------
+/// float
+///     Minimax coupling discrete Fréchet distance in Ångströms.
+#[pyfunction]
+pub fn discrete_frechet_distance(
+    coords_a: PyReadonlyArray2<'_, f32>,
+    coords_b: PyReadonlyArray2<'_, f32>,
+) -> PyResult<f64> {
+    let a_view = coords_a.as_array();
+    let b_view = coords_b.as_array();
+    let trace_a = view_to_trace(a_view)?;
+    let trace_b = view_to_trace(b_view)?;
+    let dist = discrete_frechet_distance_coords(trace_a.coordinates(), trace_b.coordinates());
+    Ok(dist)
+}
+
 /// TopoFold Python module definition.
 #[pymodule]
 fn topofold(m: &Bound<'_, PyModule>) -> PyResult<()> {
@@ -905,6 +965,8 @@ fn topofold(m: &Bound<'_, PyModule>) -> PyResult<()> {
     m.add_function(wrap_pyfunction!(compute_theta_beta, m)?)?;
     m.add_function(wrap_pyfunction!(scan_cryptic_pockets, m)?)?;
     m.add_function(wrap_pyfunction!(compute_bimodality_profile, m)?)?;
+    m.add_function(wrap_pyfunction!(compute_allosteric_network, m)?)?;
+    m.add_function(wrap_pyfunction!(discrete_frechet_distance, m)?)?;
     m.add_function(wrap_pyfunction!(read_pdb, m)?)?;
     m.add_function(wrap_pyfunction!(read_pdb_trajectory, m)?)?;
     m.add_function(wrap_pyfunction!(read_dcd, m)?)?;

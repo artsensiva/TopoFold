@@ -4,10 +4,10 @@
 [![Rust](https://img.shields.io/badge/rust-1.75%2B-orange.svg)](https://www.rust-lang.org)
 [![Python](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org)
 [![License](https://img.shields.io/badge/license-Dual%20AGPLv3%20%2F%20Commercial-blue.svg)](#citation--licensing)
-[![Tests](https://img.shields.io/badge/tests-27%2F27%20passing-brightgreen.svg)](https://github.com/artsensiva/TopoFold/actions)
-[![Release](https://img.shields.io/badge/release-v0.7.0-brightgreen.svg)](https://github.com/artsensiva/TopoFold/releases)
+[![Tests](https://img.shields.io/badge/tests-28%2F28%20passing-brightgreen.svg)](https://github.com/artsensiva/TopoFold/actions)
+[![Release](https://img.shields.io/badge/release-v0.8.0-brightgreen.svg)](https://github.com/artsensiva/TopoFold/releases)
 
-> **TopoFold** is a memory-safe, ultra-high-throughput computational geometry engine written in pure Rust with zero-copy Python bindings. It maps macromolecular backbone traces ($\text{C}_\alpha$) and side-chain vectors ($\text{C}_\beta$) into an intrinsic, rotationally and translationally invariant ($SE(3)$) metric space. By leveraging discrete Frenet-Serret framing, branch-cut-free Gauss solid-angle writhe, and cascaded Vantage-Point (VP) metric trees, TopoFold resolves cryptic pockets, functional loop transitions, side-chain rotameric gating, and biophysical free energy landscapes that linear Cartesian reductions (PCA/SVD) and Kabsch alignments completely obliterate.
+> **TopoFold** is a memory-safe, ultra-high-throughput computational geometry engine written in pure Rust with zero-copy Python bindings. It maps macromolecular backbone traces ($\text{C}_\alpha$) and side-chain vectors ($\text{C}_\beta$) into an intrinsic, rotationally and translationally invariant ($SE(3)$) metric space. By leveraging discrete Frenet-Serret framing, branch-cut-free Gauss solid-angle writhe, and cascaded Vantage-Point (VP) metric trees, TopoFold resolves cryptic pockets, functional loop transitions, side-chain rotameric gating, metamorphic fold switches, and intrinsic allosteric networks that linear Cartesian reductions (PCA/SVD) and static structural predictors (AlphaFold 2/3) completely obliterate.
 
 ---
 
@@ -43,6 +43,18 @@
 
 *Figure 5: Human c-Abl1 Kinase Domain DFG Switch ($N = 1,500$ frames, 274 residues, PDB 2GQG vs 1IEP). Active state (DFG-in, PDB 2GQG) versus Imatinib-bound cryptic state (DFG-out, PDB 1IEP). **Panel A (Cartesian PCA)**: Inter-lobe breathing modes of the N-terminal lobe (~90 residues) and terminal tails dominate Cartesian covariance, completely smearing the functional DFG transition into an unresolvable cloud ($S = 0.012$). **Panel B (Autonomous Scan)**: TopoFold's sequence-wide bimodality scan autonomously identifies the Asp381–Phe382–Gly383 motif as a sharp peak ($BC = 0.9495$) without manual residue hints. **Panel C (Subcurve Free Energy Landscape)**: TopoFold Fréchet metric space pristinely resolves Active Basin A and Cryptic Basin B ($S = 0.943$), uncovering the authentic $\Delta G^\ddagger = 4.40\,k_B T$ ($2.61\text{ kcal/mol}$) activation barrier.*
 
+### 6. Metamorphic / Fold-Switching Proteins: Lymphotactin (XCL1)
+
+![Metamorphic Fold Switching Transformation](assets/xcl1_metamorphic_transformation.png)
+
+*Figure 6: Metamorphic Protein Fold Switching in Human Lymphotactin XCL1 (Residues 1..60, 100% Sequence Identity, PDB 1J9O vs 2JP1). Static structural models (AlphaFold 2/3) suffer from single-state bias ($pLDDT \approx 85$ on Fold 1), completely missing the physiological dimeric all-$\beta$ fold. **Panel A (3D Backbone Comparison)**: Monomer Chemokine Fold (1J9O, $\alpha$-helix in green) versus Metamorphic Dimer (2JP1, extended $\beta$-strand in red). **Panel B (Discrete Invariants)**: TopoFold's sequence-resolved discrete invariants capture the exact secondary structure transformation across residues 51..58 ($\tau \approx +50^\circ$ right-handed $\alpha$-helix to $\tau \approx -170^\circ$ extended $\beta$-sheet, $|\Delta \tau| > 150^\circ$). **Panel C (Topological Deformation)**: Exact $SE(3)$-invariant subcurve Fréchet distance ($d_F = 31.2\text{ \AA}$ global, peak local deformation at switch hinge).*
+
+### 7. Intrinsic Allosteric Networks: Human Abl1 Kinase
+
+![Intrinsic Allosteric Network Matrix](assets/abl_allosteric_network_matrix.png)
+
+*Figure 7: Intrinsic Allosteric Communication Network on Human c-Abl1 Kinase Domain ($N = 1,500$ frames, 274 residues, PDB 225..498). TopoFold evaluates Mutual Information on $(\kappa, \tau, \theta_\beta)$ across 37,401 residue pairs in $296\text{ ms}$ ($7.93\,\mu\text{s/pair}$). **Panel A (Network Heatmap)**: Sequence-wide generalized correlation $r_{\text{MI}}$ reveals non-local communication channels connecting the DFG motif, P-loop, and $\alpha$C-helix. **Panel B (Allosteric Centrality)**: Sequence centrality profile autonomously identifies the activation loop hinge (Res 386, $\sum r_{\text{MI}} = 14.33$) and P-loop (Res 245) as master allosteric drivers. **Panel C (Catalytic Cross-Talk)**: Mechanical coupling sub-matrix resolves long-range communication between the DFG flip switch (PDB 375..400) and the ATP P-loop (PDB 245..270).*
+
 <details>
 <summary><b>Click to expand: Controlled Synthetic Bistable Benchmark (Noise Confounding Analysis)</b></summary>
 
@@ -50,7 +62,7 @@
 
 ![Synthetic Bistable Trajectory Benchmark](assets/benchmark_pca_vs_topofold.png)
 
-*Figure 6: Controlled Synthetic Trajectory Benchmark ($N = 2,000$ frames, 60 residues). An active functional loop (residues 25..35) executes a bistable conformational transition amidst high-amplitude Brownian noise in the flanking termini. **Left Panel (Cartesian PCA)**: Uncorrelated terminal variance dominates the first two principal components, smearing Closed State A and Open State B into a completely overlapping cluster ($S = 0.337$). **Right Panel (TopoFold Subcurve Index)**: Intrinsic discrete curvature and torsion $(\kappa, \tau)$ strictly isolate the pocket, recovering near-perfect bimodal separation ($S = 0.985$) with zero superposition overhead.*
+*Figure 8: Controlled Synthetic Trajectory Benchmark ($N = 2,000$ frames, 60 residues). An active functional loop (residues 25..35) executes a bistable conformational transition amidst high-amplitude Brownian noise in the flanking termini. **Left Panel (Cartesian PCA)**: Uncorrelated terminal variance dominates the first two principal components, smearing Closed State A and Open State B into a completely overlapping cluster ($S = 0.337$). **Right Panel (TopoFold Subcurve Index)**: Intrinsic discrete curvature and torsion $(\kappa, \tau)$ strictly isolate the pocket, recovering near-perfect bimodal separation ($S = 0.985$) with zero superposition overhead.*
 
 </details>
 
@@ -58,17 +70,19 @@
 
 ## Comprehensive Competitive Comparison Matrix
 
-| Evaluation Dimension | Cartesian PCA | Dihedral PCA (dPCA) | TICA (Time-lagged ICA) | Foldseek (3Di) | PocketMiner (GNN) | TopoFold v0.7.0 |
+| Evaluation Dimension | Cartesian PCA | Dihedral PCA (dPCA) | TICA (Time-lagged ICA) | Foldseek (3Di) | PocketMiner (GNN) | TopoFold v0.8.0 |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | **Mathematical Basis** | Linear $R^{3N}$ SVD | Dihedral $(\phi, \psi)$ PCA | Time-lagged covariance $\mathbf{C}_0^{-1} \mathbf{C}_\tau$ | Discrete 3Di alphabet | Graph Neural Network | Intrinsic Differential Geometry $(\kappa, \tau, \operatorname{Wr}, \theta_\beta)$ |
 | **Coordinate Invariance** | **None** ($SE(3)$ extrinsic) | Internal only | Internal / Extrinsic | Rigid alignment | SE(3)-equivariant | **Exact $SE(3)$ Invariant** ($< 10^{-12}$) |
 | **Terminal Noise Immunity** | **Fails** (Dominates var) | **Fails** (Tail dihedrals dominate) | Partial (Mixes into IC2) | N/A (Static align) | Trained features | **Mathematically Complete** (Exact Locality) |
 | **Free Energy Landscape** | Collapsed ($0.0\,k_B T$) | Collapsed ($0.0\,k_B T$) | Distorted ($1.84\,k_B T$) | Infeasible | Infeasible | **Authentic $3.43\,k_B T$ ($2.04\text{ kcal/mol}$)** |
-| **Separation Fidelity ($S$)** | $S = 0.009$ | $S = 0.001$ | $S = 0.533$ | N/A | N/A | **$S = 0.838$** (BPTI) / **$S = 0.985$** (Synthetic) |
+| **Separation Fidelity ($S$)** | $S = 0.009$ | $S = 0.001$ | $S = 0.533$ | N/A | N/A | **$S = 0.838$** (BPTI) / **$S = 0.943$** (Abl1) |
 | **Trajectory Requirement** | Static ensemble | Static ensemble | **Contiguous MD only** | Static PDB | Static PDB | **Any ensemble** (MD, REMD, AlphaFold) |
 | **Kinetic Hyperparameters** | None | None | **Lag time $\tau$** (Acutely sensitive) | Substitution matrix | Neural weights | **Zero hyperparameters** |
 | **Side-Chain Rotamer Gating** | Insensitive | Partial | Insensitive | None (CA only) | Static surface | **Directly Detected** ($\theta_\beta$, $BC = 0.990$) |
 | **Autonomous Pocket Scan** | Infeasible | Infeasible | Manual kinetic clustering | Infeasible | ML inference | **Single-Pass Streaming** ($11.7\text{ ms}$, $BC = 0.9986$) |
+| **Metamorphic Fold Switches** | Infeasible (alignment artifacts) | Infeasible | Fails on multi-basin | Static single align | Static single state | **Exact Fingerprint** ($|\Delta \tau| > 150^\circ$, $d_F = 31.2\text{ \AA}$) |
+| **Allosteric Communication** | Linear Covariance (Rot drift) | Non-invariant | Kinetic modes only | None | Static contact map | **Mutual Information $r_{\text{MI}}$** ($296\text{ ms}$, 37k pairs) |
 | **Search Latency / Frame** | $\mathcal{O}(M \cdot N)$ recompute | $\mathcal{O}(N)$ recompute | Dense matrix projection | $\approx 10\text{ ms}$ | $\approx 50\text{ ms}$ | **$1.01\text{--}9.39\,\mu\text{s/frame}$** (VP-Tree) |
 | **Implementation Safety** | Python / C | C++ | Python / Cython | C++ | Python / PyTorch | **100% Safe Rust** (`#![forbid(unsafe_code)]`) |
 
@@ -210,6 +224,24 @@ for rank, (frame_id, frechet_dist) in enumerate(hits):
     print(f"Rank {rank+1}: Frame {frame_id} (Fréchet distance = {frechet_dist:.4f})")
 ```
 
+#### 4. Intrinsic Allosteric Communication Networks (Rayon Parallel)
+
+```python
+import topofold as tf
+
+# Ingest multi-frame trajectory (e.g. Abl1 Kinase, 1,500 frames, 274 residues)
+traj = tf.read_dcd("benchmarks/data/abl_dfg_trajectory.dcd")
+
+# Compute sequence-wide allosteric communication network in pure Rust (<300 ms for 37k pairs)
+net = tf.compute_allosteric_network(traj)
+print(f"Computed allosteric network matrix of shape {net.shape}.")
+
+# Identify top allosteric drivers via communication centrality (|j - i| >= 4)
+centrality = [sum(net[i, j] for j in range(len(net)) if abs(i - j) >= 4) for i in range(len(net))]
+top_hub = max(range(len(centrality)), key=lambda i: centrality[i])
+print(f"Top allosteric driver: Residue {top_hub + 1} (Score = {centrality[top_hub]:.2f})")
+```
+
 ---
 
 ## Architecture & Crates
@@ -219,7 +251,7 @@ The TopoFold engine is architected as an industrial-grade Rust workspace with ze
 ```text
 TopoFold/
 ├── crates/
-│   ├── topofold-core/     # Differential geometry (kappa, tau), ribbon (theta_beta), writhe, bimodality
+│   ├── topofold-core/     # Differential geometry (kappa, tau), ribbon (theta_beta), allostery (MI), writhe, bimodality
 │   ├── topofold-index/    # Cascaded Vantage-Point (VP) metric tree & discrete Fréchet search
 │   ├── topofold-io/       # Zero-copy streaming trajectory parsers (DCD, multi-model PDB)
 │   └── topofold-python/   # PyO3 bindings with GIL release during multi-threaded Rayon execution
@@ -244,7 +276,7 @@ If you use TopoFold in academic research or biophysical investigations, please c
   publisher    = {GitHub},
   journal      = {GitHub repository},
   howpublished = {\url{https://github.com/artsensiva/TopoFold}},
-  version      = {0.7.0}
+  version      = {0.8.0}
 }
 ```
 

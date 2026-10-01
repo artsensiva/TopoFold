@@ -213,6 +213,41 @@ pub fn dtw_invariants(
     prev_row[len_b - 1] / (len_a + len_b) as f64
 }
 
+/// Computes the Discrete Fréchet Distance between two 3D polygonal point traces in $\mathbb{R}^3$.
+#[must_use]
+pub fn discrete_frechet_distance_coords(
+    a: &[nalgebra::Point3<f64>],
+    b: &[nalgebra::Point3<f64>],
+) -> f64 {
+    let len_a = a.len();
+    let len_b = b.len();
+    if len_a == 0 || len_b == 0 {
+        return 0.0;
+    }
+    let mut prev_row = vec![f64::INFINITY; len_b];
+    let mut curr_row = vec![f64::INFINITY; len_b];
+
+    prev_row[0] = nalgebra::distance(&a[0], &b[0]);
+    for j in 1..len_b {
+        let d = nalgebra::distance(&a[0], &b[j]);
+        prev_row[j] = prev_row[j - 1].max(d);
+    }
+
+    for pt_a in a.iter().take(len_a).skip(1) {
+        let d_first = nalgebra::distance(pt_a, &b[0]);
+        curr_row[0] = prev_row[0].max(d_first);
+
+        for j in 1..len_b {
+            let d = nalgebra::distance(pt_a, &b[j]);
+            let min_pred = prev_row[j].min(curr_row[j - 1]).min(prev_row[j - 1]);
+            curr_row[j] = min_pred.max(d);
+        }
+        std::mem::swap(&mut prev_row, &mut curr_row);
+    }
+
+    prev_row[len_b - 1]
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
