@@ -29,3 +29,8 @@ wheels/
 *.nc
 data/
 raw_data/
+
+# Local agents & scratch
+.agents/
+.claude/
+screenshots/
