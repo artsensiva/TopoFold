@@ -11,7 +11,10 @@ use rayon::prelude::*;
 use topofold_core::error::GeometryError;
 use topofold_core::invariants::CurveInvariants;
 use topofold_core::pdb::{parse_pdb_ca, PdbError};
-use topofold_core::{compute_local_writhe, extract_curve_invariants, BackboneTrace};
+use topofold_core::{
+    compute_bimodality_profile as core_bimodality_profile, compute_local_writhe,
+    detect_bistable_segments, extract_curve_invariants, BackboneTrace,
+};
 use topofold_index::{ConformerFrame, ConformationalIndex as RustConformationalIndex};
 use topofold_io::{DcdReader, TrajectoryError};
 
@@ -555,11 +558,119 @@ pub fn read_dcd<'py>(
     Ok(PyArray3::from_owned_array(py, arr).unbind())
 }
 
+/// Helper to convert a 3D ndarray view of shape (F, N, 3) to Vec<BackboneTrace>.
+fn array3_to_traces(coords: &ndarray::ArrayView3<'_, f32>) -> Result<Vec<BackboneTrace>, PyErr> {
+    let shape = coords.shape();
+    if shape.len() != 3 || shape[2] != 3 {
+        return Err(PyValueError::new_err(format!(
+            "Expected 3D array of shape (F, N, 3), found {:?}",
+            shape
+        )));
+    }
+    let f_count = shape[0];
+    let mut traces = Vec::with_capacity(f_count);
+    for f in 0..f_count {
+        let frame_view = coords.index_axis(ndarray::Axis(0), f);
+        traces.push(view_to_trace(frame_view)?);
+    }
+    Ok(traces)
+}
+
+/// Scans a conformational trajectory for bistable cryptic pockets and mobile functional loops without prior hints.
+///
+/// Slides a window of length `window_size` (default: 8 residues) along the backbone C-alpha trace,
+/// evaluates Sarle's Bimodality Coefficient (BC) on intrinsic discrete curve invariants (curvature, torsion),
+/// identifies continuous residue clusters where BC >= `bc_threshold` (default: 0.60),
+/// and ranks candidate segments by peak transition score.
+///
+/// Parameters
+/// ----------
+/// coords : numpy.ndarray of shape (F, N, 3), dtype=float32
+///     Trajectory coordinates of F frames across N residues.
+/// window_size : int, default=8
+///     Length of the sliding subcurve window in residues (must be >= 4).
+/// bc_threshold : float, default=0.60
+///     Threshold for Sarle's Bimodality Coefficient (values > 0.555 indicate bimodal transitions).
+///
+/// Returns
+/// -------
+/// List[Tuple[int, int, float]]
+///     List of detected candidate segments as `(start_res, end_res, peak_score)` tuples,
+///     sorted by transition score in descending order. Residue indices are 0-based inclusive.
+#[pyfunction]
+#[pyo3(signature = (coords, window_size = 8, bc_threshold = 0.6))]
+pub fn scan_cryptic_pockets<'py>(
+    py: Python<'py>,
+    coords: PyReadonlyArray3<'py, f32>,
+    window_size: usize,
+    bc_threshold: f64,
+) -> PyResult<Vec<(usize, usize, f64)>> {
+    let array_view = coords.as_array();
+    let traces = array3_to_traces(&array_view)?;
+    let candidates = py.detach(|| {
+        detect_bistable_segments(&traces, window_size, bc_threshold)
+    });
+    let result = candidates
+        .into_iter()
+        .map(|c| (c.start_res, c.end_res, c.score))
+        .collect();
+    Ok(result)
+}
+
+/// Computes the sliding-window bimodality coefficient profile along the protein sequence.
+///
+/// Parameters
+/// ----------
+/// coords : numpy.ndarray of shape (F, N, 3), dtype=float32
+///     Trajectory coordinates of F frames across N residues.
+/// window_size : int, default=8
+///     Length of the sliding subcurve window in residues.
+///
+/// Returns
+/// -------
+/// (scores, bc_tau, bc_kappa) : tuple of numpy.ndarray of dtype=float64
+///     Arrays of length N - window_size + 1 containing:
+///     - scores: Composite bimodality score max(bc_tau, bc_kappa)
+///     - bc_tau: Sarle's bimodality coefficient for discrete torsion tau
+///     - bc_kappa: Sarle's bimodality coefficient for discrete curvature kappa
+#[pyfunction]
+#[pyo3(signature = (coords, window_size = 8))]
+pub fn compute_bimodality_profile<'py>(
+    py: Python<'py>,
+    coords: PyReadonlyArray3<'py, f32>,
+    window_size: usize,
+) -> PyResult<(Py<PyArray1<f64>>, Py<PyArray1<f64>>, Py<PyArray1<f64>>)> {
+    let array_view = coords.as_array();
+    let traces = array3_to_traces(&array_view)?;
+    let profile = py.detach(|| -> Result<Vec<topofold_core::WindowBimodality>, PyErr> {
+        core_bimodality_profile(&traces, window_size).map_err(to_py_err)
+    })?;
+
+    let n = profile.len();
+    let mut scores = Vec::with_capacity(n);
+    let mut bc_tau = Vec::with_capacity(n);
+    let mut bc_kappa = Vec::with_capacity(n);
+
+    for w in profile {
+        scores.push(w.score);
+        bc_tau.push(w.bc_tau);
+        bc_kappa.push(w.bc_kappa);
+    }
+
+    let py_scores = PyArray1::from_vec(py, scores).unbind();
+    let py_tau = PyArray1::from_vec(py, bc_tau).unbind();
+    let py_kappa = PyArray1::from_vec(py, bc_kappa).unbind();
+
+    Ok((py_scores, py_tau, py_kappa))
+}
+
 /// TopoFold Python module definition.
 #[pymodule]
 fn topofold(m: &Bound<'_, PyModule>) -> PyResult<()> {
     m.add("__doc__", "High-performance SE(3)-invariant discrete differential geometry engine for protein trajectories")?;
     m.add_function(wrap_pyfunction!(compute_invariants, m)?)?;
+    m.add_function(wrap_pyfunction!(scan_cryptic_pockets, m)?)?;
+    m.add_function(wrap_pyfunction!(compute_bimodality_profile, m)?)?;
     m.add_function(wrap_pyfunction!(read_pdb, m)?)?;
     m.add_function(wrap_pyfunction!(read_pdb_trajectory, m)?)?;
     m.add_function(wrap_pyfunction!(read_dcd, m)?)?;

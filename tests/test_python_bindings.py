@@ -62,3 +62,26 @@ def test_read_dcd():
     traj = tf.read_dcd(dcd_path)
     assert traj.shape == (2500, 58, 3)
     assert traj.dtype == np.float32
+
+
+def test_scan_cryptic_pockets():
+    dcd_path = os.path.join(os.path.dirname(__file__), "..", "benchmarks", "data", "bpti_equilibrium.dcd")
+    if not os.path.exists(dcd_path):
+        pytest.skip("bpti_equilibrium.dcd not present")
+
+    traj = tf.read_dcd(dcd_path)
+    candidates = tf.scan_cryptic_pockets(traj, window_size=8, bc_threshold=0.6)
+    assert len(candidates) > 0
+
+    # Top candidate must have high bimodality (> 0.8) and overlap with known loop (residues 10..18, 0-indexed 9..17)
+    cand_start, cand_end, score = candidates[0]
+    assert score >= 0.80
+    overlaps = not (cand_end < 9 or cand_start > 17)
+    assert overlaps
+
+    scores, bc_tau, bc_kappa = tf.compute_bimodality_profile(traj, window_size=8)
+    assert len(scores) == 58 - 8 + 1
+    assert len(bc_tau) == len(scores)
+    assert len(bc_kappa) == len(scores)
+    assert np.all(scores >= 0.0)
+    assert np.all(scores <= 1.0)

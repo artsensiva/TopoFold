@@ -20,6 +20,7 @@
 #![forbid(unsafe_code)]
 #![warn(missing_docs)]
 
+pub mod bimodality;
 pub mod distance;
 pub mod error;
 pub mod geometry;
@@ -29,6 +30,10 @@ pub mod types;
 pub mod writhe;
 
 // Re-export primary types and functions for ergonomic top-level use
+pub use bimodality::{
+    compute_bimodality_profile, detect_bistable_segments, detect_bistable_segments_with_gap,
+    sarles_bimodality_coefficient, PocketCandidate, StreamingMoments, WindowBimodality,
+};
 pub use distance::{
     angular_distance_s1, discrete_frechet_invariants, dtw_invariants, writhe_spectrum_distance,
 };

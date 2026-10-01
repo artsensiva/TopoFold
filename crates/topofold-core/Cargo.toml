@@ -11,6 +11,7 @@ description = "Core discrete differential geometry and SE(3)-invariant engine fo
 [dependencies]
 nalgebra = { workspace = true }
 thiserror = { workspace = true }
+rayon = { workspace = true }
 
 [dev-dependencies]
 rand = { workspace = true }
