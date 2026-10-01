@@ -1,0 +1,21 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/topofold-core",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+authors = ["Artem Galukhin <artem.galukhin@gmail.com>"]
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/artsensiva/TopoFold"
+homepage = "https://github.com/artsensiva/TopoFold"
+readme = "README.md"
+rust-version = "1.80"
+
+[workspace.dependencies]
+nalgebra = { version = "0.33", default-features = false, features = ["std"] }
+thiserror = "2.0"
+rand = "0.8"
+approx = "0.5"

@@ -1,0 +1,20 @@
+[package]
+name = "topofold-core"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+readme = "README.md"
+description = "Core discrete differential geometry and SE(3)-invariant engine for protein backbones"
+
+[dependencies]
+nalgebra = { workspace = true }
+thiserror = { workspace = true }
+
+[dev-dependencies]
+rand = { workspace = true }
+approx = { workspace = true }
+
+[lints.rust]
+unsafe_code = "forbid"
