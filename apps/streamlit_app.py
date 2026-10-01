@@ -12,6 +12,7 @@ Usage:
 
 import os
 import sys
+import html
 import json
 import tempfile
 import numpy as np
@@ -31,7 +32,7 @@ import topofold as tf
 BENCHMARK_DATA_DIR = os.path.join(os.path.dirname(__file__), "..", "benchmarks", "data")
 
 
-def extract_pdb_residue_ids(pdb_str: str):
+def extract_pdb_residue_ids(pdb_str: str) -> list[int]:
     """
     Extracts authentic PDB residue sequence numbers from CA records.
     """
@@ -47,110 +48,256 @@ def extract_pdb_residue_ids(pdb_str: str):
     return res_ids
 
 
-def render_3dmol_viewer(pdb_str: str, highlight_range=None, width=700, height=480):
+def render_3dmol_viewer(
+    pdb_str: str,
+    highlight_range: tuple[int, int] | None = None,
+    res_count: int = 0,
+    height: int = 520,
+) -> str:
     """
     Renders an interactive 3D molecular structure using 3Dmol.js embedded via HTML.
-    Layered representation:
-      - Scaffold: Semi-transparent cyan cartoon
-      - Cryptic Pocket: Vivid orange cartoon + stick side-chains (radius 0.22)
+
+    Features:
+      - Robust multi-CDN loader with sequential fallbacks (cdnjs -> Pitt -> jsdelivr -> 3Dmol.org).
+      - HTML-escaped raw PDB text embedding via hidden textarea (immune to JS quoting/newline issues).
+      - Scaffold: semi-transparent light grey cartoon (opacity: 0.6).
+      - Discovered Pocket: vivid orange/red cartoon (#FF5722) + sticks for side-chains (radius: 0.2).
+      - Explicit dimensions (width: 100%, height: 520px) with WebGL initialization error boundary.
+      - Status text indicator: 'Status: WebGL rendered N residues'.
     """
     hl_start, hl_end = highlight_range if highlight_range else (-1, -1)
-    escaped_pdb = json.dumps(pdb_str)
+    escaped_pdb_html = html.escape(pdb_str)
+    pocket_label = f"Res {hl_start}..{hl_end}" if (hl_start > 0 and hl_end >= hl_start) else "None"
 
-    html_content = f"""
-    <!DOCTYPE html>
-    <html>
-    <head>
-      <meta charset="utf-8">
-      <script src="https://3Dmol.org/build/3Dmol-min.js"></script>
-      <style>
-        body {{
-          margin: 0;
-          padding: 0;
-          overflow: hidden;
-          background-color: #0e1117;
-          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-        }}
-        #container {{
-          width: {width}px;
-          height: {height}px;
-          position: relative;
-        }}
-        #legend {{
-          position: absolute;
-          top: 10px;
-          left: 10px;
-          background: rgba(14, 17, 23, 0.85);
-          padding: 8px 12px;
-          border-radius: 6px;
-          font-size: 12px;
-          color: #e0e0e0;
-          border: 1px solid #30363d;
-          z-index: 10;
-        }}
-        .legend-item {{
-          display: flex;
-          align-items: center;
-          margin-bottom: 4px;
-        }}
-        .legend-color {{
-          width: 12px;
-          height: 12px;
-          border-radius: 3px;
-          margin-right: 8px;
-        }}
-      </style>
-    </head>
-    <body>
-      <div id="container">
-        <div id="legend">
-          <div class="legend-item">
-            <div class="legend-color" style="background: #4a90e2;"></div>
-            <span>Rigid Scaffold (SE(3) Invariant)</span>
-          </div>
-          <div class="legend-item">
-            <div class="legend-color" style="background: #e67e22;"></div>
-            <span>Discovered Pocket (Res {hl_start}..{hl_end})</span>
-          </div>
-        </div>
+    html_content = f"""<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {{
+      box-sizing: border-box;
+    }}
+    body {{
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #0e1117;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }}
+    #viewer-container {{
+      width: 100%;
+      height: {height}px;
+      position: relative;
+      background-color: #111318;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid #30363d;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+    }}
+    #viewport {{
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }}
+    #legend {{
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(14, 17, 23, 0.88);
+      backdrop-filter: blur(4px);
+      padding: 8px 14px;
+      border-radius: 6px;
+      font-size: 12px;
+      color: #e0e0e0;
+      border: 1px solid #30363d;
+      z-index: 10;
+      pointer-events: none;
+      user-select: none;
+    }}
+    .legend-item {{
+      display: flex;
+      align-items: center;
+      margin-bottom: 5px;
+    }}
+    .legend-item:last-child {{
+      margin-bottom: 0;
+    }}
+    .legend-color {{
+      width: 14px;
+      height: 14px;
+      border-radius: 3px;
+      margin-right: 8px;
+      flex-shrink: 0;
+    }}
+    #status-bar {{
+      margin-top: 8px;
+      font-size: 12px;
+      color: #8b949e;
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Monaco, Consolas, monospace;
+      padding: 0 2px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }}
+    .status-badge {{
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: #2ea043;
+      margin-right: 6px;
+    }}
+  </style>
+  <!-- Primary CDN: Cloudflare cdnjs -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/3Dmol/2.4.2/3Dmol-min.js"></script>
+</head>
+<body>
+  <!-- Raw PDB text embedded inside hidden textarea to avoid JS quoting issues -->
+  <textarea id="pdb-data" style="display: none;">{escaped_pdb_html}</textarea>
+
+  <div id="viewer-container">
+    <div id="viewport"></div>
+    <div id="legend">
+      <div class="legend-item">
+        <div class="legend-color" style="background: #b0bec5; opacity: 0.6; border: 1px solid #78909c;"></div>
+        <span>Scaffold (Cartoon, opacity: 0.6)</span>
       </div>
-      <script>
-        let viewer = $3Dmol.createViewer(document.getElementById('container'), {{
-          backgroundColor: '#0e1117'
+      <div class="legend-item">
+        <div class="legend-color" style="background: #FF5722; border: 1px solid #e64a19;"></div>
+        <span>Discovered Pocket ({pocket_label})</span>
+      </div>
+    </div>
+  </div>
+
+  <div id="status-bar">
+    <span id="status-text"><span class="status-badge" id="status-dot"></span>Status: Initializing WebGL viewer...</span>
+    <span style="color: #6e7681;">3Dmol.js • Drag to rotate • Scroll to zoom</span>
+  </div>
+
+  <script>
+    const FALLBACK_CDNS = [
+      "https://3dmol.csb.pitt.edu/build/3Dmol-min.js",
+      "https://cdn.jsdelivr.net/npm/3dmol@2.4.2/build/3Dmol-min.js",
+      "https://3Dmol.org/build/3Dmol-min.js"
+    ];
+
+    function setStatus(msg, isError) {{
+      const textEl = document.getElementById('status-text');
+      const dotEl = document.getElementById('status-dot');
+      if (textEl) {{
+        textEl.innerHTML = '<span class="status-badge" style="background-color: ' + (isError ? '#cf222e' : '#2ea043') + ';"></span>' + msg;
+      }}
+    }}
+
+    function initViewer() {{
+      try {{
+        const container = document.getElementById('viewport');
+        if (!container) return;
+
+        if (typeof $3Dmol === 'undefined') {{
+          setStatus("Status: Error - 3Dmol library unavailable", true);
+          return;
+        }}
+
+        // Initialize WebGL Viewer with explicit container
+        const viewer = $3Dmol.createViewer(container, {{
+          backgroundColor: '#111318'
         }});
-        let pdbData = {escaped_pdb};
+
+        if (!viewer) {{
+          setStatus("Status: Error - WebGL context creation failed", true);
+          return;
+        }}
+
+        // Ingest raw PDB text from hidden textarea
+        const pdbData = document.getElementById('pdb-data').value;
+        if (!pdbData || pdbData.trim().length === 0) {{
+          setStatus("Status: Warning - No PDB coordinates found", true);
+          return;
+        }}
+
         viewer.addModel(pdbData, "pdb");
-        
-        // Base structure style: Semi-transparent cyan cartoon
-        viewer.setStyle({{}}, {{cartoon: {{color: '#4a90e2', opacity: 0.80}}}});
-        
-        // Highlight discovered cryptic pocket: Cartoon + stick
-        let hlStart = {hl_start};
-        let hlEnd = {hl_end};
+
+        // 1. Scaffold representation: semi-transparent light grey cartoon
+        viewer.setStyle({{}}, {{
+          cartoon: {{ color: 'lightgrey', opacity: 0.6 }}
+        }});
+
+        // 2. Discovered Pocket: vivid orange/red cartoon + sticks for side-chains
+        const hlStart = {hl_start};
+        const hlEnd = {hl_end};
         if (hlStart > 0 && hlEnd >= hlStart) {{
-          let pocketResis = [];
+          const pocketResis = [];
           for (let r = hlStart; r <= hlEnd; r++) {{
             pocketResis.push(r);
           }}
-          viewer.addStyle({{resi: pocketResis}}, {{
-            cartoon: {{color: '#e67e22', opacity: 1.0}},
-            stick: {{colorscheme: 'orangeCarbon', radius: 0.22}}
-          }});
+          viewer.addStyle(
+            {{ resi: pocketResis }},
+            {{
+              cartoon: {{ color: '#FF5722', opacity: 1.0 }},
+              stick: {{ color: '#FF5722', radius: 0.2 }}
+            }}
+          );
         }}
-        
+
         viewer.zoomTo();
         viewer.render();
-        viewer.spin('y', 0.4);
-      </script>
-    </body>
-    </html>
-    """
+        viewer.spin('y', 0.3);
+
+        // Count unique rendered residues
+        const atoms = viewer.selectedAtoms({{}});
+        const resSet = new Set();
+        for (let i = 0; i < atoms.length; i++) {{
+          if (atoms[i].resi !== undefined) {{
+            resSet.add(atoms[i].resi);
+          }}
+        }}
+        const nRes = resSet.size > 0 ? resSet.size : {res_count};
+        setStatus("Status: WebGL rendered " + nRes + " residues", false);
+
+      }} catch (err) {{
+        console.error("3Dmol WebGL Initialization Error:", err);
+        setStatus("Status: WebGL error - " + err.message, true);
+      }}
+    }}
+
+    // Check if primary CDN loaded; if not, try fallbacks sequentially
+    if (typeof $3Dmol !== 'undefined') {{
+      initViewer();
+    }} else {{
+      let cdnIdx = 0;
+      function tryNextCDN() {{
+        if (cdnIdx >= FALLBACK_CDNS.length) {{
+          setStatus("Status: Error - Failed to load 3Dmol.js from all CDNs", true);
+          return;
+        }}
+        const nextUrl = FALLBACK_CDNS[cdnIdx++];
+        setStatus("Status: Loading 3Dmol.js from backup CDN (" + cdnIdx + "/" + FALLBACK_CDNS.length + ")...", false);
+        const script = document.createElement('script');
+        script.src = nextUrl;
+        script.onload = function() {{
+          initViewer();
+        }};
+        script.onerror = function() {{
+          tryNextCDN();
+        }};
+        document.head.appendChild(script);
+      }}
+      tryNextCDN();
+    }}
+  </script>
+</body>
+</html>
+"""
     return html_content
 
 
-def load_dataset(preset_name: str, uploaded_pdb=None, uploaded_dcd=None):
+def load_dataset(preset_name: str, uploaded_pdb=None, uploaded_dcd=None) -> dict | None:
     """
-    Loads dataset and persists it into session state.
+    Loads dataset and prepares coordinate array and PDB reference string.
     """
     if preset_name == "Human Abl1 Kinase DFG Flip (2GQG / 1IEP)":
         pdb_path = os.path.join(BENCHMARK_DATA_DIR, "abl_reference.pdb")
@@ -244,6 +391,8 @@ def run_dashboard():
     # Initialize Session State
     if "current_dataset" not in st.session_state:
         st.session_state["current_dataset"] = None
+    if "current_pdb_text" not in st.session_state:
+        st.session_state["current_pdb_text"] = ""
     if "scan_results" not in st.session_state:
         st.session_state["scan_results"] = None
     if "selected_pocket_idx" not in st.session_state:
@@ -268,7 +417,7 @@ def run_dashboard():
         uploaded_pdb = st.sidebar.file_uploader("Upload Structure (PDB)", type=["pdb"])
         uploaded_dcd = st.sidebar.file_uploader("Upload Trajectory (DCD)", type=["dcd"])
 
-    # Load dataset if changed or not loaded yet
+    # Detect dataset load or change
     dataset_needs_load = (
         st.session_state["current_dataset"] is None
         or st.session_state["current_dataset"]["name"] != preset_choice
@@ -278,13 +427,17 @@ def run_dashboard():
         loaded = load_dataset(preset_choice, uploaded_pdb, uploaded_dcd)
         if loaded is not None:
             st.session_state["current_dataset"] = loaded
-            st.session_state["scan_results"] = None  # Invalidate previous scan
+            st.session_state["current_pdb_text"] = loaded["pdb"]
+            st.session_state["scan_results"] = None  # Invalidate scan on dataset switch
             st.session_state["selected_pocket_idx"] = 0
 
     curr_ds = st.session_state["current_dataset"]
 
     if curr_ds is not None:
         st.sidebar.success(f"✓ {curr_ds['desc']}")
+        # Ensure session state has the raw PDB text cached
+        if not st.session_state.get("current_pdb_text"):
+            st.session_state["current_pdb_text"] = curr_ds["pdb"]
     else:
         st.sidebar.info("Awaiting trajectory upload...")
 
@@ -298,13 +451,13 @@ def run_dashboard():
         return
 
     traj_data = curr_ds["traj"]
-    ref_pdb_str = curr_ds["pdb"]
+    ref_pdb_str = st.session_state.get("current_pdb_text") or curr_ds["pdb"]
     res_ids = curr_ds["res_ids"]
     n_residues = traj_data.shape[1]
     if len(res_ids) != n_residues:
         res_ids = list(range(1, n_residues + 1))
 
-    # Action Button & Status
+    # Action Button & Status Header
     col_btn, col_stats = st.columns([1, 3])
     with col_btn:
         run_scan = st.button("🚀 Run Autonomous Pocket Scan", type="primary")
@@ -421,18 +574,39 @@ def run_dashboard():
 
             st.markdown(
                 f"**Active Highlight**: PDB Residues `{selected_pdb_range[0]}..{selected_pdb_range[1]}` "
-                f"*(Orange Licorice & Sticks)* on scaffold *(Cyan Cartoon)*."
+                f"*(Orange/Red Cartoon & Sticks)* on scaffold *(Light Grey Cartoon)*."
             )
 
             html_viewer = render_3dmol_viewer(
                 ref_pdb_str,
                 highlight_range=selected_pdb_range,
-                width=650,
-                height=480,
+                res_count=len(res_ids),
+                height=520,
             )
-            st.components.v1.html(html_viewer, height=490)
+            st.components.v1.html(html_viewer, height=565)
+
     else:
-        st.info("💡 Click **'Run Autonomous Pocket Scan'** above to detect cryptic pockets and mobile functional loops.")
+        # Initial Structure Preview before scan execution
+        col_preview_info, col_preview_view = st.columns([1, 1.25])
+        with col_preview_info:
+            st.info(
+                "💡 Click **'🚀 Run Autonomous Pocket Scan'** above to detect cryptic pockets and mobile functional loops."
+            )
+            st.markdown(f"**Loaded Scaffold**: {curr_ds['desc']}")
+            st.markdown(
+                f"- **Trajectory Frames**: `{traj_data.shape[0]:,}`\n"
+                f"- **Residue Count**: `{n_residues}` (PDB `{res_ids[0]}..{res_ids[-1]}`)\n"
+                f"- **Differential Invariants**: Curvature $\\kappa$, Torsion $\\tau$, Side-Chain Ribbon $\\theta_\\beta$"
+            )
+        with col_preview_view:
+            st.subheader("🔬 3D Molecular Structure (Scaffold Preview)")
+            html_viewer = render_3dmol_viewer(
+                ref_pdb_str,
+                highlight_range=None,
+                res_count=len(res_ids),
+                height=520,
+            )
+            st.components.v1.html(html_viewer, height=565)
 
 
 if __name__ == "__main__":
