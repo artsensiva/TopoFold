@@ -2,6 +2,7 @@
 resolver = "2"
 members = [
     "crates/topofold-core",
+    "crates/topofold-index",
 ]
 
 [workspace.package]

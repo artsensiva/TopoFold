@@ -20,16 +20,25 @@
 #![forbid(unsafe_code)]
 #![warn(missing_docs)]
 
+pub mod distance;
 pub mod error;
 pub mod geometry;
 pub mod invariants;
+pub mod pdb;
 pub mod types;
+pub mod writhe;
 
 // Re-export primary types and functions for ergonomic top-level use
+pub use distance::{
+    angular_distance_s1, discrete_frechet_invariants, dtw_invariants, writhe_spectrum_distance,
+};
 pub use error::GeometryError;
 pub use geometry::{
     compute_binormals, compute_curvatures, compute_tangents, compute_torsions,
     extract_curve_invariants, GEOMETRY_EPSILON,
 };
 pub use invariants::CurveInvariants;
+pub use pdb::{parse_pdb_ca, parse_pdb_str, PdbError, ResidueMeta};
 pub use types::BackboneTrace;
+pub use writhe::{compute_local_writhe, compute_total_writhe};
+
