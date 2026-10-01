@@ -11,7 +11,12 @@ use rayon::prelude::*;
 
 use topofold_core::error::GeometryError;
 use topofold_core::invariants::CurveInvariants;
-use topofold_core::pdb::{parse_pdb_ca, PdbError};
+use topofold_core::pdb::{parse_pdb_ca, parse_pdb_rna, PdbError};
+use topofold_core::rna::{
+    compute_rna_bimodality_profile as core_rna_bimodality_profile,
+    extract_rna_ribbon_invariants_with_window, scan_rna_switching_hinges as core_scan_rna_switching_hinges,
+    RnaRibbonTrace,
+};
 use topofold_core::{
     compute_bimodality_profile as core_bimodality_profile, compute_idp_density_profile,
     compute_intermolecular_allosteric_network as core_intermolecular_allosteric_network,
@@ -1145,6 +1150,400 @@ pub fn detect_transient_motifs_py<'py>(
     Ok(result)
 }
 
+/// Python wrapper for an RNA ribonucleic ribbon trace.
+#[pyclass(name = "RnaRibbonTrace", from_py_object)]
+#[derive(Clone)]
+pub struct PyRnaRibbonTrace {
+    pub(crate) inner: topofold_core::rna::RnaRibbonTrace,
+}
+
+#[pymethods]
+impl PyRnaRibbonTrace {
+    /// 3D coordinates of Phosphorus atoms as (N, 3) float32 numpy array.
+    #[getter]
+    pub fn p_coords<'py>(&self, py: Python<'py>) -> PyResult<Py<PyArray2<f32>>> {
+        let n = self.inner.len();
+        let mut arr = ndarray::Array2::<f32>::zeros((n, 3));
+        for (i, pt) in self.inner.p_coords().iter().enumerate() {
+            arr[[i, 0]] = pt.x as f32;
+            arr[[i, 1]] = pt.y as f32;
+            arr[[i, 2]] = pt.z as f32;
+        }
+        Ok(PyArray2::from_owned_array(py, arr).unbind())
+    }
+
+    /// 3D coordinates of ribose C4' atoms as (N, 3) float32 numpy array.
+    #[getter]
+    pub fn c4_coords<'py>(&self, py: Python<'py>) -> PyResult<Py<PyArray2<f32>>> {
+        let n = self.inner.len();
+        let mut arr = ndarray::Array2::<f32>::zeros((n, 3));
+        for (i, pt) in self.inner.c4_coords().iter().enumerate() {
+            arr[[i, 0]] = pt.x as f32;
+            arr[[i, 1]] = pt.y as f32;
+            arr[[i, 2]] = pt.z as f32;
+        }
+        Ok(PyArray2::from_owned_array(py, arr).unbind())
+    }
+
+    /// 3D coordinates of ribose C1' atoms as (N, 3) float32 numpy array.
+    #[getter]
+    pub fn c1_coords<'py>(&self, py: Python<'py>) -> PyResult<Py<PyArray2<f32>>> {
+        let n = self.inner.len();
+        let mut arr = ndarray::Array2::<f32>::zeros((n, 3));
+        for (i, pt) in self.inner.c1_coords().iter().enumerate() {
+            arr[[i, 0]] = pt.x as f32;
+            arr[[i, 1]] = pt.y as f32;
+            arr[[i, 2]] = pt.z as f32;
+        }
+        Ok(PyArray2::from_owned_array(py, arr).unbind())
+    }
+
+    /// 3D coordinates of glycosidic nitrogen atoms as (N, 3) float32 numpy array.
+    #[getter]
+    pub fn n_coords<'py>(&self, py: Python<'py>) -> PyResult<Py<PyArray2<f32>>> {
+        let n = self.inner.len();
+        let mut arr = ndarray::Array2::<f32>::zeros((n, 3));
+        for (i, pt) in self.inner.n_coords().iter().enumerate() {
+            arr[[i, 0]] = pt.x as f32;
+            arr[[i, 1]] = pt.y as f32;
+            arr[[i, 2]] = pt.z as f32;
+        }
+        Ok(PyArray2::from_owned_array(py, arr).unbind())
+    }
+
+    /// Base orientation unit vectors (pointing from C1' to N) as (N, 3) float32 numpy array.
+    #[getter]
+    pub fn base_vectors<'py>(&self, py: Python<'py>) -> PyResult<Py<PyArray2<f32>>> {
+        let vecs = self.inner.base_unit_vectors().map_err(to_py_err)?;
+        let n = vecs.len();
+        let mut arr = ndarray::Array2::<f32>::zeros((n, 3));
+        for (i, v) in vecs.iter().enumerate() {
+            arr[[i, 0]] = v.x as f32;
+            arr[[i, 1]] = v.y as f32;
+            arr[[i, 2]] = v.z as f32;
+        }
+        Ok(PyArray2::from_owned_array(py, arr).unbind())
+    }
+
+    /// Nucleotide residue names (e.g. ['C', 'G', ...]).
+    #[getter]
+    pub fn names(&self) -> Vec<String> {
+        self.inner.names().to_vec()
+    }
+
+    /// Residue sequence numbers.
+    #[getter]
+    pub fn seq_ids(&self) -> Vec<i32> {
+        self.inner.seq_ids().to_vec()
+    }
+
+    /// Chain identifiers.
+    #[getter]
+    pub fn chain_ids(&self) -> Vec<String> {
+        self.inner.chain_ids().iter().map(|c| c.to_string()).collect()
+    }
+
+    pub fn __len__(&self) -> usize {
+        self.inner.len()
+    }
+
+    pub fn __repr__(&self) -> String {
+        format!("<RnaRibbonTrace: {} nucleotides>", self.inner.len())
+    }
+}
+
+/// Reads an RNA structure from a PDB file into an SE(3)-invariant [`RnaRibbonTrace`].
+///
+/// Parameters
+/// ----------
+/// path : str
+///     Path to the input PDB file.
+/// chain : str or None, optional
+///     Single-character chain ID filter (e.g. 'X'). If None, parses all chains.
+///
+/// Returns
+/// -------
+/// RnaRibbonTrace
+///     Oriented ribonucleic ribbon trace containing Phosphorus and base coordinates.
+#[pyfunction]
+#[pyo3(signature = (path, chain = None))]
+pub fn read_pdb_rna(
+    path: &str,
+    chain: Option<char>,
+) -> PyResult<PyRnaRibbonTrace> {
+    let file = File::open(path).map_err(|e| PyValueError::new_err(e.to_string()))?;
+    let (trace, _) = parse_pdb_rna(BufReader::new(file), chain).map_err(to_pdb_err)?;
+    Ok(PyRnaRibbonTrace { inner: trace })
+}
+
+/// Computes SE(3)-invariant ribonucleic curve invariants (kappa_P, tau_P, Writhe_P, theta_base).
+///
+/// Parameters
+/// ----------
+/// p_coords : numpy.ndarray of shape (N, 3), dtype=float32
+///     Coordinates of N Phosphorus atoms in Ångströms.
+/// base_coords : numpy.ndarray of shape (N, 3), dtype=float32
+///     Coordinates of N base orientation vectors or glycosidic nitrogen atoms.
+/// window_radius : int, default=2
+///     Sliding window half-width for localized Gauss linking writhe spectrum.
+///
+/// Returns
+type RnaInvariantsTuple = (
+    Py<PyArray1<f64>>,
+    Py<PyArray1<f64>>,
+    Py<PyArray1<f64>>,
+    Py<PyArray1<f64>>,
+);
+
+/// Computes SE(3)-invariant ribonucleic curve invariants (kappa_P, tau_P, Writhe_P, theta_base).
+///
+/// Parameters
+/// ----------
+/// p_coords : numpy.ndarray of shape (N, 3), dtype=float32
+///     Coordinates of N Phosphorus atoms in Ångströms.
+/// base_coords : numpy.ndarray of shape (N, 3), dtype=float32
+///     Coordinates of N base orientation vectors or glycosidic nitrogen atoms.
+/// window_radius : int, default=2
+///     Sliding window half-width for localized Gauss linking writhe spectrum.
+///
+/// Returns
+/// -------
+/// tuple of 4 numpy.ndarrays:
+///     - kappa : (N - 2,) float64 (Phosphorus curvature turning angles in [0, pi])
+///     - tau : (N - 3,) float64 (Phosphorus torsion dihedrals in (-pi, pi])
+///     - writhe_spectrum : (N - 2 * window_radius,) float64 (Local Phosphorus writhe)
+///     - theta_base : (N - 2,) float64 (Glycosidic base ribbon orientation dihedrals in (-pi, pi])
+#[pyfunction]
+#[pyo3(signature = (p_coords, base_coords, window_radius = 2))]
+pub fn compute_rna_invariants<'py>(
+    py: Python<'py>,
+    p_coords: PyReadonlyArray2<'py, f32>,
+    base_coords: PyReadonlyArray2<'py, f32>,
+    window_radius: usize,
+) -> PyResult<RnaInvariantsTuple> {
+    let p_view = p_coords.as_array();
+    let b_view = base_coords.as_array();
+
+    if p_view.shape() != b_view.shape() {
+        return Err(PyValueError::new_err(format!(
+            "p_coords shape {:?} does not match base_coords shape {:?}",
+            p_view.shape(),
+            b_view.shape()
+        )));
+    }
+    if p_view.shape()[1] != 3 {
+        return Err(PyValueError::new_err("Expected Nx3 coordinates"));
+    }
+    let n = p_view.shape()[0];
+    if n < 4 {
+        return Err(PyValueError::new_err(format!(
+            "RNA ribbon requires at least 4 nucleotides, found {}",
+            n
+        )));
+    }
+
+    let p_pts: Vec<Point3<f64>> = p_view
+        .outer_iter()
+        .map(|r| Point3::new(r[0] as f64, r[1] as f64, r[2] as f64))
+        .collect();
+    let c1_pts: Vec<Point3<f64>> = vec![Point3::new(0.0, 0.0, 0.0); n];
+    let n_pts: Vec<Point3<f64>> = b_view
+        .outer_iter()
+        .map(|r| Point3::new(r[0] as f64, r[1] as f64, r[2] as f64))
+        .collect();
+    let c4_pts = p_pts.clone();
+
+    let trace = RnaRibbonTrace::new(p_pts, c4_pts, c1_pts, n_pts).map_err(to_py_err)?;
+    let invariants = py.detach(|| {
+        extract_rna_ribbon_invariants_with_window(&trace, window_radius).map_err(to_py_err)
+    })?;
+
+    let py_kappa = PyArray1::from_vec(py, invariants.curvatures).unbind();
+    let py_tau = PyArray1::from_vec(py, invariants.torsions).unbind();
+    let py_writhe = PyArray1::from_vec(py, invariants.local_writhes).unbind();
+    let py_theta = PyArray1::from_vec(py, invariants.base_dihedrals).unbind();
+
+    Ok((py_kappa, py_tau, py_writhe, py_theta))
+}
+
+/// Scans an RNA trajectory ensemble for bistable conformational switching hinges.
+///
+/// Parameters
+/// ----------
+/// coords_ensemble : numpy.ndarray of shape (F, N, 3), dtype=float32
+///     Trajectory of Phosphorus coordinates across F frames.
+/// base_ensemble : numpy.ndarray of shape (F, N, 3), dtype=float32, optional
+///     Optional base orientation vectors across F frames.
+/// window_size : int, default=3
+///     Sliding window width in nucleotides.
+/// threshold : float, default=0.70
+///     Minimum Sarle's Bimodality Coefficient cutoff to report a candidate hinge.
+///
+/// Returns
+/// -------
+/// list of dict
+///     Ranked candidate switching hinges: `[{'start': int, 'end': int, 'score': float, 'bc_tau': float, 'bc_kappa': float, 'bc_theta': float, 'peak_res': int}, ...]`
+#[pyfunction]
+#[pyo3(signature = (coords_ensemble, base_ensemble = None, window_size = 3, threshold = 0.70))]
+pub fn scan_rna_switching_hinges<'py>(
+    py: Python<'py>,
+    coords_ensemble: PyReadonlyArray3<'py, f32>,
+    base_ensemble: Option<PyReadonlyArray3<'py, f32>>,
+    window_size: usize,
+    threshold: f64,
+) -> PyResult<Vec<Bound<'py, pyo3::types::PyDict>>> {
+    let p_arr = coords_ensemble.as_array();
+    let shape = p_arr.shape();
+    let f_count = shape[0];
+    let n_nt = shape[1];
+
+    let b_view = base_ensemble.as_ref().map(|b| b.as_array());
+
+    let mut traces = Vec::with_capacity(f_count);
+    for f in 0..f_count {
+        let mut p_pts = Vec::with_capacity(n_nt);
+        let mut c1_pts = Vec::with_capacity(n_nt);
+        let mut n_pts = Vec::with_capacity(n_nt);
+        let mut c4_pts = Vec::with_capacity(n_nt);
+
+        for i in 0..n_nt {
+            let px = p_arr[[f, i, 0]] as f64;
+            let py_val = p_arr[[f, i, 1]] as f64;
+            let pz = p_arr[[f, i, 2]] as f64;
+            p_pts.push(Point3::new(px, py_val, pz));
+            c4_pts.push(Point3::new(px, py_val, pz));
+            c1_pts.push(Point3::new(0.0, 0.0, 0.0));
+
+            if let Some(ref b_arr) = b_view {
+                let bx = b_arr[[f, i, 0]] as f64;
+                let by = b_arr[[f, i, 1]] as f64;
+                let bz = b_arr[[f, i, 2]] as f64;
+                n_pts.push(Point3::new(bx, by, bz));
+            } else {
+                n_pts.push(Point3::new(px + 1.0, py_val, pz));
+            }
+        }
+
+        let trace = RnaRibbonTrace::new(p_pts, c4_pts, c1_pts, n_pts).map_err(to_py_err)?;
+        traces.push(trace);
+    }
+
+    let candidates = py.detach(|| {
+        core_scan_rna_switching_hinges(&traces, window_size, threshold).map_err(to_py_err)
+    })?;
+
+    let mut result = Vec::with_capacity(candidates.len());
+    for c in candidates {
+        let dict = pyo3::types::PyDict::new(py);
+        dict.set_item("start", c.start_res)?;
+        dict.set_item("end", c.end_res)?;
+        dict.set_item("score", c.score)?;
+        dict.set_item("bc_tau", c.bc_tau)?;
+        dict.set_item("bc_kappa", c.bc_kappa)?;
+        dict.set_item("bc_theta", c.bc_theta)?;
+        dict.set_item("peak_res", c.peak_res)?;
+        result.push(dict);
+    }
+
+    Ok(result)
+}
+
+/// Computes sequence-wide Sarle's bimodality profile for an RNA trajectory.
+///
+/// Parameters
+/// ----------
+/// coords_ensemble : numpy.ndarray of shape (F, N, 3), dtype=float32
+///     Phosphorus coordinates across F frames.
+/// base_ensemble : numpy.ndarray of shape (F, N, 3), dtype=float32, optional
+///     Optional base orientation unit vectors across F frames.
+/// window_size : int, default=3
+///     Sliding window width in nucleotides.
+///
+/// Returns
+/// -------
+/// tuple of numpy.ndarray
+type PyRnaBimodalityProfile<'py> = (
+    Bound<'py, PyArray1<f64>>,
+    Bound<'py, PyArray1<f64>>,
+    Bound<'py, PyArray1<f64>>,
+    Bound<'py, PyArray1<f64>>,
+);
+
+/// Computes sequence-wide Sarle's bimodality profile for an RNA trajectory.
+///
+/// Parameters
+/// ----------
+/// coords_ensemble : numpy.ndarray of shape (F, N, 3), dtype=float32
+///     Phosphorus coordinates across F frames.
+/// base_ensemble : numpy.ndarray of shape (F, N, 3), dtype=float32, optional
+///     Optional base orientation unit vectors across F frames.
+/// window_size : int, default=3
+///     Sliding window width in nucleotides.
+///
+/// Returns
+/// -------
+/// tuple of numpy.ndarray
+///     `(scores, bc_theta, bc_kappa, bc_tau)`:
+///     - `scores`: composite max(BC_theta, BC_kappa, BC_tau) (1D float64)
+///     - `bc_theta`: glycosidic ribbon dihedral bimodality (1D float64)
+///     - `bc_kappa`: backbone curvature bimodality (1D float64)
+///     - `bc_tau`: backbone torsion bimodality (1D float64)
+#[pyfunction]
+#[pyo3(signature = (coords_ensemble, base_ensemble = None, window_size = 3))]
+pub fn compute_rna_bimodality_profile<'py>(
+    py: Python<'py>,
+    coords_ensemble: PyReadonlyArray3<'py, f32>,
+    base_ensemble: Option<PyReadonlyArray3<'py, f32>>,
+    window_size: usize,
+) -> PyResult<PyRnaBimodalityProfile<'py>> {
+    let p_arr = coords_ensemble.as_array();
+    let shape = p_arr.shape();
+    let f_count = shape[0];
+    let n_nt = shape[1];
+
+    let b_view = base_ensemble.as_ref().map(|b| b.as_array());
+
+    let mut traces = Vec::with_capacity(f_count);
+    for f in 0..f_count {
+        let mut p_pts = Vec::with_capacity(n_nt);
+        let mut c1_pts = Vec::with_capacity(n_nt);
+        let mut n_pts = Vec::with_capacity(n_nt);
+        let mut c4_pts = Vec::with_capacity(n_nt);
+
+        for i in 0..n_nt {
+            let px = p_arr[[f, i, 0]] as f64;
+            let py_val = p_arr[[f, i, 1]] as f64;
+            let pz = p_arr[[f, i, 2]] as f64;
+            p_pts.push(Point3::new(px, py_val, pz));
+            c4_pts.push(Point3::new(px, py_val, pz));
+            c1_pts.push(Point3::new(0.0, 0.0, 0.0));
+
+            if let Some(ref b_arr) = b_view {
+                let bx = b_arr[[f, i, 0]] as f64;
+                let by = b_arr[[f, i, 1]] as f64;
+                let bz = b_arr[[f, i, 2]] as f64;
+                n_pts.push(Point3::new(bx, by, bz));
+            } else {
+                n_pts.push(Point3::new(px + 1.0, py_val, pz));
+            }
+        }
+
+        let trace = RnaRibbonTrace::new(p_pts, c4_pts, c1_pts, n_pts).map_err(to_py_err)?;
+        traces.push(trace);
+    }
+
+    let (scores, bc_th, bc_k, bc_t) = py.detach(|| {
+        core_rna_bimodality_profile(&traces, window_size).map_err(to_py_err)
+    })?;
+
+    Ok((
+        PyArray1::from_vec(py, scores),
+        PyArray1::from_vec(py, bc_th),
+        PyArray1::from_vec(py, bc_k),
+        PyArray1::from_vec(py, bc_t),
+    ))
+}
+
 /// TopoFold Python module definition.
 #[pymodule]
 fn topofold(m: &Bound<'_, PyModule>) -> PyResult<()> {
@@ -1163,6 +1562,12 @@ fn topofold(m: &Bound<'_, PyModule>) -> PyResult<()> {
     m.add_function(wrap_pyfunction!(read_pdb, m)?)?;
     m.add_function(wrap_pyfunction!(read_pdb_trajectory, m)?)?;
     m.add_function(wrap_pyfunction!(read_dcd, m)?)?;
+    m.add_function(wrap_pyfunction!(read_pdb_rna, m)?)?;
+    m.add_function(wrap_pyfunction!(compute_rna_invariants, m)?)?;
+    m.add_function(wrap_pyfunction!(scan_rna_switching_hinges, m)?)?;
+    m.add_function(wrap_pyfunction!(compute_rna_bimodality_profile, m)?)?;
     m.add_class::<ConformationalIndex>()?;
+    m.add_class::<PyRnaRibbonTrace>()?;
     Ok(())
 }
+

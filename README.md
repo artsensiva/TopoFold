@@ -4,8 +4,8 @@
 [![Rust](https://img.shields.io/badge/rust-1.75%2B-orange.svg)](https://www.rust-lang.org)
 [![Python](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org)
 [![License](https://img.shields.io/badge/license-Dual%20AGPLv3%20%2F%20Commercial-blue.svg)](#citation--licensing)
-[![Tests](https://img.shields.io/badge/tests-35%2F35%20passing-brightgreen.svg)](https://github.com/artsensiva/TopoFold/actions)
-[![Release](https://img.shields.io/badge/release-v0.8.2-brightgreen.svg)](https://github.com/artsensiva/TopoFold/releases)
+[![Tests](https://img.shields.io/badge/tests-43%2F43%20passing-brightgreen.svg)](https://github.com/artsensiva/TopoFold/actions)
+[![Release](https://img.shields.io/badge/release-v0.8.3-brightgreen.svg)](https://github.com/artsensiva/TopoFold/releases)
 
 > **TopoFold** is a memory-safe, ultra-high-throughput computational geometry engine written in pure Rust with zero-copy Python bindings. It maps macromolecular backbone traces ($\text{C}_\alpha$) and side-chain vectors ($\text{C}_\beta$) into an intrinsic, rotationally and translationally invariant ($SE(3)$) metric space. By leveraging discrete Frenet-Serret framing, branch-cut-free Gauss solid-angle writhe, and cascaded Vantage-Point (VP) metric trees, TopoFold resolves cryptic pockets, functional loop transitions, side-chain rotameric gating, metamorphic fold switches, intrinsically disordered protein (IDP) transient nucleation hubs, PROTAC ternary complex dynamic cooperativity, and intrinsic allosteric networks that linear Cartesian reductions (PCA/SVD) and static structural predictors (AlphaFold 2/3) completely obliterate.
 
@@ -67,6 +67,12 @@
 
 *Figure 9: Real Experimental Benchmark on PROTAC Ternary Complexes (Authentic RCSB PDB 5T35 vs 5T3E). Static crystallographic metrics fail to explain the >100-fold difference in degradation rate ($DC_{50} = 1.5\text{ nM}$ vs $> 1,000\text{ nM}$): Buried Surface Area (BSA) differs by only $3.7\%$ ($p = 0.42$), and interface backbone RMSD differs by only $0.2\text{ \AA}$ (within crystal thermal B-factors). **Panel A (Crystal Architecture)**: Authentic interface contacts between VHL E3 ligase and target bromodomain. **Panel B (Inter-Molecular Allosteric Matrices)**: TopoFold evaluates cross-chain Mutual Information $r_{\text{MI}}$ on $(\kappa, \tau, \theta_\beta)$ in $193\text{ ms}$. Productive 5T35 exhibits an intense, synchronized mechanical communication hotspot at the ternary contact interface, while Non-Productive 5T3E displays uncoupled, independent dynamics. **Panel C (Quantitative Discrimination)**: TopoFold Dynamic Cooperativity Index provides a striking $97\times$ resolution ($\mathcal{I}_{\text{coop}} = 0.405$ vs $0.004$, $p < 10^{-15}$).*
 
+### 10. RNA 3D Dynamics, Pseudoknot Folding & Riboswitch Switching Hinges (The CASP-RNA Challenge)
+
+![RNA Riboswitch Pseudoknot Dynamics and Conformational Switching Landscape](assets/rna_riboswitch_switching_landscape.png)
+
+*Figure 10: RNA Riboswitch Pseudoknot Dynamics & Switching Hinge Benchmark on Canonical Adenine Riboswitch (Authentic RCSB PDB 1Y26, 71 nt, Chain X, $N = 1,000$ frames). Deep learning structural predictors fail on RNA tertiary dynamics and allosteric switching due to 6 rotatable backbone dihedrals and ribose pucker. **Panel A (3D Ribonucleic Ribbon Structure)**: Canonical pseudoknot with stable P2/P3 stems and kissing loop enclosing adenine, contrasting with the mobile P1 switching terminator hinge. **Panel B (Ribonucleic Invariants)**: Discrete curvature $\kappa_P$, torsion $\tau_P$, and glycosidic base ribbon dihedral $\theta_{\text{base}}$ across Bound and Unbound states. **Panel C (Autonomous Switching Hinge Detection)**: Sequence-wide Sarle's bimodality scan autonomously identifies the P1 regulatory switching strand (PDB residues 74..82) as Rank #1 ($BC = 0.9718$) in $61.5\text{ ms}$ with zero false positives on the flexible apical kissing loops. **Panel D (Cartesian PCA vs TopoFold Metric Separation)**: Apical loop thermal fluctuations smear Cartesian PCA ($S = 0.548$), while TopoFold metric invariants pristinely resolve the bistable free-energy landscape ($S = 0.957$).*
+
 <details>
 <summary><b>Click to expand: Controlled Synthetic Bistable Benchmark (Noise Confounding Analysis)</b></summary>
 
@@ -82,9 +88,9 @@
 
 ## Comprehensive Competitive Comparison Matrix
 
-| Evaluation Dimension | Cartesian PCA | Dihedral PCA (dPCA) | TICA (Time-lagged ICA) | Foldseek (3Di) | PocketMiner (GNN) | TopoFold v0.8.1 |
+| Evaluation Dimension | Cartesian PCA | Dihedral PCA (dPCA) | TICA (Time-lagged ICA) | Foldseek (3Di) | PocketMiner (GNN) | TopoFold v0.8.3 |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Mathematical Basis** | Linear $R^{3N}$ SVD | Dihedral $(\phi, \psi)$ PCA | Time-lagged covariance $\mathbf{C}_0^{-1} \mathbf{C}_\tau$ | Discrete 3Di alphabet | Graph Neural Network | Intrinsic Differential Geometry $(\kappa, \tau, \operatorname{Wr}, \theta_\beta)$ |
+| **Mathematical Basis** | Linear $R^{3N}$ SVD | Dihedral $(\phi, \psi)$ PCA | Time-lagged covariance $\mathbf{C}_0^{-1} \mathbf{C}_\tau$ | Discrete 3Di alphabet | Graph Neural Network | Intrinsic Differential Geometry $(\kappa, \tau, \operatorname{Wr}, \theta_\beta, \theta_{\text{base}})$ |
 | **Coordinate Invariance** | **None** ($SE(3)$ extrinsic) | Internal only | Internal / Extrinsic | Rigid alignment | SE(3)-equivariant | **Exact $SE(3)$ Invariant** ($< 10^{-12}$) |
 | **Terminal Noise Immunity** | **Fails** (Dominates var) | **Fails** (Tail dihedrals dominate) | Partial (Mixes into IC2) | N/A (Static align) | Trained features | **Mathematically Complete** (Exact Locality) |
 | **Free Energy Landscape** | Collapsed ($0.0\,k_B T$) | Collapsed ($0.0\,k_B T$) | Distorted ($1.84\,k_B T$) | Infeasible | Infeasible | **Authentic $3.43\,k_B T$ ($2.04\text{ kcal/mol}$)** |
@@ -96,6 +102,7 @@
 | **Metamorphic Fold Switches** | Infeasible (alignment artifacts) | Infeasible | Fails on multi-basin | Static single align | Static single state | **Exact Fingerprint** ($|\Delta \tau| > 150^\circ$, $d_F = 31.2\text{ \AA}$) |
 | **Allosteric Communication** | Linear Covariance (Rot drift) | Non-invariant | Kinetic modes only | None | Static contact map | **Mutual Information $r_{\text{MI}}$** ($296\text{ ms}$, 37k pairs) |
 | **IDP Transient Nucleation** | **Fails** (Isotropic blob, $S=0.007$) | Fails (Tail dihedrals swamp) | Requires equilibrium kinetics | Infeasible (No static PDB) | Infeasible | **Spectral Topological Density** ($Z=4.77$, 0 tail false positives) |
+| **RNA Riboswitch Dynamics** | **Fails** (Coordinate smearing) | Fails (6 dihedrals + pucker) | Fails (Equilibrium kinetics) | Static single align | Static single state | **Ribonucleic Ribbon** ($61.5\text{ ms}$, $BC = 0.9718$) |
 | **Search Latency / Frame** | $\mathcal{O}(M \cdot N)$ recompute | $\mathcal{O}(N)$ recompute | Dense matrix projection | $\approx 10\text{ ms}$ | $\approx 50\text{ ms}$ | **$1.01\text{--}9.39\,\mu\text{s/frame}$** (VP-Tree) |
 | **Implementation Safety** | Python / C | C++ | Python / Cython | C++ | Python / PyTorch | **100% Safe Rust** (`#![forbid(unsafe_code)]`) |
 
@@ -161,6 +168,16 @@ For each sliding window, central moments $M_1, M_2, M_3, M_4$ are updated in a s
 $$BC = \frac{\gamma^2 + 1}{\kappa_{\text{kurt}} + 3 \cdot \frac{(n-1)^2}{(n-2)(n-3)}}$$
 - **$BC < 0.555$**: Rigid alpha-helices or harmonic Gaussian thermal fluctuations.
 - **$BC \gg 0.555$ (up to $1.0$)**: Bistable switches, cryptic pocket openings, and rotameric flips.
+
+### 5. Ribonucleic Ribbon Geometry ($\kappa_P, \tau_P, \operatorname{Wr}_P, \theta_{\text{base}}$)
+For RNA backbones subject to the CASP-RNA conformational plasticity challenge:
+1. **Backbone Space Curve**: Evaluated along Phosphorus atoms ($\mathbf{r}_P$). Missing 5'-terminal phosphates (common in crystal constructs such as PDB 1Y26) are deterministically reconstructed from ribose $\text{O5'}$ and $\text{C5'}$: $\mathbf{r}_P^{\text{pseudo}} = \mathbf{r}_{\text{O5'}} + 1.60 \times \operatorname{normalized}(\mathbf{r}_{\text{O5'}} - \mathbf{r}_{\text{C5'}})$.
+2. **Glycosidic Base Orientation Vector**: Unit vector from ribose $\text{C1'}$ to glycosidic nitrogen ($\text{N9}$ for purines A/G, $\text{N1}$ for pyrimidines C/U):
+   $$\mathbf{v}_{\text{base}, i} = \frac{\mathbf{r}_{N, i} - \mathbf{r}_{\text{C1'}, i}}{\|\mathbf{r}_{N, i} - \mathbf{r}_{\text{C1'}, i}\|}$$
+3. **Base Ribbon Dihedral**:
+   $$\theta_{\text{base}, i} = \operatorname{atan2}(\mathbf{v}_{\text{base}, i} \cdot \mathbf{B}_i, \; \mathbf{v}_{\text{base}, i} \cdot \mathbf{N}_i) \in (-\pi, \pi]$$
+4. **Circular Angular Unwrapping**:
+   Angles on $\mathbb{S}^1$ are continuously unwrapped relative to reference frames ($\theta_{\text{unwrapped}} = \theta_{\text{ref}} + \operatorname{atan2}(\sin(\theta - \theta_{\text{ref}}), \cos(\theta - \theta_{\text{ref}}))$), eliminating $(-\pi, \pi]$ branch-cut artifacts from streaming bimodality moments.
 
 ---
 
@@ -255,6 +272,28 @@ top_hub = max(range(len(centrality)), key=lambda i: centrality[i])
 print(f"Top allosteric driver: Residue {top_hub + 1} (Score = {centrality[top_hub]:.2f})")
 ```
 
+#### 5. RNA Riboswitch Switching Hinge Discovery
+
+```python
+import topofold as tf
+
+# Ingest authentic RNA crystal structure (with automatic 5'-terminal phosphate reconstruction)
+trace = tf.read_pdb_rna("benchmarks/data/1Y26.pdb")
+print(f"Ingested {len(trace)} nucleotides (PDB {trace.seq_ids[0]}..{trace.seq_ids[-1]})")
+
+# Ingest RNA trajectory (1,000 frames)
+traj_p = tf.read_dcd("benchmarks/data/rna_riboswitch_trajectory.dcd")
+
+# Autonomous discovery of bistable switching hinges via Sarle's BC in 61 ms
+hinges = tf.scan_rna_switching_hinges(traj_p, window_size=3, threshold=0.70)
+top = hinges[0]
+pdb_start = trace.seq_ids[top["start"]]
+pdb_end = trace.seq_ids[min(top["end"], len(trace) - 1)]
+print(f"Rank #1: PDB {pdb_start}..{pdb_end} (Peak BC = {top['score']:.4f})")
+# Output:
+# Rank #1: PDB 73..82 (Peak BC = 0.9718) -> P1 regulatory switching stem!
+```
+
 ---
 
 ## Architecture & Crates
@@ -264,7 +303,7 @@ The TopoFold engine is architected as an industrial-grade Rust workspace with ze
 ```text
 TopoFold/
 ├── crates/
-│   ├── topofold-core/     # Differential geometry (kappa, tau), ribbon (theta_beta), allostery (MI), writhe, bimodality
+│   ├── topofold-core/     # Differential geometry (kappa, tau), ribbon (theta_beta), RNA, allostery (MI), writhe, bimodality
 │   ├── topofold-index/    # Cascaded Vantage-Point (VP) metric tree & discrete Fréchet search
 │   ├── topofold-io/       # Zero-copy streaming trajectory parsers (DCD, multi-model PDB)
 │   └── topofold-python/   # PyO3 bindings with GIL release during multi-threaded Rayon execution
@@ -289,7 +328,7 @@ If you use TopoFold in academic research or biophysical investigations, please c
   publisher    = {GitHub},
   journal      = {GitHub repository},
   howpublished = {\url{https://github.com/artsensiva/TopoFold}},
-  version      = {0.8.0}
+  version      = {0.8.3}
 }
 ```
 

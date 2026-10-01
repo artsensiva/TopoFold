@@ -29,6 +29,7 @@ pub mod idp;
 pub mod invariants;
 pub mod pdb;
 pub mod ribbon;
+pub mod rna;
 pub mod types;
 pub mod writhe;
 
@@ -56,10 +57,18 @@ pub use idp::{
     detect_transient_motifs_with_params, IdpDensityProfile, IdpMotif,
 };
 pub use invariants::CurveInvariants;
-pub use pdb::{parse_pdb_ca, parse_pdb_ribbon, parse_pdb_str, PdbError, ResidueMeta};
+pub use pdb::{
+    parse_pdb_ca, parse_pdb_ribbon, parse_pdb_rna, parse_pdb_rna_str, parse_pdb_str, PdbError,
+    ResidueMeta,
+};
 pub use ribbon::{
     compute_glycine_pseudo_cbeta, compute_pseudo_cbeta_from_ca, compute_sidechain_dihedrals,
     extract_ribbon_invariants, RibbonTrace, STANDARD_CA_CB_BOND_LENGTH,
+};
+pub use rna::{
+    compute_base_ribbon_dihedrals, compute_rna_bimodality_profile, extract_rna_ribbon_invariants,
+    extract_rna_ribbon_invariants_with_window, scan_rna_switching_hinges, RnaBimodalityProfile,
+    RnaCurveInvariants, RnaHingeCandidate, RnaRibbonTrace,
 };
 pub use types::BackboneTrace;
 pub use writhe::{compute_local_writhe, compute_total_writhe};

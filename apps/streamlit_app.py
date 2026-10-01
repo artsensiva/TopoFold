@@ -34,15 +34,19 @@ BENCHMARK_DATA_DIR = os.path.join(os.path.dirname(__file__), "..", "benchmarks",
 
 def extract_pdb_residue_ids(pdb_str: str) -> list[int]:
     """
-    Extracts authentic PDB residue sequence numbers from CA records.
+    Extracts authentic PDB residue sequence numbers from CA (protein) or C4' (RNA) records.
     """
     res_ids = []
+    seen = set()
     for line in pdb_str.splitlines():
         if line.startswith("ATOM") or line.startswith("HETATM"):
-            if line[12:16].strip() == "CA":
+            atom_name = line[12:16].strip()
+            if atom_name in ("CA", "C4'"):
                 try:
                     rid = int(line[22:26].strip())
-                    res_ids.append(rid)
+                    if rid not in seen:
+                        seen.add(rid)
+                        res_ids.append(rid)
                 except ValueError:
                     pass
     return res_ids
@@ -53,6 +57,7 @@ def render_3dmol_viewer(
     highlight_range: tuple[int, int] | None = None,
     res_count: int = 0,
     height: int = 520,
+    is_rna: bool = False,
 ) -> str:
     """
     Renders an interactive 3D molecular structure using 3Dmol.js embedded via HTML.
@@ -60,14 +65,16 @@ def render_3dmol_viewer(
     Features:
       - Robust multi-CDN loader with sequential fallbacks (cdnjs -> Pitt -> jsdelivr -> 3Dmol.org).
       - HTML-escaped raw PDB text embedding via hidden textarea (immune to JS quoting/newline issues).
-      - Scaffold: semi-transparent light grey cartoon (opacity: 0.6).
-      - Discovered Pocket: vivid orange/red cartoon (#FF5722) + sticks for side-chains (radius: 0.2).
+      - Scaffold: semi-transparent light grey cartoon / RNA ribbon (opacity: 0.6).
+      - Discovered Pocket / Hinge: vivid orange/red cartoon (#FF5722) + sticks for side-chains/bases (radius: 0.2).
       - Explicit dimensions (width: 100%, height: 520px) with WebGL initialization error boundary.
       - Status text indicator: 'Status: WebGL rendered N residues'.
     """
     hl_start, hl_end = highlight_range if highlight_range else (-1, -1)
     escaped_pdb_html = html.escape(pdb_str)
     pocket_label = f"Res {hl_start}..{hl_end}" if (hl_start > 0 and hl_end >= hl_start) else "None"
+    scaffold_label = "RNA Ribbon" if is_rna else "Cartoon"
+    highlight_label = "Switching Hinge" if is_rna else "Pocket"
 
     html_content = f"""<!DOCTYPE html>
 <html>
@@ -163,11 +170,11 @@ def render_3dmol_viewer(
     <div id="legend">
       <div class="legend-item">
         <div class="legend-color" style="background: #b0bec5; opacity: 0.6; border: 1px solid #78909c;"></div>
-        <span>Scaffold (Cartoon, opacity: 0.6)</span>
+        <span>Scaffold ({scaffold_label}, opacity: 0.6)</span>
       </div>
       <div class="legend-item">
         <div class="legend-color" style="background: #FF5722; border: 1px solid #e64a19;"></div>
-        <span>Discovered Pocket ({pocket_label})</span>
+        <span>Discovered {highlight_label} ({pocket_label})</span>
       </div>
     </div>
   </div>
@@ -332,6 +339,26 @@ def load_dataset(preset_name: str, uploaded_pdb=None, uploaded_dcd=None) -> dict
                 "is_idp": True,
             }
 
+    elif preset_name == "Adenine Riboswitch (RNA 3D Dynamics - PDB 1Y26)":
+        pdb_path = os.path.join(BENCHMARK_DATA_DIR, "1Y26.pdb")
+        dcd_path = os.path.join(BENCHMARK_DATA_DIR, "rna_riboswitch_trajectory.dcd")
+        base_path = os.path.join(BENCHMARK_DATA_DIR, "rna_riboswitch_base.npy")
+        if os.path.exists(pdb_path) and os.path.exists(dcd_path):
+            with open(pdb_path, "r") as f:
+                ref_pdb_str = f.read()
+            traj_data = tf.read_dcd(dcd_path)
+            res_ids = extract_pdb_residue_ids(ref_pdb_str)
+            base_traj = np.load(base_path) if os.path.exists(base_path) else None
+            return {
+                "name": preset_name,
+                "traj": traj_data,
+                "base_traj": base_traj,
+                "pdb": ref_pdb_str,
+                "res_ids": res_ids,
+                "desc": f"Adenine Riboswitch Aptamer Domain (1,000 frames, {traj_data.shape[1]} nucleotides, PDB 13..83)",
+                "is_rna": True,
+            }
+
     elif preset_name == "BPTI Catalytic P1 Loop Flip (Shaw et al. Science 2010)":
         pdb_path = os.path.join(BENCHMARK_DATA_DIR, "5PTI.pdb")
         dcd_path = os.path.join(BENCHMARK_DATA_DIR, "bpti_equilibrium.dcd")
@@ -422,6 +449,7 @@ def run_dashboard():
         [
             "Human Abl1 Kinase DFG Flip (2GQG / 1IEP)",
             "Human Alpha-Synuclein IDP (Parkinson's Disease - 140 Residues)",
+            "Adenine Riboswitch (RNA 3D Dynamics - PDB 1Y26)",
             "BPTI Catalytic P1 Loop Flip (Shaw et al. Science 2010)",
             "Synthetic Bistable Gating Ensemble (60 residues)",
             "Custom Upload (PDB + DCD)",
@@ -460,6 +488,7 @@ def run_dashboard():
         st.sidebar.info("Awaiting trajectory upload...")
 
     is_idp = bool(curr_ds and curr_ds.get("is_idp", False))
+    is_rna = bool(curr_ds and curr_ds.get("is_rna", False))
 
     if is_idp:
         st.sidebar.header("⚙️ IDP Spectral Parameters")
@@ -478,6 +507,24 @@ def run_dashboard():
             step=0.1,
             help="Sequence-normalized Z-score threshold for pre-nucleation motifs.",
         )
+    elif is_rna:
+        st.sidebar.header("⚙️ RNA Ribbon Parameters")
+        window_size = st.sidebar.slider(
+            "Sliding Window Size (W nucleotides):",
+            min_value=2,
+            max_value=8,
+            value=3,
+            help="Sliding window width for RNA curvature and base dihedral moments.",
+        )
+        bc_threshold = st.sidebar.slider(
+            "Sarle's Bimodality Threshold (BC):",
+            min_value=0.50,
+            max_value=0.98,
+            value=0.70,
+            step=0.02,
+            help="Bimodality cutoff for identifying bistable switching hinges.",
+        )
+        st.sidebar.caption("Ribonucleic Ribbon: Phosphorus backbone (P) + Glycosidic Base (C1'→N9/N1)")
     else:
         st.sidebar.header("⚙️ Geometry Engine Parameters")
         window_size = st.sidebar.slider("Sliding Window Size (W residues):", min_value=4, max_value=16, value=8)
@@ -498,7 +545,12 @@ def run_dashboard():
     # Action Button & Status Header
     col_btn, col_stats = st.columns([1, 3])
     with col_btn:
-        button_label = "⚡ Run Spectral IDP Scan" if is_idp else "🚀 Run Autonomous Pocket Scan"
+        if is_idp:
+            button_label = "⚡ Run Spectral IDP Scan"
+        elif is_rna:
+            button_label = "⚡ Run Ribonucleic Hinge Scan"
+        else:
+            button_label = "🚀 Run Autonomous Pocket Scan"
         run_scan = st.button(button_label, type="primary")
 
     if run_scan:
@@ -513,6 +565,7 @@ def run_dashboard():
                 )
                 st.session_state["scan_results"] = {
                     "is_idp": True,
+                    "is_rna": False,
                     "s_topo": s_topo,
                     "mean_dens": mean_dens,
                     "var_dens": var_dens,
@@ -523,14 +576,36 @@ def run_dashboard():
                     "z_threshold": z_threshold,
                 }
                 st.session_state["selected_pocket_idx"] = 0
+        elif is_rna:
+            with st.spinner("Analyzing RNA ribbon invariants & Sarle's bimodality moments in Rust core..."):
+                base_traj = curr_ds.get("base_traj")
+                scores, bc_theta, bc_kappa, bc_tau = tf.compute_rna_bimodality_profile(
+                    traj_data, base_ensemble=base_traj, window_size=window_size
+                )
+                candidates = tf.scan_rna_switching_hinges(
+                    traj_data, base_ensemble=base_traj, window_size=window_size, threshold=bc_threshold
+                )
+                st.session_state["scan_results"] = {
+                    "is_idp": False,
+                    "is_rna": True,
+                    "scores": scores,
+                    "bc_theta": bc_theta,
+                    "bc_kappa": bc_kappa,
+                    "bc_tau": bc_tau,
+                    "candidates": candidates,
+                    "window_size": window_size,
+                }
+                st.session_state["selected_pocket_idx"] = 0
         else:
             with st.spinner("Analyzing intrinsic curve invariants & Sarle's bimodality moments in Rust core..."):
                 scores, bc_tau, bc_kappa = tf.compute_bimodality_profile(traj_data, window_size=window_size)
                 candidates = tf.scan_cryptic_pockets(traj_data, window_size=window_size, bc_threshold=bc_threshold)
                 st.session_state["scan_results"] = {
                     "is_idp": False,
+                    "is_rna": False,
                     "scores": scores,
                     "bc_tau": bc_tau,
+
                     "bc_kappa": bc_kappa,
                     "candidates": candidates,
                     "window_size": window_size,
@@ -676,6 +751,147 @@ def run_dashboard():
                 )
                 st.components.v1.html(html_viewer, height=565)
 
+        elif scan_res.get("is_rna", False):
+            scores = scan_res["scores"]
+            bc_theta = scan_res["bc_theta"]
+            bc_kappa = scan_res["bc_kappa"]
+            bc_tau = scan_res["bc_tau"]
+            candidates = scan_res["candidates"]
+            w_size = scan_res["window_size"]
+
+            with col_stats:
+                st.success(
+                    f"**RNA Analysis Complete**: Evaluated {len(scores)} sliding windows across {traj_data.shape[0]:,} frames. "
+                    f"Discovered **{len(candidates)}** candidate conformational switching hinge(s) (Peak BC = {float(np.max(scores)):.4f})."
+                )
+
+            col_plot, col_view = st.columns([1.15, 1.0])
+
+            with col_plot:
+                st.subheader("📈 Sequence-Wide Ribonucleic Bimodality Profile")
+                mid_offset = 1
+                x_res_pdb = [res_ids[min(i + mid_offset, n_residues - 1)] for i in range(len(scores))]
+
+                if go is not None:
+                    fig = go.Figure()
+                    # Add shaded regions for P1 stems: 13..21 and 74..82 if present
+                    if 13 in res_ids and 21 in res_ids:
+                        fig.add_vrect(
+                            x0=13, x1=21,
+                            fillcolor="rgba(255, 87, 34, 0.12)",
+                            layer="below", line_width=1,
+                            line_color="rgba(255, 87, 34, 0.3)",
+                            annotation_text="P1 5' Stem (13–21)",
+                            annotation_position="top left",
+                        )
+                    if 74 in res_ids and 82 in res_ids:
+                        fig.add_vrect(
+                            x0=74, x1=82,
+                            fillcolor="rgba(255, 87, 34, 0.22)",
+                            layer="below", line_width=1,
+                            line_color="rgba(255, 87, 34, 0.5)",
+                            annotation_text="P1 Switching Stem (74–82)",
+                            annotation_position="top right",
+                        )
+                    fig.add_trace(go.Scatter(
+                        x=x_res_pdb, y=scores, mode="lines",
+                        name="Composite max(BC_θ, BC_κ, BC_τ)",
+                        line=dict(color="#00E676", width=3)
+                    ))
+                    fig.add_trace(go.Scatter(
+                        x=x_res_pdb, y=bc_theta, mode="lines",
+                        name="Base Ribbon Dihedral (BC_θ)",
+                        line=dict(color="#FF9800", width=2.0, dash="dash")
+                    ))
+                    fig.add_trace(go.Scatter(
+                        x=x_res_pdb, y=bc_kappa, mode="lines",
+                        name="Phosphorus Curvature (BC_κ)",
+                        line=dict(color="#AB47BC", width=1.5, dash="dot")
+                    ))
+                    fig.add_trace(go.Scatter(
+                        x=x_res_pdb, y=bc_tau, mode="lines",
+                        name="Phosphorus Torsion (BC_τ)",
+                        line=dict(color="#29B6F6", width=1.5, dash="dashdot")
+                    ))
+                    fig.add_hline(
+                        y=0.555, line_dash="dash", line_color="#e74c3c",
+                        annotation_text="Unimodal Threshold (BC=0.555)", annotation_position="bottom right"
+                    )
+                    fig.update_layout(
+                        xaxis_title="PDB Nucleotide Sequence Number",
+                        yaxis_title="Sarle's Bimodality Coefficient (BC)",
+                        yaxis_range=[-0.02, 1.05],
+                        template="plotly_dark",
+                        margin=dict(l=40, r=20, t=30, b=40),
+                        legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1)
+                    )
+                    st.plotly_chart(fig)
+                else:
+                    st.line_chart(scores)
+
+                st.subheader("🏆 Discovered RNA Switching Hinges")
+                if candidates:
+                    cand_data = []
+                    for r, c in enumerate(candidates, 1):
+                        s_res = c["start"]
+                        e_res = c["end"]
+                        sc = c["score"]
+                        pdb_start = res_ids[min(s_res, n_residues - 1)]
+                        pdb_end = res_ids[min(e_res, n_residues - 1)]
+                        cand_data.append({
+                            "Rank": f"#{r}",
+                            "PDB Nucleotides": f"Res {pdb_start} .. {pdb_end}",
+                            "Length": e_res - s_res + 1,
+                            "Peak BC": f"{sc:.4f}",
+                            "BC_θ (Base)": f"{c['bc_theta']:.4f}",
+                            "BC_κ (Curv)": f"{c['bc_kappa']:.4f}",
+                            "BC_τ (Tors)": f"{c['bc_tau']:.4f}",
+                        })
+                    st.dataframe(cand_data)
+                else:
+                    st.info("No switching hinges detected above current threshold.")
+
+            with col_view:
+                st.subheader("🔬 3D Molecular Structure & Switching Hinge")
+                selected_pdb_range = (74, 82) if (74 in res_ids and 82 in res_ids) else (res_ids[0], res_ids[-1])
+
+                if candidates:
+                    cand_options = []
+                    for i, c in enumerate(candidates):
+                        s_res = c["start"]
+                        e_res = c["end"]
+                        sc = c["score"]
+                        pdb_start = res_ids[min(s_res, n_residues - 1)]
+                        pdb_end = res_ids[min(e_res, n_residues - 1)]
+                        cand_options.append(f"Rank #{i+1}: Res {pdb_start}..{pdb_end} (BC = {sc:.4f})")
+
+                    selected_idx = st.selectbox(
+                        "Select Switching Hinge to Highlight:",
+                        range(len(candidates)),
+                        format_func=lambda i: cand_options[i],
+                        key="rna_hinge_selectbox",
+                    )
+                    st.session_state["selected_pocket_idx"] = selected_idx
+                    sel_cand = candidates[selected_idx]
+                    selected_pdb_range = (
+                        res_ids[min(sel_cand["start"], n_residues - 1)],
+                        res_ids[min(sel_cand["end"], n_residues - 1)],
+                    )
+
+                st.markdown(
+                    f"**Active Highlight**: RNA Switching Hinge PDB Nucleotides `{selected_pdb_range[0]}..{selected_pdb_range[1]}` "
+                    f"*(Vivid Orange/Red Cartoon Ribbon & Sticks)* on scaffold *(Semi-Transparent Light Grey)*."
+                )
+
+                html_viewer = render_3dmol_viewer(
+                    ref_pdb_str,
+                    highlight_range=selected_pdb_range,
+                    res_count=len(res_ids),
+                    height=520,
+                    is_rna=True,
+                )
+                st.components.v1.html(html_viewer, height=565)
+
         else:
             scores = scan_res["scores"]
             bc_tau = scan_res["bc_tau"]
@@ -799,6 +1015,17 @@ def run_dashboard():
                     f"- **Ensemble Characteristic**: Intrinsically Disordered Protein (IDP) ensemble with large Cartesian variance (RMSD > 18 Å)\n"
                     f"- **Biophysical Target**: Transient nucleation within hydrophobic NACore (residues 61..95)"
                 )
+            elif is_rna:
+                st.info(
+                    "💡 Click **'⚡ Run Ribonucleic Hinge Scan'** above to detect RNA conformational switching hinges and bistable regulatory elements."
+                )
+                st.markdown(f"**Loaded Scaffold**: {curr_ds['desc']}")
+                st.markdown(
+                    f"- **Trajectory Frames**: `{traj_data.shape[0]:,}`\n"
+                    f"- **Nucleotide Count**: `{n_residues}` (PDB `{res_ids[0]}..{res_ids[-1]}`)\n"
+                    f"- **Ribonucleic Invariants**: Phosphorus backbone $\\kappa_P, \\tau_P, \\text{{Wr}}_P$, and Glycosidic Ribbon $\\theta_{{\\text{{base}}}}$\n"
+                    f"- **Biophysical Target**: Autonomous detection of P1 switching terminator hinge (residues 74..82)"
+                )
             else:
                 st.info(
                     "💡 Click **'🚀 Run Autonomous Pocket Scan'** above to detect cryptic pockets and mobile functional loops."
@@ -811,12 +1038,18 @@ def run_dashboard():
                 )
         with col_preview_view:
             st.subheader("🔬 3D Molecular Structure (Scaffold Preview)")
-            preview_hl = (66, 78) if (is_idp and n_residues >= 78) else None
+            if is_idp and n_residues >= 78:
+                preview_hl = (66, 78)
+            elif is_rna and 74 in res_ids and 82 in res_ids:
+                preview_hl = (74, 82)
+            else:
+                preview_hl = None
             html_viewer = render_3dmol_viewer(
                 ref_pdb_str,
                 highlight_range=preview_hl,
                 res_count=len(res_ids),
                 height=520,
+                is_rna=is_rna,
             )
             st.components.v1.html(html_viewer, height=565)
 

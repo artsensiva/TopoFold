@@ -297,6 +297,242 @@ pub fn parse_pdb_str(
     parse_pdb_ca(pdb_content.as_bytes(), target_chain)
 }
 
+/// Internal accumulator for multi-atom RNA nucleotide parsing.
+struct RnaNucleotideAccumulator {
+    chain_id: char,
+    seq_id: i32,
+    i_code: char,
+    res_name: String,
+    p_coord: Option<Point3<f64>>,
+    c4_coord: Option<Point3<f64>>,
+    c1_coord: Option<Point3<f64>>,
+    n_coord: Option<Point3<f64>>,
+    o5_coord: Option<Point3<f64>>,
+    c5_coord: Option<Point3<f64>>,
+    c3_coord: Option<Point3<f64>>,
+    b_factor: f64,
+}
+
+/// Parses an RNA ribbon trace from any reader implementing `BufRead`.
+///
+/// Recognizes RNA residues (A, G, C, U, ADE, GUA, CYT, URA) and extracts
+/// Phosphorus (P), Ribose C4', Ribose C1', and the glycosidic nitrogen (N9 for purines, N1 for pyrimidines).
+/// For 5'-terminal nucleotides lacking a Phosphorus atom, a deterministic pseudo-Phosphorus coordinate
+/// is reconstructed from available terminal ribose atoms.
+///
+/// # Arguments
+/// - `reader`: Buffered input stream of PDB file content.
+/// - `target_chain`: Optional chain ID to filter (e.g. `Some('X')`). If `None`, parses all chains.
+///
+/// # Errors
+/// Returns [`PdbError`] if parsing fails or no RNA nucleotides are found.
+pub fn parse_pdb_rna<R: BufRead>(
+    reader: R,
+    target_chain: Option<char>,
+) -> Result<(crate::rna::RnaRibbonTrace, Vec<ResidueMeta>), PdbError> {
+    let mut nucleotides: Vec<RnaNucleotideAccumulator> = Vec::new();
+    let mut nt_map: std::collections::HashMap<(char, i32, char), usize> = std::collections::HashMap::new();
+
+    let rna_names = ["A", "G", "C", "U", "ADE", "GUA", "CYT", "URA", "DA", "DG", "DC", "DT"];
+
+    for (line_idx, line_res) in reader.lines().enumerate() {
+        let line_num = line_idx + 1;
+        let line = line_res.map_err(|e| PdbError::IoError {
+            line: line_num,
+            message: e.to_string(),
+        })?;
+
+        if line.len() < 54 {
+            continue;
+        }
+
+        let record = &line[0..6];
+        if record != "ATOM  " && record != "HETATM" {
+            continue;
+        }
+
+        let res_name = line[17..20].trim().to_uppercase();
+        if !rna_names.contains(&res_name.as_str()) {
+            continue;
+        }
+
+        let chain_id = line.chars().nth(21).unwrap_or(' ');
+        if let Some(target) = target_chain {
+            if chain_id != target {
+                continue;
+            }
+        }
+
+        let alt_loc = line.chars().nth(16).unwrap_or(' ');
+        if alt_loc != ' ' && alt_loc != 'A' && alt_loc != '1' {
+            continue;
+        }
+
+        let seq_id_str = line[22..26].trim();
+        let seq_id: i32 = seq_id_str.parse().map_err(|_| PdbError::InvalidResidueNumber {
+            line: line_num,
+            value: seq_id_str.to_string(),
+        })?;
+
+        let i_code = line.chars().nth(26).unwrap_or(' ');
+
+        let x_str = line[30..38].trim();
+        let x: f64 = x_str.parse().map_err(|_| PdbError::InvalidCoordinate {
+            line: line_num,
+            column: "X",
+            value: x_str.to_string(),
+        })?;
+
+        let y_str = line[38..46].trim();
+        let y: f64 = y_str.parse().map_err(|_| PdbError::InvalidCoordinate {
+            line: line_num,
+            column: "Y",
+            value: y_str.to_string(),
+        })?;
+
+        let z_str = line[46..54].trim();
+        let z: f64 = z_str.parse().map_err(|_| PdbError::InvalidCoordinate {
+            line: line_num,
+            column: "Z",
+            value: z_str.to_string(),
+        })?;
+
+        let b_factor = if line.len() >= 66 {
+            line[60..66].trim().parse().unwrap_or(0.0)
+        } else {
+            0.0
+        };
+
+        let key = (chain_id, seq_id, i_code);
+        let current_match = nucleotides
+            .last()
+            .map(|r| (r.chain_id, r.seq_id, r.i_code) == key)
+            .unwrap_or(false);
+
+        let nt_idx = if current_match {
+            nucleotides.len() - 1
+        } else if let Some(&idx) = nt_map.get(&key) {
+            idx
+        } else {
+            let idx = nucleotides.len();
+            nt_map.insert(key, idx);
+            nucleotides.push(RnaNucleotideAccumulator {
+                chain_id,
+                seq_id,
+                i_code,
+                res_name: res_name.clone(),
+                p_coord: None,
+                c4_coord: None,
+                c1_coord: None,
+                n_coord: None,
+                o5_coord: None,
+                c5_coord: None,
+                c3_coord: None,
+                b_factor,
+            });
+            idx
+        };
+
+        let pt = Point3::new(x, y, z);
+        let atom_name = line[12..16].trim().to_uppercase();
+
+        let is_purine = ["A", "G", "ADE", "GUA", "DA", "DG"].contains(&res_name.as_str());
+
+        match atom_name.as_str() {
+            "P" => nucleotides[nt_idx].p_coord = Some(pt),
+            "C4'" | "C4*" => nucleotides[nt_idx].c4_coord = Some(pt),
+            "C1'" | "C1*" => nucleotides[nt_idx].c1_coord = Some(pt),
+            "O5'" | "O5*" => nucleotides[nt_idx].o5_coord = Some(pt),
+            "C5'" | "C5*" => nucleotides[nt_idx].c5_coord = Some(pt),
+            "C3'" | "C3*" => nucleotides[nt_idx].c3_coord = Some(pt),
+            "N9" if is_purine => nucleotides[nt_idx].n_coord = Some(pt),
+            "N1" => {
+                if !is_purine || nucleotides[nt_idx].n_coord.is_none() {
+                    nucleotides[nt_idx].n_coord = Some(pt);
+                }
+            }
+            "N3" if !is_purine && nucleotides[nt_idx].n_coord.is_none() => {
+                nucleotides[nt_idx].n_coord = Some(pt);
+            }
+            _ => {}
+        }
+    }
+
+    let mut p_coords = Vec::new();
+    let mut c4_coords = Vec::new();
+    let mut c1_coords = Vec::new();
+    let mut n_coords = Vec::new();
+    let mut names = Vec::new();
+    let mut seq_ids = Vec::new();
+    let mut chain_ids = Vec::new();
+    let mut metadata = Vec::new();
+
+    for nt in nucleotides {
+        if let (Some(c1), Some(n_pt)) = (nt.c1_coord, nt.n_coord) {
+            let c4 = nt.c4_coord.unwrap_or(c1);
+
+            let p = if let Some(p_pt) = nt.p_coord {
+                p_pt
+            } else if let (Some(o5), Some(c5)) = (nt.o5_coord, nt.c5_coord) {
+                // Reconstruct pseudo-P from 5'-terminal O5' and C5'
+                let diff = o5 - c5;
+                let norm = diff.norm();
+                if norm >= crate::geometry::GEOMETRY_EPSILON {
+                    o5 + 1.60 * (diff / norm)
+                } else {
+                    c4 + nalgebra::Vector3::new(0.0, 0.0, 3.5)
+                }
+            } else if let Some(c3) = nt.c3_coord {
+                let diff = c4 - c3;
+                let norm = diff.norm();
+                if norm >= crate::geometry::GEOMETRY_EPSILON {
+                    c4 + 2.50 * (diff / norm)
+                } else {
+                    c4 + nalgebra::Vector3::new(0.0, 0.0, 3.5)
+                }
+            } else {
+                c4 + nalgebra::Vector3::new(0.0, 0.0, 3.5)
+            };
+
+            p_coords.push(p);
+            c4_coords.push(c4);
+            c1_coords.push(c1);
+            n_coords.push(n_pt);
+            names.push(nt.res_name.clone());
+            seq_ids.push(nt.seq_id);
+            chain_ids.push(nt.chain_id);
+            metadata.push(ResidueMeta {
+                name: nt.res_name,
+                seq_id: nt.seq_id,
+                chain_id: nt.chain_id,
+                b_factor: nt.b_factor,
+            });
+        }
+    }
+
+    if p_coords.is_empty() {
+        return Err(PdbError::EmptyTrace(target_chain));
+    }
+
+    let trace = crate::rna::RnaRibbonTrace::with_meta(
+        p_coords, c4_coords, c1_coords, n_coords, names, seq_ids, chain_ids,
+    )
+    .map_err(|e| PdbError::IoError {
+        line: 0,
+        message: e.to_string(),
+    })?;
+
+    Ok((trace, metadata))
+}
+
+/// Convenience function to parse an RNA PDB string in memory.
+pub fn parse_pdb_rna_str(
+    pdb_content: &str,
+    target_chain: Option<char>,
+) -> Result<(crate::rna::RnaRibbonTrace, Vec<ResidueMeta>), PdbError> {
+    parse_pdb_rna(pdb_content.as_bytes(), target_chain)
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -362,4 +598,34 @@ ATOM      7  C   GLY A   2       4.000   0.000   0.000  1.00 10.00           C
         let dist = (cb_gly - ribbon.ca_coords()[1]).norm();
         assert!((dist - crate::ribbon::STANDARD_CA_CB_BOND_LENGTH).abs() < 1e-9);
     }
+
+    #[test]
+    fn test_parse_pdb_rna() {
+        let rna_pdb = "\
+ATOM      1  C4'   C X  13       0.659  -6.175  -0.764  1.00 66.28           C
+ATOM      2  C1'   C X  13       0.134  -3.945  -1.350  1.00 65.21           C
+ATOM      3  N1    C X  13       0.664  -2.744  -0.554  1.00 64.39           N
+ATOM      4  O5'   C X  13       0.047  -6.959   1.489  1.00 65.39           O
+ATOM      5  C5'   C X  13       1.106  -6.846   0.528  1.00 66.02           C
+ATOM      6  P     G X  14       2.936  -7.140  -3.702  1.00 66.85           P
+ATOM      7  C4'   G X  14       2.484  -6.666  -7.391  1.00 63.85           C
+ATOM      8  C1'   G X  14       2.302  -4.321  -7.106  1.00 61.99           C
+ATOM      9  N9    G X  14       3.125  -3.376  -6.331  1.00 59.83           N
+";
+        let (rna_trace, metas) = parse_pdb_rna(rna_pdb.as_bytes(), Some('X')).expect("Parse RNA");
+        assert_eq!(rna_trace.len(), 2);
+        assert_eq!(metas.len(), 2);
+        assert_eq!(metas[0].name, "C");
+        assert_eq!(metas[0].seq_id, 13);
+        assert_eq!(metas[1].name, "G");
+        assert_eq!(metas[1].seq_id, 14);
+
+        // Residue 13 lacked P, pseudo-P reconstructed from O5' and C5' without NaN
+        let p13 = rna_trace.p_coords()[0];
+        assert!(!p13.x.is_nan() && !p13.y.is_nan() && !p13.z.is_nan());
+        // Residue 14 has real P
+        let p14 = rna_trace.p_coords()[1];
+        assert_eq!(p14, Point3::new(2.936, -7.140, -3.702));
+    }
 }
+

@@ -277,5 +277,59 @@ def test_intermolecular_allosteric_network_and_cooperativity():
     assert coop <= 1.0
 
 
+def test_rna_ribbon_trace_and_invariants():
+    # Test reading authentic RNA PDB (1Y26)
+    pdb_path = "benchmarks/data/1Y26.pdb"
+    if os.path.exists(pdb_path):
+        trace = tf.read_pdb_rna(pdb_path, chain="X")
+        assert len(trace) == 71
+        assert trace.names[0] == "C"
+        assert trace.names[-1] == "G"
+        assert trace.seq_ids[0] == 13
+        assert trace.seq_ids[-1] == 83
+
+        p_coords = trace.p_coords
+        assert p_coords.shape == (71, 3)
+        base_vecs = trace.base_vectors
+        assert base_vecs.shape == (71, 3)
+
+        kappa, tau, wr, theta_base = tf.compute_rna_invariants(p_coords, base_vecs)
+        assert kappa.shape == (69,)
+        assert tau.shape == (68,)
+        assert wr.shape == (67,)
+        assert theta_base.shape == (69,)
+        assert np.all(kappa >= 0.0) and np.all(kappa <= np.pi)
+        assert np.all(tau >= -np.pi) and np.all(tau <= np.pi)
+        assert np.all(theta_base >= -np.pi) and np.all(theta_base <= np.pi)
+
+    # Test synthetic RNA ensemble hinge detection
+    n_frames = 80
+    n_nt = 14
+    ensemble_p = np.zeros((n_frames, n_nt, 3), dtype=np.float32)
+    ensemble_base = np.zeros((n_frames, n_nt, 3), dtype=np.float32)
+    for f in range(n_frames):
+        is_state_b = f >= 40
+        for i in range(n_nt):
+            offset = 1.3 if (is_state_b and 5 <= i <= 8) else 0.0
+            ang = i * 0.55 + offset
+            z = i * 2.8
+            ensemble_p[f, i] = [8.8 * np.cos(ang), 8.8 * np.sin(ang), z]
+            ensemble_base[f, i] = [np.cos(ang + 0.3), np.sin(ang + 0.3), 0.0]
+
+    scores, bc_th, bc_k, bc_t = tf.compute_rna_bimodality_profile(ensemble_p, ensemble_base, window_size=3)
+    assert len(scores) == n_nt - 2 - 3 + 1
+    assert len(bc_th) == len(scores)
+    assert len(bc_k) == len(scores)
+    assert len(bc_t) == len(scores)
+    assert np.max(scores) > 0.85
+
+    hinges = tf.scan_rna_switching_hinges(ensemble_p, ensemble_base, window_size=3, threshold=0.70)
+    assert len(hinges) > 0
+    top = hinges[0]
+    assert top["score"] > 0.85
+    assert top["start"] <= 5 and top["end"] >= 7
+
+
+
 
 
