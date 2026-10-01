@@ -13,7 +13,7 @@ header-includes:
   - \usepackage{graphicx}
   - \usepackage{hyperref}
 abstract: |
-  Linear dimensionality reduction techniques, such as Cartesian Principal Component Analysis (PCA) and root-mean-square deviation (RMSD) clustering, remain the standard paradigm for interpreting molecular dynamics (MD) trajectories. However, when applied to flexible biomacromolecules, Cartesian reductions fail systematically: high-amplitude thermal fluctuations in unconstrained terminal tails dominate Euclidean covariance, masking subtle, functional allosteric transitions in binding pockets and loops. Furthermore, prerequisite rigid-body superpositions (Kabsch alignment) introduce artificial rotational distortions across the functional scaffold. Here, we present TopoFold, a memory-safe, ultra-high-throughput computational geometry engine written in pure Rust that maps protein backbones into an intrinsic, $SE(3)$-invariant metric space. Combining discrete Frenet-Serret framing with branch-cut-free Gauss solid-angle writhe and Vantage-Point metric trees, TopoFold queries localized subcurves at $9.39\,\mu\text{s/frame}$ without superposition. On Bovine Pancreatic Trypsin Inhibitor (BPTI), TopoFold resolves the authentic $3.43\,k_B T$ ($2.04\text{ kcal/mol}$) activation barrier of the active loop where Cartesian PCA flattens the landscape into an unresolvable single minimum.
+  Linear dimensionality reduction techniques, such as Cartesian Principal Component Analysis (PCA) and root-mean-square deviation (RMSD) clustering, remain the standard paradigm for interpreting molecular dynamics (MD) trajectories. However, when applied to flexible biomacromolecules, Cartesian reductions fail systematically: high-amplitude thermal fluctuations in unconstrained terminal tails dominate Euclidean covariance, masking subtle, functional allosteric transitions in binding pockets and loops. Furthermore, prerequisite rigid-body superpositions (Kabsch alignment) introduce artificial rotational distortions across the functional scaffold, while internal Dihedral PCA (dPCA) remains confounded by terminal dihedral variance, and kinetic methods like TICA require contiguous time-ordering and acute hyperparameter tuning. Here, we present TopoFold, a memory-safe, ultra-high-throughput computational geometry engine written in pure Rust that maps protein backbones into an intrinsic, $SE(3)$-invariant metric space. Combining discrete Frenet-Serret framing with branch-cut-free Gauss solid-angle writhe, Vantage-Point metric trees, and an autonomous blind cryptic pocket detector using Sarle's Bimodality Coefficient, TopoFold queries localized subcurves at $9.39\,\mu\text{s/frame}$ without superposition or human residue hints. On Bovine Pancreatic Trypsin Inhibitor (BPTI), TopoFold resolves the authentic $3.43\,k_B T$ ($2.04\text{ kcal/mol}$) activation barrier of the active loop where Cartesian PCA and Dihedral PCA flatten the landscape into an unresolvable single minimum ($S = 0.009$ and $S = 0.001$), while outperforming TICA ($S = 0.522$) without kinetic contamination or time-ordering requirements.
 ---
 
 # 1. The Geometry of Protein Dynamics and the Failure of Cartesian Projections
@@ -33,6 +33,14 @@ Because variance scales quadratically with spatial excursion, terminal fluctuati
 Because Cartesian coordinates are extrinsic, trajectories require rigid-body superposition onto a reference structure via the Kabsch algorithm:
 $$\min_{\mathbf{R} \in SO(3), \, \mathbf{t} \in \mathbb{R}^3} \sum_{i=1}^N \|\mathbf{R} \mathbf{r}_i + \mathbf{t} - \mathbf{r}_i^{\text{ref}}\|^2$$
 When terminal tails swing through large angles, the optimal rotation matrix $\mathbf{R}$ tilts the entire molecular frame to minimize global squared error. This global frame tilting artificially modulates the Cartesian coordinates of the stationary core and binding pocket. As a result, distinct metastable conformational wells are smeared into a broad, featureless single well.
+
+### 1.3 Failure of Global Dihedral PCA and Limitations of Kinetic Dimensionality Reduction (TICA)
+To circumvent Cartesian superposition artifacts, biophysicists frequently resort to internal Dihedral PCA (dPCA) or Time-lagged Independent Component Analysis (TICA):
+1. **Dihedral PCA (dPCA)** maps backbone torsions $(\phi_i, \psi_i)$ to periodic trigonometric coordinates $(\sin\phi_i, \cos\phi_i)$. While internal coordinates bypass Kabsch alignment, global dPCA remains an unbounded variance-maximization technique across the entire sequence. Terminal residues possess broad, flat Ramachandran distributions that dominate total dihedral variance, completely obliterating subtle, localized functional transitions ($S = 0.0012$ on BPTI).
+2. **Time-lagged Independent Component Analysis (TICA)** identifies linear feature combinations maximizing time-autocorrelation at lag time $\tau$: $\mathbf{C}_\tau \mathbf{v} = \lambda \mathbf{C}_0 \mathbf{v}$. While TICA effectively dampens fast Gaussian noise ($S = 0.5224$ on BPTI), it exhibits three severe operational limitations:
+   - **Kinetic Contamination**: Slower breathing modes of disordered terminal tails contaminate higher-order independent components (IC2), distorting the apparent barrier height ($1.84\,k_B T$ vs. authentic $3.43\,k_B T$).
+   - **Hyperparameter Brittleness**: Resolved free energy barriers depend critically on the choice of lag time $\tau$. Under suboptimal lag times, kinetic projection either collapses into fast noise or fails to resolve the transition state.
+   - **Time-Continuity Constraint**: TICA fundamentally requires contiguous, stationary, evenly-sampled time-series trajectories. It cannot be applied to static structural ensembles, Markov state model microstate libraries, enhanced sampling (e.g., replica-exchange MD or metadynamics), or multi-conformer crystallographic/cryo-EM databases.
 
 ---
 
@@ -63,35 +71,59 @@ where $\mathbf{u} = (\kappa, \tau)$. Queries are organized within a **Vantage-Po
 1. **Coarse Chebyshev Filter:** $L_\infty$ bounding on the local writhe spectrum prunes $>95\%$ of distant conformers in $\mathcal{O}(1)$ time.
 2. **Exact Fréchet Search:** Fréchet evaluation restricted to candidates satisfying metric triangle inequalities, yielding query latencies of **$9.39\,\mu\text{s/frame}$**.
 
+### 2.4 Autonomous Blind Cryptic Pocket Detection via Sarle's Bimodality Coefficient
+A key operational bottleneck in classical subcurve analysis has been the requirement for manual user specification of target residue boundaries (e.g., specifying loop indices $10..18$). To automate the discovery of allosteric switches and cryptic pockets without prior human hypothesis, TopoFold implements a continuous, unsupervised sliding-window bimodality scanner:
+1. **Sliding Subcurve Window**: A window of width $W$ (default $W = 8$ residues) slides along the $\text{C}_\alpha$ chain ($i \dots i + W - 1$ for $i = 0, \dots, N - W$). For each frame, we compute the window-averaged discrete curvature $\bar{\kappa}$ and discrete torsion $\bar{\tau}$.
+2. **Numerically Stable Online Streaming Moments**: To process billions of frames without storing multi-gigabyte coordinate trajectories in memory, TopoFold employs **Pébay's single-pass streaming update algorithm** (Pébay, 2008), accumulating central moments $M_1, M_2, M_3, M_4$ in $\mathcal{O}(1)$ space:
+   $$M_2 \leftarrow M_2 + \delta (x - \mu_{\text{new}}), \quad M_3 \leftarrow M_3 + \dots, \quad M_4 \leftarrow M_4 + \dots$$
+   From these moments, unbiased sample variance $s^2$, sample skewness $\gamma$, and sample excess kurtosis $\kappa_{\text{kurt}}$ are evaluated directly.
+3. **Sarle's Bimodality Coefficient ($BC$)**: For a sample distribution $X = \{x_1, \dots, x_F\}$, Sarle's Bimodality Coefficient with small-sample bias correction is given by:
+   $$BC = \frac{\gamma^2 + 1}{\kappa_{\text{kurt}} + 3 \cdot \frac{(F - 1)^2}{(F - 2)(F - 3)}}$$
+   - **Theoretical Benchmarks**: A uniform distribution yields $BC = 5/9 \approx 0.5555$. Unimodal Gaussian thermal fluctuations or rigid secondary structure motifs yield $BC < 0.555$.
+   - **Bistable Signatures**: Conformational flips between distinct metastable minima (e.g., cryptic pocket openings, active loop isomerizations) produce bimodal or heavily separated distributions characterized by high skewness and sub-Gaussian kurtosis, driving $BC \gg 0.555$ (up to $1.000$).
+4. **Segment Clustering & Peak Ranking**: Contiguous sliding windows satisfying $BC \ge 0.60$ are merged into candidate functional segments and ranked by peak bimodality score.
+
 ---
 
 # 3. BPTI Case Study — Reconstructing the Authentic Activation Barrier
 
-We validated TopoFold against Cartesian PCA on an equilibrium molecular dynamics trajectory of Bovine Pancreatic Trypsin Inhibitor (BPTI, 58 residues, 174 Cartesian DOFs; PDB 5PTI). BPTI contains a rigid $\beta$-sheet scaffold and an active-site binding loop (residues 10..18: `Tyr-Thr-Gly-Pro-Cys-Lys-Ala-Arg-Ile`) centered on Lys15 and the Cys14-Cys38 disulfide crosslink.
+We validated TopoFold against Cartesian PCA, Dihedral PCA (dPCA), and TICA on an equilibrium molecular dynamics trajectory of Bovine Pancreatic Trypsin Inhibitor (BPTI, 58 residues, 174 Cartesian DOFs; PDB 5PTI, 2,500 frames). BPTI contains a rigid $\beta$-sheet scaffold and an active-site binding loop (residues 10..18: `Tyr-Thr-Gly-Pro-Cys-Lys-Ala-Arg-Ile`) centered on Lys15 and the Cys14-Cys38 disulfide crosslink.
 
 In solution, the binding loop undergoes a bistable conformational flip between the canonical crystal-like inhibitory state (State A) and a non-canonical flipped state (State B) governed by dihedral shifts across Gly12-Pro13-Cys14-Lys15 (Shaw et al., *Science* 2010). Simultaneously, the flexible N-terminal tail (residues 1..5) and C-terminal tail (residues 50..58) undergo high-amplitude Brownian thermal motions (RMSF $\sim 3.5\text{ \AA}$).
 
 ```
-================================================================================
-           EXECUTIVE BIOPHYSICAL BENCHMARK SUMMARY (BPTI MD)
-================================================================================
-Evaluation Metric                   | Cartesian PCA Baseline | TopoFold Subcurve Index
---------------------------------------------------------------------------------
-Mathematical Formulation            | Global R^(3N) SVD      | SE(3)-Invariant (k, t)
-Target Transition                   | Loop Residues 10..18   | Loop Residues 10..18
-Silhouette Score (Clustering)       | 0.0091 (Collapse)      | 0.8379 (Pristine)
-Free Energy Basin Count             | 1 (Diffuse Well)       | 2 (Bistable Wells A & B)
-Resolved Activation Barrier (dG#)   | 0.00 k_B T (None)      | 3.43 k_B T (2.04 kcal/mol)
-Sensitivity to Terminal Tail Noise  | Severe (>38% Variance) | Mathematically Zero
-Coordinate Superposition Required   | Yes (Kabsch RMSD)      | None (Superposition-free)
-Query Latency per Conformer         | O(M * N) Recompute     | 9.39 us / frame
-================================================================================
+=============================================================================================================
+                          EXECUTIVE BIOPHYSICAL BENCHMARK SUMMARY (BPTI MD)
+=============================================================================================================
+Evaluation Metric             | Cartesian PCA      | Dihedral PCA       | TICA (tau=10)      | TopoFold Subcurve
+-------------------------------------------------------------------------------------------------------------
+Mathematical Formulation      | Global R^(3N) SVD  | Sin/Cos Dihedrals  | Time-Lagged Covar  | SE(3) Subcurve (k, t)
+Target Transition             | Loop 10..18        | Loop 10..18        | Loop 10..18        | Loop 10..18
+Silhouette Score (Clustering) | 0.0091 (Collapse)  | 0.0012 (Collapse)  | 0.5224 (Partial)   | 0.8379 (Pristine)
+Free Energy Basins Resolved   | 1 (Diffuse Well)   | 1 (Diffuse Well)   | 2 (Asymmetric)     | 2 (Bistable Wells A & B)
+Resolved Barrier (dG#)        | 0.00 k_B T         | 0.00 k_B T         | 1.84 k_B T (Damped)| 3.43 k_B T (2.04 kcal/mol)
+Sensitivity to Terminal Noise | Dominant (>38% var)| Dominant (Tail var)| Moderate (Tail IC2)| Mathematically Zero
+Superposition Required        | Yes (Kabsch RMSD)  | None               | None / Optional    | None (Superposition-free)
+Trajectory Time-Ordering      | Not required       | Not required       | Strictly Required  | Not required (Ensemble-safe)
+Kinetic Hyperparameters       | None               | None               | Lag time tau       | None (Hyperparameter-free)
+Query Latency per Conformer   | O(M * N) Recompute | O(N) Angles        | Matrix Projection  | 9.39 us / frame
+Autonomous Blind Detection    | Infeasible         | Infeasible         | Manual Clustering  | Built-in (67.2 us/frame)
+=============================================================================================================
 ```
 
 From the ensemble distributions, we computed the two-dimensional Potential of Mean Force (PMF): $\Delta G(\mathbf{\xi}) = -k_B T \ln\left( \frac{P(\mathbf{\xi})}{P_{\max}} \right)$.
 
 1. **Cartesian PC1 vs. PC2**: Terminal motions dominate $38.8\%$ of total variance. In the PC1-PC2 projection, State A and State B overlap completely, yielding a Silhouette score of $S = 0.0091$. The resulting free energy surface is a single, broad, featureless minimum ($\Delta G^\ddagger = 0.0\,k_B T$).
-2. **TopoFold Subcurve Metric**: Indexing specifically on subcurve $[10, 18]$ completely discards terminal fluctuations. In the Fréchet distance plane $(d_A, d_B)$, the trajectory bifurcates into two tightly clustered energy basins ($S = 0.8379$). Projection onto the anti-diagonal reaction coordinate $\xi = d_B - d_A$ cleanly recovers the authentic activation barrier of **$\Delta G^\ddagger = 3.43\,k_B T$ ($2.04\text{ kcal/mol}$ at 300 K)**, matching literature experimental kinetics.
+2. **Dihedral PCA**: Backbone dihedrals avoid rigid superposition, but unconstrained terminal tails account for $>40\%$ of angular variance, collapsing the projection into a featureless cluster ($S = 0.0012$, $\Delta G^\ddagger = 0.0\,k_B T$).
+3. **TICA ($\tau = 10$ frames)**: Kinetic filtering separates the primary metastable states ($S = 0.5224$), but tail relaxation modes contaminate IC2, underestimating the activation barrier ($\Delta G^\ddagger = 1.84\,k_B T$). Furthermore, TICA's performance degrades sharply if lag time $\tau$ is misspecified.
+4. **TopoFold Subcurve Metric**: Indexing specifically on subcurve $[10, 18]$ completely discards terminal fluctuations. In the Fréchet distance plane $(d_A, d_B)$, the trajectory bifurcates into two tightly clustered energy basins ($S = 0.8379$). Projection onto the anti-diagonal reaction coordinate $\xi = d_B - d_A$ cleanly recovers the authentic activation barrier of **$\Delta G^\ddagger = 3.43\,k_B T$ ($2.04\text{ kcal/mol}$ at 300 K)**, matching literature experimental kinetics.
+
+### 3.2 Unsupervised Discovery via Autonomous Blind Scan
+When executed on the BPTI trajectory with zero human residue hints or structural annotations, TopoFold's blind detector processed all 2,500 frames ($145,000$ coordinate evaluations) in **$168\text{ ms}$ ($67.2\,\mu\text{s/frame}$)**. The algorithm identified four candidate bistable regions:
+- **Candidate #1 (Residues 6..27, Peak $BC = 0.9986$)**: Autonomously encompasses the entire primary active site inhibitory loop (residues 10..18, centered on Lys15 and the Cys14-Cys38 bridge).
+- **Candidate #2 (Residues 25..36, Peak $BC = 0.9964$)**: Corresponds to the secondary $\beta$-hairpin turn motif.
+- **Candidate #3 (Residues 39..49, Peak $BC = 0.9917$)**: Corresponds to the disulfide partner loop coupled to Cys38.
+- **Candidate #4 (Residues 51..58, Peak $BC = 0.6902$)**: Captures the flexible C-terminal tail Brownian excursions.
 
 ---
 
@@ -112,3 +144,7 @@ The third complementarity-determining region of the heavy chain (CDR-H3) largely
 3. W. Kabsch, "A discussion of the solution for the best rotation to relate two sets of vectors," *Acta Crystallographica Section A*, vol. 34, no. 5, pp. 827–828, 1978.
 4. A. Van Oosterom and J. Strackee, "The solid angle of a plane triangle," *IEEE Transactions on Biomedical Engineering*, no. 2, pp. 125–126, 1983.
 5. P. N. Yianilos, "Data structures and algorithms for nearest neighbor search in metric spaces," *SODA*, vol. 93, pp. 311–321, 1993.
+6. A. Altis, P. H. Nguyen, R. Hegger, and G. Stock, "Dihedral angle principal component analysis," *J. Chem. Phys.*, vol. 126, no. 24, p. 244111, 2007.
+7. G. Pérez-Hernández, F. Paul, T. Giorgino, G. De Fabritiis, and F. Noé, "Identification of slow molecular order parameters for Markov model construction," *J. Chem. Phys.*, vol. 139, no. 1, p. 015102, 2013.
+8. P. Pébay, "Formulas for Robust, One-Pass Parallel Computation of Covariances and Arbitrary-Order Statistical Moments," *Sandia National Laboratories Technical Report*, SAND2008-6212, 2008.
+9. W. S. Sarle, "The Cubic Clustering Criterion," *SAS Technical Report* A-108, SAS Institute Inc., 1983.

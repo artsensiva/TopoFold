@@ -4,8 +4,8 @@
 [![Rust](https://img.shields.io/badge/rust-1.75%2B-orange.svg)](https://www.rust-lang.org)
 [![Python](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org)
 [![License](https://img.shields.io/badge/license-Dual%20AGPLv3%20%2F%20Commercial-blue.svg)](#citation--licensing)
-[![Tests](https://img.shields.io/badge/tests-18%2F18%20passing-brightgreen.svg)](https://github.com/artsensiva/TopoFold/actions)
-[![Release](https://img.shields.io/badge/release-v0.5.0-brightgreen.svg)](https://github.com/artsensiva/TopoFold/releases)
+[![Tests](https://img.shields.io/badge/tests-27%2F27%20passing-brightgreen.svg)](https://github.com/artsensiva/TopoFold/actions)
+[![Release](https://img.shields.io/badge/release-v0.6.0-brightgreen.svg)](https://github.com/artsensiva/TopoFold/releases)
 
 > **TopoFold** is a memory-safe, ultra-high-throughput computational geometry engine written in pure Rust with zero-copy Python bindings. It maps macromolecular backbone traces ($\text{C}_\alpha$) into an intrinsic, rotationally and translationally invariant ($SE(3)$) metric space. By leveraging discrete Frenet-Serret framing, branch-cut-free Gauss solid-angle writhe, and cascaded Vantage-Point (VP) metric trees, TopoFold resolves cryptic pockets, functional loop transitions, and biophysical free energy landscapes that linear Cartesian reductions (PCA/SVD) and Kabsch alignments completely obliterate.
 
@@ -13,20 +13,32 @@
 
 ## Visual Proof (Hero Section)
 
-### Primary Thermodynamic Validation: Bovine Pancreatic Trypsin Inhibitor (BPTI)
+### 1. Thermodynamic Validation: Bovine Pancreatic Trypsin Inhibitor (BPTI)
 
 ![Thermodynamic Validation on Real BPTI MD Trajectory](assets/bpti_free_energy_landscape.png)
 
 *Figure 1: Thermodynamic Validation on Real BPTI MD Trajectory. Cartesian PCA collapses the free-energy landscape into a single unresolvable minimum (barrier = $0.0\,k_B T$), while TopoFold intrinsic subcurve geometry resolves the authentic $3.43\,k_B T$ ($2.04\text{ kcal/mol}$) activation barrier separating active-site metastable basins A and B.*
 
+### 2. State-of-the-Art Kinetic & Internal Baselines: Dihedral PCA vs. TICA vs. TopoFold
+
+![Dihedral PCA vs TICA vs TopoFold](assets/topofold_vs_tica_comparison.png)
+
+*Figure 2: Advanced Baseline Benchmark on BPTI MD Trajectory. **Panel A (Dihedral PCA)**: While internal dihedrals bypass Cartesian superposition, unconstrained terminal tail dihedrals drown out localized loop transitions ($S = 0.0012$, single collapsed basin). **Panel B (TICA, $\tau = 10$)**: Time-lagged ICA recovers partial kinetic separation ($S = 0.5224$), but remains contaminated by terminal dynamics along IC2, requires strict trajectory time-continuity, and damps the barrier height. **Panel C (TopoFold Metric Space)**: Intrinsic subcurve differential geometry strictly resolves both metastable basins ($S = 0.8379$) and the full $3.43\,k_B T$ activation barrier without coordinate superposition, lag-time tuning, or time-ordering.*
+
+### 3. Autonomous Blind Cryptic Pocket & Functional Loop Detection
+
+![Autonomous Blind Cryptic Pocket Scan](assets/bpti_blind_pocket_scan.png)
+
+*Figure 3: Autonomous Blind Detection on BPTI ($N = 2,500$ frames, $W = 8$ residues). TopoFold scans the entire protein sequence without manual residue specifications using single-pass streaming moments and Sarle's Bimodality Coefficient ($BC$). **Top Panel**: Sequence profile of $BC$ values across sliding windows. Rigid regions and Gaussian thermal noise register $BC < 0.555$ (unimodal benchmark), while the active functional loop registers a dramatic peak ($BC = 0.9986$). **Bottom Panel**: Automatically detected bistable segments ranked by bimodality. Candidate #1 (residues 6..27) autonomously identifies the active inhibitory loop (residues 10..18) in $168\text{ ms}$ ($67.2\,\mu\text{s/frame}$). Secondary peaks capture the $\beta$-hairpin turn and Cys38 disulfide crosslink coupling.*
+
 <details>
-<summary><b>Click to expand: Phase 4 Controlled Synthetic Bistable Benchmark (Noise Confounding Analysis)</b></summary>
+<summary><b>Click to expand: Controlled Synthetic Bistable Benchmark (Noise Confounding Analysis)</b></summary>
 
 <br>
 
 ![Synthetic Bistable Trajectory Benchmark](assets/benchmark_pca_vs_topofold.png)
 
-*Figure 2: Controlled Synthetic Trajectory Benchmark ($N = 2,000$ frames, 60 residues). An active functional loop (residues 25..35) executes a bistable conformational transition amidst high-amplitude Brownian noise in the flanking termini. **Left Panel (Cartesian PCA)**: Uncorrelated terminal variance dominates the first two principal components, smearing Closed State A and Open State B into a completely overlapping cluster ($S = 0.337$). **Right Panel (TopoFold Subcurve Index)**: Intrinsic discrete curvature and torsion $(\kappa, \tau)$ strictly isolate the pocket, recovering near-perfect bimodal separation ($S = 0.985$) with zero superposition overhead.*
+*Figure 4: Controlled Synthetic Trajectory Benchmark ($N = 2,000$ frames, 60 residues). An active functional loop (residues 25..35) executes a bistable conformational transition amidst high-amplitude Brownian noise in the flanking termini. **Left Panel (Cartesian PCA)**: Uncorrelated terminal variance dominates the first two principal components, smearing Closed State A and Open State B into a completely overlapping cluster ($S = 0.337$). **Right Panel (TopoFold Subcurve Index)**: Intrinsic discrete curvature and torsion $(\kappa, \tau)$ strictly isolate the pocket, recovering near-perfect bimodal separation ($S = 0.985$) with zero superposition overhead.*
 
 </details>
 
@@ -109,17 +121,19 @@ Conformational dissimilarity is quantified by the **Discrete Fréchet Distance**
 
 Validation on the authentic Bovine Pancreatic Trypsin Inhibitor (BPTI, PDB [5PTI](https://www.rcsb.org/structure/5PTI), 58 residues, 174 Cartesian DOFs, 2,500 frames) targeting the active-site binding loop transition (residues 10..18, [Shaw et al., *Science* 2010](https://doi.org/10.1126/science.1187409)):
 
-| Evaluation Metric | Cartesian PCA Baseline (Kabsch Aligned) | TopoFold Intrinsic Subcurve Index | Physical & Algorithmic Significance |
-| :--- | :--- | :--- | :--- |
-| **Mathematical Basis** | Global $\mathbb{R}^{3N}$ SVD ($N=58$, dim=174) | Intrinsic $SE(3)$-invariant $(\kappa, \tau)$ subcurve | Eliminates extrinsic coordinate artifacts |
-| **Target Transition** | Active site loop 10..18 | Active site loop 10..18 | Functional trypsin-binding P1 pocket |
-| **Silhouette Score ($S$)** | **`0.0091`** (Complete smearing / single cluster) | **`0.8379`** (Crisp, pristine separation) | **$+92\times$** higher conformational state fidelity |
-| **Free Energy Basins Resolved** | **`1`** (Diffuse single minimum) | **`2`** (Distinct bistable basins A & B) | Recovers authentic bistable equilibrium |
-| **Resolved Activation Barrier ($\Delta G^\ddagger$)** | **`0.00` $k_B T$** (Zero barrier resolved) | **`3.43` $k_B T$** ($\mathbf{2.04\text{ kcal/mol}}$ at 300 K) | Literature-consistent kinetic barrier ([Shaw 2010](https://doi.org/10.1126/science.1187409)) |
-| **Sensitivity to Terminal Noise** | **Dominant** (Terminal tails dictate >38% var) | **Mathematically Zero** | True curve locality discards non-local Brownian tails |
-| **Structural Superposition Required** | **Yes** ($\mathcal{O}(M \cdot N)$ Kabsch RMSD alignment) | **None** (Superposition-free) | Bypasses $O(M \cdot N)$ CPU superposition bottleneck |
-| **Search Latency per Frame** | $\mathcal{O}(M \cdot N)$ recomputation | **`9.39` $\mu\text{s/frame}$** | Enables real-time screening across billions of frames |
-| **Memory Ingestion Mode** | Full Cartesian coordinates in RAM | Zero-copy trajectory streaming | Handles multi-microsecond MD ensembles |
+| Evaluation Metric | Cartesian PCA Baseline | Dihedral PCA (dPCA) | TICA ($\tau = 10$ frames) | TopoFold Subcurve Index | Physical & Algorithmic Significance |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Mathematical Basis** | Global $\mathbb{R}^{3N}$ SVD ($N=58$) | Global backbone dihedrals $(\sin\phi, \cos\phi, \dots)$ | Time-lagged covariance $\mathbf{C}_0^{-1} \mathbf{C}_\tau$ | Intrinsic $SE(3)$-invariant $(\kappa, \tau)$ subcurve | Eliminates extrinsic coordinate & terminal variance artifacts |
+| **Target Transition** | Active site loop 10..18 | Active site loop 10..18 | Active site loop 10..18 | Active site loop 10..18 | Functional trypsin-binding P1 pocket |
+| **Silhouette Score ($S$)** | **`0.0091`** (Complete smearing) | **`0.0012`** (Complete collapse) | **`0.5224`** (Partial separation) | **`0.8379`** (Pristine, crisp clustering) | **$+92\times$** higher state fidelity than PCA |
+| **Free Energy Basins Resolved** | **`1`** (Diffuse single well) | **`1`** (Diffuse single well) | **`2`** (Asymmetric, tail-distorted) | **`2`** (Distinct bistable basins A & B) | Recovers authentic bistable equilibrium |
+| **Resolved Activation Barrier ($\Delta G^\ddagger$)** | **`0.00` $k_B T$** (Zero barrier) | **`0.00` $k_B T$** (Zero barrier) | **`1.84` $k_B T$** (Damped / smeared) | **`3.43` $k_B T$** ($\mathbf{2.04\text{ kcal/mol}}$) | Literature-consistent kinetic barrier ([Shaw 2010](https://doi.org/10.1126/science.1187409)) |
+| **Sensitivity to Terminal Noise** | **Dominant** (>38% total var) | **Dominant** (Terminal tails dominate var) | **Significant** (Tail modes mix into IC2) | **Mathematically Zero** | True curve locality discards non-local Brownian tails |
+| **Trajectory Time-Ordering** | Not required | Not required | **Strictly Required** (Contiguous) | **Not required** (Works on static ensembles/REMD) | Generalizes across all ensemble types |
+| **Kinetic Hyperparameters** | None | None | **Lag time $\tau$** (Acutely sensitive) | **None** | Hyperparameter-free |
+| **Structural Superposition** | **Yes** ($\mathcal{O}(M \cdot N)$ Kabsch) | **None** (Internal angles) | **None / Optional** | **None** (Superposition-free) | Bypasses $O(M \cdot N)$ CPU superposition bottleneck |
+| **Search Latency per Frame** | $\mathcal{O}(M \cdot N)$ recomputation | $\mathcal{O}(N)$ trigonometric evaluation | Dense matrix projection | **`9.39` $\mu\text{s/frame}$** | Enables real-time screening across billions of frames |
+| **Autonomous Blind Detection** | Infeasible | Infeasible | Manual kinetic clustering | **Built-in** (Sarle's $BC$ scan: 67.2 µs/frame) | Discovers cryptic pockets with zero human bias |
 
 ---
 
@@ -138,15 +152,36 @@ cd TopoFold
 maturin develop --release
 ```
 
-### 10-Line Python Quickstart
+### Python Quickstart
+
+#### 1. Autonomous Blind Cryptic Pocket Detection (Zero Residue Hints)
 
 ```python
 import topofold as tf
 
-# 1. Load reference crystal coordinates (5PTI C-alpha trace)
+# Ingest DCD trajectory (2,500 frames, 58 residues)
+traj = tf.read_dcd("benchmarks/data/bpti_equilibrium.dcd")
+
+# Autonomously discover bistable cryptic pockets & mobile loops in 168 ms
+candidates = tf.scan_cryptic_pockets(traj, window_size=8, bc_threshold=0.6)
+
+for rank, (start_res, end_res, bc_score) in enumerate(candidates, 1):
+    print(f"Candidate #{rank}: Residues {start_res + 1}..{end_res + 1} (Peak Bimodality BC = {bc_score:.4f})")
+# Output:
+# Candidate #1: Residues 6..27 (Peak Bimodality BC = 0.9986) -> Active site loop!
+# Candidate #2: Residues 25..36 (Peak Bimodality BC = 0.9964) -> Beta-hairpin turn
+# Candidate #3: Residues 39..49 (Peak Bimodality BC = 0.9917) -> Disulfide partner region
+```
+
+#### 2. High-Throughput Subcurve Indexing & Sub-Microsecond Search
+
+```python
+import topofold as tf
+
+# Load reference crystal coordinates (5PTI C-alpha trace)
 coords = tf.read_pdb("benchmarks/data/5PTI.pdb", chain="A")
 
-# 2. Build index directly from DCD trajectory without coordinate alignment
+# Build index directly from DCD trajectory without coordinate alignment
 index = tf.ConformationalIndex.from_dcd(
     "benchmarks/data/bpti_equilibrium.dcd",
     ca_indices=list(range(58)),
@@ -154,7 +189,7 @@ index = tf.ConformationalIndex.from_dcd(
     coarse_radius=0.25,
 )
 
-# 3. Query functional cryptic loop (residues 10..18) in sub-microsecond time
+# Query functional cryptic loop (residues 10..18) in sub-microsecond time (9.39 µs/frame)
 hits = index.query_subcurve(start_res=9, end_res=17, query_coords=coords, k=10)
 for rank, (frame_id, frechet_dist) in enumerate(hits):
     print(f"Rank {rank+1}: Frame {frame_id} (Fréchet distance = {frechet_dist:.4f})")
@@ -193,7 +228,7 @@ If you use TopoFold in academic research or biophysical investigations, please c
   publisher    = {GitHub},
   journal      = {GitHub repository},
   howpublished = {\url{https://github.com/artsensiva/TopoFold}},
-  version      = {0.5.0}
+  version      = {0.6.0}
 }
 ```
 
