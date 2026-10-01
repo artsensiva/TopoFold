@@ -1,0 +1,21 @@
+[package]
+name = "topofold-io"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+readme = "README.md"
+description = "High-throughput molecular dynamics trajectory streaming I/O (DCD, PDB) for TopoFold"
+
+[dependencies]
+topofold-core = { path = "../topofold-core" }
+nalgebra = { workspace = true }
+thiserror = { workspace = true }
+
+[dev-dependencies]
+rand = { workspace = true }
+approx = { workspace = true }
+
+[lints.rust]
+unsafe_code = "forbid"

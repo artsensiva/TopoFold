@@ -1,0 +1,20 @@
+[build-system]
+requires = ["maturin>=1.5,<2.0"]
+build-backend = "maturin"
+
+[project]
+name = "topofold"
+version = "0.1.0"
+description = "High-performance SE(3)-invariant discrete differential geometry engine for protein conformational trajectories"
+readme = "README.md"
+authors = [{ name = "Artem Galukhin", email = "artem.galukhin@gmail.com" }]
+license = { text = "MIT OR Apache-2.0" }
+requires-python = ">=3.9"
+dependencies = [
+    "numpy>=1.20",
+]
+
+[tool.maturin]
+manifest-path = "crates/topofold-python/Cargo.toml"
+module-name = "topofold"
+features = ["pyo3/extension-module"]

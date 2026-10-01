@@ -1,0 +1,24 @@
+[package]
+name = "topofold-python"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+readme = "README.md"
+description = "Python bindings (PyO3) for TopoFold discrete differential geometry engine"
+
+[lib]
+name = "topofold"
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+topofold-core = { path = "../topofold-core" }
+topofold-index = { path = "../topofold-index" }
+topofold-io = { path = "../topofold-io" }
+nalgebra = { workspace = true }
+pyo3 = { workspace = true }
+numpy = { workspace = true }
+rayon = { workspace = true }
+ndarray = { workspace = true }
+thiserror = { workspace = true }

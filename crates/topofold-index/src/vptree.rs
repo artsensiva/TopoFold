@@ -248,13 +248,15 @@ impl<'a, T> Eq for Neighbor<'a, T> {}
 
 impl<'a, T> PartialOrd for Neighbor<'a, T> {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
-        self.dist.partial_cmp(&other.dist)
+        Some(self.cmp(other))
     }
 }
 
 impl<'a, T> Ord for Neighbor<'a, T> {
     fn cmp(&self, other: &Self) -> Ordering {
-        self.partial_cmp(other).unwrap_or(Ordering::Equal)
+        self.dist
+            .partial_cmp(&other.dist)
+            .unwrap_or(Ordering::Equal)
     }
 }
 

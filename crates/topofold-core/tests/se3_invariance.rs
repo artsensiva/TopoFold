@@ -80,4 +80,35 @@ fn test_integration_se3_random_walk_invariance() {
             );
         }
     }
+
+    // Verify subcurve extraction exactness:
+    // Extracting invariants of trace[20..=60] must match inv_orig.subcurve(20, 60)
+    let start = 20;
+    let end = 60;
+    let sub_trace = BackboneTrace::new(trace_orig.coordinates()[start..=end].to_vec());
+    let sub_inv_from_trace = extract_curve_invariants(&sub_trace).expect("Sub-trace invariants");
+    let sub_inv_from_slice = inv_orig.subcurve(start, end).expect("Subcurve from inv");
+
+    assert_eq!(
+        sub_inv_from_slice.segment_lengths.len(),
+        sub_inv_from_trace.segment_lengths.len()
+    );
+    assert_eq!(
+        sub_inv_from_slice.curvatures.len(),
+        sub_inv_from_trace.curvatures.len()
+    );
+    assert_eq!(
+        sub_inv_from_slice.torsions.len(),
+        sub_inv_from_trace.torsions.len()
+    );
+
+    for i in 0..sub_inv_from_trace.curvatures.len() {
+        let diff = (sub_inv_from_trace.curvatures[i] - sub_inv_from_slice.curvatures[i]).abs();
+        assert!(diff < 1e-12, "Subcurve curvature mismatch at {i}: {diff}");
+    }
+
+    for i in 0..sub_inv_from_trace.torsions.len() {
+        let diff = (sub_inv_from_trace.torsions[i] - sub_inv_from_slice.torsions[i]).abs();
+        assert!(diff < 1e-12, "Subcurve torsion mismatch at {i}: {diff}");
+    }
 }

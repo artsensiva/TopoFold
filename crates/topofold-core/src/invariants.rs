@@ -38,4 +38,34 @@ impl CurveInvariants {
             self.segment_lengths.iter().sum::<f64>() / self.segment_lengths.len() as f64
         }
     }
+
+    /// Extracts the subcurve invariants for a residue range `start..=end` (0-indexed).
+    ///
+    /// The subcurve requires at least 4 residues (`end >= start + 3`).
+    /// Returns `None` if the range is invalid or out of bounds.
+    #[must_use]
+    pub fn subcurve(&self, start: usize, end: usize) -> Option<CurveInvariants> {
+        let n_atoms = self.segment_lengths.len() + 1;
+        if start >= end || end >= n_atoms || end - start < 3 {
+            return None;
+        }
+
+        let seg_start = start;
+        let seg_end = end;
+        let segs = self.segment_lengths.get(seg_start..seg_end)?.to_vec();
+
+        // curvatures: residue i corresponds to index i - 1 in self.curvatures
+        // For subcurve, internal vertices are start + 1 ..= end - 1
+        let curvs = self.curvatures.get(start..end - 1)?.to_vec();
+
+        // torsions: segment i corresponds to index i - 1 in self.torsions
+        // For subcurve, internal segments are start + 1 ..= end - 2
+        let tors = self.torsions.get(start..end - 2)?.to_vec();
+
+        Some(CurveInvariants {
+            segment_lengths: segs,
+            curvatures: curvs,
+            torsions: tors,
+        })
+    }
 }

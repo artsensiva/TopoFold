@@ -59,7 +59,7 @@ fn test_golden_1crn_parsing_and_invariants() {
     // Check individual bond lengths are within physical tolerances [3.70, 3.90] Å
     for (i, &l) in invariants.segment_lengths.iter().enumerate() {
         assert!(
-            l >= 3.65 && l <= 3.95,
+            (3.65..=3.95).contains(&l),
             "Residue bond {i} length {l} Å out of physical range"
         );
     }
@@ -74,13 +74,13 @@ fn test_golden_1crn_parsing_and_invariants() {
 
         // Alpha-helices exhibit turning angles ~ 85-95 deg (1.48 - 1.66 rad)
         assert!(
-            kappa >= 1.30 && kappa <= 1.80,
+            (1.30..=1.80).contains(&kappa),
             "Helix 1 residue curvature {kappa:.3} rad out of canonical range at idx {idx}"
         );
 
         // Alpha-helices exhibit positive right-handed dihedrals ~ 45-60 deg (0.78 - 1.05 rad)
         assert!(
-            tau >= 0.65 && tau <= 1.25,
+            (0.65..=1.25).contains(&tau),
             "Helix 1 residue torsion {tau:.3} rad out of canonical range at idx {idx}"
         );
     }

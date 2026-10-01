@@ -147,4 +147,107 @@ impl ConformationalIndex {
 
         hits
     }
+
+    /// Finds the `k` most similar conformers to `target_invariants`.
+    ///
+    /// 1. Uses the VP-Tree to retrieve candidates according to coarse Writhe spectrum distance
+    ///    (considering both `coarse_radius` and a candidate pool size).
+    /// 2. Calculates exact Discrete Fréchet distance on candidates.
+    /// 3. Returns the top `k` hits sorted by Fréchet distance.
+    #[must_use]
+    pub fn query_k_nearest(
+        &self,
+        target_invariants: &CurveInvariants,
+        target_writhe: &[f64],
+        k: usize,
+        coarse_radius: f64,
+    ) -> Vec<ConformerHit> {
+        if self.is_empty() || k == 0 {
+            return Vec::new();
+        }
+
+        let dummy_query = IndexedWrithe {
+            frame_idx: 0,
+            spectrum: target_writhe.to_vec(),
+        };
+
+        // Get candidate frames via range_search with coarse_radius
+        let mut coarse_hits = self.vp_tree.range_search(&dummy_query, coarse_radius);
+
+        // If range_search yields fewer than k candidates, expand to k-nearest from VP-Tree
+        if coarse_hits.len() < k {
+            let knn_pool = (k * 3).min(self.frames.len()).max(k);
+            let knn_hits = self.vp_tree.k_nearest(&dummy_query, knn_pool);
+            coarse_hits = knn_hits;
+        }
+
+        let mut hits = Vec::with_capacity(coarse_hits.len());
+        for (item, w_dist) in coarse_hits {
+            let frame = &self.frames[item.frame_idx];
+            let f_dist = discrete_frechet_invariants(
+                &frame.invariants,
+                target_invariants,
+                1.0,
+                1.0,
+            );
+            hits.push(ConformerHit {
+                frame_id: frame.frame_id,
+                time_ps: frame.time_ps,
+                frechet_distance: f_dist,
+                writhe_distance: w_dist,
+            });
+        }
+
+        hits.sort_by(|a, b| {
+            a.frechet_distance
+                .partial_cmp(&b.frechet_distance)
+                .unwrap_or(std::cmp::Ordering::Equal)
+        });
+
+        hits.truncate(k);
+        hits
+    }
+
+    /// Queries the `k` most similar conformers for a specific subcurve / residue range `start_res..=end_res`.
+    ///
+    /// Evaluates exact Discrete Fréchet distance on the localized subcurve invariants `(kappa, tau)`.
+    #[must_use]
+    pub fn query_subcurve_k_nearest(
+        &self,
+        start_res: usize,
+        end_res: usize,
+        target_sub_invariants: &CurveInvariants,
+        k: usize,
+    ) -> Vec<ConformerHit> {
+        if self.is_empty() || k == 0 {
+            return Vec::new();
+        }
+
+        let mut hits = Vec::with_capacity(self.frames.len());
+        for frame in &self.frames {
+            if let Some(sub_inv) = frame.invariants.subcurve(start_res, end_res) {
+                let f_dist = discrete_frechet_invariants(
+                    &sub_inv,
+                    target_sub_invariants,
+                    1.0,
+                    1.0,
+                );
+                hits.push(ConformerHit {
+                    frame_id: frame.frame_id,
+                    time_ps: frame.time_ps,
+                    frechet_distance: f_dist,
+                    writhe_distance: 0.0,
+                });
+            }
+        }
+
+        hits.sort_by(|a, b| {
+            a.frechet_distance
+                .partial_cmp(&b.frechet_distance)
+                .unwrap_or(std::cmp::Ordering::Equal)
+        });
+
+        hits.truncate(k);
+        hits
+    }
 }
