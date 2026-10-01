@@ -13,8 +13,9 @@ use topofold_core::error::GeometryError;
 use topofold_core::invariants::CurveInvariants;
 use topofold_core::pdb::{parse_pdb_ca, PdbError};
 use topofold_core::{
-    compute_bimodality_profile as core_bimodality_profile, compute_intrinsic_allosteric_network,
-    compute_local_writhe, detect_bistable_segments, discrete_frechet_distance_coords,
+    compute_bimodality_profile as core_bimodality_profile, compute_idp_density_profile,
+    compute_intrinsic_allosteric_network, compute_local_writhe, detect_bistable_segments,
+    detect_transient_motifs_with_params, discrete_frechet_distance_coords,
     extract_curve_invariants, BackboneTrace,
 };
 use topofold_index::{ConformerFrame, ConformationalIndex as RustConformationalIndex};
@@ -957,6 +958,123 @@ pub fn discrete_frechet_distance(
     Ok(dist)
 }
 
+/// Computes the Spectral Topological Density S_topo across an ensemble of IDP conformations.
+///
+/// Parameters
+/// ----------
+/// coords : numpy.ndarray of shape (F, N, 3), dtype=float32
+///     Trajectory coordinates of F frames across N residues.
+/// window_radius : int, default=4
+///     Half-width of the sliding window in residues (e.g. 4 for 9-residue subchains).
+///
+/// Returns
+/// -------
+/// numpy.ndarray of shape (N,), dtype=float64
+///     Mean topological compactness S_topo(i) across all frames.
+#[pyfunction]
+#[pyo3(signature = (coords, window_radius = 4))]
+pub fn compute_idp_topological_density<'py>(
+    py: Python<'py>,
+    coords: PyReadonlyArray3<'py, f32>,
+    window_radius: usize,
+) -> PyResult<Py<PyArray1<f64>>> {
+    let array_view = coords.as_array();
+    let traces = array3_to_traces(&array_view, None)?;
+    let profile = py.detach(|| {
+        compute_idp_density_profile(&traces, window_radius).map_err(to_py_err)
+    })?;
+    let py_arr = PyArray1::from_vec(py, profile.mean_density);
+    Ok(py_arr.unbind())
+}
+
+/// Return type for the full Spectral Topological Density profile: (mean, variance, std, z_scores).
+type IdpProfileArrays = (
+    Py<PyArray1<f64>>,
+    Py<PyArray1<f64>>,
+    Py<PyArray1<f64>>,
+    Py<PyArray1<f64>>,
+);
+
+/// Transient motif tuple: (start_res, end_res, peak_res, mean_compactness, peak_compactness, z_score).
+type IdpMotifTuple = (usize, usize, usize, f64, f64, f64);
+
+/// Computes the complete Spectral Topological Density profile (mean, variance, std, z-scores).
+///
+/// Parameters
+/// ----------
+/// coords : numpy.ndarray of shape (F, N, 3), dtype=float32
+///     Trajectory coordinates of F frames across N residues.
+/// window_radius : int, default=4
+///     Half-width of the sliding window in residues (e.g. 4 for 9-residue subchains).
+///
+/// Returns
+/// -------
+/// tuple of 4 numpy.ndarrays of shape (N,), dtype=float64
+///     `(mean_density, variance_density, std_density, z_scores)`
+#[pyfunction(name = "compute_idp_density_profile")]
+#[pyo3(signature = (coords, window_radius = 4))]
+pub fn compute_idp_density_profile_py<'py>(
+    py: Python<'py>,
+    coords: PyReadonlyArray3<'py, f32>,
+    window_radius: usize,
+) -> PyResult<IdpProfileArrays> {
+    let array_view = coords.as_array();
+    let traces = array3_to_traces(&array_view, None)?;
+    let profile = py.detach(|| {
+        compute_idp_density_profile(&traces, window_radius).map_err(to_py_err)
+    })?;
+    let py_mean = PyArray1::from_vec(py, profile.mean_density).unbind();
+    let py_var = PyArray1::from_vec(py, profile.variance_density).unbind();
+    let py_std = PyArray1::from_vec(py, profile.std_density).unbind();
+    let py_z = PyArray1::from_vec(py, profile.z_scores).unbind();
+    Ok((py_mean, py_var, py_std, py_z))
+}
+
+/// Autonomously detects transiently structured pre-nucleation motifs within an IDP ensemble.
+///
+/// Parameters
+/// ----------
+/// coords : numpy.ndarray of shape (F, N, 3), dtype=float32
+///     Trajectory coordinates of F frames across N residues.
+/// window_size : int, default=8
+///     Width of the sliding window in residues.
+/// z_threshold : float, default=1.0
+///     Minimum sequence Z-score to include a residue in a motif.
+///
+/// Returns
+/// -------
+/// list of tuples: `[(start_res, end_res, peak_res, mean_compactness, peak_compactness, z_score), ...]`
+#[pyfunction(name = "detect_transient_motifs")]
+#[pyo3(signature = (coords, window_size = 8, z_threshold = 1.0))]
+pub fn detect_transient_motifs_py<'py>(
+    py: Python<'py>,
+    coords: PyReadonlyArray3<'py, f32>,
+    window_size: usize,
+    z_threshold: f64,
+) -> PyResult<Vec<IdpMotifTuple>> {
+    let array_view = coords.as_array();
+    let traces = array3_to_traces(&array_view, None)?;
+    let window_radius = (window_size / 2).max(1);
+    let motifs = py.detach(|| {
+        detect_transient_motifs_with_params(&traces, window_radius, z_threshold, 2)
+            .map_err(to_py_err)
+    })?;
+    let result = motifs
+        .into_iter()
+        .map(|m| {
+            (
+                m.start_res,
+                m.end_res,
+                m.peak_res,
+                m.mean_compactness,
+                m.peak_compactness,
+                m.z_score,
+            )
+        })
+        .collect();
+    Ok(result)
+}
+
 /// TopoFold Python module definition.
 #[pymodule]
 fn topofold(m: &Bound<'_, PyModule>) -> PyResult<()> {
@@ -966,6 +1084,9 @@ fn topofold(m: &Bound<'_, PyModule>) -> PyResult<()> {
     m.add_function(wrap_pyfunction!(scan_cryptic_pockets, m)?)?;
     m.add_function(wrap_pyfunction!(compute_bimodality_profile, m)?)?;
     m.add_function(wrap_pyfunction!(compute_allosteric_network, m)?)?;
+    m.add_function(wrap_pyfunction!(compute_idp_topological_density, m)?)?;
+    m.add_function(wrap_pyfunction!(compute_idp_density_profile_py, m)?)?;
+    m.add_function(wrap_pyfunction!(detect_transient_motifs_py, m)?)?;
     m.add_function(wrap_pyfunction!(discrete_frechet_distance, m)?)?;
     m.add_function(wrap_pyfunction!(read_pdb, m)?)?;
     m.add_function(wrap_pyfunction!(read_pdb_trajectory, m)?)?;

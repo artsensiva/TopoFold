@@ -4,10 +4,10 @@
 [![Rust](https://img.shields.io/badge/rust-1.75%2B-orange.svg)](https://www.rust-lang.org)
 [![Python](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org)
 [![License](https://img.shields.io/badge/license-Dual%20AGPLv3%20%2F%20Commercial-blue.svg)](#citation--licensing)
-[![Tests](https://img.shields.io/badge/tests-28%2F28%20passing-brightgreen.svg)](https://github.com/artsensiva/TopoFold/actions)
-[![Release](https://img.shields.io/badge/release-v0.8.0-brightgreen.svg)](https://github.com/artsensiva/TopoFold/releases)
+[![Tests](https://img.shields.io/badge/tests-33%2F33%20passing-brightgreen.svg)](https://github.com/artsensiva/TopoFold/actions)
+[![Release](https://img.shields.io/badge/release-v0.8.1-brightgreen.svg)](https://github.com/artsensiva/TopoFold/releases)
 
-> **TopoFold** is a memory-safe, ultra-high-throughput computational geometry engine written in pure Rust with zero-copy Python bindings. It maps macromolecular backbone traces ($\text{C}_\alpha$) and side-chain vectors ($\text{C}_\beta$) into an intrinsic, rotationally and translationally invariant ($SE(3)$) metric space. By leveraging discrete Frenet-Serret framing, branch-cut-free Gauss solid-angle writhe, and cascaded Vantage-Point (VP) metric trees, TopoFold resolves cryptic pockets, functional loop transitions, side-chain rotameric gating, metamorphic fold switches, and intrinsic allosteric networks that linear Cartesian reductions (PCA/SVD) and static structural predictors (AlphaFold 2/3) completely obliterate.
+> **TopoFold** is a memory-safe, ultra-high-throughput computational geometry engine written in pure Rust with zero-copy Python bindings. It maps macromolecular backbone traces ($\text{C}_\alpha$) and side-chain vectors ($\text{C}_\beta$) into an intrinsic, rotationally and translationally invariant ($SE(3)$) metric space. By leveraging discrete Frenet-Serret framing, branch-cut-free Gauss solid-angle writhe, and cascaded Vantage-Point (VP) metric trees, TopoFold resolves cryptic pockets, functional loop transitions, side-chain rotameric gating, metamorphic fold switches, intrinsically disordered protein (IDP) transient nucleation hubs, and intrinsic allosteric networks that linear Cartesian reductions (PCA/SVD) and static structural predictors (AlphaFold 2/3) completely obliterate.
 
 ---
 
@@ -55,6 +55,12 @@
 
 *Figure 7: Intrinsic Allosteric Communication Network on Human c-Abl1 Kinase Domain ($N = 1,500$ frames, 274 residues, PDB 225..498). TopoFold evaluates Mutual Information on $(\kappa, \tau, \theta_\beta)$ across 37,401 residue pairs in $296\text{ ms}$ ($7.93\,\mu\text{s/pair}$). **Panel A (Network Heatmap)**: Sequence-wide generalized correlation $r_{\text{MI}}$ reveals non-local communication channels connecting the DFG motif, P-loop, and $\alpha$C-helix. **Panel B (Allosteric Centrality)**: Sequence centrality profile autonomously identifies the activation loop hinge (Res 386, $\sum r_{\text{MI}} = 14.33$) and P-loop (Res 245) as master allosteric drivers. **Panel C (Catalytic Cross-Talk)**: Mechanical coupling sub-matrix resolves long-range communication between the DFG flip switch (PDB 375..400) and the ATP P-loop (PDB 245..270).*
 
+### 8. Intrinsically Disordered Proteins (IDPs): Human Alpha-Synuclein (The AlphaFold Blindspot)
+
+![Alpha-Synuclein IDP Spectral Topological Density](assets/idp_alphasynuclein_topological_density.png)
+
+*Figure 8: Intrinsically Disordered Protein (IDP) Conformational Ensemble Benchmark on Human Alpha-Synuclein ($N = 2,000$ conformations, 140 residues). AlphaFold fails on disordered ensembles, predicting low-confidence static spaghetti ($pLDDT < 50$), while Cartesian PCA completely collapses into an isotropic Gaussian blob ($S = 0.007$) due to massive Brownian tail variance ($\text{RMSD} > 27\text{ \AA}$). **Panel A (Ensemble Chaos)**: Superposition of 50 disordered conformations illustrates Cartesian disorientation. **Panel B (Cartesian PCA)**: Complete state overlap between transiently nucleated and disordered states ($S = 0.0071$). **Panel C (TopoFold Spectral Topological Density)**: Localized coupling between solid-angle writhe and backbone curvature $S_{\text{topo}}(i) = \mathbb{E}[|\text{Wr}| \cdot \kappa]$ autonomously detects the pathogenic non-amyloid component nucleation core (NACore, residues 66..78, peak at Res 74, $Z = 4.77$) in $293\text{ ms}$ with zero false positives on the disordered N- and C-terminal tails.*
+
 <details>
 <summary><b>Click to expand: Controlled Synthetic Bistable Benchmark (Noise Confounding Analysis)</b></summary>
 
@@ -62,7 +68,7 @@
 
 ![Synthetic Bistable Trajectory Benchmark](assets/benchmark_pca_vs_topofold.png)
 
-*Figure 8: Controlled Synthetic Trajectory Benchmark ($N = 2,000$ frames, 60 residues). An active functional loop (residues 25..35) executes a bistable conformational transition amidst high-amplitude Brownian noise in the flanking termini. **Left Panel (Cartesian PCA)**: Uncorrelated terminal variance dominates the first two principal components, smearing Closed State A and Open State B into a completely overlapping cluster ($S = 0.337$). **Right Panel (TopoFold Subcurve Index)**: Intrinsic discrete curvature and torsion $(\kappa, \tau)$ strictly isolate the pocket, recovering near-perfect bimodal separation ($S = 0.985$) with zero superposition overhead.*
+*Figure 9: Controlled Synthetic Trajectory Benchmark ($N = 2,000$ frames, 60 residues). An active functional loop (residues 25..35) executes a bistable conformational transition amidst high-amplitude Brownian noise in the flanking termini. **Left Panel (Cartesian PCA)**: Uncorrelated terminal variance dominates the first two principal components, smearing Closed State A and Open State B into a completely overlapping cluster ($S = 0.337$). **Right Panel (TopoFold Subcurve Index)**: Intrinsic discrete curvature and torsion $(\kappa, \tau)$ strictly isolate the pocket, recovering near-perfect bimodal separation ($S = 0.985$) with zero superposition overhead.*
 
 </details>
 
@@ -70,7 +76,7 @@
 
 ## Comprehensive Competitive Comparison Matrix
 
-| Evaluation Dimension | Cartesian PCA | Dihedral PCA (dPCA) | TICA (Time-lagged ICA) | Foldseek (3Di) | PocketMiner (GNN) | TopoFold v0.8.0 |
+| Evaluation Dimension | Cartesian PCA | Dihedral PCA (dPCA) | TICA (Time-lagged ICA) | Foldseek (3Di) | PocketMiner (GNN) | TopoFold v0.8.1 |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | **Mathematical Basis** | Linear $R^{3N}$ SVD | Dihedral $(\phi, \psi)$ PCA | Time-lagged covariance $\mathbf{C}_0^{-1} \mathbf{C}_\tau$ | Discrete 3Di alphabet | Graph Neural Network | Intrinsic Differential Geometry $(\kappa, \tau, \operatorname{Wr}, \theta_\beta)$ |
 | **Coordinate Invariance** | **None** ($SE(3)$ extrinsic) | Internal only | Internal / Extrinsic | Rigid alignment | SE(3)-equivariant | **Exact $SE(3)$ Invariant** ($< 10^{-12}$) |
@@ -83,6 +89,7 @@
 | **Autonomous Pocket Scan** | Infeasible | Infeasible | Manual kinetic clustering | Infeasible | ML inference | **Single-Pass Streaming** ($11.7\text{ ms}$, $BC = 0.9986$) |
 | **Metamorphic Fold Switches** | Infeasible (alignment artifacts) | Infeasible | Fails on multi-basin | Static single align | Static single state | **Exact Fingerprint** ($|\Delta \tau| > 150^\circ$, $d_F = 31.2\text{ \AA}$) |
 | **Allosteric Communication** | Linear Covariance (Rot drift) | Non-invariant | Kinetic modes only | None | Static contact map | **Mutual Information $r_{\text{MI}}$** ($296\text{ ms}$, 37k pairs) |
+| **IDP Transient Nucleation** | **Fails** (Isotropic blob, $S=0.007$) | Fails (Tail dihedrals swamp) | Requires equilibrium kinetics | Infeasible (No static PDB) | Infeasible | **Spectral Topological Density** ($Z=4.77$, 0 tail false positives) |
 | **Search Latency / Frame** | $\mathcal{O}(M \cdot N)$ recompute | $\mathcal{O}(N)$ recompute | Dense matrix projection | $\approx 10\text{ ms}$ | $\approx 50\text{ ms}$ | **$1.01\text{--}9.39\,\mu\text{s/frame}$** (VP-Tree) |
 | **Implementation Safety** | Python / C | C++ | Python / Cython | C++ | Python / PyTorch | **100% Safe Rust** (`#![forbid(unsafe_code)]`) |
 

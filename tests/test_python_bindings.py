@@ -183,3 +183,62 @@ def test_rotamer_gating_detection():
     assert score > 0.80
     assert c_start <= 10 <= c_end, f"Candidate [{c_start}, {c_end}] must cover rotamer gate at residue 10"
 
+
+def test_idp_spectral_topological_density():
+    # Synthetic 50-residue polymer ensemble across 100 frames
+    n_frames = 100
+    n_res = 50
+    rng = np.random.default_rng(42)
+
+    traj = np.zeros((n_frames, n_res, 3), dtype=np.float32)
+    for f in range(n_frames):
+        # Straight chain
+        for i in range(n_res):
+            traj[f, i] = [i * 3.8, 0.0, 0.0]
+
+    # For collinear chains, local writhe and curvature are identically zero
+    s_topo = tf.compute_idp_topological_density(traj, window_radius=4)
+    assert s_topo.shape == (n_res,)
+    assert np.all(s_topo < 1e-6)
+
+    mean_d, var_d, std_d, z_d = tf.compute_idp_density_profile(traj, window_radius=4)
+    assert len(mean_d) == n_res
+    assert len(var_d) == n_res
+    assert len(std_d) == n_res
+    assert len(z_d) == n_res
+
+
+def test_idp_transient_motif_detection():
+    # Build a 60-residue chain with a chiral helical turn in the center (residues 25..35)
+    n_frames = 100
+    n_res = 60
+    traj = np.zeros((n_frames, n_res, 3), dtype=np.float32)
+
+    for f in range(n_frames):
+        # Base straight chain
+        for i in range(n_res):
+            traj[f, i] = [i * 3.8, 0.0, 0.0]
+
+        # 30% of frames have a chiral helical loop at residues 25..35
+        if f % 3 == 0:
+            for i in range(25, 36):
+                t = (i - 25)
+                angle = t * 1.5
+                traj[f, i] = [25 * 3.8 + t * 1.5, 3.0 * np.cos(angle), 3.0 * np.sin(angle)]
+
+    s_topo = tf.compute_idp_topological_density(traj, window_radius=4)
+    assert s_topo.shape == (n_res,)
+    # Tail residues must have zero/low compactness
+    assert s_topo[5] < 1e-4
+    assert s_topo[55] < 1e-4
+    # Central loop must have elevated compactness
+    assert np.max(s_topo[25:36]) > 0.01
+
+    motifs = tf.detect_transient_motifs(traj, window_size=8, z_threshold=1.0)
+    assert len(motifs) > 0
+    top = motifs[0]
+    # top is (start, end, peak, mean, peak_val, z_score)
+    assert top[0] <= 32 and top[1] >= 28, f"Top motif {top} should cover residues 25..35"
+    assert top[5] > 1.5, f"Expected elevated Z-score, got {top[5]}"
+
+

@@ -25,6 +25,7 @@ pub mod bimodality;
 pub mod distance;
 pub mod error;
 pub mod geometry;
+pub mod idp;
 pub mod invariants;
 pub mod pdb;
 pub mod ribbon;
@@ -45,6 +46,11 @@ pub use error::GeometryError;
 pub use geometry::{
     compute_binormals, compute_curvatures, compute_tangents, compute_torsions,
     extract_curve_invariants, GEOMETRY_EPSILON,
+};
+pub use idp::{
+    compute_frame_topological_compactness, compute_idp_density_profile,
+    compute_idp_density_profile_ribbon, detect_transient_motifs, detect_transient_motifs_backbone,
+    detect_transient_motifs_with_params, IdpDensityProfile, IdpMotif,
 };
 pub use invariants::CurveInvariants;
 pub use pdb::{parse_pdb_ca, parse_pdb_ribbon, parse_pdb_str, PdbError, ResidueMeta};
