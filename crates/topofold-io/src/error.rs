@@ -20,6 +20,10 @@ pub enum TrajectoryError {
     #[error("Invalid trajectory header: {0}")]
     InvalidHeader(String),
 
+    /// Invalid trajectory data format or mismatched dimensions.
+    #[error("Invalid trajectory format: {0}")]
+    InvalidFormat(String),
+
     /// Record size marker does not match expected length.
     #[error("Fortran record size mismatch: expected {expected} bytes, found {found} bytes")]
     RecordSizeMismatch {

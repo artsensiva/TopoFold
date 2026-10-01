@@ -6,6 +6,7 @@ use nalgebra::Point3;
 use numpy::{PyArray1, PyArray2, PyArray3, PyReadonlyArray2, PyReadonlyArray3, PyUntypedArrayMethods};
 use pyo3::exceptions::PyValueError;
 use pyo3::prelude::*;
+use pyo3::IntoPyObjectExt;
 use rayon::prelude::*;
 
 use topofold_core::error::GeometryError;
@@ -61,6 +62,48 @@ fn traces_to_array3(traces: &[BackboneTrace]) -> Result<ndarray::Array3<f32>, Py
             )));
         }
         for (r_idx, pt) in trace.coordinates().iter().enumerate() {
+            arr[[f_idx, r_idx, 0]] = pt.x as f32;
+            arr[[f_idx, r_idx, 1]] = pt.y as f32;
+            arr[[f_idx, r_idx, 2]] = pt.z as f32;
+        }
+    }
+    Ok(arr)
+}
+
+fn cb_trace_to_array2(trace: &BackboneTrace) -> Result<ndarray::Array2<f32>, PyErr> {
+    let cb_coords = trace.cb_coordinates().ok_or_else(|| {
+        PyValueError::new_err("BackboneTrace contains no C-beta coordinates")
+    })?;
+    let n = cb_coords.len();
+    let mut arr = ndarray::Array2::<f32>::zeros((n, 3));
+    for (i, pt) in cb_coords.iter().enumerate() {
+        arr[[i, 0]] = pt.x as f32;
+        arr[[i, 1]] = pt.y as f32;
+        arr[[i, 2]] = pt.z as f32;
+    }
+    Ok(arr)
+}
+
+fn cb_traces_to_array3(traces: &[BackboneTrace]) -> Result<ndarray::Array3<f32>, PyErr> {
+    if traces.is_empty() {
+        return Err(PyValueError::new_err("Trajectory contains 0 frames"));
+    }
+    let f_count = traces.len();
+    let n_residues = traces[0].len();
+    let mut arr = ndarray::Array3::<f32>::zeros((f_count, n_residues, 3));
+    for (f_idx, trace) in traces.iter().enumerate() {
+        let cb_coords = trace.cb_coordinates().ok_or_else(|| {
+            PyValueError::new_err(format!("Frame {} has no C-beta coordinates", f_idx))
+        })?;
+        if cb_coords.len() != n_residues {
+            return Err(PyValueError::new_err(format!(
+                "Frame {} has {} C-beta atoms, expected {}",
+                f_idx,
+                cb_coords.len(),
+                n_residues
+            )));
+        }
+        for (r_idx, pt) in cb_coords.iter().enumerate() {
             arr[[f_idx, r_idx, 0]] = pt.x as f32;
             arr[[f_idx, r_idx, 1]] = pt.y as f32;
             arr[[f_idx, r_idx, 2]] = pt.z as f32;
@@ -145,21 +188,27 @@ fn view_to_trace(view: ndarray::ArrayView2<'_, f32>) -> Result<BackboneTrace, Py
 /// ----------
 /// coords : numpy.ndarray of shape (N, 3), dtype=float32
 ///     Cartesian coordinates of C-alpha atoms in Ångströms.
+/// Computes discrete differential geometry invariants (kappa, tau, writhe, and optional theta_beta).
+///
+/// Parameters
+/// ----------
+/// coords : numpy.ndarray of shape (N, 3), dtype=float32
+///     Coordinates of N C-alpha atoms in Ångströms.
+/// cb_coords : numpy.ndarray of shape (N, 3), dtype=float32, optional
+///     Optional coordinates of N C-beta atoms in Ångströms.
 ///
 /// Returns
 /// -------
-/// (kappa, tau, writhe_spectrum) : tuple of numpy.ndarray of dtype=float64
-///     - kappa: Discrete turning angles in [0, pi] (length N - 2)
-///     - tau: Discrete signed dihedrals in (-pi, pi] (length N - 3)
-///     - writhe_spectrum: Localized sliding-window writhe (length N - 2 * window_radius)
-/// Type alias for the tuple returned by compute_invariants.
-pub type InvariantsTuple = (Py<PyArray1<f64>>, Py<PyArray1<f64>>, Py<PyArray1<f64>>);
-
+/// tuple
+///     - If cb_coords is None: `(kappa, tau, writhe_spectrum)`
+///     - If cb_coords is provided: `(kappa, tau, writhe_spectrum, theta_beta)`
 #[pyfunction]
+#[pyo3(signature = (coords, cb_coords = None))]
 pub fn compute_invariants<'py>(
     py: Python<'py>,
     coords: PyReadonlyArray2<'py, f32>,
-) -> PyResult<InvariantsTuple> {
+    cb_coords: Option<PyReadonlyArray2<'py, f32>>,
+) -> PyResult<Py<PyAny>> {
     let shape = coords.shape();
     if shape.len() != 2 || shape[1] != 3 {
         return Err(PyValueError::new_err(format!(
@@ -186,9 +235,30 @@ pub fn compute_invariants<'py>(
     };
 
     let array_view = coords.as_array();
+    let opt_cb_pts: Option<Vec<Point3<f64>>> = if let Some(ref cb) = cb_coords {
+        let cb_view = cb.as_array();
+        if cb_view.shape() != shape {
+            return Err(PyValueError::new_err(format!(
+                "cb_coords shape {:?} does not match coords shape {:?}",
+                cb_view.shape(),
+                shape
+            )));
+        }
+        Some(
+            cb_view
+                .outer_iter()
+                .map(|r| Point3::new(r[0] as f64, r[1] as f64, r[2] as f64))
+                .collect(),
+        )
+    } else {
+        None
+    };
 
     let (invariants, writhe_spectrum) = py.detach(|| -> Result<(CurveInvariants, Vec<f64>), PyErr> {
-        let trace = view_to_trace(array_view)?;
+        let mut trace = view_to_trace(array_view)?;
+        if let Some(cb_pts) = opt_cb_pts {
+            trace.set_cb_coordinates(cb_pts);
+        }
         let inv = extract_curve_invariants(&trace).map_err(to_py_err)?;
         let wr = compute_local_writhe(&trace, window_radius).map_err(to_py_err)?;
         Ok((inv, wr))
@@ -198,7 +268,68 @@ pub fn compute_invariants<'py>(
     let py_tau = PyArray1::from_vec(py, invariants.torsions).unbind();
     let py_writhe = PyArray1::from_vec(py, writhe_spectrum).unbind();
 
-    Ok((py_kappa, py_tau, py_writhe))
+    if cb_coords.is_some() {
+        let py_theta = PyArray1::from_vec(py, invariants.sidechain_dihedrals).unbind();
+        let tuple = (py_kappa, py_tau, py_writhe, py_theta);
+        tuple.into_py_any(py)
+    } else {
+        let tuple = (py_kappa, py_tau, py_writhe);
+        tuple.into_py_any(py)
+    }
+}
+
+/// Computes the side-chain orientation dihedral angles (theta_beta) between the osculating plane and C-beta.
+///
+/// Parameters
+/// ----------
+/// ca_coords : numpy.ndarray of shape (N, 3), dtype=float32
+///     Coordinates of N C-alpha atoms in Ångströms.
+/// cb_coords : numpy.ndarray of shape (N, 3), dtype=float32
+///     Coordinates of N C-beta atoms in Ångströms.
+///
+/// Returns
+/// -------
+/// numpy.ndarray of shape (N - 2,), dtype=float64
+///     Orientation dihedral angles in radians in (-pi, pi].
+#[pyfunction]
+#[pyo3(signature = (ca_coords, cb_coords))]
+pub fn compute_theta_beta<'py>(
+    py: Python<'py>,
+    ca_coords: PyReadonlyArray2<'py, f32>,
+    cb_coords: PyReadonlyArray2<'py, f32>,
+) -> PyResult<Py<PyArray1<f64>>> {
+    let ca_view = ca_coords.as_array();
+    let cb_view = cb_coords.as_array();
+
+    if ca_view.shape() != cb_view.shape() {
+        return Err(PyValueError::new_err(format!(
+            "ca_coords shape {:?} does not match cb_coords shape {:?}",
+            ca_view.shape(),
+            cb_view.shape()
+        )));
+    }
+    if ca_view.shape()[1] != 3 {
+        return Err(PyValueError::new_err("Expected Nx3 coordinates"));
+    }
+    let n = ca_view.shape()[0];
+    if n < 3 {
+        return Err(PyValueError::new_err("Theta_beta requires at least 3 residues"));
+    }
+
+    let ca_pts: Vec<Point3<f64>> = ca_view
+        .outer_iter()
+        .map(|r| Point3::new(r[0] as f64, r[1] as f64, r[2] as f64))
+        .collect();
+    let cb_pts: Vec<Point3<f64>> = cb_view
+        .outer_iter()
+        .map(|r| Point3::new(r[0] as f64, r[1] as f64, r[2] as f64))
+        .collect();
+
+    let thetas = py.detach(|| {
+        topofold_core::ribbon::compute_sidechain_dihedrals(&ca_pts, &cb_pts).map_err(to_py_err)
+    })?;
+
+    Ok(PyArray1::from_vec(py, thetas).unbind())
 }
 
 /// Two-tier metric search index for protein conformational trajectories.
@@ -505,61 +636,122 @@ impl ConformationalIndex {
     }
 }
 
-/// Reads C-alpha coordinates from a PDB file into a 2D numpy array of shape (N, 3).
+/// Reads C-alpha coordinates (and optional C-beta coordinates) from a PDB file.
+///
+/// Parameters
+/// ----------
+/// path : str
+///     Path to PDB file.
+/// chain : str, optional
+///     Single-character chain ID filter.
+/// extract_cbeta : bool, default=False
+///     If True, returns a tuple `(ca_coords, cb_coords)`.
+///     For Glycine residues lacking C-beta, deterministic pseudo-Cbeta coordinates are computed.
+///
+/// Returns
+/// -------
+/// numpy.ndarray of shape (N, 3), dtype=float32, or tuple of two such arrays if `extract_cbeta=True`.
 #[pyfunction]
-#[pyo3(signature = (path, chain = None))]
+#[pyo3(signature = (path, chain = None, extract_cbeta = false))]
 pub fn read_pdb<'py>(
     py: Python<'py>,
     path: &str,
     chain: Option<char>,
-) -> PyResult<Py<PyArray2<f32>>> {
+    extract_cbeta: bool,
+) -> PyResult<Py<PyAny>> {
     let file = File::open(path).map_err(|e| PyValueError::new_err(e.to_string()))?;
     let (trace, _) = py.detach(|| parse_pdb_ca(BufReader::new(file), chain).map_err(to_pdb_err))?;
-    let arr = trace_to_array2(&trace);
-    Ok(PyArray2::from_owned_array(py, arr).unbind())
+    let ca_arr = trace_to_array2(&trace);
+    let py_ca = PyArray2::from_owned_array(py, ca_arr);
+    if extract_cbeta {
+        let cb_arr = cb_trace_to_array2(&trace)?;
+        let py_cb = PyArray2::from_owned_array(py, cb_arr);
+        (py_ca, py_cb).into_py_any(py)
+    } else {
+        Ok(py_ca.into_any().unbind())
+    }
 }
 
 /// Reads a multi-model PDB trajectory into a 3D numpy array of shape (F, N, 3).
+/// If `extract_cbeta=True`, returns a tuple `(ca_coords, cb_coords)`.
 #[pyfunction]
-#[pyo3(signature = (path, chain = None))]
+#[pyo3(signature = (path, chain = None, extract_cbeta = false))]
 pub fn read_pdb_trajectory<'py>(
     py: Python<'py>,
     path: &str,
     chain: Option<char>,
-) -> PyResult<Py<PyArray3<f32>>> {
+    extract_cbeta: bool,
+) -> PyResult<Py<PyAny>> {
     let file = File::open(path).map_err(|e| PyValueError::new_err(e.to_string()))?;
     let traces = py.detach(|| topofold_io::read_pdb_trajectory(BufReader::new(file), chain).map_err(to_traj_err))?;
-    let arr = traces_to_array3(&traces)?;
-    Ok(PyArray3::from_owned_array(py, arr).unbind())
+    let ca_arr = traces_to_array3(&traces)?;
+    let py_ca = PyArray3::from_owned_array(py, ca_arr);
+    if extract_cbeta {
+        let cb_arr = cb_traces_to_array3(&traces)?;
+        let py_cb = PyArray3::from_owned_array(py, cb_arr);
+        (py_ca, py_cb).into_py_any(py)
+    } else {
+        Ok(py_ca.into_any().unbind())
+    }
 }
 
 /// Reads a binary DCD trajectory file into a 3D numpy array of shape (F, N, 3).
+/// If `cb_indices` is provided, returns `(ca_coords, cb_coords)`.
 #[pyfunction]
-#[pyo3(signature = (path, ca_indices = None))]
+#[pyo3(signature = (path, ca_indices = None, cb_indices = None))]
 pub fn read_dcd<'py>(
     py: Python<'py>,
     path: &str,
     ca_indices: Option<Vec<usize>>,
-) -> PyResult<Py<PyArray3<f32>>> {
+    cb_indices: Option<Vec<Option<usize>>>,
+) -> PyResult<Py<PyAny>> {
     let file = File::open(path).map_err(|e| PyValueError::new_err(e.to_string()))?;
+    let has_cb = cb_indices.is_some();
     let traces = py.detach(|| -> Result<Vec<BackboneTrace>, PyErr> {
         let mut reader = DcdReader::new(BufReader::new(file)).map_err(to_traj_err)?;
         let mut result = Vec::new();
-        while let Some(frame) = reader.next_frame().map_err(to_traj_err)? {
-            let trace = match &ca_indices {
-                Some(indices) => frame.to_backbone_trace(indices).map_err(to_traj_err)?,
-                None => frame.to_all_atoms_trace(),
-            };
-            result.push(trace);
+        match (ca_indices.as_ref(), cb_indices.as_ref()) {
+            (Some(ca_idxs), Some(cb_idxs)) => {
+                while let Some(frame) = reader.next_frame().map_err(to_traj_err)? {
+                    let trace = frame.to_backbone_trace_with_cbeta(ca_idxs, cb_idxs).map_err(to_traj_err)?;
+                    result.push(trace);
+                }
+            }
+            (Some(ca_idxs), None) => {
+                while let Some(frame) = reader.next_frame().map_err(to_traj_err)? {
+                    let trace = frame.to_backbone_trace(ca_idxs).map_err(to_traj_err)?;
+                    result.push(trace);
+                }
+            }
+            (None, Some(_)) => {
+                return Err(PyValueError::new_err("cb_indices requires ca_indices to be specified"));
+            }
+            (None, None) => {
+                while let Some(frame) = reader.next_frame().map_err(to_traj_err)? {
+                    let trace = frame.to_all_atoms_trace();
+                    result.push(trace);
+                }
+            }
         }
         Ok(result)
     })?;
-    let arr = traces_to_array3(&traces)?;
-    Ok(PyArray3::from_owned_array(py, arr).unbind())
+
+    let ca_arr = traces_to_array3(&traces)?;
+    let py_ca = PyArray3::from_owned_array(py, ca_arr);
+    if has_cb {
+        let cb_arr = cb_traces_to_array3(&traces)?;
+        let py_cb = PyArray3::from_owned_array(py, cb_arr);
+        (py_ca, py_cb).into_py_any(py)
+    } else {
+        Ok(py_ca.into_any().unbind())
+    }
 }
 
-/// Helper to convert a 3D ndarray view of shape (F, N, 3) to Vec<BackboneTrace>.
-fn array3_to_traces(coords: &ndarray::ArrayView3<'_, f32>) -> Result<Vec<BackboneTrace>, PyErr> {
+/// Helper to convert 3D ndarray views of shape (F, N, 3) to Vec<BackboneTrace>.
+fn array3_to_traces(
+    coords: &ndarray::ArrayView3<'_, f32>,
+    cb_coords: Option<&ndarray::ArrayView3<'_, f32>>,
+) -> Result<Vec<BackboneTrace>, PyErr> {
     let shape = coords.shape();
     if shape.len() != 3 || shape[2] != 3 {
         return Err(PyValueError::new_err(format!(
@@ -568,10 +760,36 @@ fn array3_to_traces(coords: &ndarray::ArrayView3<'_, f32>) -> Result<Vec<Backbon
         )));
     }
     let f_count = shape[0];
+    let n_residues = shape[1];
+
+    if let Some(cb) = cb_coords {
+        if cb.shape() != shape {
+            return Err(PyValueError::new_err(format!(
+                "cb_coords shape {:?} does not match coords shape {:?}",
+                cb.shape(),
+                shape
+            )));
+        }
+    }
+
     let mut traces = Vec::with_capacity(f_count);
     for f in 0..f_count {
         let frame_view = coords.index_axis(ndarray::Axis(0), f);
-        traces.push(view_to_trace(frame_view)?);
+        let mut ca_points = Vec::with_capacity(n_residues);
+        for row in frame_view.rows() {
+            ca_points.push(Point3::new(row[0] as f64, row[1] as f64, row[2] as f64));
+        }
+
+        if let Some(cb) = cb_coords {
+            let cb_frame_view = cb.index_axis(ndarray::Axis(0), f);
+            let mut cb_points = Vec::with_capacity(n_residues);
+            for row in cb_frame_view.rows() {
+                cb_points.push(Point3::new(row[0] as f64, row[1] as f64, row[2] as f64));
+            }
+            traces.push(BackboneTrace::with_cbeta(ca_points, cb_points));
+        } else {
+            traces.push(BackboneTrace::new(ca_points));
+        }
     }
     Ok(traces)
 }
@@ -579,7 +797,8 @@ fn array3_to_traces(coords: &ndarray::ArrayView3<'_, f32>) -> Result<Vec<Backbon
 /// Scans a conformational trajectory for bistable cryptic pockets and mobile functional loops without prior hints.
 ///
 /// Slides a window of length `window_size` (default: 8 residues) along the backbone C-alpha trace,
-/// evaluates Sarle's Bimodality Coefficient (BC) on intrinsic discrete curve invariants (curvature, torsion),
+/// evaluates Sarle's Bimodality Coefficient (BC) on intrinsic discrete curve invariants (curvature, torsion,
+/// and optional side-chain orientation dihedral theta_beta),
 /// identifies continuous residue clusters where BC >= `bc_threshold` (default: 0.60),
 /// and ranks candidate segments by peak transition score.
 ///
@@ -591,6 +810,8 @@ fn array3_to_traces(coords: &ndarray::ArrayView3<'_, f32>) -> Result<Vec<Backbon
 ///     Length of the sliding subcurve window in residues (must be >= 4).
 /// bc_threshold : float, default=0.60
 ///     Threshold for Sarle's Bimodality Coefficient (values > 0.555 indicate bimodal transitions).
+/// cb_coords : numpy.ndarray of shape (F, N, 3), dtype=float32, optional
+///     Optional C-beta coordinates of F frames across N residues for rotameric gating detection.
 ///
 /// Returns
 /// -------
@@ -598,15 +819,17 @@ fn array3_to_traces(coords: &ndarray::ArrayView3<'_, f32>) -> Result<Vec<Backbon
 ///     List of detected candidate segments as `(start_res, end_res, peak_score)` tuples,
 ///     sorted by transition score in descending order. Residue indices are 0-based inclusive.
 #[pyfunction]
-#[pyo3(signature = (coords, window_size = 8, bc_threshold = 0.6))]
+#[pyo3(signature = (coords, window_size = 8, bc_threshold = 0.6, cb_coords = None))]
 pub fn scan_cryptic_pockets<'py>(
     py: Python<'py>,
     coords: PyReadonlyArray3<'py, f32>,
     window_size: usize,
     bc_threshold: f64,
+    cb_coords: Option<PyReadonlyArray3<'py, f32>>,
 ) -> PyResult<Vec<(usize, usize, f64)>> {
     let array_view = coords.as_array();
-    let traces = array3_to_traces(&array_view)?;
+    let cb_view = cb_coords.as_ref().map(|cb| cb.as_array());
+    let traces = array3_to_traces(&array_view, cb_view.as_ref())?;
     let candidates = py.detach(|| {
         detect_bistable_segments(&traces, window_size, bc_threshold)
     });
@@ -625,23 +848,26 @@ pub fn scan_cryptic_pockets<'py>(
 ///     Trajectory coordinates of F frames across N residues.
 /// window_size : int, default=8
 ///     Length of the sliding subcurve window in residues.
+/// cb_coords : numpy.ndarray of shape (F, N, 3), dtype=float32, optional
+///     Optional C-beta coordinates of F frames across N residues.
 ///
 /// Returns
 /// -------
-/// (scores, bc_tau, bc_kappa) : tuple of numpy.ndarray of dtype=float64
-///     Arrays of length N - window_size + 1 containing:
-///     - scores: Composite bimodality score max(bc_tau, bc_kappa)
-///     - bc_tau: Sarle's bimodality coefficient for discrete torsion tau
-///     - bc_kappa: Sarle's bimodality coefficient for discrete curvature kappa
+/// tuple
+///     - If cb_coords is None: `(scores, bc_tau, bc_kappa)` of dtype=float64
+///     - If cb_coords is provided: `(scores, bc_tau, bc_kappa, bc_theta)` of dtype=float64
 #[pyfunction]
-#[pyo3(signature = (coords, window_size = 8))]
+#[pyo3(signature = (coords, window_size = 8, cb_coords = None))]
 pub fn compute_bimodality_profile<'py>(
     py: Python<'py>,
     coords: PyReadonlyArray3<'py, f32>,
     window_size: usize,
-) -> PyResult<(Py<PyArray1<f64>>, Py<PyArray1<f64>>, Py<PyArray1<f64>>)> {
+    cb_coords: Option<PyReadonlyArray3<'py, f32>>,
+) -> PyResult<Py<PyAny>> {
     let array_view = coords.as_array();
-    let traces = array3_to_traces(&array_view)?;
+    let cb_view = cb_coords.as_ref().map(|cb| cb.as_array());
+    let has_cb = cb_coords.is_some();
+    let traces = array3_to_traces(&array_view, cb_view.as_ref())?;
     let profile = py.detach(|| -> Result<Vec<topofold_core::WindowBimodality>, PyErr> {
         core_bimodality_profile(&traces, window_size).map_err(to_py_err)
     })?;
@@ -650,18 +876,25 @@ pub fn compute_bimodality_profile<'py>(
     let mut scores = Vec::with_capacity(n);
     let mut bc_tau = Vec::with_capacity(n);
     let mut bc_kappa = Vec::with_capacity(n);
+    let mut bc_theta = Vec::with_capacity(n);
 
     for w in profile {
         scores.push(w.score);
         bc_tau.push(w.bc_tau);
         bc_kappa.push(w.bc_kappa);
+        bc_theta.push(w.bc_theta);
     }
 
     let py_scores = PyArray1::from_vec(py, scores).unbind();
     let py_tau = PyArray1::from_vec(py, bc_tau).unbind();
     let py_kappa = PyArray1::from_vec(py, bc_kappa).unbind();
 
-    Ok((py_scores, py_tau, py_kappa))
+    if has_cb {
+        let py_theta = PyArray1::from_vec(py, bc_theta).unbind();
+        (py_scores, py_tau, py_kappa, py_theta).into_py_any(py)
+    } else {
+        (py_scores, py_tau, py_kappa).into_py_any(py)
+    }
 }
 
 /// TopoFold Python module definition.
@@ -669,6 +902,7 @@ pub fn compute_bimodality_profile<'py>(
 fn topofold(m: &Bound<'_, PyModule>) -> PyResult<()> {
     m.add("__doc__", "High-performance SE(3)-invariant discrete differential geometry engine for protein trajectories")?;
     m.add_function(wrap_pyfunction!(compute_invariants, m)?)?;
+    m.add_function(wrap_pyfunction!(compute_theta_beta, m)?)?;
     m.add_function(wrap_pyfunction!(scan_cryptic_pockets, m)?)?;
     m.add_function(wrap_pyfunction!(compute_bimodality_profile, m)?)?;
     m.add_function(wrap_pyfunction!(read_pdb, m)?)?;

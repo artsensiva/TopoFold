@@ -197,10 +197,21 @@ pub fn extract_curve_invariants(trace: &BackboneTrace) -> Result<CurveInvariants
     let curvatures = compute_curvatures(&tangents)?;
     let torsions = compute_torsions(&tangents)?;
 
+    let sidechain_dihedrals = if let Some(cb_coords) = trace.cb_coordinates() {
+        if cb_coords.len() == trace.len() {
+            crate::ribbon::compute_sidechain_dihedrals(trace.coordinates(), cb_coords)?
+        } else {
+            Vec::new()
+        }
+    } else {
+        Vec::new()
+    };
+
     Ok(CurveInvariants {
         segment_lengths,
         curvatures,
         torsions,
+        sidechain_dihedrals,
     })
 }
 

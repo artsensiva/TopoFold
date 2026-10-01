@@ -210,7 +210,9 @@ pub struct WindowBimodality {
     pub bc_tau: f64,
     /// Sarle's bimodality coefficient for mean discrete curvature $\kappa$.
     pub bc_kappa: f64,
-    /// Composite bimodality score: $\max(BC_\tau, BC_\kappa)$.
+    /// Sarle's bimodality coefficient for mean side-chain orientation dihedral $\theta_\beta$.
+    pub bc_theta: f64,
+    /// Composite bimodality score: $\max(BC_\tau, BC_\kappa, BC_\theta)$.
     pub score: f64,
 }
 
@@ -227,6 +229,8 @@ pub struct PocketCandidate {
     pub bc_tau: f64,
     /// Sarle's bimodality coefficient for discrete curvature at the peak window.
     pub bc_kappa: f64,
+    /// Sarle's bimodality coefficient for side-chain orientation dihedral at the peak window.
+    pub bc_theta: f64,
     /// Starting residue index of the peak window within the cluster.
     pub peak_res: usize,
 }
@@ -280,6 +284,8 @@ pub fn compute_bimodality_profile(
 
         let mut moments_tau = StreamingMoments::new();
         let mut moments_kappa = StreamingMoments::new();
+        let mut moments_theta = StreamingMoments::new();
+        let has_theta = !invariants.is_empty() && !invariants[0].sidechain_dihedrals.is_empty();
 
         for inv in &invariants {
             // Mean discrete curvature across the window
@@ -291,17 +297,30 @@ pub fn compute_bimodality_profile(
             let t_sum: f64 = inv.torsions[i..i + n_torsions].iter().sum();
             let t_mean = t_sum / (n_torsions as f64);
             moments_tau.update(t_mean);
+
+            // Mean side-chain orientation dihedral across the window (if available)
+            if has_theta && inv.sidechain_dihedrals.len() >= i + n_kappas {
+                let th_sum: f64 = inv.sidechain_dihedrals[i..i + n_kappas].iter().sum();
+                let th_mean = th_sum / (n_kappas as f64);
+                moments_theta.update(th_mean);
+            }
         }
 
         let bc_tau = moments_tau.bimodality_coefficient();
         let bc_kappa = moments_kappa.bimodality_coefficient();
-        let score = bc_tau.max(bc_kappa);
+        let bc_theta = if has_theta {
+            moments_theta.bimodality_coefficient()
+        } else {
+            0.0
+        };
+        let score = bc_tau.max(bc_kappa).max(bc_theta);
 
         profile.push(WindowBimodality {
             window_start,
             window_end,
             bc_tau,
             bc_kappa,
+            bc_theta,
             score,
         });
     }
@@ -376,6 +395,7 @@ pub fn detect_bistable_segments_with_gap(
         let mut peak_score = 0.0;
         let mut peak_tau = 0.0;
         let mut peak_kappa = 0.0;
+        let mut peak_theta = 0.0;
         let mut peak_res = start_res;
 
         for &w_idx in &cluster {
@@ -384,6 +404,7 @@ pub fn detect_bistable_segments_with_gap(
                 peak_score = w.score;
                 peak_tau = w.bc_tau;
                 peak_kappa = w.bc_kappa;
+                peak_theta = w.bc_theta;
                 peak_res = w.window_start;
             }
         }
@@ -394,6 +415,7 @@ pub fn detect_bistable_segments_with_gap(
             score: peak_score,
             bc_tau: peak_tau,
             bc_kappa: peak_kappa,
+            bc_theta: peak_theta,
             peak_res,
         });
     }
@@ -540,6 +562,56 @@ mod tests {
         assert!(
             best.start_res <= 12 && best.end_res >= 6,
             "Detected candidate [{}, {}] must overlap flip region [6, 12]",
+            best.start_res,
+            best.end_res
+        );
+    }
+
+    #[test]
+    fn test_detect_bistable_sidechain_rotamer_gating() {
+        // Backbone C-alpha coordinates are completely STATIC across 100 frames (zero Cartesian/kappa/tau shift).
+        // Residues 7..12 undergo a pure rotameric side-chain gating flip:
+        // Frames 0..49: C-beta oriented at theta ~ 0
+        // Frames 50..99: C-beta oriented at theta ~ pi/2
+        let n_frames = 100;
+        let n_residues = 20;
+        let mut traces = Vec::with_capacity(n_frames);
+
+        for f in 0..n_frames {
+            let mut ca_coords = Vec::with_capacity(n_residues);
+            let mut cb_coords = Vec::with_capacity(n_residues);
+
+            for i in 0..n_residues {
+                let angle = i as f64 * 0.8;
+                let ca = [i as f64 * 2.0, angle.sin() * 2.0, angle.cos() * 2.0];
+                ca_coords.push(ca);
+
+                // Default side-chain orientation
+                let mut cb = [ca[0], ca[1] + 1.5, ca[2]];
+                if f >= 50 && (7..=12).contains(&i) {
+                    // Rotameric gating flip: side-chain swings out of plane
+                    cb = [ca[0], ca[1], ca[2] + 1.5];
+                }
+                cb_coords.push(cb);
+            }
+            traces.push(BackboneTrace::from_arrays_with_cbeta(&ca_coords, &cb_coords));
+        }
+
+        let candidates = detect_bistable_segments(&traces, 8, 0.6);
+        assert!(
+            !candidates.is_empty(),
+            "Rotameric side-chain gating must be detected even with static backbone"
+        );
+
+        let best = &candidates[0];
+        assert!(
+            best.bc_theta > 0.8,
+            "bc_theta should reflect sharp bimodal rotamer switch, got {}",
+            best.bc_theta
+        );
+        assert!(
+            best.start_res <= 12 && best.end_res >= 7,
+            "Detected segment [{}, {}] must capture rotamer gating region [7, 12]",
             best.start_res,
             best.end_res
         );

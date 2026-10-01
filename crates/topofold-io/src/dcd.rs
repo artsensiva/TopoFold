@@ -109,6 +109,105 @@ impl DcdFrame {
         }
         BackboneTrace::new(points)
     }
+
+    /// Converts coordinates into a `BackboneTrace` with matching C-alpha and C-beta coordinates.
+    ///
+    /// If a residue lacks a C-beta atom (e.g. Glycine, marked with `None` in `cb_indices`),
+    /// its pseudo-Cbeta coordinate is deterministically constructed from the backbone bisector.
+    ///
+    /// # Errors
+    /// Returns [`TrajectoryError::IndexOutOfBounds`] if any atom index is `>= n_atoms`.
+    /// Returns [`TrajectoryError::InvalidFormat`] if `ca_indices.len() != cb_indices.len()`.
+    pub fn to_backbone_trace_with_cbeta(
+        &self,
+        ca_indices: &[usize],
+        cb_indices: &[Option<usize>],
+    ) -> Result<BackboneTrace, TrajectoryError> {
+        let n_atoms = self.x.len();
+        if ca_indices.len() != cb_indices.len() {
+            return Err(TrajectoryError::InvalidFormat(format!(
+                "ca_indices length ({}) does not match cb_indices length ({})",
+                ca_indices.len(),
+                cb_indices.len()
+            )));
+        }
+
+        let mut ca_points = Vec::with_capacity(ca_indices.len());
+        let mut cb_points = Vec::with_capacity(cb_indices.len());
+
+        for (&ca_idx, &opt_cb_idx) in ca_indices.iter().zip(cb_indices.iter()) {
+            if ca_idx >= n_atoms {
+                return Err(TrajectoryError::IndexOutOfBounds {
+                    index: ca_idx,
+                    n_atoms,
+                });
+            }
+            let ca_pt = Point3::new(
+                self.x[ca_idx] as f64,
+                self.y[ca_idx] as f64,
+                self.z[ca_idx] as f64,
+            );
+            ca_points.push(ca_pt);
+
+            let cb_pt = match opt_cb_idx {
+                Some(cb_idx) => {
+                    if cb_idx >= n_atoms {
+                        return Err(TrajectoryError::IndexOutOfBounds {
+                            index: cb_idx,
+                            n_atoms,
+                        });
+                    }
+                    Point3::new(
+                        self.x[cb_idx] as f64,
+                        self.y[cb_idx] as f64,
+                        self.z[cb_idx] as f64,
+                    )
+                }
+                None => ca_pt, // placeholder for second pass
+            };
+            cb_points.push(cb_pt);
+        }
+
+        // Fill in pseudo-CB for residues lacking C-beta
+        for i in 0..cb_points.len() {
+            if cb_indices[i].is_none() {
+                let prev_ca = if i > 0 {
+                    ca_points[i - 1]
+                } else if ca_points.len() > 1 {
+                    ca_points[i] + (ca_points[i] - ca_points[i + 1])
+                } else {
+                    ca_points[i] + nalgebra::Vector3::new(0.0, 0.0, 1.0)
+                };
+                let next_ca = if i + 1 < ca_points.len() {
+                    ca_points[i + 1]
+                } else if ca_points.len() > 1 {
+                    ca_points[i] + (ca_points[i] - ca_points[i - 1])
+                } else {
+                    ca_points[i] + nalgebra::Vector3::new(0.0, 0.0, -1.0)
+                };
+                cb_points[i] = topofold_core::ribbon::compute_pseudo_cbeta_from_ca(prev_ca, ca_points[i], next_ca);
+            }
+        }
+
+        Ok(BackboneTrace::with_cbeta(ca_points, cb_points))
+    }
+
+    /// Converts coordinates into an oriented [`topofold_core::RibbonTrace`].
+    ///
+    /// # Errors
+    /// Returns [`TrajectoryError`] if atom indices are invalid or out of bounds.
+    pub fn to_ribbon_trace(
+        &self,
+        ca_indices: &[usize],
+        cb_indices: &[Option<usize>],
+    ) -> Result<topofold_core::RibbonTrace, TrajectoryError> {
+        let trace = self.to_backbone_trace_with_cbeta(ca_indices, cb_indices)?;
+        topofold_core::RibbonTrace::new(
+            trace.coordinates().to_vec(),
+            trace.cb_coordinates().unwrap().to_vec(),
+        )
+        .map_err(|e| TrajectoryError::InvalidFormat(e.to_string()))
+    }
 }
 
 /// Reads a single Fortran unformatted binary record.
@@ -353,6 +452,38 @@ impl<R: Read> DcdReader<R> {
 
         self.current_frame += 1;
         Ok(Some(frame))
+    }
+
+    /// Streams all frames as `BackboneTrace`s with matching C-alpha and C-beta coordinates.
+    ///
+    /// # Errors
+    /// Returns [`TrajectoryError`] if trajectory reading fails or indices are out of bounds.
+    pub fn read_trajectory_with_cbeta(
+        &mut self,
+        ca_indices: &[usize],
+        cb_indices: &[Option<usize>],
+    ) -> Result<Vec<BackboneTrace>, TrajectoryError> {
+        let mut traces = Vec::new();
+        while let Some(frame) = self.next_frame()? {
+            traces.push(frame.to_backbone_trace_with_cbeta(ca_indices, cb_indices)?);
+        }
+        Ok(traces)
+    }
+
+    /// Streams all frames as [`topofold_core::RibbonTrace`]s.
+    ///
+    /// # Errors
+    /// Returns [`TrajectoryError`] if trajectory reading fails or indices are out of bounds.
+    pub fn read_ribbon_trajectory(
+        &mut self,
+        ca_indices: &[usize],
+        cb_indices: &[Option<usize>],
+    ) -> Result<Vec<topofold_core::RibbonTrace>, TrajectoryError> {
+        let mut ribbons = Vec::new();
+        while let Some(frame) = self.next_frame()? {
+            ribbons.push(frame.to_ribbon_trace(ca_indices, cb_indices)?);
+        }
+        Ok(ribbons)
     }
 }
 

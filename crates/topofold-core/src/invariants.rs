@@ -20,6 +20,10 @@ pub struct CurveInvariants {
     /// Discrete torsion (signed dihedral angles) `tau_i` in radians `(-pi, pi]`, for `i = 1 .. N-3`.
     /// Length = N - 3.
     pub torsions: Vec<f64>,
+
+    /// Side-chain orientation dihedral angles `theta_beta_i` in radians `(-pi, pi]`, for `i = 1 .. N-2`.
+    /// Length = N - 2 (or empty if no side-chain data is available).
+    pub sidechain_dihedrals: Vec<f64>,
 }
 
 impl CurveInvariants {
@@ -62,10 +66,17 @@ impl CurveInvariants {
         // For subcurve, internal segments are start + 1 ..= end - 2
         let tors = self.torsions.get(start..end - 2)?.to_vec();
 
+        let sc_dihedrals = if !self.sidechain_dihedrals.is_empty() {
+            self.sidechain_dihedrals.get(start..end - 1)?.to_vec()
+        } else {
+            Vec::new()
+        };
+
         Some(CurveInvariants {
             segment_lengths: segs,
             curvatures: curvs,
             torsions: tors,
+            sidechain_dihedrals: sc_dihedrals,
         })
     }
 }

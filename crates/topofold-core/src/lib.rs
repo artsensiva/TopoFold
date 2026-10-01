@@ -26,6 +26,7 @@ pub mod error;
 pub mod geometry;
 pub mod invariants;
 pub mod pdb;
+pub mod ribbon;
 pub mod types;
 pub mod writhe;
 
@@ -43,7 +44,11 @@ pub use geometry::{
     extract_curve_invariants, GEOMETRY_EPSILON,
 };
 pub use invariants::CurveInvariants;
-pub use pdb::{parse_pdb_ca, parse_pdb_str, PdbError, ResidueMeta};
+pub use pdb::{parse_pdb_ca, parse_pdb_ribbon, parse_pdb_str, PdbError, ResidueMeta};
+pub use ribbon::{
+    compute_glycine_pseudo_cbeta, compute_pseudo_cbeta_from_ca, compute_sidechain_dihedrals,
+    extract_ribbon_invariants, RibbonTrace, STANDARD_CA_CB_BOND_LENGTH,
+};
 pub use types::BackboneTrace;
 pub use writhe::{compute_local_writhe, compute_total_writhe};
 

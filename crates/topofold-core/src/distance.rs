@@ -230,6 +230,7 @@ mod tests {
             segment_lengths: vec![3.8, 3.8, 3.8],
             curvatures: vec![1.5, 1.5, 1.5],
             torsions: vec![0.8, 0.8],
+            sidechain_dihedrals: vec![],
         };
 
         let dist = discrete_frechet_invariants(&inv, &inv, 1.0, 1.0);
