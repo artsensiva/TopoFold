@@ -11,7 +11,7 @@
 TopoFold computes discrete differential-geometry descriptors of Cα (and RNA phosphorus) traces — virtual bond angles (curvature κ), virtual torsions (τ), local writhe and a Cβ orientation angle — and uses them for alignment-free comparison, indexing and screening of conformational ensembles. The descriptors depend only on internal geometry, so no structural superposition is needed, and the descriptors of a residue window depend only on that window and its immediate neighbours.
 
 > **Project status: research prototype under scientific re-validation.**
-> The software runs and its core geometry is tested, but **no biological claim of this project is currently validated on real, independently generated data.** See the correction notice below and [`docs/KNOWN_ISSUES.md`](docs/KNOWN_ISSUES.md).
+> The software runs and its core geometry is tested. **No current claims about biomolecular dynamics, thermodynamics, kinetics, pocket detection, or comparative method superiority have yet been validated on independently generated trajectory data.** XCL1 remains a real static structural example, but its current distance-based interpretation requires correction. See the correction notice below and [`docs/KNOWN_ISSUES.md`](docs/KNOWN_ISSUES.md).
 
 ---
 
@@ -35,11 +35,11 @@ All figures in `assets/` belong to v0.8.3 and carry the old labels; they are kep
 | --- | --- | --- |
 | Curvature κᵢ | Turning angle between consecutive Cα–Cα tangents, κᵢ ∈ [0, π] (virtual bond angle supplement) | Implemented, tested (SE(3) invariance, reflection) |
 | Torsion τᵢ | Signed dihedral between consecutive osculating planes, τᵢ ∈ (−π, π] (Cα virtual torsion) | Implemented, tested |
-| Writhe (total, local window) | Discrete Gauss integral over segment pairs via solid angles (van Oosterom–Strackee) | Implemented; **normalisation and sign bug** (returns −½ of the standard value), fix pending |
+| Writhe (total, local window) | Discrete Gauss integral over segment pairs via solid angles (van Oosterom–Strackee) | Implemented; **normalisation issue** (audit reproduction yields −0.500 ratio vs numerical reference; normalization/sign convention validation pending Phase 3) |
 | Cβ orientation θβ | Angle of the Cα→Cβ vector in the local Frenet frame | Implemented; a backbone descriptor, **not** a side-chain rotamer descriptor |
 | RNA invariants | κ, τ on P atoms; base vector C1′→N9/N1 | Implemented; base vector lies along the glycosidic bond and cannot measure χ (syn/anti), fix pending |
 | Window bimodality scan | Sarle's bimodality coefficient of window-averaged descriptors over an ensemble | Implemented as a **heuristic**; no circular statistics, no calibrated null model yet |
-| Subcurve search | VP-tree over writhe spectra, re-ranked by discrete Fréchet distance in (κ, τ) | Implemented; the cascade is **approximate** (recall not yet measured) |
+| Subcurve search | Full-frame `query()`: approximate VP-tree cascade over writhe spectra + (κ, τ) Fréchet. Subcurve `query_subcurve()`: exhaustive search using invariant Fréchet distance | Implemented; full-frame cascade is **approximate** (recall not yet measured); subcurve is exhaustive |
 | Correlation network | Gaussian (covariance-based) mutual information between per-residue (κ, τ, θβ) | Implemented; no significance testing yet |
 
 ## What TopoFold does not (yet) do
@@ -88,7 +88,8 @@ traj = tf.read_dcd("trajectory.dcd")
 # Window-wise bimodality profile (screening heuristic, see KNOWN_ISSUES)
 scores, bc_tau, bc_kappa = tf.compute_bimodality_profile(traj, window_size=8)
 
-# Approximate nearest-neighbour search of a residue window across frames
+# Exhaustive subcurve nearest-neighbour search across frames
+# (query_subcurve uses invariant Fréchet distance; full-frame query() uses VP-tree cascade)
 index = tf.ConformationalIndex(window_size=8, coarse_radius=0.5)
 index.fit(traj)
 hits = index.query_subcurve(start_res=9, end_res=17, query_coords=ca, k=10)

@@ -25,7 +25,7 @@ TopoFold does not introduce new descriptors. Its intended contribution is practi
 For a Cα trace r₀…r_{N−1} with unit tangents Tᵢ = (r_{i+1} − rᵢ)/‖r_{i+1} − rᵢ‖, curvature is κᵢ = arccos(T_{i−1}·Tᵢ) ∈ [0, π], and torsion is the signed dihedral between consecutive binormals Bᵢ = T_{i−1}×Tᵢ/‖·‖, τᵢ = atan2((B_{i−1}×Bᵢ)·Tᵢ, B_{i−1}·Bᵢ) ∈ (−π, π]. κ is invariant under all rigid motions and reflections; τ is invariant under proper rigid motions (SE(3)) and changes sign under reflection. Typical values: α-helix τ ≈ +50°, β-strand τ ≈ −170° (close to the ±π branch cut, see §2.4).
 
 ### 2.2 Writhe
-For a polygonal curve, Wr = (1/2π) Σ_{i<j, |i−j|>1} Ω_{ij}, where Ω_{ij} is the signed solid angle of the spherical quadrilateral formed by segment pair (i, j), computed with the van Oosterom–Strackee triangle formula (Klenin & Langowski, 2000). Local writhe is the same sum restricted to a window. Writhe is an SE(3)-invariant geometric quantity, not a topological invariant. *Implementation note: v0.8.3 returns −½ of this value (KNOWN_ISSUES M1); fix pending.*
+For a polygonal curve, Wr = (1/2π) Σ_{i<j, |i−j|>1} Ω_{ij}, where Ω_{ij} is the signed solid angle of the spherical quadrilateral formed by segment pair (i, j), computed with the van Oosterom–Strackee triangle formula (Klenin & Langowski, 2000). Local writhe is the same sum restricted to a window. Writhe is an SE(3)-invariant geometric quantity, not a topological invariant. *Implementation note: v0.8.3 audit reproduction yields a −0.500 ratio relative to numerical Gauss-integral and polygonal references. The normalization and sign convention remain subject to independent Phase-3 validation (KNOWN_ISSUES M1).*
 
 ### 2.3 Cβ orientation angle
 θβ,ᵢ is the angle of the Cα→Cβ unit vector in the local frame (Bᵢ, Nᵢ). Because Cβ is fixed by the N–Cα–C geometry, θβ encodes backbone geometry and does not report side-chain rotamers. Side-chain descriptors (χ angles or centroid vectors) are planned as a separate feature set.
@@ -37,7 +37,7 @@ For each window of w residues and each descriptor, the window average is compute
 Frames are indexed by a vantage-point tree over local-writhe spectra; candidates are re-ranked by a distance in (κ, τ). The cascade is approximate; we report Recall@k against brute force (§6). [Distance definition for same-sequence frames: per-residue distance vs discrete Fréchet — to be decided, KNOWN_ISSUES M5.]
 
 ### 2.6 Correlation network
-Per-residue feature vectors (κ, sin τ, cos τ, …) are compared with a Gaussian mutual-information estimate I = −½ log(det C_ij / (det C_i det C_j)) and generalised correlation r = √(1 − e^(−2I/d)) (Lange & Grubmüller, 2006). [Exact estimator, copula normalisation and significance testing: TBD, KNOWN_ISSUES M7.]
+Per-residue feature vectors of the current centered descriptors (κ, τ, θβ) are compared with a covariance-based regularized Gaussian mutual-information estimate I = −½ log(det C_ij / (det C_i det C_j)) and transformed to r = √(1 − e^(−2I)). The current v0.8.3 implementation does not use (sin τ, cos τ) embedding, copula normalization or the /d dimensional adjustment. [Planned changes: circular-variable treatment, estimator choice, significance testing — KNOWN_ISSUES M7.]
 
 ### 2.7 Implementation
 Rust workspace (core geometry, index, I/O, PyO3 bindings), `#![forbid(unsafe_code)]`, Rayon parallelism; DCD and multi-model PDB readers. Complexity: O(N) per frame for κ, τ, θβ; O(w²) per window for local writhe.
@@ -51,7 +51,7 @@ Rust workspace (core geometry, index, I/O, PyO3 bindings), `#![forbid(unsafe_cod
 
 ## 4. Controlled synthetic experiments
 
-Synthetic ensembles with injected local transitions and noisy termini test whether a method recovers a known signal. All methods receive the same information. Preliminary result with an independent NumPy re-implementation on the project's synthetic bistable benchmark (60 residues, loop 25–35, 2000 frames, true labels known):
+Synthetic ensembles with injected local transitions and noisy termini test whether a method recovers a known signal. All local methods receive the same target loop; global Cartesian PCA is retained only as a contextual global baseline. Future validation requires both equal-information local-vs-local comparisons and blind-localisation experiments. Preliminary result with an independent NumPy re-implementation on the project's synthetic bistable benchmark (60 residues, loop 25–35, 2000 frames, true labels known):
 
 | Representation (same loop for local methods) | Silhouette |
 | --- | --- |
