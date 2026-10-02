@@ -58,6 +58,7 @@ def render_3dmol_viewer(
     res_count: int = 0,
     height: int = 520,
     is_rna: bool = False,
+    is_idp: bool = False,
 ) -> str:
     """
     Renders an interactive 3D molecular structure using 3Dmol.js embedded via HTML.
@@ -65,16 +66,24 @@ def render_3dmol_viewer(
     Features:
       - Robust multi-CDN loader with sequential fallbacks (cdnjs -> Pitt -> jsdelivr -> 3Dmol.org).
       - HTML-escaped raw PDB text embedding via hidden textarea (immune to JS quoting/newline issues).
-      - Scaffold: semi-transparent light grey cartoon / RNA ribbon (opacity: 0.6).
-      - Discovered Pocket / Hinge: vivid orange/red cartoon (#FF5722) + sticks for side-chains/bases (radius: 0.2).
+      - Scaffold: semi-transparent light grey cartoon / RNA ribbon / disordered wireframe + trace.
+      - Discovered Pocket / Hinge / Motif: vivid orange/red (#FF5722) cartoon + sticks / spheres.
+      - Responsive ResizeObserver & staggered redraws (guarantees no blank grey canvas on load/resize).
       - Explicit dimensions (width: 100%, height: 520px) with WebGL initialization error boundary.
       - Status text indicator: 'Status: WebGL rendered N residues'.
     """
     hl_start, hl_end = highlight_range if highlight_range else (-1, -1)
     escaped_pdb_html = html.escape(pdb_str)
     pocket_label = f"Res {hl_start}..{hl_end}" if (hl_start > 0 and hl_end >= hl_start) else "None"
-    scaffold_label = "RNA Ribbon" if is_rna else "Cartoon"
-    highlight_label = "Switching Hinge" if is_rna else "Pocket"
+    if is_idp:
+        scaffold_label = "Disordered Wireframe/Trace"
+        highlight_label = "Transient Motif"
+    elif is_rna:
+        scaffold_label = "RNA Ribbon"
+        highlight_label = "Switching Hinge"
+    else:
+        scaffold_label = "Cartoon"
+        highlight_label = "Pocket"
 
     html_content = f"""<!DOCTYPE html>
 <html>
@@ -95,6 +104,7 @@ def render_3dmol_viewer(
     #viewer-container {{
       width: 100%;
       height: {height}px;
+      min-height: {height}px;
       position: relative;
       background-color: #111318;
       border-radius: 8px;
@@ -228,12 +238,27 @@ def render_3dmol_viewer(
 
         viewer.addModel(pdbData, "pdb");
 
-        // 1. Scaffold representation: semi-transparent light grey cartoon
-        viewer.setStyle({{}}, {{
-          cartoon: {{ color: 'lightgrey', opacity: 0.6 }}
-        }});
+        const isIdp = {"true" if is_idp else "false"};
+        const isRna = {"true" if is_rna else "false"};
 
-        // 2. Discovered Pocket: vivid orange/red cartoon + sticks for side-chains
+        // 1. Scaffold representation
+        if (isIdp) {{
+          // IDP: wireframe line and trace for disordered backbone
+          viewer.setStyle({{}}, {{
+            line: {{ color: '#8892b0', opacity: 0.6, linewidth: 2.0 }},
+            trace: {{ color: '#a0aec0', opacity: 0.5, radius: 0.15 }}
+          }});
+        }} else if (isRna) {{
+          viewer.setStyle({{}}, {{
+            cartoon: {{ color: 'lightgrey', opacity: 0.6, ribbon: true }}
+          }});
+        }} else {{
+          viewer.setStyle({{}}, {{
+            cartoon: {{ color: 'lightgrey', opacity: 0.6 }}
+          }});
+        }}
+
+        // 2. Discovered Pocket / Motif / Switching Hinge
         const hlStart = {hl_start};
         const hlEnd = {hl_end};
         if (hlStart > 0 && hlEnd >= hlStart) {{
@@ -241,18 +266,58 @@ def render_3dmol_viewer(
           for (let r = hlStart; r <= hlEnd; r++) {{
             pocketResis.push(r);
           }}
-          viewer.addStyle(
-            {{ resi: pocketResis }},
-            {{
-              cartoon: {{ color: '#FF5722', opacity: 1.0 }},
-              stick: {{ color: '#FF5722', radius: 0.2 }}
-            }}
-          );
+          if (isIdp) {{
+            viewer.addStyle(
+              {{ resi: pocketResis }},
+              {{
+                cartoon: {{ color: '#FF5722', opacity: 1.0 }},
+                stick: {{ color: '#FF5722', radius: 0.25 }},
+                sphere: {{ color: '#FF5722', radius: 0.35 }}
+              }}
+            );
+          }} else if (isRna) {{
+            viewer.addStyle(
+              {{ resi: pocketResis }},
+              {{
+                cartoon: {{ color: '#FF5722', opacity: 1.0, ribbon: true }},
+                stick: {{ color: '#FF5722', radius: 0.22 }}
+              }}
+            );
+          }} else {{
+            viewer.addStyle(
+              {{ resi: pocketResis }},
+              {{
+                cartoon: {{ color: '#FF5722', opacity: 1.0 }},
+                stick: {{ color: '#FF5722', radius: 0.2 }}
+              }}
+            );
+          }}
         }}
 
         viewer.zoomTo();
         viewer.render();
         viewer.spin('y', 0.3);
+
+        // Staggered resize and observer to prevent empty canvas issues on layout load
+        function doResize() {{
+          if (viewer) {{
+            viewer.resize();
+            viewer.render();
+          }}
+        }}
+
+        window.addEventListener('resize', doResize);
+        if (window.ResizeObserver) {{
+          const ro = new ResizeObserver(() => {{
+            doResize();
+          }});
+          ro.observe(container);
+        }}
+
+        // Staggered resize triggers for iframe/tabs settling
+        [50, 150, 350, 700, 1200].forEach(delay => {{
+          setTimeout(doResize, delay);
+        }});
 
         // Count unique rendered residues
         const atoms = viewer.selectedAtoms({{}});
@@ -663,7 +728,7 @@ def run_dashboard():
                         y=z_th, line_dash="dot", line_color="#E91E63",
                         annotation_text=f"Z Cutoff ({z_th:.1f})",
                         annotation_position="bottom right",
-                        y_ref="y2",
+                        yref="y2",
                     )
                     fig.update_layout(
                         xaxis_title="PDB Residue Sequence Number",
@@ -740,7 +805,7 @@ def run_dashboard():
 
                 st.markdown(
                     f"**Active Highlight**: Transiently nucleated segment PDB Residues `{selected_pdb_range[0]}..{selected_pdb_range[1]}` "
-                    f"*(Vivid Orange/Red Cartoon & Sticks)* with disordered tails *(Semi-Transparent Light Grey Cartoon)*."
+                    f"*(Vivid Orange/Red Cartoon & Sticks)* with disordered tails *(Disordered Wireframe/Trace)*."
                 )
 
                 html_viewer = render_3dmol_viewer(
@@ -748,6 +813,7 @@ def run_dashboard():
                     highlight_range=selected_pdb_range,
                     res_count=len(res_ids),
                     height=520,
+                    is_idp=True,
                 )
                 st.components.v1.html(html_viewer, height=565)
 
@@ -1050,6 +1116,7 @@ def run_dashboard():
                 res_count=len(res_ids),
                 height=520,
                 is_rna=is_rna,
+                is_idp=is_idp,
             )
             st.components.v1.html(html_viewer, height=565)
 

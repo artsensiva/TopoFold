@@ -13,6 +13,7 @@ __pycache__/
 env/
 venv/
 wheels/
+dist/
 *.egg-info/
 
 # IDE & OS
@@ -29,6 +30,7 @@ wheels/
 *.nc
 data/
 raw_data/
+benchmarks/data/zenodo_*/
 
 # Local agents & scratch
 .agents/
