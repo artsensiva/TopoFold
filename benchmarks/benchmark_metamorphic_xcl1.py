@@ -3,6 +3,8 @@
 TopoFold Benchmark: Metamorphic & Fold-Switching Proteins (Lymphotactin XCL1)
 =============================================================================
 
+*** DATA PROVENANCE: two real NMR structures (1J9O, 2JP1) compared statically. The Frechet distance used here is Cartesian without alignment, not SE(3)-invariant (docs/KNOWN_ISSUES.md, M5); the pLDDT value in the figure was never computed. ***
+
 Validates TopoFold's SE(3)-invariant differential geometry on metamorphic /
 fold-switching proteins where static structure prediction engines (AlphaFold 2/3)
 suffer from single-state blindspots.

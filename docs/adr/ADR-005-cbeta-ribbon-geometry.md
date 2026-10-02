@@ -1,5 +1,7 @@
 # ADR-005: $\text{C}_\beta$ Ribbon Vector Dihedrals over All-Atom Cartesian Representations
 
+> **Erratum (Oct 2026) — rotamer claim withdrawn.** Cβ is fixed by the N–Cα–C geometry; χ1 rotation moves Cγ, not Cβ. θβ is therefore a backbone descriptor and cannot detect rotameric gating. The supporting benchmark rotated Cβ around a fixed Cα, which is physically impossible. The in-plane glycine pseudo-Cβ is also inconsistent with tetrahedral geometry. See `docs/KNOWN_ISSUES.md`, C4.
+
 ## Status
 Accepted (v0.7.0)
 

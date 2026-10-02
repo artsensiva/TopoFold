@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 """
-TopoFold: 100% Authentic Biophysical MD Trajectory Validation Suite
+TopoFold: validation suite on GENERATED BPTI and Mpro ensembles (not MD)
 ===================================================================
+
+*** DATA PROVENANCE: NOT real MD. The BPTI part analyses the synthetic ensemble from run_real_bpti_validation.py (Zenodo 7347434 cluster PDBs are downloaded but unused); the Mpro part linearly interpolates 16 structures from Zenodo 13730633 with added noise. compute_pmf_barrier is an invalid estimator (docs/KNOWN_ISSUES.md, C1-C3). ***
 
 This benchmark validates TopoFold's SE(3) discrete differential curve invariants,
 C-beta ribbon orientation geometry, and Autonomous Blind Cryptic Pocket Detector

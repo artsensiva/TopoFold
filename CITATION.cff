@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "TopoFold: SE(3)-invariant local geometry of biomolecular backbones"
+type: software
+authors:
+  - family-names: Galukhin
+    given-names: Artem
+    email: artem.galukhin@gmail.com
+repository-code: "https://github.com/artsensiva/TopoFold"
+license:
+  - MIT
+  - Apache-2.0
+version: 0.8.3
+date-released: 2026-10-02

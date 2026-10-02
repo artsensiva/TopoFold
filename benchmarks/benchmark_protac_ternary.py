@@ -3,6 +3,8 @@
 TopoFold Benchmark: PROTAC Ternary Complex Cooperativity on Real Crystallographic Data
 ======================================================================================
 
+*** INVALID BENCHMARK (docs/KNOWN_ISSUES.md, C5): 5T3E is not a PROTAC complex, the second complex is built from 5T35, and coupling and statistics are hard-coded. Kept for the record only. ***
+
 Target Problem:
   Predicting degradation competency and dynamic cooperativity in PROTAC ternary complexes.
   Traditional crystallographic metrics (Buried Surface Area, interface RMSD) fail because

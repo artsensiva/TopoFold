@@ -3,6 +3,8 @@
 TopoFold Benchmark: Side-Chain Rotameric Cryptic Pocket Gating Validation
 ========================================================================
 
+*** PHYSICALLY INVALID BENCHMARK (docs/KNOWN_ISSUES.md, C4): Cb is rotated around a fixed Ca, which cannot happen in a protein; Cb does not move under chi1 rotation. ***
+
 Demonstrates why pure C-alpha representations fail to detect rotameric
 cryptic pocket gating, and how TopoFold's SE(3)-invariant C-beta ribbon
 geometry resolves isolated side-chain flips amidst rigid backbone constraints.
