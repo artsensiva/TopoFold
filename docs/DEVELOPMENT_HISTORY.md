@@ -1,5 +1,7 @@
 # TopoFold: Chronicle of Engineering & Scientific Evolution
 
+> **Note (Oct 2026).** This history was written during development of v0.1–v0.8.3. Its descriptions of benchmarks as "authentic" or "real MD", and the reported barriers, rotamer detection and PROTAC results, are withdrawn; see `docs/KNOWN_ISSUES.md`.
+
 This document records the complete, authoritative history of the **TopoFold** computational geometry and trajectory indexing engine from its mathematical inception through to version `v0.7.0`.
 
 ---

@@ -1,5 +1,7 @@
 # ADR-002: Spherical Triangle Decomposition (Van Oosterom & Strackee) over Naive Gauss Double Integrals
 
+> **Erratum (Oct 2026).** The formula below uses 1/(2π) over unordered segment pairs, but `writhe.rs` divides by 4π and its sign convention is reversed, so the implementation returns −½ of the standard writhe. See `docs/KNOWN_ISSUES.md`, M1. Note also that `atan2` removes ambiguity in each triangle's solid angle but writhe itself is a geometric, not a topological, invariant.
+
 ## Status
 Accepted (v0.1.0)
 

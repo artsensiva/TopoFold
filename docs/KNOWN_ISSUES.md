@@ -1,0 +1,85 @@
+# Known issues (audit of v0.8.3, October 2026)
+
+This file lists every known scientific and technical problem found in an external audit of v0.8.3. It is the development backlog: an issue is closed only when the fix is merged **together with a regression test**, and the README/manuscript are updated.
+
+Severity: **C** = invalidates published claims, **M** = major, **m** = minor.
+Status: all issues are **open** unless stated otherwise.
+
+Reproduction scripts referred to below are in [`benchmarks/audit/`](../benchmarks/audit/). They re-implement the relevant functions line by line in NumPy; once the Rust fixes land, they should be turned into tests against the compiled library.
+
+---
+
+## C — claims-invalidating
+
+### C1. Synthetic ensembles were presented as real MD
+No trajectory-based validation benchmark currently analyses an independently generated real MD trajectory. Nearly all ensembles are generated or interpolated by the scripts, with states and labels built in, but were described as "authentic explicit-solvent MD" / "real crystal data". One benchmark (XCL1) is a static comparison of real experimental NMR structures (1J9O, 2JP1), but its distance metric is not SE(3)-invariant as claimed (M5). Details per script: [`benchmarks/README.md`](../benchmarks/README.md).
+Proposed fix (hypothesis, to be confirmed): label all trajectory benchmarks as controlled synthetic tests; make scripts fail (not silently synthesise) when real input files are missing; correct XCL1 distance metric; add real-data trajectory validation (see manuscript §5).
+
+### C2. Circular evaluation and unequal information
+TopoFold is given the target region (e.g. BPTI 10–18, Abl1 380–386) and reference end states; baselines get the whole protein aligned on all residues. Labels are derived from TopoFold's own metric (`state_labels = frechet_b < frechet_a` in `run_real_bpti_validation.py`) or by a median split.
+Evidence (`benchmarks/audit/fair_baseline.py`, on `generate_bistable_trajectory.py`, true labels known): global Cartesian PCA S = 0.337 (matches the old README); local Kabsch PCA on the loop S = 0.961; loop Cα–Cα distances + PCA S = 0.990; loop (κ, τ) + PCA S = 0.992; old README TopoFold value 0.985.
+Proposed fix (hypothesis, to be confirmed): every method gets the same residues and the same information; labels must come from an independent source; add a blind-localisation task in which no method knows the region.
+
+### C3. "Free-energy barriers" are estimator artefacts
+`compute_pmf_barrier` (in `run_honest_real_md_suite.py`) returns −ln(p_min/p_max) over a 50-bin histogram; p_min is almost always a tail bin. On a strictly unimodal Gaussian with a median-split label, it returns 5.03 ± 0.07 kBT (N = 2500) and 4.23 ± 0.19 kBT (N = 1200) (`benchmarks/audit/barrier_check.py`). In addition, frames are independently sampled conditional on an imposed state schedule and do not constitute a physical kinetic time series, so there is no kinetics and no physical barrier.
+Proposed fix (hypothesis, to be confirmed): remove the PMF barrier estimator from the active scientific pipeline; implement any future free-energy estimator separately and validate it independently on real equilibrium data.
+
+### C4. θβ cannot detect rotamers
+Cβ is fixed by the N–Cα–C tetrahedral geometry; a χ1 rotation moves Cγ and beyond, not Cβ. θβ is therefore a function of backbone geometry. `benchmark_rotamer_gating.py` rotates Cβ by 252° around a fixed Cα, which is physically impossible.
+Proposed fix (hypothesis, to be confirmed): remove the claim; if side chains are needed, add χ1/χ2 (as sin/cos) or a side-chain centroid vector. Use an ideal tetrahedral pseudo-Cβ for glycine instead of the in-plane N–Cα–C bisector.
+
+### C5. PROTAC benchmark is invalid
+5T3E is a non-ribosomal peptide synthetase heterocyclisation domain (Bloudoff et al., PNAS 2017), not VHL:AT1:BRD2. The script downloads 5T3E but builds the "non-productive" complex from 5T35 coordinates; coupling is hard-coded (`sin(t)` for both partners vs `cos(1.73 t + 1.2)`); `bsa_futile = bsa_prod * 0.963`, "p = 0.42" and "p < 10⁻¹⁵" are hard-coded strings (`benchmark_protac_ternary.py`, lines 552, 628, 634).
+Proposed fix (hypothesis, to be confirmed): remove from all documents; only revisit with real MD of real complexes.
+
+---
+
+## M — major
+
+### M1. Writhe normalisation and sign
+`writhe.rs` divides by 4π. The audit reproduction (`benchmarks/audit/writhe_check.py`) yields a −0.500 ratio relative to its numerical Gauss double integral and Klenin–Langowski polygonal segment formula references: ideal α-helix Cα (25 atoms) TopoFold −1.465 vs references +2.930; random walk (30 atoms) TopoFold −0.185 vs references +0.370. The README/ADR formula uses 1/(2π) over i < j pairs. The normalization and sign convention remain subject to independent Phase-3 validation.
+Proposed fix (hypothesis, to be confirmed): validate normalisation and sign convention against independent references and analytically known curves; document the chosen convention; add regression tests for SE(3) invariance, reflection behaviour and chain-direction reversal.
+
+### M2. No circular statistics in the bimodality scan
+`bimodality.rs` averages τ and θβ arithmetically within a window (unlike `allostery.rs`, which handles angles correctly). One residue fluctuating unimodally around 180° gives BC 0.96–0.98 instead of 0.32–0.35 after unwrapping (`benchmarks/audit/bc_check.py`). β-strand virtual torsions lie near −170°, so β regions produce false positives.
+Proposed fix (hypothesis, to be confirmed): circular means / (sin, cos) embedding; test with angles straddling ±π.
+
+### M3. Bimodality coefficient is not a test
+BC → 1 for any two-point distribution, so rare events give high values (Gaussian + 0.5% excursions: 0.744; + 2%: 0.839). Skewed unimodal distributions exceed 0.555/0.6 (exponential 0.577, χ²₁ 0.590). No null model, no multiple-testing control across windows. Population rather than sample skewness/kurtosis is used.
+Proposed fix (hypothesis, to be confirmed): dip test or Gaussian-mixture ΔBIC; calibrate false-positive rates on null data (time-shuffled frames, block bootstrap); FDR control across windows.
+
+### M4. RNA base descriptor cannot measure χ
+The base vector C1′→N9/N1 lies along the glycosidic bond, so rotation about that bond (χ, syn/anti) leaves it unchanged.
+Proposed fix (hypothesis, to be confirmed): compute χ (O4′–C1′–N9–C4 / O4′–C1′–N1–C2), the base-plane normal and sugar pucker.
+
+### M5. Fréchet distance: wrong space and units
+`tf.discrete_frechet_distance` works on raw Cartesian coordinates without alignment, so it is not SE(3)-invariant; the XCL1 benchmark reports it as "exact SE(3)-invariant" and in Å (README 31.2 Å, figure 8.42 Å). In the index, Fréchet is computed in (κ, τ) radians; for frames of the same sequence, re-parametrisation is unnecessary and allows residue misregistration.
+Proposed fix (hypothesis, to be confirmed): separate Cartesian and invariant APIs with explicit names and units; use per-residue distances for same-sequence comparisons.
+
+### M6. Index cascade is approximate
+The writhe-spectrum distance is not a lower bound of the (κ, τ) Fréchet distance, so pruning can drop true neighbours. `writhe_spectrum_distance` truncates to the shorter vector and is not a metric for unequal lengths. Subcurve queries (`query_subcurve_k_nearest`) are a linear scan; the VP-tree is not used for the reported per-frame timings. The manuscript calls tier 1 an L∞ "Chebyshev filter"; the code computes an RMS distance.
+Proposed fix (hypothesis, to be confirmed): either prove a bound or call the search approximate and report Recall@k vs brute force and a recall–speed-up curve.
+
+### M7. Mutual information: three inconsistent descriptions
+Manuscript: "non-parametric MI", r = √(1 − e^(−2I/d)). Code comment: "Gaussian copula". Code: Gaussian MI from covariance log-determinants, without rank (copula) normalisation, r = √(1 − e^(−2I)) without d. No significance testing.
+Proposed fix (hypothesis, to be confirmed): choose one estimator, document it exactly, add permutation/block-bootstrap significance.
+
+### M8. Hard-coded results and unreproducible numbers
+Several numbers in figures and documents are typed in rather than computed (PROTAC, XCL1 annotation, AlphaFold pLDDT ≈ 85 which was never computed). Benchmarks silently synthesise data when real files are missing (`fetch_or_build_bpti_dataset`).
+Proposed fix (hypothesis, to be confirmed): pipeline analysis → results file (JSON) → figures and text; no numbers typed by hand; missing inputs raise errors.
+
+---
+
+## m — minor and documentation
+
+- m1. Chain breaks (missing residues) are treated as bonds; one collinear triple aborts the whole frame.
+- m2. Invariance precision is claimed as < 10⁻¹²; tests use 10⁻⁶ and the Python path is float32.
+- m3. "Zero-copy" bindings copy float32 input into `Vec<Point3<f64>>`; "O(1) memory" holds only for the moment accumulator; "sub-microsecond" contradicts the reported 1.29–9.39 µs/frame; "zero hyperparameters" is false (window size, thresholds, weights, radii).
+- m4. "Spectral Topological Density" involves no spectral decomposition; the product |Wr|·κ needs an ablation against |Wr| and κ alone.
+- m5. Writhe is not a topological invariant; describe it as an SE(3)-invariant geometric descriptor based on the Gauss integral.
+- m6. Kabsch superposition does not distort internal geometry; the real issue is that the choice of alignment subset redistributes apparent fluctuations.
+- m7. Zenodo 7347434 was attributed to "P. Eastman et al."; the paper is Belyaeva, Zlobin, Maslova, Golovin, PCCP 2023 (doi:10.1039/d2cp05502c), a trypsin–inhibitor complex with six force fields; the scripts download its representative cluster PDBs but do not use them in the analysis.
+- m8. Mpro was described as a 612-residue dimer; one 306-residue chain was analysed.
+- m9. Speed comparisons used a Python-loop Kabsch against Rust; Foldseek/PocketMiner timings were never measured.
+- m10. Benchmark print statements still contain "AUTHENTIC"/"pristine" wording; clean up when the scripts are rewritten.
+- m11. No CI; the former "43/43 tests passing" and "release v0.8.3" badges were static.

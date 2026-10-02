@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 """
-TopoFold Phase 4.5: Scientific Validation on Real Biophysical MD Trajectories.
+TopoFold Phase 4.5: validation on a GENERATED BPTI ensemble (not MD).
+
+*** DATA PROVENANCE: NOT real MD. The ensemble is generated from 5PTI by rigidly rotating residues 12-16 with a prescribed, frame-independent reaction coordinate plus noise; labels are derived from TopoFold's own metric (docs/KNOWN_ISSUES.md, C1-C2). ***
+
 System: Bovine Pancreatic Trypsin Inhibitor (BPTI, 58 residues).
 
 Biophysical Context & Literature Transition Target:
