@@ -15,6 +15,7 @@ import sys
 import html
 import json
 import tempfile
+from pathlib import Path
 import numpy as np
 
 try:
@@ -29,7 +30,8 @@ except ImportError:
 
 import topofold as tf
 
-BENCHMARK_DATA_DIR = os.path.join(os.path.dirname(__file__), "..", "benchmarks", "data")
+REPO_ROOT = Path(__file__).resolve().parent.parent
+BENCHMARK_DATA_DIR = REPO_ROOT / "benchmarks" / "data"
 
 
 def extract_pdb_residue_ids(pdb_str: str) -> list[int]:
@@ -167,6 +169,33 @@ def render_3dmol_viewer(
       background-color: #2ea043;
       margin-right: 6px;
     }}
+    #loading-overlay {{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: #111318;
+      z-index: 20;
+      transition: opacity 0.3s ease;
+    }}
+    .spinner {{
+      width: 32px;
+      height: 32px;
+      border: 3px solid #21262d;
+      border-top: 3px solid #58a6ff;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin-bottom: 12px;
+    }}
+    @keyframes spin {{
+      0% {{ transform: rotate(0deg); }}
+      100% {{ transform: rotate(360deg); }}
+    }}
   </style>
   <!-- Primary CDN: Cloudflare cdnjs -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/3Dmol/2.4.2/3Dmol-min.js"></script>
@@ -176,6 +205,10 @@ def render_3dmol_viewer(
   <textarea id="pdb-data" style="display: none;">{escaped_pdb_html}</textarea>
 
   <div id="viewer-container">
+    <div id="loading-overlay">
+      <div class="spinner"></div>
+      <div id="loading-text" style="color: #8b949e; font-size: 13px; font-family: ui-monospace, SFMono-Regular, monospace;">Initializing 3Dmol Canvas...</div>
+    </div>
     <div id="viewport"></div>
     <div id="legend">
       <div class="legend-item">
@@ -209,6 +242,14 @@ def render_3dmol_viewer(
       }}
     }}
 
+    function hideLoader() {{
+      const loader = document.getElementById('loading-overlay');
+      if (loader) {{
+        loader.style.opacity = '0';
+        setTimeout(() => {{ loader.style.display = 'none'; }}, 300);
+      }}
+    }}
+
     function initViewer() {{
       try {{
         const container = document.getElementById('viewport');
@@ -216,6 +257,8 @@ def render_3dmol_viewer(
 
         if (typeof $3Dmol === 'undefined') {{
           setStatus("Status: Error - 3Dmol library unavailable", true);
+          const loadText = document.getElementById('loading-text');
+          if (loadText) loadText.innerHTML = '<span style="color: #cf222e;">Error: 3Dmol library failed to load</span>';
           return;
         }}
 
@@ -226,6 +269,8 @@ def render_3dmol_viewer(
 
         if (!viewer) {{
           setStatus("Status: Error - WebGL context creation failed", true);
+          const loadText = document.getElementById('loading-text');
+          if (loadText) loadText.innerHTML = '<span style="color: #cf222e;">Error: WebGL context creation failed</span>';
           return;
         }}
 
@@ -233,6 +278,8 @@ def render_3dmol_viewer(
         const pdbData = document.getElementById('pdb-data').value;
         if (!pdbData || pdbData.trim().length === 0) {{
           setStatus("Status: Warning - No PDB coordinates found", true);
+          const loadText = document.getElementById('loading-text');
+          if (loadText) loadText.innerHTML = '<span style="color: #d29922;">Warning: No PDB coordinates found</span>';
           return;
         }}
 
@@ -241,18 +288,21 @@ def render_3dmol_viewer(
         const isIdp = {"true" if is_idp else "false"};
         const isRna = {"true" if is_rna else "false"};
 
-        // 1. Scaffold representation
+        // 1. Macromolecule-aware scaffold representation
         if (isIdp) {{
-          // IDP: wireframe line and trace for disordered backbone
+          // Intrinsically Disordered Protein: wireframe and backbone trace (no false cartoon tags)
           viewer.setStyle({{}}, {{
-            line: {{ color: '#8892b0', opacity: 0.6, linewidth: 2.0 }},
-            trace: {{ color: '#a0aec0', opacity: 0.5, radius: 0.15 }}
+            trace: {{ color: '#9E9E9E', radius: 0.2 }},
+            line: {{ color: '#BDBDBD', linewidth: 1.5 }}
           }});
         }} else if (isRna) {{
+          // RNA Riboswitch: formatted specifically for nucleic P-C4' chains
           viewer.setStyle({{}}, {{
-            cartoon: {{ color: 'lightgrey', opacity: 0.6, ribbon: true }}
+            cartoon: {{ color: 'spectrum', style: 'oval', ribbon: true }},
+            stick: {{ radius: 0.12 }}
           }});
         }} else {{
+          // Standard Globular Protein: semi-transparent light grey cartoon
           viewer.setStyle({{}}, {{
             cartoon: {{ color: 'lightgrey', opacity: 0.6 }}
           }});
@@ -267,23 +317,27 @@ def render_3dmol_viewer(
             pocketResis.push(r);
           }}
           if (isIdp) {{
+            // Highlighted nucleated NACore motif
             viewer.addStyle(
               {{ resi: pocketResis }},
               {{
-                cartoon: {{ color: '#FF5722', opacity: 1.0 }},
+                cartoon: {{ color: '#FF5722' }},
                 stick: {{ color: '#FF5722', radius: 0.25 }},
-                sphere: {{ color: '#FF5722', radius: 0.35 }}
+                sphere: {{ color: '#FF5722', radius: 0.4 }}
               }}
             );
           }} else if (isRna) {{
+            // Highlighted P1 switching stem
             viewer.addStyle(
               {{ resi: pocketResis }},
               {{
-                cartoon: {{ color: '#FF5722', opacity: 1.0, ribbon: true }},
-                stick: {{ color: '#FF5722', radius: 0.22 }}
+                cartoon: {{ color: '#FF5722', style: 'oval', ribbon: true }},
+                stick: {{ color: '#FF5722', radius: 0.25 }},
+                sphere: {{ color: '#FF5722', radius: 0.4 }}
               }}
             );
           }} else {{
+            // Highlighted standard pocket / loop
             viewer.addStyle(
               {{ resi: pocketResis }},
               {{
@@ -297,6 +351,7 @@ def render_3dmol_viewer(
         viewer.zoomTo();
         viewer.render();
         viewer.spin('y', 0.3);
+        hideLoader();
 
         // Staggered resize and observer to prevent empty canvas issues on layout load
         function doResize() {{
@@ -333,6 +388,8 @@ def render_3dmol_viewer(
       }} catch (err) {{
         console.error("3Dmol WebGL Initialization Error:", err);
         setStatus("Status: WebGL error - " + err.message, true);
+        const loadText = document.getElementById('loading-text');
+        if (loadText) loadText.innerHTML = '<span style="color: #cf222e;">WebGL Error: ' + err.message + '</span>';
       }}
     }}
 
@@ -344,10 +401,14 @@ def render_3dmol_viewer(
       function tryNextCDN() {{
         if (cdnIdx >= FALLBACK_CDNS.length) {{
           setStatus("Status: Error - Failed to load 3Dmol.js from all CDNs", true);
+          const loadText = document.getElementById('loading-text');
+          if (loadText) loadText.innerHTML = '<span style="color: #cf222e;">Error: Failed to load 3Dmol.js</span>';
           return;
         }}
         const nextUrl = FALLBACK_CDNS[cdnIdx++];
         setStatus("Status: Loading 3Dmol.js from backup CDN (" + cdnIdx + "/" + FALLBACK_CDNS.length + ")...", false);
+        const loadText = document.getElementById('loading-text');
+        if (loadText) loadText.innerText = 'Loading 3Dmol.js from backup CDN (' + cdnIdx + '/' + FALLBACK_CDNS.length + ')...';
         const script = document.createElement('script');
         script.src = nextUrl;
         script.onload = function() {{
@@ -369,15 +430,15 @@ def render_3dmol_viewer(
 
 def load_dataset(preset_name: str, uploaded_pdb=None, uploaded_dcd=None) -> dict | None:
     """
-    Loads dataset and prepares coordinate array and PDB reference string.
+    Loads dataset and prepares coordinate array and PDB reference string using universal absolute paths.
     """
     if preset_name == "Human Abl1 Kinase DFG Flip (2GQG / 1IEP)":
-        pdb_path = os.path.join(BENCHMARK_DATA_DIR, "abl_reference.pdb")
-        dcd_path = os.path.join(BENCHMARK_DATA_DIR, "abl_dfg_trajectory.dcd")
-        if os.path.exists(pdb_path) and os.path.exists(dcd_path):
+        pdb_path = BENCHMARK_DATA_DIR / "abl_reference.pdb"
+        dcd_path = BENCHMARK_DATA_DIR / "abl_dfg_trajectory.dcd"
+        if pdb_path.is_file() and dcd_path.is_file():
             with open(pdb_path, "r") as f:
                 ref_pdb_str = f.read()
-            traj_data = tf.read_dcd(dcd_path)
+            traj_data = tf.read_dcd(str(dcd_path))
             res_ids = extract_pdb_residue_ids(ref_pdb_str)
             return {
                 "name": preset_name,
@@ -388,12 +449,12 @@ def load_dataset(preset_name: str, uploaded_pdb=None, uploaded_dcd=None) -> dict
             }
 
     elif preset_name == "Human Alpha-Synuclein IDP (Parkinson's Disease - 140 Residues)":
-        pdb_path = os.path.join(BENCHMARK_DATA_DIR, "alphasynuclein_reference.pdb")
-        dcd_path = os.path.join(BENCHMARK_DATA_DIR, "alphasynuclein_ensemble.dcd")
-        if os.path.exists(pdb_path) and os.path.exists(dcd_path):
+        pdb_path = BENCHMARK_DATA_DIR / "alphasynuclein_reference.pdb"
+        dcd_path = BENCHMARK_DATA_DIR / "alphasynuclein_ensemble.dcd"
+        if pdb_path.is_file() and dcd_path.is_file():
             with open(pdb_path, "r") as f:
                 ref_pdb_str = f.read()
-            traj_data = tf.read_dcd(dcd_path)
+            traj_data = tf.read_dcd(str(dcd_path))
             res_ids = extract_pdb_residue_ids(ref_pdb_str)
             return {
                 "name": preset_name,
@@ -405,15 +466,15 @@ def load_dataset(preset_name: str, uploaded_pdb=None, uploaded_dcd=None) -> dict
             }
 
     elif preset_name == "Adenine Riboswitch (RNA 3D Dynamics - PDB 1Y26)":
-        pdb_path = os.path.join(BENCHMARK_DATA_DIR, "1Y26.pdb")
-        dcd_path = os.path.join(BENCHMARK_DATA_DIR, "rna_riboswitch_trajectory.dcd")
-        base_path = os.path.join(BENCHMARK_DATA_DIR, "rna_riboswitch_base.npy")
-        if os.path.exists(pdb_path) and os.path.exists(dcd_path):
+        pdb_path = BENCHMARK_DATA_DIR / "1Y26.pdb"
+        dcd_path = BENCHMARK_DATA_DIR / "rna_riboswitch_trajectory.dcd"
+        base_path = BENCHMARK_DATA_DIR / "rna_riboswitch_base.npy"
+        if pdb_path.is_file() and dcd_path.is_file():
             with open(pdb_path, "r") as f:
                 ref_pdb_str = f.read()
-            traj_data = tf.read_dcd(dcd_path)
+            traj_data = tf.read_dcd(str(dcd_path))
             res_ids = extract_pdb_residue_ids(ref_pdb_str)
-            base_traj = np.load(base_path) if os.path.exists(base_path) else None
+            base_traj = np.load(str(base_path)) if base_path.is_file() else None
             return {
                 "name": preset_name,
                 "traj": traj_data,
@@ -425,12 +486,12 @@ def load_dataset(preset_name: str, uploaded_pdb=None, uploaded_dcd=None) -> dict
             }
 
     elif preset_name == "BPTI Catalytic P1 Loop Flip (Shaw et al. Science 2010)":
-        pdb_path = os.path.join(BENCHMARK_DATA_DIR, "5PTI.pdb")
-        dcd_path = os.path.join(BENCHMARK_DATA_DIR, "bpti_equilibrium.dcd")
-        if os.path.exists(pdb_path) and os.path.exists(dcd_path):
+        pdb_path = BENCHMARK_DATA_DIR / "5PTI.pdb"
+        dcd_path = BENCHMARK_DATA_DIR / "bpti_equilibrium.dcd"
+        if pdb_path.is_file() and dcd_path.is_file():
             with open(pdb_path, "r") as f:
                 ref_pdb_str = f.read()
-            traj_data = tf.read_dcd(dcd_path)
+            traj_data = tf.read_dcd(str(dcd_path))
             res_ids = extract_pdb_residue_ids(ref_pdb_str)
             return {
                 "name": preset_name,
@@ -441,12 +502,12 @@ def load_dataset(preset_name: str, uploaded_pdb=None, uploaded_dcd=None) -> dict
             }
 
     elif preset_name == "Synthetic Bistable Gating Ensemble (60 residues)":
-        dcd_path = os.path.join(BENCHMARK_DATA_DIR, "bistable_ensemble.dcd")
-        pdb_path = os.path.join(BENCHMARK_DATA_DIR, "state_a.pdb")
-        if os.path.exists(pdb_path) and os.path.exists(dcd_path):
+        dcd_path = BENCHMARK_DATA_DIR / "bistable_ensemble.dcd"
+        pdb_path = BENCHMARK_DATA_DIR / "state_a.pdb"
+        if pdb_path.is_file() and dcd_path.is_file():
             with open(pdb_path, "r") as f:
                 ref_pdb_str = f.read()
-            traj_data = tf.read_dcd(dcd_path)
+            traj_data = tf.read_dcd(str(dcd_path))
             res_ids = extract_pdb_residue_ids(ref_pdb_str)
             return {
                 "name": preset_name,

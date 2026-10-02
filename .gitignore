@@ -30,7 +30,6 @@ dist/
 *.nc
 data/
 raw_data/
-benchmarks/data/zenodo_*/
 
 # Local agents & scratch
 .agents/

@@ -1547,6 +1547,7 @@ pub fn compute_rna_bimodality_profile<'py>(
 /// TopoFold Python module definition.
 #[pymodule]
 fn topofold(m: &Bound<'_, PyModule>) -> PyResult<()> {
+    m.add("__version__", env!("CARGO_PKG_VERSION"))?;
     m.add("__doc__", "High-performance SE(3)-invariant discrete differential geometry engine for protein trajectories")?;
     m.add_function(wrap_pyfunction!(compute_invariants, m)?)?;
     m.add_function(wrap_pyfunction!(compute_theta_beta, m)?)?;

@@ -4,7 +4,7 @@ build-backend = "maturin"
 
 [project]
 name = "topofold"
-version = "0.1.0"
+version = "0.8.3"
 description = "High-performance SE(3)-invariant discrete differential geometry engine for protein conformational trajectories"
 readme = "README.md"
 authors = [{ name = "Artem Galukhin", email = "artem.galukhin@gmail.com" }]

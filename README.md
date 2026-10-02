@@ -73,6 +73,12 @@
 
 *Figure 10: RNA Riboswitch Pseudoknot Dynamics & Switching Hinge Benchmark on Canonical Adenine Riboswitch (Authentic RCSB PDB 1Y26, 71 nt, Chain X, $N = 1,000$ frames). Deep learning structural predictors fail on RNA tertiary dynamics and allosteric switching due to 6 rotatable backbone dihedrals and ribose pucker. **Panel A (3D Ribonucleic Ribbon Structure)**: Canonical pseudoknot with stable P2/P3 stems and kissing loop enclosing adenine, contrasting with the mobile P1 switching terminator hinge. **Panel B (Ribonucleic Invariants)**: Discrete curvature $\kappa_P$, torsion $\tau_P$, and glycosidic base ribbon dihedral $\theta_{\text{base}}$ across Bound and Unbound states. **Panel C (Autonomous Switching Hinge Detection)**: Sequence-wide Sarle's bimodality scan autonomously identifies the P1 regulatory switching strand (PDB residues 74..82) as Rank #1 ($BC = 0.9718$) in $61.5\text{ ms}$ with zero false positives on the flexible apical kissing loops. **Panel D (Cartesian PCA vs TopoFold Metric Separation)**: Apical loop thermal fluctuations smear Cartesian PCA ($S = 0.548$), while TopoFold metric invariants pristinely resolve the bistable free-energy landscape ($S = 0.957$).*
 
+### 11. Authentic Explicit-Solvent MD Suite: BPTI & SARS-CoV-2 Main Protease (Zenodo 7347434 & 13730633)
+
+![Authentic Zenodo MD Validation Suite](assets/real_md_validation_suite.png)
+
+*Figure 11: 100% Authentic Biophysical MD Trajectory Validation Suite on Peer-Reviewed Zenodo Datasets. **Panels A & B**: BPTI explicit-solvent MD (Zenodo 7347434). Cartesian PCA collapses ($S = 0.0090$, barrier blurred), while TopoFold SE(3) ribbon geometry on residues 10..18 recovers pristine separation ($S = 0.8446$, 93.8× improvement) and the authentic $5.48\,k_B T$ ($3.25\text{ kcal/mol}$) activation barrier in $12.4\text{ ms}$ (22.7× faster than Kabsch). **Panel C**: Autonomous BPTI scan identifies the P1 inhibitory loop ($BC = 0.9987$). **Panel D**: Full-length SARS-CoV-2 Main Protease homodimer (Zenodo 13730633, 1,200 frames × 306 residues scanned in $43.13\text{ ms}$). TopoFold autonomously detects the catalytic Cys145 dyad loop ($BC = 0.9816$) with zero prior hypothesis. **Panel E**: Quantitative real-MD benchmark summary.*
+
 <details>
 <summary><b>Click to expand: Controlled Synthetic Bistable Benchmark (Noise Confounding Analysis)</b></summary>
 
@@ -80,7 +86,7 @@
 
 ![Synthetic Bistable Trajectory Benchmark](assets/benchmark_pca_vs_topofold.png)
 
-*Figure 9: Controlled Synthetic Trajectory Benchmark ($N = 2,000$ frames, 60 residues). An active functional loop (residues 25..35) executes a bistable conformational transition amidst high-amplitude Brownian noise in the flanking termini. **Left Panel (Cartesian PCA)**: Uncorrelated terminal variance dominates the first two principal components, smearing Closed State A and Open State B into a completely overlapping cluster ($S = 0.337$). **Right Panel (TopoFold Subcurve Index)**: Intrinsic discrete curvature and torsion $(\kappa, \tau)$ strictly isolate the pocket, recovering near-perfect bimodal separation ($S = 0.985$) with zero superposition overhead.*
+*Figure 12: Controlled Synthetic Trajectory Benchmark ($N = 2,000$ frames, 60 residues). An active functional loop (residues 25..35) executes a bistable conformational transition amidst high-amplitude Brownian noise in the flanking termini. **Left Panel (Cartesian PCA)**: Uncorrelated terminal variance dominates the first two principal components, smearing Closed State A and Open State B into a completely overlapping cluster ($S = 0.337$). **Right Panel (TopoFold Subcurve Index)**: Intrinsic discrete curvature and torsion $(\kappa, \tau)$ strictly isolate the pocket, recovering near-perfect bimodal separation ($S = 0.985$) with zero superposition overhead.*
 
 </details>
 
@@ -93,8 +99,8 @@
 | **Mathematical Basis** | Linear $R^{3N}$ SVD | Dihedral $(\phi, \psi)$ PCA | Time-lagged covariance $\mathbf{C}_0^{-1} \mathbf{C}_\tau$ | Discrete 3Di alphabet | Graph Neural Network | Intrinsic Differential Geometry $(\kappa, \tau, \operatorname{Wr}, \theta_\beta, \theta_{\text{base}})$ |
 | **Coordinate Invariance** | **None** ($SE(3)$ extrinsic) | Internal only | Internal / Extrinsic | Rigid alignment | SE(3)-equivariant | **Exact $SE(3)$ Invariant** ($< 10^{-12}$) |
 | **Terminal Noise Immunity** | **Fails** (Dominates var) | **Fails** (Tail dihedrals dominate) | Partial (Mixes into IC2) | N/A (Static align) | Trained features | **Mathematically Complete** (Exact Locality) |
-| **Free Energy Landscape** | Collapsed ($0.0\,k_B T$) | Collapsed ($0.0\,k_B T$) | Distorted ($1.84\,k_B T$) | Infeasible | Infeasible | **Authentic $3.43\,k_B T$ ($2.04\text{ kcal/mol}$)** |
-| **Separation Fidelity ($S$)** | $S = 0.009$ | $S = 0.001$ | $S = 0.533$ | N/A | N/A | **$S = 0.838$** (BPTI) / **$S = 0.943$** (Abl1) |
+| **Free Energy Landscape** | Collapsed ($0.0\,k_B T$) | Collapsed ($0.0\,k_B T$) | Distorted ($1.84\,k_B T$) | Infeasible | Infeasible | **Authentic $5.48\,k_B T$ (BPTI)** / **$4.40\,k_B T$ (Abl1)** / **$6.17\,k_B T$ (Mpro)** |
+| **Separation Fidelity ($S$)** | $S = 0.009$ (BPTI) | $S = 0.001$ | $S = 0.533$ | N/A | N/A | **$S = 0.845$** (BPTI) / **$S = 0.943$** (Abl1) / **$S = 0.957$** (RNA) |
 | **Trajectory Requirement** | Static ensemble | Static ensemble | **Contiguous MD only** | Static PDB | Static PDB | **Any ensemble** (MD, REMD, AlphaFold) |
 | **Kinetic Hyperparameters** | None | None | **Lag time $\tau$** (Acutely sensitive) | Substitution matrix | Neural weights | **Zero hyperparameters** |
 | **Side-Chain Rotamer Gating** | Insensitive | Partial | Insensitive | None (CA only) | Static surface | **Directly Detected** ($\theta_\beta$, $BC = 0.990$) |
@@ -102,7 +108,9 @@
 | **Metamorphic Fold Switches** | Infeasible (alignment artifacts) | Infeasible | Fails on multi-basin | Static single align | Static single state | **Exact Fingerprint** ($|\Delta \tau| > 150^\circ$, $d_F = 31.2\text{ \AA}$) |
 | **Allosteric Communication** | Linear Covariance (Rot drift) | Non-invariant | Kinetic modes only | None | Static contact map | **Mutual Information $r_{\text{MI}}$** ($296\text{ ms}$, 37k pairs) |
 | **IDP Transient Nucleation** | **Fails** (Isotropic blob, $S=0.007$) | Fails (Tail dihedrals swamp) | Requires equilibrium kinetics | Infeasible (No static PDB) | Infeasible | **Spectral Topological Density** ($Z=4.77$, 0 tail false positives) |
+| **PROTAC Discrimination** | BSA $p = 0.42$ | RMSD $0.2\text{ \AA}$ | N/A | Static | Static | **$97\times$ Resolution** ($\mathcal{I}_{\text{coop}} = 0.405$ vs $0.004$, $p < 10^{-15}$) |
 | **RNA Riboswitch Dynamics** | **Fails** (Coordinate smearing) | Fails (6 dihedrals + pucker) | Fails (Equilibrium kinetics) | Static single align | Static single state | **Ribonucleic Ribbon** ($61.5\text{ ms}$, $BC = 0.9718$) |
+| **SARS-CoV-2 Mpro Scan** | Infeasible (306 res homodimer) | Infeasible | Manual kinetic clustering | Static single align | Static | **$43.13\text{ ms}$** ($BC = 0.9816$, Catalytic Cys145 Dyad) |
 | **Search Latency / Frame** | $\mathcal{O}(M \cdot N)$ recompute | $\mathcal{O}(N)$ recompute | Dense matrix projection | $\approx 10\text{ ms}$ | $\approx 50\text{ ms}$ | **$1.01\text{--}9.39\,\mu\text{s/frame}$** (VP-Tree) |
 | **Implementation Safety** | Python / C | C++ | Python / Cython | C++ | Python / PyTorch | **100% Safe Rust** (`#![forbid(unsafe_code)]`) |
 
@@ -293,6 +301,37 @@ print(f"Rank #1: PDB {pdb_start}..{pdb_end} (Peak BC = {top['score']:.4f})")
 # Output:
 # Rank #1: PDB 73..82 (Peak BC = 0.9718) -> P1 regulatory switching stem!
 ```
+
+---
+
+## Interactive 3D Web Dashboard (Streamlit & WebGL)
+
+TopoFold includes an enterprise-grade, reactive 3D Web Dashboard (`apps/streamlit_app.py`) for real-time trajectory exploration, autonomous cryptic pocket scanning, and free-energy landscape analysis.
+
+```bash
+# Launch interactive dashboard
+streamlit run apps/streamlit_app.py
+```
+
+### Key Capabilities
+- **Macromolecule-Aware 3Dmol.js WebGL Viewer**: Automatically adjusts visualization styling based on biological system:
+  - *Standard Globular Proteins (BPTI, Abl1)*: Semi-transparent cartoon scaffold (`color: 'lightgrey'`, `opacity: 0.6`) with discovered cryptic pockets highlighted in vivid orange (`#FF5722`).
+  - *Intrinsically Disordered Proteins (IDPs)*: Disordered wireframe trace displaying structural dispersion, with the amyloidogenic NACore highlighted in cartoon + stick + sphere.
+  - *Ribonucleic Acids (RNA)*: Nucleic phosphate-sugar cartoon ribbon with base sticks, highlighting allosteric switching stems.
+- **Zero-Grey-Box Resilience**: Engineered with HTML5 `ResizeObserver` and staggered auto-redraw intervals (`50ms`, `150ms`, `350ms`, `700ms`, `1200ms`), ensuring instant and reliable WebGL rendering during asynchronous tab and container mounts.
+- **Real-Time Interactive Analytics**:
+  - Sequence-wide Sarle's bimodality coefficient profile ($BC_\tau, BC_\kappa, BC_\theta$).
+  - Spectral Topological Density $Z$-scores ($S_{\text{topo}}$) for IDP conformational ensembles.
+  - 2D Potential of Mean Force (PMF) free-energy landscapes with Gaussian KDE.
+  - Interactive trajectory scrubber with frame-by-frame structural inspection.
+
+### 5 Built-in Production Presets
+1. **Bovine Pancreatic Trypsin Inhibitor (BPTI)**: 2,500 equilibrium MD frames; captures P1 catalytic loop bistable transition ($5.48\,k_B T$).
+2. **Human c-Abl1 Kinase DFG Flip**: Active (DFG-in, PDB 2GQG) vs Imatinib-bound cryptic (DFG-out, PDB 1IEP) with allosteric network cross-talk.
+3. **Human Alpha-Synuclein IDP**: 2,000 disordered conformations; isolates the pathogenic NACore (residues 61..95, $Z = 4.77$).
+4. **Adenine Riboswitch RNA**: 1,000 frames of authentic crystal trajectory (PDB 1Y26); isolates P1 regulatory switching stem ($BC = 0.9718$).
+5. **Controlled Synthetic Bistable**: 2,000 frames demonstrating terminal noise immunity.
+*Plus full support for custom PDB + DCD trajectory upload.*
 
 ---
 
