@@ -107,10 +107,18 @@ To demonstrate that TopoFold overcomes the $\text{C}_\alpha$ backbone blindspot,
 - **Cartesian PCA**: Produced zero variance along all principal components ($S = 0.000$).
 - **TopoFold $\text{C}_\beta$ Ribbon**: Autonomously detected the rotamer flip with a sharp peak of **$BC = 0.9901$** centered precisely on residue 15.
 
+![Figure 1: Side-Chain Rotameric Cryptic Pocket Gating](../assets/rotamer_gating_benchmark.png)
+
+*Figure 1: Side-Chain Rotameric Cryptic Pocket Gating on Rigid Backbones ($N = 1,000$ frames, 30 residues). Backbone $\text{C}_\alpha$ displacement is exactly $0.0\text{ \AA}$ (rigid backbone constraints), while residue 15 undergoes an isolated bistable side-chain rotamer flip ($gauche^-$ vs $trans$). **Panel A (Bimodality Profile)**: Pure $\text{C}_\alpha$ invariants $(\kappa, \tau)$ are completely blind to rotamer gating ($BC = 0.0000$, unimodal everywhere), whereas TopoFold $\text{C}_\beta$ Ribbon Geometry captures the flip with a sharp peak of $BC = 0.9901$. **Panel B (Intrinsic Space vs Cartesian PCA)**: Cartesian PCA collapses with zero variance along PC1, while TopoFold's ribbon orientation angle $\theta_\beta$ provides pristine bimodal separation.*
+
 ### 3.2 Terminal Noise Confounding in Controlled Bistable Transitions
 In a 60-residue synthetic polymer where residues 25..35 undergo a bistable hinge transition amidst high-amplitude Brownian noise in the flanking termini ($\text{RMSF} = 4.2\text{ \AA}$):
 - **Cartesian PCA**: Terminal variance overwhelmed the first two principal components, collapsing Closed and Open basins into an overlapping cluster ($S = 0.337$).
 - **TopoFold Subcurve Index**: Decoupled the active loop from terminal noise, recovering pristine bimodal separation ($S = 0.985$) with zero alignment overhead.
+
+![Figure 2: Controlled Synthetic Bistable Benchmark](../assets/benchmark_pca_vs_topofold.png)
+
+*Figure 2: Terminal Noise Confounding in Controlled Bistable Transitions ($N = 2,000$ frames, 60 residues). An active functional loop (residues 25..35) executes a bistable conformational transition amidst high-amplitude Brownian noise in the flanking termini ($\text{RMSF} = 4.2\text{ \AA}$). **Left Panel (Cartesian PCA)**: Uncorrelated terminal variance dominates the first two principal components, smearing Closed State A and Open State B into a completely overlapping cluster ($S = 0.337$). **Right Panel (TopoFold Subcurve Index)**: Intrinsic discrete curvature and torsion $(\kappa, \tau)$ strictly isolate the pocket, recovering near-perfect bimodal separation ($S = 0.985$) with zero superposition overhead.*
 
 ---
 
@@ -126,6 +134,14 @@ High-amplitude Brownian fluctuations in the flexible termini (residues 1..5 and 
 4. **TopoFold $\text{C}_\beta$ Ribbon Index**: Subcurve indexing on residues $[10, 18]$ completely eliminates terminal noise. In intrinsic Fréchet metric space, the trajectory bifurcates cleanly into two crisp energy basins ($S = 0.8446$, a **$93.8\times$ improvement** over Cartesian PCA), resolving the authentic activation barrier of **$\Delta G^\ddagger = 5.48\,k_B T$ ($3.25\text{ kcal/mol}$ at 300 K)**.
 5. **Autonomous Blind Detection**: Without human intervention, TopoFold's streaming detector scanned all frames in **$12.4\text{ ms}$** (22.7× faster than Cartesian Kabsch superposition at $282.3\text{ ms}$), flagging the P1 loop as Rank #1 ($BC = 0.9987$).
 
+![Figure 3: Thermodynamic Validation on Real BPTI MD Trajectory](../assets/bpti_free_energy_landscape.png)
+
+*Figure 3: Thermodynamic Validation of Free Energy Landscape on Authentic Explicit-Solvent BPTI MD Trajectory ($N = 2,500$ frames, 58 residues). **Panel A**: Cartesian PCA collapses the free-energy landscape into a single unresolvable minimum (barrier $= 0.0\,k_B T$, $S = 0.0090$). **Panel B**: TopoFold intrinsic subcurve geometry on residues 10..18 resolves the authentic $5.48\,k_B T$ ($3.25\text{ kcal/mol}$) activation barrier separating active-site metastable basins A and B ($S = 0.8446$, a $93.8\times$ improvement).*
+
+![Figure 4: Comparative Dimensionality Reduction Benchmark](../assets/topofold_vs_tica_comparison.png)
+
+*Figure 4: Comparative Kinetic & Internal Dimensionality Reduction Benchmark on BPTI MD Trajectory. **Panel A (Dihedral PCA)**: While internal dihedrals bypass Cartesian superposition, unconstrained terminal tail dihedrals drown out localized loop transitions ($S = 0.0011$, single collapsed basin). **Panel B (TICA, $\tau = 10$)**: Time-lagged ICA recovers partial kinetic separation ($S = 0.5332$), but remains contaminated by terminal dynamics along IC2, requires strict trajectory time-continuity, and damps the barrier height. **Panel C (TopoFold Metric Space)**: Intrinsic subcurve differential geometry strictly resolves both metastable basins ($S = 0.8446$) and the full activation barrier without coordinate superposition, lag-time tuning, or time-ordering.*
+
 ### 4.2 Human c-Abl1 Kinase: DFG-in $\leftrightarrow$ DFG-out Flip and Long-Range (>25 Å) Allostery
 The catalytic domain of human c-Abl1 kinase (274 residues, PDB 225..498) undergoes a pharmacologically critical conformational transition between the active DFG-in state (PDB 2GQG) and the inactive, imatinib-bound DFG-out cryptic state (PDB 1IEP). In the DFG-out conformation, the Asp381-Phe382-Gly383 motif flips its backbone dihedrals and the Phe382 side chain rotates out of the ATP binding pocket, opening an allosteric pocket.
 
@@ -134,6 +150,14 @@ The catalytic domain of human c-Abl1 kinase (274 residues, PDB 225..498) undergo
 3. **Subcurve Metric Free Energy**: TopoFold Fréchet metric space achieves pristine separation ($S = 0.9433$), resolving the authentic $\Delta G^\ddagger = 4.40\,k_B T$ ($2.61\text{ kcal/mol}$) barrier.
 4. **Intrinsic Allosteric Network**: Non-parametric Mutual Information ($r_{\text{MI}}$ across 37,401 residue pairs in $296\text{ ms}$) reveals long-range mechanical communication across $>25\text{ \AA}$ between the DFG flip switch (PDB 375..400) and the catalytic glycine-rich P-loop (PDB 245..270), identifying activation loop hinge Arg386 as the master allosteric driver ($\sum r_{\text{MI}} = 14.33$).
 
+![Figure 5: Abl1 Kinase DFG Flip Benchmark](../assets/abl_kinase_dfg_flip.png)
+
+*Figure 5: Human c-Abl1 Kinase Domain DFG Switch ($N = 1,500$ frames, 274 residues, PDB 2GQG vs 1IEP). **Panel A (Cartesian PCA)**: Inter-lobe breathing modes of the N-terminal lobe (~90 residues) dominate Cartesian covariance, smearing the functional DFG transition into an unresolvable cloud ($S = 0.0121$). **Panel B (Autonomous Scan)**: TopoFold's sequence-wide bimodality scan autonomously identifies the Asp381–Phe382–Gly383 motif as a sharp peak ($BC = 0.9495$) without manual residue hints. **Panel C (Subcurve Free Energy Landscape)**: TopoFold Fréchet metric space pristinely resolves Active Basin A and Cryptic Basin B ($S = 0.9433$), uncovering the authentic $\Delta G^\ddagger = 4.40\,k_B T$ ($2.61\text{ kcal/mol}$) activation barrier.*
+
+![Figure 6: Intrinsic Allosteric Communication Network](../assets/abl_allosteric_network_matrix.png)
+
+*Figure 6: Intrinsic Allosteric Communication Network of Human c-Abl1 Kinase Domain ($N = 1,500$ frames, 274 residues, PDB 225..498). TopoFold evaluates Mutual Information on $(\kappa, \tau, \theta_\beta)$ across 37,401 residue pairs in $296\text{ ms}$ ($7.93\,\mu\text{s/pair}$). **Panel A (Network Heatmap)**: Sequence-wide generalized correlation $r_{\text{MI}}$ reveals non-local communication channels connecting the DFG motif, P-loop, and $\alpha$C-helix. **Panel B (Allosteric Centrality)**: Sequence centrality profile autonomously identifies the activation loop hinge (Res 386, $\sum r_{\text{MI}} = 14.33$) and P-loop (Res 245) as master allosteric drivers. **Panel C (Catalytic Cross-Talk)**: Mechanical coupling sub-matrix resolves long-range communication across $>25\text{ \AA}$ between the DFG flip switch (PDB 375..400) and the ATP P-loop (PDB 245..270).*
+
 ### 4.3 Metamorphic / Fold-Switching Lymphotactin (XCL1: PDB 1J9O vs 2JP1)
 Metamorphic proteins violate the classical Anfinsen single-sequence single-fold dogma. Human chemokine Lymphotactin (XCL1, 60 residues) exists in physiological equilibrium between a canonical chemokine monomer (PDB 1J9O: three-stranded antiparallel $\beta$-sheet and a C-terminal $\alpha$-helix) and an all-$\beta$ homodimer (PDB 2JP1: four-stranded $\beta$-sheet with no $\alpha$-helix).
 
@@ -141,17 +165,29 @@ Metamorphic proteins violate the classical Anfinsen single-sequence single-fold 
 2. **TopoFold Discrete Invariants**: TopoFold maps the sequence-resolved discrete curvature and torsion without coordinate alignment. Across residues 51..58, TopoFold captures the secondary structure phase transition: $\tau \approx +50^\circ$ (right-handed $\alpha$-helix in 1J9O) shifts to $\tau \approx -170^\circ$ (extended $\beta$-strand in 2JP1), yielding $|\Delta \tau| > 150^\circ$.
 3. **Topological Deformation**: TopoFold evaluates the exact $SE(3)$-invariant Fréchet distance ($d_F = 31.2\text{ \AA}$ globally), isolating the conformational hinge without structural alignment artifacts.
 
+![Figure 7: Metamorphic Fold Switching Transformation](../assets/xcl1_metamorphic_transformation.png)
+
+*Figure 7: Metamorphic Protein Fold Switching in Human Lymphotactin XCL1 (Residues 1..60, 100% Sequence Identity, PDB 1J9O vs 2JP1). Static structural models (AlphaFold 2/3) suffer from single-state bias ($pLDDT \approx 85$ on Fold 1), completely missing the physiological dimeric all-$\beta$ fold. **Panel A (3D Backbone Comparison)**: Monomer Chemokine Fold (1J9O, $\alpha$-helix in green) versus Metamorphic Dimer (2JP1, extended $\beta$-strand in red). **Panel B (Discrete Invariants)**: TopoFold's sequence-resolved discrete invariants capture the exact secondary structure transformation across residues 51..58 ($\tau \approx +50^\circ$ right-handed $\alpha$-helix to $\tau \approx -170^\circ$ extended $\beta$-sheet, $|\Delta \tau| > 150^\circ$). **Panel C (Topological Deformation)**: Exact $SE(3)$-invariant subcurve Fréchet distance ($d_F = 31.2\text{ \AA}$ global, peak local deformation at switch hinge).*
+
 ### 4.4 Intrinsically Disordered Proteins: Human $\alpha$-Synuclein (The AlphaFold Blindspot)
 Intrinsically disordered proteins lack a persistent tertiary fold, undergoing rapid interconversion among millions of conformations. Human $\alpha$-synuclein (140 residues) is the primary pathogenic driver of Parkinson's Disease. Static structural predictors output an arbitrary low-confidence conformation ($pLDDT < 50$), while Cartesian PCA produces a featureless isotropic Gaussian blob ($S = 0.0071$) due to massive Brownian fluctuations ($\text{RMSD} > 27\text{ \AA}$).
 
 1. **Spectral Topological Density ($S_{\text{topo}}$)**: Evaluated across an ensemble of 2,000 disordered conformations, $S_{\text{topo}}(i) = \mathbb{E}[|\operatorname{Wr}_w(i)| \cdot \kappa_i]$ couples local curvature to non-local writhe compaction.
 2. **Autonomous Nucleation Hub Discovery**: TopoFold autonomously identifies the amyloidogenic Non-Amyloid Component core (NACore, residues 66..78, peak at residue 74 with $Z = 4.77$) in $293\text{ ms}$, with zero false positives on the disordered N- and C-terminal tails ($Z < 0.5$).
 
+![Figure 8: Alpha-Synuclein IDP Spectral Topological Density](../assets/idp_alphasynuclein_topological_density.png)
+
+*Figure 8: Intrinsically Disordered Protein (IDP) Conformational Ensemble Benchmark on Human $\alpha$-Synuclein ($N = 2,000$ conformations, 140 residues). AlphaFold fails on disordered ensembles, predicting low-confidence static spaghetti ($pLDDT < 50$), while Cartesian PCA completely collapses into an isotropic Gaussian blob ($S = 0.0071$) due to massive Brownian tail variance ($\text{RMSD} > 27\text{ \AA}$). **Panel A (Ensemble Chaos)**: Superposition of 50 disordered conformations illustrates Cartesian disorientation. **Panel B (Cartesian PCA)**: Complete state overlap between transiently nucleated and disordered states ($S = 0.0071$). **Panel C (TopoFold Spectral Topological Density)**: Localized coupling between solid-angle writhe and backbone curvature $S_{\text{topo}}(i) = \mathbb{E}[|\operatorname{Wr}| \cdot \kappa]$ autonomously detects the pathogenic non-amyloid component nucleation core (NACore, residues 66..78, peak at Res 74, $Z = 4.77$) in $293\text{ ms}$ with zero false positives on the disordered N- and C-terminal tails.*
+
 ### 4.5 PROTAC Ternary Complex Dynamic Cooperativity on Authentic Crystals (PDB 5T35 vs 5T3E)
 Proteolysis Targeting Chimeras (PROTACs) induce targeted protein degradation by recruiting an E3 ubiquitin ligase to a target protein, forming a transient ternary complex. In the VHL-PROTAC-Brd4 system, small alterations in linker chemistry yield orders-of-magnitude differences in degradation potency ($DC_{50} = 1.5\text{ nM}$ for MZ1 in PDB 5T35 vs $> 1,000\text{ nM}$ for AT1 in PDB 5T3E). Static crystallographic metrics fail to explain this disparity: Buried Surface Area (BSA) differs by only $3.7\%$ ($p = 0.42$), and interface backbone RMSD is $0.2\text{ \AA}$ (within crystal thermal B-factors).
 
 1. **Inter-Molecular Allosteric Matrices**: TopoFold evaluates cross-chain Mutual Information $r_{\text{MI}}$ on $(\kappa, \tau, \theta_\beta)$ across the ternary contact interface in $193\text{ ms}$. Productive 5T35 exhibits an intense, synchronized mechanical communication hotspot, whereas non-productive 5T3E displays uncoupled, independent dynamics.
 2. **Dynamic Cooperativity Index ($\mathcal{I}_{\text{coop}}$)**: TopoFold's Dynamic Cooperativity Index provides a striking **$97\times$ discrimination factor** ($\mathcal{I}_{\text{coop}} = 0.405$ vs $0.004$, two-tailed Student's $t$-test $p < 10^{-15}$), providing a quantitative physical metric for PROTAC rational design.
+
+![Figure 9: PROTAC Ternary Complex Dynamic Cooperativity](../assets/protac_real_pdb_validation.png)
+
+*Figure 9: Real Experimental Benchmark on PROTAC Ternary Complexes (Authentic RCSB PDB 5T35 vs 5T3E). Static crystallographic metrics fail to explain the >100-fold difference in degradation rate ($DC_{50} = 1.5\text{ nM}$ vs $> 1,000\text{ nM}$): Buried Surface Area (BSA) differs by only $3.7\%$ ($p = 0.42$), and interface backbone RMSD differs by only $0.2\text{ \AA}$ (within crystal thermal B-factors). **Panel A (Crystal Architecture)**: Authentic interface contacts between VHL E3 ligase and target bromodomain. **Panel B (Inter-Molecular Allosteric Matrices)**: TopoFold evaluates cross-chain Mutual Information $r_{\text{MI}}$ on $(\kappa, \tau, \theta_\beta)$ in $193\text{ ms}$. Productive 5T35 exhibits an intense, synchronized mechanical communication hotspot at the ternary contact interface, while Non-Productive 5T3E displays uncoupled, independent dynamics. **Panel C (Quantitative Discrimination)**: TopoFold Dynamic Cooperativity Index provides a striking $97\times$ resolution ($\mathcal{I}_{\text{coop}} = 0.405$ vs $0.004$, $p < 10^{-15}$).*
 
 ### 4.6 RNA Riboswitch Pseudoknot Dynamics & Switching Hinges (The CASP-RNA Challenge, PDB 1Y26)
 RNA molecules present immense conformational challenges due to six rotatable backbone dihedrals per nucleotide and sugar pucker flexibility. In the canonical adenine riboswitch (PDB 1Y26, 71 nt, Chain X), binding of adenine to the aptamer domain stabilizes a compact pseudoknot, allosterically releasing the downstream expression platform.
@@ -160,6 +196,10 @@ RNA molecules present immense conformational challenges due to six rotatable bac
 2. **Autonomous Switching Hinge Detection**: A single-pass Sarle's bimodality scan autonomously identifies the regulatory P1 switching terminator hinge (PDB residues 74..82) as Rank #1 ($BC = 0.9718$) in $61.5\text{ ms}$, with zero false positives on the flexible apical kissing loops.
 3. **Landscape Separation**: While Cartesian PCA is smeared by apical loop fluctuations ($S = 0.548$), TopoFold metric invariants pristinely resolve the bistable free-energy landscape ($S = 0.957$).
 
+![Figure 10: RNA Riboswitch Pseudoknot Dynamics and Conformational Switching Landscape](../assets/rna_riboswitch_switching_landscape.png)
+
+*Figure 10: RNA Riboswitch Pseudoknot Dynamics & Switching Hinge Benchmark on Canonical Adenine Riboswitch (Authentic RCSB PDB 1Y26, 71 nt, Chain X, $N = 1,000$ frames). Deep learning structural predictors fail on RNA tertiary dynamics and allosteric switching due to 6 rotatable backbone dihedrals and ribose pucker. **Panel A (3D Ribonucleic Ribbon Structure)**: Canonical pseudoknot with stable P2/P3 stems and kissing loop enclosing adenine, contrasting with the mobile P1 switching terminator hinge. **Panel B (Ribonucleic Invariants)**: Discrete curvature $\kappa_P$, torsion $\tau_P$, and glycosidic base ribbon dihedral $\theta_{\text{base}}$ across Bound and Unbound states. **Panel C (Autonomous Switching Hinge Detection)**: Sequence-wide Sarle's bimodality scan autonomously identifies the P1 regulatory switching strand (PDB residues 74..82) as Rank #1 ($BC = 0.9718$) in $61.5\text{ ms}$ with zero false positives on the flexible apical kissing loops. **Panel D (Cartesian PCA vs TopoFold Metric Separation)**: Apical loop thermal fluctuations smear Cartesian PCA ($S = 0.548$), while TopoFold metric invariants pristinely resolve the bistable free-energy landscape ($S = 0.957$).*
+
 ### 4.7 Autonomous Catalytic Dyad Discovery in SARS-CoV-2 Main Protease (Zenodo Record 13730633)
 We evaluated TopoFold on the full-length homodimer of the SARS-CoV-2 Main Protease (Mpro, 306 residues per protomer, 612 residues total; Lee & Rauscher all-atom MD dataset, Zenodo Record 13730633). The active site is formed by the catalytic dyad His41 and Cys145, flanked by dynamic substrate-binding loops.
 
@@ -167,11 +207,15 @@ We evaluated TopoFold on the full-length homodimer of the SARS-CoV-2 Main Protea
 2. **Catalytic Dyad Discovery**: TopoFold autonomously flagged the catalytic Cys145 gating loop (residues 138..146) with a peak bimodality score of **$BC = 0.9816$**, alongside the catalytic His41 loop (residues 40..43) and the upper gating loop (residues 165..175).
 3. **Energy Landscape**: TopoFold resolved an activation barrier of **$6.17\,k_B T$** across the catalytic loop, providing real-time autonomous identification of functional viral druggable sites.
 
+![Figure 11: Authentic Peer-Reviewed Explicit-Solvent MD Trajectory Validation Suite](../assets/real_md_validation_suite.png)
+
+*Figure 11: 100% Authentic Biophysical MD Trajectory Validation Suite on Peer-Reviewed Zenodo Datasets (BPTI & SARS-CoV-2 Mpro). **Panels A & B**: BPTI explicit-solvent MD (Zenodo 7347434). Cartesian PCA collapses ($S = 0.0090$, barrier blurred), while TopoFold SE(3) ribbon geometry on residues 10..18 recovers pristine separation ($S = 0.8446$, 93.8× improvement) and the authentic $5.48\,k_B T$ ($3.25\text{ kcal/mol}$) activation barrier in $12.4\text{ ms}$ (22.7× faster than Kabsch). **Panel C**: Autonomous BPTI scan identifies the P1 inhibitory loop ($BC = 0.9987$). **Panel D**: Full-length SARS-CoV-2 Main Protease homodimer (Zenodo 13730633, 1,200 frames × 306 residues scanned in $43.13\text{ ms}$). TopoFold autonomously detects the catalytic Cys145 dyad loop ($BC = 0.9816$) with zero prior hypothesis. **Panel E**: Quantitative real-MD benchmark summary.*
+
 ---
 
 ## 5. Interactive Software Architecture & Streamlit Web Application
 
-To translate TopoFold's mathematical innovations into practical drug discovery workflows, we developed an interactive, reactive web dashboard implemented in Streamlit (`apps/streamlit_app.py`, Supplementary Fig. S1).
+To translate TopoFold's mathematical innovations into practical drug discovery workflows, we developed an interactive, reactive web dashboard implemented in Streamlit (`apps/streamlit_app.py`, Figure 12).
 
 ```
 ┌────────────────────────────────────────────────────────────────────────┐
@@ -199,6 +243,10 @@ To translate TopoFold's mathematical innovations into practical drug discovery w
    - *Ribonucleic Acids (Adenine Riboswitch)*: Phosphorus-ribose cartoon ribbon with glycosidic base sticks, highlighting the P1 switching terminator hinge.
 3. **Zero-Grey-Box Resilience**: Canvas initialization utilizes HTML5 `ResizeObserver` callbacks and staggered multi-interval redraw triggers (`50ms`, `150ms`, `350ms`, `700ms`, `1200ms`), completely eliminating blank WebGL rendering artifacts during asynchronous Streamlit container mounting.
 4. **Interactive Analytical Suite**: Provides real-time sequence-wide bimodality scanning, 2D Potential of Mean Force (PMF) contour visualization, candidate pocket table sorting, and trajectory frame scrubbing.
+
+![Figure 12: Autonomous Blind Sequence Scanning and Streaming Moments Architecture](../assets/bpti_blind_pocket_scan.png)
+
+*Figure 12: Autonomous Blind Sequence Scanning Profile and Hotspot Detection in the TopoFold Web Dashboard ($N = 2,500$ frames, $W = 8$ residues). **Top Panel**: Sequence profile of Sarle's Bimodality Coefficient ($BC$) across sliding windows, highlighting rigid unimodal regions ($BC < 0.555$) versus the active catalytic loop ($BC = 0.9986$). **Bottom Panel**: Automatically detected bistable segments ranked by transition score, autonomously flagging the active inhibitory loop (Candidate #1, residues 6..27) in $11.7\text{ ms}$ ($4.69\,\mu\text{s/frame}$). Secondary peaks capture the $\beta$-hairpin turn and Cys38 disulfide crosslink coupling.*
 
 ---
 
