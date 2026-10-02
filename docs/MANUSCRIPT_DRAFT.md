@@ -60,7 +60,7 @@ Synthetic ensembles with injected local transitions and noisy termini test wheth
 | Loop Cα–Cα distances + PCA | 0.990 |
 | Loop (κ, τ) + PCA | 0.992 |
 
-Thus, when the region is known, simple local features suffice; the relevant test for TopoFold is blind localisation, where the region is not given. [Blind-localisation results with calibrated false-positive rates: TBD. Stress tests: β-strands near ±π, rare excursions, skewed unimodal distributions: TBD.]
+Thus, when the region is known, simple local features suffice. The remaining questions are therefore both (i) whether TopoFold adds value over equal-information local representations and (ii) whether it can localise relevant regions without prior residue selection. [Blind-localisation results with calibrated false-positive rates: TBD. Stress tests: β-strands near ±π, rare excursions, skewed unimodal distributions: TBD.]
 
 ## 5. Validation on independently generated data
 
