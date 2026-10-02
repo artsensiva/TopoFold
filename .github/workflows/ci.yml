@@ -1,0 +1,92 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - scientific-rebuild
+
+jobs:
+  rust:
+    name: Rust checks
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+
+      - name: Check formatting
+        run: cargo fmt --all -- --check
+
+      - name: Run clippy
+        run: cargo clippy --workspace --all-targets -- -D warnings
+
+      - name: Run Rust tests
+        run: cargo test --workspace --release
+
+  python:
+    name: Python ${{ matrix.python-version }}
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version:
+          - '3.9'
+          - '3.12'
+          - '3.14'
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install build and test tools
+        run: python -m pip install --upgrade pip maturin pytest
+
+      - name: Build wheel
+        run: maturin build --release -i python
+
+      - name: Install wheel
+        run: python -m pip install target/wheels/*.whl
+
+      - name: Run Python tests
+        run: python -m pytest -v
+
+  audit-reproductions:
+    name: Audit reproduction scripts
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: python -m pip install numpy scipy scikit-learn
+
+      - name: Run writhe audit reproduction
+        run: python benchmarks/audit/writhe_check.py
+
+      - name: Run circular-statistics audit reproduction
+        run: python benchmarks/audit/bc_check.py
+
+      - name: Run PMF audit reproduction
+        run: python benchmarks/audit/barrier_check.py
+
+      - name: Run fair-baseline audit reproduction
+        run: python benchmarks/audit/fair_baseline.py
