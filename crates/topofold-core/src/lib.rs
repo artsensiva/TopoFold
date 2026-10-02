@@ -72,4 +72,3 @@ pub use rna::{
 };
 pub use types::BackboneTrace;
 pub use writhe::{compute_local_writhe, compute_total_writhe};
-

@@ -187,7 +187,11 @@ fn extract_centered_features(
     }
 
     // Step 3: Precompute single-residue covariance matrices and their regularized log determinants
-    let eps = if regularizer_eps > 0.0 { regularizer_eps } else { 1e-6 };
+    let eps = if regularizer_eps > 0.0 {
+        regularizer_eps
+    } else {
+        1e-6
+    };
     let inv_df = 1.0 / (f_count - 1) as f64;
 
     let single_covs: Vec<SingleResidueCov> = (0..n_internal)
@@ -244,7 +248,11 @@ pub fn compute_intrinsic_allosteric_network(
     let feat_dim = feats.feat_dim;
     let joint_dim = feat_dim * 2;
     let inv_df = 1.0 / (f_count - 1) as f64;
-    let eps = if regularizer_eps > 0.0 { regularizer_eps } else { 1e-6 };
+    let eps = if regularizer_eps > 0.0 {
+        regularizer_eps
+    } else {
+        1e-6
+    };
 
     // Parallelize outer loop over rows i in 0..n_internal
     let row_results: Vec<Vec<(usize, f64)>> = (0..n_internal)
@@ -377,7 +385,11 @@ pub fn compute_intermolecular_allosteric_network(
     let d_b = feats_b.feat_dim;
     let joint_dim = d_a + d_b;
     let inv_df = 1.0 / (f_count - 1) as f64;
-    let eps = if regularizer_eps > 0.0 { regularizer_eps } else { 1e-6 };
+    let eps = if regularizer_eps > 0.0 {
+        regularizer_eps
+    } else {
+        1e-6
+    };
 
     // Parallelize over rows i in 0..feats_a.n_internal
     let row_results: Vec<Vec<f64>> = (0..feats_a.n_internal)
@@ -570,7 +582,11 @@ mod tests {
             let mut pts_a = Vec::new();
             for i in 0..8 {
                 let ang = (i as f64) * 0.6;
-                pts_a.push(Point3::new((i as f64) * pitch_a, ang.cos() * radius_a, ang.sin() * radius_a));
+                pts_a.push(Point3::new(
+                    (i as f64) * pitch_a,
+                    ang.cos() * radius_a,
+                    ang.sin() * radius_a,
+                ));
             }
             chain_a.push(BackboneTrace::new(pts_a));
 
@@ -580,12 +596,17 @@ mod tests {
             let mut pts_b = Vec::new();
             for j in 0..12 {
                 let ang = (j as f64) * 0.4;
-                pts_b.push(Point3::new((j as f64) * pitch_b, ang.cos() * radius_b, ang.sin() * radius_b));
+                pts_b.push(Point3::new(
+                    (j as f64) * pitch_b,
+                    ang.cos() * radius_b,
+                    ang.sin() * radius_b,
+                ));
             }
             chain_b.push(BackboneTrace::new(pts_b));
         }
 
-        let inter_net = compute_intermolecular_allosteric_network(&chain_a, &chain_b, 1e-6).unwrap();
+        let inter_net =
+            compute_intermolecular_allosteric_network(&chain_a, &chain_b, 1e-6).unwrap();
         assert_eq!(inter_net.shape(), &[8, 12]);
 
         // Check values bounded in [0, 1]

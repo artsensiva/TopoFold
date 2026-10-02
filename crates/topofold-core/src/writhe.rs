@@ -26,11 +26,7 @@ use crate::types::BackboneTrace;
 /// Implements the unconditionally stable, branch-cut-free formula of van Oosterom & Strackee (1983):
 /// $$\tan\left(\frac{1}{2}\Omega\right) = \frac{\mathbf{a} \cdot (\mathbf{b} \times \mathbf{c})}{1 + \mathbf{a}\cdot\mathbf{b} + \mathbf{b}\cdot\mathbf{c} + \mathbf{c}\cdot\mathbf{a}}$$
 #[inline]
-pub fn spherical_triangle_solid_angle(
-    a: &Vector3<f64>,
-    b: &Vector3<f64>,
-    c: &Vector3<f64>,
-) -> f64 {
+pub fn spherical_triangle_solid_angle(a: &Vector3<f64>, b: &Vector3<f64>, c: &Vector3<f64>) -> f64 {
     let det = a.dot(&b.cross(c));
     let denom = 1.0 + a.dot(b) + b.dot(c) + c.dot(a);
     2.0 * det.atan2(denom)

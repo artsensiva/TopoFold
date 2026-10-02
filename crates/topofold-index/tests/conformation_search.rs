@@ -66,7 +66,10 @@ fn test_ensemble_indexing_and_sub_linear_search() {
         0.05, // Coarse writhe spectrum tolerance
     );
 
-    assert!(!hits.is_empty(), "Query must find at least the exact target");
+    assert!(
+        !hits.is_empty(),
+        "Query must find at least the exact target"
+    );
     assert_eq!(hits[0].frame_id, 10, "Top hit must be Frame 10 itself");
     assert!(hits[0].frechet_distance < 1e-12, "Self distance must be 0");
 

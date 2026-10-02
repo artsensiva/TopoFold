@@ -609,7 +609,6 @@ pub fn scan_rna_switching_hinges(
         }
     }
 
-
     if in_cluster {
         candidates.push(RnaHingeCandidate {
             start_res: cluster_start,
@@ -623,7 +622,11 @@ pub fn scan_rna_switching_hinges(
     }
 
     // Rank candidates by peak score descending
-    candidates.sort_by(|a, b| b.score.partial_cmp(&a.score).unwrap_or(std::cmp::Ordering::Equal));
+    candidates.sort_by(|a, b| {
+        b.score
+            .partial_cmp(&a.score)
+            .unwrap_or(std::cmp::Ordering::Equal)
+    });
 
     Ok(candidates)
 }
@@ -651,9 +654,21 @@ mod tests {
             let z = i as f64 * pitch_per_nt;
 
             let p = Point3::new(radius_p * theta.cos(), radius_p * theta.sin(), z);
-            let c4 = Point3::new((radius_p - 2.5) * (theta + 0.1).cos(), (radius_p - 2.5) * (theta + 0.1).sin(), z + 1.2);
-            let c1 = Point3::new((radius_p - 4.5) * (theta + 0.2).cos(), (radius_p - 4.5) * (theta + 0.2).sin(), z + 1.8);
-            let n_pt = Point3::new((radius_p - 6.0) * (theta + 0.3).cos(), (radius_p - 6.0) * (theta + 0.3).sin(), z + 2.0);
+            let c4 = Point3::new(
+                (radius_p - 2.5) * (theta + 0.1).cos(),
+                (radius_p - 2.5) * (theta + 0.1).sin(),
+                z + 1.2,
+            );
+            let c1 = Point3::new(
+                (radius_p - 4.5) * (theta + 0.2).cos(),
+                (radius_p - 4.5) * (theta + 0.2).sin(),
+                z + 1.8,
+            );
+            let n_pt = Point3::new(
+                (radius_p - 6.0) * (theta + 0.3).cos(),
+                (radius_p - 6.0) * (theta + 0.3).sin(),
+                z + 2.0,
+            );
 
             p_coords.push(p);
             c4_coords.push(c4);
@@ -661,7 +676,13 @@ mod tests {
             n_coords.push(n_pt);
         }
 
-        let trace = RnaRibbonTrace::new(p_coords.clone(), c4_coords.clone(), c1_coords.clone(), n_coords.clone()).unwrap();
+        let trace = RnaRibbonTrace::new(
+            p_coords.clone(),
+            c4_coords.clone(),
+            c1_coords.clone(),
+            n_coords.clone(),
+        )
+        .unwrap();
         let inv_original = extract_rna_ribbon_invariants(&trace).unwrap();
 
         // Apply arbitrary 3D rigid rotation and translation (SE(3))
@@ -669,10 +690,22 @@ mod tests {
         let translation = Translation3::new(42.5, -99.3, 137.8);
         let isometry = Isometry3::from_parts(translation, rotation);
 
-        let p_trans: Vec<Point3<f64>> = p_coords.iter().map(|&p| isometry.transform_point(&p)).collect();
-        let c4_trans: Vec<Point3<f64>> = c4_coords.iter().map(|&p| isometry.transform_point(&p)).collect();
-        let c1_trans: Vec<Point3<f64>> = c1_coords.iter().map(|&p| isometry.transform_point(&p)).collect();
-        let n_trans: Vec<Point3<f64>> = n_coords.iter().map(|&p| isometry.transform_point(&p)).collect();
+        let p_trans: Vec<Point3<f64>> = p_coords
+            .iter()
+            .map(|&p| isometry.transform_point(&p))
+            .collect();
+        let c4_trans: Vec<Point3<f64>> = c4_coords
+            .iter()
+            .map(|&p| isometry.transform_point(&p))
+            .collect();
+        let c1_trans: Vec<Point3<f64>> = c1_coords
+            .iter()
+            .map(|&p| isometry.transform_point(&p))
+            .collect();
+        let n_trans: Vec<Point3<f64>> = n_coords
+            .iter()
+            .map(|&p| isometry.transform_point(&p))
+            .collect();
 
         let trace_trans = RnaRibbonTrace::new(p_trans, c4_trans, c1_trans, n_trans).unwrap();
         let inv_transformed = extract_rna_ribbon_invariants(&trace_trans).unwrap();
@@ -680,7 +713,8 @@ mod tests {
         // Verify strict SE(3) invariance down to < 10^-12
         for i in 0..inv_original.segment_lengths.len() {
             assert!(
-                (inv_original.segment_lengths[i] - inv_transformed.segment_lengths[i]).abs() < 1e-12,
+                (inv_original.segment_lengths[i] - inv_transformed.segment_lengths[i]).abs()
+                    < 1e-12,
                 "Segment length mismatch at {}: {} vs {}",
                 i,
                 inv_original.segment_lengths[i],
@@ -755,9 +789,21 @@ mod tests {
                 let z = i as f64 * 2.8;
 
                 let p = Point3::new(8.8 * theta.cos(), 8.8 * theta.sin(), z);
-                let c4 = Point3::new(6.3 * (theta + 0.1).cos(), 6.3 * (theta + 0.1).sin(), z + 1.2);
-                let c1 = Point3::new(4.3 * (theta + 0.2).cos(), 4.3 * (theta + 0.2).sin(), z + 1.8);
-                let n_pt = Point3::new(2.8 * (theta + 0.3).cos(), 2.8 * (theta + 0.3).sin(), z + 2.0);
+                let c4 = Point3::new(
+                    6.3 * (theta + 0.1).cos(),
+                    6.3 * (theta + 0.1).sin(),
+                    z + 1.2,
+                );
+                let c1 = Point3::new(
+                    4.3 * (theta + 0.2).cos(),
+                    4.3 * (theta + 0.2).sin(),
+                    z + 1.8,
+                );
+                let n_pt = Point3::new(
+                    2.8 * (theta + 0.3).cos(),
+                    2.8 * (theta + 0.3).sin(),
+                    z + 2.0,
+                );
 
                 p_coords.push(p);
                 c4_coords.push(c4);
@@ -769,9 +815,16 @@ mod tests {
         }
 
         let hinges = scan_rna_switching_hinges(&ensemble, 3, 0.70).unwrap();
-        assert!(!hinges.is_empty(), "Expected candidate switching hinges to be detected");
+        assert!(
+            !hinges.is_empty(),
+            "Expected candidate switching hinges to be detected"
+        );
         let top_hinge = &hinges[0];
-        assert!(top_hinge.score > 0.85, "Expected top hinge score > 0.85, got {}", top_hinge.score);
+        assert!(
+            top_hinge.score > 0.85,
+            "Expected top hinge score > 0.85, got {}",
+            top_hinge.score
+        );
         // Hinge cluster should encompass the modified hinge residues 5..8
         assert!(
             top_hinge.start_res <= 5 && top_hinge.end_res >= 7,
@@ -781,4 +834,3 @@ mod tests {
         );
     }
 }
-

@@ -128,7 +128,8 @@ fn test_golden_1crn_writhe_and_se3_invariance() {
 
         let inv_trans = extract_curve_invariants(&trans_trace).expect("Transformed invariants");
         let total_wr_trans = compute_total_writhe(&trans_trace).expect("Transformed writhe");
-        let local_wr_trans = compute_local_writhe(&trans_trace, 4).expect("Transformed local writhe");
+        let local_wr_trans =
+            compute_local_writhe(&trans_trace, 4).expect("Transformed local writhe");
 
         // Curvature invariance
         for i in 0..inv_orig.curvatures.len() {
@@ -149,7 +150,10 @@ fn test_golden_1crn_writhe_and_se3_invariance() {
         // Local Writhe spectrum invariance
         for i in 0..local_wr_orig.len() {
             let d_lwr = (local_wr_orig[i] - local_wr_trans[i]).abs();
-            assert!(d_lwr < 1e-6, "Trial {trial}: Local writhe mismatch at {i}: {d_lwr}");
+            assert!(
+                d_lwr < 1e-6,
+                "Trial {trial}: Local writhe mismatch at {i}: {d_lwr}"
+            );
         }
     }
 }
@@ -161,9 +165,15 @@ fn test_golden_1crn_metric_distances() {
 
     // Self-distance under Discrete Fréchet metric must be 0
     let df_self = discrete_frechet_invariants(&invariants, &invariants, 1.0, 1.0);
-    assert!(df_self < 1e-12, "Self-Fréchet distance must be 0, got {df_self}");
+    assert!(
+        df_self < 1e-12,
+        "Self-Fréchet distance must be 0, got {df_self}"
+    );
 
     // Self-distance under DTW must be 0
     let dtw_self = dtw_invariants(&invariants, &invariants, 1.0, 1.0);
-    assert!(dtw_self < 1e-12, "Self-DTW distance must be 0, got {dtw_self}");
+    assert!(
+        dtw_self < 1e-12,
+        "Self-DTW distance must be 0, got {dtw_self}"
+    );
 }

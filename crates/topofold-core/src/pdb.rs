@@ -91,7 +91,8 @@ pub fn parse_pdb_ca<R: BufRead>(
     target_chain: Option<char>,
 ) -> Result<(BackboneTrace, Vec<ResidueMeta>), PdbError> {
     let mut residues: Vec<ResidueAccumulator> = Vec::new();
-    let mut res_map: std::collections::HashMap<(char, i32, char), usize> = std::collections::HashMap::new();
+    let mut res_map: std::collections::HashMap<(char, i32, char), usize> =
+        std::collections::HashMap::new();
 
     for (line_idx, line_res) in reader.lines().enumerate() {
         let line_num = line_idx + 1;
@@ -135,10 +136,12 @@ pub fn parse_pdb_ca<R: BufRead>(
 
         // Residue sequence number: columns 23-26
         let seq_id_str = line[22..26].trim();
-        let seq_id: i32 = seq_id_str.parse().map_err(|_| PdbError::InvalidResidueNumber {
-            line: line_num,
-            value: seq_id_str.to_string(),
-        })?;
+        let seq_id: i32 = seq_id_str
+            .parse()
+            .map_err(|_| PdbError::InvalidResidueNumber {
+                line: line_num,
+                value: seq_id_str.to_string(),
+            })?;
 
         // Insertion code: column 27 (0-indexed 26)
         let i_code = line.chars().nth(26).unwrap_or(' ');
@@ -264,7 +267,8 @@ pub fn parse_pdb_ca<R: BufRead>(
             } else {
                 ca_coords[i] + nalgebra::Vector3::new(0.0, 0.0, -1.0)
             };
-            cb_coords[i] = crate::ribbon::compute_pseudo_cbeta_from_ca(prev_ca, ca_coords[i], next_ca);
+            cb_coords[i] =
+                crate::ribbon::compute_pseudo_cbeta_from_ca(prev_ca, ca_coords[i], next_ca);
         }
     }
 
@@ -331,9 +335,12 @@ pub fn parse_pdb_rna<R: BufRead>(
     target_chain: Option<char>,
 ) -> Result<(crate::rna::RnaRibbonTrace, Vec<ResidueMeta>), PdbError> {
     let mut nucleotides: Vec<RnaNucleotideAccumulator> = Vec::new();
-    let mut nt_map: std::collections::HashMap<(char, i32, char), usize> = std::collections::HashMap::new();
+    let mut nt_map: std::collections::HashMap<(char, i32, char), usize> =
+        std::collections::HashMap::new();
 
-    let rna_names = ["A", "G", "C", "U", "ADE", "GUA", "CYT", "URA", "DA", "DG", "DC", "DT"];
+    let rna_names = [
+        "A", "G", "C", "U", "ADE", "GUA", "CYT", "URA", "DA", "DG", "DC", "DT",
+    ];
 
     for (line_idx, line_res) in reader.lines().enumerate() {
         let line_num = line_idx + 1;
@@ -369,10 +376,12 @@ pub fn parse_pdb_rna<R: BufRead>(
         }
 
         let seq_id_str = line[22..26].trim();
-        let seq_id: i32 = seq_id_str.parse().map_err(|_| PdbError::InvalidResidueNumber {
-            line: line_num,
-            value: seq_id_str.to_string(),
-        })?;
+        let seq_id: i32 = seq_id_str
+            .parse()
+            .map_err(|_| PdbError::InvalidResidueNumber {
+                line: line_num,
+                value: seq_id_str.to_string(),
+            })?;
 
         let i_code = line.chars().nth(26).unwrap_or(' ');
 
@@ -584,7 +593,8 @@ ATOM      5  N   GLY A   2       2.000   0.000   0.000  1.00 10.00           N
 ATOM      6  CA  GLY A   2       3.000   0.000   0.000  1.00 10.00           C
 ATOM      7  C   GLY A   2       4.000   0.000   0.000  1.00 10.00           C
 ";
-        let (ribbon, metas) = parse_pdb_ribbon(pdb_text.as_bytes(), Some('A')).expect("Parse ribbon");
+        let (ribbon, metas) =
+            parse_pdb_ribbon(pdb_text.as_bytes(), Some('A')).expect("Parse ribbon");
         assert_eq!(ribbon.len(), 2);
         assert_eq!(metas[0].name, "ALA");
         assert_eq!(metas[1].name, "GLY");
@@ -628,4 +638,3 @@ ATOM      9  N9    G X  14       3.125  -3.376  -6.331  1.00 59.83           N
         assert_eq!(p14, Point3::new(2.936, -7.140, -3.702));
     }
 }
-

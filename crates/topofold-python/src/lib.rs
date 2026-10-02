@@ -1,21 +1,23 @@
 //! Python bindings (PyO3) for the TopoFold conformational trajectory engine.
 
-use std::fs::File;
-use std::io::BufReader;
 use nalgebra::Point3;
-use numpy::{PyArray1, PyArray2, PyArray3, PyReadonlyArray2, PyReadonlyArray3, PyUntypedArrayMethods};
+use numpy::{
+    PyArray1, PyArray2, PyArray3, PyReadonlyArray2, PyReadonlyArray3, PyUntypedArrayMethods,
+};
 use pyo3::exceptions::PyValueError;
 use pyo3::prelude::*;
 use pyo3::IntoPyObjectExt;
 use rayon::prelude::*;
+use std::fs::File;
+use std::io::BufReader;
 
 use topofold_core::error::GeometryError;
 use topofold_core::invariants::CurveInvariants;
 use topofold_core::pdb::{parse_pdb_ca, parse_pdb_rna, PdbError};
 use topofold_core::rna::{
     compute_rna_bimodality_profile as core_rna_bimodality_profile,
-    extract_rna_ribbon_invariants_with_window, scan_rna_switching_hinges as core_scan_rna_switching_hinges,
-    RnaRibbonTrace,
+    extract_rna_ribbon_invariants_with_window,
+    scan_rna_switching_hinges as core_scan_rna_switching_hinges, RnaRibbonTrace,
 };
 use topofold_core::{
     compute_bimodality_profile as core_bimodality_profile, compute_idp_density_profile,
@@ -25,7 +27,7 @@ use topofold_core::{
     detect_bistable_segments, detect_transient_motifs_with_params,
     discrete_frechet_distance_coords, extract_curve_invariants, BackboneTrace,
 };
-use topofold_index::{ConformerFrame, ConformationalIndex as RustConformationalIndex};
+use topofold_index::{ConformationalIndex as RustConformationalIndex, ConformerFrame};
 use topofold_io::{DcdReader, TrajectoryError};
 
 /// Helper to convert a GeometryError to a PyValueError.
@@ -80,9 +82,9 @@ fn traces_to_array3(traces: &[BackboneTrace]) -> Result<ndarray::Array3<f32>, Py
 }
 
 fn cb_trace_to_array2(trace: &BackboneTrace) -> Result<ndarray::Array2<f32>, PyErr> {
-    let cb_coords = trace.cb_coordinates().ok_or_else(|| {
-        PyValueError::new_err("BackboneTrace contains no C-beta coordinates")
-    })?;
+    let cb_coords = trace
+        .cb_coordinates()
+        .ok_or_else(|| PyValueError::new_err("BackboneTrace contains no C-beta coordinates"))?;
     let n = cb_coords.len();
     let mut arr = ndarray::Array2::<f32>::zeros((n, 3));
     for (i, pt) in cb_coords.iter().enumerate() {
@@ -263,15 +265,16 @@ pub fn compute_invariants<'py>(
         None
     };
 
-    let (invariants, writhe_spectrum) = py.detach(|| -> Result<(CurveInvariants, Vec<f64>), PyErr> {
-        let mut trace = view_to_trace(array_view)?;
-        if let Some(cb_pts) = opt_cb_pts {
-            trace.set_cb_coordinates(cb_pts);
-        }
-        let inv = extract_curve_invariants(&trace).map_err(to_py_err)?;
-        let wr = compute_local_writhe(&trace, window_radius).map_err(to_py_err)?;
-        Ok((inv, wr))
-    })?;
+    let (invariants, writhe_spectrum) =
+        py.detach(|| -> Result<(CurveInvariants, Vec<f64>), PyErr> {
+            let mut trace = view_to_trace(array_view)?;
+            if let Some(cb_pts) = opt_cb_pts {
+                trace.set_cb_coordinates(cb_pts);
+            }
+            let inv = extract_curve_invariants(&trace).map_err(to_py_err)?;
+            let wr = compute_local_writhe(&trace, window_radius).map_err(to_py_err)?;
+            Ok((inv, wr))
+        })?;
 
     let py_kappa = PyArray1::from_vec(py, invariants.curvatures).unbind();
     let py_tau = PyArray1::from_vec(py, invariants.torsions).unbind();
@@ -322,7 +325,9 @@ pub fn compute_theta_beta<'py>(
     }
     let n = ca_view.shape()[0];
     if n < 3 {
-        return Err(PyValueError::new_err("Theta_beta requires at least 3 residues"));
+        return Err(PyValueError::new_err(
+            "Theta_beta requires at least 3 residues",
+        ));
     }
 
     let ca_pts: Vec<Point3<f64>> = ca_view
@@ -394,7 +399,9 @@ impl ConformationalIndex {
         let n_residues = shape[1];
 
         if f_count == 0 {
-            return Err(PyValueError::new_err("Trajectory ensemble must contain at least 1 frame"));
+            return Err(PyValueError::new_err(
+                "Trajectory ensemble must contain at least 1 frame",
+            ));
         }
         if n_residues < 4 {
             return Err(PyValueError::new_err(format!(
@@ -427,7 +434,8 @@ impl ConformationalIndex {
                     }
                     let trace = BackboneTrace::new(points);
                     let invariants = extract_curve_invariants(&trace).map_err(to_py_err)?;
-                    let writhe_spectrum = compute_local_writhe(&trace, window_radius).map_err(to_py_err)?;
+                    let writhe_spectrum =
+                        compute_local_writhe(&trace, window_radius).map_err(to_py_err)?;
 
                     Ok(ConformerFrame {
                         frame_id: f_idx as u64,
@@ -491,17 +499,17 @@ impl ConformationalIndex {
         let window_radius = (self.window_size / 2).max(1);
         let array_view = query_coords.as_array();
 
-        let (target_inv, target_writhe) = py.detach(|| -> Result<(CurveInvariants, Vec<f64>), PyErr> {
-            let trace = view_to_trace(array_view)?;
-            let inv = extract_curve_invariants(&trace).map_err(to_py_err)?;
-            let wr = compute_local_writhe(&trace, window_radius).map_err(to_py_err)?;
-            Ok((inv, wr))
-        })?;
+        let (target_inv, target_writhe) =
+            py.detach(|| -> Result<(CurveInvariants, Vec<f64>), PyErr> {
+                let trace = view_to_trace(array_view)?;
+                let inv = extract_curve_invariants(&trace).map_err(to_py_err)?;
+                let wr = compute_local_writhe(&trace, window_radius).map_err(to_py_err)?;
+                Ok((inv, wr))
+            })?;
 
         let coarse_radius = self.coarse_radius;
-        let hits = py.detach(|| {
-            index.query_k_nearest(&target_inv, &target_writhe, k, coarse_radius)
-        });
+        let hits =
+            py.detach(|| index.query_k_nearest(&target_inv, &target_writhe, k, coarse_radius));
 
         let results: Vec<(u64, f64)> = hits
             .into_iter()
@@ -587,9 +595,7 @@ impl ConformationalIndex {
             }
         })?;
 
-        let hits = py.detach(|| {
-            index.query_subcurve_k_nearest(start_res, end_res, &sub_inv, k)
-        });
+        let hits = py.detach(|| index.query_subcurve_k_nearest(start_res, end_res, &sub_inv, k));
 
         let results: Vec<(u64, f64)> = hits
             .into_iter()
@@ -610,7 +616,9 @@ impl ConformationalIndex {
         coarse_radius: f64,
     ) -> PyResult<Self> {
         let file = File::open(path).map_err(|e| PyValueError::new_err(e.to_string()))?;
-        let traces = py.detach(|| topofold_io::read_pdb_trajectory(BufReader::new(file), chain).map_err(to_traj_err))?;
+        let traces = py.detach(|| {
+            topofold_io::read_pdb_trajectory(BufReader::new(file), chain).map_err(to_traj_err)
+        })?;
         py.detach(|| traces_to_index(traces, window_size, coarse_radius))
     }
 
@@ -625,7 +633,9 @@ impl ConformationalIndex {
         coarse_radius: f64,
     ) -> PyResult<Self> {
         let file = File::open(path).map_err(|e| PyValueError::new_err(e.to_string()))?;
-        let traces = py.detach(|| topofold_io::read_dcd_trajectory(BufReader::new(file), &ca_indices).map_err(to_traj_err))?;
+        let traces = py.detach(|| {
+            topofold_io::read_dcd_trajectory(BufReader::new(file), &ca_indices).map_err(to_traj_err)
+        })?;
         py.detach(|| traces_to_index(traces, window_size, coarse_radius))
     }
 
@@ -692,7 +702,9 @@ pub fn read_pdb_trajectory<'py>(
     extract_cbeta: bool,
 ) -> PyResult<Py<PyAny>> {
     let file = File::open(path).map_err(|e| PyValueError::new_err(e.to_string()))?;
-    let traces = py.detach(|| topofold_io::read_pdb_trajectory(BufReader::new(file), chain).map_err(to_traj_err))?;
+    let traces = py.detach(|| {
+        topofold_io::read_pdb_trajectory(BufReader::new(file), chain).map_err(to_traj_err)
+    })?;
     let ca_arr = traces_to_array3(&traces)?;
     let py_ca = PyArray3::from_owned_array(py, ca_arr);
     if extract_cbeta {
@@ -722,7 +734,9 @@ pub fn read_dcd<'py>(
         match (ca_indices.as_ref(), cb_indices.as_ref()) {
             (Some(ca_idxs), Some(cb_idxs)) => {
                 while let Some(frame) = reader.next_frame().map_err(to_traj_err)? {
-                    let trace = frame.to_backbone_trace_with_cbeta(ca_idxs, cb_idxs).map_err(to_traj_err)?;
+                    let trace = frame
+                        .to_backbone_trace_with_cbeta(ca_idxs, cb_idxs)
+                        .map_err(to_traj_err)?;
                     result.push(trace);
                 }
             }
@@ -733,7 +747,9 @@ pub fn read_dcd<'py>(
                 }
             }
             (None, Some(_)) => {
-                return Err(PyValueError::new_err("cb_indices requires ca_indices to be specified"));
+                return Err(PyValueError::new_err(
+                    "cb_indices requires ca_indices to be specified",
+                ));
             }
             (None, None) => {
                 while let Some(frame) = reader.next_frame().map_err(to_traj_err)? {
@@ -839,9 +855,7 @@ pub fn scan_cryptic_pockets<'py>(
     let array_view = coords.as_array();
     let cb_view = cb_coords.as_ref().map(|cb| cb.as_array());
     let traces = array3_to_traces(&array_view, cb_view.as_ref())?;
-    let candidates = py.detach(|| {
-        detect_bistable_segments(&traces, window_size, bc_threshold)
-    });
+    let candidates = py.detach(|| detect_bistable_segments(&traces, window_size, bc_threshold));
     let result = candidates
         .into_iter()
         .map(|c| (c.start_res, c.end_res, c.score))
@@ -1055,9 +1069,8 @@ pub fn compute_idp_topological_density<'py>(
 ) -> PyResult<Py<PyArray1<f64>>> {
     let array_view = coords.as_array();
     let traces = array3_to_traces(&array_view, None)?;
-    let profile = py.detach(|| {
-        compute_idp_density_profile(&traces, window_radius).map_err(to_py_err)
-    })?;
+    let profile =
+        py.detach(|| compute_idp_density_profile(&traces, window_radius).map_err(to_py_err))?;
     let py_arr = PyArray1::from_vec(py, profile.mean_density);
     Ok(py_arr.unbind())
 }
@@ -1095,9 +1108,8 @@ pub fn compute_idp_density_profile_py<'py>(
 ) -> PyResult<IdpProfileArrays> {
     let array_view = coords.as_array();
     let traces = array3_to_traces(&array_view, None)?;
-    let profile = py.detach(|| {
-        compute_idp_density_profile(&traces, window_radius).map_err(to_py_err)
-    })?;
+    let profile =
+        py.detach(|| compute_idp_density_profile(&traces, window_radius).map_err(to_py_err))?;
     let py_mean = PyArray1::from_vec(py, profile.mean_density).unbind();
     let py_var = PyArray1::from_vec(py, profile.variance_density).unbind();
     let py_std = PyArray1::from_vec(py, profile.std_density).unbind();
@@ -1240,7 +1252,11 @@ impl PyRnaRibbonTrace {
     /// Chain identifiers.
     #[getter]
     pub fn chain_ids(&self) -> Vec<String> {
-        self.inner.chain_ids().iter().map(|c| c.to_string()).collect()
+        self.inner
+            .chain_ids()
+            .iter()
+            .map(|c| c.to_string())
+            .collect()
     }
 
     pub fn __len__(&self) -> usize {
@@ -1267,10 +1283,7 @@ impl PyRnaRibbonTrace {
 ///     Oriented ribonucleic ribbon trace containing Phosphorus and base coordinates.
 #[pyfunction]
 #[pyo3(signature = (path, chain = None))]
-pub fn read_pdb_rna(
-    path: &str,
-    chain: Option<char>,
-) -> PyResult<PyRnaRibbonTrace> {
+pub fn read_pdb_rna(path: &str, chain: Option<char>) -> PyResult<PyRnaRibbonTrace> {
     let file = File::open(path).map_err(|e| PyValueError::new_err(e.to_string()))?;
     let (trace, _) = parse_pdb_rna(BufReader::new(file), chain).map_err(to_pdb_err)?;
     Ok(PyRnaRibbonTrace { inner: trace })
@@ -1532,9 +1545,8 @@ pub fn compute_rna_bimodality_profile<'py>(
         traces.push(trace);
     }
 
-    let (scores, bc_th, bc_k, bc_t) = py.detach(|| {
-        core_rna_bimodality_profile(&traces, window_size).map_err(to_py_err)
-    })?;
+    let (scores, bc_th, bc_k, bc_t) =
+        py.detach(|| core_rna_bimodality_profile(&traces, window_size).map_err(to_py_err))?;
 
     Ok((
         PyArray1::from_vec(py, scores),
@@ -1554,7 +1566,10 @@ fn topofold(m: &Bound<'_, PyModule>) -> PyResult<()> {
     m.add_function(wrap_pyfunction!(scan_cryptic_pockets, m)?)?;
     m.add_function(wrap_pyfunction!(compute_bimodality_profile, m)?)?;
     m.add_function(wrap_pyfunction!(compute_allosteric_network, m)?)?;
-    m.add_function(wrap_pyfunction!(compute_intermolecular_allosteric_network, m)?)?;
+    m.add_function(wrap_pyfunction!(
+        compute_intermolecular_allosteric_network,
+        m
+    )?)?;
     m.add_function(wrap_pyfunction!(compute_ternary_cooperativity_index, m)?)?;
     m.add_function(wrap_pyfunction!(compute_idp_topological_density, m)?)?;
     m.add_function(wrap_pyfunction!(compute_idp_density_profile_py, m)?)?;
@@ -1571,4 +1586,3 @@ fn topofold(m: &Bound<'_, PyModule>) -> PyResult<()> {
     m.add_class::<PyRnaRibbonTrace>()?;
     Ok(())
 }
-

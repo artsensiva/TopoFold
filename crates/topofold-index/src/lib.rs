@@ -11,6 +11,6 @@ pub mod engine;
 pub mod metric;
 pub mod vptree;
 
-pub use engine::{ConformerFrame, ConformerHit, ConformationalIndex};
+pub use engine::{ConformationalIndex, ConformerFrame, ConformerHit};
 pub use metric::{DtwInvariantMetric, FrechetInvariantMetric, Metric, WritheSpectrumMetric};
 pub use vptree::{VpNode, VpTree};

@@ -121,12 +121,8 @@ impl ConformationalIndex {
         // Tier 2: Exact Discrete Fréchet verification on filtered candidate conformers
         for (item, w_dist) in coarse_hits {
             let frame = &self.frames[item.frame_idx];
-            let f_dist = discrete_frechet_invariants(
-                &frame.invariants,
-                target_invariants,
-                1.0,
-                1.0,
-            );
+            let f_dist =
+                discrete_frechet_invariants(&frame.invariants, target_invariants, 1.0, 1.0);
 
             if f_dist <= frechet_tol {
                 hits.push(ConformerHit {
@@ -184,12 +180,8 @@ impl ConformationalIndex {
         let mut hits = Vec::with_capacity(coarse_hits.len());
         for (item, w_dist) in coarse_hits {
             let frame = &self.frames[item.frame_idx];
-            let f_dist = discrete_frechet_invariants(
-                &frame.invariants,
-                target_invariants,
-                1.0,
-                1.0,
-            );
+            let f_dist =
+                discrete_frechet_invariants(&frame.invariants, target_invariants, 1.0, 1.0);
             hits.push(ConformerHit {
                 frame_id: frame.frame_id,
                 time_ps: frame.time_ps,
@@ -226,12 +218,7 @@ impl ConformationalIndex {
         let mut hits = Vec::with_capacity(self.frames.len());
         for frame in &self.frames {
             if let Some(sub_inv) = frame.invariants.subcurve(start_res, end_res) {
-                let f_dist = discrete_frechet_invariants(
-                    &sub_inv,
-                    target_sub_invariants,
-                    1.0,
-                    1.0,
-                );
+                let f_dist = discrete_frechet_invariants(&sub_inv, target_sub_invariants, 1.0, 1.0);
                 hits.push(ConformerHit {
                     frame_id: frame.frame_id,
                     time_ps: frame.time_ps,

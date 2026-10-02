@@ -80,8 +80,7 @@ impl StreamingMoments {
         let delta_n2 = delta_n * delta_n;
         let term1 = delta * delta_n * n1;
 
-        self.m4 += term1 * delta_n2 * (n * n - 3.0 * n + 3.0)
-            + 6.0 * delta_n2 * self.m2
+        self.m4 += term1 * delta_n2 * (n * n - 3.0 * n + 3.0) + 6.0 * delta_n2 * self.m2
             - 4.0 * delta_n * self.m3;
         self.m3 += term1 * delta_n * (n - 2.0) - 3.0 * delta_n * self.m2;
         self.m2 += term1;
@@ -266,10 +265,8 @@ pub fn compute_bimodality_profile(
     }
 
     // Precompute curve invariants for all frames in parallel
-    let invariants: Result<Vec<CurveInvariants>, GeometryError> = traces
-        .par_iter()
-        .map(extract_curve_invariants)
-        .collect();
+    let invariants: Result<Vec<CurveInvariants>, GeometryError> =
+        traces.par_iter().map(extract_curve_invariants).collect();
     let invariants = invariants?;
 
     let n_windows = n_residues - window_size + 1;
@@ -481,7 +478,10 @@ mod tests {
         assert_relative_eq!(moments.excess_kurtosis(), 0.0, epsilon = 0.15);
 
         let bc = moments.bimodality_coefficient();
-        assert!(bc < 0.555, "Normal distribution must be unimodal (< 0.555), got {bc}");
+        assert!(
+            bc < 0.555,
+            "Normal distribution must be unimodal (< 0.555), got {bc}"
+        );
         assert_relative_eq!(bc, 0.333, epsilon = 0.05);
     }
 
@@ -554,7 +554,10 @@ mod tests {
         }
 
         let candidates = detect_bistable_segments(&traces, 8, 0.6);
-        assert!(!candidates.is_empty(), "Should detect at least 1 bistable candidate");
+        assert!(
+            !candidates.is_empty(),
+            "Should detect at least 1 bistable candidate"
+        );
 
         let best = &candidates[0];
         assert!(best.score > 0.6, "Candidate score should exceed 0.6");
@@ -594,7 +597,9 @@ mod tests {
                 }
                 cb_coords.push(cb);
             }
-            traces.push(BackboneTrace::from_arrays_with_cbeta(&ca_coords, &cb_coords));
+            traces.push(BackboneTrace::from_arrays_with_cbeta(
+                &ca_coords, &cb_coords,
+            ));
         }
 
         let candidates = detect_bistable_segments(&traces, 8, 0.6);

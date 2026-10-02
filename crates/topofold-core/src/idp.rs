@@ -419,7 +419,9 @@ mod tests {
     #[test]
     fn test_straight_line_zero_topological_compactness() {
         // A straight line of 20 points
-        let pts: Vec<Point3<f64>> = (0..20).map(|i| Point3::new(i as f64 * 3.8, 0.0, 0.0)).collect();
+        let pts: Vec<Point3<f64>> = (0..20)
+            .map(|i| Point3::new(i as f64 * 3.8, 0.0, 0.0))
+            .collect();
         let trace = BackboneTrace::new(pts);
 
         let compactness = compute_frame_topological_compactness(&trace, 4).unwrap();

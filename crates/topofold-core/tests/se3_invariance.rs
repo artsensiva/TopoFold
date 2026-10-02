@@ -30,11 +30,8 @@ fn test_integration_se3_random_walk_invariance() {
         let cos_theta: f64 = rng.gen_range(-0.8..0.8); // avoid extreme folding
         let sin_theta: f64 = (1.0 - cos_theta * cos_theta).sqrt();
 
-        let step = nalgebra::Vector3::new(
-            sin_theta * phi.cos(),
-            sin_theta * phi.sin(),
-            cos_theta,
-        ) * 3.80; // Trans-peptide C_alpha - C_alpha distance
+        let step =
+            nalgebra::Vector3::new(sin_theta * phi.cos(), sin_theta * phi.sin(), cos_theta) * 3.80; // Trans-peptide C_alpha - C_alpha distance
 
         coords.push(prev + step);
     }
@@ -66,18 +63,12 @@ fn test_integration_se3_random_walk_invariance() {
 
         for i in 0..inv_orig.curvatures.len() {
             let dk = (inv_orig.curvatures[i] - inv_trans.curvatures[i]).abs();
-            assert!(
-                dk < 1e-6,
-                "Trial {trial}: Curvature mismatch at {i}: {dk}"
-            );
+            assert!(dk < 1e-6, "Trial {trial}: Curvature mismatch at {i}: {dk}");
         }
 
         for i in 0..inv_orig.torsions.len() {
             let dt = angular_diff(inv_orig.torsions[i], inv_trans.torsions[i]);
-            assert!(
-                dt < 1e-6,
-                "Trial {trial}: Torsion mismatch at {i}: {dt}"
-            );
+            assert!(dt < 1e-6, "Trial {trial}: Torsion mismatch at {i}: {dt}");
         }
     }
 

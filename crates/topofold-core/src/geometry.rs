@@ -301,7 +301,9 @@ mod tests {
 
             // 1. Validate bond lengths invariance
             for i in 0..invariants_orig.segment_lengths.len() {
-                let diff_l = (invariants_orig.segment_lengths[i] - invariants_trans.segment_lengths[i]).abs();
+                let diff_l = (invariants_orig.segment_lengths[i]
+                    - invariants_trans.segment_lengths[i])
+                    .abs();
                 assert!(
                     diff_l < 1e-6,
                     "Trial {trial}: Bond length invariance failed at segment {i}: orig={}, trans={}, diff={diff_l}",
@@ -321,7 +323,8 @@ mod tests {
 
             // 3. Validate discrete torsion invariance
             for i in 0..invariants_orig.torsions.len() {
-                let diff_tau = angular_difference(invariants_orig.torsions[i], invariants_trans.torsions[i]);
+                let diff_tau =
+                    angular_difference(invariants_orig.torsions[i], invariants_trans.torsions[i]);
                 assert!(
                     diff_tau < 1e-6,
                     "Trial {trial}: Torsion invariance failed at hinge {i}: orig={}, trans={}, diff={diff_tau}",
@@ -356,7 +359,10 @@ mod tests {
 
         for i in 0..orig.torsions.len() {
             let sum_tau = angular_difference(orig.torsions[i], -reflected.torsions[i]);
-            assert!(sum_tau < 1e-6, "Torsion must flip sign under chiral reflection");
+            assert!(
+                sum_tau < 1e-6,
+                "Torsion must flip sign under chiral reflection"
+            );
         }
     }
 
@@ -372,7 +378,9 @@ mod tests {
         let result = extract_curve_invariants(&trace);
 
         match result {
-            Err(GeometryError::DegenerateSegment { index, next_index, .. }) => {
+            Err(GeometryError::DegenerateSegment {
+                index, next_index, ..
+            }) => {
                 assert_eq!(index, 0);
                 assert_eq!(next_index, 1);
             }

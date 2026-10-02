@@ -82,7 +82,10 @@ impl RibbonTrace {
                 actual: ca_coords.len(),
             });
         }
-        Ok(Self { ca_coords, cb_coords })
+        Ok(Self {
+            ca_coords,
+            cb_coords,
+        })
     }
 
     /// Creates a `RibbonTrace` from slices of `[f64; 3]` arrays.
@@ -393,17 +396,9 @@ mod tests {
 
         for i in 0..n {
             let t = i as f64 * 0.8;
-            let ca = Point3::new(
-                2.3 * t.cos(),
-                2.3 * t.sin(),
-                1.5 * t,
-            );
+            let ca = Point3::new(2.3 * t.cos(), 2.3 * t.sin(), 1.5 * t);
             // Sidechain pointing outward with some vertical tilt
-            let cb = ca + Vector3::new(
-                1.2 * (t + 0.3).cos(),
-                1.2 * (t + 0.3).sin(),
-                0.8,
-            );
+            let cb = ca + Vector3::new(1.2 * (t + 0.3).cos(), 1.2 * (t + 0.3).sin(), 0.8);
             ca_coords.push(ca);
             cb_coords.push(cb);
         }
@@ -425,8 +420,14 @@ mod tests {
 
             let isometry = Isometry3::from_parts(trans, rot);
 
-            let ca_rot: Vec<Point3<f64>> = ca_coords.iter().map(|p| isometry.transform_point(p)).collect();
-            let cb_rot: Vec<Point3<f64>> = cb_coords.iter().map(|p| isometry.transform_point(p)).collect();
+            let ca_rot: Vec<Point3<f64>> = ca_coords
+                .iter()
+                .map(|p| isometry.transform_point(p))
+                .collect();
+            let cb_rot: Vec<Point3<f64>> = cb_coords
+                .iter()
+                .map(|p| isometry.transform_point(p))
+                .collect();
 
             let theta_rot = compute_sidechain_dihedrals(&ca_rot, &cb_rot).unwrap();
 

@@ -6,8 +6,8 @@
 
 #![forbid(unsafe_code)]
 
-use std::io::{Read, Write};
 use nalgebra::Point3;
+use std::io::{Read, Write};
 use topofold_core::types::BackboneTrace;
 
 use crate::error::TrajectoryError;
@@ -74,7 +74,10 @@ impl DcdFrame {
     ///
     /// # Errors
     /// Returns [`TrajectoryError::IndexOutOfBounds`] if any index is `>= n_atoms`.
-    pub fn to_backbone_trace(&self, atom_indices: &[usize]) -> Result<BackboneTrace, TrajectoryError> {
+    pub fn to_backbone_trace(
+        &self,
+        atom_indices: &[usize],
+    ) -> Result<BackboneTrace, TrajectoryError> {
         let n_atoms = self.x.len();
         let mut points = Vec::with_capacity(atom_indices.len());
 
@@ -185,7 +188,11 @@ impl DcdFrame {
                 } else {
                     ca_points[i] + nalgebra::Vector3::new(0.0, 0.0, -1.0)
                 };
-                cb_points[i] = topofold_core::ribbon::compute_pseudo_cbeta_from_ca(prev_ca, ca_points[i], next_ca);
+                cb_points[i] = topofold_core::ribbon::compute_pseudo_cbeta_from_ca(
+                    prev_ca,
+                    ca_points[i],
+                    next_ca,
+                );
             }
         }
 
@@ -213,7 +220,10 @@ impl DcdFrame {
 /// Reads a single Fortran unformatted binary record.
 ///
 /// Returns `Ok(None)` if clean EOF is reached at the start of a record.
-fn read_fortran_record<R: Read>(reader: &mut R, buf: &mut Vec<u8>) -> Result<Option<usize>, TrajectoryError> {
+fn read_fortran_record<R: Read>(
+    reader: &mut R,
+    buf: &mut Vec<u8>,
+) -> Result<Option<usize>, TrajectoryError> {
     let mut len_bytes = [0u8; 4];
     match reader.read_exact(&mut len_bytes) {
         Ok(()) => {}
@@ -265,8 +275,8 @@ impl<R: Read> DcdReader<R> {
         let mut buf = Vec::new();
 
         // 1. Read Header Record (84 bytes)
-        let rec_len = read_fortran_record(&mut reader, &mut buf)?
-            .ok_or(TrajectoryError::UnexpectedEof)?;
+        let rec_len =
+            read_fortran_record(&mut reader, &mut buf)?.ok_or(TrajectoryError::UnexpectedEof)?;
 
         if rec_len != 84 {
             return Err(TrajectoryError::InvalidHeader(format!(
@@ -291,8 +301,8 @@ impl<R: Read> DcdReader<R> {
         let charmm_version = i32::from_le_bytes(buf[80..84].try_into().unwrap());
 
         // 2. Read Title Record
-        let title_len = read_fortran_record(&mut reader, &mut buf)?
-            .ok_or(TrajectoryError::UnexpectedEof)?;
+        let title_len =
+            read_fortran_record(&mut reader, &mut buf)?.ok_or(TrajectoryError::UnexpectedEof)?;
 
         if title_len < 4 {
             return Err(TrajectoryError::InvalidHeader(
@@ -314,8 +324,8 @@ impl<R: Read> DcdReader<R> {
         }
 
         // 3. Read Atom Count Record (4 bytes)
-        let atoms_len = read_fortran_record(&mut reader, &mut buf)?
-            .ok_or(TrajectoryError::UnexpectedEof)?;
+        let atoms_len =
+            read_fortran_record(&mut reader, &mut buf)?.ok_or(TrajectoryError::UnexpectedEof)?;
 
         if atoms_len != 4 {
             return Err(TrajectoryError::InvalidHeader(format!(
@@ -674,7 +684,10 @@ mod tests {
         assert!(reader.header().has_unit_cell);
 
         for f in 0..n_frames {
-            let frame = reader.next_frame().expect("Read frame").expect("Frame exists");
+            let frame = reader
+                .next_frame()
+                .expect("Read frame")
+                .expect("Frame exists");
             assert_eq!(frame.frame_idx, f);
             assert_eq!(frame.x.len(), n_atoms);
             assert_eq!(frame.x[0], f as f32);
@@ -688,7 +701,10 @@ mod tests {
             let trace = frame.to_backbone_trace(&ca_indices).expect("Extract trace");
             assert_eq!(trace.len(), 3);
             assert_eq!(trace.coordinates()[0], Point3::new(f as f64, 0.0, 0.0));
-            assert_eq!(trace.coordinates()[1], Point3::new(2.0 + f as f64, 4.0, 6.0));
+            assert_eq!(
+                trace.coordinates()[1],
+                Point3::new(2.0 + f as f64, 4.0, 6.0)
+            );
         }
 
         // EOF check

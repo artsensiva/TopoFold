@@ -85,50 +85,25 @@ pub fn discrete_frechet_invariants(
     let mut curr_row = vec![f64::INFINITY; len_b];
 
     // Base case: (0, 0)
-    prev_row[0] = invariant_point_distance(
-        k_a[0],
-        t_a[0],
-        k_b[0],
-        t_b[0],
-        weight_kappa,
-        weight_tau,
-    );
+    prev_row[0] =
+        invariant_point_distance(k_a[0], t_a[0], k_b[0], t_b[0], weight_kappa, weight_tau);
 
     // First row: coupling with a[0]
     for j in 1..len_b {
-        let d = invariant_point_distance(
-            k_a[0],
-            t_a[0],
-            k_b[j],
-            t_b[j],
-            weight_kappa,
-            weight_tau,
-        );
+        let d = invariant_point_distance(k_a[0], t_a[0], k_b[j], t_b[j], weight_kappa, weight_tau);
         prev_row[j] = prev_row[j - 1].max(d);
     }
 
     // Iterate through subsequent rows
     for i in 1..len_a {
         // First column: coupling with b[0]
-        let d_first = invariant_point_distance(
-            k_a[i],
-            t_a[i],
-            k_b[0],
-            t_b[0],
-            weight_kappa,
-            weight_tau,
-        );
+        let d_first =
+            invariant_point_distance(k_a[i], t_a[i], k_b[0], t_b[0], weight_kappa, weight_tau);
         curr_row[0] = prev_row[0].max(d_first);
 
         for j in 1..len_b {
-            let d = invariant_point_distance(
-                k_a[i],
-                t_a[i],
-                k_b[j],
-                t_b[j],
-                weight_kappa,
-                weight_tau,
-            );
+            let d =
+                invariant_point_distance(k_a[i], t_a[i], k_b[j], t_b[j], weight_kappa, weight_tau);
             let min_pred = prev_row[j].min(curr_row[j - 1]).min(prev_row[j - 1]);
             curr_row[j] = min_pred.max(d);
         }
@@ -162,47 +137,22 @@ pub fn dtw_invariants(
     let mut prev_row = vec![f64::INFINITY; len_b];
     let mut curr_row = vec![f64::INFINITY; len_b];
 
-    prev_row[0] = invariant_point_distance(
-        k_a[0],
-        t_a[0],
-        k_b[0],
-        t_b[0],
-        weight_kappa,
-        weight_tau,
-    );
+    prev_row[0] =
+        invariant_point_distance(k_a[0], t_a[0], k_b[0], t_b[0], weight_kappa, weight_tau);
 
     for j in 1..len_b {
-        let d = invariant_point_distance(
-            k_a[0],
-            t_a[0],
-            k_b[j],
-            t_b[j],
-            weight_kappa,
-            weight_tau,
-        );
+        let d = invariant_point_distance(k_a[0], t_a[0], k_b[j], t_b[j], weight_kappa, weight_tau);
         prev_row[j] = prev_row[j - 1] + d;
     }
 
     for i in 1..len_a {
-        let d_first = invariant_point_distance(
-            k_a[i],
-            t_a[i],
-            k_b[0],
-            t_b[0],
-            weight_kappa,
-            weight_tau,
-        );
+        let d_first =
+            invariant_point_distance(k_a[i], t_a[i], k_b[0], t_b[0], weight_kappa, weight_tau);
         curr_row[0] = prev_row[0] + d_first;
 
         for j in 1..len_b {
-            let d = invariant_point_distance(
-                k_a[i],
-                t_a[i],
-                k_b[j],
-                t_b[j],
-                weight_kappa,
-                weight_tau,
-            );
+            let d =
+                invariant_point_distance(k_a[i], t_a[i], k_b[j], t_b[j], weight_kappa, weight_tau);
             let min_pred = prev_row[j].min(curr_row[j - 1]).min(prev_row[j - 1]);
             curr_row[j] = min_pred + d;
         }
@@ -269,6 +219,9 @@ mod tests {
         };
 
         let dist = discrete_frechet_invariants(&inv, &inv, 1.0, 1.0);
-        assert!(dist < 1e-12, "Fréchet distance to itself must be 0, got {dist}");
+        assert!(
+            dist < 1e-12,
+            "Fréchet distance to itself must be 0, got {dist}"
+        );
     }
 }
