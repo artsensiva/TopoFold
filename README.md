@@ -24,6 +24,7 @@ Versions up to and including **v0.8.3** of this README, `docs/MANUSCRIPT_DRAFT.m
 - The PROTAC comparison used a wrong PDB entry (5T3E is a non-ribosomal peptide synthetase domain, not a PROTAC ternary complex); the "non-productive" complex was built from 5T35 coordinates and its coupling was hard-coded. This benchmark is withdrawn.
 - The Cβ orientation angle θβ cannot detect side-chain rotamer changes (χ1 rotation does not move Cβ). The "rotamer gating" claim is withdrawn.
 - Claims of superiority over PCA, dPCA, TICA, Foldseek, PocketMiner and AlphaFold were not supported by fair comparisons and are withdrawn.
+- The writhe implementation (`crates/topofold-core/src/writhe.rs`) in v0.8.3 divided by 4π and used a reversed sign convention, returning −0.5 times the standard Gauss-integral writhe. **Corrected on the scientific-rebuild branch:** sign and normalization validated against an independently implemented polygonal reference and converged numerical Gauss quadrature. The public v0.8.3 baseline contained the −0.5 defect.
 
 All figures in `assets/` belong to v0.8.3 and carry the old labels; they are kept only for the record and will be regenerated after the fixes listed in [`docs/KNOWN_ISSUES.md`](docs/KNOWN_ISSUES.md).
 

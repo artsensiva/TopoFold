@@ -1,4 +1,7 @@
-"""Audit M1: TopoFold writhe (port of crates/topofold-core/src/writhe.rs) vs Klenin-Langowski and a numerical Gauss integral."""
+"""Historical audit reproduction of the TopoFold v0.8.3 pre-fix writhe implementation.
+
+This script does not validate the current production implementation. It preserves the
+original normalization defect (4π instead of 2π) for v0.8.3 bug reproduction."""
 import numpy as np
 # Port of TopoFold writhe.rs
 def solid(a,b,c):

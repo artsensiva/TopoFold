@@ -1,8 +1,18 @@
 //! Discrete Writhe and Gauss Linking Integrals for Space Curves.
 //!
-//! Writhe ($\text{Wr}$) is a topological and geometric invariant that quantifies
+//! Writhe ($\text{Wr}$) is an SE(3)-invariant geometric Gauss-integral descriptor that quantifies
 //! the degree of spatial non-planarity, 3D supercoiling, and helical handedness of a curve.
 //! Unlike local curvature, writhe is sensitive to non-local self-wrapping.
+//!
+//! **Transformation Properties:**
+//! - Translation and proper rotation: invariant
+//! - Spatial reflection (improper orthogonal transform): sign flip
+//! - Whole-chain direction reversal: invariant for self-writhe (both tangents reverse)
+//!
+//! **API Convention:** `segment_pair_writhe()` returns the complete mutual contribution
+//! of one unordered non-adjacent segment pair to self-writhe. Enumeration via `i < j`
+//! covers each unordered pair exactly once, accounting for both symmetric ordered domains
+//! of the full Gauss double integral.
 //!
 //! References:
 //! - van Oosterom, A., & Strackee, J. (1983). The solid angle of a plane triangle.
@@ -23,8 +33,11 @@ use crate::types::BackboneTrace;
 /// Computes the signed solid angle subtended by a spherical triangle formed by three unit vectors
 /// $\mathbf{a}, \mathbf{b}, \mathbf{c}$ from the origin.
 ///
-/// Implements the unconditionally stable, branch-cut-free formula of van Oosterom & Strackee (1983):
+/// Implements the atan2-based formula of van Oosterom & Strackee (1983), which avoids naïve
+/// phase-wrap discontinuities in individual spherical-triangle calculations:
 /// $$\tan\left(\frac{1}{2}\Omega\right) = \frac{\mathbf{a} \cdot (\mathbf{b} \times \mathbf{c})}{1 + \mathbf{a}\cdot\mathbf{b} + \mathbf{b}\cdot\mathbf{c} + \mathbf{c}\cdot\mathbf{a}}$$
+///
+/// Geometric degeneracies still require separate treatment.
 #[inline]
 pub fn spherical_triangle_solid_angle(a: &Vector3<f64>, b: &Vector3<f64>, c: &Vector3<f64>) -> f64 {
     let det = a.dot(&b.cross(c));
@@ -32,11 +45,15 @@ pub fn spherical_triangle_solid_angle(a: &Vector3<f64>, b: &Vector3<f64>, c: &Ve
     2.0 * det.atan2(denom)
 }
 
-/// Computes the mutual writhe contribution between two directed straight line segments
-/// $S_1 = [\mathbf{r}_1 \to \mathbf{r}_2]$ and $S_2 = [\mathbf{r}_3 \to \mathbf{r}_4]$.
+/// Computes the complete mutual writhe contribution of one unordered non-adjacent segment pair.
+///
+/// Returns the contribution to self-writhe from the unordered segment pair
+/// $\{S_1, S_2\}$ where $S_1 = [\mathbf{r}_1 \to \mathbf{r}_2]$ and $S_2 = [\mathbf{r}_3 \to \mathbf{r}_4]$.
 ///
 /// Decomposes the spherical quadrangle formed by the direction vectors from $S_1$ to $S_2$
-/// into two oriented spherical triangles, avoiding branch-cut discontinuities.
+/// into two oriented spherical triangles. Returns `-(omega1 + omega2) / (2π)` where the
+/// factor `1/(2π)` accounts for summation over unordered pairs `i < j` (each pair enumerated
+/// exactly once, capturing both symmetric ordered domains of the full Gauss double integral).
 #[inline]
 pub fn segment_pair_writhe(
     r1: &Point3<f64>,
@@ -68,7 +85,7 @@ pub fn segment_pair_writhe(
     let omega1 = spherical_triangle_solid_angle(&u13, &u14, &u24);
     let omega2 = spherical_triangle_solid_angle(&u13, &u24, &u23);
 
-    (omega1 + omega2) / (4.0 * PI)
+    -(omega1 + omega2) / (2.0 * PI)
 }
 
 /// Computes the total discrete writhe of a C-alpha backbone trace.

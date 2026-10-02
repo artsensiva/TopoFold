@@ -36,9 +36,14 @@ Proposed fix (hypothesis, to be confirmed): remove from all documents; only revi
 
 ## M — major
 
-### M1. Writhe normalisation and sign
-`writhe.rs` divides by 4π. The audit reproduction (`benchmarks/audit/writhe_check.py`) yields a −0.500 ratio relative to its numerical Gauss double integral and Klenin–Langowski polygonal segment formula references: ideal α-helix Cα (25 atoms) TopoFold −1.465 vs references +2.930; random walk (30 atoms) TopoFold −0.185 vs references +0.370. The README/ADR formula uses 1/(2π) over i < j pairs. The normalization and sign convention remain subject to independent Phase-3 validation.
-Proposed fix (hypothesis, to be confirmed): validate normalisation and sign convention against independent references and analytically known curves; document the chosen convention; add regression tests for SE(3) invariance, reflection behaviour and chain-direction reversal.
+### M1. Writhe normalisation and sign — **RESOLVED on scientific-rebuild (Oct 2026; unreleased)**
+**Issue (v0.8.3):** `writhe.rs` divided by 4π and used reversed sign convention, returning −0.500 of the standard writhe. The audit reproduction (`benchmarks/audit/writhe_check.py`) reported: ideal α-helix Cα (25 atoms) TopoFold −1.465 vs references +2.930; random walk (30 atoms) TopoFold −0.185 vs references +0.370.
+
+**Root cause:** The continuous Gauss integral uses `1/(4π)` normalization over the full ordered `(s,t)` domain. TopoFold enumerates each unordered segment pair exactly once via `i < j`, so `segment_pair_writhe()` returns the complete mutual contribution accounting for both symmetric ordered domains. This requires `1/(2π)` normalization. Additionally, the spherical polygon orientation was reversed.
+
+**Fix (Oct 2026):** Changed `writhe.rs:71` from `(omega1 + omega2) / (4.0 * PI)` to `-(omega1 + omega2) / (2.0 * PI)`. Added 8 regression tests validating against numerical Gauss integral and independent Klenin-Langowski polygonal reference. Tests confirm SE(3) invariance, spatial reflection antisymmetry, and whole-chain reversal invariance.
+
+**Impact:** Absolute writhe values scale by factor of 2. Ordering preserved in writhe-distance comparisons. VP-tree distances scale by 2; fixed `coarse_radius` and `writhe_tol` thresholds require recalibration. IDP compactness values double. Historical audit script preserved as v0.8.3 bug reproduction.
 
 ### M2. No circular statistics in the bimodality scan
 `bimodality.rs` averages τ and θβ arithmetically within a window (unlike `allostery.rs`, which handles angles correctly). One residue fluctuating unimodally around 180° gives BC 0.96–0.98 instead of 0.32–0.35 after unwrapping (`benchmarks/audit/bc_check.py`). β-strand virtual torsions lie near −170°, so β regions produce false positives.
