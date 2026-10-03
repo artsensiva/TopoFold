@@ -1,0 +1,17 @@
+case,criterion,tolerance,converged,n_iters,final_loglik
+exact_easy,absolute,0.0001,True,60,-1366.5941806405262
+exact_easy,absolute,1e-05,True,77,-1366.5936661053106
+exact_easy,absolute,1e-06,False,1000,-1366.5890749660991
+exact_easy,absolute,1e-07,False,1000,-1366.5890749660991
+exact_easy,relative,1e-05,True,31,-1366.652135946701
+exact_easy,relative,1e-06,True,43,-1366.6013143091495
+exact_easy,relative,1e-07,True,58,-1366.5943690280087
+exact_easy,relative,1e-08,True,74,-1366.5936983466129
+wrapped_0.9,absolute,0.0001,True,250,-2625.2419196699957
+wrapped_0.9,absolute,1e-05,True,321,-2625.2392365741734
+wrapped_0.9,absolute,1e-06,True,393,-2625.2389614202584
+wrapped_0.9,absolute,1e-07,True,464,-2625.238934627771
+wrapped_0.9,relative,1e-05,True,55,-2626.250930534972
+wrapped_0.9,relative,1e-06,True,144,-2625.321906110077
+wrapped_0.9,relative,1e-07,True,219,-2625.24695640783
+wrapped_0.9,relative,1e-08,True,291,-2625.2397332784367

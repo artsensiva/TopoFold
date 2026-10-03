@@ -1,0 +1,16 @@
+case,strategy,best_loglik,loglik_spread,n_converged,best_n_iters,best_converged
+exact_easy,split,-1373.3256118227457,0.0,5,331,True
+exact_easy,random,-1373.3253514106939,0.0,5,283,True
+exact_easy,farthest,-1373.6839217426489,0.0,0,500,False
+exact_easy,embedding,-1373.3257655237703,0.0,5,265,True
+exact_easy,perturb_k1,-1373.326012551853,0.0,0,500,False
+wrapped_1.0,split,-2825.7953157161296,0.0,0,500,False
+wrapped_1.0,random,-2825.7911799672524,0.0,0,500,False
+wrapped_1.0,farthest,-2825.8140990221673,0.0,0,500,False
+wrapped_1.0,embedding,-2825.926803942271,0.0,0,500,False
+wrapped_1.0,perturb_k1,-2825.868403071232,0.0,0,500,False
+k2_close,split,-129.72709129230984,0.0,5,164,True
+k2_close,random,-129.7270915964077,0.0,5,168,True
+k2_close,farthest,-129.7270912079716,0.0,5,79,True
+k2_close,embedding,-129.72709118592485,0.0,5,100,True
+k2_close,perturb_k1,-129.72709152783955,0.0,5,157,True

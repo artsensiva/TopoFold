@@ -1,152 +1,218 @@
-# M3: Circular/Toroidal Multimodality Detection
+# M3 Multimodality Detection Audit
 
-Scientific audit artifacts for M3 (multimodality detection on circular and toroidal geometry).
+**Scientific Audit:** Product von Mises (Product-vM) mixture multimodality detector
+**Current Status:** **O2 - FUNCTIONAL BUT FRAGILE** (provisional; initialization and stopping validation incomplete)
+**Baseline:** 37ce1350e934ea0e54d92c55ad83c9748e4ffc3c (scientific-rebuild branch)
+**Last Updated:** 2026-10-03
 
-**Current Status:** M3-A2f CLOSED — [M3_STATUS.md](M3_STATUS.md)
+---
 
-**Current Classification:**
+## QUICK START
+
+**Primary Navigation:**
+- **[M3_STATUS.md](M3_STATUS.md)** — Current scientific status, validated/unresolved components, next blockers
+- **[MANIFEST.md](MANIFEST.md)** — Complete artifact inventory, checksums, regenerability status
+
+**Current Checkpoint:**
+- **[M3_A2G_CHECKPOINT_CLOSURE.md](M3_A2G_CHECKPOINT_CLOSURE.md)** — M3-A2g closure summary
+- **[M3_A2G_COMPLETE_ANALYSIS.md](M3_A2G_COMPLETE_ANALYSIS.md)** — Complete M3-A2g analysis
+- **[M3_A2G_CORRECTIONS_PROVENANCE.md](M3_A2G_CORRECTIONS_PROVENANCE.md)** — External review findings, diagnostic limitations
+- **[reports/M3_A2g_CHECKPOINT_REPORT.md](reports/M3_A2g_CHECKPOINT_REPORT.md)** — Detailed M3-A2g checkpoint report
+
+---
+
+## CURRENT CLASSIFICATION
+
 ```
-VALID ALGORITHMIC HEURISTIC /
-OPTIMIZATION ROBUSTNESS UNRESOLVED
+U — numerical-ceiling local-EM heuristic.
+O2 — FUNCTIONAL BUT FRAGILE, provisional.
+Optimization fragility documented;
+initialization and stopping validation incomplete;
+statistical robustness unresolved.
+Not production-ready; no validated production defaults.
 ```
 
----
-
-## Purpose
-
-M3 validates statistical methods for detecting multimodal distributions on circular (S¹) and toroidal (S¹×...×S¹) geometries, targeting protein backbone dihedral angle distributions.
-
-**Scientific Question:**
-> Given a sample of points θ ∈ (-π, π]^q from a toroidal distribution, does the data support a unimodal (K=1) or multimodal (K≥2) hypothesis?
+**NOT production-ready. NOT a validated screening detector. NOT a primary detector candidate.**
 
 ---
 
-## Current Status Summary
+## KEY FINDINGS
 
-### What Has Been Validated ✅
+### ✅ Validated (M3-A2e)
+- 3/2250 (0.13%) K=2-selection under exact-K1 nulls — excellent algorithmic specificity
+- 1620/1620 (100%) clear-K2 recovery (sep≥60°, q=2 only) — perfect power on well-separated modes
 
-1. **Core Likelihood Implementation**
-   - Fast Newton-refined κ MLE for von Mises distribution
-   - Numerically stable log(I₀) using exponentially scaled Bessel functions
-   - EM algorithm for Product von Mises K=2 mixtures
-   - Canonical ΔBIC convention documented and verified
+### ⚠ Provisional O2 (M3-A2g)
+- Budget exhaustion identified as root cause of "97% non-convergence" (NOT fundamental optimizer failure)
+- Limited monotonicity evidence (4 fixtures, 1124 unique comparisons, 0 violations) suggests EM not systematically broken
+- Convergence remains POOR at max_iter=500 (exact: 30.8%, stress: 36.4%)
+- Extended budget experiment (max_iter=2000, UNPAIRED draws): 56/60 (93.3%) in stress regime
+- **Initialization and stopping validation INCOMPLETE** (diagnostic bugs documented)
 
-2. **Exact-Family Algorithmic Behavior**
-   - Tested: 2250 Product-vM K=1 null samples
-   - Result: 3/2250 = **0.13%** K=2 selections
-   - Interpretation: Excellent algorithmic specificity under exact model
-
-3. **K=2 Clear-Separation Recovery (q=2 only)**
-   - Tested: Bimodal Product-vM with separations ≥60°
-   - Result: **1620/1620 = 100%** recovery
-   - Limitation: Only tested for q=2 (bivariate toroidal)
-
-### Primary Blocker ⚠️
-
-**Optimizer Convergence Robustness**
-- Wrapped-normal σ≈1.0: 97% EM convergence failure
-- Most K=2 selections are non-converged local optima, not valid detector decisions
-- Cannot deploy until convergence rates characterized and initialization strategies validated
-
-### Other Unresolved Requirements
-
-- Unbounded likelihood requires explicit regularization strategy (U/C/P)
-- Initialization robustness
-- Extended K=2 power (q=1, q=5)
-- **Dependent-toroidal robustness (MANDATORY for production)**
-- Temporal correlation sensitivity
-- Calibrated significance testing
-- Overlapping-window multiple testing correction
-
-**Product-vM Status:**
-- NOT production-ready
-- NOT validated screening detector
-- NOT primary detector candidate
+### ❌ Unresolved / Critical Gaps
+- Dependent-toroidal robustness: **NOT TESTED** (mandatory before production)
+- Unbounded likelihood regularization: U/C/P comparison incomplete
+- Initialization robustness: diagnostic has seed reuse bug (**INVALID**)
+- Stopping criterion: diagnostic has unimplemented relative tolerance (**INVALID**)
+- Extended dimensional validation (q=1, q=5): **NOT TESTED**
+- Temporal correlation sensitivity: **NOT TESTED**
+- Calibrated significance testing: **NOT ESTABLISHED**
 
 ---
 
-## Directory Layout
+## DIAGNOSTIC LIMITATIONS (CRITICAL)
+
+**M3-A2g diagnostic scripts preserved with documented bugs:**
+
+1. **[m3_a2g_ninit_sensitivity.py](scripts/m3_a2g_ninit_sensitivity.py)** — INVALID FOR ROBUSTNESS CLAIMS
+   - Seed reuse bug: Reseeds on every INNER start, making all n_init>1 produce identical random initializations
+   - wrapped_1.0 loglik diff = 2.63 between n_init=1 (split) and n_init=3 (all-random) indicates different solutions
+   - Merely changing outer seed does NOT fix this defect
+
+2. **[m3_a2g_stopping_criterion_validation.py](scripts/m3_a2g_stopping_criterion_validation.py)** — INVALID FOR VALIDATION
+   - Relative tolerance branch unimplemented, falls through to tol=1e-20
+   - Absolute tolerance configurations also have issues: approximate stop iteration, incorrect continuation endpoint, non-converged fits
+   - ALL stopping protocols tested have limitations
+
+3. **[m3_a2g_extended_maxiter.py](scripts/m3_a2g_extended_maxiter.py)** — VALID BUT UNPAIRED
+   - Different seeds per max_iter value, not controlled comparison
+   - Convergence differences partially reflect draw difficulty
+
+4. **[m3_a2g_monotonicity_check.py](scripts/m3_a2g_monotonicity_check.py)** — VALID BUT LIMITED
+   - Only 4 synthetic fixtures (exact_easy, wrapped_1.0, k2_clear, k2_close)
+   - Each fixture × 3 identical inits (seed=700) = 12 runs
+   - 3384 iteration states total (including triplicates)
+   - 1124 unique comparisons (after removing triplicates)
+   - 0 violations observed
+   - Empirical verification, not comprehensive proof
+
+**See [M3_A2G_CORRECTIONS_PROVENANCE.md](M3_A2G_CORRECTIONS_PROVENANCE.md) for detailed diagnostic analysis.**
+
+---
+
+## AUTHORITATIVE STATISTICS
+
+**Source:** [scripts/m3_a2g_data_verification.py](scripts/m3_a2g_data_verification.py) (trajectory bug fixed)
+
+- **Total CSV rows:** 1235
+- **Trajectory records:** 1634 iteration state records
+- **Exact-family convergence:** 111/360 (30.8%), varies 8%-83% by F
+- **True-K2 convergence:** 258/320 (80.6%), varies 34%-100% by separation
+- **Stress regime convergence:** 102/280 (36.4%)
+
+**See [results/m3_a2g_data_verification.json](results/m3_a2g_data_verification.json) for complete statistics.**
+
+---
+
+## DIRECTORY STRUCTURE
 
 ```
 benchmarks/audit/m3_multimodality/
-├── M3_STATUS.md              Current status & classification
-├── MANIFEST.md               Provenance, checksums, regenerability
-├── README.md                 This file
-│
-├── reports/                  Checkpoint reports & documentation
-│   ├── M3_A2f_CHECKPOINT_REPORT.md         [CURRENT] Final validated state
-│   ├── M3_A2f_CLOSURE.md                   Checkpoint closure document
-│   ├── M3_A2f_LIKELIHOOD_DEGENERACY.md     Unbounded likelihood proof
-│   ├── M3_A2e_CHECKPOINT_REPORT.md         [Superseded] Full benchmark
-│   └── ... (historical checkpoints)
-│
-├── scripts/                  Diagnostic & reproducibility code
-│   ├── product_vm_fast_accurate.py         [Definitive] Corrected fitter (U estimator)
-│   ├── product_vm_three_estimators.py      [Definitive] U/C/P framework
-│   ├── m3_a2f_analysis_framework.py        Corrected analysis tools
-│   ├── investigate_wrapped_normal_anomaly.py  Convergence investigation
-│   └── ... (benchmark and historical scripts)
-│
-└── results/                  Validated benchmark outputs
-    ├── m3_a2e_checkpoint6_exact_family.csv     0.13% exact-family K2
-    ├── m3_a2e_checkpoint9_k2_recovery.csv      100% K2 power (≥60°)
-    └── m3_a2e_checkpoint10_wrapped_normal.csv  σ=1.0 anomaly
+├── M3_STATUS.md                           # Current status (PRIMARY)
+├── README.md                              # This file
+├── MANIFEST.md                            # Artifact inventory
+├── M3_A2G_CHECKPOINT_CLOSURE.md           # M3-A2g closure
+├── M3_A2G_COMPLETE_ANALYSIS.md            # M3-A2g complete analysis
+├── M3_A2G_CORRECTIONS_PROVENANCE.md       # External review findings
+├── reports/
+│   ├── M3_A2g_CHECKPOINT_REPORT.md        # M3-A2g detailed report
+│   ├── M3_A2f_CHECKPOINT_REPORT.md
+│   ├── M3_A2f_CLOSURE.md
+│   ├── M3_A2f_LIKELIHOOD_DEGENERACY.md
+│   ├── M3_A2e_CHECKPOINT_REPORT.md
+│   └── [earlier checkpoints...]
+├── scripts/
+│   ├── m3_a2g_convergence_audit.py        # Convergence trajectory analysis
+│   ├── m3_a2g_exact_k2_convergence.py     # Exact/K2 convergence audit
+│   ├── m3_a2g_monotonicity_check.py       # EM monotonicity (limited scope)
+│   ├── m3_a2g_ninit_sensitivity.py        # n_init test (INVALID - seed bug)
+│   ├── m3_a2g_stopping_criterion_validation.py  # Stopping test (INVALID - rel branch)
+│   ├── m3_a2g_extended_maxiter.py         # Extended max_iter (unpaired)
+│   ├── m3_a2g_duplicate_component_investigation.py
+│   ├── m3_a2g_data_verification.py        # Data verification (trajectory bug FIXED)
+│   ├── product_vm_fast_accurate.py        # M3-A2e corrected fitter
+│   └── product_vm_three_estimators.py     # U/C/P framework
+└── results/
+    ├── m3_a2g_exact_family_convergence.csv      # 360 fits (111/360 = 30.8%)
+    ├── m3_a2g_k2_convergence.csv                # 320 fits (258/320 = 80.6%)
+    ├── m3_a2g_stress_regime.csv                 # 280 fits (102/280 = 36.4%)
+    ├── m3_a2g_trajectories.txt                  # 5 blocks, 1634 iteration records
+    ├── m3_a2g_ninit_sensitivity.csv             # 20 fits (loglik diff = 2.63)
+    ├── [6 more M3-A2g CSVs...]
+    ├── m3_a2e_checkpoint6_exact_family.csv      # 3/2250 (M3-A2e)
+    ├── m3_a2e_checkpoint9_k2_recovery.csv       # 1620/1620 (M3-A2e)
+    └── m3_a2g_data_verification.json            # Authoritative statistics
 ```
 
 ---
 
-## Reproducing Key Results
+## HISTORICAL CONTEXT
 
-### M3-A2e Exact-Family Validation (0.13%)
+**Valid Checkpoints:**
+- **M3-A2d:** Core corrections following M3-A2c sanity audit
+- **M3-A2e:** Full benchmark with corrected fitter (3/2250, 1620/1620 validated)
+- **M3-A2f:** Likelihood degeneracy analysis, convergence investigation
+- **M3-A2g:** Optimizer convergence audit (provisional O2, diagnostics incomplete)
 
-```bash
-# From repository root
-python benchmarks/audit/m3_multimodality/scripts/m3_a2e_full_benchmark.py
-```
+**Pre-M3-A2d checkpoints used incorrect K=1 fitter** — scientifically invalid for quantitative conclusions, retained for provenance.
 
-**Expected output:**
-- `m3_a2e_checkpoint6_exact_family.csv` — 3/2250 K=2 selections
-- **Runtime:** ~10-30 minutes
-
-### M3-A2f Wrapped-Normal Convergence Investigation
-
-```bash
-python benchmarks/audit/m3_multimodality/scripts/investigate_wrapped_normal_anomaly.py
-```
-
-**Expected findings:**
-- σ≈1.0: 33-50% raw K=2 selections
-- Convergence rate: ~3% (97% failures)
-- **Runtime:** ~5-10 minutes
+**See [M3_STATUS.md](M3_STATUS.md) checkpoint progression table for complete history.**
 
 ---
 
-## Toroidal Independence Warning
+## NEXT STEPS
 
-**Product von Mises assumes:**
-```
-p(θ₁, θ₂, ..., θ_q) = ∏ᵢ₌₁^q p(θᵢ)
-```
+**Before Production Deployment:**
 
-This is a **strong simplifying assumption**. Real protein dihedral distributions may exhibit angular correlations.
+1. **Fix and re-execute initialization/stopping diagnostics** (M3-A2h candidate)
+   - Independent seeds in n_init comparison
+   - Implement relative tolerance stopping criterion
+   - Only then consider O3 upgrade
 
-**Validation under dependent-toroidal distributions is MANDATORY** before production deployment.
+2. **Dependent-toroidal validation** (M3-A3 candidate, **MANDATORY**)
+   - Bivariate sine von Mises with verified unimodality
+   - Correlated wrapped-normal with verified unimodality
+   - Measured circular association
+
+3. **Regularization strategy decision** (M3-B candidate)
+   - Systematic U/C/P comparison
+   - Literature-grounded penalty selection
+
+4. **Extended validation**
+   - q=1 (univariate), q=5 (higher-dimensional)
+   - Temporal correlation sensitivity
+   - Calibrated significance testing
+
+**Alternative:** Pivot to model-free multimodality detectors if misspecification sensitivity is prohibitive.
 
 ---
 
-## Relationship to TopoFold Production Code
+## PRESERVATION POLICY
 
-**IMPORTANT:** None of these audit artifacts have been promoted to production TopoFold code.
+**Original M3-A2g experiment artifacts preserved unchanged** despite diagnostic limitations:
+- Scripts with bugs preserved for provenance (bugs documented in M3_A2G_CORRECTIONS_PROVENANCE.md)
+- CSV/TXT results unchanged (1235 rows, 1634 iteration records)
+- Corrected verification utility: trajectory counting bug **FIXED** (generates new verification.json)
 
-**Audit scripts are diagnostic code only.**
-
-Product von Mises detector is:
-- NOT in production pipeline
-- NOT available as public API
-- NOT recommended for use
+**No production code modifications.** All artifacts are scientific audit evidence only.
 
 ---
 
+## EXTERNAL REVIEW STATUS
+
+**Status:** Provisional O2 classification pending external review
+
+**External Review Rejection (Initial O3 Claim):**
+- Numerical reconciliation errors (corrected)
+- Historical attribution errors (corrected)
+- Diagnostic limitations not disclosed (now documented)
+- Classification downgraded to provisional O2
+
+**Required:** External review of corrected documentation package before proceeding.
+
+---
+
+**For questions or external review requests, see project maintainers.**
+
+**Baseline:** 37ce1350e934ea0e54d92c55ad83c9748e4ffc3c
 **Last Updated:** 2026-10-03
-**Audit Branch:** scientific-rebuild
-**Promotion HEAD:** 95244fd486be1a96e29cc0cb37bb5cb244fa9407
