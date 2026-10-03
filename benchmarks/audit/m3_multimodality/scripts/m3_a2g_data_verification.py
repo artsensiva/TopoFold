@@ -366,11 +366,40 @@ if __name__ == "__main__":
     print("\nSchema Validation:")
     exact_schema = validate_csv_schema(
         results_dir / "m3_a2g_exact_family_convergence.csv",
-        ['q', 'kappa', 'F', 'rep', 'converged', 'n_iter', 'final_loglik', 'delta_bic']
+        ['q', 'kappa', 'F', 'rep', 'converged', 'selected_K', 'delta_bic', 'loglik']
     )
-    print(f"  exact_family schema: {'valid' if exact_schema['valid'] else 'INVALID'}")
+    k2_schema = validate_csv_schema(
+        results_dir / "m3_a2g_k2_convergence.csv",
+        ['separation_deg', 'occupancy_1', 'occupancy_2', 'kappa', 'F', 'rep', 'converged', 'selected_K', 'delta_bic', 'loglik']
+    )
+    stress_schema = validate_csv_schema(
+        results_dir / "m3_a2g_stress_regime.csv",
+        ['sigma', 'F', 'rep', 'converged', 'selected_K', 'loglik', 'delta_bic', 'max_kappa']
+    )
+    extended_schema = validate_csv_schema(
+        results_dir / "m3_a2g_extended_maxiter.csv",
+        ['sigma', 'F', 'max_iter', 'rep', 'converged', 'selected_K', 'loglik', 'delta_bic', 'max_kappa', 'runtime_sec']
+    )
+    ninit_schema = validate_csv_schema(
+        results_dir / "m3_a2g_ninit_sensitivity.csv",
+        ['case', 'n_init', 'best_loglik', 'min_loglik', 'max_loglik', 'spread_range', 'spread_std', 'n_converged', 'convergence_rate', 'best_n_iters', 'best_converged', 'runtime_sec']
+    )
+
+    print(f"  exact_family schema: {'VALID' if exact_schema['valid'] else 'INVALID'}")
     if not exact_schema['valid']:
         print(f"    Missing: {exact_schema['missing']}, Extra: {exact_schema['extra']}")
+    print(f"  k2_convergence schema: {'VALID' if k2_schema['valid'] else 'INVALID'}")
+    if not k2_schema['valid']:
+        print(f"    Missing: {k2_schema['missing']}, Extra: {k2_schema['extra']}")
+    print(f"  stress_regime schema: {'VALID' if stress_schema['valid'] else 'INVALID'}")
+    if not stress_schema['valid']:
+        print(f"    Missing: {stress_schema['missing']}, Extra: {stress_schema['extra']}")
+    print(f"  extended_maxiter schema: {'VALID' if extended_schema['valid'] else 'INVALID'}")
+    if not extended_schema['valid']:
+        print(f"    Missing: {extended_schema['missing']}, Extra: {extended_schema['extra']}")
+    print(f"  ninit_sensitivity schema: {'VALID' if ninit_schema['valid'] else 'INVALID'}")
+    if not ninit_schema['valid']:
+        print(f"    Missing: {ninit_schema['missing']}, Extra: {ninit_schema['extra']}")
 
     # Grid coverage
     print("\nGrid Coverage:")
@@ -402,7 +431,11 @@ if __name__ == "__main__":
         'csv_counts': counts,
         'total_csv_rows': total_csv_rows,
         'schema_validation': {
-            'exact_family': exact_schema
+            'exact_family': exact_schema,
+            'k2_convergence': k2_schema,
+            'stress_regime': stress_schema,
+            'extended_maxiter': extended_schema,
+            'ninit_sensitivity': ninit_schema
         },
         'grid_coverage': grid,
         'exact_family': ef,

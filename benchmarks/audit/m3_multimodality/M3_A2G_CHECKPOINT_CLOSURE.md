@@ -51,7 +51,7 @@
 - Confounded by draw difficulty variation
 
 ### Diagnostics INVALID
-- **Initialization:** Reseeds on every inner start - comparison invalid
+- **Initialization:** Fitter reseeds on every inner start - n_init>1 produce identical random starts
 - **Stopping:** Relative tolerance branch unimplemented - validation incomplete
 
 ---

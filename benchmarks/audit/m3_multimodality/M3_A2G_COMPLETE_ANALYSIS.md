@@ -33,7 +33,7 @@ U — numerical-ceiling local-EM heuristic. O2 — FUNCTIONAL BUT FRAGILE, provi
 **Interpretation:** POOR convergence, degrades severely with sample size.
 
 ### True-K2 (max_iter=500, 320 fits)
-**Grid:** sep∈{10°,30°,60°,90°} × κ∈{5,20} × occupancy∈{0.5,0.8} × F=1000 × 10 reps
+**Grid:** sep∈{10°,30°,60°,90°} × κ∈{5,20} × occupancy∈{0.5,0.8} × F∈{250,1000} × 10 reps
 
 **Results:** 258/320 (80.6%) converged
 - sep=10°: 27/80 (34%)
@@ -44,7 +44,8 @@ U — numerical-ceiling local-EM heuristic. O2 — FUNCTIONAL BUT FRAGILE, provi
 **Interpretation:** Convergence degrades with close separation.
 
 ### Stress Regime (max_iter=500, 280 fits)
-**Grid:** σ∈{0.6,0.7,0.8,0.9,1.0} × F∈{100,500,1000,2500} × q=2 × 14 configs × 10 reps
+**Grid:** 7 sigma values × 4 sample sizes × 10 reps = 280 fits, q=2 fixed
+- σ∈{0.6,0.7,0.8,0.9,1.0,1.1,1.2}, F∈{250,500,1000,2500}
 
 **Results:** 102/280 (36.4%) converged
 - σ=1.0, F=1000: 3/10 (30%)
@@ -61,7 +62,7 @@ U — numerical-ceiling local-EM heuristic. O2 — FUNCTIONAL BUT FRAGILE, provi
 
 ### Monotonicity (4 fixtures, 3384 states)
 **Fixtures:** exact_easy, wrapped_1.0, k2_clear, k2_close
-**Configuration:** Each fixture × 3 inits (identical, seed=700) = 12 runs
+**Configuration:** Uses `initialization='split', n_init=3` - 3 repeated deterministic split starts per fixture (creates triplicates)
 
 **Results:**
 - 3384 iteration states (including triplicates)

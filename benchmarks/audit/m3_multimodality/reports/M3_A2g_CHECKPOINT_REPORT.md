@@ -77,7 +77,7 @@ M3-A2f identified **97% EM convergence failure** in the wrapped-normal σ≈1.0 
 
 **Data:** [results/m3_a2g_k2_convergence.csv](../results/m3_a2g_k2_convergence.csv)
 
-**Grid:** sep∈{10°,30°,60°,90°} × κ∈{5,20} × occupancy∈{0.5,0.8} × F=1000 × 10 replicates = 320 fits
+**Grid:** sep∈{10°,30°,60°,90°} × κ∈{5,20} × occupancy∈{0.5,0.8} × F∈{250,1000} × 10 replicates = 320 fits
 
 **Results:**
 - **Overall:** 258/320 = 80.6% converged
@@ -93,7 +93,9 @@ M3-A2f identified **97% EM convergence failure** in the wrapped-normal σ≈1.0 
 
 **Data:** [results/m3_a2g_stress_regime.csv](../results/m3_a2g_stress_regime.csv)
 
-**Grid:** σ∈{0.6,0.7,0.8,0.9,1.0} × F∈{100,500,1000,2500} × q=2 × 14 configs × 10 replicates = 280 fits
+**Grid:** 7 sigma values × 4 sample sizes × 10 replicates = 280 fits, q=2 fixed
+- σ∈{0.6,0.7,0.8,0.9,1.0,1.1,1.2}
+- F∈{250,500,1000,2500}
 
 **Results:**
 - **Overall:** 102/280 = **36.4%** converged
@@ -131,19 +133,19 @@ M3-A2f identified **97% EM convergence failure** in the wrapped-normal σ≈1.0 
 
 ### 2.5 EM Monotonicity Verification (Limited Scope)
 
-**Data:** [results/m3_a2g_initialization_comparison.csv](../results/m3_a2g_initialization_comparison.csv)
 **Script:** [scripts/m3_a2g_monotonicity_check.py](../scripts/m3_a2g_monotonicity_check.py)
+**Note:** This is an in-memory verification, NOT derived from m3_a2g_initialization_comparison.csv
 
 **Fixtures tested:**
-1. exact_easy: Product-vM K=1, μ=[0, π/4], κ=[5,5], F=1000
-2. wrapped_1.0: Wrapped-normal, σ=1.0, F=1000
-3. k2_clear: Product-vM K=2, sep=90°, κ=20, balanced
-4. k2_close: Product-vM K=2, sep=20°, κ=20, unbalanced (π=[0.8,0.2])
+1. exact_easy: Product-vM K=1, μ=[0, π/4], κ=[5,5], F=1000 (seed=700)
+2. wrapped_1.0: Wrapped-normal, σ=1.0, F=1000 (seed=701)
+3. k2_clear: Product-vM K=2, sep=90°, κ=20, balanced (seed=702)
+4. k2_close: Product-vM K=2, sep=20°, κ=20, unbalanced (π=[0.8,0.2], seed=703)
 
 **Configuration:**
-- Each fixture run with n_init=3 (split initialization, all using seed=700)
-- Because seed is fixed, all 3 initializations are IDENTICAL per case
-- 4 cases × 3 inits = 12 runs
+- Uses `initialization='split', n_init=3`: split initialization repeated 3 times per fixture
+- Split initialization is DETERMINISTIC, so all 3 runs produce identical trajectories (triplicates)
+- 4 fixtures × 3 identical deterministic runs = 12 runs
 
 **Results:**
 - **Total iteration states:** 3,384 (including triplicates)
@@ -162,7 +164,7 @@ M3-A2f identified **97% EM convergence failure** in the wrapped-normal σ≈1.0 
 **Data:** [results/m3_a2g_ninit_sensitivity.csv](../results/m3_a2g_ninit_sensitivity.csv)
 **Script:** [scripts/m3_a2g_ninit_sensitivity.py](../scripts/m3_a2g_ninit_sensitivity.py)
 
-**Test:** Compare n_init∈{1,3,5,10,20} on 4 cases (exact_easy, wrapped_0.9, wrapped_1.0, exact_hard)
+**Test:** Compare n_init∈{1,3,5,10,20} on 4 cases (exact_k1, wrapped_1.0, k2_close, k2_clear)
 
 **CRITICAL BUG:** Script reseeds on every INNER start:
 ```python

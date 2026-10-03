@@ -69,7 +69,7 @@ POOR CONVERGENCE RATES at max_iter=500:
 - ⚠ Absolute tolerance tol=1e-6 scales poorly with sample size
 - ⚠ Non-converged fits often still improving at max_iter cutoff (budget exhaustion, not failure)
 - ⚠ EM monotonicity observed in 4 limited fixtures (exact_easy, wrapped_1.0, k2_clear, k2_close):
-  - 4 cases × 3 inits (identical, seed=700) = 12 runs
+  - 4 cases × 3 repeated deterministic split starts = 12 runs
   - 3384 iteration states total (including triplicates)
   - 1124 unique EM step comparisons (after removing triplicates)
   - 0 violations observed

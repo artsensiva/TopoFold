@@ -65,9 +65,9 @@ Not production-ready; no validated production defaults.
 **M3-A2g diagnostic scripts preserved with documented bugs:**
 
 1. **[m3_a2g_ninit_sensitivity.py](scripts/m3_a2g_ninit_sensitivity.py)** — INVALID FOR ROBUSTNESS CLAIMS
-   - Seed reuse bug: Reseeds on every INNER start, making all n_init>1 produce identical random initializations
-   - wrapped_1.0 loglik diff = 2.63 between n_init=1 (split) and n_init=3 (all-random) indicates different solutions
-   - Merely changing outer seed does NOT fix this defect
+   - Fitter reseeds on every INNER start, making all n_init>1 produce identical random initializations
+   - wrapped_1.0 loglik diff = 2.63 between n_init=1 (split) and n_init=3 (identical random) indicates different solutions
+   - Merely changing outer seed does NOT fix the inner reseeding defect
 
 2. **[m3_a2g_stopping_criterion_validation.py](scripts/m3_a2g_stopping_criterion_validation.py)** — INVALID FOR VALIDATION
    - Relative tolerance branch unimplemented, falls through to tol=1e-20
@@ -80,8 +80,11 @@ Not production-ready; no validated production defaults.
 
 4. **[m3_a2g_monotonicity_check.py](scripts/m3_a2g_monotonicity_check.py)** — VALID BUT LIMITED
    - Only 4 synthetic fixtures (exact_easy, wrapped_1.0, k2_clear, k2_close)
-   - Each fixture × 3 identical inits (seed=700) = 12 runs
+   - Uses `initialization='split', n_init=3`: 3 repeated deterministic split starts per fixture
+   - All 3 split runs are identical (deterministic algorithm), creating triplicates
+   - 4 fixtures × 3 identical runs = 12 runs
    - 3384 iteration states total (including triplicates)
+   - 3372 comparisons including repeats
    - 1124 unique comparisons (after removing triplicates)
    - 0 violations observed
    - Empirical verification, not comprehensive proof

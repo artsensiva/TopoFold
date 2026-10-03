@@ -13,11 +13,11 @@ This manifest records provenance, checksums, and validity status of all M3-A2g s
 
 | Path | Purpose | SHA-256 |
 |------|---------|---------|
-| `M3_STATUS.md` | Current M3 status (Provisional O2) | `a959947cc08a96ac71ebc29fff99a658e3b03e56984013f56928ed52e3fd713d` |
-| `README.md` | Navigation and limitations | `c4eedfb63dad7faaef729b65238daf6f1e7cfc49c7b87c9b2efb7b4bc5f4b990` |
-| `M3_A2G_CORRECTIONS_PROVENANCE.md` | External review findings | `eaed51a2ad72efb17b0014bd0a1b7ad33c5cd71d5e921951eb43173c6447e8fb` |
-| `M3_A2G_CHECKPOINT_CLOSURE.md` | M3-A2g closure | `f40b7f561b05ac21a6985a840fb67aa80939d3ccffd9b65871c2e8c90c8a6d40` |
-| `M3_A2G_COMPLETE_ANALYSIS.md` | M3-A2g analysis | `d51688da073539167254211c57cd3f98b1cb4f4c1daf3f4b9ff169656fa13c57` |
+| `M3_STATUS.md` | Current M3 status (Provisional O2) | `06f5f77e9cd1866b2258bf9c3d7b8abcb842eb24d8e6453c1e122e91479af9b8` |
+| `README.md` | Navigation and limitations | `4e5a66747ffbabd0a27de0fe0570e785693f1cdb053510777747173d370c7bc7` |
+| `M3_A2G_CORRECTIONS_PROVENANCE.md` | External review findings | `ee3461e9736a4d04e1af42e5d96765958b2da68eaaa5150b04b5a67183e5209c` |
+| `M3_A2G_CHECKPOINT_CLOSURE.md` | M3-A2g closure | `b3919ab2258b2b1ea1300800bd116b9abde77daa04d3e0d9938e3118e33c986e` |
+| `M3_A2G_COMPLETE_ANALYSIS.md` | M3-A2g analysis | `cc2f9bcd6daa661d5176e94eee0e920e4fd5447c27a1136583049c8c1ccf5779` |
 | `MANIFEST.md` | This provenance manifest | (self) |
 
 ---
@@ -26,10 +26,10 @@ This manifest records provenance, checksums, and validity status of all M3-A2g s
 
 | Path | Purpose | Status | SHA-256 |
 |------|---------|--------|---------|
-| `reports/M3_A2g_CHECKPOINT_REPORT.md` | M3-A2g detailed report | **CORRECTED (Provisional O2)** | `23837c646124bb2b065f24b74c83e1cc438d2c681085808babb3fefd4e7decc0` |
-| `M3_A2G_CHECKPOINT_CLOSURE.md` | M3-A2g closure | **CORRECTED (Provisional O2)** | `f40b7f561b05ac21a6985a840fb67aa80939d3ccffd9b65871c2e8c90c8a6d40` |
-| `M3_A2G_COMPLETE_ANALYSIS.md` | M3-A2g complete analysis | **CORRECTED (Provisional O2)** | `d51688da073539167254211c57cd3f98b1cb4f4c1daf3f4b9ff169656fa13c57` |
-| `M3_A2G_CORRECTIONS_PROVENANCE.md` | External review findings | **CORRECTED** | `eaed51a2ad72efb17b0014bd0a1b7ad33c5cd71d5e921951eb43173c6447e8fb` |
+| `reports/M3_A2g_CHECKPOINT_REPORT.md` | M3-A2g detailed report | **CORRECTED (Provisional O2)** | `6649a2be875aedd4b349e6b41bae0b38920653a8bdc9f115684512d22364f765` |
+| `M3_A2G_CHECKPOINT_CLOSURE.md` | M3-A2g closure | **CORRECTED (Provisional O2)** | `b3919ab2258b2b1ea1300800bd116b9abde77daa04d3e0d9938e3118e33c986e` |
+| `M3_A2G_COMPLETE_ANALYSIS.md` | M3-A2g complete analysis | **CORRECTED (Provisional O2)** | `cc2f9bcd6daa661d5176e94eee0e920e4fd5447c27a1136583049c8c1ccf5779` |
+| `M3_A2G_CORRECTIONS_PROVENANCE.md` | External review findings | **CORRECTED** | `ee3461e9736a4d04e1af42e5d96765958b2da68eaaa5150b04b5a67183e5209c` |
 
 ---
 
@@ -44,7 +44,7 @@ This manifest records provenance, checksums, and validity status of all M3-A2g s
 | `scripts/m3_a2g_stopping_criterion_validation.py` | Stopping validation | ❌ INVALID (ALL protocols) | `ab853368155185561cbfb5f1760c6791af851f5a1ff7f01a7b63651be8b5e9b7` |
 | `scripts/m3_a2g_extended_maxiter.py` | Extended max_iter (180 fits) | ⚠ VALID BUT UNPAIRED | `3912af0a32251ec205d44aab59ce09f5e5e7145dd609dcbae51739e1f6175328` |
 | `scripts/m3_a2g_duplicate_component_investigation.py` | Duplicate components | ✅ VALID | `131831e214e7d1ea3e240ca391482e5d0fbf1b4806628a570cc3a53147b7db60` |
-| `scripts/m3_a2g_data_verification.py` | Data verification (trajectory bug FIXED) | ✅ VALID (corrected) | `a6fd0d49323cf8ccacbb577d2d7f9ca818afb3cefdb5615a0b5b5e417fa0168f` |
+| `scripts/m3_a2g_data_verification.py` | Data verification (trajectory bug FIXED) | ✅ VALID (corrected) | `495c98a18919cb6f4056b04a485901ed2c6c7daabd029497086a81705d3f47ba` |
 
 ---
 
@@ -63,7 +63,7 @@ This manifest records provenance, checksums, and validity status of all M3-A2g s
 | `results/m3_a2g_initialization_comparison.csv` | Initialization | 15 | `9bdb14e031c44605e0b43ae9f9709bb067544df302fa7cfd2472d04b6f5e5882` |
 | `results/m3_a2g_duplicate_components.csv` | Duplicates | 8 | `c3fbcc3b12c683619e70f69b3a38369b90daae82f90e5e865acd91c36dfcf8f8` |
 | `results/m3_a2g_trajectories.txt` | 5 blocks, 1634 iterations | 1634 records | `fd298b3430602ff82b47b7e396021698ba6c70cd53923e2159f41527dd44e670` |
-| `results/m3_a2g_data_verification.json` | **REGENERATED** derivative summary | (summary) | `af95fe40b277fb0f38d67bc50a3bc29e657933461ce2f418e2a428d8609bc5bb` |
+| `results/m3_a2g_data_verification.json` | **REGENERATED** derivative summary | (summary) | `78f161833ec03599ca751c06299d9e2b7a195a7976d1dd6fa5627de4a22a5391` |
 
 **Total CSV rows:** 1235 (verified)
 
@@ -95,7 +95,7 @@ This manifest records provenance, checksums, and validity status of all M3-A2g s
 |--------|---------|-----------|---------|
 | `scripts/product_vm_fast_accurate.py` | M3-A2e corrected K=1/K=2 fitter | M3-A2e | `bb1a12f5b25f996d74e5aeaabb9f107cfe2b329c22391c8ef9e22fcac5260f47` |
 | `scripts/product_vm_three_estimators.py` | U/C/P regularization framework | M3-A2f | `aee65e4f262851c72812bbdf811af5cb8be879c90187d0c3ab73bb461ddfac69` |
-| `scripts/m3_a2g_data_verification.py` | Data verification (trajectory bug FIXED) | M3-A2g | `a6fd0d49323cf8ccacbb577d2d7f9ca818afb3cefdb5615a0b5b5e417fa0168f` |
+| `scripts/m3_a2g_data_verification.py` | Data verification (trajectory bug FIXED) | M3-A2g | `495c98a18919cb6f4056b04a485901ed2c6c7daabd029497086a81705d3f47ba` |
 
 ---
 

@@ -38,15 +38,9 @@
   "total_csv_rows": 1235,
   "schema_validation": {
     "exact_family": {
-      "valid": false,
-      "missing": [
-        "final_loglik",
-        "n_iter"
-      ],
-      "extra": [
-        "loglik",
-        "selected_K"
-      ],
+      "valid": true,
+      "missing": [],
+      "extra": [],
       "actual_columns": [
         "F",
         "converged",
@@ -56,6 +50,74 @@
         "q",
         "rep",
         "selected_K"
+      ]
+    },
+    "k2_convergence": {
+      "valid": true,
+      "missing": [],
+      "extra": [],
+      "actual_columns": [
+        "F",
+        "converged",
+        "delta_bic",
+        "kappa",
+        "loglik",
+        "occupancy_1",
+        "occupancy_2",
+        "rep",
+        "selected_K",
+        "separation_deg"
+      ]
+    },
+    "stress_regime": {
+      "valid": true,
+      "missing": [],
+      "extra": [],
+      "actual_columns": [
+        "F",
+        "converged",
+        "delta_bic",
+        "loglik",
+        "max_kappa",
+        "rep",
+        "selected_K",
+        "sigma"
+      ]
+    },
+    "extended_maxiter": {
+      "valid": true,
+      "missing": [],
+      "extra": [],
+      "actual_columns": [
+        "F",
+        "converged",
+        "delta_bic",
+        "loglik",
+        "max_iter",
+        "max_kappa",
+        "rep",
+        "runtime_sec",
+        "selected_K",
+        "sigma"
+      ]
+    },
+    "ninit_sensitivity": {
+      "valid": true,
+      "missing": [],
+      "extra": [],
+      "actual_columns": [
+        "best_converged",
+        "best_loglik",
+        "best_n_iters",
+        "case",
+        "convergence_rate",
+        "max_loglik",
+        "min_loglik",
+        "n_converged",
+        "n_init",
+        "runtime_sec",
+        "spread_range",
+        "spread_std"
       ]
     }
   },

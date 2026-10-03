@@ -259,6 +259,77 @@ seed = 1000 + len(results)  # Increments across ALL prior results
 
 ---
 
+## POST-COMMIT CORRECTION: HISTORICAL DIAGNOSTIC MISINTERPRETATION
+
+**Date:** 2026-10-03 (post-commit bf33346e52676f87925643681f3669879ef5fc18)
+**Issue:** Erroneous interpretation of `/tmp/m3_a2_fast_validation.py` results during background process review
+
+### WITHDRAWN CLAIMS
+
+The following claims made during background process review are **WITHDRAWN**:
+
+1. ❌ **"temporal correlation is fatal"** - WITHDRAWN
+2. ❌ **"never a primary detector"** - WITHDRAWN
+3. ❌ **"publication-quality evidence"** - WITHDRAWN
+4. ❌ **"O2 final"** - WITHDRAWN
+
+### CORRECT INTERPRETATION
+
+**Historical M3-A2 evidence from `/tmp/` artifacts:**
+
+The `/tmp/m3_a2_fast_validation.py` script and `/tmp/m3_a2_fast_correlated_nulls.csv` results are **historical M3-A2 evidence** from an old implementation with documented bugs, NOT new evidence about the corrected A2e/A2g implementation.
+
+**Historical diagnostic bugs in `/tmp/m3_a_diagnostic.py`:**
+
+1. **Likelihood calculation error (lines 528-545):**
+   ```python
+   # E-step: compute responsibilities
+   log_resp = np.zeros((n, K))
+   for k in range(K):
+       for i in range(n):
+           log_resp[i, k] = (np.log(weights[k] + 1e-10) +
+                            product_von_mises_logpdf(samples[i], mus[k], kappas[k]))
+
+   # Normalize responsibilities (numerical stability)
+   log_resp_max = log_resp.max(axis=1, keepdims=True)
+   resp = np.exp(log_resp - log_resp_max)
+   resp /= resp.sum(axis=1, keepdims=True)  # ← Line 542: normalize to sum=1
+
+   # Compute log-likelihood
+   loglik = (log_resp_max.squeeze() + np.log(resp.sum(axis=1))).sum()  # ← Line 545: BUG
+   ```
+
+   **Bug:** After normalizing responsibilities to sum=1 (line 542), the log-likelihood calculation computes `log(resp.sum(axis=1))` which always gives log(1)=0, **losing the mixture normalization term** log(Σₖ πₖ p(x|θₖ)).
+
+2. **Concentration approximation (lines 446-452):**
+   ```python
+   if R < 1e-6:
+       kappa[dim] = 0.0
+   elif R < 0.8:
+       kappa[dim] = 2*R + R**3 + 5*R**5/6  # Taylor-like approximation
+   else:
+       # High R: use k ≈ 1/(1-R)
+       kappa[dim] = 1.0 / (1.0 - R + 1e-10)
+   ```
+
+**CSV evidence from `/tmp/m3_a2_fast_correlated_nulls.csv`:**
+
+Common_latent corr=0.7 results (lines 272-301):
+- **30/30 K2 selections** (all delta_bic < 0, fp=True)
+- **Only 5/30 converged runs** (reps 8, 13, 15, 23, 27)
+- **25/30 non-converged** fits still produced K2 selections - invalid optimization
+
+**Correct understanding:**
+- The **common_latent parameter 0.7 is NOT a measured correlation coefficient**
+- The generator **introduces dependence across coordinates within observations**, NOT temporal autocorrelation
+- **Joint unimodality was NOT established** for these dependent-toroidal nulls
+- The 30/30 K2 selections **cannot be interpreted as 100% FPR** when only 5/30 runs converged
+- This historical evidence does **NOT** apply to the corrected M3-A2e/A2g implementation
+
+**Preservation:** Historical `/tmp/` artifacts preserved unchanged for provenance. No modifications to original M3-A2g experiment artifacts.
+
+---
+
 ## DOCUMENT STATUS
 
 This corrections provenance document was created following external review rejection of the initial O3 classification.
@@ -270,8 +341,9 @@ This corrections provenance document was created following external review rejec
 - ✅ Classification downgraded to provisional O2
 - ✅ Verification utility trajectory bug fixed (5→1634)
 - ✅ All canonical documents updated with corrected content
+- ✅ **POST-COMMIT:** Historical diagnostic misinterpretation withdrawn (4 false claims)
 
-**Scope:** Documentation corrections and verification tooling execution. Claude corrected the trajectory counting bug in m3_a2g_data_verification.py and regenerated m3_a2g_data_verification.json.
+**Scope:** Documentation corrections and verification tooling execution. Claude corrected the trajectory counting bug in m3_a2g_data_verification.py and regenerated m3_a2g_data_verification.json. Post-commit correction: Claude withdrew erroneous claims about historical `/tmp/` validation results and documented bugs in historical diagnostic implementation.
 
 **Verification:** All statistics verified from preserved CSV/TXT artifacts using corrected verification utility.
 
