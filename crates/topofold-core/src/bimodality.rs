@@ -34,6 +34,7 @@
 
 use rayon::prelude::*;
 
+use crate::circular::circular_mean;
 use crate::error::GeometryError;
 use crate::geometry::extract_curve_invariants;
 use crate::invariants::CurveInvariants;
@@ -279,27 +280,56 @@ pub fn compute_bimodality_profile(
         let window_start = i;
         let window_end = i + window_size - 1;
 
-        let mut moments_tau = StreamingMoments::new();
-        let mut moments_kappa = StreamingMoments::new();
-        let mut moments_theta = StreamingMoments::new();
         let has_theta = !invariants.is_empty() && !invariants[0].sidechain_dihedrals.is_empty();
+
+        // Collect circular means across all frames for this window
+        let mut tau_means = Vec::with_capacity(invariants.len());
+        let mut kappa_means = Vec::with_capacity(invariants.len());
+        let mut theta_means = Vec::with_capacity(invariants.len());
 
         for inv in &invariants {
             // Mean discrete curvature across the window
             let k_sum: f64 = inv.curvatures[i..i + n_kappas].iter().sum();
             let k_mean = k_sum / (n_kappas as f64);
-            moments_kappa.update(k_mean);
+            kappa_means.push(k_mean);
 
-            // Mean discrete torsion across the window
-            let t_sum: f64 = inv.torsions[i..i + n_torsions].iter().sum();
-            let t_mean = t_sum / (n_torsions as f64);
-            moments_tau.update(t_mean);
+            // Mean discrete torsion across the window (circular mean for angular data)
+            let t_slice = &inv.torsions[i..i + n_torsions];
+            let t_mean = circular_mean(t_slice);
+            tau_means.push(t_mean);
 
-            // Mean side-chain orientation dihedral across the window (if available)
+            // Mean side-chain orientation dihedral across the window (if available, circular mean)
             if has_theta && inv.sidechain_dihedrals.len() >= i + n_kappas {
-                let th_sum: f64 = inv.sidechain_dihedrals[i..i + n_kappas].iter().sum();
-                let th_mean = th_sum / (n_kappas as f64);
-                moments_theta.update(th_mean);
+                let th_slice = &inv.sidechain_dihedrals[i..i + n_kappas];
+                let th_mean = circular_mean(th_slice);
+                theta_means.push(th_mean);
+            }
+        }
+
+        // For angular quantities (tau, theta), compute centered deviations from circular mean
+        // before computing moments (prevents branch-cut artifacts)
+        use crate::circular::centered_deviations;
+        let tau_deviations = centered_deviations(&tau_means);
+        let theta_deviations = if has_theta {
+            centered_deviations(&theta_means)
+        } else {
+            Vec::new()
+        };
+
+        // Compute moments from the centered deviations
+        let mut moments_tau = StreamingMoments::new();
+        let mut moments_kappa = StreamingMoments::new();
+        let mut moments_theta = StreamingMoments::new();
+
+        for &k in &kappa_means {
+            moments_kappa.update(k);
+        }
+        for &t_dev in &tau_deviations {
+            moments_tau.update(t_dev);
+        }
+        if has_theta {
+            for &th_dev in &theta_deviations {
+                moments_theta.update(th_dev);
             }
         }
 
@@ -617,6 +647,143 @@ mod tests {
         assert!(
             best.start_res <= 12 && best.end_res >= 7,
             "Detected segment [{}, {}] must capture rotamer gating region [7, 12]",
+            best.start_res,
+            best.end_res
+        );
+    }
+
+    #[test]
+    fn test_circular_mean_branch_cut_regression() {
+        // M2 regression test: torsion angles fluctuating unimodally around ±π
+        // should NOT produce false bimodality (BC > 0.9) with circular mean.
+        // This was the bug in v0.8.3 where linear averaging caused BC 0.96-0.98
+        // for β-strand regions with τ ≈ -170° (see benchmarks/audit/bc_check.py).
+        use rand::rngs::StdRng;
+        use rand::{Rng, SeedableRng};
+
+        let mut rng = StdRng::seed_from_u64(999);
+        let n_frames = 100;
+        let n_residues = 15;
+        let mut traces = Vec::with_capacity(n_frames);
+
+        for _ in 0..n_frames {
+            let mut coords = Vec::with_capacity(n_residues);
+            for i in 0..n_residues {
+                // Build a β-strand-like structure with torsions near ±180°
+                let x = i as f64 * 3.8; // Extended β-strand spacing
+                let y = (i as f64 * std::f64::consts::PI).sin() * 0.5; // Slight pleating
+                let z = (i as f64 * std::f64::consts::PI).cos() * 0.5;
+
+                // Add small unimodal thermal fluctuations (±0.1 radians ≈ ±6°)
+                let noise_y = rng.gen_range(-0.1..0.1);
+                let noise_z = rng.gen_range(-0.1..0.1);
+
+                coords.push([x, y + noise_y, z + noise_z]);
+            }
+            traces.push(BackboneTrace::from_arrays(&coords));
+        }
+
+        // Extract invariants to verify that torsions are indeed near ±π
+        let invariants: Vec<CurveInvariants> = traces
+            .iter()
+            .map(|trace| extract_curve_invariants(trace).unwrap())
+            .collect();
+
+        // Verify that middle segment torsions are near ±π
+        let mid_frame_torsions = &invariants[0].torsions[5..10];
+        for &tau in mid_frame_torsions {
+            assert!(
+                tau.abs() > 2.5,
+                "β-strand torsions should be near ±π, got {tau}"
+            );
+        }
+
+        // Run bimodality scan with window size 8
+        let candidates = detect_bistable_segments(&traces, 8, 0.6);
+
+        // With circular mean, unimodal fluctuations near ±π should NOT trigger
+        // false bimodality. BC should be < 0.555 (unimodal threshold).
+        // With linear mean (the bug), this would produce BC > 0.9.
+        if let Some(candidate) = candidates.first() {
+            assert!(
+                candidate.bc_tau < 0.555,
+                "Unimodal fluctuations around ±π must not produce false bimodality. \
+                 BC_tau = {}, expected < 0.555 (unimodal). \
+                 Circular mean should prevent this false positive.",
+                candidate.bc_tau
+            );
+        }
+        // If no candidates found, that's also correct (BC was below threshold)
+    }
+
+    #[test]
+    fn test_true_bimodal_angular_distribution_preserved() {
+        // Positive control: TRUE bimodal angular distribution should still yield high BC.
+        // This test ensures we don't suppress legitimate bimodal signals after M2 fix.
+        //
+        // Simulates two rotamer states (e.g., side-chain χ₁ dihedral):
+        // State A (frames 0-49): torsions ~ −60° (gauche-)
+        // State B (frames 50-99): torsions ~ +60° (gauche+)
+        use rand::rngs::StdRng;
+        use rand::{Rng, SeedableRng};
+
+        let mut rng = StdRng::seed_from_u64(777);
+        let n_frames = 100;
+        let n_residues = 15;
+        let mut traces = Vec::with_capacity(n_frames);
+
+        for f in 0..n_frames {
+            let mut coords = Vec::with_capacity(n_residues);
+            for i in 0..n_residues {
+                // Build a structure where residues 6-11 undergo bimodal rotamer switching
+                let x = i as f64 * 3.5;
+                let base_angle = i as f64 * 0.5;
+
+                // Rotamer state: -60° for first half, +60° for second half
+                let rotamer_shift = if f < 50 {
+                    std::f64::consts::PI / 3.0 // +60° (state A)
+                } else {
+                    -std::f64::consts::PI / 3.0 // -60° (state B)
+                };
+
+                // Apply rotamer shift to middle residues 6-11
+                let angle = if (6..=11).contains(&i) {
+                    rotamer_shift + base_angle
+                } else {
+                    base_angle
+                };
+
+                // Small thermal noise
+                let noise = rng.gen_range(-0.05..0.05);
+                let y = (angle + noise).sin() * 2.5;
+                let z = (angle + noise).cos() * 2.5;
+
+                coords.push([x, y, z]);
+            }
+            traces.push(BackboneTrace::from_arrays(&coords));
+        }
+
+        // Run bimodality scan
+        let candidates = detect_bistable_segments(&traces, 8, 0.6);
+
+        // Should detect the bimodal rotamer switching in residues 6-11
+        assert!(
+            !candidates.is_empty(),
+            "True bimodal angular distribution (rotamer switching) must be detected"
+        );
+
+        let best = &candidates[0];
+        assert!(
+            best.bc_tau > 0.7,
+            "True bimodal rotamer switch should yield high BC_tau. Got {}, expected > 0.7. \
+             Circular statistics should preserve legitimate bimodal signals.",
+            best.bc_tau
+        );
+
+        // Verify detected region overlaps with the true switching region [6, 11]
+        assert!(
+            best.start_res <= 11 && best.end_res >= 6,
+            "Detected segment [{}, {}] must overlap true bimodal region [6, 11]",
             best.start_res,
             best.end_res
         );

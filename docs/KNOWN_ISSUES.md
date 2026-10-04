@@ -45,9 +45,14 @@ Proposed fix (hypothesis, to be confirmed): remove from all documents; only revi
 
 **Impact:** Absolute writhe values scale by factor of 2. Ordering preserved in writhe-distance comparisons. VP-tree distances scale by 2; fixed `coarse_radius` and `writhe_tol` thresholds require recalibration. IDP compactness values double. Historical audit script preserved as v0.8.3 bug reproduction.
 
-### M2. No circular statistics in the bimodality scan
-`bimodality.rs` averages τ and θβ arithmetically within a window (unlike `allostery.rs`, which handles angles correctly). One residue fluctuating unimodally around 180° gives BC 0.96–0.98 instead of 0.32–0.35 after unwrapping (`benchmarks/audit/bc_check.py`). β-strand virtual torsions lie near −170°, so β regions produce false positives.
-Proposed fix (hypothesis, to be confirmed): circular means / (sin, cos) embedding; test with angles straddling ±π.
+### M2. No circular statistics in the bimodality scan — **RESOLVED on scientific-rebuild (Oct 2026; unreleased)**
+**Issue (v0.8.3):** `bimodality.rs` averaged τ and θβ arithmetically within windows, producing false bimodality (BC 0.96–0.98) for unimodal fluctuations around ±180° that should yield BC ≈ 0.33 (`benchmarks/audit/bc_check.py`). β-strand regions with τ ≈ −170° produced systematic false positives.
+
+**Root cause:** Linear arithmetic mean treats angles as Euclidean quantities. For angles near the ±π branch cut, values like [π − 0.1, −π + 0.1] are separated by 0.2 radians but linear mean sees them as 6.1 radians apart, yielding spurious variance and high BC.
+
+**Fix (Oct 2026):** Created `circular.rs` module with `circular_mean()` (atan2 method), `centered_deviations()`, and circular variance. Updated `bimodality.rs` to: (1) compute circular mean for each frame's window, (2) collect circular means across frames, (3) compute centered circular deviations, (4) feed deviations to `StreamingMoments`. Added regression test `test_circular_mean_branch_cut_regression` validating BC < 0.555 for unimodal β-strand-like torsions near ±π.
+
+**Impact:** Eliminates false positives in β-strand regions and other angles near ±π. BC values for truly bimodal angular distributions unchanged. Existing bistable detection results require re-evaluation.
 
 ### M3. Bimodality coefficient is not a test
 BC → 1 for any two-point distribution, so rare events give high values (Gaussian + 0.5% excursions: 0.744; + 2%: 0.839). Skewed unimodal distributions exceed 0.555/0.6 (exponential 0.577, χ²₁ 0.590). No null model, no multiple-testing control across windows. Population rather than sample skewness/kurtosis is used.

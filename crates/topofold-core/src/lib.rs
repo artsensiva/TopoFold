@@ -22,6 +22,7 @@
 
 pub mod allostery;
 pub mod bimodality;
+pub mod circular;
 pub mod distance;
 pub mod error;
 pub mod geometry;
@@ -42,6 +43,7 @@ pub use bimodality::{
     compute_bimodality_profile, detect_bistable_segments, detect_bistable_segments_with_gap,
     sarles_bimodality_coefficient, PocketCandidate, StreamingMoments, WindowBimodality,
 };
+pub use circular::{centered_deviations, circular_mean, circular_variance, mean_resultant_length};
 pub use distance::{
     angular_distance_s1, discrete_frechet_distance_coords, discrete_frechet_invariants,
     dtw_invariants, writhe_spectrum_distance,
