@@ -3,7 +3,7 @@
 **Scientific Audit:** Product von Mises (Product-vM) mixture multimodality detector
 **Current Status:** **O2 - FUNCTIONAL BUT FRAGILE** (provisional; initialization and stopping validation incomplete)
 **Baseline:** 37ce1350e934ea0e54d92c55ad83c9748e4ffc3c (scientific-rebuild branch)
-**Last Updated:** 2026-10-03
+**Last Updated:** 2026-10-04 (verification correction under review; uncommitted)
 
 ---
 
@@ -18,6 +18,29 @@
 - **[M3_A2G_COMPLETE_ANALYSIS.md](M3_A2G_COMPLETE_ANALYSIS.md)** — Complete M3-A2g analysis
 - **[M3_A2G_CORRECTIONS_PROVENANCE.md](M3_A2G_CORRECTIONS_PROVENANCE.md)** — External review findings, diagnostic limitations
 - **[reports/M3_A2g_CHECKPOINT_REPORT.md](reports/M3_A2g_CHECKPOINT_REPORT.md)** — Detailed M3-A2g checkpoint report
+
+**Verification correction (2026-10-04, under independent review):**
+- **[VERIFICATION_CORRECTION_RECORD.md](VERIFICATION_CORRECTION_RECORD.md)** — What changed, superseded claims, remaining limitations
+- **[M3_VERIFICATION_IMPLEMENTATION_REPORT.md](M3_VERIFICATION_IMPLEMENTATION_REPORT.md)** — Commands and actual outputs
+
+---
+
+## VERIFICATION STATUS
+
+Format, bookkeeping and provenance integrity of the preserved M3-A2g outputs are checked by
+fresh, read-only commands (Python environment with numpy: the repository `.venv`):
+
+```bash
+cd benchmarks/audit/m3_multimodality
+python -B scripts/m3_a2g_data_verification.py          # read-only; nonzero on failure or stale JSON
+python -B scripts/acceptance_checklist.py              # sections A-D; nonzero on any failure
+python -B scripts/compute_manifest_hashes.py           # inventory, checksums, baseline byte comparison
+python -B -m pytest -p no:cacheprovider scripts/test_m3_a2g_data_verification.py
+```
+
+`m3_a2g_data_verification.py --write` regenerates the derivative JSON, only after the integrity
+checks pass. Passing these checks says nothing about the optimizer's scientific validity: the
+classification stays **provisional O2**, and KNOWN_ISSUES M3 remains open.
 
 ---
 
@@ -95,7 +118,7 @@ Not production-ready; no validated production defaults.
 
 ## AUTHORITATIVE STATISTICS
 
-**Source:** [scripts/m3_a2g_data_verification.py](scripts/m3_a2g_data_verification.py) (trajectory bug fixed)
+**Source:** [scripts/m3_a2g_data_verification.py](scripts/m3_a2g_data_verification.py) (counts recomputed from the preserved CSV/TXT inputs)
 
 - **Total CSV rows:** 1235
 - **Trajectory records:** 1634 iteration state records
@@ -132,7 +155,11 @@ benchmarks/audit/m3_multimodality/
 │   ├── m3_a2g_stopping_criterion_validation.py  # Stopping test (INVALID - rel branch)
 │   ├── m3_a2g_extended_maxiter.py         # Extended max_iter (unpaired)
 │   ├── m3_a2g_duplicate_component_investigation.py
-│   ├── m3_a2g_data_verification.py        # Data verification (trajectory bug FIXED)
+│   ├── m3_a2g_convergence_grid.py         # max_iter, tolerance, stress, initialization CSVs
+│   ├── m3_a2g_data_verification.py        # Read-only verifier (--write regenerates JSON)
+│   ├── acceptance_checklist.py            # Fresh, non-writing acceptance checks
+│   ├── compute_manifest_hashes.py         # Manifest inventory/checksum/baseline checks
+│   ├── test_m3_a2g_data_verification.py   # Verifier regression tests
 │   ├── product_vm_fast_accurate.py        # M3-A2e corrected fitter
 │   └── product_vm_three_estimators.py     # U/C/P framework
 └── results/
@@ -144,7 +171,7 @@ benchmarks/audit/m3_multimodality/
     ├── [6 more M3-A2g CSVs...]
     ├── m3_a2e_checkpoint6_exact_family.csv      # 3/2250 (M3-A2e)
     ├── m3_a2e_checkpoint9_k2_recovery.csv       # 1620/1620 (M3-A2e)
-    └── m3_a2g_data_verification.json            # Authoritative statistics
+    └── m3_a2g_data_verification.json            # Regenerated SYNTHETIC derivative summary
 ```
 
 ---
@@ -195,7 +222,8 @@ benchmarks/audit/m3_multimodality/
 **Original M3-A2g experiment artifacts preserved unchanged** despite diagnostic limitations:
 - Scripts with bugs preserved for provenance (bugs documented in M3_A2G_CORRECTIONS_PROVENANCE.md)
 - CSV/TXT results unchanged (1235 rows, 1634 iteration records)
-- Corrected verification utility: trajectory counting bug **FIXED** (generates new verification.json)
+- Verification utility is read-only by default; the derivative JSON is regenerated only with `--write`
+- Trajectory record counting (1634) was corrected in commit bf33346, before the 2026-10-04 verification correction
 
 **No production code modifications.** All artifacts are scientific audit evidence only.
 

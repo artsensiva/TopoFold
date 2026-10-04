@@ -1,14 +1,20 @@
 {
   "_meta": {
     "type": "SYNTHETIC",
-    "generated_by": "Claude Code (M3-A2g correction pass)",
-    "generation_date": "2026-10-03",
-    "purpose": "Verification summary derived from original M3-A2g experiment outputs",
-    "input_sources": "10 CSVs + 1 TXT (m3_a2g_*.csv, m3_a2g_trajectories.txt)",
-    "provenance": "Corrected trajectory counting bug (5\u21921634), added schema/coverage validation",
-    "baseline": "37ce1350e934ea0e54d92c55ad83c9748e4ffc3c",
-    "validity": "VALID - derived from original experiment artifacts (preserved unchanged)",
-    "limitations": "Verification only - diagnostic scripts have documented bugs (see M3_A2G_CORRECTIONS_PROVENANCE.md)"
+    "artifact_role": "Regenerated derivative summary of SYNTHETIC M3-A2g experiment outputs; not an original experiment artifact",
+    "generated_by": "scripts/m3_a2g_data_verification.py --write",
+    "baseline_rev": "394ce0ccf8c46d3f37a2bf0e9a81e255886de5c0",
+    "decision_rule": "selected_K = 2 if delta_bic < 0 else 1 (equality selects K=1)",
+    "provenance": "Trajectory record counting (1634 records in 5 blocks) was already corrected in commit bf33346 and reported at HEAD 394ce0c. This revision adds generator-derived coverage, strict field parsing, both stopping-diagnostic selection pairs, strict trajectory validation and read-only verification.",
+    "limitations": [
+      "Format, bookkeeping and provenance integrity only; no scientific validation",
+      "Consistent selection bookkeeping is not a validated selection; non-converged fits are counted separately and are not validated",
+      "n_init and stopping diagnostics are INVALID; their counts describe recorded output only",
+      "extended_maxiter draws are UNPAIRED across max_iter",
+      "Random seeds are not recorded in the CSVs and are not verified",
+      "No correspondence between trajectory blocks and CSV rows is asserted",
+      "Likelihood decreases reported with tolerance 1e-06 (6-decimal resolution) over 5 single-fit trajectories only"
+    ]
   },
   "input_hashes": {
     "m3_a2g_duplicate_components.csv": "c3fbcc3b12c683619e70f69b3a38369b90daae82f90e5e865acd91c36dfcf8f8",
@@ -23,713 +29,1119 @@
     "m3_a2g_tolerance_comparison.csv": "e62e2280c52bc66f013ac4fb6c7a9915f308a4b0a77efbe9476c12e4a32a9367",
     "m3_a2g_trajectories.txt": "fd298b3430602ff82b47b7e396021698ba6c70cd53923e2159f41527dd44e670"
   },
-  "csv_counts": {
-    "m3_a2g_duplicate_components": 8,
-    "m3_a2g_exact_family_convergence": 360,
-    "m3_a2g_extended_maxiter": 180,
-    "m3_a2g_initialization_comparison": 15,
-    "m3_a2g_k2_convergence": 320,
-    "m3_a2g_max_iter_sensitivity": 16,
-    "m3_a2g_ninit_sensitivity": 20,
-    "m3_a2g_stopping_criterion_validation": 20,
-    "m3_a2g_stress_regime": 280,
-    "m3_a2g_tolerance_comparison": 16
+  "csv_row_counts": {
+    "exact_family": 360,
+    "k2_convergence": 320,
+    "stress_regime": 280,
+    "extended_maxiter": 180,
+    "ninit_sensitivity": 20,
+    "stopping_criterion_validation": 20,
+    "tolerance_comparison": 16,
+    "max_iter_sensitivity": 16,
+    "initialization_comparison": 15,
+    "duplicate_components": 8
   },
   "total_csv_rows": 1235,
-  "schema_validation": {
+  "integrity": {
+    "passed": true,
+    "failures": []
+  },
+  "datasets": {
     "exact_family": {
-      "valid": true,
-      "missing": [],
-      "extra": [],
-      "actual_columns": [
-        "F",
-        "converged",
-        "delta_bic",
-        "kappa",
-        "loglik",
-        "q",
-        "rep",
-        "selected_K"
-      ]
+      "file": "m3_a2g_exact_family_convergence.csv",
+      "generator": "m3_a2g_exact_k2_convergence.py::audit_exact_family_convergence",
+      "row_count": 360,
+      "header": {
+        "columns": [
+          "q",
+          "kappa",
+          "F",
+          "rep",
+          "converged",
+          "selected_K",
+          "delta_bic",
+          "loglik"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": [],
+        "schema_valid": true
+      },
+      "field_errors": {
+        "count": 0,
+        "items": []
+      },
+      "row_consistency_errors": {
+        "count": 0,
+        "items": []
+      },
+      "selection_bookkeeping_errors": {
+        "count": 0,
+        "items": []
+      },
+      "selection_pairs_checked": [
+        [
+          "selected_K",
+          "delta_bic"
+        ]
+      ],
+      "coverage": {
+        "expected": 360,
+        "present_unique": 360,
+        "missing": [],
+        "unexpected": [],
+        "duplicates": [],
+        "complete": true
+      },
+      "records_valid": true,
+      "valid": true
     },
     "k2_convergence": {
-      "valid": true,
-      "missing": [],
-      "extra": [],
-      "actual_columns": [
-        "F",
-        "converged",
-        "delta_bic",
-        "kappa",
-        "loglik",
-        "occupancy_1",
-        "occupancy_2",
-        "rep",
-        "selected_K",
-        "separation_deg"
-      ]
+      "file": "m3_a2g_k2_convergence.csv",
+      "generator": "m3_a2g_exact_k2_convergence.py::audit_k2_convergence",
+      "row_count": 320,
+      "header": {
+        "columns": [
+          "separation_deg",
+          "occupancy_1",
+          "occupancy_2",
+          "kappa",
+          "F",
+          "rep",
+          "converged",
+          "selected_K",
+          "delta_bic",
+          "loglik"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": [],
+        "schema_valid": true
+      },
+      "field_errors": {
+        "count": 0,
+        "items": []
+      },
+      "row_consistency_errors": {
+        "count": 0,
+        "items": []
+      },
+      "selection_bookkeeping_errors": {
+        "count": 0,
+        "items": []
+      },
+      "selection_pairs_checked": [
+        [
+          "selected_K",
+          "delta_bic"
+        ]
+      ],
+      "coverage": {
+        "expected": 320,
+        "present_unique": 320,
+        "missing": [],
+        "unexpected": [],
+        "duplicates": [],
+        "complete": true
+      },
+      "records_valid": true,
+      "valid": true
     },
     "stress_regime": {
-      "valid": true,
-      "missing": [],
-      "extra": [],
-      "actual_columns": [
-        "F",
-        "converged",
-        "delta_bic",
-        "loglik",
-        "max_kappa",
-        "rep",
-        "selected_K",
-        "sigma"
-      ]
+      "file": "m3_a2g_stress_regime.csv",
+      "generator": "m3_a2g_convergence_grid.py::test_wrapped_normal_stress",
+      "row_count": 280,
+      "header": {
+        "columns": [
+          "sigma",
+          "F",
+          "rep",
+          "converged",
+          "selected_K",
+          "loglik",
+          "delta_bic",
+          "max_kappa"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": [],
+        "schema_valid": true
+      },
+      "field_errors": {
+        "count": 0,
+        "items": []
+      },
+      "row_consistency_errors": {
+        "count": 0,
+        "items": []
+      },
+      "selection_bookkeeping_errors": {
+        "count": 0,
+        "items": []
+      },
+      "selection_pairs_checked": [
+        [
+          "selected_K",
+          "delta_bic"
+        ]
+      ],
+      "coverage": {
+        "expected": 280,
+        "present_unique": 280,
+        "missing": [],
+        "unexpected": [],
+        "duplicates": [],
+        "complete": true
+      },
+      "records_valid": true,
+      "valid": true
     },
     "extended_maxiter": {
-      "valid": true,
-      "missing": [],
-      "extra": [],
-      "actual_columns": [
-        "F",
-        "converged",
-        "delta_bic",
-        "loglik",
-        "max_iter",
-        "max_kappa",
-        "rep",
-        "runtime_sec",
-        "selected_K",
-        "sigma"
-      ]
+      "file": "m3_a2g_extended_maxiter.csv",
+      "generator": "m3_a2g_extended_maxiter.py::test_extended_maxiter",
+      "row_count": 180,
+      "header": {
+        "columns": [
+          "sigma",
+          "F",
+          "max_iter",
+          "rep",
+          "converged",
+          "selected_K",
+          "loglik",
+          "delta_bic",
+          "max_kappa",
+          "runtime_sec"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": [],
+        "schema_valid": true
+      },
+      "field_errors": {
+        "count": 0,
+        "items": []
+      },
+      "row_consistency_errors": {
+        "count": 0,
+        "items": []
+      },
+      "selection_bookkeeping_errors": {
+        "count": 0,
+        "items": []
+      },
+      "selection_pairs_checked": [
+        [
+          "selected_K",
+          "delta_bic"
+        ]
+      ],
+      "coverage": {
+        "expected": 180,
+        "present_unique": 180,
+        "missing": [],
+        "unexpected": [],
+        "duplicates": [],
+        "complete": true
+      },
+      "records_valid": true,
+      "valid": true
     },
     "ninit_sensitivity": {
-      "valid": true,
-      "missing": [],
-      "extra": [],
-      "actual_columns": [
-        "best_converged",
-        "best_loglik",
-        "best_n_iters",
-        "case",
-        "convergence_rate",
-        "max_loglik",
-        "min_loglik",
-        "n_converged",
-        "n_init",
-        "runtime_sec",
-        "spread_range",
-        "spread_std"
-      ]
+      "file": "m3_a2g_ninit_sensitivity.csv",
+      "generator": "m3_a2g_ninit_sensitivity.py (INVALID diagnostic: inner reseeding defect)",
+      "row_count": 20,
+      "header": {
+        "columns": [
+          "case",
+          "n_init",
+          "best_loglik",
+          "min_loglik",
+          "max_loglik",
+          "spread_range",
+          "spread_std",
+          "n_converged",
+          "convergence_rate",
+          "best_n_iters",
+          "best_converged",
+          "runtime_sec"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": [],
+        "schema_valid": true
+      },
+      "field_errors": {
+        "count": 0,
+        "items": []
+      },
+      "row_consistency_errors": {
+        "count": 0,
+        "items": []
+      },
+      "selection_bookkeeping_errors": {
+        "count": 0,
+        "items": []
+      },
+      "selection_pairs_checked": [],
+      "coverage": {
+        "expected": 20,
+        "present_unique": 20,
+        "missing": [],
+        "unexpected": [],
+        "duplicates": [],
+        "complete": true
+      },
+      "records_valid": true,
+      "valid": true
+    },
+    "stopping_criterion_validation": {
+      "file": "m3_a2g_stopping_criterion_validation.csv",
+      "generator": "m3_a2g_stopping_criterion_validation.py (INVALID diagnostic)",
+      "row_count": 20,
+      "header": {
+        "columns": [
+          "converged",
+          "convergence_iter",
+          "loglik_conv",
+          "loglik_cont",
+          "loglik_gain",
+          "weight_change",
+          "max_center_change_rad",
+          "kappa_change",
+          "delta_bic_conv",
+          "delta_bic_cont",
+          "bic_change",
+          "selected_K_conv",
+          "selected_K_cont",
+          "K_changed",
+          "case",
+          "tolerance"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": [],
+        "schema_valid": true
+      },
+      "field_errors": {
+        "count": 0,
+        "items": []
+      },
+      "row_consistency_errors": {
+        "count": 0,
+        "items": []
+      },
+      "selection_bookkeeping_errors": {
+        "count": 0,
+        "items": []
+      },
+      "selection_pairs_checked": [
+        [
+          "selected_K_conv",
+          "delta_bic_conv"
+        ],
+        [
+          "selected_K_cont",
+          "delta_bic_cont"
+        ]
+      ],
+      "coverage": {
+        "expected": 20,
+        "present_unique": 20,
+        "missing": [],
+        "unexpected": [],
+        "duplicates": [],
+        "complete": true
+      },
+      "records_valid": true,
+      "valid": true
+    },
+    "tolerance_comparison": {
+      "file": "m3_a2g_tolerance_comparison.csv",
+      "generator": "m3_a2g_convergence_grid.py::test_tolerance_criteria",
+      "row_count": 16,
+      "header": {
+        "columns": [
+          "case",
+          "criterion",
+          "tolerance",
+          "converged",
+          "n_iters",
+          "final_loglik"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": [],
+        "schema_valid": true
+      },
+      "field_errors": {
+        "count": 0,
+        "items": []
+      },
+      "row_consistency_errors": {
+        "count": 0,
+        "items": []
+      },
+      "selection_bookkeeping_errors": {
+        "count": 0,
+        "items": []
+      },
+      "selection_pairs_checked": [],
+      "coverage": {
+        "expected": 16,
+        "present_unique": 16,
+        "missing": [],
+        "unexpected": [],
+        "duplicates": [],
+        "complete": true
+      },
+      "records_valid": true,
+      "valid": true
+    },
+    "max_iter_sensitivity": {
+      "file": "m3_a2g_max_iter_sensitivity.csv",
+      "generator": "m3_a2g_convergence_grid.py::test_max_iter_sensitivity",
+      "row_count": 16,
+      "header": {
+        "columns": [
+          "case",
+          "max_iter",
+          "converged",
+          "n_iters",
+          "final_loglik",
+          "improvement_after_100",
+          "final_delta_abs",
+          "final_delta_rel",
+          "max_kappa"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": [],
+        "schema_valid": true
+      },
+      "field_errors": {
+        "count": 0,
+        "items": []
+      },
+      "row_consistency_errors": {
+        "count": 0,
+        "items": []
+      },
+      "selection_bookkeeping_errors": {
+        "count": 0,
+        "items": []
+      },
+      "selection_pairs_checked": [],
+      "coverage": {
+        "expected": 16,
+        "present_unique": 16,
+        "missing": [],
+        "unexpected": [],
+        "duplicates": [],
+        "complete": true
+      },
+      "records_valid": true,
+      "valid": true
+    },
+    "initialization_comparison": {
+      "file": "m3_a2g_initialization_comparison.csv",
+      "generator": "m3_a2g_convergence_grid.py::test_initialization_strategies",
+      "row_count": 15,
+      "header": {
+        "columns": [
+          "case",
+          "strategy",
+          "best_loglik",
+          "loglik_spread",
+          "n_converged",
+          "best_n_iters",
+          "best_converged"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": [],
+        "schema_valid": true
+      },
+      "field_errors": {
+        "count": 0,
+        "items": []
+      },
+      "row_consistency_errors": {
+        "count": 0,
+        "items": []
+      },
+      "selection_bookkeeping_errors": {
+        "count": 0,
+        "items": []
+      },
+      "selection_pairs_checked": [],
+      "coverage": {
+        "expected": 15,
+        "present_unique": 15,
+        "missing": [],
+        "unexpected": [],
+        "duplicates": [],
+        "complete": true
+      },
+      "records_valid": true,
+      "valid": true
+    },
+    "duplicate_components": {
+      "file": "m3_a2g_duplicate_components.csv",
+      "generator": "m3_a2g_duplicate_component_investigation.py",
+      "row_count": 8,
+      "header": {
+        "columns": [
+          "case",
+          "converged",
+          "n_iters",
+          "final_loglik",
+          "final_separation_rad",
+          "final_separation_deg",
+          "final_kappa_diff",
+          "final_weight_ratio",
+          "final_min_weight",
+          "final_max_kappa",
+          "effective_n_components"
+        ],
+        "missing_columns": [],
+        "unexpected_columns": [],
+        "duplicate_columns": [],
+        "schema_valid": true
+      },
+      "field_errors": {
+        "count": 0,
+        "items": []
+      },
+      "row_consistency_errors": {
+        "count": 0,
+        "items": []
+      },
+      "selection_bookkeeping_errors": {
+        "count": 0,
+        "items": []
+      },
+      "selection_pairs_checked": [],
+      "coverage": {
+        "expected": 8,
+        "present_unique": 8,
+        "missing": [],
+        "unexpected": [],
+        "duplicates": [],
+        "complete": true
+      },
+      "records_valid": true,
+      "valid": true
     }
   },
-  "grid_coverage": {
-    "q_values": [
-      1,
-      2,
-      5
-    ],
-    "kappa_values": [
-      1,
-      5,
-      20
-    ],
-    "F_values": [
-      100,
-      500,
-      1000,
-      2500
-    ],
-    "q_complete": true,
-    "kappa_complete": true,
-    "F_complete": true,
-    "expected_configs": 36,
-    "actual_configs": 36
-  },
-  "exact_family": {
-    "total_fits": 360,
-    "converged": 111,
-    "rate": 0.30833333333333335,
-    "by_F": {
-      "100": {
-        "total": 90,
-        "converged": 75
+  "summaries": {
+    "exact_family": {
+      "total_fits": 360,
+      "converged": 111,
+      "rate": 0.30833333333333335,
+      "by_F": {
+        "F=100": {
+          "total": 90,
+          "converged": 75,
+          "rate": 0.8333333333333334
+        },
+        "F=1000": {
+          "total": 90,
+          "converged": 9,
+          "rate": 0.1
+        },
+        "F=2500": {
+          "total": 90,
+          "converged": 7,
+          "rate": 0.07777777777777778
+        },
+        "F=500": {
+          "total": 90,
+          "converged": 20,
+          "rate": 0.2222222222222222
+        }
       },
-      "500": {
-        "total": 90,
-        "converged": 20
-      },
-      "1000": {
-        "total": 90,
-        "converged": 9
-      },
-      "2500": {
-        "total": 90,
-        "converged": 7
+      "low_conv_configs_below_20pct": [
+        "q=1,kappa=1,F=2500",
+        "q=1,kappa=1,F=500",
+        "q=1,kappa=20,F=1000",
+        "q=1,kappa=20,F=500",
+        "q=1,kappa=5,F=1000",
+        "q=1,kappa=5,F=2500",
+        "q=1,kappa=5,F=500",
+        "q=2,kappa=1,F=1000",
+        "q=2,kappa=1,F=2500",
+        "q=2,kappa=1,F=500",
+        "q=2,kappa=20,F=1000",
+        "q=2,kappa=20,F=2500",
+        "q=2,kappa=20,F=500",
+        "q=2,kappa=5,F=1000",
+        "q=2,kappa=5,F=2500",
+        "q=5,kappa=1,F=1000",
+        "q=5,kappa=1,F=2500",
+        "q=5,kappa=20,F=2500",
+        "q=5,kappa=5,F=1000",
+        "q=5,kappa=5,F=2500"
+      ],
+      "zero_conv_configs": [
+        "q=1,kappa=1,F=500",
+        "q=1,kappa=20,F=500",
+        "q=2,kappa=1,F=1000",
+        "q=2,kappa=20,F=1000",
+        "q=2,kappa=20,F=2500",
+        "q=2,kappa=20,F=500",
+        "q=5,kappa=1,F=2500",
+        "q=5,kappa=20,F=2500",
+        "q=5,kappa=5,F=2500"
+      ],
+      "selected_K_counts": {
+        "converged": {
+          "K1": 111,
+          "K2": 0
+        },
+        "not_converged": {
+          "K1": 249,
+          "K2": 0
+        }
       }
     },
-    "low_conv_configs": [
-      [
-        "1,1,2500",
-        0.1,
-        1,
-        10
-      ],
-      [
-        "1,1,500",
-        0.0,
-        0,
-        10
-      ],
-      [
-        "1,20,1000",
-        0.1,
-        1,
-        10
-      ],
-      [
-        "1,20,500",
-        0.0,
-        0,
-        10
-      ],
-      [
-        "1,5,1000",
-        0.1,
-        1,
-        10
-      ],
-      [
-        "1,5,2500",
-        0.1,
-        1,
-        10
-      ],
-      [
-        "1,5,500",
-        0.1,
-        1,
-        10
-      ],
-      [
-        "2,1,1000",
-        0.0,
-        0,
-        10
-      ],
-      [
-        "2,1,2500",
-        0.1,
-        1,
-        10
-      ],
-      [
-        "2,1,500",
-        0.1,
-        1,
-        10
-      ],
-      [
-        "2,20,1000",
-        0.0,
-        0,
-        10
-      ],
-      [
-        "2,20,2500",
-        0.0,
-        0,
-        10
-      ],
-      [
-        "2,20,500",
-        0.0,
-        0,
-        10
-      ],
-      [
-        "2,5,1000",
-        0.1,
-        1,
-        10
-      ],
-      [
-        "2,5,2500",
-        0.1,
-        1,
-        10
-      ],
-      [
-        "5,1,1000",
-        0.1,
-        1,
-        10
-      ],
-      [
-        "5,1,2500",
-        0.0,
-        0,
-        10
-      ],
-      [
-        "5,20,2500",
-        0.0,
-        0,
-        10
-      ],
-      [
-        "5,5,1000",
-        0.1,
-        1,
-        10
-      ],
-      [
-        "5,5,2500",
-        0.0,
-        0,
-        10
-      ]
-    ],
-    "zero_conv_configs": [
-      "1,1,500",
-      "1,20,500",
-      "2,1,1000",
-      "2,20,1000",
-      "2,20,2500",
-      "2,20,500",
-      "5,1,2500",
-      "5,20,2500",
-      "5,5,2500"
-    ],
-    "num_low_conv": 20,
-    "num_zero_conv": 9
-  },
-  "k2_convergence": {
-    "total_fits": 320,
-    "converged": 258,
-    "rate": 0.80625,
-    "by_sep": {
-      "10": {
-        "total": 80,
-        "converged": 27
+    "k2_convergence": {
+      "total_fits": 320,
+      "converged": 258,
+      "rate": 0.80625,
+      "by_separation_deg": {
+        "sep=10": {
+          "total": 80,
+          "converged": 27,
+          "rate": 0.3375
+        },
+        "sep=30": {
+          "total": 80,
+          "converged": 71,
+          "rate": 0.8875
+        },
+        "sep=60": {
+          "total": 80,
+          "converged": 80,
+          "rate": 1.0
+        },
+        "sep=90": {
+          "total": 80,
+          "converged": 80,
+          "rate": 1.0
+        }
       },
-      "30": {
-        "total": 80,
-        "converged": 71
-      },
-      "60": {
-        "total": 80,
-        "converged": 80
-      },
-      "90": {
-        "total": 80,
-        "converged": 80
+      "low_conv_configs_below_50pct": [
+        "sep=10,occ=0.5/0.5,kappa=20,F=1000",
+        "sep=10,occ=0.5/0.5,kappa=5,F=1000",
+        "sep=10,occ=0.8/0.2,kappa=20,F=1000",
+        "sep=10,occ=0.8/0.2,kappa=5,F=1000",
+        "sep=30,occ=0.8/0.2,kappa=5,F=1000"
+      ],
+      "selected_K_counts": {
+        "converged": {
+          "K1": 41,
+          "K2": 217
+        },
+        "not_converged": {
+          "K1": 57,
+          "K2": 5
+        }
       }
     },
-    "low_conv_configs": [
-      [
-        "sep=10,occ=0.5/0.5,\u03ba=20,F=1000",
-        0.1,
-        1,
-        10
-      ],
-      [
-        "sep=10,occ=0.5/0.5,\u03ba=5,F=1000",
-        0.0,
-        0,
-        10
-      ],
-      [
-        "sep=10,occ=0.8/0.2,\u03ba=20,F=1000",
-        0.1,
-        1,
-        10
-      ],
-      [
-        "sep=10,occ=0.8/0.2,\u03ba=5,F=1000",
-        0.1,
-        1,
-        10
-      ],
-      [
-        "sep=30,occ=0.8/0.2,\u03ba=5,F=1000",
-        0.4,
-        4,
-        10
-      ]
-    ]
-  },
-  "stress_regime": {
-    "total_fits": 280,
-    "converged": 102,
-    "rate": 0.36428571428571427,
-    "examples": {
-      "sigma=0.6,F=250": {
-        "total": 10,
-        "converged": 8
+    "stress_regime": {
+      "total_fits": 280,
+      "converged": 102,
+      "rate": 0.36428571428571427,
+      "by_sigma_F": {
+        "sigma=0.6,F=1000": {
+          "total": 10,
+          "converged": 0,
+          "rate": 0.0
+        },
+        "sigma=0.6,F=250": {
+          "total": 10,
+          "converged": 8,
+          "rate": 0.8
+        },
+        "sigma=0.6,F=2500": {
+          "total": 10,
+          "converged": 0,
+          "rate": 0.0
+        },
+        "sigma=0.6,F=500": {
+          "total": 10,
+          "converged": 3,
+          "rate": 0.3
+        },
+        "sigma=0.7,F=1000": {
+          "total": 10,
+          "converged": 0,
+          "rate": 0.0
+        },
+        "sigma=0.7,F=250": {
+          "total": 10,
+          "converged": 7,
+          "rate": 0.7
+        },
+        "sigma=0.7,F=2500": {
+          "total": 10,
+          "converged": 1,
+          "rate": 0.1
+        },
+        "sigma=0.7,F=500": {
+          "total": 10,
+          "converged": 2,
+          "rate": 0.2
+        },
+        "sigma=0.8,F=1000": {
+          "total": 10,
+          "converged": 2,
+          "rate": 0.2
+        },
+        "sigma=0.8,F=250": {
+          "total": 10,
+          "converged": 10,
+          "rate": 1.0
+        },
+        "sigma=0.8,F=2500": {
+          "total": 10,
+          "converged": 1,
+          "rate": 0.1
+        },
+        "sigma=0.8,F=500": {
+          "total": 10,
+          "converged": 7,
+          "rate": 0.7
+        },
+        "sigma=0.9,F=1000": {
+          "total": 10,
+          "converged": 3,
+          "rate": 0.3
+        },
+        "sigma=0.9,F=250": {
+          "total": 10,
+          "converged": 8,
+          "rate": 0.8
+        },
+        "sigma=0.9,F=2500": {
+          "total": 10,
+          "converged": 0,
+          "rate": 0.0
+        },
+        "sigma=0.9,F=500": {
+          "total": 10,
+          "converged": 8,
+          "rate": 0.8
+        },
+        "sigma=1.0,F=1000": {
+          "total": 10,
+          "converged": 3,
+          "rate": 0.3
+        },
+        "sigma=1.0,F=250": {
+          "total": 10,
+          "converged": 8,
+          "rate": 0.8
+        },
+        "sigma=1.0,F=2500": {
+          "total": 10,
+          "converged": 1,
+          "rate": 0.1
+        },
+        "sigma=1.0,F=500": {
+          "total": 10,
+          "converged": 5,
+          "rate": 0.5
+        },
+        "sigma=1.1,F=1000": {
+          "total": 10,
+          "converged": 0,
+          "rate": 0.0
+        },
+        "sigma=1.1,F=250": {
+          "total": 10,
+          "converged": 6,
+          "rate": 0.6
+        },
+        "sigma=1.1,F=2500": {
+          "total": 10,
+          "converged": 0,
+          "rate": 0.0
+        },
+        "sigma=1.1,F=500": {
+          "total": 10,
+          "converged": 4,
+          "rate": 0.4
+        },
+        "sigma=1.2,F=1000": {
+          "total": 10,
+          "converged": 1,
+          "rate": 0.1
+        },
+        "sigma=1.2,F=250": {
+          "total": 10,
+          "converged": 9,
+          "rate": 0.9
+        },
+        "sigma=1.2,F=2500": {
+          "total": 10,
+          "converged": 1,
+          "rate": 0.1
+        },
+        "sigma=1.2,F=500": {
+          "total": 10,
+          "converged": 4,
+          "rate": 0.4
+        }
       },
-      "sigma=0.6,F=500": {
-        "total": 10,
-        "converged": 3
-      },
-      "sigma=0.6,F=1000": {
-        "total": 10,
-        "converged": 0
-      },
-      "sigma=0.6,F=2500": {
-        "total": 10,
-        "converged": 0
-      },
-      "sigma=0.7,F=250": {
-        "total": 10,
-        "converged": 7
-      },
-      "sigma=0.7,F=500": {
-        "total": 10,
-        "converged": 2
-      },
-      "sigma=0.7,F=1000": {
-        "total": 10,
-        "converged": 0
-      },
-      "sigma=0.7,F=2500": {
-        "total": 10,
-        "converged": 1
-      },
-      "sigma=0.8,F=250": {
-        "total": 10,
-        "converged": 10
-      },
-      "sigma=0.8,F=500": {
-        "total": 10,
-        "converged": 7
-      },
-      "sigma=0.8,F=1000": {
-        "total": 10,
-        "converged": 2
-      },
-      "sigma=0.8,F=2500": {
-        "total": 10,
-        "converged": 1
-      },
-      "sigma=0.9,F=250": {
-        "total": 10,
-        "converged": 8
-      },
-      "sigma=0.9,F=500": {
-        "total": 10,
-        "converged": 8
-      },
-      "sigma=0.9,F=1000": {
-        "total": 10,
-        "converged": 3
-      },
-      "sigma=0.9,F=2500": {
-        "total": 10,
-        "converged": 0
-      },
-      "sigma=1.0,F=250": {
-        "total": 10,
-        "converged": 8
-      },
-      "sigma=1.0,F=500": {
-        "total": 10,
-        "converged": 5
-      },
-      "sigma=1.0,F=1000": {
-        "total": 10,
-        "converged": 3
-      },
-      "sigma=1.0,F=2500": {
-        "total": 10,
-        "converged": 1
-      },
-      "sigma=1.1,F=250": {
-        "total": 10,
-        "converged": 6
-      },
-      "sigma=1.1,F=500": {
-        "total": 10,
-        "converged": 4
-      },
-      "sigma=1.1,F=1000": {
-        "total": 10,
-        "converged": 0
-      },
-      "sigma=1.1,F=2500": {
-        "total": 10,
-        "converged": 0
-      },
-      "sigma=1.2,F=250": {
-        "total": 10,
-        "converged": 9
-      },
-      "sigma=1.2,F=500": {
-        "total": 10,
-        "converged": 4
-      },
-      "sigma=1.2,F=1000": {
-        "total": 10,
-        "converged": 1
-      },
-      "sigma=1.2,F=2500": {
-        "total": 10,
-        "converged": 1
+      "selected_K_counts": {
+        "converged": {
+          "K1": 89,
+          "K2": 13
+        },
+        "not_converged": {
+          "K1": 121,
+          "K2": 57
+        }
       }
-    }
-  },
-  "extended_maxiter": {
-    "sigma=0.6,F=1000,max_iter=500": {
-      "converged": 1,
-      "total": 10,
-      "rate": 0.1
     },
-    "sigma=0.6,F=1000,max_iter=1000": {
-      "converged": 1,
-      "total": 10,
-      "rate": 0.1
+    "extended_maxiter": {
+      "total_fits": 180,
+      "converged": 98,
+      "rate": 0.5444444444444444,
+      "by_sigma_F_max_iter": {
+        "sigma=0.6,F=1000,max_iter=1000": {
+          "total": 10,
+          "converged": 1,
+          "rate": 0.1
+        },
+        "sigma=0.6,F=1000,max_iter=2000": {
+          "total": 10,
+          "converged": 10,
+          "rate": 1.0
+        },
+        "sigma=0.6,F=1000,max_iter=500": {
+          "total": 10,
+          "converged": 1,
+          "rate": 0.1
+        },
+        "sigma=0.6,F=2500,max_iter=1000": {
+          "total": 10,
+          "converged": 2,
+          "rate": 0.2
+        },
+        "sigma=0.6,F=2500,max_iter=2000": {
+          "total": 10,
+          "converged": 7,
+          "rate": 0.7
+        },
+        "sigma=0.6,F=2500,max_iter=500": {
+          "total": 10,
+          "converged": 0,
+          "rate": 0.0
+        },
+        "sigma=0.7,F=1000,max_iter=1000": {
+          "total": 10,
+          "converged": 8,
+          "rate": 0.8
+        },
+        "sigma=0.7,F=1000,max_iter=2000": {
+          "total": 10,
+          "converged": 9,
+          "rate": 0.9
+        },
+        "sigma=0.7,F=1000,max_iter=500": {
+          "total": 10,
+          "converged": 3,
+          "rate": 0.3
+        },
+        "sigma=0.7,F=2500,max_iter=1000": {
+          "total": 10,
+          "converged": 5,
+          "rate": 0.5
+        },
+        "sigma=0.7,F=2500,max_iter=2000": {
+          "total": 10,
+          "converged": 10,
+          "rate": 1.0
+        },
+        "sigma=0.7,F=2500,max_iter=500": {
+          "total": 10,
+          "converged": 1,
+          "rate": 0.1
+        },
+        "sigma=1.0,F=1000,max_iter=1000": {
+          "total": 10,
+          "converged": 10,
+          "rate": 1.0
+        },
+        "sigma=1.0,F=1000,max_iter=2000": {
+          "total": 10,
+          "converged": 10,
+          "rate": 1.0
+        },
+        "sigma=1.0,F=1000,max_iter=500": {
+          "total": 10,
+          "converged": 2,
+          "rate": 0.2
+        },
+        "sigma=1.0,F=2500,max_iter=1000": {
+          "total": 10,
+          "converged": 8,
+          "rate": 0.8
+        },
+        "sigma=1.0,F=2500,max_iter=2000": {
+          "total": 10,
+          "converged": 10,
+          "rate": 1.0
+        },
+        "sigma=1.0,F=2500,max_iter=500": {
+          "total": 10,
+          "converged": 1,
+          "rate": 0.1
+        }
+      },
+      "design_note": "UNPAIRED: seed = 1000 + row index, so draws differ per max_iter"
     },
-    "sigma=0.6,F=1000,max_iter=2000": {
-      "converged": 10,
-      "total": 10,
-      "rate": 1.0
+    "ninit_sensitivity": {
+      "total_fits": 20,
+      "converged": 15,
+      "rate": 0.75,
+      "status_column": "best_converged",
+      "by_case": {
+        "exact_k1": {
+          "n_init=1": {
+            "best_loglik": -1352.3490824871674,
+            "n_converged": 0,
+            "best_converged": false,
+            "spread_range": 0.0
+          },
+          "n_init=3": {
+            "best_loglik": -1352.3492247461986,
+            "n_converged": 0,
+            "best_converged": false,
+            "spread_range": 0.0
+          },
+          "n_init=5": {
+            "best_loglik": -1352.3492247461986,
+            "n_converged": 0,
+            "best_converged": false,
+            "spread_range": 0.0
+          },
+          "n_init=10": {
+            "best_loglik": -1352.3492247461986,
+            "n_converged": 0,
+            "best_converged": false,
+            "spread_range": 0.0
+          },
+          "n_init=20": {
+            "best_loglik": -1352.3492247461986,
+            "n_converged": 0,
+            "best_converged": false,
+            "spread_range": 0.0
+          }
+        },
+        "k2_clear": {
+          "n_init=1": {
+            "best_loglik": -581.9125699321265,
+            "n_converged": 1,
+            "best_converged": true,
+            "spread_range": 0.0
+          },
+          "n_init=3": {
+            "best_loglik": -581.9125699321291,
+            "n_converged": 3,
+            "best_converged": true,
+            "spread_range": 0.0
+          },
+          "n_init=5": {
+            "best_loglik": -581.9125699321291,
+            "n_converged": 5,
+            "best_converged": true,
+            "spread_range": 0.0
+          },
+          "n_init=10": {
+            "best_loglik": -581.9125699321291,
+            "n_converged": 10,
+            "best_converged": true,
+            "spread_range": 0.0
+          },
+          "n_init=20": {
+            "best_loglik": -581.9125699321291,
+            "n_converged": 20,
+            "best_converged": true,
+            "spread_range": 0.0
+          }
+        },
+        "k2_close": {
+          "n_init=1": {
+            "best_loglik": -162.9210608351267,
+            "n_converged": 1,
+            "best_converged": true,
+            "spread_range": 0.0
+          },
+          "n_init=3": {
+            "best_loglik": -162.92106028296294,
+            "n_converged": 3,
+            "best_converged": true,
+            "spread_range": 0.0
+          },
+          "n_init=5": {
+            "best_loglik": -162.92106028296294,
+            "n_converged": 5,
+            "best_converged": true,
+            "spread_range": 0.0
+          },
+          "n_init=10": {
+            "best_loglik": -162.92106028296294,
+            "n_converged": 10,
+            "best_converged": true,
+            "spread_range": 0.0
+          },
+          "n_init=20": {
+            "best_loglik": -162.92106028296294,
+            "n_converged": 20,
+            "best_converged": true,
+            "spread_range": 0.0
+          }
+        },
+        "wrapped_1.0": {
+          "n_init=1": {
+            "best_loglik": -2788.0235479260928,
+            "n_converged": 1,
+            "best_converged": true,
+            "spread_range": 0.0
+          },
+          "n_init=3": {
+            "best_loglik": -2790.6542794652246,
+            "n_converged": 3,
+            "best_converged": true,
+            "spread_range": 0.0
+          },
+          "n_init=5": {
+            "best_loglik": -2790.6542794652246,
+            "n_converged": 5,
+            "best_converged": true,
+            "spread_range": 0.0
+          },
+          "n_init=10": {
+            "best_loglik": -2790.6542794652246,
+            "n_converged": 10,
+            "best_converged": true,
+            "spread_range": 0.0
+          },
+          "n_init=20": {
+            "best_loglik": -2790.6542794652246,
+            "n_converged": 20,
+            "best_converged": true,
+            "spread_range": 0.0
+          }
+        }
+      },
+      "wrapped_1_0_best_loglik_diff_n_init_1_vs_3": 2.6307315391318298,
+      "diagnostic_status": "INVALID for robustness claims (inner reseeding defect); counts describe recorded output only"
     },
-    "sigma=0.6,F=2500,max_iter=500": {
-      "converged": 0,
-      "total": 10,
-      "rate": 0.0
-    },
-    "sigma=0.6,F=2500,max_iter=1000": {
-      "converged": 2,
-      "total": 10,
-      "rate": 0.2
-    },
-    "sigma=0.6,F=2500,max_iter=2000": {
-      "converged": 7,
-      "total": 10,
-      "rate": 0.7
-    },
-    "sigma=0.7,F=1000,max_iter=500": {
-      "converged": 3,
-      "total": 10,
-      "rate": 0.3
-    },
-    "sigma=0.7,F=1000,max_iter=1000": {
-      "converged": 8,
-      "total": 10,
-      "rate": 0.8
-    },
-    "sigma=0.7,F=1000,max_iter=2000": {
+    "stopping_criterion_validation": {
+      "rows": 20,
       "converged": 9,
-      "total": 10,
-      "rate": 0.9
+      "K_changed": 0,
+      "diagnostic_status": "INVALID (relative tolerance unimplemented; approximate convergence_iter); counts describe recorded output only"
     },
-    "sigma=0.7,F=2500,max_iter=500": {
-      "converged": 1,
-      "total": 10,
-      "rate": 0.1
+    "tolerance_comparison": {
+      "total_fits": 16,
+      "converged": 14,
+      "rate": 0.875
     },
-    "sigma=0.7,F=2500,max_iter=1000": {
-      "converged": 5,
-      "total": 10,
+    "max_iter_sensitivity": {
+      "total_fits": 16,
+      "converged": 8,
       "rate": 0.5
     },
-    "sigma=0.7,F=2500,max_iter=2000": {
-      "converged": 10,
-      "total": 10,
-      "rate": 1.0
-    },
-    "sigma=1.0,F=1000,max_iter=500": {
-      "converged": 2,
-      "total": 10,
-      "rate": 0.2
-    },
-    "sigma=1.0,F=1000,max_iter=1000": {
-      "converged": 10,
-      "total": 10,
-      "rate": 1.0
-    },
-    "sigma=1.0,F=1000,max_iter=2000": {
-      "converged": 10,
-      "total": 10,
-      "rate": 1.0
-    },
-    "sigma=1.0,F=2500,max_iter=500": {
-      "converged": 1,
-      "total": 10,
-      "rate": 0.1
-    },
-    "sigma=1.0,F=2500,max_iter=1000": {
+    "initialization_comparison": {
+      "total_fits": 15,
       "converged": 8,
-      "total": 10,
-      "rate": 0.8
+      "rate": 0.5333333333333333,
+      "status_column": "best_converged",
+      "by_case": {
+        "exact_easy": {
+          "total": 5,
+          "converged": 3,
+          "rate": 0.6
+        },
+        "k2_close": {
+          "total": 5,
+          "converged": 5,
+          "rate": 1.0
+        },
+        "wrapped_1.0": {
+          "total": 5,
+          "converged": 0,
+          "rate": 0.0
+        }
+      }
     },
-    "sigma=1.0,F=2500,max_iter=2000": {
-      "converged": 10,
-      "total": 10,
-      "rate": 1.0
+    "duplicate_components": {
+      "total_fits": 8,
+      "converged": 3,
+      "rate": 0.375
     }
   },
-  "ninit_sensitivity": {
-    "by_case": {
-      "exact_k1": [
-        {
-          "n_init": 1,
-          "converged": 0,
-          "total": 1,
-          "best_loglik": -1352.3490824871674,
-          "spread_range": 0.0
-        },
-        {
-          "n_init": 3,
-          "converged": 0,
-          "total": 3,
-          "best_loglik": -1352.3492247461986,
-          "spread_range": 0.0
-        },
-        {
-          "n_init": 5,
-          "converged": 0,
-          "total": 5,
-          "best_loglik": -1352.3492247461986,
-          "spread_range": 0.0
-        },
-        {
-          "n_init": 10,
-          "converged": 0,
-          "total": 10,
-          "best_loglik": -1352.3492247461986,
-          "spread_range": 0.0
-        },
-        {
-          "n_init": 20,
-          "converged": 0,
-          "total": 20,
-          "best_loglik": -1352.3492247461986,
-          "spread_range": 0.0
-        }
-      ],
-      "wrapped_1.0": [
-        {
-          "n_init": 1,
-          "converged": 1,
-          "total": 1,
-          "best_loglik": -2788.0235479260928,
-          "spread_range": 0.0
-        },
-        {
-          "n_init": 3,
-          "converged": 3,
-          "total": 3,
-          "best_loglik": -2790.6542794652246,
-          "spread_range": 0.0
-        },
-        {
-          "n_init": 5,
-          "converged": 5,
-          "total": 5,
-          "best_loglik": -2790.6542794652246,
-          "spread_range": 0.0
-        },
-        {
-          "n_init": 10,
-          "converged": 10,
-          "total": 10,
-          "best_loglik": -2790.6542794652246,
-          "spread_range": 0.0
-        },
-        {
-          "n_init": 20,
-          "converged": 20,
-          "total": 20,
-          "best_loglik": -2790.6542794652246,
-          "spread_range": 0.0
-        }
-      ],
-      "k2_close": [
-        {
-          "n_init": 1,
-          "converged": 1,
-          "total": 1,
-          "best_loglik": -162.9210608351267,
-          "spread_range": 0.0
-        },
-        {
-          "n_init": 3,
-          "converged": 3,
-          "total": 3,
-          "best_loglik": -162.92106028296294,
-          "spread_range": 0.0
-        },
-        {
-          "n_init": 5,
-          "converged": 5,
-          "total": 5,
-          "best_loglik": -162.92106028296294,
-          "spread_range": 0.0
-        },
-        {
-          "n_init": 10,
-          "converged": 10,
-          "total": 10,
-          "best_loglik": -162.92106028296294,
-          "spread_range": 0.0
-        },
-        {
-          "n_init": 20,
-          "converged": 20,
-          "total": 20,
-          "best_loglik": -162.92106028296294,
-          "spread_range": 0.0
-        }
-      ],
-      "k2_clear": [
-        {
-          "n_init": 1,
-          "converged": 1,
-          "total": 1,
-          "best_loglik": -581.9125699321265,
-          "spread_range": 0.0
-        },
-        {
-          "n_init": 3,
-          "converged": 3,
-          "total": 3,
-          "best_loglik": -581.9125699321291,
-          "spread_range": 0.0
-        },
-        {
-          "n_init": 5,
-          "converged": 5,
-          "total": 5,
-          "best_loglik": -581.9125699321291,
-          "spread_range": 0.0
-        },
-        {
-          "n_init": 10,
-          "converged": 10,
-          "total": 10,
-          "best_loglik": -581.9125699321291,
-          "spread_range": 0.0
-        },
-        {
-          "n_init": 20,
-          "converged": 20,
-          "total": 20,
-          "best_loglik": -581.9125699321291,
-          "spread_range": 0.0
-        }
-      ]
-    },
-    "wrapped_1.0_loglik_diff": 2.6307315391318298
-  },
   "trajectories": {
-    "total_blocks": 5,
+    "num_blocks": 5,
     "iteration_records_total": 1634,
-    "per_trajectory": {
-      "exact_easy": 500,
-      "wrapped_0.9": 500,
-      "wrapped_1.0": 500,
-      "k2_clear": 9,
-      "k2_close": 125
+    "blocks": [
+      {
+        "case": "exact_easy",
+        "declared_converged": false,
+        "declared_iterations": 500,
+        "records": 500,
+        "first_iter": 0,
+        "last_iter": 499
+      },
+      {
+        "case": "wrapped_0.9",
+        "declared_converged": false,
+        "declared_iterations": 500,
+        "records": 500,
+        "first_iter": 0,
+        "last_iter": 499
+      },
+      {
+        "case": "wrapped_1.0",
+        "declared_converged": false,
+        "declared_iterations": 500,
+        "records": 500,
+        "first_iter": 0,
+        "last_iter": 499
+      },
+      {
+        "case": "k2_clear",
+        "declared_converged": true,
+        "declared_iterations": 9,
+        "records": 9,
+        "first_iter": 0,
+        "last_iter": 8
+      },
+      {
+        "case": "k2_close",
+        "declared_converged": true,
+        "declared_iterations": 125,
+        "records": 125,
+        "first_iter": 0,
+        "last_iter": 124
+      }
+    ],
+    "errors": {
+      "count": 0,
+      "items": []
+    },
+    "valid": true,
+    "loglik_decreases": {
+      "tolerance": 1e-06,
+      "scope": "consecutive records within each block only; 5 blocks of single fits",
+      "count": 0,
+      "items": []
     }
   }
 }

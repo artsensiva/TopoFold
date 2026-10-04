@@ -1,243 +1,176 @@
 #!/usr/bin/env python3
 """
-M3-A2g Corrections Pass: Substantive Acceptance Checklist
-Performs structured validation of corrections against actual data.
+M3-A2g acceptance checklist (fresh, non-writing).
+
+Every check is recomputed from the current files; nothing is written.
+Exit status is nonzero if any required check fails.
+
+Sections:
+  A. Data integrity          format, coverage and selection bookkeeping (fresh)
+  B. Documented figures      values cited in M3 documents vs fresh counts
+  C. Derivative freshness    stored JSON vs fresh result
+  D. Manifest / preservation inventory, checksums, baseline byte comparison
+
+Passing this checklist establishes data-format and provenance integrity only.
+It does not validate the optimizer, does not change the provisional O2
+classification, and does not resolve KNOWN_ISSUES M2/M3 or production readiness.
 """
-import json
-import re
+import argparse
+import sys
 from pathlib import Path
 
-base_dir = Path(__file__).parent.parent
-results_dir = base_dir / "results"
-results = {'passed': [], 'failed': []}
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from m3_a2g_data_verification import (  # noqa: E402
+    BASELINE_REV, JSON_NAME, RESULTS_DIR, build_report, compare_with_stored)
+import compute_manifest_hashes as manifest  # noqa: E402
 
-def check(name, condition, details=""):
-    """Record a check result."""
-    if condition:
-        results['passed'].append((name, details))
-        print(f"✅ PASS: {name}")
-        if details:
-            print(f"         {details}")
-    else:
-        results['failed'].append((name, details))
-        print(f"❌ FAIL: {name}")
-        if details:
-            print(f"         {details}")
-    return condition
+# Reconciliation targets: the row total given in the correction directive and
+# figures cited in M3_STATUS.md / README.md. They are compared, never trusted.
+DOCUMENTED = {
+    'total_csv_rows': 1235,
+    'trajectory_blocks': 5,
+    'trajectory_records': 1634,
+    'exact_family': (111, 360),
+    'k2_convergence': (258, 320),
+    'stress_regime': (102, 280),
+    'stress sigma=1.0,F=1000': (3, 10),
+    'extended_maxiter max_iter=2000': (56, 60),
+    'ninit wrapped_1.0 loglik diff (2 d.p.)': 2.63,
+}
 
-print("=" * 80)
-print("M3-A2g CORRECTIONS PASS: SUBSTANTIVE ACCEPTANCE CHECKLIST")
-print("=" * 80)
 
-# CRITICAL: Load and validate verification JSON
-print("\n## CRITICAL: Verification JSON Validation")
-ver_json_path = results_dir / 'm3_a2g_data_verification.json'
-if not ver_json_path.exists():
-    check("Verification JSON exists", False, "File not found")
-    print("\n❌ CANNOT PROCEED - verification JSON missing")
-    exit(1)
+def _items(items, limit=5):
+    return str(items[:limit]) if items else ''
 
-with open(ver_json_path) as f:
-    ver_data = json.load(f)
 
-# Verify SYNTHETIC metadata
-check(
-    "Verification JSON: SYNTHETIC metadata",
-    ver_data.get('_meta', {}).get('type') == 'SYNTHETIC',
-    f"Type: {ver_data.get('_meta', {}).get('type')}"
-)
+class Checklist:
+    def __init__(self):
+        self.results = []
 
-# Verify total CSV rows
-check(
-    "Verification JSON: 1235 total CSV rows",
-    ver_data.get('total_csv_rows') == 1235,
-    f"Actual: {ver_data.get('total_csv_rows')}"
-)
+    def check(self, section, name, ok, detail=''):
+        self.results.append((section, name, bool(ok), detail))
+        print(f"  {'PASS' if ok else 'FAIL'}  {name}" + (f"  [{detail}]" if detail else ''))
+        return ok
 
-# Verify iteration records (corrected from 5 to 1634)
-trajectories = ver_data.get('trajectories', {})
-check(
-    "Verification JSON: 1634 iteration records (bug corrected)",
-    trajectories.get('iteration_records_total') == 1634,
-    f"Actual: {trajectories.get('iteration_records_total')}"
-)
+    @property
+    def failed(self):
+        return [r for r in self.results if not r[2]]
 
-# CRITICAL: All schemas must be valid
-print("\n## CRITICAL: CSV Schema Validation")
-schema_validation = ver_data.get('schema_validation', {})
 
-for csv_name in ['exact_family', 'k2_convergence', 'stress_regime', 'extended_maxiter', 'ninit_sensitivity']:
-    schema = schema_validation.get(csv_name, {})
-    is_valid = schema.get('valid', False)
-    check(
-        f"CSV schema valid: {csv_name}",
-        is_valid,
-        f"Missing: {schema.get('missing', [])}, Extra: {schema.get('extra', [])}" if not is_valid else "All columns match"
-    )
+def run(results_dir=RESULTS_DIR, json_path=None, provenance=True, rev=BASELINE_REV):
+    results_dir = Path(results_dir)
+    json_path = Path(json_path) if json_path else results_dir / JSON_NAME
+    cl = Checklist()
+    report = build_report(results_dir)
 
-# CRITICAL: Convergence statistics must match actual data
-print("\n## CRITICAL: Convergence Statistics Match Actual Data")
+    print("\nA. Data integrity (fresh)")
+    for name, r in report['datasets'].items():
+        c = r['coverage']
+        cl.check('A', f"{name}: header", r['header']['schema_valid'],
+                 '' if r['header']['schema_valid'] else str(r['header']))
+        cl.check('A', f"{name}: field values", r['field_errors']['count'] == 0,
+                 '; '.join(r['field_errors']['items'][:3]))
+        cl.check('A', f"{name}: row consistency", r['row_consistency_errors']['count'] == 0,
+                 '; '.join(r['row_consistency_errors']['items'][:3]))
+        cl.check('A', f"{name}: coverage {c['present_unique']}/{c['expected']} keys",
+                 c['complete'],
+                 f"missing={c['missing'][:3]} unexpected={c['unexpected'][:3]} "
+                 f"duplicates={c['duplicates'][:3]}" if not c['complete'] else '')
+        if r['selection_pairs_checked']:
+            cl.check('A', f"{name}: selection bookkeeping "
+                          f"{'+'.join(k for k, _ in r['selection_pairs_checked'])}",
+                     r['selection_bookkeeping_errors']['count'] == 0,
+                     '; '.join(r['selection_bookkeeping_errors']['items'][:3]))
+    t = report['trajectories']
+    cl.check('A', 'trajectories: declarations, counts, sequences, records', t['valid'],
+             '; '.join(t['errors']['items'][:3]))
 
-exact_family = ver_data.get('exact_family', {})
-check(
-    "Exact-family: 111/360 (30.8%)",
-    exact_family.get('converged') == 111 and exact_family.get('total_fits') == 360,
-    f"Actual: {exact_family.get('converged')}/{exact_family.get('total_fits')} ({100*exact_family.get('rate', 0):.1f}%)"
-)
+    print("\nB. Documented figures vs fresh data")
+    s = report['summaries']
+    cl.check('B', f"total CSV rows = {DOCUMENTED['total_csv_rows']}",
+             report['total_csv_rows'] == DOCUMENTED['total_csv_rows'],
+             f"fresh {report['total_csv_rows']}")
+    cl.check('B', f"trajectory blocks/records = {DOCUMENTED['trajectory_blocks']}/"
+                  f"{DOCUMENTED['trajectory_records']}",
+             (t['num_blocks'], t['iteration_records_total'])
+             == (DOCUMENTED['trajectory_blocks'], DOCUMENTED['trajectory_records']),
+             f"fresh {t['num_blocks']}/{t['iteration_records_total']}")
 
-k2 = ver_data.get('k2_convergence', {})
-check(
-    "True-K2: 258/320 (80.6%)",
-    k2.get('converged') == 258 and k2.get('total_fits') == 320,
-    f"Actual: {k2.get('converged')}/{k2.get('total_fits')} ({100*k2.get('rate', 0):.1f}%)"
-)
+    def frac(name, got):
+        want = DOCUMENTED[name]
+        cl.check('B', f"{name} = {want[0]}/{want[1]}", got == want,
+                 f"fresh {got[0]}/{got[1]}" if got else 'unavailable (dataset invalid)')
 
-stress = ver_data.get('stress_regime', {})
-check(
-    "Stress regime: 102/280 (36.4%)",
-    stress.get('converged') == 102 and stress.get('total_fits') == 280,
-    f"Actual: {stress.get('converged')}/{stress.get('total_fits')} ({100*stress.get('rate', 0):.1f}%)"
-)
+    def total(name):
+        return (s[name]['converged'], s[name]['total_fits']) if s.get(name) else None
 
-# Verify specific stress example: σ=1.0, F=1000 = 3/10
-stress_examples = stress.get('examples', {})
-sigma_1_0_F_1000 = stress_examples.get('sigma=1.0,F=1000', {})
-check(
-    "Stress σ=1.0, F=1000: 3/10 converged",
-    sigma_1_0_F_1000.get('converged') == 3 and sigma_1_0_F_1000.get('total') == 10,
-    f"Actual: {sigma_1_0_F_1000.get('converged')}/{sigma_1_0_F_1000.get('total')}"
-)
+    for name in ['exact_family', 'k2_convergence', 'stress_regime']:
+        frac(name, total(name))
+    ex = s['stress_regime']['by_sigma_F'].get('sigma=1.0,F=1000') if s.get('stress_regime') else None
+    frac('stress sigma=1.0,F=1000', (ex['converged'], ex['total']) if ex else None)
+    em = None
+    if s.get('extended_maxiter'):
+        cells = [v for k, v in s['extended_maxiter']['by_sigma_F_max_iter'].items()
+                 if k.endswith('max_iter=2000')]
+        em = (sum(v['converged'] for v in cells), sum(v['total'] for v in cells))
+    frac('extended_maxiter max_iter=2000', em)
+    diff = s['ninit_sensitivity']['wrapped_1_0_best_loglik_diff_n_init_1_vs_3'] \
+        if s.get('ninit_sensitivity') else None
+    want = DOCUMENTED['ninit wrapped_1.0 loglik diff (2 d.p.)']
+    cl.check('B', f"ninit wrapped_1.0 loglik diff = {want}",
+             diff is not None and round(diff, 2) == want, f"fresh {diff}")
 
-# CRITICAL: Grid coverage validation
-print("\n## CRITICAL: Grid Coverage Validation")
-grid = ver_data.get('grid_coverage', {})
-check(
-    "Exact-family grid: q complete",
-    grid.get('q_complete') == True and grid.get('q_values') == [1, 2, 5],
-    f"q values: {grid.get('q_values')}"
-)
-check(
-    "Exact-family grid: kappa complete",
-    grid.get('kappa_complete') == True and grid.get('kappa_values') == [1, 5, 20],
-    f"kappa values: {grid.get('kappa_values')}"
-)
-check(
-    "Exact-family grid: F complete",
-    grid.get('F_complete') == True and grid.get('F_values') == [100, 500, 1000, 2500],
-    f"F values: {grid.get('F_values')}"
-)
-check(
-    "Exact-family grid: 36 configurations",
-    grid.get('actual_configs') == 36 and grid.get('expected_configs') == 36,
-    f"Actual: {grid.get('actual_configs')}, Expected: {grid.get('expected_configs')}"
-)
+    print("\nC. Derivative freshness (read-only comparison)")
+    cmp = compare_with_stored(report, json_path)
+    cl.check('C', f"stored {json_path.name} exists", cmp['exists'])
+    cl.check('C', 'stored input hashes match current input bytes',
+             cmp['exists'] and not cmp['stale_input_hashes'], _items(cmp['stale_input_hashes']))
+    cl.check('C', 'stored derivative equals fresh result', cmp['fresh'],
+             f"differing sections: {cmp['differing_sections']}" if not cmp['fresh'] else '')
 
-# CRITICAL: Documentation consistency with verified data
-print("\n## CRITICAL: Documentation Consistency with Verified Data")
+    if provenance:
+        print("\nD. Manifest and preservation")
+        m = manifest.check_manifest()
+        for key in ['duplicate_entries', 'omitted_from_manifest', 'listed_but_missing',
+                    'checksum_mismatches', 'unclassified_files', 'classified_but_missing']:
+            cl.check('D', f"manifest: no {key.replace('_', ' ')}", not m[key], _items(m[key]))
+        missing_tracked = sorted(p for p in manifest.tracked_files()
+                                 if not (manifest.BASE_DIR / p).is_file())
+        cl.check('D', 'all tracked M3 files present', not missing_tracked, _items(missing_tracked))
+        p = manifest.compare_protected(rev=rev)
+        cl.check('D', f"protected artifacts identical to {rev[:12]} "
+                      f"({p['identical']}/{p['protected']})",
+                 p['passed'], '' if p['passed'] else f"changed={p['changed']} missing={p['missing']}")
 
-# Load key documentation files
-provenance = (base_dir / "M3_A2G_CORRECTIONS_PROVENANCE.md").read_text()
-status = (base_dir / "M3_STATUS.md").read_text()
-checkpoint_report = (base_dir / "reports/M3_A2g_CHECKPOINT_REPORT.md").read_text()
+    return cl, report
 
-# Check convergence statistics appear in documentation
-check(
-    "Documentation: 111/360 (30.8%) exact-family rate",
-    "111/360" in checkpoint_report and "30.8" in checkpoint_report
-)
-check(
-    "Documentation: 102/280 (36.4%) stress rate",
-    "102/280" in checkpoint_report and "36.4" in checkpoint_report
-)
-check(
-    "Documentation: 258/320 (80.6%) K2 rate",
-    "258/320" in checkpoint_report and "80.6" in checkpoint_report
-)
 
-# Check provisional O2 status (not claiming O3)
-# Allow mentions of O3 in future-work context, but not as current status
-has_o2 = "O2" in status and "provisional" in status.lower()
-claims_o3_status = bool(re.search(r'(Status|Classification):\s*O3', status))
-check(
-    "Status: Provisional O2 (not claiming O3 status)",
-    has_o2 and not claims_o3_status
-)
+def main(argv=None):
+    parser = argparse.ArgumentParser(description='M3-A2g acceptance checklist')
+    parser.add_argument('--results-dir', default=str(RESULTS_DIR))
+    parser.add_argument('--json', default=None)
+    parser.add_argument('--skip-provenance', action='store_true',
+                        help='skip section D (manifest and git baseline comparison)')
+    parser.add_argument('--rev', default=BASELINE_REV)
+    args = parser.parse_args(argv)
 
-# CRITICAL: Historical diagnostic withdrawal
-print("\n## CRITICAL: Historical Diagnostic Withdrawal")
-check(
-    "Provenance: Historical withdrawal section exists",
-    "POST-COMMIT CORRECTION" in provenance or "WITHDRAWAL" in provenance.upper()
-)
-check(
-    "Provenance: Likelihood bug documented",
-    "likelihood" in provenance.lower() and "responsibilities" in provenance.lower()
-)
-check(
-    "Provenance: Inner reseeding documented",
-    ("inner" in provenance.lower() or "INNER" in provenance) and "reseed" in provenance.lower()
-)
-check(
-    "Provenance: Stopping diagnostics invalid (ALL protocols)",
-    "ALL" in provenance and "stopping" in provenance.lower()
-)
+    print("M3-A2g ACCEPTANCE CHECKLIST (fresh, non-writing; SYNTHETIC inputs)")
+    cl, _ = run(args.results_dir, args.json, not args.skip_provenance, args.rev)
 
-# CRITICAL: Fixture set distinction
-print("\n## CRITICAL: Fixture Set Distinction")
-check(
-    "Documentation: Monotonicity uses exact_easy",
-    "exact_easy" in status and "exact_easy" in checkpoint_report,
-    "Monotonicity check must use exact_easy fixture"
-)
-check(
-    "Documentation: n_init sensitivity uses exact_k1",
-    "exact_k1" in checkpoint_report,
-    "n_init sensitivity must use exact_k1 fixture"
-)
-check(
-    "Documentation: Deterministic split initialization",
-    ("deterministic" in status.lower() or "split" in status) and "monotonicity" in status.lower(),
-    "Monotonicity must describe deterministic split initialization"
-)
+    print("\nScientific status (information only; not changed by this checklist)")
+    print("  Provisional O2 - functional but fragile. n_init and stopping diagnostics INVALID;")
+    print("  extended max_iter UNPAIRED; monotonicity evidence limited; dependent-toroidal")
+    print("  validation not performed. Not production-ready. KNOWN_ISSUES M3 remains open.")
 
-# CRITICAL: UNPAIRED disclaimer
-print("\n## CRITICAL: UNPAIRED Draw Disclaimer")
-check(
-    "Documentation: UNPAIRED disclaimer present",
-    "UNPAIRED" in checkpoint_report or "unpaired" in checkpoint_report.lower()
-)
+    print(f"\nSummary: {len(cl.results) - len(cl.failed)}/{len(cl.results)} checks passed")
+    if cl.failed:
+        for section, name, _, detail in cl.failed:
+            print(f"  FAIL [{section}] {name}" + (f"  [{detail}]" if detail else ''))
+        print("RESULT: FAIL")
+        return 1
+    print("RESULT: PASS (format, bookkeeping and provenance integrity only)")
+    return 0
 
-# CRITICAL: Budget attachment
-print("\n## CRITICAL: Budget Specification")
-check(
-    "Documentation: Convergence rates specify max_iter=500 budget",
-    "max_iter=500" in status or "max_iter = 500" in status or "at max_iter=500" in status
-)
 
-# Final summary
-print("\n" + "=" * 80)
-print("SUBSTANTIVE ACCEPTANCE CHECKLIST SUMMARY")
-print("=" * 80)
-print(f"✅ PASSED: {len(results['passed'])}")
-print(f"❌ FAILED: {len(results['failed'])}")
-
-if results['failed']:
-    print("\nFAILURES:")
-    for name, details in results['failed']:
-        print(f"  ❌ {name}")
-        if details:
-            print(f"     {details}")
-    print("\n⚠ ACCEPTANCE CRITERIA NOT MET")
-    exit(1)
-else:
-    print("\n✅ ALL SUBSTANTIVE ACCEPTANCE CRITERIA MET")
-    print("\nKey Validated Facts:")
-    print(f"  - Total CSV rows: {ver_data.get('total_csv_rows')}")
-    print(f"  - Iteration records: {trajectories.get('iteration_records_total')}")
-    print(f"  - Exact-family: {exact_family.get('converged')}/{exact_family.get('total_fits')} ({100*exact_family.get('rate', 0):.1f}%)")
-    print(f"  - True-K2: {k2.get('converged')}/{k2.get('total_fits')} ({100*k2.get('rate', 0):.1f}%)")
-    print(f"  - Stress: {stress.get('converged')}/{stress.get('total_fits')} ({100*stress.get('rate', 0):.1f}%)")
-    print(f"  - All 5 CSV schemas: VALID")
-    print(f"  - Grid coverage: {grid.get('actual_configs')} configs complete")
-    print("\nM3-A2g corrections pass validation COMPLETE.")
-    exit(0)
+if __name__ == '__main__':
+    sys.exit(main())
