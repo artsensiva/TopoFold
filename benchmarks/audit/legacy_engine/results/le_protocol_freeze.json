@@ -1,0 +1,22 @@
+{
+ "frozen_utc": "2026-10-05T13:40:40.814176+00:00",
+ "protocol": "docs/LEGACY_ENGINE_EVALUATION_PROTOCOL.md",
+ "protocol_sha256": "1ee5848025956f544bc24b04baba9ee54ed941324fe826a930ecb72ba1242cee",
+ "git_head": "295d739a783cc1d178131c4c61293042a0c56f7d",
+ "preserved_protocols_sha256": {
+  "docs/WPD_LOCAL_RETRIEVAL_PROTOCOL.md": "a2d1bfe67243d3adac93ebd885f7e5bf4bd0e38dbf1480525358200166aef3df",
+  "docs/WPD_HELDOUT_MDCATH_PROTOCOL.md": "2bc16aa7e534abee9f0c5d78d463ee514df5009401254965776f31a488e76800",
+  "docs/WPD_HELDOUT_MDCATH_AMENDMENT_1.md": "e6f11995a866660e6d817112d61fbab2e330b4a07a5e6e354fac28daba34d407",
+  "docs/ORDERED_ANGULAR_REPRESENTATION_PROTOCOL.md": "c48ae99cc85a5e50d38400e55af40c65d8c0af1279af67402560dd6402088bd5",
+  "docs/ANGULAR_REPRESENTATION_CHARACTERIZATION_PROTOCOL.md": "0f0ff86d4ec68f796d7af2d1ca88cb3cad811a4ef179eacb59102a7f598712ae"
+ },
+ "legacy_source_sha256": {
+  "crates/topofold-core/src/distance.rs": "a3abe86bca1a9baa243724f9c780c96819568fe8fd9045daab72a2aff7365d0f",
+  "crates/topofold-core/src/invariants.rs": "0bfb16fe65139aacbd46f1d9365a4d7242395de40530a750fd45296f0f62aff3",
+  "crates/topofold-core/src/geometry.rs": "1076afcb996893919e14027e354ab8bf922185fb9e489f04cb581ad4525ea1ba",
+  "crates/topofold-index/src/engine.rs": "1024a119349295e5a13134632e4ca39d85d1646434e2e2f9693de058ef7451e4",
+  "crates/topofold-index/src/vptree.rs": "950d5c197edf9104fd49b8fecd0dde068278f6e018c399f85eeff2c77e5ef24f",
+  "crates/topofold-python/src/lib.rs": "4d102f1d60126a13d5961ac2592b73566b029594409e1eacf49471ab083d3757"
+ },
+ "disclosure": "No new AdK outcome computed before freeze. Already observed: WP-D AdK phi/psi results for M1, M2, B1, B2, B3(=K), C1. Pre-freeze probes: legacy binding call semantics and timing on SYNTHETIC random-walk chains only; AdK atom-name availability (O present for residues 1-213)."
+}

@@ -1,0 +1,40 @@
+{
+ "_meta": {
+  "producer": "rust_probe (cargo run --offline --release)",
+  "label": "SYNTHETIC edge-case inputs",
+  "run_utc": "2026-10-05T13:49:52.856474+00:00",
+  "rustc": "rustc 1.98.1 (48a229cea 2026-09-01)",
+  "probe_main_sha256": "ef65369a723fd037c25f375a137c617de65af402aac5170f708779452e4cf8a2",
+  "cargo_lock_sha256": "329cc6f0b55306c0d6b8b21a14f776542a2a323a7286df7ec3ebeb8aed80bea9",
+  "legacy_sources_sha256": {
+   "crates/topofold-core/src/distance.rs": "a3abe86bca1a9baa243724f9c780c96819568fe8fd9045daab72a2aff7365d0f",
+   "crates/topofold-core/src/invariants.rs": "0bfb16fe65139aacbd46f1d9365a4d7242395de40530a750fd45296f0f62aff3"
+  }
+ },
+ "outputs": {
+  "empty_vs_nonempty": 0.0,
+  "last_kappa_changed_by_1rad": 0.0,
+  "first_kappa_changed_by_1rad": 1.0,
+  "nan_torsion": 0.0,
+  "far_torsion_same_position": 0.9055385138137417,
+  "all_nan_torsions": "NaN",
+  "wrap_pair_expected_0p02": 0.019999999999999574,
+  "misregistration_x_y_vs_x_x": 0.0,
+  "writhe_unequal_len": 0.0,
+  "writhe_empty": 0.0,
+  "dtw_empty": 0.0,
+  "kappa_len5_tau_len2": 0.0
+ },
+ "interpretation": {
+  "empty_vs_nonempty": "empty invariants compare as identical (0.0) to any curve",
+  "last_kappa_changed_by_1rad": "last interior turning angle omitted by min(len) pairing",
+  "nan_torsion": "NaN pointwise distance ignored by f64::max/min; result as if the pair matched",
+  "all_nan_torsions": "NaN only when every pair is NaN",
+  "wrap_pair_expected_0p02": "periodic torsion difference handled correctly",
+  "misregistration_x_y_vs_x_x": "flexible coupling maps distinct same-length sequences to 0",
+  "writhe_unequal_len": "writhe spectrum distance truncates to the shorter vector",
+  "writhe_empty": "empty writhe spectrum distance is 0",
+  "dtw_empty": "empty DTW distance is 0",
+  "kappa_len5_tau_len2": "only min(#kappa,#tau) pairs are compared"
+ }
+}

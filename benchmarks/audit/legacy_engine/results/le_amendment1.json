@@ -1,0 +1,23 @@
+{
+ "recorded_utc": "2026-10-05T16:45:48.628156+00:00",
+ "amendment": "docs/LEGACY_ENGINE_EVALUATION_AMENDMENT_1.md",
+ "amendment_sha256": "d94d47bc23067cba97cf13b01e61b3b8f660f5a0b29b80d73ba2810bb7f3004a",
+ "amends_protocol_sha256": "1ee5848025956f544bc24b04baba9ee54ed941324fe826a930ecb72ba1242cee",
+ "original_freeze_sha256": "9459ec736661bddf52b2130d08b03c48099c2c8bd1781e8fcfed71995ae38d2a",
+ "original_analysis_preserved": {
+  "analyse_dev.py": "b7e19fd426c872ce818adc8d02aba6c82fa170ce62419e65d59976db59cc7693",
+  "test_analyse.py": "2a62fb4d8778d138bc99e5d40211876c2be045ae4a3c3c90138c2d0edaf41649"
+ },
+ "amended_analysis": {
+  "analyse_dev_a1.py": "8db692db360530d6b4529ddf236519bb368a332e6554bbd0b8ea73317183ff31",
+  "test_analyse_a1.py": "4591b771a40832988dec460de62556d6cc4d46c0cae47c22b39be6e9991e8ec6"
+ },
+ "outcome_status_at_recording": "no LE-1 result file existed; attempt 2 in progress; no outcome inspected",
+ "results_dir_listing": [
+  "le_prior_work_crossref.json",
+  "le_protocol_freeze.json",
+  "le_run_attempts.json",
+  "le_rust_probe.json",
+  "logs"
+ ]
+}

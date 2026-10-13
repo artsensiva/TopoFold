@@ -1,0 +1,222 @@
+{
+ "_meta": {
+  "producer": "timing_dev.py",
+  "subset": "open_start, W=8, windows 1-20",
+  "cpu": "Intel(R) Core(TM) i5-8400T CPU @ 1.70GHz",
+  "python": "3.14.4",
+  "numpy": "2.5.3",
+  "threads": 1,
+  "repeats": 3,
+  "note": "NumPy vs Rust differences are implementation differences"
+ },
+ "results": {
+  "baseline": {
+   "impl": "baseline",
+   "feature_extraction_binding_s": 0.7310656469780952,
+   "steady_state_s_median": 0.0,
+   "repeats_s": [
+    0.0
+   ],
+   "units": "50 full-chain queries",
+   "n_queries": 1013,
+   "n_candidates": 1015,
+   "maxrss_kB": 161800,
+   "maxrss_above_baseline_kB": 0
+  },
+  "np_features": {
+   "impl": "np_features",
+   "feature_extraction_binding_s": 0.7565751241054386,
+   "steady_state_s_median": 0.046450512018054724,
+   "repeats_s": [
+    0.046450512018054724,
+    0.04696504818275571,
+    0.046312279999256134
+   ],
+   "units": "20 windows \u00d7 all queries \u00d7 all candidates",
+   "n_queries": 1013,
+   "n_candidates": 1015,
+   "maxrss_kB": 161800,
+   "maxrss_above_baseline_kB": 0
+  },
+  "M1": {
+   "impl": "M1",
+   "feature_extraction_binding_s": 0.7377190741244704,
+   "steady_state_s_median": 4.533881544135511,
+   "repeats_s": [
+    4.322359021985903,
+    4.533881544135511,
+    4.761051195906475
+   ],
+   "units": "20 windows \u00d7 all queries \u00d7 all candidates",
+   "n_queries": 1013,
+   "n_candidates": 1015,
+   "maxrss_kB": 161800,
+   "maxrss_above_baseline_kB": 0
+  },
+  "M2": {
+   "impl": "M2",
+   "feature_extraction_binding_s": 0.7770852779503912,
+   "steady_state_s_median": 3.288631414063275,
+   "repeats_s": [
+    3.5292402820196003,
+    3.1559060448780656,
+    3.288631414063275
+   ],
+   "units": "20 windows \u00d7 all queries \u00d7 all candidates",
+   "n_queries": 1013,
+   "n_candidates": 1015,
+   "maxrss_kB": 161800,
+   "maxrss_above_baseline_kB": 0
+  },
+  "K": {
+   "impl": "K",
+   "feature_extraction_binding_s": 0.7531653679907322,
+   "steady_state_s_median": 0.9464759391266853,
+   "repeats_s": [
+    1.0181372740771621,
+    0.9364429330453277,
+    0.9464759391266853
+   ],
+   "units": "20 windows \u00d7 all queries \u00d7 all candidates",
+   "n_queries": 1013,
+   "n_candidates": 1015,
+   "maxrss_kB": 161800,
+   "maxrss_above_baseline_kB": 0
+  },
+  "A": {
+   "impl": "A",
+   "feature_extraction_binding_s": 0.7351366709917784,
+   "steady_state_s_median": 4.2823902210220695,
+   "repeats_s": [
+    4.2256599890533835,
+    4.2823902210220695,
+    4.328698052093387
+   ],
+   "units": "20 windows \u00d7 all queries \u00d7 all candidates",
+   "n_queries": 1013,
+   "n_candidates": 1015,
+   "maxrss_kB": 161800,
+   "maxrss_above_baseline_kB": 0
+  },
+  "F_lock": {
+   "impl": "F_lock",
+   "feature_extraction_binding_s": 0.7412313739769161,
+   "steady_state_s_median": 4.4399780398234725,
+   "repeats_s": [
+    4.4399780398234725,
+    4.425530693959445,
+    4.448278533061966
+   ],
+   "units": "20 windows \u00d7 all queries \u00d7 all candidates",
+   "n_queries": 1013,
+   "n_candidates": 1015,
+   "maxrss_kB": 161800,
+   "maxrss_above_baseline_kB": 0
+  },
+  "F_numpy": {
+   "impl": "F_numpy",
+   "feature_extraction_binding_s": 0.7379842989612371,
+   "steady_state_s_median": 31.866787432925776,
+   "repeats_s": [
+    31.229904307052493,
+    32.39705410087481,
+    31.866787432925776
+   ],
+   "units": "20 windows \u00d7 all queries \u00d7 all candidates",
+   "n_queries": 1013,
+   "n_candidates": 1015,
+   "maxrss_kB": 239348,
+   "maxrss_above_baseline_kB": 77548
+  },
+  "B1": {
+   "impl": "B1",
+   "feature_extraction_binding_s": 0.7364094851072878,
+   "steady_state_s_median": 2.392356269992888,
+   "repeats_s": [
+    2.3911531472112983,
+    2.392356269992888,
+    2.408770713955164
+   ],
+   "units": "20 windows \u00d7 all queries \u00d7 all candidates",
+   "n_queries": 1013,
+   "n_candidates": 1015,
+   "maxrss_kB": 161800,
+   "maxrss_above_baseline_kB": 0
+  },
+  "B2": {
+   "impl": "B2",
+   "feature_extraction_binding_s": 0.7439165159594268,
+   "steady_state_s_median": 43.354418197181076,
+   "repeats_s": [
+    44.24220508802682,
+    43.27650549495593,
+    43.354418197181076
+   ],
+   "units": "20 windows \u00d7 all queries \u00d7 all candidates",
+   "n_queries": 1013,
+   "n_candidates": 1015,
+   "maxrss_kB": 161800,
+   "maxrss_above_baseline_kB": 0
+  },
+  "F_rust_fit": {
+   "impl": "F_rust_fit",
+   "feature_extraction_binding_s": 0.7573841020930558,
+   "steady_state_s_median": 0.3546605210285634,
+   "repeats_s": [
+    0.3546605210285634,
+    0.34326304704882205,
+    0.35743847605772316
+   ],
+   "units": "one index fit over the database",
+   "n_queries": 1013,
+   "n_candidates": 1015,
+   "maxrss_kB": 161800,
+   "maxrss_above_baseline_kB": 0
+  },
+  "F_rust_query": {
+   "impl": "F_rust_query",
+   "feature_extraction_binding_s": 0.7554303130600601,
+   "steady_state_s_median": 6.030646939994767,
+   "repeats_s": [
+    6.045711962971836,
+    6.030646939994767,
+    6.030044867889956
+   ],
+   "units": "20 windows \u00d7 all queries \u00d7 all candidates",
+   "n_queries": 1013,
+   "n_candidates": 1015,
+   "maxrss_kB": 161800,
+   "maxrss_above_baseline_kB": 0
+  },
+  "GF_rust_query": {
+   "impl": "GF_rust_query",
+   "feature_extraction_binding_s": 0.7500444080214947,
+   "steady_state_s_median": 24.697471963008866,
+   "repeats_s": [
+    24.697471963008866,
+    24.74047242407687,
+    24.6546795880422
+   ],
+   "units": "50 full-chain queries",
+   "n_queries": 1013,
+   "n_candidates": 1015,
+   "maxrss_kB": 161800,
+   "maxrss_above_baseline_kB": 0
+  },
+  "cascade_query": {
+   "impl": "cascade_query",
+   "feature_extraction_binding_s": 0.7336924411356449,
+   "steady_state_s_median": 24.737368047935888,
+   "repeats_s": [
+    24.737368047935888,
+    24.803893910953775,
+    24.703770372085273
+   ],
+   "units": "50 full-chain queries",
+   "n_queries": 1013,
+   "n_candidates": 1015,
+   "maxrss_kB": 161800,
+   "maxrss_above_baseline_kB": 0
+  }
+ }
+}

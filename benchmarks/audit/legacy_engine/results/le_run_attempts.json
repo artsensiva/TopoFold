@@ -1,0 +1,24 @@
+{
+ "attempt_1": {
+  "log": "results/logs/le_run_attempt1.log",
+  "log_sha256": "ffd8224721f854f967b1d5163bfbb103d7e15f1aa23aa8bbca604ed17cdd5536",
+  "last_progress_line": "600/834 windows 1964s",
+  "exit_status_line_present": false,
+  "result_files_written": false,
+  "process_present_when_checked": false,
+  "checked_utc": "2026-10-05T16:33:01Z (local 18:33 CEST)",
+  "cause": "not established; coincided with the end of an assistant session; no termination record exists",
+  "outcomes_observed": "none (log contains progress lines only; results are written only at completion)"
+ },
+ "attempt_2": {
+  "started": "2026-10-05 ~18:33 CEST, detached with setsid nohup",
+  "pid": 2397590,
+  "code_sha256_at_start": {
+   "run_dev.py": "0305d6c2509365fb2ed140ce4a0ec24a32226925a72b724c3901c604cd00dc20",
+   "legacy_lib.py": "09664243491188da3465425c879b9d42bdb8b2d1ac013c4a83596aec76248390",
+   "test_legacy.py": "3dc9ad580cac7ab396d1a7ecf232a82908793cccd35b7d1b9d50a3846405a4bc"
+  },
+  "protocol_sha256": "1ee5848025956f544bc24b04baba9ee54ed941324fe826a930ecb72ba1242cee",
+  "note": "identical code and protocol to attempt 1; full rerun from the start"
+ }
+}

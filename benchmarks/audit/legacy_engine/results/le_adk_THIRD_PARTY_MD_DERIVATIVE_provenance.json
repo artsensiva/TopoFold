@@ -1,0 +1,87 @@
+{
+ "command": "python -B run_dev.py --workers 4",
+ "tests": {
+  "exit_code": 0,
+  "summary": "16 passed in 0.23s"
+ },
+ "wpd_inputs": {
+  "protocol_sha256": "a2d1bfe67243d3adac93ebd885f7e5bf4bd0e38dbf1480525358200166aef3df",
+  "eligibility_sha256": "97a1bc9e2ef071642de5a771cace507bf0b52632183694536bae169665e4fc10",
+  "freeze_sha256": "b96f575ba6a29dae417adb02c68bcfe72ec64234f70877dfab6b8028d3e3b4df",
+  "wpb_g0_sha256": "e09cc250fa5f60aae7c6d47118eb2af50d5ffbe3cdf22343ae84ddb70481722d",
+  "raw_sha256": {
+   "ORADD_open_state.gro": "25c90e78f549d97ed61814950efcdf9b859a0320734bd15bd09003677608a40f",
+   "ORADD_open_state_traj.xtc": "39e77b58ded7279d27b9e331b2ff9e6d39a803183689612856df0aa800a40019",
+   "ORADD_closed_state.gro": "4d05b0d3767e1f5e948b2c038a42e9b1a2132e3085c5b50899f4bf797e9f16e4",
+   "ORADD_closed_state_traj.xtc": "f950ff0a7beadab0992d9c1cffaea540675b62d06ed9d1eadcc988f20f6f3cc9"
+  },
+  "binding": {
+   "wheel": "topofold-0.8.3-cp314-cp314-manylinux_2_34_x86_64.whl",
+   "package_file": "/home/artem/TopoFold/benchmarks/audit/wpd_local_retrieval/build/venv/lib/python3.14/site-packages/topofold/__init__.py",
+   "extension_file": "/home/artem/TopoFold/benchmarks/audit/wpd_local_retrieval/build/venv/lib/python3.14/site-packages/topofold/topofold.cpython-314-x86_64-linux-gnu.so",
+   "extension_sha256": "732909cc99ec88835f0b8a1f60152b7f134ae4a353d152be7bd9f048e232ba01",
+   "equals_wpa_extension": true,
+   "production_sources_sha256": {
+    "crates/topofold-core/src/circular.rs": "94244f9dd563470784b5abe3d2a65211de0b4b261f377519a23ca60fdd440ae3",
+    "crates/topofold-core/src/bimodality.rs": "0c093efd9cf607093e03920e5e10cc5a5c23c5494867c8a325b0ccc5edc6aad0",
+    "crates/topofold-core/src/geometry.rs": "1076afcb996893919e14027e354ab8bf922185fb9e489f04cb581ad4525ea1ba",
+    "crates/topofold-core/src/types.rs": "ae9c9ea98bb7246374c43518c7e605a36118b0e210ac4d6088fda7cd8a74839f",
+    "crates/topofold-core/src/lib.rs": "6024f14ff67b8e17941a6f671899baff89fa9b0c6bb25d5c2dfaf6f8b3dd5ca2",
+    "crates/topofold-python/src/lib.rs": "4d102f1d60126a13d5961ac2592b73566b029594409e1eacf49471ab083d3757",
+    "Cargo.lock": "ed9396593b5d5e19eb9fa9440b84569ea738665e44b586c377fca51384a44a61"
+   },
+   "production_sources_equal_wpa": true
+  }
+ },
+ "git": {
+  "head": "295d739a783cc1d178131c4c61293042a0c56f7d",
+  "status_porcelain": [
+   " M .gitignore",
+   " M AGENTS.md",
+   " M README.md",
+   " M crates/topofold-io/README.md",
+   " M docs/KNOWN_ISSUES.md",
+   " M docs/MANUSCRIPT_DRAFT.md",
+   " M docs/adr/ADR-001-rust-safe-core.md",
+   " M docs/adr/ADR-002-van-oosterom-writhe.md",
+   " M docs/adr/ADR-003-cascaded-vptree.md",
+   " M docs/adr/ADR-004-pebay-streaming-bimodality.md",
+   "?? benchmarks/audit/adk_feasibility/",
+   "?? benchmarks/audit/angular_characterization/",
+   "?? benchmarks/audit/legacy_engine/",
+   "?? benchmarks/audit/ordered_representation/",
+   "?? benchmarks/audit/wpd_local_retrieval/",
+   "?? crates/topofold-core/examples/",
+   "?? docs/ANGULAR_REPRESENTATION_CHARACTERIZATION_PROTOCOL.md",
+   "?? docs/ENGINE_MISSION_AND_ROADMAP.md",
+   "?? docs/EVALUATION_DESIGN_DECISION_MEMO.md",
+   "?? docs/LEGACY_ENGINE_EVALUATION_AMENDMENT_1.md",
+   "?? docs/LEGACY_ENGINE_EVALUATION_PROTOCOL.md",
+   "?? docs/ORDERED_ANGULAR_REPRESENTATION_PROTOCOL.md",
+   "?? docs/REAL_MD_EVALUATION_FEASIBILITY.md",
+   "?? docs/WPD_HELDOUT_MDCATH_AMENDMENT_1.md",
+   "?? docs/WPD_HELDOUT_MDCATH_PROTOCOL.md",
+   "?? docs/WPD_LOCAL_RETRIEVAL_PROTOCOL.md"
+  ]
+ },
+ "harness_sha256": {
+  "legacy_lib.py": "09664243491188da3465425c879b9d42bdb8b2d1ac013c4a83596aec76248390",
+  "run_dev.py": "0305d6c2509365fb2ed140ce4a0ec24a32226925a72b724c3901c604cd00dc20",
+  "test_legacy.py": "3dc9ad580cac7ab396d1a7ecf232a82908793cccd35b7d1b9d50a3846405a4bc"
+ },
+ "reused_sha256": {
+  "run_adk.py": "eb6e1a815e1011d44fd1964bd1bc160fd256ffa6fb02902586a8290053b28a2c",
+  "wpd_lib.py": "30bc9ba3cc9583e8d2298e19a15db91b3c0c771a885092b34cb8b2b1c05d39e8"
+ },
+ "versions": {
+  "python": "3.14.4",
+  "numpy": "2.5.3",
+  "mdanalysis": "2.10.0",
+  "scipy": "1.18.1",
+  "workers": 4
+ },
+ "result_file": {
+  "path": "benchmarks/audit/legacy_engine/results/le_adk_THIRD_PARTY_MD_DERIVATIVE_summary.json",
+  "sha256": "ec6316a27f9fff798488f816c7da77e761e148cfc2ef2e1b926ff2d0a4636d40"
+ }
+}

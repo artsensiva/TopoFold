@@ -1,0 +1,345 @@
+{
+ "_meta": {
+  "checked_utc": "2026-10-05T13:48:18.659443+00:00",
+  "source": "api.crossref.org",
+  "rule": "verified if title token overlap >= 0.8 and year within +-1 (print vs online)"
+ },
+ "refs": {
+  "kabsch1976": {
+   "expected_title": "A solution for the best rotation to relate two sets of vectors",
+   "expected_year": 1976,
+   "queried_doi": "10.1107/S0567739476001873",
+   "crossref": {
+    "doi": "10.1107/s0567739476001873",
+    "title": "A solution for the best rotation to relate two sets of vectors",
+    "year": 1976,
+    "first_author": "Kabsch",
+    "container": "Acta Crystallographica Section A",
+    "volume": "32",
+    "page": "922-923"
+   },
+   "title_overlap": 1.0,
+   "verified": true
+  },
+  "horn1987": {
+   "expected_title": "Closed-form solution of absolute orientation using unit quaternions",
+   "expected_year": 1987,
+   "queried_doi": "10.1364/JOSAA.4.000629",
+   "crossref": {
+    "doi": "10.1364/josaa.4.000629",
+    "title": "Closed-form solution of absolute orientation using unit quaternions",
+    "year": 1987,
+    "first_author": "Horn",
+    "container": "Journal of the Optical Society of America A",
+    "volume": "4",
+    "page": "629"
+   },
+   "title_overlap": 1.0,
+   "verified": true
+  },
+  "theobald2005": {
+   "expected_title": "Rapid calculation of RMSDs using a quaternion-based characteristic polynomial",
+   "expected_year": 2005,
+   "queried_doi": "10.1107/S0108767305015266",
+   "crossref": {
+    "doi": "10.1107/s0108767305015266",
+    "title": "Rapid calculation of RMSDs using a quaternion-based characteristic polynomial",
+    "year": 2005,
+    "first_author": "Theobald",
+    "container": "Acta Crystallographica Section A Foundations of Crystallography",
+    "volume": "61",
+    "page": "478-480"
+   },
+   "title_overlap": 1.0,
+   "verified": true
+  },
+  "levitt1976": {
+   "expected_title": "A simplified representation of protein conformations for rapid simulation of protein folding",
+   "expected_year": 1976,
+   "queried_doi": "10.1016/0022-2836(76)90004-8",
+   "crossref": {
+    "doi": "10.1016/0022-2836(76)90004-8",
+    "title": "A simplified representation of protein conformations for rapid simulation of protein folding",
+    "year": 1976,
+    "first_author": "Levitt",
+    "container": "Journal of Molecular Biology",
+    "volume": "104",
+    "page": "59-107"
+   },
+   "title_overlap": 1.0,
+   "verified": true
+  },
+  "ramachandran1963": {
+   "expected_title": "Stereochemistry of polypeptide chain configurations",
+   "expected_year": 1963,
+   "queried_doi": "10.1016/S0022-2836(63)80023-6",
+   "crossref": {
+    "doi": "10.1016/s0022-2836(63)80023-6",
+    "title": "Stereochemistry of polypeptide chain configurations",
+    "year": 1963,
+    "first_author": "Ramachandran",
+    "container": "Journal of Molecular Biology",
+    "volume": "7",
+    "page": "95-99"
+   },
+   "title_overlap": 1.0,
+   "verified": true
+  },
+  "oldfield1994": {
+   "expected_title": "Analysis of C alpha geometry in protein structures",
+   "expected_year": 1994,
+   "queried_doi": null,
+   "crossref": {
+    "doi": "10.1017/cbo9781139060165.003",
+    "title": "Jordan structures in geometry",
+    "year": 2011,
+    "first_author": null,
+    "container": "Jordan Structures in Geometry and Analysis",
+    "volume": null,
+    "page": "62-170"
+   },
+   "title_overlap": 0.375,
+   "verified": false
+  },
+  "rackovsky1978": {
+   "expected_title": "Differential geometry and polymer conformations. 1. Comparison of protein conformations",
+   "expected_year": 1978,
+   "queried_doi": null,
+   "crossref": {
+    "doi": "10.1021/ma60066a020",
+    "title": "Differential Geometry and Polymer Conformation. 1. Comparison of Protein Conformations<sup>1a,b</sup>",
+    "year": 1978,
+    "first_author": "Rackovsky",
+    "container": "Macromolecules",
+    "volume": "11",
+    "page": "1168-1174"
+   },
+   "title_overlap": 1.0,
+   "verified": true
+  },
+  "hu2011": {
+   "expected_title": "Discrete Frenet frame, inflection point solitons, and curve visualization with applications to folded proteins",
+   "expected_year": 2011,
+   "queried_doi": null,
+   "crossref": {
+    "doi": "10.1103/physreve.83.061908",
+    "title": "Discrete Frenet frame, inflection point solitons, and curve visualization with applications to folded proteins",
+    "year": 2011,
+    "first_author": "Hu",
+    "container": "Physical Review E",
+    "volume": "83",
+    "page": null
+   },
+   "title_overlap": 1.0,
+   "verified": true
+  },
+  "altgodau1995": {
+   "expected_title": "Computing the Fréchet distance between two polygonal curves",
+   "expected_year": 1995,
+   "queried_doi": "10.1142/S0218195995000064",
+   "crossref": {
+    "doi": "10.1142/s0218195995000064",
+    "title": "COMPUTING THE FRÉCHET DISTANCE BETWEEN TWO POLYGONAL CURVES",
+    "year": 1995,
+    "first_author": "ALT",
+    "container": "International Journal of Computational Geometry &amp; Applications",
+    "volume": "05",
+    "page": "75-91"
+   },
+   "title_overlap": 1.0,
+   "verified": true
+  },
+  "jiang2008": {
+   "expected_title": "Protein structure-structure alignment with discrete Fréchet distance",
+   "expected_year": 2008,
+   "queried_doi": null,
+   "crossref": {
+    "doi": "10.1142/9781860947995_0016",
+    "title": "PROTEIN STRUCTURE-STRUCTURE ALIGNMENT WITH DISCRETE FRÉCHET DISTANCE",
+    "year": 2007,
+    "first_author": "JIANG",
+    "container": "Proceedings of the 5th Asia-Pacific Bioinformatics Conference",
+    "volume": null,
+    "page": "131-141"
+   },
+   "title_overlap": 1.0,
+   "verified": true
+  },
+  "sakoe1978": {
+   "expected_title": "Dynamic programming algorithm optimization for spoken word recognition",
+   "expected_year": 1978,
+   "queried_doi": "10.1109/TASSP.1978.1163055",
+   "crossref": {
+    "doi": "10.1109/tassp.1978.1163055",
+    "title": "Dynamic programming algorithm optimization for spoken word recognition",
+    "year": 1978,
+    "first_author": "Sakoe",
+    "container": "IEEE Transactions on Acoustics, Speech, and Signal Processing",
+    "volume": "26",
+    "page": "43-49"
+   },
+   "title_overlap": 1.0,
+   "verified": true
+  },
+  "debrevern2000": {
+   "expected_title": "Bayesian probabilistic approach for predicting backbone structures in terms of protein blocks",
+   "expected_year": 2000,
+   "queried_doi": null,
+   "crossref": {
+    "doi": "10.1002/1097-0134(20001115)41:3<271::aid-prot10>3.0.co;2-z",
+    "title": "Bayesian probabilistic approach for predicting backbone structures in terms of protein blocks",
+    "year": 2000,
+    "first_author": "de Brevern",
+    "container": "Proteins: Structure, Function, and Genetics",
+    "volume": "41",
+    "page": "271-287"
+   },
+   "title_overlap": 1.0,
+   "verified": true
+  },
+  "kolodny2002": {
+   "expected_title": "Small libraries of protein fragments model native protein structures accurately",
+   "expected_year": 2002,
+   "queried_doi": "10.1016/S0022-2836(02)00942-7",
+   "crossref": {
+    "doi": "10.1016/s0022-2836(02)00942-7",
+    "title": "Small Libraries of Protein Fragments Model Native Protein Structures Accurately",
+    "year": 2002,
+    "first_author": "Kolodny",
+    "container": "Journal of Molecular Biology",
+    "volume": "323",
+    "page": "297-307"
+   },
+   "title_overlap": 1.0,
+   "verified": true
+  },
+  "vankempen2024": {
+   "expected_title": "Fast and accurate protein structure search with Foldseek",
+   "expected_year": 2024,
+   "queried_doi": "10.1038/s41587-023-01773-0",
+   "crossref": {
+    "doi": "10.1038/s41587-023-01773-0",
+    "title": "Fast and accurate protein structure search with Foldseek",
+    "year": 2024,
+    "first_author": "van Kempen",
+    "container": "Nature Biotechnology",
+    "volume": "42",
+    "page": "243-246"
+   },
+   "title_overlap": 1.0,
+   "verified": true
+  },
+  "mu2005": {
+   "expected_title": "Energy landscape of a small peptide revealed by dihedral angle principal component analysis",
+   "expected_year": 2005,
+   "queried_doi": "10.1002/prot.20310",
+   "crossref": {
+    "doi": "10.1002/prot.20310",
+    "title": "Energy landscape of a small peptide revealed by dihedral angle principal component analysis",
+    "year": 2005,
+    "first_author": "Mu",
+    "container": "Proteins: Structure, Function, and Bioinformatics",
+    "volume": "58",
+    "page": "45-52"
+   },
+   "title_overlap": 1.0,
+   "verified": true
+  },
+  "altis2007": {
+   "expected_title": "Dihedral angle principal component analysis of molecular dynamics simulations",
+   "expected_year": 2007,
+   "queried_doi": "10.1063/1.2746330",
+   "crossref": {
+    "doi": "10.1063/1.2746330",
+    "title": "Dihedral angle principal component analysis of molecular dynamics simulations",
+    "year": 2007,
+    "first_author": "Altis",
+    "container": "The Journal of Chemical Physics",
+    "volume": "126",
+    "page": null
+   },
+   "title_overlap": 1.0,
+   "verified": true
+  },
+  "rogen2003": {
+   "expected_title": "Automatic classification of protein structure by using Gauss integrals",
+   "expected_year": 2003,
+   "queried_doi": null,
+   "crossref": {
+    "doi": "10.1073/pnas.2636460100",
+    "title": "Automatic classification of protein structure by using Gauss integrals",
+    "year": 2003,
+    "first_author": "Røgen",
+    "container": "Proceedings of the National Academy of Sciences",
+    "volume": "100",
+    "page": "119-124"
+   },
+   "title_overlap": 1.0,
+   "verified": true
+  },
+  "michaudagrawal2011": {
+   "expected_title": "MDAnalysis: A toolkit for the analysis of molecular dynamics simulations",
+   "expected_year": 2011,
+   "queried_doi": "10.1002/jcc.21787",
+   "crossref": {
+    "doi": "10.1002/jcc.21787",
+    "title": "MDAnalysis: A toolkit for the analysis of molecular dynamics simulations",
+    "year": 2011,
+    "first_author": "Michaud‐Agrawal",
+    "container": "Journal of Computational Chemistry",
+    "volume": "32",
+    "page": "2319-2327"
+   },
+   "title_overlap": 1.0,
+   "verified": true
+  },
+  "mcgibbon2015": {
+   "expected_title": "MDTraj: A Modern Open Library for the Analysis of Molecular Dynamics Trajectories",
+   "expected_year": 2015,
+   "queried_doi": "10.1016/j.bpj.2015.08.015",
+   "crossref": {
+    "doi": "10.1016/j.bpj.2015.08.015",
+    "title": "MDTraj: A Modern Open Library for the Analysis of Molecular Dynamics Trajectories",
+    "year": 2015,
+    "first_author": "McGibbon",
+    "container": "Biophysical Journal",
+    "volume": "109",
+    "page": "1528-1532"
+   },
+   "title_overlap": 1.0,
+   "verified": true
+  },
+  "yianilos1993": {
+   "expected_title": "Data structures and algorithms for nearest neighbor search in general metric spaces",
+   "expected_year": 1993,
+   "queried_doi": null,
+   "crossref": {
+    "doi": "10.1109/tkde.2006.148",
+    "title": "Reverse Nearest Neighbor Search in Metric Spaces",
+    "year": 2006,
+    "first_author": "Yufei Tao",
+    "container": "IEEE Transactions on Knowledge and Data Engineering",
+    "volume": "18",
+    "page": "1239-1252"
+   },
+   "title_overlap": 0.5,
+   "verified": false
+  },
+  "mirarchi2024": {
+   "expected_title": "mdCATH: A Large-Scale MD Dataset for Data-Driven Computational Biophysics",
+   "expected_year": 2024,
+   "queried_doi": "10.1038/s41597-024-04140-z",
+   "crossref": {
+    "doi": "10.1038/s41597-024-04140-z",
+    "title": "mdCATH: A Large-Scale MD Dataset for Data-Driven Computational Biophysics",
+    "year": 2024,
+    "first_author": "Mirarchi",
+    "container": "Scientific Data",
+    "volume": "11",
+    "page": null
+   },
+   "title_overlap": 1.0,
+   "verified": true
+  }
+ }
+}

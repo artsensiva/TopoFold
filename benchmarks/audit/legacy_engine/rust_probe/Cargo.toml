@@ -1,0 +1,11 @@
+# Research probe (not production): exercises the legacy topofold-core distance functions on edge cases.
+[package]
+name = "legacy_probe"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[dependencies]
+topofold-core = { path = "../../../../crates/topofold-core" }
+
+[workspace]

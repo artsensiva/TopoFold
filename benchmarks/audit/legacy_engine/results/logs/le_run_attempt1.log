@@ -1,0 +1,15 @@
+open_start geometry + global RMSD done 50s
+closed_start geometry + global RMSD done 83s
+global legacy Fréchet + cascade done 508s
+50/834 windows 634s
+100/834 windows 747s
+150/834 windows 866s
+200/834 windows 982s
+250/834 windows 1151s
+300/834 windows 1330s
+350/834 windows 1510s
+400/834 windows 1688s
+450/834 windows 1786s
+500/834 windows 1845s
+550/834 windows 1904s
+600/834 windows 1964s

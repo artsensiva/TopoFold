@@ -1,0 +1,84 @@
+{
+ "_meta": {
+  "purpose": "LE-1 editorial closeout E1: interpretation corrections only",
+  "written_utc": "2026-10-05T19:02:16.745714+00:00",
+  "rerun": false
+ },
+ "entries": [
+  {
+   "id": "E1.1",
+   "change": "A dependence flag explained as structural self-comparison (series NR_A - NR_best identically zero because A was observed best); declared outcome unchanged"
+  },
+  {
+   "id": "E1.2",
+   "change": "Frechet gap attribution corrected per target and window size; earlier claim \"larger part is F_lock - A\" wrong for T_pp at W=8 (coupling larger)"
+  },
+  {
+   "id": "E1.3",
+   "change": "Deprioritizing F reworded as an engineering decision for the tested task; formal outcome inconclusive preserved; F - B2 statement made exact (never below 0; two unresolved)"
+  },
+  {
+   "id": "E1.4",
+   "change": "Timing statements scoped to measured implementations and workload; cascade sentence scoped"
+  },
+  {
+   "id": "E1.5",
+   "written_utc": "2026-10-05T19:05:21.388450+00:00",
+   "change": "Added caveat: SYNTHETIC AR(1) calibration shows the Sokal tau_int estimator severely underestimates when tau_hat/n >= 0.017; 28 of 84 estimable LE-1 contrast diagnostics exceed 0.015 n, so their block-length adequacy is not established. Declared statements and outcomes unchanged.",
+   "discovered": "after LE-1 results were known, while writing held-out dependence diagnostics",
+   "evidence": {
+    "calibration": "benchmarks/audit/wpd_local_retrieval/results/SYNTHETIC_tau_int_calibration.json",
+    "calibration_sha256": "74a3b126aae9c6add9b4189bd32c403aeb3c282d4e5b0b2de48cda133cd33082"
+   },
+   "files": {
+    "make_report.py": {
+     "before": "c89a57c829f9c0176d9274951c32894549820c8397e16c19064106e5a8e8126c",
+     "after": "e75ab04c57623f74e1df0a6d0d33b4564a073d1e4f0869bd5678a7af1998a9a6"
+    },
+    "REPORT.md": {
+     "before": "0619c0a0d41a2a0de37f6d3d2e70d63d8229d22dae9d6c53aca42b0869acfad5",
+     "after": "b7d528368ab8a7082104a2c711ecaa80e3c119254c29cda94e2184f3eabf905b"
+    }
+   }
+  },
+  {
+   "id": "E1.6",
+   "written_utc": "2026-10-05T19:31:16.859869+00:00",
+   "change": "E1.5 wording corrected: 0.015 n cutoff is a limited AR(1)-based heuristic, not a reliability guarantee; values below it are \"not flagged\", not \"resolved\".",
+   "reason": "User review 2026-10-05",
+   "files": {
+    "make_report.py": {
+     "before": "e75ab04c57623f74e1df0a6d0d33b4564a073d1e4f0869bd5678a7af1998a9a6",
+     "after": "7f3c8137ecbda710d209aa1a229ad743ba093051a882e9133d07367e1334593f"
+    },
+    "REPORT.md": {
+     "before": "b7d528368ab8a7082104a2c711ecaa80e3c119254c29cda94e2184f3eabf905b",
+     "after": "0b23e3b491f53ba9e95f7811df0d4cde4bea6395d837bc751a40a0f6c324ab90"
+    }
+   },
+   "results_unchanged": true
+  }
+ ],
+ "files": {
+  "make_report.py": {
+   "before": "6dae6d669ee5724ffb22cfaebb9a4084947a18932a4887adf9609933efd06cf8",
+   "after": "c89a57c829f9c0176d9274951c32894549820c8397e16c19064106e5a8e8126c"
+  },
+  "REPORT.md": {
+   "before": "075eff04ee6c34a799f1cc177fec49622b0c12b39ef478631e5d0e58aa7a3a59",
+   "after": "0619c0a0d41a2a0de37f6d3d2e70d63d8229d22dae9d6c53aca42b0869acfad5"
+  }
+ },
+ "unchanged_verified": {
+  "results/le_adk_THIRD_PARTY_MD_DERIVATIVE_summary.json": "ec6316a27f9fff798488f816c7da77e761e148cfc2ef2e1b926ff2d0a4636d40",
+  "results/le_adk_THIRD_PARTY_MD_DERIVATIVE_analysis_a1.json": "026c46e526f40441e6643cb837089b69edfa8fc986d849f8b52426db427dd60b",
+  "results/le_adk_THIRD_PARTY_MD_DERIVATIVE_provenance.json": "f72c7e22b7bafdd5dbec8cc2263005f8bca6052770f62beefdd72b5d37f6b640",
+  "results/le_compute_timing.json": "a2158af9f86d38f557a6e8992fbb4d17f5dc5ea5330dcf428374665f230460a8",
+  "results/le_protocol_freeze.json": "9459ec736661bddf52b2130d08b03c48099c2c8bd1781e8fcfed71995ae38d2a",
+  "results/le_amendment1.json": "642423960740de3683cf7fa87d102a3a38ea6d1a7ca820081cd82b127f96c913",
+  "analyse_dev.py": "b7e19fd426c872ce818adc8d02aba6c82fa170ce62419e65d59976db59cc7693",
+  "analyse_dev_a1.py": "8db692db360530d6b4529ddf236519bb368a332e6554bbd0b8ea73317183ff31",
+  "run_dev.py": "0305d6c2509365fb2ed140ce4a0ec24a32226925a72b724c3901c604cd00dc20",
+  "legacy_lib.py": "09664243491188da3465425c879b9d42bdb8b2d1ac013c4a83596aec76248390"
+ }
+}
