@@ -1,0 +1,525 @@
+{
+ "_meta": {
+  "producer": "mdcath_download.py",
+  "authorization": "2026-10-05 user authorization: 30 primary domains from the pinned revision; no reserves",
+  "revision": "5e3ed8aec62b689e01751db16275fdcdbc39e47f",
+  "selection_sha256": "de0736ad3d832e4342f7b4522723ea2915d6ae39c43a9155bc22bc364477d16c",
+  "started_utc": "2026-10-05T19:16:14.921799+00:00",
+  "n_verified": 30,
+  "finished_utc": "2026-10-05T19:45:33.039302+00:00",
+  "all_verified": true,
+  "total_bytes": 16532123048
+ },
+ "files": [
+  {
+   "order": 1,
+   "domain": "2wp0D00",
+   "url": "https://huggingface.co/datasets/compsciencelab/mdCATH/resolve/5e3ed8aec62b689e01751db16275fdcdbc39e47f/data/mdcath_dataset_2wp0D00.h5",
+   "expected_size": 440685180,
+   "expected_sha256": "e639cc723a36b7bd855e5a5b65ec800ae9b703b362c4e90a5abefbfd6d1ce16d",
+   "path": "data/mdcath/mdcath_dataset_2wp0D00.h5",
+   "started_utc": "2026-10-05T19:16:14.921886+00:00",
+   "curl_exit_codes": [
+    0
+   ],
+   "attempts": 2,
+   "size": 440685180,
+   "sha256": "e639cc723a36b7bd855e5a5b65ec800ae9b703b362c4e90a5abefbfd6d1ce16d",
+   "verified": true,
+   "finished_utc": "2026-10-05T19:17:23.416118+00:00"
+  },
+  {
+   "order": 2,
+   "domain": "2wscN00",
+   "url": "https://huggingface.co/datasets/compsciencelab/mdCATH/resolve/5e3ed8aec62b689e01751db16275fdcdbc39e47f/data/mdcath_dataset_2wscN00.h5",
+   "expected_size": 439115328,
+   "expected_sha256": "3273e47e17cade1a9f7d053d5d13617a7a729951e9df07b190d68afe5263cb31",
+   "path": "data/mdcath/mdcath_dataset_2wscN00.h5",
+   "started_utc": "2026-10-05T19:17:23.416452+00:00",
+   "curl_exit_codes": [
+    0
+   ],
+   "attempts": 2,
+   "size": 439115328,
+   "sha256": "3273e47e17cade1a9f7d053d5d13617a7a729951e9df07b190d68afe5263cb31",
+   "verified": true,
+   "finished_utc": "2026-10-05T19:18:03.249163+00:00"
+  },
+  {
+   "order": 3,
+   "domain": "1neiA00",
+   "url": "https://huggingface.co/datasets/compsciencelab/mdCATH/resolve/5e3ed8aec62b689e01751db16275fdcdbc39e47f/data/mdcath_dataset_1neiA00.h5",
+   "expected_size": 274887548,
+   "expected_sha256": "d59ebf645f503935a572ffdb3d68f5b9d381c8dd8b4af3466f3df6c215b11395",
+   "path": "data/mdcath/mdcath_dataset_1neiA00.h5",
+   "started_utc": "2026-10-05T19:18:03.249465+00:00",
+   "curl_exit_codes": [
+    0
+   ],
+   "attempts": 2,
+   "size": 274887548,
+   "sha256": "d59ebf645f503935a572ffdb3d68f5b9d381c8dd8b4af3466f3df6c215b11395",
+   "verified": true,
+   "finished_utc": "2026-10-05T19:18:29.548031+00:00"
+  },
+  {
+   "order": 4,
+   "domain": "2hb0A01",
+   "url": "https://huggingface.co/datasets/compsciencelab/mdCATH/resolve/5e3ed8aec62b689e01751db16275fdcdbc39e47f/data/mdcath_dataset_2hb0A01.h5",
+   "expected_size": 859709304,
+   "expected_sha256": "81b67655571eafc465683fb7d42ddc58ef63d670542c2761d32b5cf2016ff911",
+   "path": "data/mdcath/mdcath_dataset_2hb0A01.h5",
+   "started_utc": "2026-10-05T19:18:29.548377+00:00",
+   "curl_exit_codes": [
+    0
+   ],
+   "attempts": 2,
+   "size": 859709304,
+   "sha256": "81b67655571eafc465683fb7d42ddc58ef63d670542c2761d32b5cf2016ff911",
+   "verified": true,
+   "finished_utc": "2026-10-05T19:19:56.198282+00:00"
+  },
+  {
+   "order": 5,
+   "domain": "1whoA00",
+   "url": "https://huggingface.co/datasets/compsciencelab/mdCATH/resolve/5e3ed8aec62b689e01751db16275fdcdbc39e47f/data/mdcath_dataset_1whoA00.h5",
+   "expected_size": 436395452,
+   "expected_sha256": "01522b0e5366059d059475dd3d911387a75fbeb5782db7c974027617527ddde7",
+   "path": "data/mdcath/mdcath_dataset_1whoA00.h5",
+   "started_utc": "2026-10-05T19:19:56.198773+00:00",
+   "curl_exit_codes": [
+    0
+   ],
+   "attempts": 2,
+   "size": 436395452,
+   "sha256": "01522b0e5366059d059475dd3d911387a75fbeb5782db7c974027617527ddde7",
+   "verified": true,
+   "finished_utc": "2026-10-05T19:21:01.603570+00:00"
+  },
+  {
+   "order": 6,
+   "domain": "3s0yA01",
+   "url": "https://huggingface.co/datasets/compsciencelab/mdCATH/resolve/5e3ed8aec62b689e01751db16275fdcdbc39e47f/data/mdcath_dataset_3s0yA01.h5",
+   "expected_size": 900106628,
+   "expected_sha256": "1663fd81a7feb776b4cc14f649a22f467e2676bfb931dc0d76f71f601b043231",
+   "path": "data/mdcath/mdcath_dataset_3s0yA01.h5",
+   "started_utc": "2026-10-05T19:21:01.603969+00:00",
+   "curl_exit_codes": [
+    0
+   ],
+   "attempts": 2,
+   "size": 900106628,
+   "sha256": "1663fd81a7feb776b4cc14f649a22f467e2676bfb931dc0d76f71f601b043231",
+   "verified": true,
+   "finished_utc": "2026-10-05T19:22:51.403679+00:00"
+  },
+  {
+   "order": 7,
+   "domain": "1v8cA01",
+   "url": "https://huggingface.co/datasets/compsciencelab/mdCATH/resolve/5e3ed8aec62b689e01751db16275fdcdbc39e47f/data/mdcath_dataset_1v8cA01.h5",
+   "expected_size": 394602560,
+   "expected_sha256": "7dfc43d13aedc3af681c426ab73d649fe040edfc45824ee049b6582f8bea3cc7",
+   "path": "data/mdcath/mdcath_dataset_1v8cA01.h5",
+   "started_utc": "2026-10-05T19:22:51.404087+00:00",
+   "curl_exit_codes": [
+    0
+   ],
+   "attempts": 2,
+   "size": 394602560,
+   "sha256": "7dfc43d13aedc3af681c426ab73d649fe040edfc45824ee049b6582f8bea3cc7",
+   "verified": true,
+   "finished_utc": "2026-10-05T19:23:30.043741+00:00"
+  },
+  {
+   "order": 8,
+   "domain": "2yx1A01",
+   "url": "https://huggingface.co/datasets/compsciencelab/mdCATH/resolve/5e3ed8aec62b689e01751db16275fdcdbc39e47f/data/mdcath_dataset_2yx1A01.h5",
+   "expected_size": 361009420,
+   "expected_sha256": "151a1f565ea873987da786b89f7ef877c480851aa2eec0c8ca771d09a3831223",
+   "path": "data/mdcath/mdcath_dataset_2yx1A01.h5",
+   "started_utc": "2026-10-05T19:23:30.044358+00:00",
+   "curl_exit_codes": [
+    0
+   ],
+   "attempts": 2,
+   "size": 361009420,
+   "sha256": "151a1f565ea873987da786b89f7ef877c480851aa2eec0c8ca771d09a3831223",
+   "verified": true,
+   "finished_utc": "2026-10-05T19:24:06.869288+00:00"
+  },
+  {
+   "order": 9,
+   "domain": "4ea9A02",
+   "url": "https://huggingface.co/datasets/compsciencelab/mdCATH/resolve/5e3ed8aec62b689e01751db16275fdcdbc39e47f/data/mdcath_dataset_4ea9A02.h5",
+   "expected_size": 484916940,
+   "expected_sha256": "d7024acc5e0378d2ab47a45ae042a669c70beffadc5ea00c0180b61fdc45dc05",
+   "path": "data/mdcath/mdcath_dataset_4ea9A02.h5",
+   "started_utc": "2026-10-05T19:24:06.869791+00:00",
+   "curl_exit_codes": [
+    0
+   ],
+   "attempts": 2,
+   "size": 484916940,
+   "sha256": "d7024acc5e0378d2ab47a45ae042a669c70beffadc5ea00c0180b61fdc45dc05",
+   "verified": true,
+   "finished_utc": "2026-10-05T19:24:52.820780+00:00"
+  },
+  {
+   "order": 10,
+   "domain": "2p08B00",
+   "url": "https://huggingface.co/datasets/compsciencelab/mdCATH/resolve/5e3ed8aec62b689e01751db16275fdcdbc39e47f/data/mdcath_dataset_2p08B00.h5",
+   "expected_size": 604372444,
+   "expected_sha256": "5fa1f575e4842047ca6c8660b82142972bd1f79c65075ecf7b234db0638959ba",
+   "path": "data/mdcath/mdcath_dataset_2p08B00.h5",
+   "started_utc": "2026-10-05T19:24:52.821218+00:00",
+   "curl_exit_codes": [
+    0
+   ],
+   "attempts": 2,
+   "size": 604372444,
+   "sha256": "5fa1f575e4842047ca6c8660b82142972bd1f79c65075ecf7b234db0638959ba",
+   "verified": true,
+   "finished_utc": "2026-10-05T19:25:54.621312+00:00"
+  },
+  {
+   "order": 11,
+   "domain": "1zvuA03",
+   "url": "https://huggingface.co/datasets/compsciencelab/mdCATH/resolve/5e3ed8aec62b689e01751db16275fdcdbc39e47f/data/mdcath_dataset_1zvuA03.h5",
+   "expected_size": 702323068,
+   "expected_sha256": "e721a32a65ceb8da07a6d973bc52e6d4d493a6abd2502b78ed90e865c2983af2",
+   "path": "data/mdcath/mdcath_dataset_1zvuA03.h5",
+   "started_utc": "2026-10-05T19:25:54.621748+00:00",
+   "curl_exit_codes": [
+    0
+   ],
+   "attempts": 2,
+   "size": 702323068,
+   "sha256": "e721a32a65ceb8da07a6d973bc52e6d4d493a6abd2502b78ed90e865c2983af2",
+   "verified": true,
+   "finished_utc": "2026-10-05T19:26:58.459205+00:00"
+  },
+  {
+   "order": 12,
+   "domain": "1d8bA00",
+   "url": "https://huggingface.co/datasets/compsciencelab/mdCATH/resolve/5e3ed8aec62b689e01751db16275fdcdbc39e47f/data/mdcath_dataset_1d8bA00.h5",
+   "expected_size": 397542900,
+   "expected_sha256": "adb1eff72e962720ac5b0297d8fd4394150e7e3aeb9ff9f77b63f80acd089532",
+   "path": "data/mdcath/mdcath_dataset_1d8bA00.h5",
+   "started_utc": "2026-10-05T19:26:58.459795+00:00",
+   "curl_exit_codes": [
+    0
+   ],
+   "attempts": 2,
+   "size": 397542900,
+   "sha256": "adb1eff72e962720ac5b0297d8fd4394150e7e3aeb9ff9f77b63f80acd089532",
+   "verified": true,
+   "finished_utc": "2026-10-05T19:27:41.033343+00:00"
+  },
+  {
+   "order": 13,
+   "domain": "1vz0A01",
+   "url": "https://huggingface.co/datasets/compsciencelab/mdCATH/resolve/5e3ed8aec62b689e01751db16275fdcdbc39e47f/data/mdcath_dataset_1vz0A01.h5",
+   "expected_size": 305531316,
+   "expected_sha256": "bf5ffd8c70ac18cfcc9709cb30c559e6253a446918788b2dfaf0fedde7f047f8",
+   "path": "data/mdcath/mdcath_dataset_1vz0A01.h5",
+   "started_utc": "2026-10-05T19:27:41.033811+00:00",
+   "curl_exit_codes": [
+    0
+   ],
+   "attempts": 2,
+   "size": 305531316,
+   "sha256": "bf5ffd8c70ac18cfcc9709cb30c559e6253a446918788b2dfaf0fedde7f047f8",
+   "verified": true,
+   "finished_utc": "2026-10-05T19:28:12.305128+00:00"
+  },
+  {
+   "order": 14,
+   "domain": "3wx4A00",
+   "url": "https://huggingface.co/datasets/compsciencelab/mdCATH/resolve/5e3ed8aec62b689e01751db16275fdcdbc39e47f/data/mdcath_dataset_3wx4A00.h5",
+   "expected_size": 510875644,
+   "expected_sha256": "0abb1d045927f24559f74fbdb6e990c3afee9052340bbff0a7ceda28d9cd38f2",
+   "path": "data/mdcath/mdcath_dataset_3wx4A00.h5",
+   "started_utc": "2026-10-05T19:28:12.305536+00:00",
+   "curl_exit_codes": [
+    0
+   ],
+   "attempts": 2,
+   "size": 510875644,
+   "sha256": "0abb1d045927f24559f74fbdb6e990c3afee9052340bbff0a7ceda28d9cd38f2",
+   "verified": true,
+   "finished_utc": "2026-10-05T19:29:07.083943+00:00"
+  },
+  {
+   "order": 15,
+   "domain": "2h85A02",
+   "url": "https://huggingface.co/datasets/compsciencelab/mdCATH/resolve/5e3ed8aec62b689e01751db16275fdcdbc39e47f/data/mdcath_dataset_2h85A02.h5",
+   "expected_size": 611226836,
+   "expected_sha256": "3492862ff2d7edd329e83e3d4ea4840f50071ddefd96ae515ef64bc9a03edca6",
+   "path": "data/mdcath/mdcath_dataset_2h85A02.h5",
+   "started_utc": "2026-10-05T19:29:07.084360+00:00",
+   "curl_exit_codes": [
+    0
+   ],
+   "attempts": 2,
+   "size": 611226836,
+   "sha256": "3492862ff2d7edd329e83e3d4ea4840f50071ddefd96ae515ef64bc9a03edca6",
+   "verified": true,
+   "finished_utc": "2026-10-05T19:30:08.887488+00:00"
+  },
+  {
+   "order": 16,
+   "domain": "2kzsA00",
+   "url": "https://huggingface.co/datasets/compsciencelab/mdCATH/resolve/5e3ed8aec62b689e01751db16275fdcdbc39e47f/data/mdcath_dataset_2kzsA00.h5",
+   "expected_size": 506812684,
+   "expected_sha256": "b06980a197e07c95daa239de8bcef79cabfc4a88e51e77dcc80419920edc9fd5",
+   "path": "data/mdcath/mdcath_dataset_2kzsA00.h5",
+   "started_utc": "2026-10-05T19:30:08.888260+00:00",
+   "curl_exit_codes": [
+    0
+   ],
+   "attempts": 2,
+   "size": 506812684,
+   "sha256": "b06980a197e07c95daa239de8bcef79cabfc4a88e51e77dcc80419920edc9fd5",
+   "verified": true,
+   "finished_utc": "2026-10-05T19:30:56.279448+00:00"
+  },
+  {
+   "order": 17,
+   "domain": "4u49B02",
+   "url": "https://huggingface.co/datasets/compsciencelab/mdCATH/resolve/5e3ed8aec62b689e01751db16275fdcdbc39e47f/data/mdcath_dataset_4u49B02.h5",
+   "expected_size": 1100050812,
+   "expected_sha256": "223056c8ec95b9b0960aced8bcaca0f2935676a0031a6654e1bb0105bd06f580",
+   "path": "data/mdcath/mdcath_dataset_4u49B02.h5",
+   "started_utc": "2026-10-05T19:30:56.328783+00:00",
+   "curl_exit_codes": [
+    0
+   ],
+   "attempts": 2,
+   "size": 1100050812,
+   "sha256": "223056c8ec95b9b0960aced8bcaca0f2935676a0031a6654e1bb0105bd06f580",
+   "verified": true,
+   "finished_utc": "2026-10-05T19:33:24.590634+00:00"
+  },
+  {
+   "order": 18,
+   "domain": "1s14B00",
+   "url": "https://huggingface.co/datasets/compsciencelab/mdCATH/resolve/5e3ed8aec62b689e01751db16275fdcdbc39e47f/data/mdcath_dataset_1s14B00.h5",
+   "expected_size": 822724476,
+   "expected_sha256": "f937176155360cffeb5d4628f8113cf8184d3eae127d0a44147e3c0b867017c4",
+   "path": "data/mdcath/mdcath_dataset_1s14B00.h5",
+   "started_utc": "2026-10-05T19:33:24.591193+00:00",
+   "curl_exit_codes": [
+    0
+   ],
+   "attempts": 2,
+   "size": 822724476,
+   "sha256": "f937176155360cffeb5d4628f8113cf8184d3eae127d0a44147e3c0b867017c4",
+   "verified": true,
+   "finished_utc": "2026-10-05T19:34:42.096355+00:00"
+  },
+  {
+   "order": 19,
+   "domain": "3udcA02",
+   "url": "https://huggingface.co/datasets/compsciencelab/mdCATH/resolve/5e3ed8aec62b689e01751db16275fdcdbc39e47f/data/mdcath_dataset_3udcA02.h5",
+   "expected_size": 254606412,
+   "expected_sha256": "ed3ab35e7aa6e7bb87edcfd290c6ebbdf07fadc421d03c6daa9e6217710f01df",
+   "path": "data/mdcath/mdcath_dataset_3udcA02.h5",
+   "started_utc": "2026-10-05T19:34:42.096848+00:00",
+   "curl_exit_codes": [
+    0
+   ],
+   "attempts": 2,
+   "size": 254606412,
+   "sha256": "ed3ab35e7aa6e7bb87edcfd290c6ebbdf07fadc421d03c6daa9e6217710f01df",
+   "verified": true,
+   "finished_utc": "2026-10-05T19:35:07.456840+00:00"
+  },
+  {
+   "order": 20,
+   "domain": "1aorA01",
+   "url": "https://huggingface.co/datasets/compsciencelab/mdCATH/resolve/5e3ed8aec62b689e01751db16275fdcdbc39e47f/data/mdcath_dataset_1aorA01.h5",
+   "expected_size": 959359672,
+   "expected_sha256": "e17e2afdb81c9b6763e8f3916d3eee9f086c6e10211f83b724d18ce7dd0a0859",
+   "path": "data/mdcath/mdcath_dataset_1aorA01.h5",
+   "started_utc": "2026-10-05T19:35:07.457304+00:00",
+   "curl_exit_codes": [
+    0
+   ],
+   "attempts": 2,
+   "size": 959359672,
+   "sha256": "e17e2afdb81c9b6763e8f3916d3eee9f086c6e10211f83b724d18ce7dd0a0859",
+   "verified": true,
+   "finished_utc": "2026-10-05T19:36:39.335710+00:00"
+  },
+  {
+   "order": 21,
+   "domain": "4dkwA00",
+   "url": "https://huggingface.co/datasets/compsciencelab/mdCATH/resolve/5e3ed8aec62b689e01751db16275fdcdbc39e47f/data/mdcath_dataset_4dkwA00.h5",
+   "expected_size": 1006556260,
+   "expected_sha256": "67b365034a5ac9759ca046ea65abf4d65f0fa01b2cd27375c657a1cdca077097",
+   "path": "data/mdcath/mdcath_dataset_4dkwA00.h5",
+   "started_utc": "2026-10-05T19:36:39.336507+00:00",
+   "curl_exit_codes": [
+    0
+   ],
+   "attempts": 2,
+   "size": 1006556260,
+   "sha256": "67b365034a5ac9759ca046ea65abf4d65f0fa01b2cd27375c657a1cdca077097",
+   "verified": true,
+   "finished_utc": "2026-10-05T19:38:10.341323+00:00"
+  },
+  {
+   "order": 22,
+   "domain": "1u6zA04",
+   "url": "https://huggingface.co/datasets/compsciencelab/mdCATH/resolve/5e3ed8aec62b689e01751db16275fdcdbc39e47f/data/mdcath_dataset_1u6zA04.h5",
+   "expected_size": 262767252,
+   "expected_sha256": "a4168377f89c984b42c1a3d1a671321d828f6add8301b6a1567bba2e5d61c97d",
+   "path": "data/mdcath/mdcath_dataset_1u6zA04.h5",
+   "started_utc": "2026-10-05T19:38:10.341843+00:00",
+   "curl_exit_codes": [
+    0
+   ],
+   "attempts": 2,
+   "size": 262767252,
+   "sha256": "a4168377f89c984b42c1a3d1a671321d828f6add8301b6a1567bba2e5d61c97d",
+   "verified": true,
+   "finished_utc": "2026-10-05T19:38:35.209701+00:00"
+  },
+  {
+   "order": 23,
+   "domain": "2bt9C01",
+   "url": "https://huggingface.co/datasets/compsciencelab/mdCATH/resolve/5e3ed8aec62b689e01751db16275fdcdbc39e47f/data/mdcath_dataset_2bt9C01.h5",
+   "expected_size": 371231680,
+   "expected_sha256": "473088a2c5f09dc4cdf7ccc2ae03a4052ebbcebdf0d71f68a240512daf50678d",
+   "path": "data/mdcath/mdcath_dataset_2bt9C01.h5",
+   "started_utc": "2026-10-05T19:38:35.210286+00:00",
+   "curl_exit_codes": [
+    0
+   ],
+   "attempts": 2,
+   "size": 371231680,
+   "sha256": "473088a2c5f09dc4cdf7ccc2ae03a4052ebbcebdf0d71f68a240512daf50678d",
+   "verified": true,
+   "finished_utc": "2026-10-05T19:39:12.131066+00:00"
+  },
+  {
+   "order": 24,
+   "domain": "2yztA00",
+   "url": "https://huggingface.co/datasets/compsciencelab/mdCATH/resolve/5e3ed8aec62b689e01751db16275fdcdbc39e47f/data/mdcath_dataset_2yztA00.h5",
+   "expected_size": 319739140,
+   "expected_sha256": "4b9cb28795c9b5a61ad4f93d66eeec840cb7b0d1d6de75cb90ee4694eec83cd6",
+   "path": "data/mdcath/mdcath_dataset_2yztA00.h5",
+   "started_utc": "2026-10-05T19:39:12.131496+00:00",
+   "curl_exit_codes": [
+    0
+   ],
+   "attempts": 2,
+   "size": 319739140,
+   "sha256": "4b9cb28795c9b5a61ad4f93d66eeec840cb7b0d1d6de75cb90ee4694eec83cd6",
+   "verified": true,
+   "finished_utc": "2026-10-05T19:39:44.647505+00:00"
+  },
+  {
+   "order": 25,
+   "domain": "3u61D03",
+   "url": "https://huggingface.co/datasets/compsciencelab/mdCATH/resolve/5e3ed8aec62b689e01751db16275fdcdbc39e47f/data/mdcath_dataset_3u61D03.h5",
+   "expected_size": 478003744,
+   "expected_sha256": "b0f3370cf26b8e502b069df49156ab7dffbae0f7047f700721ab4055b8c09b16",
+   "path": "data/mdcath/mdcath_dataset_3u61D03.h5",
+   "started_utc": "2026-10-05T19:39:44.696821+00:00",
+   "curl_exit_codes": [
+    0
+   ],
+   "attempts": 2,
+   "size": 478003744,
+   "sha256": "b0f3370cf26b8e502b069df49156ab7dffbae0f7047f700721ab4055b8c09b16",
+   "verified": true,
+   "finished_utc": "2026-10-05T19:40:33.139112+00:00"
+  },
+  {
+   "order": 26,
+   "domain": "3slpA00",
+   "url": "https://huggingface.co/datasets/compsciencelab/mdCATH/resolve/5e3ed8aec62b689e01751db16275fdcdbc39e47f/data/mdcath_dataset_3slpA00.h5",
+   "expected_size": 1026704140,
+   "expected_sha256": "25ae905ef3005874ddaf220f30e63e0f6360f6694de7fea7aea2c2026ee1b024",
+   "path": "data/mdcath/mdcath_dataset_3slpA00.h5",
+   "started_utc": "2026-10-05T19:40:33.139624+00:00",
+   "curl_exit_codes": [
+    0
+   ],
+   "attempts": 2,
+   "size": 1026704140,
+   "sha256": "25ae905ef3005874ddaf220f30e63e0f6360f6694de7fea7aea2c2026ee1b024",
+   "verified": true,
+   "finished_utc": "2026-10-05T19:42:33.961510+00:00"
+  },
+  {
+   "order": 27,
+   "domain": "4uhvA03",
+   "url": "https://huggingface.co/datasets/compsciencelab/mdCATH/resolve/5e3ed8aec62b689e01751db16275fdcdbc39e47f/data/mdcath_dataset_4uhvA03.h5",
+   "expected_size": 303566744,
+   "expected_sha256": "06d92737ba6439dd5c14f3c85e926702ecc165fbfd060c3d50bd78a5a0cbbbb9",
+   "path": "data/mdcath/mdcath_dataset_4uhvA03.h5",
+   "started_utc": "2026-10-05T19:42:33.962001+00:00",
+   "curl_exit_codes": [
+    0
+   ],
+   "attempts": 2,
+   "size": 303566744,
+   "sha256": "06d92737ba6439dd5c14f3c85e926702ecc165fbfd060c3d50bd78a5a0cbbbb9",
+   "verified": true,
+   "finished_utc": "2026-10-05T19:43:04.361072+00:00"
+  },
+  {
+   "order": 28,
+   "domain": "3zxsA04",
+   "url": "https://huggingface.co/datasets/compsciencelab/mdCATH/resolve/5e3ed8aec62b689e01751db16275fdcdbc39e47f/data/mdcath_dataset_3zxsA04.h5",
+   "expected_size": 361915524,
+   "expected_sha256": "455990ad85daad4c6d399f98b9b1bf59d053af3db65ce68b948af4a040f7dbe5",
+   "path": "data/mdcath/mdcath_dataset_3zxsA04.h5",
+   "started_utc": "2026-10-05T19:43:04.361660+00:00",
+   "curl_exit_codes": [
+    0
+   ],
+   "attempts": 2,
+   "size": 361915524,
+   "sha256": "455990ad85daad4c6d399f98b9b1bf59d053af3db65ce68b948af4a040f7dbe5",
+   "verified": true,
+   "finished_utc": "2026-10-05T19:43:41.196972+00:00"
+  },
+  {
+   "order": 29,
+   "domain": "3tekA00",
+   "url": "https://huggingface.co/datasets/compsciencelab/mdCATH/resolve/5e3ed8aec62b689e01751db16275fdcdbc39e47f/data/mdcath_dataset_3tekA00.h5",
+   "expected_size": 723218712,
+   "expected_sha256": "8e43468a893c45e06473da6444eef7a8b0dfb7031659aa33690164d30a25137b",
+   "path": "data/mdcath/mdcath_dataset_3tekA00.h5",
+   "started_utc": "2026-10-05T19:43:41.197558+00:00",
+   "curl_exit_codes": [
+    0
+   ],
+   "attempts": 2,
+   "size": 723218712,
+   "sha256": "8e43468a893c45e06473da6444eef7a8b0dfb7031659aa33690164d30a25137b",
+   "verified": true,
+   "finished_utc": "2026-10-05T19:44:45.904505+00:00"
+  },
+  {
+   "order": 30,
+   "domain": "3nwsA02",
+   "url": "https://huggingface.co/datasets/compsciencelab/mdCATH/resolve/5e3ed8aec62b689e01751db16275fdcdbc39e47f/data/mdcath_dataset_3nwsA02.h5",
+   "expected_size": 311565228,
+   "expected_sha256": "f236402ffa9d05831afa61f7f98b89b7daadc2fd147040b4c24ba187d332c71e",
+   "path": "data/mdcath/mdcath_dataset_3nwsA02.h5",
+   "started_utc": "2026-10-05T19:44:45.905117+00:00",
+   "curl_exit_codes": [
+    0
+   ],
+   "attempts": 2,
+   "size": 311565228,
+   "sha256": "f236402ffa9d05831afa61f7f98b89b7daadc2fd147040b4c24ba187d332c71e",
+   "verified": true,
+   "finished_utc": "2026-10-05T19:45:33.038842+00:00"
+  }
+ ]
+}

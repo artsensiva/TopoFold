@@ -1,0 +1,29 @@
+{
+ "frozen_utc": "2026-10-04T18:01:20.626055+00:00",
+ "scope": "WP-D held-out (mdCATH) protocol, proposed final; frozen before the domain draw, any download or scoring",
+ "protocol": "docs/WPD_HELDOUT_MDCATH_PROTOCOL.md",
+ "protocol_sha256": "2bc16aa7e534abee9f0c5d78d463ee514df5009401254965776f31a488e76800",
+ "supersedes": "docs/WPD_LOCAL_RETRIEVAL_PROTOCOL.md \u00a77-\u00a78 provisional mdCATH text (that file unchanged, sha256 a2d1bfe67243d3adac93ebd885f7e5bf4bd0e38dbf1480525358200166aef3df)",
+ "selection_script_sha256": "2294ac19d2561363793e1bd1f61498a17190b2514263d8fa6da0b5372347f02a",
+ "selection_tests_sha256": "18f89492e3381a3aa3b82a1bd5db2ddf154b038ca4897566b5f11b211ef1c8d3",
+ "metadata_sha256": {
+  "cath-domain-list-v4_2_0.txt": "831ca6f99b92033d2e4ff060061db0677fee934a145056cfd8c89576aaae777c",
+  "cath-names-v4_2_0.txt": "173319994255dd65595788b036d149d4251e1414cc6a2d75199d7cd879b2a561",
+  "README-cath-list-file-format.txt": "560c1c0a1558fc3407136cd47796063a6662b740b61769689bffdb688ab8baae",
+  "mdCATH_domains.txt": "295c6da1c9f8846a1ea3993eca12a3232d16a2b3a4b0d8791c7c45392186709b",
+  "mdcath_tree_data.json": "da081ad9e093bdb9d8ab8a17e571ffbb8c3e72a5567d670ad18821dd3f03a2f8",
+  "mdcath_tree_root.json": "d87b5ebb1f364ec59267398d65e65e4ecf96e41dea735747e83751561c3174e9",
+  "mdcath_api.json": "8b3c34d58e6979973e87c7875c8a25e94b9617f8c37d18bedc9e222ea09810c2"
+ },
+ "metadata_sources": {
+  "mdcath": "https://huggingface.co/api/datasets/compsciencelab/mdCATH (revision 5e3ed8aec62b689e01751db16275fdcdbc39e47f), tree API and mdCATH_domains.txt",
+  "cath": "https://download.cathdb.info/cath/releases/all-releases/v4_2_0/cath-classification-data/"
+ },
+ "seeds": {
+  "draw": 20261007,
+  "bootstrap": 20261008,
+  "spearman": "20261005 + 1000*W + i + 100000*domain_index + 10000000*temp_index"
+ },
+ "rho": 0.1,
+ "disclosure": "No mdCATH trajectory, dynamics summary or mdcath_source.h5 read. AdK results known when rho was chosen; AdK rule illustration computed after rho fixed. Aggregate metadata statistics computed before freeze."
+}

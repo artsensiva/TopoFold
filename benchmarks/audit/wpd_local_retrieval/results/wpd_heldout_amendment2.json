@@ -1,0 +1,61 @@
+{
+ "recorded_utc": "2026-10-05T19:10:11.201378+00:00",
+ "status": "PROPOSED; requires review before held-out scoring",
+ "amendment": "docs/WPD_HELDOUT_MDCATH_AMENDMENT_2.md",
+ "amendment_sha256": "2f568620da2adf8a6ad36056a4a05776b5398e11d9fe71accdfe4e43e6a85811",
+ "amends": {
+  "protocol_sha256": "2bc16aa7e534abee9f0c5d78d463ee514df5009401254965776f31a488e76800",
+  "amendment1_sha256": "e6f11995a866660e6d817112d61fbab2e330b4a07a5e6e354fac28daba34d407",
+  "original_freeze_sha256": "c826af3d1b895a97a31ee34c7c3e2024d19fea578c0d4316f0abc7f0ba0e7d49",
+  "amendment1_record_sha256": "37f4aacdfa8bce76c205d32be8084b623e4e0707808ad2562f9ab9ebb4be9d56"
+ },
+ "preserved_unchanged": {
+  "results/wpd_mdcath_selection.json": "de0736ad3d832e4342f7b4522723ea2915d6ae39c43a9155bc22bc364477d16c",
+  "HELDOUT_DOWNLOAD_REQUEST.md": "62774d2c99155cf32af90266e25476bc832b04b39fb212233633882a153326e9",
+  "mdcath_select.py": "2294ac19d2561363793e1bd1f61498a17190b2514263d8fa6da0b5372347f02a",
+  "heldout_decision.py": "80d0ff35ddf4ffbd5adf73670d5450cf610b7d3bd0bd936bf62601d25ac94a7c",
+  "test_heldout_decision.py": "01c5af8b15f33ef1c37fff6f5b47f381354a3693a0ef074dedcd9fce410c254b"
+ },
+ "method_A_reference": {
+  "file": "benchmarks/audit/legacy_engine/legacy_lib.py",
+  "sha256": "09664243491188da3465425c879b9d42bdb8b2d1ac013c4a83596aec76248390",
+  "function": "d_aligned",
+  "frozen_in": "docs/LEGACY_ENGINE_EVALUATION_PROTOCOL.md",
+  "frozen_sha256": "1ee5848025956f544bc24b04baba9ee54ed941324fe826a930ecb72ba1242cee"
+ },
+ "implementation_sha256": {
+  "heldout_decision_a2.py": "14847d95d41d734b412d55b9a98e0b7ae2a749ee4507209efa7641635946c836",
+  "heldout_dependence.py": "c8fb02f0059c0ae9c78f26e0af0d6d8be4ee450bc05a5e240713ac22fb4cd647",
+  "test_heldout_dependence.py": "1345b78a787a04094f685d066a8328503fae36a0805f3226605f47918a1ee5de",
+  "calibrate_tau_int.py": "f9b73fa07464ba617be1e9628061bae4099252efcde818aee23b8eeb008efd09",
+  "mdcath_reader.py": "f46ad1472c36cd8db226877a1b84621c821c5f577a92b0ab5dfc9d9d4d6176a5",
+  "test_mdcath_reader.py": "d8ed646e4f7f596c03e576995b628c93c62671f32956296f12396d678fd8fcf7",
+  "mdcath_schema_check.py": "f3d68f4a75f0d8552cc33251c42dc5ae7695a4c39906f327b6b8c2599dfc227c"
+ },
+ "evidence_sha256": {
+  "results/SYNTHETIC_tau_int_calibration.json": "74a3b126aae9c6add9b4189bd32c403aeb3c282d4e5b0b2de48cda133cd33082",
+  "results/wpd_mdcath_schema_check.json": "bed2ef19a79a80d62cd4a0fd702602c520d8e8b8096d7047b4629aafa1d5c3a9"
+ },
+ "tests": "42 passed in 1.41s",
+ "downloads_and_installs": {
+  "schema_sample": {
+   "domain": "1ha8A00",
+   "url": "https://huggingface.co/datasets/compsciencelab/mdCATH/resolve/5e3ed8aec62b689e01751db16275fdcdbc39e47f/data/mdcath_dataset_1ha8A00.h5",
+   "revision": "5e3ed8aec62b689e01751db16275fdcdbc39e47f",
+   "expected_size": 195660164,
+   "size": 195660164,
+   "expected_lfs_sha256": "e06d8cdb5d8b6fef7e1a5c23df7b95c77972bc6c90c5cdbe7e17404291bcc8cc",
+   "sha256": "e06d8cdb5d8b6fef7e1a5c23df7b95c77972bc6c90c5cdbe7e17404291bcc8cc",
+   "verified": true
+  },
+  "h5py": {
+   "version": "3.16.0",
+   "wheel": "h5py-3.16.0-cp314-cp314-manylinux_2_28_x86_64.whl",
+   "wheel_sha256": "e4360f15875a532bc7b98196c7592ed4fc92672a57c0a621355961cafb17a6dd",
+   "hdf5": "2.0.0",
+   "venv": "benchmarks/audit/wpd_local_retrieval/build/venv",
+   "pip_freeze_after": "build/pip_freeze_after_h5py.txt"
+  }
+ },
+ "disclosure": "Method A added because it was best on the AdK phi/psi target in LE-1 (development data; post-hoc selection effect to be tested by the held-out tier). No held-out domain downloaded or scored. Schema sample is development data; its superfamily is already excluded."
+}

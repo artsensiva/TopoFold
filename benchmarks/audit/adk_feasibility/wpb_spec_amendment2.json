@@ -1,0 +1,55 @@
+{
+ "amends": [
+  "SPEC.md",
+  "wpb_spec.json"
+ ],
+ "declared_sequence": "MRIILLGAPGAGKGTQAQFIMEKYGIPQISTGDMLRAAVKSGSELGKQAKDIMDAGKLVTDELVIALVKERIAQEDCRNGFLLDGFPRTIPQADAMKEAGINVDYVLEFDVPDELIVDRIVGRRVHAPSGRVYHVKFNPPKVEGKDDVTGEELTTRKDDQEETVRKRLVEYHQMTAPLIGYYSKEAEAGNTKYAKVDGTKPVAEVRADLEKILG",
+ "declared_sequence_source": "RCSB REST polymer_entity 4AKE/1 and 1AKE/1, pdbx_seq_one_letter_code_can (identical)",
+ "resid_range": [
+  1,
+  214
+ ],
+ "primary_chains": {
+  "4AKE": "A",
+  "1AKE": "A"
+ },
+ "sensitivity_chains": {
+  "4AKE": "B",
+  "1AKE": "B"
+ },
+ "altloc_policy": "blank, else A, else mapping failure",
+ "core_requires_convergence": true,
+ "sustained_span_ns": 5.0,
+ "cadence_tolerance_ps": 0.001,
+ "start_window_ns": 5.0,
+ "ambiguity_dominance_fraction": 0.5,
+ "kabsch_crosscheck": {
+  "tolerance_A": 1e-06,
+  "every_nth_frame": 50,
+  "reference": "MDAnalysis.analysis.rms.rmsd (QCP)"
+ },
+ "variants": {
+  "fractions_primary_core": [
+   0.2,
+   0.25,
+   0.33
+  ],
+  "primary": {
+   "fraction": 0.25,
+   "chain": "A",
+   "core_cutoff_A": 1.0
+  },
+  "core_cutoff_sensitivity_A": [
+   0.5,
+   2.0
+  ],
+  "chainB_sensitivity": true
+ },
+ "core_algorithm": {
+  "amendment": 2,
+  "phase1_trim_fraction": 0.1,
+  "phase1_max_steps": 200,
+  "phase2_max_iter": 50,
+  "converged_requires": "phase1 condition met and phase2 fixed point"
+ }
+}

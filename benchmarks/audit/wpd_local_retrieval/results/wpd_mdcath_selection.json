@@ -1,0 +1,501 @@
+{
+ "_meta": {
+  "producer": "mdcath_select.py",
+  "generated_utc": "2026-10-04T18:01:21.609066+00:00",
+  "protocol": "docs/WPD_HELDOUT_MDCATH_PROTOCOL.md",
+  "protocol_sha256": "2bc16aa7e534abee9f0c5d78d463ee514df5009401254965776f31a488e76800",
+  "freeze_sha256": "c826af3d1b895a97a31ee34c7c3e2024d19fea578c0d4316f0abc7f0ba0e7d49",
+  "revision": "5e3ed8aec62b689e01751db16275fdcdbc39e47f",
+  "seed": 20261007,
+  "reads": "metadata only (CATH 4.2.0 lists, mdCATH domain list and file tree); no trajectory"
+ },
+ "pool": {
+  "mdcath_domains": 5398,
+  "metadata_failures": {
+   "not_in_tree": 0,
+   "not_in_cath": 0,
+   "length_out_of_range": 290
+  },
+  "metadata_eligible": 5108,
+  "excluded_superfamilies": {
+   "3.40.50.300": "AdK (E. coli adenylate kinase, 4ake/1ake) development protein",
+   "3.40.190.100": "superfamily of 1r9lA02, example domain in the mdCATH authors notebook",
+   "1.10.10.190": "superfamily of the schema-inspection sample 1ha8A00 (development data)"
+  },
+  "domains_in_excluded_superfamilies": 60,
+  "drawable_superfamilies": 2445,
+  "drawable_domains": 5048
+ },
+ "files": [
+  {
+   "order": 0,
+   "role": "schema_sample_development",
+   "domain": "1ha8A00",
+   "superfamily": "1.10.10.190",
+   "superfamily_name": "",
+   "cath_length": 51,
+   "size_bytes": 195660164,
+   "lfs_sha256": "e06d8cdb5d8b6fef7e1a5c23df7b95c77972bc6c90c5cdbe7e17404291bcc8cc",
+   "url": "https://huggingface.co/datasets/compsciencelab/mdCATH/resolve/5e3ed8aec62b689e01751db16275fdcdbc39e47f/data/mdcath_dataset_1ha8A00.h5"
+  },
+  {
+   "order": 1,
+   "role": "primary",
+   "domain": "2wp0D00",
+   "superfamily": "3.30.300.180",
+   "superfamily_name": "",
+   "cath_length": 87,
+   "size_bytes": 440685180,
+   "lfs_sha256": "e639cc723a36b7bd855e5a5b65ec800ae9b703b362c4e90a5abefbfd6d1ce16d",
+   "url": "https://huggingface.co/datasets/compsciencelab/mdCATH/resolve/5e3ed8aec62b689e01751db16275fdcdbc39e47f/data/mdcath_dataset_2wp0D00.h5"
+  },
+  {
+   "order": 2,
+   "role": "primary",
+   "domain": "2wscN00",
+   "superfamily": "4.10.1190.10",
+   "superfamily_name": "Chlorophyll A-B binding protein",
+   "cath_length": 85,
+   "size_bytes": 439115328,
+   "lfs_sha256": "3273e47e17cade1a9f7d053d5d13617a7a729951e9df07b190d68afe5263cb31",
+   "url": "https://huggingface.co/datasets/compsciencelab/mdCATH/resolve/5e3ed8aec62b689e01751db16275fdcdbc39e47f/data/mdcath_dataset_2wscN00.h5"
+  },
+  {
+   "order": 3,
+   "role": "primary",
+   "domain": "1neiA00",
+   "superfamily": "3.30.160.220",
+   "superfamily_name": "YoaG",
+   "cath_length": 60,
+   "size_bytes": 274887548,
+   "lfs_sha256": "d59ebf645f503935a572ffdb3d68f5b9d381c8dd8b4af3466f3df6c215b11395",
+   "url": "https://huggingface.co/datasets/compsciencelab/mdCATH/resolve/5e3ed8aec62b689e01751db16275fdcdbc39e47f/data/mdcath_dataset_1neiA00.h5"
+  },
+  {
+   "order": 4,
+   "role": "primary",
+   "domain": "2hb0A01",
+   "superfamily": "2.60.40.2520",
+   "superfamily_name": "",
+   "cath_length": 177,
+   "size_bytes": 859709304,
+   "lfs_sha256": "81b67655571eafc465683fb7d42ddc58ef63d670542c2761d32b5cf2016ff911",
+   "url": "https://huggingface.co/datasets/compsciencelab/mdCATH/resolve/5e3ed8aec62b689e01751db16275fdcdbc39e47f/data/mdcath_dataset_2hb0A01.h5"
+  },
+  {
+   "order": 5,
+   "role": "primary",
+   "domain": "1whoA00",
+   "superfamily": "2.60.40.760",
+   "superfamily_name": "Expansin, cellulose-binding-like domain",
+   "cath_length": 94,
+   "size_bytes": 436395452,
+   "lfs_sha256": "01522b0e5366059d059475dd3d911387a75fbeb5782db7c974027617527ddde7",
+   "url": "https://huggingface.co/datasets/compsciencelab/mdCATH/resolve/5e3ed8aec62b689e01751db16275fdcdbc39e47f/data/mdcath_dataset_1whoA00.h5"
+  },
+  {
+   "order": 6,
+   "role": "primary",
+   "domain": "3s0yA01",
+   "superfamily": "3.30.1330.60",
+   "superfamily_name": "OmpA-like domain",
+   "cath_length": 178,
+   "size_bytes": 900106628,
+   "lfs_sha256": "1663fd81a7feb776b4cc14f649a22f467e2676bfb931dc0d76f71f601b043231",
+   "url": "https://huggingface.co/datasets/compsciencelab/mdCATH/resolve/5e3ed8aec62b689e01751db16275fdcdbc39e47f/data/mdcath_dataset_3s0yA01.h5"
+  },
+  {
+   "order": 7,
+   "role": "primary",
+   "domain": "1v8cA01",
+   "superfamily": "3.10.20.30",
+   "superfamily_name": "",
+   "cath_length": 85,
+   "size_bytes": 394602560,
+   "lfs_sha256": "7dfc43d13aedc3af681c426ab73d649fe040edfc45824ee049b6582f8bea3cc7",
+   "url": "https://huggingface.co/datasets/compsciencelab/mdCATH/resolve/5e3ed8aec62b689e01751db16275fdcdbc39e47f/data/mdcath_dataset_1v8cA01.h5"
+  },
+  {
+   "order": 8,
+   "role": "primary",
+   "domain": "2yx1A01",
+   "superfamily": "3.30.70.2580",
+   "superfamily_name": "",
+   "cath_length": 66,
+   "size_bytes": 361009420,
+   "lfs_sha256": "151a1f565ea873987da786b89f7ef877c480851aa2eec0c8ca771d09a3831223",
+   "url": "https://huggingface.co/datasets/compsciencelab/mdCATH/resolve/5e3ed8aec62b689e01751db16275fdcdbc39e47f/data/mdcath_dataset_2yx1A01.h5"
+  },
+  {
+   "order": 9,
+   "role": "primary",
+   "domain": "4ea9A02",
+   "superfamily": "2.160.10.10",
+   "superfamily_name": "Hexapeptide repeat proteins",
+   "cath_length": 110,
+   "size_bytes": 484916940,
+   "lfs_sha256": "d7024acc5e0378d2ab47a45ae042a669c70beffadc5ea00c0180b61fdc45dc05",
+   "url": "https://huggingface.co/datasets/compsciencelab/mdCATH/resolve/5e3ed8aec62b689e01751db16275fdcdbc39e47f/data/mdcath_dataset_4ea9A02.h5"
+  },
+  {
+   "order": 10,
+   "role": "primary",
+   "domain": "2p08B00",
+   "superfamily": "3.30.450.260",
+   "superfamily_name": "",
+   "cath_length": 110,
+   "size_bytes": 604372444,
+   "lfs_sha256": "5fa1f575e4842047ca6c8660b82142972bd1f79c65075ecf7b234db0638959ba",
+   "url": "https://huggingface.co/datasets/compsciencelab/mdCATH/resolve/5e3ed8aec62b689e01751db16275fdcdbc39e47f/data/mdcath_dataset_2p08B00.h5"
+  },
+  {
+   "order": 11,
+   "role": "primary",
+   "domain": "1zvuA03",
+   "superfamily": "1.10.268.10",
+   "superfamily_name": "Topoisomerase, domain 3",
+   "cath_length": 140,
+   "size_bytes": 702323068,
+   "lfs_sha256": "e721a32a65ceb8da07a6d973bc52e6d4d493a6abd2502b78ed90e865c2983af2",
+   "url": "https://huggingface.co/datasets/compsciencelab/mdCATH/resolve/5e3ed8aec62b689e01751db16275fdcdbc39e47f/data/mdcath_dataset_1zvuA03.h5"
+  },
+  {
+   "order": 12,
+   "role": "primary",
+   "domain": "1d8bA00",
+   "superfamily": "1.10.150.80",
+   "superfamily_name": "",
+   "cath_length": 81,
+   "size_bytes": 397542900,
+   "lfs_sha256": "adb1eff72e962720ac5b0297d8fd4394150e7e3aeb9ff9f77b63f80acd089532",
+   "url": "https://huggingface.co/datasets/compsciencelab/mdCATH/resolve/5e3ed8aec62b689e01751db16275fdcdbc39e47f/data/mdcath_dataset_1d8bA00.h5"
+  },
+  {
+   "order": 13,
+   "role": "primary",
+   "domain": "1vz0A01",
+   "superfamily": "3.90.1530.30",
+   "superfamily_name": "",
+   "cath_length": 63,
+   "size_bytes": 305531316,
+   "lfs_sha256": "bf5ffd8c70ac18cfcc9709cb30c559e6253a446918788b2dfaf0fedde7f047f8",
+   "url": "https://huggingface.co/datasets/compsciencelab/mdCATH/resolve/5e3ed8aec62b689e01751db16275fdcdbc39e47f/data/mdcath_dataset_1vz0A01.h5"
+  },
+  {
+   "order": 14,
+   "role": "primary",
+   "domain": "3wx4A00",
+   "superfamily": "3.30.70.2770",
+   "superfamily_name": "",
+   "cath_length": 98,
+   "size_bytes": 510875644,
+   "lfs_sha256": "0abb1d045927f24559f74fbdb6e990c3afee9052340bbff0a7ceda28d9cd38f2",
+   "url": "https://huggingface.co/datasets/compsciencelab/mdCATH/resolve/5e3ed8aec62b689e01751db16275fdcdbc39e47f/data/mdcath_dataset_3wx4A00.h5"
+  },
+  {
+   "order": 15,
+   "role": "primary",
+   "domain": "2h85A02",
+   "superfamily": "3.40.50.11580",
+   "superfamily_name": "",
+   "cath_length": 126,
+   "size_bytes": 611226836,
+   "lfs_sha256": "3492862ff2d7edd329e83e3d4ea4840f50071ddefd96ae515ef64bc9a03edca6",
+   "url": "https://huggingface.co/datasets/compsciencelab/mdCATH/resolve/5e3ed8aec62b689e01751db16275fdcdbc39e47f/data/mdcath_dataset_2h85A02.h5"
+  },
+  {
+   "order": 16,
+   "role": "primary",
+   "domain": "2kzsA00",
+   "superfamily": "1.10.8.810",
+   "superfamily_name": "",
+   "cath_length": 94,
+   "size_bytes": 506812684,
+   "lfs_sha256": "b06980a197e07c95daa239de8bcef79cabfc4a88e51e77dcc80419920edc9fd5",
+   "url": "https://huggingface.co/datasets/compsciencelab/mdCATH/resolve/5e3ed8aec62b689e01751db16275fdcdbc39e47f/data/mdcath_dataset_2kzsA00.h5"
+  },
+  {
+   "order": 17,
+   "role": "primary",
+   "domain": "4u49B02",
+   "superfamily": "2.160.20.10",
+   "superfamily_name": "Single-stranded right-handed beta-helix, Pectin lyase-like",
+   "cath_length": 228,
+   "size_bytes": 1100050812,
+   "lfs_sha256": "223056c8ec95b9b0960aced8bcaca0f2935676a0031a6654e1bb0105bd06f580",
+   "url": "https://huggingface.co/datasets/compsciencelab/mdCATH/resolve/5e3ed8aec62b689e01751db16275fdcdbc39e47f/data/mdcath_dataset_4u49B02.h5"
+  },
+  {
+   "order": 18,
+   "role": "primary",
+   "domain": "1s14B00",
+   "superfamily": "3.30.565.10",
+   "superfamily_name": "Histidine kinase-like ATPase, C-terminal domain",
+   "cath_length": 178,
+   "size_bytes": 822724476,
+   "lfs_sha256": "f937176155360cffeb5d4628f8113cf8184d3eae127d0a44147e3c0b867017c4",
+   "url": "https://huggingface.co/datasets/compsciencelab/mdCATH/resolve/5e3ed8aec62b689e01751db16275fdcdbc39e47f/data/mdcath_dataset_1s14B00.h5"
+  },
+  {
+   "order": 19,
+   "role": "primary",
+   "domain": "3udcA02",
+   "superfamily": "2.30.30.60",
+   "superfamily_name": "",
+   "cath_length": 50,
+   "size_bytes": 254606412,
+   "lfs_sha256": "ed3ab35e7aa6e7bb87edcfd290c6ebbdf07fadc421d03c6daa9e6217710f01df",
+   "url": "https://huggingface.co/datasets/compsciencelab/mdCATH/resolve/5e3ed8aec62b689e01751db16275fdcdbc39e47f/data/mdcath_dataset_3udcA02.h5"
+  },
+  {
+   "order": 20,
+   "role": "primary",
+   "domain": "1aorA01",
+   "superfamily": "3.60.9.10",
+   "superfamily_name": "Aldehyde ferredoxin oxidoreductase, N-terminal domain",
+   "cath_length": 211,
+   "size_bytes": 959359672,
+   "lfs_sha256": "e17e2afdb81c9b6763e8f3916d3eee9f086c6e10211f83b724d18ce7dd0a0859",
+   "url": "https://huggingface.co/datasets/compsciencelab/mdCATH/resolve/5e3ed8aec62b689e01751db16275fdcdbc39e47f/data/mdcath_dataset_1aorA01.h5"
+  },
+  {
+   "order": 21,
+   "role": "primary",
+   "domain": "4dkwA00",
+   "superfamily": "3.30.420.280",
+   "superfamily_name": "",
+   "cath_length": 194,
+   "size_bytes": 1006556260,
+   "lfs_sha256": "67b365034a5ac9759ca046ea65abf4d65f0fa01b2cd27375c657a1cdca077097",
+   "url": "https://huggingface.co/datasets/compsciencelab/mdCATH/resolve/5e3ed8aec62b689e01751db16275fdcdbc39e47f/data/mdcath_dataset_4dkwA00.h5"
+  },
+  {
+   "order": 22,
+   "role": "primary",
+   "domain": "1u6zA04",
+   "superfamily": "3.30.70.2260",
+   "superfamily_name": "",
+   "cath_length": 53,
+   "size_bytes": 262767252,
+   "lfs_sha256": "a4168377f89c984b42c1a3d1a671321d828f6add8301b6a1567bba2e5d61c97d",
+   "url": "https://huggingface.co/datasets/compsciencelab/mdCATH/resolve/5e3ed8aec62b689e01751db16275fdcdbc39e47f/data/mdcath_dataset_1u6zA04.h5"
+  },
+  {
+   "order": 23,
+   "role": "primary",
+   "domain": "2bt9C01",
+   "superfamily": "2.40.128.190",
+   "superfamily_name": "",
+   "cath_length": 83,
+   "size_bytes": 371231680,
+   "lfs_sha256": "473088a2c5f09dc4cdf7ccc2ae03a4052ebbcebdf0d71f68a240512daf50678d",
+   "url": "https://huggingface.co/datasets/compsciencelab/mdCATH/resolve/5e3ed8aec62b689e01751db16275fdcdbc39e47f/data/mdcath_dataset_2bt9C01.h5"
+  },
+  {
+   "order": 24,
+   "role": "primary",
+   "domain": "2yztA00",
+   "superfamily": "3.30.160.250",
+   "superfamily_name": "",
+   "cath_length": 66,
+   "size_bytes": 319739140,
+   "lfs_sha256": "4b9cb28795c9b5a61ad4f93d66eeec840cb7b0d1d6de75cb90ee4694eec83cd6",
+   "url": "https://huggingface.co/datasets/compsciencelab/mdCATH/resolve/5e3ed8aec62b689e01751db16275fdcdbc39e47f/data/mdcath_dataset_2yztA00.h5"
+  },
+  {
+   "order": 25,
+   "role": "primary",
+   "domain": "3u61D03",
+   "superfamily": "1.20.272.10",
+   "superfamily_name": "",
+   "cath_length": 91,
+   "size_bytes": 478003744,
+   "lfs_sha256": "b0f3370cf26b8e502b069df49156ab7dffbae0f7047f700721ab4055b8c09b16",
+   "url": "https://huggingface.co/datasets/compsciencelab/mdCATH/resolve/5e3ed8aec62b689e01751db16275fdcdbc39e47f/data/mdcath_dataset_3u61D03.h5"
+  },
+  {
+   "order": 26,
+   "role": "primary",
+   "domain": "3slpA00",
+   "superfamily": "3.90.320.10",
+   "superfamily_name": "",
+   "cath_length": 226,
+   "size_bytes": 1026704140,
+   "lfs_sha256": "25ae905ef3005874ddaf220f30e63e0f6360f6694de7fea7aea2c2026ee1b024",
+   "url": "https://huggingface.co/datasets/compsciencelab/mdCATH/resolve/5e3ed8aec62b689e01751db16275fdcdbc39e47f/data/mdcath_dataset_3slpA00.h5"
+  },
+  {
+   "order": 27,
+   "role": "primary",
+   "domain": "4uhvA03",
+   "superfamily": "3.30.1920.30",
+   "superfamily_name": "",
+   "cath_length": 63,
+   "size_bytes": 303566744,
+   "lfs_sha256": "06d92737ba6439dd5c14f3c85e926702ecc165fbfd060c3d50bd78a5a0cbbbb9",
+   "url": "https://huggingface.co/datasets/compsciencelab/mdCATH/resolve/5e3ed8aec62b689e01751db16275fdcdbc39e47f/data/mdcath_dataset_4uhvA03.h5"
+  },
+  {
+   "order": 28,
+   "role": "primary",
+   "domain": "3zxsA04",
+   "superfamily": "1.10.10.1710",
+   "superfamily_name": "",
+   "cath_length": 70,
+   "size_bytes": 361915524,
+   "lfs_sha256": "455990ad85daad4c6d399f98b9b1bf59d053af3db65ce68b948af4a040f7dbe5",
+   "url": "https://huggingface.co/datasets/compsciencelab/mdCATH/resolve/5e3ed8aec62b689e01751db16275fdcdbc39e47f/data/mdcath_dataset_3zxsA04.h5"
+  },
+  {
+   "order": 29,
+   "role": "primary",
+   "domain": "3tekA00",
+   "superfamily": "3.30.470.50",
+   "superfamily_name": "",
+   "cath_length": 139,
+   "size_bytes": 723218712,
+   "lfs_sha256": "8e43468a893c45e06473da6444eef7a8b0dfb7031659aa33690164d30a25137b",
+   "url": "https://huggingface.co/datasets/compsciencelab/mdCATH/resolve/5e3ed8aec62b689e01751db16275fdcdbc39e47f/data/mdcath_dataset_3tekA00.h5"
+  },
+  {
+   "order": 30,
+   "role": "primary",
+   "domain": "3nwsA02",
+   "superfamily": "1.10.10.2380",
+   "superfamily_name": "",
+   "cath_length": 54,
+   "size_bytes": 311565228,
+   "lfs_sha256": "f236402ffa9d05831afa61f7f98b89b7daadc2fd147040b4c24ba187d332c71e",
+   "url": "https://huggingface.co/datasets/compsciencelab/mdCATH/resolve/5e3ed8aec62b689e01751db16275fdcdbc39e47f/data/mdcath_dataset_3nwsA02.h5"
+  },
+  {
+   "order": 31,
+   "role": "reserve",
+   "domain": "3av0A01",
+   "superfamily": "3.60.21.10",
+   "superfamily_name": "",
+   "cath_length": 250,
+   "size_bytes": 1377485592,
+   "lfs_sha256": "d1e7ffb560921acad56af31ddb01e1e7a8e7eabaf01a78a5b8354b03307252c3",
+   "url": "https://huggingface.co/datasets/compsciencelab/mdCATH/resolve/5e3ed8aec62b689e01751db16275fdcdbc39e47f/data/mdcath_dataset_3av0A01.h5"
+  },
+  {
+   "order": 32,
+   "role": "reserve",
+   "domain": "2l23A00",
+   "superfamily": "2.40.290.30",
+   "superfamily_name": "",
+   "cath_length": 161,
+   "size_bytes": 873596232,
+   "lfs_sha256": "b988914114e5a36428e4da8318f52ea423dde0845d8ac7066c646990c85efd9f",
+   "url": "https://huggingface.co/datasets/compsciencelab/mdCATH/resolve/5e3ed8aec62b689e01751db16275fdcdbc39e47f/data/mdcath_dataset_2l23A00.h5"
+  },
+  {
+   "order": 33,
+   "role": "reserve",
+   "domain": "2zj8A03",
+   "superfamily": "1.10.3380.30",
+   "superfamily_name": "",
+   "cath_length": 233,
+   "size_bytes": 1270389832,
+   "lfs_sha256": "5c628fda1f9baababe78230dd16fbdd493e302894964608a9e37d5af393a5b22",
+   "url": "https://huggingface.co/datasets/compsciencelab/mdCATH/resolve/5e3ed8aec62b689e01751db16275fdcdbc39e47f/data/mdcath_dataset_2zj8A03.h5"
+  },
+  {
+   "order": 34,
+   "role": "reserve",
+   "domain": "3lppA02",
+   "superfamily": "2.60.40.1760",
+   "superfamily_name": "glycosyl hydrolase (family 31)",
+   "cath_length": 237,
+   "size_bytes": 1190198648,
+   "lfs_sha256": "c2a13e2d58db59d5028c1474b89c9cc5b788bb1a5789328970ec757af028b086",
+   "url": "https://huggingface.co/datasets/compsciencelab/mdCATH/resolve/5e3ed8aec62b689e01751db16275fdcdbc39e47f/data/mdcath_dataset_3lppA02.h5"
+  },
+  {
+   "order": 35,
+   "role": "reserve",
+   "domain": "4uuwB02",
+   "superfamily": "3.30.70.2860",
+   "superfamily_name": "",
+   "cath_length": 74,
+   "size_bytes": 371032292,
+   "lfs_sha256": "baeb455e4d387050b12b8ea480c22d86af7cda16d3084a99d75f999a9fe6063b",
+   "url": "https://huggingface.co/datasets/compsciencelab/mdCATH/resolve/5e3ed8aec62b689e01751db16275fdcdbc39e47f/data/mdcath_dataset_4uuwB02.h5"
+  },
+  {
+   "order": 36,
+   "role": "reserve",
+   "domain": "2ljuA01",
+   "superfamily": "3.30.160.190",
+   "superfamily_name": "atu1810 like domain",
+   "cath_length": 75,
+   "size_bytes": 397135296,
+   "lfs_sha256": "c5fe0f94f4eb9e61ad9ee2051167991f2139f444a7922134d1e18de314129ad3",
+   "url": "https://huggingface.co/datasets/compsciencelab/mdCATH/resolve/5e3ed8aec62b689e01751db16275fdcdbc39e47f/data/mdcath_dataset_2ljuA01.h5"
+  },
+  {
+   "order": 37,
+   "role": "reserve",
+   "domain": "1wxwA01",
+   "superfamily": "2.30.130.10",
+   "superfamily_name": "PUA domain",
+   "cath_length": 65,
+   "size_bytes": 319523372,
+   "lfs_sha256": "39e1489be9c36ae702bbe4c592c46c1748e88c2db837d9b7f871409f8ca2ad53",
+   "url": "https://huggingface.co/datasets/compsciencelab/mdCATH/resolve/5e3ed8aec62b689e01751db16275fdcdbc39e47f/data/mdcath_dataset_1wxwA01.h5"
+  },
+  {
+   "order": 38,
+   "role": "reserve",
+   "domain": "2j8gA03",
+   "superfamily": "2.20.120.10",
+   "superfamily_name": "Multimodular pneumococcal cell wall endolysin, domain 3",
+   "cath_length": 58,
+   "size_bytes": 300650436,
+   "lfs_sha256": "346e134a8f669dd9983e1ac25d58acce22a86905c98159c749241331e13281e0",
+   "url": "https://huggingface.co/datasets/compsciencelab/mdCATH/resolve/5e3ed8aec62b689e01751db16275fdcdbc39e47f/data/mdcath_dataset_2j8gA03.h5"
+  },
+  {
+   "order": 39,
+   "role": "reserve",
+   "domain": "1qrjA01",
+   "superfamily": "1.10.375.10",
+   "superfamily_name": "Human Immunodeficiency Virus Type 1 Capsid Protein",
+   "cath_length": 118,
+   "size_bytes": 549707500,
+   "lfs_sha256": "debe66cd6a10c42c5dcd6053a349c7889f687bfc78fd8e63ed737ca5a47ee0f5",
+   "url": "https://huggingface.co/datasets/compsciencelab/mdCATH/resolve/5e3ed8aec62b689e01751db16275fdcdbc39e47f/data/mdcath_dataset_1qrjA01.h5"
+  },
+  {
+   "order": 40,
+   "role": "reserve",
+   "domain": "1lmlA02",
+   "superfamily": "3.90.132.10",
+   "superfamily_name": "Leishmanolysin , domain 2",
+   "cath_length": 124,
+   "size_bytes": 546858776,
+   "lfs_sha256": "c06ee16a495656dbca22f6db775765ac40f86e9f5077ff010a371388ba4853c6",
+   "url": "https://huggingface.co/datasets/compsciencelab/mdCATH/resolve/5e3ed8aec62b689e01751db16275fdcdbc39e47f/data/mdcath_dataset_1lmlA02.h5"
+  }
+ ],
+ "budget": {
+  "schema_sample_bytes": 195660164,
+  "primary_bytes": 16532123048,
+  "reserve_bytes_if_all_used": 7196577976,
+  "requested_total_bytes_without_reserves": 16727783212,
+  "max_total_bytes_with_all_reserves": 23924361188,
+  "free_disk_bytes_at_selection": 402136563712,
+  "runtime_estimate": {
+   "adk_pair_window_evaluations": 666772575,
+   "adk_wall_seconds": 736.3,
+   "adk_workers": 4,
+   "adk_rate_per_second": 905571.8796686134,
+   "nominal_frames_per_replica": 450,
+   "burn_fraction": 0.1,
+   "heldout_pair_window_evaluations_primary": 2096239500,
+   "heldout_seconds_estimate": 2314.8239770509454,
+   "note": "estimate from AdK throughput; not a benchmark"
+  }
+ }
+}

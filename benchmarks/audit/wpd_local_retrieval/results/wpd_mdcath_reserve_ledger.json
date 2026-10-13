@@ -1,0 +1,226 @@
+{
+ "_meta": {
+  "producer": "mdcath_reserves.py",
+  "authorization": "2026-10-06 user authorization: frozen reserves in order, at most 10, stop at 30 eligible",
+  "started_utc": "2026-10-06T04:18:09.719602+00:00",
+  "primary_ledger_sha256": "e2e6050fdbe054d20966ef0ad62ce2bd117a60a5671b49f5e7612a004eb2a320",
+  "selection_sha256": "de0736ad3d832e4342f7b4522723ea2915d6ae39c43a9155bc22bc364477d16c",
+  "finished_utc": "2026-10-06T04:26:59.437861+00:00",
+  "cohort_complete": true,
+  "reserves_downloaded": 6,
+  "reserves_accepted": [
+   "3av0A01",
+   "2l23A00",
+   "2zj8A03",
+   "3lppA02",
+   "4uuwB02",
+   "2ljuA01"
+  ]
+ },
+ "reserves": [
+  {
+   "order": 31,
+   "domain": "3av0A01",
+   "superfamily": "3.60.21.10",
+   "url": "https://huggingface.co/datasets/compsciencelab/mdCATH/resolve/5e3ed8aec62b689e01751db16275fdcdbc39e47f/data/mdcath_dataset_3av0A01.h5",
+   "expected_size": 1377485592,
+   "expected_sha256": "d1e7ffb560921acad56af31ddb01e1e7a8e7eabaf01a78a5b8354b03307252c3",
+   "download_started_utc": "2026-10-06T04:18:09.719718+00:00",
+   "curl_exit_codes": [
+    0
+   ],
+   "download_finished_utc": "2026-10-06T04:20:07.538637+00:00",
+   "integrity_verified": true,
+   "size": 1377485592,
+   "sha256": "d1e7ffb560921acad56af31ddb01e1e7a8e7eabaf01a78a5b8354b03307252c3",
+   "eligible": true,
+   "reasons": [],
+   "n_backbone_residues": 250,
+   "numFrames": {
+    "320": {
+     "0": 500,
+     "1": 500
+    },
+    "348": {
+     "0": 500,
+     "1": 500
+    }
+   },
+   "descriptive": {
+    "residues_without_unique_O": [],
+    "separate_cap_residues": []
+   },
+   "replaces_primary": "2hb0A01"
+  },
+  {
+   "order": 32,
+   "domain": "2l23A00",
+   "superfamily": "2.40.290.30",
+   "url": "https://huggingface.co/datasets/compsciencelab/mdCATH/resolve/5e3ed8aec62b689e01751db16275fdcdbc39e47f/data/mdcath_dataset_2l23A00.h5",
+   "expected_size": 873596232,
+   "expected_sha256": "b988914114e5a36428e4da8318f52ea423dde0845d8ac7066c646990c85efd9f",
+   "download_started_utc": "2026-10-06T04:20:11.930640+00:00",
+   "curl_exit_codes": [
+    0
+   ],
+   "download_finished_utc": "2026-10-06T04:21:44.452082+00:00",
+   "integrity_verified": true,
+   "size": 873596232,
+   "sha256": "b988914114e5a36428e4da8318f52ea423dde0845d8ac7066c646990c85efd9f",
+   "eligible": true,
+   "reasons": [],
+   "n_backbone_residues": 161,
+   "numFrames": {
+    "320": {
+     "0": 500,
+     "1": 500
+    },
+    "348": {
+     "0": 500,
+     "1": 500
+    }
+   },
+   "descriptive": {
+    "residues_without_unique_O": [],
+    "separate_cap_residues": []
+   },
+   "replaces_primary": "1s14B00"
+  },
+  {
+   "order": 33,
+   "domain": "2zj8A03",
+   "superfamily": "1.10.3380.30",
+   "url": "https://huggingface.co/datasets/compsciencelab/mdCATH/resolve/5e3ed8aec62b689e01751db16275fdcdbc39e47f/data/mdcath_dataset_2zj8A03.h5",
+   "expected_size": 1270389832,
+   "expected_sha256": "5c628fda1f9baababe78230dd16fbdd493e302894964608a9e37d5af393a5b22",
+   "download_started_utc": "2026-10-06T04:21:47.239326+00:00",
+   "curl_exit_codes": [
+    0
+   ],
+   "download_finished_utc": "2026-10-06T04:24:00.101667+00:00",
+   "integrity_verified": true,
+   "size": 1270389832,
+   "sha256": "5c628fda1f9baababe78230dd16fbdd493e302894964608a9e37d5af393a5b22",
+   "eligible": true,
+   "reasons": [],
+   "n_backbone_residues": 233,
+   "numFrames": {
+    "320": {
+     "0": 500,
+     "1": 500
+    },
+    "348": {
+     "0": 500,
+     "1": 500
+    }
+   },
+   "descriptive": {
+    "residues_without_unique_O": [],
+    "separate_cap_residues": []
+   },
+   "replaces_primary": "2yztA00"
+  },
+  {
+   "order": 34,
+   "domain": "3lppA02",
+   "superfamily": "2.60.40.1760",
+   "url": "https://huggingface.co/datasets/compsciencelab/mdCATH/resolve/5e3ed8aec62b689e01751db16275fdcdbc39e47f/data/mdcath_dataset_3lppA02.h5",
+   "expected_size": 1190198648,
+   "expected_sha256": "c2a13e2d58db59d5028c1474b89c9cc5b788bb1a5789328970ec757af028b086",
+   "download_started_utc": "2026-10-06T04:24:04.162400+00:00",
+   "curl_exit_codes": [
+    0
+   ],
+   "download_finished_utc": "2026-10-06T04:25:46.617098+00:00",
+   "integrity_verified": true,
+   "size": 1190198648,
+   "sha256": "c2a13e2d58db59d5028c1474b89c9cc5b788bb1a5789328970ec757af028b086",
+   "eligible": true,
+   "reasons": [],
+   "n_backbone_residues": 237,
+   "numFrames": {
+    "320": {
+     "0": 500,
+     "1": 500
+    },
+    "348": {
+     "0": 500,
+     "1": 500
+    }
+   },
+   "descriptive": {
+    "residues_without_unique_O": [],
+    "separate_cap_residues": []
+   },
+   "replaces_primary": "3slpA00"
+  },
+  {
+   "order": 35,
+   "domain": "4uuwB02",
+   "superfamily": "3.30.70.2860",
+   "url": "https://huggingface.co/datasets/compsciencelab/mdCATH/resolve/5e3ed8aec62b689e01751db16275fdcdbc39e47f/data/mdcath_dataset_4uuwB02.h5",
+   "expected_size": 371032292,
+   "expected_sha256": "baeb455e4d387050b12b8ea480c22d86af7cda16d3084a99d75f999a9fe6063b",
+   "download_started_utc": "2026-10-06T04:25:50.427399+00:00",
+   "curl_exit_codes": [
+    0
+   ],
+   "download_finished_utc": "2026-10-06T04:26:23.054295+00:00",
+   "integrity_verified": true,
+   "size": 371032292,
+   "sha256": "baeb455e4d387050b12b8ea480c22d86af7cda16d3084a99d75f999a9fe6063b",
+   "eligible": true,
+   "reasons": [],
+   "n_backbone_residues": 74,
+   "numFrames": {
+    "320": {
+     "0": 500,
+     "1": 500
+    },
+    "348": {
+     "0": 500,
+     "1": 500
+    }
+   },
+   "descriptive": {
+    "residues_without_unique_O": [],
+    "separate_cap_residues": []
+   },
+   "replaces_primary": "4uhvA03"
+  },
+  {
+   "order": 36,
+   "domain": "2ljuA01",
+   "superfamily": "3.30.160.190",
+   "url": "https://huggingface.co/datasets/compsciencelab/mdCATH/resolve/5e3ed8aec62b689e01751db16275fdcdbc39e47f/data/mdcath_dataset_2ljuA01.h5",
+   "expected_size": 397135296,
+   "expected_sha256": "c5fe0f94f4eb9e61ad9ee2051167991f2139f444a7922134d1e18de314129ad3",
+   "download_started_utc": "2026-10-06T04:26:24.110979+00:00",
+   "curl_exit_codes": [
+    0
+   ],
+   "download_finished_utc": "2026-10-06T04:26:58.317927+00:00",
+   "integrity_verified": true,
+   "size": 397135296,
+   "sha256": "c5fe0f94f4eb9e61ad9ee2051167991f2139f444a7922134d1e18de314129ad3",
+   "eligible": true,
+   "reasons": [],
+   "n_backbone_residues": 75,
+   "numFrames": {
+    "320": {
+     "0": 500,
+     "1": 500
+    },
+    "348": {
+     "0": 500,
+     "1": 500
+    }
+   },
+   "descriptive": {
+    "residues_without_unique_O": [],
+    "separate_cap_residues": []
+   },
+   "replaces_primary": "3zxsA04"
+  }
+ ]
+}

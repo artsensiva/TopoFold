@@ -1,0 +1,785 @@
+{
+ "_meta": {
+  "producer": "heldout_runner.py eligibility",
+  "run_utc": "2026-10-06T04:00:30.096620+00:00",
+  "criteria": "original \u00a74.3 with Amendment 3 \u00a75 cap correction",
+  "reads": "structure only; no target, feature, ranking or score",
+  "binding_extension_sha256": "732909cc99ec88835f0b8a1f60152b7f134ae4a353d152be7bd9f048e232ba01",
+  "n_primary": 30,
+  "n_checked": 30,
+  "n_eligible": 24,
+  "ineligible": [
+   "2hb0A01",
+   "1s14B00",
+   "2yztA00",
+   "3slpA00",
+   "4uhvA03",
+   "3zxsA04"
+  ],
+  "replacements": "none performed; any replacement requires documented failure and authorization"
+ },
+ "domains": [
+  {
+   "file": "data/mdcath/mdcath_dataset_2wp0D00.h5",
+   "size": 440685180,
+   "sha256": "e639cc723a36b7bd855e5a5b65ec800ae9b703b362c4e90a5abefbfd6d1ce16d",
+   "eligible": true,
+   "reasons": [],
+   "n_backbone_residues": 87,
+   "numFrames": {
+    "320": {
+     "0": 500,
+     "1": 500
+    },
+    "348": {
+     "0": 500,
+     "1": 500
+    }
+   },
+   "descriptive": {
+    "residues_without_unique_O": [],
+    "separate_cap_residues": []
+   },
+   "order": 1,
+   "domain": "2wp0D00",
+   "superfamily": "3.30.300.180"
+  },
+  {
+   "file": "data/mdcath/mdcath_dataset_2wscN00.h5",
+   "size": 439115328,
+   "sha256": "3273e47e17cade1a9f7d053d5d13617a7a729951e9df07b190d68afe5263cb31",
+   "eligible": true,
+   "reasons": [],
+   "n_backbone_residues": 85,
+   "numFrames": {
+    "320": {
+     "0": 500,
+     "1": 500
+    },
+    "348": {
+     "0": 500,
+     "1": 500
+    }
+   },
+   "descriptive": {
+    "residues_without_unique_O": [],
+    "separate_cap_residues": []
+   },
+   "order": 2,
+   "domain": "2wscN00",
+   "superfamily": "4.10.1190.10"
+  },
+  {
+   "file": "data/mdcath/mdcath_dataset_1neiA00.h5",
+   "size": 274887548,
+   "sha256": "d59ebf645f503935a572ffdb3d68f5b9d381c8dd8b4af3466f3df6c215b11395",
+   "eligible": true,
+   "reasons": [],
+   "n_backbone_residues": 60,
+   "numFrames": {
+    "320": {
+     "0": 440,
+     "1": 450
+    },
+    "348": {
+     "0": 440,
+     "1": 450
+    }
+   },
+   "descriptive": {
+    "residues_without_unique_O": [],
+    "separate_cap_residues": []
+   },
+   "order": 3,
+   "domain": "1neiA00",
+   "superfamily": "3.30.160.220"
+  },
+  {
+   "file": "data/mdcath/mdcath_dataset_2hb0A01.h5",
+   "size": 859709304,
+   "sha256": "81b67655571eafc465683fb7d42ddc58ef63d670542c2761d32b5cf2016ff911",
+   "eligible": false,
+   "reasons": [
+    "320/0: numFrames 130 < 200"
+   ],
+   "n_backbone_residues": 177,
+   "numFrames": {
+    "320": {
+     "0": 130,
+     "1": 500
+    },
+    "348": {
+     "0": 500,
+     "1": 500
+    }
+   },
+   "descriptive": {
+    "residues_without_unique_O": [],
+    "separate_cap_residues": []
+   },
+   "order": 4,
+   "domain": "2hb0A01",
+   "superfamily": "2.60.40.2520"
+  },
+  {
+   "file": "data/mdcath/mdcath_dataset_1whoA00.h5",
+   "size": 436395452,
+   "sha256": "01522b0e5366059d059475dd3d911387a75fbeb5782db7c974027617527ddde7",
+   "eligible": true,
+   "reasons": [],
+   "n_backbone_residues": 94,
+   "numFrames": {
+    "320": {
+     "0": 450,
+     "1": 450
+    },
+    "348": {
+     "0": 440,
+     "1": 450
+    }
+   },
+   "descriptive": {
+    "residues_without_unique_O": [],
+    "separate_cap_residues": []
+   },
+   "order": 5,
+   "domain": "1whoA00",
+   "superfamily": "2.60.40.760"
+  },
+  {
+   "file": "data/mdcath/mdcath_dataset_3s0yA01.h5",
+   "size": 900106628,
+   "sha256": "1663fd81a7feb776b4cc14f649a22f467e2676bfb931dc0d76f71f601b043231",
+   "eligible": true,
+   "reasons": [],
+   "n_backbone_residues": 178,
+   "numFrames": {
+    "320": {
+     "0": 500,
+     "1": 500
+    },
+    "348": {
+     "0": 500,
+     "1": 500
+    }
+   },
+   "descriptive": {
+    "residues_without_unique_O": [],
+    "separate_cap_residues": []
+   },
+   "order": 6,
+   "domain": "3s0yA01",
+   "superfamily": "3.30.1330.60"
+  },
+  {
+   "file": "data/mdcath/mdcath_dataset_1v8cA01.h5",
+   "size": 394602560,
+   "sha256": "7dfc43d13aedc3af681c426ab73d649fe040edfc45824ee049b6582f8bea3cc7",
+   "eligible": true,
+   "reasons": [],
+   "n_backbone_residues": 85,
+   "numFrames": {
+    "320": {
+     "0": 450,
+     "1": 450
+    },
+    "348": {
+     "0": 440,
+     "1": 450
+    }
+   },
+   "descriptive": {
+    "residues_without_unique_O": [],
+    "separate_cap_residues": []
+   },
+   "order": 7,
+   "domain": "1v8cA01",
+   "superfamily": "3.10.20.30"
+  },
+  {
+   "file": "data/mdcath/mdcath_dataset_2yx1A01.h5",
+   "size": 361009420,
+   "sha256": "151a1f565ea873987da786b89f7ef877c480851aa2eec0c8ca771d09a3831223",
+   "eligible": true,
+   "reasons": [],
+   "n_backbone_residues": 66,
+   "numFrames": {
+    "320": {
+     "0": 500,
+     "1": 500
+    },
+    "348": {
+     "0": 500,
+     "1": 500
+    }
+   },
+   "descriptive": {
+    "residues_without_unique_O": [],
+    "separate_cap_residues": []
+   },
+   "order": 8,
+   "domain": "2yx1A01",
+   "superfamily": "3.30.70.2580"
+  },
+  {
+   "file": "data/mdcath/mdcath_dataset_4ea9A02.h5",
+   "size": 484916940,
+   "sha256": "d7024acc5e0378d2ab47a45ae042a669c70beffadc5ea00c0180b61fdc45dc05",
+   "eligible": true,
+   "reasons": [],
+   "n_backbone_residues": 110,
+   "numFrames": {
+    "320": {
+     "0": 500,
+     "1": 500
+    },
+    "348": {
+     "0": 500,
+     "1": 500
+    }
+   },
+   "descriptive": {
+    "residues_without_unique_O": [],
+    "separate_cap_residues": []
+   },
+   "order": 9,
+   "domain": "4ea9A02",
+   "superfamily": "2.160.10.10"
+  },
+  {
+   "file": "data/mdcath/mdcath_dataset_2p08B00.h5",
+   "size": 604372444,
+   "sha256": "5fa1f575e4842047ca6c8660b82142972bd1f79c65075ecf7b234db0638959ba",
+   "eligible": true,
+   "reasons": [],
+   "n_backbone_residues": 110,
+   "numFrames": {
+    "320": {
+     "0": 500,
+     "1": 500
+    },
+    "348": {
+     "0": 500,
+     "1": 500
+    }
+   },
+   "descriptive": {
+    "residues_without_unique_O": [],
+    "separate_cap_residues": []
+   },
+   "order": 10,
+   "domain": "2p08B00",
+   "superfamily": "3.30.450.260"
+  },
+  {
+   "file": "data/mdcath/mdcath_dataset_1zvuA03.h5",
+   "size": 702323068,
+   "sha256": "e721a32a65ceb8da07a6d973bc52e6d4d493a6abd2502b78ed90e865c2983af2",
+   "eligible": true,
+   "reasons": [],
+   "n_backbone_residues": 140,
+   "numFrames": {
+    "320": {
+     "0": 440,
+     "1": 440
+    },
+    "348": {
+     "0": 440,
+     "1": 440
+    }
+   },
+   "descriptive": {
+    "residues_without_unique_O": [],
+    "separate_cap_residues": []
+   },
+   "order": 11,
+   "domain": "1zvuA03",
+   "superfamily": "1.10.268.10"
+  },
+  {
+   "file": "data/mdcath/mdcath_dataset_1d8bA00.h5",
+   "size": 397542900,
+   "sha256": "adb1eff72e962720ac5b0297d8fd4394150e7e3aeb9ff9f77b63f80acd089532",
+   "eligible": true,
+   "reasons": [],
+   "n_backbone_residues": 81,
+   "numFrames": {
+    "320": {
+     "0": 440,
+     "1": 440
+    },
+    "348": {
+     "0": 440,
+     "1": 450
+    }
+   },
+   "descriptive": {
+    "residues_without_unique_O": [],
+    "separate_cap_residues": []
+   },
+   "order": 12,
+   "domain": "1d8bA00",
+   "superfamily": "1.10.150.80"
+  },
+  {
+   "file": "data/mdcath/mdcath_dataset_1vz0A01.h5",
+   "size": 305531316,
+   "sha256": "bf5ffd8c70ac18cfcc9709cb30c559e6253a446918788b2dfaf0fedde7f047f8",
+   "eligible": true,
+   "reasons": [],
+   "n_backbone_residues": 63,
+   "numFrames": {
+    "320": {
+     "0": 450,
+     "1": 440
+    },
+    "348": {
+     "0": 450,
+     "1": 440
+    }
+   },
+   "descriptive": {
+    "residues_without_unique_O": [],
+    "separate_cap_residues": []
+   },
+   "order": 13,
+   "domain": "1vz0A01",
+   "superfamily": "3.90.1530.30"
+  },
+  {
+   "file": "data/mdcath/mdcath_dataset_3wx4A00.h5",
+   "size": 510875644,
+   "sha256": "0abb1d045927f24559f74fbdb6e990c3afee9052340bbff0a7ceda28d9cd38f2",
+   "eligible": true,
+   "reasons": [],
+   "n_backbone_residues": 98,
+   "numFrames": {
+    "320": {
+     "0": 500,
+     "1": 500
+    },
+    "348": {
+     "0": 500,
+     "1": 500
+    }
+   },
+   "descriptive": {
+    "residues_without_unique_O": [],
+    "separate_cap_residues": []
+   },
+   "order": 14,
+   "domain": "3wx4A00",
+   "superfamily": "3.30.70.2770"
+  },
+  {
+   "file": "data/mdcath/mdcath_dataset_2h85A02.h5",
+   "size": 611226836,
+   "sha256": "3492862ff2d7edd329e83e3d4ea4840f50071ddefd96ae515ef64bc9a03edca6",
+   "eligible": true,
+   "reasons": [],
+   "n_backbone_residues": 126,
+   "numFrames": {
+    "320": {
+     "0": 500,
+     "1": 500
+    },
+    "348": {
+     "0": 500,
+     "1": 500
+    }
+   },
+   "descriptive": {
+    "residues_without_unique_O": [],
+    "separate_cap_residues": []
+   },
+   "order": 15,
+   "domain": "2h85A02",
+   "superfamily": "3.40.50.11580"
+  },
+  {
+   "file": "data/mdcath/mdcath_dataset_2kzsA00.h5",
+   "size": 506812684,
+   "sha256": "b06980a197e07c95daa239de8bcef79cabfc4a88e51e77dcc80419920edc9fd5",
+   "eligible": true,
+   "reasons": [],
+   "n_backbone_residues": 94,
+   "numFrames": {
+    "320": {
+     "0": 500,
+     "1": 500
+    },
+    "348": {
+     "0": 500,
+     "1": 500
+    }
+   },
+   "descriptive": {
+    "residues_without_unique_O": [],
+    "separate_cap_residues": []
+   },
+   "order": 16,
+   "domain": "2kzsA00",
+   "superfamily": "1.10.8.810"
+  },
+  {
+   "file": "data/mdcath/mdcath_dataset_4u49B02.h5",
+   "size": 1100050812,
+   "sha256": "223056c8ec95b9b0960aced8bcaca0f2935676a0031a6654e1bb0105bd06f580",
+   "eligible": true,
+   "reasons": [],
+   "n_backbone_residues": 228,
+   "numFrames": {
+    "320": {
+     "0": 500,
+     "1": 500
+    },
+    "348": {
+     "0": 500,
+     "1": 500
+    }
+   },
+   "descriptive": {
+    "residues_without_unique_O": [],
+    "separate_cap_residues": []
+   },
+   "order": 17,
+   "domain": "4u49B02",
+   "superfamily": "2.160.20.10"
+  },
+  {
+   "file": "data/mdcath/mdcath_dataset_1s14B00.h5",
+   "size": 822724476,
+   "sha256": "f937176155360cffeb5d4628f8113cf8184d3eae127d0a44147e3c0b867017c4",
+   "eligible": false,
+   "reasons": [
+    "backbone residues not one consecutive run"
+   ],
+   "n_backbone_residues": 178,
+   "numFrames": {
+    "320": {
+     "0": 440,
+     "1": 450
+    },
+    "348": {
+     "0": 440,
+     "1": 450
+    }
+   },
+   "descriptive": {
+    "residues_without_unique_O": [],
+    "separate_cap_residues": []
+   },
+   "order": 18,
+   "domain": "1s14B00",
+   "superfamily": "3.30.565.10"
+  },
+  {
+   "file": "data/mdcath/mdcath_dataset_3udcA02.h5",
+   "size": 254606412,
+   "sha256": "ed3ab35e7aa6e7bb87edcfd290c6ebbdf07fadc421d03c6daa9e6217710f01df",
+   "eligible": true,
+   "reasons": [],
+   "n_backbone_residues": 50,
+   "numFrames": {
+    "320": {
+     "0": 500,
+     "1": 500
+    },
+    "348": {
+     "0": 500,
+     "1": 500
+    }
+   },
+   "descriptive": {
+    "residues_without_unique_O": [],
+    "separate_cap_residues": []
+   },
+   "order": 19,
+   "domain": "3udcA02",
+   "superfamily": "2.30.30.60"
+  },
+  {
+   "file": "data/mdcath/mdcath_dataset_1aorA01.h5",
+   "size": 959359672,
+   "sha256": "e17e2afdb81c9b6763e8f3916d3eee9f086c6e10211f83b724d18ce7dd0a0859",
+   "eligible": true,
+   "reasons": [],
+   "n_backbone_residues": 211,
+   "numFrames": {
+    "320": {
+     "0": 440,
+     "1": 450
+    },
+    "348": {
+     "0": 440,
+     "1": 450
+    }
+   },
+   "descriptive": {
+    "residues_without_unique_O": [],
+    "separate_cap_residues": []
+   },
+   "order": 20,
+   "domain": "1aorA01",
+   "superfamily": "3.60.9.10"
+  },
+  {
+   "file": "data/mdcath/mdcath_dataset_4dkwA00.h5",
+   "size": 1006556260,
+   "sha256": "67b365034a5ac9759ca046ea65abf4d65f0fa01b2cd27375c657a1cdca077097",
+   "eligible": true,
+   "reasons": [],
+   "n_backbone_residues": 194,
+   "numFrames": {
+    "320": {
+     "0": 500,
+     "1": 500
+    },
+    "348": {
+     "0": 500,
+     "1": 500
+    }
+   },
+   "descriptive": {
+    "residues_without_unique_O": [],
+    "separate_cap_residues": []
+   },
+   "order": 21,
+   "domain": "4dkwA00",
+   "superfamily": "3.30.420.280"
+  },
+  {
+   "file": "data/mdcath/mdcath_dataset_1u6zA04.h5",
+   "size": 262767252,
+   "sha256": "a4168377f89c984b42c1a3d1a671321d828f6add8301b6a1567bba2e5d61c97d",
+   "eligible": true,
+   "reasons": [],
+   "n_backbone_residues": 53,
+   "numFrames": {
+    "320": {
+     "0": 450,
+     "1": 450
+    },
+    "348": {
+     "0": 440,
+     "1": 450
+    }
+   },
+   "descriptive": {
+    "residues_without_unique_O": [],
+    "separate_cap_residues": []
+   },
+   "order": 22,
+   "domain": "1u6zA04",
+   "superfamily": "3.30.70.2260"
+  },
+  {
+   "file": "data/mdcath/mdcath_dataset_2bt9C01.h5",
+   "size": 371231680,
+   "sha256": "473088a2c5f09dc4cdf7ccc2ae03a4052ebbcebdf0d71f68a240512daf50678d",
+   "eligible": true,
+   "reasons": [],
+   "n_backbone_residues": 83,
+   "numFrames": {
+    "320": {
+     "0": 450,
+     "1": 450
+    },
+    "348": {
+     "0": 450,
+     "1": 440
+    }
+   },
+   "descriptive": {
+    "residues_without_unique_O": [],
+    "separate_cap_residues": []
+   },
+   "order": 23,
+   "domain": "2bt9C01",
+   "superfamily": "2.40.128.190"
+  },
+  {
+   "file": "data/mdcath/mdcath_dataset_2yztA00.h5",
+   "size": 319739140,
+   "sha256": "4b9cb28795c9b5a61ad4f93d66eeec840cb7b0d1d6de75cb90ee4694eec83cd6",
+   "eligible": false,
+   "reasons": [
+    "348/0: numFrames 130 < 200"
+   ],
+   "n_backbone_residues": 66,
+   "numFrames": {
+    "320": {
+     "0": 500,
+     "1": 500
+    },
+    "348": {
+     "0": 130,
+     "1": 500
+    }
+   },
+   "descriptive": {
+    "residues_without_unique_O": [],
+    "separate_cap_residues": []
+   },
+   "order": 24,
+   "domain": "2yztA00",
+   "superfamily": "3.30.160.250"
+  },
+  {
+   "file": "data/mdcath/mdcath_dataset_3u61D03.h5",
+   "size": 478003744,
+   "sha256": "b0f3370cf26b8e502b069df49156ab7dffbae0f7047f700721ab4055b8c09b16",
+   "eligible": true,
+   "reasons": [],
+   "n_backbone_residues": 91,
+   "numFrames": {
+    "320": {
+     "0": 500,
+     "1": 500
+    },
+    "348": {
+     "0": 500,
+     "1": 500
+    }
+   },
+   "descriptive": {
+    "residues_without_unique_O": [],
+    "separate_cap_residues": []
+   },
+   "order": 25,
+   "domain": "3u61D03",
+   "superfamily": "1.20.272.10"
+  },
+  {
+   "file": "data/mdcath/mdcath_dataset_3slpA00.h5",
+   "size": 1026704140,
+   "sha256": "25ae905ef3005874ddaf220f30e63e0f6360f6694de7fea7aea2c2026ee1b024",
+   "eligible": false,
+   "reasons": [
+    "348/1: numFrames 130 < 200"
+   ],
+   "n_backbone_residues": 226,
+   "numFrames": {
+    "320": {
+     "0": 500,
+     "1": 500
+    },
+    "348": {
+     "0": 500,
+     "1": 130
+    }
+   },
+   "descriptive": {
+    "residues_without_unique_O": [],
+    "separate_cap_residues": []
+   },
+   "order": 26,
+   "domain": "3slpA00",
+   "superfamily": "3.90.320.10"
+  },
+  {
+   "file": "data/mdcath/mdcath_dataset_4uhvA03.h5",
+   "size": 303566744,
+   "sha256": "06d92737ba6439dd5c14f3c85e926702ecc165fbfd060c3d50bd78a5a0cbbbb9",
+   "eligible": false,
+   "reasons": [
+    "348/1: numFrames 130 < 200"
+   ],
+   "n_backbone_residues": 63,
+   "numFrames": {
+    "320": {
+     "0": 500,
+     "1": 500
+    },
+    "348": {
+     "0": 500,
+     "1": 130
+    }
+   },
+   "descriptive": {
+    "residues_without_unique_O": [],
+    "separate_cap_residues": []
+   },
+   "order": 27,
+   "domain": "4uhvA03",
+   "superfamily": "3.30.1920.30"
+  },
+  {
+   "file": "data/mdcath/mdcath_dataset_3zxsA04.h5",
+   "size": 361915524,
+   "sha256": "455990ad85daad4c6d399f98b9b1bf59d053af3db65ce68b948af4a040f7dbe5",
+   "eligible": false,
+   "reasons": [
+    "348/0: numFrames 120 < 200"
+   ],
+   "n_backbone_residues": 70,
+   "numFrames": {
+    "320": {
+     "0": 500,
+     "1": 500
+    },
+    "348": {
+     "0": 120,
+     "1": 500
+    }
+   },
+   "descriptive": {
+    "residues_without_unique_O": [],
+    "separate_cap_residues": []
+   },
+   "order": 28,
+   "domain": "3zxsA04",
+   "superfamily": "1.10.10.1710"
+  },
+  {
+   "file": "data/mdcath/mdcath_dataset_3tekA00.h5",
+   "size": 723218712,
+   "sha256": "8e43468a893c45e06473da6444eef7a8b0dfb7031659aa33690164d30a25137b",
+   "eligible": true,
+   "reasons": [],
+   "n_backbone_residues": 139,
+   "numFrames": {
+    "320": {
+     "0": 500,
+     "1": 500
+    },
+    "348": {
+     "0": 500,
+     "1": 500
+    }
+   },
+   "descriptive": {
+    "residues_without_unique_O": [],
+    "separate_cap_residues": []
+   },
+   "order": 29,
+   "domain": "3tekA00",
+   "superfamily": "3.30.470.50"
+  },
+  {
+   "file": "data/mdcath/mdcath_dataset_3nwsA02.h5",
+   "size": 311565228,
+   "sha256": "f236402ffa9d05831afa61f7f98b89b7daadc2fd147040b4c24ba187d332c71e",
+   "eligible": true,
+   "reasons": [],
+   "n_backbone_residues": 54,
+   "numFrames": {
+    "320": {
+     "0": 500,
+     "1": 500
+    },
+    "348": {
+     "0": 500,
+     "1": 500
+    }
+   },
+   "descriptive": {
+    "residues_without_unique_O": [],
+    "separate_cap_residues": []
+   },
+   "order": 30,
+   "domain": "3nwsA02",
+   "superfamily": "1.10.10.2380"
+  }
+ ]
+}

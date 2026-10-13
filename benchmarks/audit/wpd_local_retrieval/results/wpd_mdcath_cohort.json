@@ -1,0 +1,302 @@
+{
+ "_meta": {
+  "producer": "mdcath_reserves.py",
+  "written_utc": "2026-10-06T04:26:59.447390+00:00",
+  "complete": true,
+  "n": 30,
+  "excluded_primaries": {
+   "2hb0A01": [
+    "320/0: numFrames 130 < 200"
+   ],
+   "1s14B00": [
+    "backbone residues not one consecutive run"
+   ],
+   "2yztA00": [
+    "348/0: numFrames 130 < 200"
+   ],
+   "3slpA00": [
+    "348/1: numFrames 130 < 200"
+   ],
+   "4uhvA03": [
+    "348/1: numFrames 130 < 200"
+   ],
+   "3zxsA04": [
+    "348/0: numFrames 120 < 200"
+   ]
+  },
+  "primary_ledger_sha256": "e2e6050fdbe054d20966ef0ad62ce2bd117a60a5671b49f5e7612a004eb2a320",
+  "reserve_ledger_sha256": "ecc9af3ff2762519b365d4045469d29f90a1cedeb5a0b7867bb0efbe97740635"
+ },
+ "domains": [
+  {
+   "order": 1,
+   "domain": "2wp0D00",
+   "role": "primary",
+   "superfamily": "3.30.300.180",
+   "size_bytes": 440685180,
+   "sha256": "e639cc723a36b7bd855e5a5b65ec800ae9b703b362c4e90a5abefbfd6d1ce16d",
+   "replaces_primary": null
+  },
+  {
+   "order": 2,
+   "domain": "2wscN00",
+   "role": "primary",
+   "superfamily": "4.10.1190.10",
+   "size_bytes": 439115328,
+   "sha256": "3273e47e17cade1a9f7d053d5d13617a7a729951e9df07b190d68afe5263cb31",
+   "replaces_primary": null
+  },
+  {
+   "order": 3,
+   "domain": "1neiA00",
+   "role": "primary",
+   "superfamily": "3.30.160.220",
+   "size_bytes": 274887548,
+   "sha256": "d59ebf645f503935a572ffdb3d68f5b9d381c8dd8b4af3466f3df6c215b11395",
+   "replaces_primary": null
+  },
+  {
+   "order": 5,
+   "domain": "1whoA00",
+   "role": "primary",
+   "superfamily": "2.60.40.760",
+   "size_bytes": 436395452,
+   "sha256": "01522b0e5366059d059475dd3d911387a75fbeb5782db7c974027617527ddde7",
+   "replaces_primary": null
+  },
+  {
+   "order": 6,
+   "domain": "3s0yA01",
+   "role": "primary",
+   "superfamily": "3.30.1330.60",
+   "size_bytes": 900106628,
+   "sha256": "1663fd81a7feb776b4cc14f649a22f467e2676bfb931dc0d76f71f601b043231",
+   "replaces_primary": null
+  },
+  {
+   "order": 7,
+   "domain": "1v8cA01",
+   "role": "primary",
+   "superfamily": "3.10.20.30",
+   "size_bytes": 394602560,
+   "sha256": "7dfc43d13aedc3af681c426ab73d649fe040edfc45824ee049b6582f8bea3cc7",
+   "replaces_primary": null
+  },
+  {
+   "order": 8,
+   "domain": "2yx1A01",
+   "role": "primary",
+   "superfamily": "3.30.70.2580",
+   "size_bytes": 361009420,
+   "sha256": "151a1f565ea873987da786b89f7ef877c480851aa2eec0c8ca771d09a3831223",
+   "replaces_primary": null
+  },
+  {
+   "order": 9,
+   "domain": "4ea9A02",
+   "role": "primary",
+   "superfamily": "2.160.10.10",
+   "size_bytes": 484916940,
+   "sha256": "d7024acc5e0378d2ab47a45ae042a669c70beffadc5ea00c0180b61fdc45dc05",
+   "replaces_primary": null
+  },
+  {
+   "order": 10,
+   "domain": "2p08B00",
+   "role": "primary",
+   "superfamily": "3.30.450.260",
+   "size_bytes": 604372444,
+   "sha256": "5fa1f575e4842047ca6c8660b82142972bd1f79c65075ecf7b234db0638959ba",
+   "replaces_primary": null
+  },
+  {
+   "order": 11,
+   "domain": "1zvuA03",
+   "role": "primary",
+   "superfamily": "1.10.268.10",
+   "size_bytes": 702323068,
+   "sha256": "e721a32a65ceb8da07a6d973bc52e6d4d493a6abd2502b78ed90e865c2983af2",
+   "replaces_primary": null
+  },
+  {
+   "order": 12,
+   "domain": "1d8bA00",
+   "role": "primary",
+   "superfamily": "1.10.150.80",
+   "size_bytes": 397542900,
+   "sha256": "adb1eff72e962720ac5b0297d8fd4394150e7e3aeb9ff9f77b63f80acd089532",
+   "replaces_primary": null
+  },
+  {
+   "order": 13,
+   "domain": "1vz0A01",
+   "role": "primary",
+   "superfamily": "3.90.1530.30",
+   "size_bytes": 305531316,
+   "sha256": "bf5ffd8c70ac18cfcc9709cb30c559e6253a446918788b2dfaf0fedde7f047f8",
+   "replaces_primary": null
+  },
+  {
+   "order": 14,
+   "domain": "3wx4A00",
+   "role": "primary",
+   "superfamily": "3.30.70.2770",
+   "size_bytes": 510875644,
+   "sha256": "0abb1d045927f24559f74fbdb6e990c3afee9052340bbff0a7ceda28d9cd38f2",
+   "replaces_primary": null
+  },
+  {
+   "order": 15,
+   "domain": "2h85A02",
+   "role": "primary",
+   "superfamily": "3.40.50.11580",
+   "size_bytes": 611226836,
+   "sha256": "3492862ff2d7edd329e83e3d4ea4840f50071ddefd96ae515ef64bc9a03edca6",
+   "replaces_primary": null
+  },
+  {
+   "order": 16,
+   "domain": "2kzsA00",
+   "role": "primary",
+   "superfamily": "1.10.8.810",
+   "size_bytes": 506812684,
+   "sha256": "b06980a197e07c95daa239de8bcef79cabfc4a88e51e77dcc80419920edc9fd5",
+   "replaces_primary": null
+  },
+  {
+   "order": 17,
+   "domain": "4u49B02",
+   "role": "primary",
+   "superfamily": "2.160.20.10",
+   "size_bytes": 1100050812,
+   "sha256": "223056c8ec95b9b0960aced8bcaca0f2935676a0031a6654e1bb0105bd06f580",
+   "replaces_primary": null
+  },
+  {
+   "order": 19,
+   "domain": "3udcA02",
+   "role": "primary",
+   "superfamily": "2.30.30.60",
+   "size_bytes": 254606412,
+   "sha256": "ed3ab35e7aa6e7bb87edcfd290c6ebbdf07fadc421d03c6daa9e6217710f01df",
+   "replaces_primary": null
+  },
+  {
+   "order": 20,
+   "domain": "1aorA01",
+   "role": "primary",
+   "superfamily": "3.60.9.10",
+   "size_bytes": 959359672,
+   "sha256": "e17e2afdb81c9b6763e8f3916d3eee9f086c6e10211f83b724d18ce7dd0a0859",
+   "replaces_primary": null
+  },
+  {
+   "order": 21,
+   "domain": "4dkwA00",
+   "role": "primary",
+   "superfamily": "3.30.420.280",
+   "size_bytes": 1006556260,
+   "sha256": "67b365034a5ac9759ca046ea65abf4d65f0fa01b2cd27375c657a1cdca077097",
+   "replaces_primary": null
+  },
+  {
+   "order": 22,
+   "domain": "1u6zA04",
+   "role": "primary",
+   "superfamily": "3.30.70.2260",
+   "size_bytes": 262767252,
+   "sha256": "a4168377f89c984b42c1a3d1a671321d828f6add8301b6a1567bba2e5d61c97d",
+   "replaces_primary": null
+  },
+  {
+   "order": 23,
+   "domain": "2bt9C01",
+   "role": "primary",
+   "superfamily": "2.40.128.190",
+   "size_bytes": 371231680,
+   "sha256": "473088a2c5f09dc4cdf7ccc2ae03a4052ebbcebdf0d71f68a240512daf50678d",
+   "replaces_primary": null
+  },
+  {
+   "order": 25,
+   "domain": "3u61D03",
+   "role": "primary",
+   "superfamily": "1.20.272.10",
+   "size_bytes": 478003744,
+   "sha256": "b0f3370cf26b8e502b069df49156ab7dffbae0f7047f700721ab4055b8c09b16",
+   "replaces_primary": null
+  },
+  {
+   "order": 29,
+   "domain": "3tekA00",
+   "role": "primary",
+   "superfamily": "3.30.470.50",
+   "size_bytes": 723218712,
+   "sha256": "8e43468a893c45e06473da6444eef7a8b0dfb7031659aa33690164d30a25137b",
+   "replaces_primary": null
+  },
+  {
+   "order": 30,
+   "domain": "3nwsA02",
+   "role": "primary",
+   "superfamily": "1.10.10.2380",
+   "size_bytes": 311565228,
+   "sha256": "f236402ffa9d05831afa61f7f98b89b7daadc2fd147040b4c24ba187d332c71e",
+   "replaces_primary": null
+  },
+  {
+   "order": 31,
+   "domain": "3av0A01",
+   "role": "reserve",
+   "superfamily": "3.60.21.10",
+   "size_bytes": 1377485592,
+   "sha256": "d1e7ffb560921acad56af31ddb01e1e7a8e7eabaf01a78a5b8354b03307252c3",
+   "replaces_primary": "2hb0A01"
+  },
+  {
+   "order": 32,
+   "domain": "2l23A00",
+   "role": "reserve",
+   "superfamily": "2.40.290.30",
+   "size_bytes": 873596232,
+   "sha256": "b988914114e5a36428e4da8318f52ea423dde0845d8ac7066c646990c85efd9f",
+   "replaces_primary": "1s14B00"
+  },
+  {
+   "order": 33,
+   "domain": "2zj8A03",
+   "role": "reserve",
+   "superfamily": "1.10.3380.30",
+   "size_bytes": 1270389832,
+   "sha256": "5c628fda1f9baababe78230dd16fbdd493e302894964608a9e37d5af393a5b22",
+   "replaces_primary": "2yztA00"
+  },
+  {
+   "order": 34,
+   "domain": "3lppA02",
+   "role": "reserve",
+   "superfamily": "2.60.40.1760",
+   "size_bytes": 1190198648,
+   "sha256": "c2a13e2d58db59d5028c1474b89c9cc5b788bb1a5789328970ec757af028b086",
+   "replaces_primary": "3slpA00"
+  },
+  {
+   "order": 35,
+   "domain": "4uuwB02",
+   "role": "reserve",
+   "superfamily": "3.30.70.2860",
+   "size_bytes": 371032292,
+   "sha256": "baeb455e4d387050b12b8ea480c22d86af7cda16d3084a99d75f999a9fe6063b",
+   "replaces_primary": "4uhvA03"
+  },
+  {
+   "order": 36,
+   "domain": "2ljuA01",
+   "role": "reserve",
+   "superfamily": "3.30.160.190",
+   "size_bytes": 397135296,
+   "sha256": "c5fe0f94f4eb9e61ad9ee2051167991f2139f444a7922134d1e18de314129ad3",
+   "replaces_primary": "3zxsA04"
+  }
+ ]
+}

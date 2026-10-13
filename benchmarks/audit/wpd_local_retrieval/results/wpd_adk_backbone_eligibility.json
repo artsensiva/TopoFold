@@ -1,0 +1,176 @@
+{
+ "_meta": {
+  "producer": "adk_backbone_eligibility.py",
+  "data": "third-party MD (not SYNTHETIC)",
+  "source_doi": "10.5281/zenodo.5583119",
+  "mdanalysis": "2.10.0",
+  "started_utc": "2026-10-04T17:17:13.790441+00:00",
+  "relation_to_wpb": "separate WP-D artifact; WP-B G0/G1 files are read, not modified",
+  "bond_max_A": 2.0,
+  "finished_utc": "2026-10-04T17:17:39.787597+00:00"
+ },
+ "wpb_g0_sha256": "e09cc250fa5f60aae7c6d47118eb2af50d5ffbe3cdf22343ae84ddb70481722d",
+ "raw_files_match_wpb_g0": {
+  "ORADD_open_state.gro": true,
+  "ORADD_open_state_traj.xtc": true,
+  "ORADD_closed_state.gro": true,
+  "ORADD_closed_state_traj.xtc": true
+ },
+ "trajectories": {
+  "open_start": {
+   "n_protein_atoms": 3341,
+   "mapping": {
+    "N": {
+     "missing": [],
+     "duplicated": [],
+     "outside_1_214": []
+    },
+    "CA": {
+     "missing": [],
+     "duplicated": [],
+     "outside_1_214": []
+    },
+    "C": {
+     "missing": [],
+     "duplicated": [],
+     "outside_1_214": []
+    }
+   },
+   "mapping_ok": true,
+   "residues_with_defined_phi": [
+    2,
+    214
+   ],
+   "residues_with_defined_psi": [
+    1,
+    213
+   ],
+   "terminal_atom_names": {
+    "first_residue": [
+     "C",
+     "CA",
+     "CB",
+     "CE",
+     "CG",
+     "HA",
+     "HB1",
+     "HB2",
+     "HE1",
+     "HE2",
+     "HE3",
+     "HG1",
+     "HG2",
+     "HT1",
+     "HT2",
+     "HT3",
+     "N",
+     "O",
+     "SD"
+    ],
+    "last_residue": [
+     "C",
+     "CA",
+     "HA1",
+     "HA2",
+     "HN",
+     "N",
+     "OT1",
+     "OT2"
+    ]
+   },
+   "n_frames": 2253,
+   "frames_with_nonfinite_backbone": 0,
+   "backbone_bond_max_A": {
+    "N-CA": 1.6302681982195733,
+    "CA-C": 1.671403766832136,
+    "C-N+1": 1.4846181307910222
+   },
+   "backbone_bond_min_A": {
+    "N-CA": 1.3182901058333285,
+    "CA-C": 1.3470665002702804,
+    "C-N+1": 1.2023334602040707
+   },
+   "frames_with_bond_over_max": 0,
+   "long_bond_examples": [],
+   "eligible": true
+  },
+  "closed_start": {
+   "n_protein_atoms": 3341,
+   "mapping": {
+    "N": {
+     "missing": [],
+     "duplicated": [],
+     "outside_1_214": []
+    },
+    "CA": {
+     "missing": [],
+     "duplicated": [],
+     "outside_1_214": []
+    },
+    "C": {
+     "missing": [],
+     "duplicated": [],
+     "outside_1_214": []
+    }
+   },
+   "mapping_ok": true,
+   "residues_with_defined_phi": [
+    2,
+    214
+   ],
+   "residues_with_defined_psi": [
+    1,
+    213
+   ],
+   "terminal_atom_names": {
+    "first_residue": [
+     "C",
+     "CA",
+     "CB",
+     "CE",
+     "CG",
+     "HA",
+     "HB1",
+     "HB2",
+     "HE1",
+     "HE2",
+     "HE3",
+     "HG1",
+     "HG2",
+     "HT1",
+     "HT2",
+     "HT3",
+     "N",
+     "O",
+     "SD"
+    ],
+    "last_residue": [
+     "C",
+     "CA",
+     "HA1",
+     "HA2",
+     "HN",
+     "N",
+     "OT1",
+     "OT2"
+    ]
+   },
+   "n_frames": 1678,
+   "frames_with_nonfinite_backbone": 0,
+   "backbone_bond_max_A": {
+    "N-CA": 1.6107134793722295,
+    "CA-C": 1.6819322056026556,
+    "C-N+1": 1.4722107773906363
+   },
+   "backbone_bond_min_A": {
+    "N-CA": 1.318673282075503,
+    "CA-C": 1.3592644665926061,
+    "C-N+1": 1.2190558598109804
+   },
+   "frames_with_bond_over_max": 0,
+   "long_bond_examples": [],
+   "eligible": true
+  }
+ },
+ "eligible": true
+}

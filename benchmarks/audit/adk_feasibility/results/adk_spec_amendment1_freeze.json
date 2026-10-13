@@ -1,0 +1,11 @@
+{
+ "frozen_utc": "2026-10-04T16:36:08.777573+00:00",
+ "files": {
+  "SPEC.md": "c3579542c1c8237f4c3afeff3f64ff92a68fc93944b4db0a3c055e302092de96",
+  "wpb_spec.json": "55cac48e6fbce59cbbec7485316fe9edd0636decbfbd9c041155d170988965ca",
+  "AMENDMENTS.md": "361a41483497fa701e8a5e37d6e0fcbf296b7f87315f9cf79adc275f9946d3bc",
+  "wpb_spec_amendment1.json": "a49b0615e7174efd0539b0c9fe6373c8e3cd2f14f5310e96895db8964f891c94"
+ },
+ "original_freeze_record_sha256": "eba83d6a70213468004038863c48ae271b7cdc5e5ef86dedba29310523ffe30c",
+ "disclosure": "No trajectory-derived structural quantity computed or inspected before this amendment (G0/G1 never run; only file sizes observed during download)."
+}

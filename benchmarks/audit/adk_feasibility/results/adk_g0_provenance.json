@@ -1,0 +1,238 @@
+{
+ "_meta": {
+  "producer": "g0.py",
+  "data": "third-party MD (not SYNTHETIC)",
+  "source_doi": "10.5281/zenodo.5583119",
+  "licence": "CC BY 4.0 (Zenodo record)",
+  "governing_spec": "SPEC.md + AMENDMENTS.md (Amendments 1\u20132)",
+  "started_utc": "2026-10-04T16:53:24.235262+00:00",
+  "finished_utc": "2026-10-04T16:53:52.752846+00:00"
+ },
+ "spec_sha256": {
+  "SPEC.md": "c3579542c1c8237f4c3afeff3f64ff92a68fc93944b4db0a3c055e302092de96",
+  "wpb_spec.json": "55cac48e6fbce59cbbec7485316fe9edd0636decbfbd9c041155d170988965ca",
+  "AMENDMENTS.md": "49c2a6f50311330394cd81d0465c53a21a7e41ef0e54cf78ee1ae8fb8e649431",
+  "wpb_spec_amendment1.json": "a49b0615e7174efd0539b0c9fe6373c8e3cd2f14f5310e96895db8964f891c94",
+  "wpb_spec_amendment2.json": "1c2e4d058a66635a9aac0127cdedd4a5195314d5ce41984cd7baac6d34b3bd80"
+ },
+ "environment": {
+  "python": "3.14.4",
+  "numpy": "2.5.3",
+  "MDAnalysis": "2.10.0",
+  "pip_freeze": [
+   "cloudpickle==3.1.2",
+   "contourpy==1.4.0",
+   "cycler==0.12.1",
+   "filelock==4.0.10",
+   "fonttools==4.66.1",
+   "GridDataFormats==1.2.0",
+   "iniconfig==2.3.0",
+   "joblib==1.6.0",
+   "kiwisolver==1.5.1",
+   "matplotlib==3.11.2",
+   "mda-xdrlib==0.2.0",
+   "MDAnalysis==2.10.0",
+   "mmtf-python==1.1.3",
+   "mrcfile==1.5.4",
+   "msgpack==1.2.3",
+   "numpy==2.5.3",
+   "packaging==26.3",
+   "pillow==12.3.0",
+   "pluggy==1.6.0",
+   "Pygments==2.21.0",
+   "pyparsing==3.3.3",
+   "pytest==9.1.1",
+   "python-dateutil==2.9.0.post0",
+   "scipy==1.18.1",
+   "six==1.17.0",
+   "threadpoolctl==3.7.0",
+   "tqdm==4.70.1"
+  ]
+ },
+ "amendment2_freeze_utc": "2026-10-04T16:38:03.704000+00:00",
+ "zenodo_api_at_g0": {
+  "ORADD_closed_state.gro": {
+   "size": 6568567,
+   "checksum": "md5:541635b532a85a5e98ff14a7228c6a2b"
+  },
+  "ORADD_open_state_traj.xtc": {
+   "size": 780301896,
+   "checksum": "md5:05de6fa777dd5c86ba3e4c32b2c9080f"
+  },
+  "ORADD_closed_state_traj.xtc": {
+   "size": 580049352,
+   "checksum": "md5:014063067a9617dd89a39e35f7350d25"
+  },
+  "ORADD_open_state.gro": {
+   "size": 6567118,
+   "checksum": "md5:a73df3d6a60e69515bb7a7758af59f17"
+  }
+ },
+ "files": {
+  "ORADD_open_state.gro": {
+   "size": 6567118,
+   "md5": "a73df3d6a60e69515bb7a7758af59f17",
+   "sha256": "25c90e78f549d97ed61814950efcdf9b859a0320734bd15bd09003677608a40f",
+   "md5_matches_source_record": true,
+   "size_matches_source_record": true
+  },
+  "ORADD_closed_state.gro": {
+   "size": 6568567,
+   "md5": "541635b532a85a5e98ff14a7228c6a2b",
+   "sha256": "4d05b0d3767e1f5e948b2c038a42e9b1a2132e3085c5b50899f4bf797e9f16e4",
+   "md5_matches_source_record": true,
+   "size_matches_source_record": true
+  },
+  "ORADD_open_state_traj.xtc": {
+   "size": 780301896,
+   "md5": "05de6fa777dd5c86ba3e4c32b2c9080f",
+   "sha256": "39e77b58ded7279d27b9e331b2ff9e6d39a803183689612856df0aa800a40019",
+   "md5_matches_source_record": true,
+   "size_matches_source_record": true
+  },
+  "ORADD_closed_state_traj.xtc": {
+   "size": 580049352,
+   "md5": "014063067a9617dd89a39e35f7350d25",
+   "sha256": "f950ff0a7beadab0992d9c1cffaea540675b62d06ed9d1eadcc988f20f6f3cc9",
+   "md5_matches_source_record": true,
+   "size_matches_source_record": true
+  }
+ },
+ "references": {
+  "4AKE": {
+   "sha256": "ff798ee8791878eb58bac1c6bed32042f51b455512ac93b50bda8fa0ff0e7f78",
+   "size": 309339,
+   "revdat_dates": [
+    "28-FEB-24",
+    "24-FEB-09",
+    "10-JUN-96"
+   ],
+   "hetero_residues": [
+    "HOH"
+   ],
+   "chains": {
+    "A": {
+     "valid": true,
+     "missing": [],
+     "mismatched": [],
+     "altlocs": {},
+     "role": "primary"
+    },
+    "B": {
+     "valid": true,
+     "missing": [],
+     "mismatched": [],
+     "altlocs": {},
+     "role": "sensitivity"
+    }
+   }
+  },
+  "1AKE": {
+   "sha256": "651e952f55f1317f50f4e82b7f0e99053397032cd8da5b2896f79d0af9f619a9",
+   "size": 357777,
+   "revdat_dates": [
+    "25-DEC-24",
+    "05-JUN-24",
+    "24-FEB-09",
+    "01-APR-03",
+    "31-JAN-94"
+   ],
+   "hetero_residues": [
+    "AP5",
+    "HOH"
+   ],
+   "chains": {
+    "A": {
+     "valid": true,
+     "missing": [],
+     "mismatched": [],
+     "altlocs": {},
+     "role": "primary"
+    },
+    "B": {
+     "valid": true,
+     "missing": [],
+     "mismatched": [],
+     "altlocs": {},
+     "role": "sensitivity"
+    }
+   }
+  }
+ },
+ "trajectories": {
+  "open_start": {
+   "gro_n_atoms": 95175,
+   "xtc_n_atoms": 95175,
+   "n_ca": 214,
+   "ca_resids_equal_declared": true,
+   "n_segments": 1,
+   "sequence_equals_declared": true,
+   "n_frames": 2253,
+   "time_first_ps": 0.0,
+   "time_last_ps": 450400.0,
+   "dt_values_ps_with_counts": {
+    "200.0": 2252
+   },
+   "nominal_dt_ps": 200.0,
+   "cadence_irregularities": 0,
+   "times_strictly_increasing": true,
+   "box_angles_max_dev_deg": 0.0,
+   "box_lengths_A_min_max": [
+    97.8176498413086,
+    100.0
+   ],
+   "raw_first_frame_header": {
+    "magic": 1995,
+    "natoms": 95175,
+    "step": 0,
+    "time_ps": 0.0,
+    "precision_per_nm": 1000.0
+   },
+   "coordinate_quantization_A": 0.01,
+   "units": "MDAnalysis: \u00c5 and ps (xtc stores nm; converted on read)",
+   "source_statement_ns": 450,
+   "file_duration_ns": 450.4,
+   "frames_expected_from_statement": 2251
+  },
+  "closed_start": {
+   "gro_n_atoms": 95196,
+   "xtc_n_atoms": 95196,
+   "n_ca": 214,
+   "ca_resids_equal_declared": true,
+   "n_segments": 1,
+   "sequence_equals_declared": true,
+   "n_frames": 1678,
+   "time_first_ps": 0.0,
+   "time_last_ps": 335400.0,
+   "dt_values_ps_with_counts": {
+    "200.0": 1677
+   },
+   "nominal_dt_ps": 200.0,
+   "cadence_irregularities": 0,
+   "times_strictly_increasing": true,
+   "box_angles_max_dev_deg": 0.0,
+   "box_lengths_A_min_max": [
+    97.86187744140625,
+    100.0
+   ],
+   "raw_first_frame_header": {
+    "magic": 1995,
+    "natoms": 95196,
+    "step": 0,
+    "time_ps": 0.0,
+    "precision_per_nm": 1000.0
+   },
+   "coordinate_quantization_A": 0.01,
+   "units": "MDAnalysis: \u00c5 and ps (xtc stores nm; converted on read)",
+   "source_statement_ns": 335,
+   "file_duration_ns": 335.4,
+   "frames_expected_from_statement": 1676
+  }
+ },
+ "stops": [],
+ "discrepancies_and_notes": [
+  "open_start: 2253 frames vs 2251 expected from the stated 450 ns (recorded discrepancy, not a stop)",
+  "closed_start: 1678 frames vs 1676 expected from the stated 335 ns (recorded discrepancy, not a stop)"
+ ],
+ "g0_passed": true
+}

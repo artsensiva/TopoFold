@@ -1,0 +1,115 @@
+{
+ "_meta": {
+  "written_utc": "2026-10-06T04:02:06.734289+00:00",
+  "ledger_sha256": "e2e6050fdbe054d20966ef0ad62ce2bd117a60a5671b49f5e7612a004eb2a320",
+  "purpose": "documentation of eligibility failures (structure only); no replacement downloaded"
+ },
+ "failures": {
+  "2hb0A01": {
+   "order": 4,
+   "superfamily": "2.60.40.2520",
+   "criterion": "original \u00a74.3",
+   "reasons": [
+    "320/0: numFrames 130 < 200"
+   ],
+   "detail": "one of the four required trajectories is shorter than 200 frames (as stored); other replicas unaffected"
+  },
+  "1s14B00": {
+   "order": 18,
+   "superfamily": "3.30.565.10",
+   "criterion": "original \u00a74.3",
+   "reasons": [
+    "backbone residues not one consecutive run"
+   ],
+   "detail": "residue numbering 2017\u20132217 with a jump 2093 \u2192 2117 (178 residues, all N/CA/C/O present); the declared rule is numbering-based; whether this is a physical chain break was not assessed (would require coordinates beyond the declared rule)"
+  },
+  "2yztA00": {
+   "order": 24,
+   "superfamily": "3.30.160.250",
+   "criterion": "original \u00a74.3",
+   "reasons": [
+    "348/0: numFrames 130 < 200"
+   ],
+   "detail": "one of the four required trajectories is shorter than 200 frames (as stored); other replicas unaffected"
+  },
+  "3slpA00": {
+   "order": 26,
+   "superfamily": "3.90.320.10",
+   "criterion": "original \u00a74.3",
+   "reasons": [
+    "348/1: numFrames 130 < 200"
+   ],
+   "detail": "one of the four required trajectories is shorter than 200 frames (as stored); other replicas unaffected"
+  },
+  "4uhvA03": {
+   "order": 27,
+   "superfamily": "3.30.1920.30",
+   "criterion": "original \u00a74.3",
+   "reasons": [
+    "348/1: numFrames 130 < 200"
+   ],
+   "detail": "one of the four required trajectories is shorter than 200 frames (as stored); other replicas unaffected"
+  },
+  "3zxsA04": {
+   "order": 28,
+   "superfamily": "1.10.10.1710",
+   "criterion": "original \u00a74.3",
+   "reasons": [
+    "348/0: numFrames 120 < 200"
+   ],
+   "detail": "one of the four required trajectories is shorter than 200 frames (as stored); other replicas unaffected"
+  }
+ },
+ "consequence": {
+  "n_eligible": 24,
+  "minimum_defined_domains_per_cell": 24,
+  "note": "24 eligible equals the minimum; if any eligible domain is undefined in a cell (fewer than 10 defined windows), that cell becomes insufficient evidence",
+  "protocol_rule": "original \u00a74.3: a failing primary is replaced by the next reserve in order; >10 reserves exhausted \u2192 insufficient evidence",
+  "replacement_request_for_authorization": [
+   {
+    "order": 31,
+    "domain": "3av0A01",
+    "superfamily": "3.60.21.10",
+    "size_bytes": 1377485592,
+    "lfs_sha256": "d1e7ffb560921acad56af31ddb01e1e7a8e7eabaf01a78a5b8354b03307252c3"
+   },
+   {
+    "order": 32,
+    "domain": "2l23A00",
+    "superfamily": "2.40.290.30",
+    "size_bytes": 873596232,
+    "lfs_sha256": "b988914114e5a36428e4da8318f52ea423dde0845d8ac7066c646990c85efd9f"
+   },
+   {
+    "order": 33,
+    "domain": "2zj8A03",
+    "superfamily": "1.10.3380.30",
+    "size_bytes": 1270389832,
+    "lfs_sha256": "5c628fda1f9baababe78230dd16fbdd493e302894964608a9e37d5af393a5b22"
+   },
+   {
+    "order": 34,
+    "domain": "3lppA02",
+    "superfamily": "2.60.40.1760",
+    "size_bytes": 1190198648,
+    "lfs_sha256": "c2a13e2d58db59d5028c1474b89c9cc5b788bb1a5789328970ec757af028b086"
+   },
+   {
+    "order": 35,
+    "domain": "4uuwB02",
+    "superfamily": "3.30.70.2860",
+    "size_bytes": 371032292,
+    "lfs_sha256": "baeb455e4d387050b12b8ea480c22d86af7cda16d3084a99d75f999a9fe6063b"
+   },
+   {
+    "order": 36,
+    "domain": "2ljuA01",
+    "superfamily": "3.30.160.190",
+    "size_bytes": 397135296,
+    "lfs_sha256": "c5fe0f94f4eb9e61ad9ee2051167991f2139f444a7922134d1e18de314129ad3"
+   }
+  ],
+  "replacement_request_total_bytes": 5479837892,
+  "all_reserves_total_bytes": 7196577976
+ }
+}

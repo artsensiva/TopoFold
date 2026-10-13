@@ -1,0 +1,56 @@
+{
+ "recorded_utc": "2026-10-12T14:22:02.782956+00:00",
+ "nature": "held-out closeout: interpretation corrections, documentation reconciliation, proposals; no rerun, no tuning, no download, no production change",
+ "new_documents_sha256": {
+  "docs/WPD_HELDOUT_MDCATH_CLOSEOUT_ADDENDUM_2026-10-12.md": "5449b14ae5b915c4263acee8a107904218be596c4cba8657a57eea05361dad3b",
+  "docs/ENGINEERING_BENCHMARK_EB1_PROPOSAL.md": "f69dc99cd505c96b46d43181fab0f53f939158ba377e34031d4c3cb5dfda0d0a",
+  "docs/ONCOLOGY_VALIDATION_REQUIREMENTS.md": "d0ef1f836a313400eaf4e4aa0fe9dbf4dde1d75f54f7a28b9c4282d520e48ad8"
+ },
+ "addendum_record_sha256": "9853e383cbccd84487a1663266293d5aed0da4e41be18373707a2225254a6a21",
+ "addendum_generator_sha256": "bb3efea979b47cc95c2bb51858fe111ae192e2b6a528c22ede3ebfcce5cdbb31",
+ "reconciled_documents": {
+  "README.md": {
+   "before": "75460f5ae180ae3dad070980bcf449e9ef925e2188152165d90a70319cf88f9c",
+   "after": "358f0b9108c9c245d80aefae8a83ae9d47fb2fe12c7cc98e8124b40a5868321b"
+  },
+  "docs/ENGINE_MISSION_AND_ROADMAP.md": {
+   "before": "ac40db3d86102399de0245018c7106111f894f506110ccfd70614803d888a4d9",
+   "after": "913788b1806c6361bbe938667f0a5540619baf6cef510602b94bb2fd1748f532"
+  },
+  "benchmarks/audit/wpd_local_retrieval/README.md": {
+   "before": "8addd59834c24079f7d2143c390ba909f5e3c65bb5e5ceb890b6c84bd95231a7",
+   "after": "5d6cfd13044ecdd502771b2a6b4d4d87a9e4971d6e7ea1173879ba009273cf44"
+  }
+ },
+ "verified_unchanged": {
+  "results_sha256": "8dbdcf8c813c4a49c84fa6458a50c3de21dc54acb08194d7c66f8e1e55d5f5ab",
+  "report_sha256": "5e791cb690479678a5db375625dc919a2483f40f609ba4666c9557a5a7888e68",
+  "checkpoints": 30,
+  "authorization_valid": true,
+  "protocols": {
+   "docs/WPD_LOCAL_RETRIEVAL_PROTOCOL.md": "a2d1bfe67243d3adac93ebd885f7e5bf4bd0e38dbf1480525358200166aef3df",
+   "docs/WPD_HELDOUT_MDCATH_PROTOCOL.md": "2bc16aa7e534abee9f0c5d78d463ee514df5009401254965776f31a488e76800",
+   "docs/WPD_HELDOUT_MDCATH_AMENDMENT_1.md": "e6f11995a866660e6d817112d61fbab2e330b4a07a5e6e354fac28daba34d407",
+   "docs/WPD_HELDOUT_MDCATH_AMENDMENT_2.md": "2f568620da2adf8a6ad36056a4a05776b5398e11d9fe71accdfe4e43e6a85811",
+   "docs/WPD_HELDOUT_MDCATH_AMENDMENT_3.md": "51c39d0a68f565c938ab54242c6330e4fb0fd1ed67739b8842166d2e204575fc",
+   "docs/WPD_HELDOUT_MDCATH_EXECUTION_CORRECTIONS.md": "622b7d96103f5f45e27c16c9eb8bd6448d28cde3d9ba39708eb9ab954e7ec48b"
+  },
+  "implementation": {
+   "benchmarks/audit/wpd_local_retrieval/heldout_runner.py": "14d0117b9c52dbc9a8d9a1214182a0736efaed0b39a54e34c1c0a3a1a1afeefe",
+   "benchmarks/audit/wpd_local_retrieval/mdcath_reader_r1.py": "33530a790ba1cf1a4f8fc9bc7ffd028dabb69434df7b9187c064a36c3b27a2bb",
+   "benchmarks/audit/wpd_local_retrieval/mdcath_reader.py": "f46ad1472c36cd8db226877a1b84621c821c5f577a92b0ab5dfc9d9d4d6176a5",
+   "benchmarks/audit/wpd_local_retrieval/heldout_dependence_r1.py": "63d7d0add9635cdf38b105e543f43e699a29e29aa80012e58046b06a9e19ae36",
+   "benchmarks/audit/wpd_local_retrieval/heldout_dependence.py": "c8fb02f0059c0ae9c78f26e0af0d6d8be4ee450bc05a5e240713ac22fb4cd647",
+   "benchmarks/audit/wpd_local_retrieval/heldout_decision.py": "80d0ff35ddf4ffbd5adf73670d5450cf610b7d3bd0bd936bf62601d25ac94a7c",
+   "benchmarks/audit/wpd_local_retrieval/heldout_decision_a2.py": "14847d95d41d734b412d55b9a98e0b7ae2a749ee4507209efa7641635946c836",
+   "benchmarks/audit/wpd_local_retrieval/wpd_lib.py": "30bc9ba3cc9583e8d2298e19a15db91b3c0c771a885092b34cb8b2b1c05d39e8",
+   "benchmarks/audit/legacy_engine/legacy_lib.py": "09664243491188da3465425c879b9d42bdb8b2d1ac013c4a83596aec76248390",
+   "benchmarks/audit/adk_feasibility/adk_lib.py": "15c6c494159f1d9dde51be65c3aa5da825ac0aaa6d3168d9ca9ba04acb3255aa"
+  }
+ },
+ "banned_word_check": {
+  "docs/WPD_HELDOUT_MDCATH_CLOSEOUT_ADDENDUM_2026-10-12.md": [],
+  "docs/ENGINEERING_BENCHMARK_EB1_PROPOSAL.md": [],
+  "docs/ONCOLOGY_VALIDATION_REQUIREMENTS.md": []
+ }
+}

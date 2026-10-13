@@ -1,0 +1,25 @@
+{
+ "spec": "SPEC.md",
+ "source_doi": "10.5281/zenodo.5583119",
+ "files": {
+  "ORADD_open_state.gro": {"url": "https://zenodo.org/records/5583119/files/ORADD_open_state.gro?download=1", "md5": "a73df3d6a60e69515bb7a7758af59f17", "size": 6567118},
+  "ORADD_closed_state.gro": {"url": "https://zenodo.org/records/5583119/files/ORADD_closed_state.gro?download=1", "md5": "541635b532a85a5e98ff14a7228c6a2b", "size": 6568567},
+  "ORADD_open_state_traj.xtc": {"url": "https://zenodo.org/records/5583119/files/ORADD_open_state_traj.xtc?download=1", "md5": "05de6fa777dd5c86ba3e4c32b2c9080f", "size": 780301896},
+  "ORADD_closed_state_traj.xtc": {"url": "https://zenodo.org/records/5583119/files/ORADD_closed_state_traj.xtc?download=1", "md5": "014063067a9617dd89a39e35f7350d25", "size": 580049352}
+ },
+ "references": {
+  "4AKE": {"url": "https://files.rcsb.org/download/4AKE.pdb", "role": "open", "primary_chain": "A", "sensitivity_chain": "B"},
+  "1AKE": {"url": "https://files.rcsb.org/download/1AKE.pdb", "role": "closed", "primary_chain": "A", "sensitivity_chain": "B"}
+ },
+ "pairs": {"open_start": ["ORADD_open_state.gro", "ORADD_open_state_traj.xtc"],
+           "closed_start": ["ORADD_closed_state.gro", "ORADD_closed_state_traj.xtc"]},
+ "source_statements": {"open_start_ns": 450, "closed_start_ns": 335},
+ "environment": {"python": "3.14.4", "numpy": "2.5.3", "MDAnalysis": "2.10.0"},
+ "selection": "protein and name CA",
+ "n_ca_expected": 214,
+ "core": {"cutoff_A": 1.0, "max_iter": 50, "min_size": 30, "sensitivity_cutoffs_A": [0.5, 2.0]},
+ "pbc": {"orthorhombic_tol_deg": 1e-3, "max_consecutive_ca_A": 4.2},
+ "segments_min_len": 5,
+ "classification": {"near_fraction_primary": 0.25, "near_fraction_sensitivity": [0.20, 0.33], "sustained_frames": 25},
+ "autocorrelation": {"method": "Sokal windowing", "c": 5}
+}

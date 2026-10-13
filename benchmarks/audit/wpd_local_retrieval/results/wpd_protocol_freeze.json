@@ -1,0 +1,7 @@
+{
+ "frozen_utc": "2026-10-04T17:25:15.620182+00:00",
+ "scope": "AdK development tier only (mdCATH arm provisional, not frozen)",
+ "protocol_sha256": "a2d1bfe67243d3adac93ebd885f7e5bf4bd0e38dbf1480525358200166aef3df",
+ "eligibility_artifact_sha256": "97a1bc9e2ef071642de5a771cace507bf0b52632183694536bae169665e4fc10",
+ "disclosure": "No WP-D target, feature, distance or score computed before this freeze; only the eligibility artifact (atom availability, finite coordinates, bond lengths) exists."
+}

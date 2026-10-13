@@ -1,0 +1,68 @@
+{
+ "_meta": {
+  "data": "third-party MD (not SYNTHETIC)",
+  "source_doi": "10.5281/zenodo.5583119",
+  "written_utc": "2026-10-04T16:55:53.316128+00:00"
+ },
+ "commands": [
+  {
+   "cmd": "python3 -m venv build/venv; pip install numpy==2.5.3 MDAnalysis==2.10.0 (later pytest==9.1.1)",
+   "exit": 0
+  },
+  {
+   "cmd": "curl ORADD_open_state.gro",
+   "exit": 0
+  },
+  {
+   "cmd": "curl ORADD_closed_state.gro",
+   "exit": 0
+  },
+  {
+   "cmd": "curl ORADD_open_state_traj.xtc",
+   "exit": 0
+  },
+  {
+   "cmd": "curl ORADD_closed_state_traj.xtc (first attempt)",
+   "exit": null,
+   "note": "process terminated by session teardown at 63,578,112 B; not restarted"
+  },
+  {
+   "cmd": "curl -C - ORADD_closed_state_traj.xtc (HTTP range resume of the partial file)",
+   "exit": 0
+  },
+  {
+   "cmd": "curl https://files.rcsb.org/download/4AKE.pdb",
+   "exit": 0
+  },
+  {
+   "cmd": "curl https://files.rcsb.org/download/1AKE.pdb",
+   "exit": 0
+  },
+  {
+   "cmd": "build/venv/bin/python -B -m pytest -p no:cacheprovider test_g1.py",
+   "exit": 0,
+   "result": "15 passed"
+  },
+  {
+   "cmd": "build/venv/bin/python -B g0.py",
+   "exit": 0,
+   "result": "PASS (2 recorded frame-count discrepancies)"
+  },
+  {
+   "cmd": "build/venv/bin/python -B g1.py",
+   "exit": 0
+  },
+  {
+   "cmd": "build/venv/bin/python -B make_report.py",
+   "exit": 0
+  }
+ ],
+ "integrity_note": "All four files verified by md5 and size against the Zenodo record after download (G0), including the resumed file.",
+ "outputs_sha256": {
+  "results/adk_g0_provenance.json": "e09cc250fa5f60aae7c6d47118eb2af50d5ffbe3cdf22343ae84ddb70481722d",
+  "results/adk_g1_summary.json": "658c76721745100237663672a19ca4e8e1bf3ce75c3bec7b30b530da919b86d4",
+  "results/adk_g1_frames_open.csv": "c6dc8628884abae1a355c0bd6ecfbd231484b242f3a217a506ddc280086839c9",
+  "results/adk_g1_frames_closed.csv": "2f595a52b32781275b495d2c931ada3bc72286de6937788437849e500714deb1",
+  "REPORT.md": "92c93ddb53e747830a2a8933abfe95908f898efe2b6430ebba90ef140e808dd9"
+ }
+}

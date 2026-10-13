@@ -1,0 +1,61 @@
+{
+ "recorded_utc": "2026-10-06T04:02:06.735230+00:00",
+ "status": "PROPOSED final; review required before held-out scoring",
+ "amendment": "docs/WPD_HELDOUT_MDCATH_AMENDMENT_3.md",
+ "amendment_sha256": "51c39d0a68f565c938ab54242c6330e4fb0fd1ed67739b8842166d2e204575fc",
+ "preserved_unchanged": {
+  "docs/WPD_HELDOUT_MDCATH_PROTOCOL.md": "2bc16aa7e534abee9f0c5d78d463ee514df5009401254965776f31a488e76800",
+  "docs/WPD_HELDOUT_MDCATH_AMENDMENT_1.md": "e6f11995a866660e6d817112d61fbab2e330b4a07a5e6e354fac28daba34d407",
+  "docs/WPD_HELDOUT_MDCATH_AMENDMENT_2.md": "2f568620da2adf8a6ad36056a4a05776b5398e11d9fe71accdfe4e43e6a85811",
+  "docs/WPD_LOCAL_RETRIEVAL_PROTOCOL.md": "a2d1bfe67243d3adac93ebd885f7e5bf4bd0e38dbf1480525358200166aef3df",
+  "results/wpd_mdcath_selection.json": "de0736ad3d832e4342f7b4522723ea2915d6ae39c43a9155bc22bc364477d16c",
+  "results/wpd_heldout_protocol_freeze.json": "c826af3d1b895a97a31ee34c7c3e2024d19fea578c0d4316f0abc7f0ba0e7d49",
+  "results/wpd_heldout_amendment1.json": "37f4aacdfa8bce76c205d32be8084b623e4e0707808ad2562f9ab9ebb4be9d56",
+  "results/wpd_heldout_amendment2.json": "1034b1e16c563c132fa77983518f2ea22fd7f68b84b418c8c8f34b9fd79a7402",
+  "mdcath_reader.py": "f46ad1472c36cd8db226877a1b84621c821c5f577a92b0ab5dfc9d9d4d6176a5",
+  "heldout_dependence.py": "c8fb02f0059c0ae9c78f26e0af0d6d8be4ee450bc05a5e240713ac22fb4cd647",
+  "heldout_decision.py": "80d0ff35ddf4ffbd5adf73670d5450cf610b7d3bd0bd936bf62601d25ac94a7c",
+  "mdcath_schema_check.py": "f3d68f4a75f0d8552cc33251c42dc5ae7695a4c39906f327b6b8c2599dfc227c",
+  "results/wpd_mdcath_schema_check.json": "bed2ef19a79a80d62cd4a0fd702602c520d8e8b8096d7047b4629aafa1d5c3a9"
+ },
+ "implementation_sha256": {
+  "heldout_runner.py": "a90ea06673e71eedc15a8794f1dfa027b5ac47442f1e73710e31d6ba6d8b315e",
+  "mdcath_reader_r1.py": "33530a790ba1cf1a4f8fc9bc7ffd028dabb69434df7b9187c064a36c3b27a2bb",
+  "heldout_dependence_r1.py": "63d7d0add9635cdf38b105e543f43e699a29e29aa80012e58046b06a9e19ae36",
+  "heldout_decision_a2.py": "14847d95d41d734b412d55b9a98e0b7ae2a749ee4507209efa7641635946c836",
+  "synthetic_backbone.py": "c1f3cf5ac6f371135a682ba25c89143424778f6815da85366e877f62120f52dd",
+  "test_heldout_runner.py": "f5b60c990caad38a7ebb96165d31b460742970d14549184d2037f5397e80cb12",
+  "mdcath_download.py": "d386f0638696ed39f7e3ebd686263f455cd354ce76199e07768f7e2651fc4b5b",
+  "../legacy_engine/legacy_lib.py": "09664243491188da3465425c879b9d42bdb8b2d1ac013c4a83596aec76248390"
+ },
+ "evidence_sha256": {
+  "results/wpd_mdcath_download_manifest.json": "6563d8c153ac5d67aee93ea3469b486c4c1168ed4c168f08753e3080dd238705",
+  "results/wpd_mdcath_eligibility_ledger.json": "e2e6050fdbe054d20966ef0ad62ce2bd117a60a5671b49f5e7612a004eb2a320",
+  "results/wpd_mdcath_eligibility_notes.json": "7516dbd6122fabc540ef111367225361f401bbae4d337bde593e14e47b567f1f",
+  "results/wpd_heldout_runner_dev_validation.json": "408bd5058bb5c8e8893707f386a78a53a13ee03ed6931cd7e7e1beed17a8fb74",
+  "results/SYNTHETIC_tau_int_calibration.json": "74a3b126aae9c6add9b4189bd32c403aeb3c282d4e5b0b2de48cda133cd33082"
+ },
+ "tests": {
+  "command": "build/venv/bin/python -B -m pytest -p no:cacheprovider -q test_wpd.py test_mdcath_select.py test_heldout_decision.py test_heldout_dependence.py test_mdcath_reader.py test_heldout_runner.py",
+  "summary": "51 passed in 290.87s (0:04:50)"
+ },
+ "download": {
+  "n_verified": 30,
+  "total_bytes": 16532123048,
+  "reserves_downloaded": 0
+ },
+ "eligibility": {
+  "n_eligible": 24,
+  "ineligible": [
+   "2hb0A01",
+   "1s14B00",
+   "2yztA00",
+   "3slpA00",
+   "4uhvA03",
+   "3zxsA04"
+  ]
+ },
+ "runtime_estimate_single_process_seconds": 37180,
+ "runtime_estimate_basis": "dev validation wall time scaled by (windows) \u00d7 (query frames \u00d7 database frames); estimate only",
+ "disclosure": "No held-out target, feature, ranking or score computed. Eligibility read structure only. Dev-sample method values not used to change anything."
+}

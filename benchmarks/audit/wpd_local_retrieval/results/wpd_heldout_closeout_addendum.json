@@ -1,0 +1,188 @@
+{
+ "_meta": {
+  "producer": "make_closeout_addendum.py",
+  "written_utc": "2026-10-12T14:19:33.332299+00:00",
+  "results_sha256": "8dbdcf8c813c4a49c84fa6458a50c3de21dc54acb08194d7c66f8e1e55d5f5ab",
+  "run_record_sha256": "be1a1b3e4d1261b40816d8c9456592a68427d84cc80969d8f367b5040bdef5d0",
+  "rho": 0.1,
+  "nature": "interpretation corrections; no rerun, no change to results or declared outcomes"
+ },
+ "B2_phipsi_W8": {
+  "320/W8/phipsi": {
+   "L": 0.11356080430342733,
+   "L_interval": [
+    0.07525252522425306,
+    0.1799294280456145
+   ],
+   "loss_class": "inconclusive",
+   "interval_contains_rho": true
+  },
+  "348/W8/phipsi": {
+   "L": 0.1293586024281395,
+   "L_interval": [
+    0.07941939820957618,
+    0.17991480977055246
+   ],
+   "loss_class": "inconclusive",
+   "interval_contains_rho": true
+  }
+ },
+ "W5_phipsi_A_B2": {
+  "320/W5/phipsi": {
+   "A": {
+    "L": 0.0,
+    "L_interval": [
+     0.0,
+     0.021944216159823005
+    ],
+    "loss_class": "within_margin"
+   },
+   "B2": {
+    "L": 0.0022261741638356864,
+    "L_interval": [
+     0.0,
+     0.025073627836487925
+    ],
+    "loss_class": "within_margin"
+   },
+   "observed_best": "A",
+   "best_counts": {
+    "B2": 650,
+    "B1": 5,
+    "B3": 0,
+    "M1": 0,
+    "M2": 0,
+    "A": 1345
+   }
+  },
+  "348/W5/phipsi": {
+   "A": {
+    "L": 0.0011181825413204914,
+    "L_interval": [
+     0.0,
+     0.029624563394862077
+    ],
+    "loss_class": "within_margin"
+   },
+   "B2": {
+    "L": 0.0,
+    "L_interval": [
+     0.0,
+     0.01983434796388211
+    ],
+    "loss_class": "within_margin"
+   },
+   "observed_best": "B2",
+   "best_counts": {
+    "B2": 1023,
+    "B1": 0,
+    "B3": 0,
+    "M1": 0,
+    "M2": 0,
+    "A": 977
+   }
+  }
+ },
+ "C1_gain": {
+  "320/W5/phipsi": {
+   "G": 0.09651039848389997,
+   "G_interval": [
+    0.08378025886840712,
+    0.11227422836630652
+   ],
+   "gain_class": "inconclusive",
+   "loss_class": "beyond_margin",
+   "G_lower_bound_above_0": true
+  },
+  "320/W8/phipsi": {
+   "G": 0.08692432558242491,
+   "G_interval": [
+    0.0691716573655008,
+    0.09556516520319192
+   ],
+   "gain_class": "uninformative",
+   "loss_class": "beyond_margin",
+   "G_lower_bound_above_0": true
+  },
+  "348/W5/phipsi": {
+   "G": 0.1169717626063701,
+   "G_interval": [
+    0.08064457041633832,
+    0.1403304027297272
+   ],
+   "gain_class": "inconclusive",
+   "loss_class": "beyond_margin",
+   "G_lower_bound_above_0": true
+  },
+  "348/W8/phipsi": {
+   "G": 0.08838991930939888,
+   "G_interval": [
+    0.07581908865086262,
+    0.11449306125570691
+   ],
+   "gain_class": "inconclusive",
+   "loss_class": "beyond_margin",
+   "G_lower_bound_above_0": true
+  },
+  "320/W5/pp": {
+   "G": 0.17504182988691386,
+   "G_interval": [
+    0.1528851461871208,
+    0.22829225567130007
+   ],
+   "gain_class": "informative",
+   "loss_class": "beyond_margin",
+   "G_lower_bound_above_0": true
+  },
+  "320/W8/pp": {
+   "G": 0.14396000447594104,
+   "G_interval": [
+    0.13402937817883065,
+    0.16461317512383866
+   ],
+   "gain_class": "informative",
+   "loss_class": "beyond_margin",
+   "G_lower_bound_above_0": true
+  },
+  "348/W5/pp": {
+   "G": 0.204457021886856,
+   "G_interval": [
+    0.1614680188099067,
+    0.2326309048287154
+   ],
+   "gain_class": "informative",
+   "loss_class": "beyond_margin",
+   "G_lower_bound_above_0": true
+  },
+  "348/W8/pp": {
+   "G": 0.15929021439725344,
+   "G_interval": [
+    0.13484084095747084,
+    0.17619889891551077
+   ],
+   "gain_class": "informative",
+   "loss_class": "beyond_margin",
+   "G_lower_bound_above_0": true
+  }
+ },
+ "declared_overall": {
+  "phipsi": {
+   "M1": "fails_criterion_in_all_cells",
+   "M2": "fails_criterion_in_all_cells",
+   "B1": "inconclusive",
+   "B2": "inconclusive",
+   "B3": "inconclusive",
+   "A": "meets_criterion_in_all_cells",
+   "C1": "fails_criterion_in_all_cells"
+  },
+  "pp": {
+   "M1": "fails_criterion_in_all_cells",
+   "M2": "fails_criterion_in_all_cells",
+   "B1": "inconclusive",
+   "B2": "meets_criterion_in_all_cells",
+   "B3": "fails_criterion_in_all_cells",
+   "A": "cell_dependent",
+   "C1": "fails_criterion_in_all_cells"
+  }
+ }
+}

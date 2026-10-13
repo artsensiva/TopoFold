@@ -1,0 +1,46 @@
+{
+ "_meta": {
+  "label": "DEVELOPMENT command-path verification; schema sample 1ha8A00 (excluded superfamily); outputs not used to change anything",
+  "run_utc": "2026-10-06T04:32:13.257332+00:00"
+ },
+ "absent": [
+  3,
+  "AUTHORIZATION REJECTED: authorization record absent"
+ ],
+ "malformed": [
+  3,
+  "AUTHORIZATION REJECTED: authorization record malformed: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)"
+ ],
+ "mismatched": [
+  3,
+  "AUTHORIZATION REJECTED: authorization record does not match current files: ['selection_sha256']"
+ ],
+ "valid_first": [
+  0,
+  "score written build/dev_exec/dev_score.json"
+ ],
+ "valid_resumed": [
+  0,
+  "score written build/dev_exec/dev_score_resumed.json"
+ ],
+ "resumed_reused": [
+  "1ha8A00"
+ ],
+ "resumed_aggregate_identical": true,
+ "aggregate_status_with_one_domain": {
+  "phipsi": {
+   "320/W5/phipsi": "insufficient_evidence",
+   "320/W8/phipsi": "insufficient_evidence",
+   "348/W5/phipsi": "insufficient_evidence",
+   "348/W8/phipsi": "insufficient_evidence"
+  },
+  "pp": {
+   "320/W5/pp": "insufficient_evidence",
+   "320/W8/pp": "insufficient_evidence",
+   "348/W5/pp": "insufficient_evidence",
+   "348/W8/pp": "insufficient_evidence"
+  }
+ },
+ "horn_kabsch_max_A": 7.671641100159832e-14,
+ "first_run_wall_seconds": 305.8
+}

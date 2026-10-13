@@ -1,0 +1,120 @@
+{
+ "recorded_utc": "2026-10-06T05:24:02.593645+00:00",
+ "document": "docs/WPD_HELDOUT_MDCATH_EXECUTION_CORRECTIONS.md",
+ "document_sha256": "622b7d96103f5f45e27c16c9eb8bd6448d28cde3d9ba39708eb9ab954e7ec48b",
+ "archived_a3_runner": {
+  "path": "archive/heldout_runner_a3.py",
+  "sha256": "a90ea06673e71eedc15a8794f1dfa027b5ac47442f1e73710e31d6ba6d8b315e",
+  "equals_a3_record": true
+ },
+ "preserved_records_sha256": {
+  "results/wpd_heldout_protocol_freeze.json": "c826af3d1b895a97a31ee34c7c3e2024d19fea578c0d4316f0abc7f0ba0e7d49",
+  "results/wpd_heldout_amendment1.json": "37f4aacdfa8bce76c205d32be8084b623e4e0707808ad2562f9ab9ebb4be9d56",
+  "results/wpd_heldout_amendment2.json": "1034b1e16c563c132fa77983518f2ea22fd7f68b84b418c8c8f34b9fd79a7402",
+  "results/wpd_heldout_amendment3.json": "059e091c39c20b51f89654d67dd34e739a37106fffa186572331fbd2aa107180",
+  "results/wpd_mdcath_selection.json": "de0736ad3d832e4342f7b4522723ea2915d6ae39c43a9155bc22bc364477d16c",
+  "results/wpd_mdcath_eligibility_ledger.json": "e2e6050fdbe054d20966ef0ad62ce2bd117a60a5671b49f5e7612a004eb2a320",
+  "results/wpd_mdcath_download_manifest.json": "6563d8c153ac5d67aee93ea3469b486c4c1168ed4c168f08753e3080dd238705"
+ },
+ "cohort": {
+  "file": "results/wpd_mdcath_cohort.json",
+  "sha256": "864420cd68b2af305f4792b30f0675d4632d0b0c3436d0957a28068bd78907da",
+  "reserve_ledger_sha256": "ecc9af3ff2762519b365d4045469d29f90a1cedeb5a0b7867bb0efbe97740635",
+  "domains": [
+   "2wp0D00",
+   "2wscN00",
+   "1neiA00",
+   "1whoA00",
+   "3s0yA01",
+   "1v8cA01",
+   "2yx1A01",
+   "4ea9A02",
+   "2p08B00",
+   "1zvuA03",
+   "1d8bA00",
+   "1vz0A01",
+   "3wx4A00",
+   "2h85A02",
+   "2kzsA00",
+   "4u49B02",
+   "3udcA02",
+   "1aorA01",
+   "4dkwA00",
+   "1u6zA04",
+   "2bt9C01",
+   "3u61D03",
+   "3tekA00",
+   "3nwsA02",
+   "3av0A01",
+   "2l23A00",
+   "2zj8A03",
+   "3lppA02",
+   "4uuwB02",
+   "2ljuA01"
+  ],
+  "excluded_primaries": {
+   "2hb0A01": [
+    "320/0: numFrames 130 < 200"
+   ],
+   "1s14B00": [
+    "backbone residues not one consecutive run"
+   ],
+   "2yztA00": [
+    "348/0: numFrames 130 < 200"
+   ],
+   "3slpA00": [
+    "348/1: numFrames 130 < 200"
+   ],
+   "4uhvA03": [
+    "348/1: numFrames 130 < 200"
+   ],
+   "3zxsA04": [
+    "348/0: numFrames 120 < 200"
+   ]
+  }
+ },
+ "final_implementation_sha256": {
+  "benchmarks/audit/wpd_local_retrieval/heldout_runner.py": "14d0117b9c52dbc9a8d9a1214182a0736efaed0b39a54e34c1c0a3a1a1afeefe",
+  "benchmarks/audit/wpd_local_retrieval/mdcath_reader_r1.py": "33530a790ba1cf1a4f8fc9bc7ffd028dabb69434df7b9187c064a36c3b27a2bb",
+  "benchmarks/audit/wpd_local_retrieval/mdcath_reader.py": "f46ad1472c36cd8db226877a1b84621c821c5f577a92b0ab5dfc9d9d4d6176a5",
+  "benchmarks/audit/wpd_local_retrieval/heldout_dependence_r1.py": "63d7d0add9635cdf38b105e543f43e699a29e29aa80012e58046b06a9e19ae36",
+  "benchmarks/audit/wpd_local_retrieval/heldout_dependence.py": "c8fb02f0059c0ae9c78f26e0af0d6d8be4ee450bc05a5e240713ac22fb4cd647",
+  "benchmarks/audit/wpd_local_retrieval/heldout_decision.py": "80d0ff35ddf4ffbd5adf73670d5450cf610b7d3bd0bd936bf62601d25ac94a7c",
+  "benchmarks/audit/wpd_local_retrieval/heldout_decision_a2.py": "14847d95d41d734b412d55b9a98e0b7ae2a749ee4507209efa7641635946c836",
+  "benchmarks/audit/wpd_local_retrieval/wpd_lib.py": "30bc9ba3cc9583e8d2298e19a15db91b3c0c771a885092b34cb8b2b1c05d39e8",
+  "benchmarks/audit/legacy_engine/legacy_lib.py": "09664243491188da3465425c879b9d42bdb8b2d1ac013c4a83596aec76248390",
+  "benchmarks/audit/adk_feasibility/adk_lib.py": "15c6c494159f1d9dde51be65c3aa5da825ac0aaa6d3168d9ca9ba04acb3255aa"
+ },
+ "protocol_sha256": {
+  "docs/WPD_LOCAL_RETRIEVAL_PROTOCOL.md": "a2d1bfe67243d3adac93ebd885f7e5bf4bd0e38dbf1480525358200166aef3df",
+  "docs/WPD_HELDOUT_MDCATH_PROTOCOL.md": "2bc16aa7e534abee9f0c5d78d463ee514df5009401254965776f31a488e76800",
+  "docs/WPD_HELDOUT_MDCATH_AMENDMENT_1.md": "e6f11995a866660e6d817112d61fbab2e330b4a07a5e6e354fac28daba34d407",
+  "docs/WPD_HELDOUT_MDCATH_AMENDMENT_2.md": "2f568620da2adf8a6ad36056a4a05776b5398e11d9fe71accdfe4e43e6a85811",
+  "docs/WPD_HELDOUT_MDCATH_AMENDMENT_3.md": "51c39d0a68f565c938ab54242c6330e4fb0fd1ed67739b8842166d2e204575fc",
+  "docs/WPD_HELDOUT_MDCATH_EXECUTION_CORRECTIONS.md": "622b7d96103f5f45e27c16c9eb8bd6448d28cde3d9ba39708eb9ab954e7ec48b"
+ },
+ "tests": {
+  "command": "pytest test_wpd.py test_mdcath_select.py test_heldout_decision.py test_heldout_dependence.py test_mdcath_reader.py test_heldout_runner.py test_heldout_exec.py",
+  "summary": "56 passed in 935.40s (0:15:35)",
+  "test_files_sha256": {
+   "test_heldout_exec.py": "18da5cc048cfb673b8cd51434d067247cf4caa7996f870e4104f384c91d6b223",
+   "test_heldout_runner.py": "f5b60c990caad38a7ebb96165d31b460742970d14549184d2037f5397e80cb12",
+   "synthetic_backbone.py": "c1f3cf5ac6f371135a682ba25c89143424778f6815da85366e877f62120f52dd"
+  }
+ },
+ "dev_command_path_verification": {
+  "file": "results/wpd_heldout_exec_verification.json",
+  "sha256": "e09cd9df4ff749a5506a45f634435bf67078bfe655aca09e9e5303dc22b1cbde"
+ },
+ "production_sources_sha256": {
+  "crates/topofold-core/src/circular.rs": "94244f9dd563470784b5abe3d2a65211de0b4b261f377519a23ca60fdd440ae3",
+  "crates/topofold-core/src/bimodality.rs": "0c093efd9cf607093e03920e5e10cc5a5c23c5494867c8a325b0ccc5edc6aad0",
+  "crates/topofold-core/src/geometry.rs": "1076afcb996893919e14027e354ab8bf922185fb9e489f04cb581ad4525ea1ba",
+  "crates/topofold-core/src/types.rs": "ae9c9ea98bb7246374c43518c7e605a36118b0e210ac4d6088fda7cd8a74839f",
+  "crates/topofold-core/src/lib.rs": "6024f14ff67b8e17941a6f671899baff89fa9b0c6bb25d5c2dfaf6f8b3dd5ca2",
+  "crates/topofold-python/src/lib.rs": "4d102f1d60126a13d5961ac2592b73566b029594409e1eacf49471ab083d3757",
+  "Cargo.lock": "ed9396593b5d5e19eb9fa9440b84569ea738665e44b586c377fca51384a44a61"
+ },
+ "binding_extension_sha256": "732909cc99ec88835f0b8a1f60152b7f134ae4a353d152be7bd9f048e232ba01",
+ "disclosure": "Recorded before any held-out retrieval outcome was computed. No held-out checkpoint or result file exists at recording time."
+}

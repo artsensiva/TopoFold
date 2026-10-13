@@ -1,0 +1,7 @@
+{
+ "frozen_utc": "2026-10-04T16:24:29.834471+00:00",
+ "SPEC.md": "c3579542c1c8237f4c3afeff3f64ff92a68fc93944b4db0a3c055e302092de96",
+ "wpb_spec.json": "55cac48e6fbce59cbbec7485316fe9edd0636decbfbd9c041155d170988965ca",
+ "statement": "Frozen before any trajectory frame beyond the headers was read; prior header-level inspection disclosed in SPEC.md.",
+ "source_doi": "10.5281/zenodo.5583119"
+}

@@ -1,0 +1,16 @@
+{
+ "frozen_utc": "2026-10-04T16:38:03.704000+00:00",
+ "files": {
+  "SPEC.md": "c3579542c1c8237f4c3afeff3f64ff92a68fc93944b4db0a3c055e302092de96",
+  "wpb_spec.json": "55cac48e6fbce59cbbec7485316fe9edd0636decbfbd9c041155d170988965ca",
+  "AMENDMENTS.md": "49c2a6f50311330394cd81d0465c53a21a7e41ef0e54cf78ee1ae8fb8e649431",
+  "wpb_spec_amendment1.json": "a49b0615e7174efd0539b0c9fe6373c8e3cd2f14f5310e96895db8964f891c94",
+  "wpb_spec_amendment2.json": "1c2e4d058a66635a9aac0127cdedd4a5195314d5ce41984cd7baac6d34b3bd80"
+ },
+ "previous_freeze_records": {
+  "adk_spec_freeze.json": "eba83d6a70213468004038863c48ae271b7cdc5e5ef86dedba29310523ffe30c",
+  "adk_spec_amendment1_freeze.json": "5caf9ff7212d748738139c427a63673410eccb24385c1ef6964dcae90e1c608a"
+ },
+ "governing_machine_spec": "wpb_spec_amendment2.json (supersedes amendment1 values where they differ)",
+ "disclosure": "Still no trajectory-derived structural quantity computed or inspected (G0/G1 never run)."
+}

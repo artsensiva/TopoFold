@@ -1,0 +1,37 @@
+{
+ "recorded_utc": "2026-10-04T18:13:26.228033+00:00",
+ "amendment": "docs/WPD_HELDOUT_MDCATH_AMENDMENT_1.md",
+ "amendment_sha256": "e6f11995a866660e6d817112d61fbab2e330b4a07a5e6e354fac28daba34d407",
+ "amends": {
+  "protocol": "docs/WPD_HELDOUT_MDCATH_PROTOCOL.md",
+  "protocol_sha256": "2bc16aa7e534abee9f0c5d78d463ee514df5009401254965776f31a488e76800",
+  "original_freeze_sha256": "c826af3d1b895a97a31ee34c7c3e2024d19fea578c0d4316f0abc7f0ba0e7d49"
+ },
+ "preserved_unchanged": {
+  "results/wpd_mdcath_selection.json": "de0736ad3d832e4342f7b4522723ea2915d6ae39c43a9155bc22bc364477d16c",
+  "HELDOUT_DOWNLOAD_REQUEST.md": "62774d2c99155cf32af90266e25476bc832b04b39fb212233633882a153326e9",
+  "mdcath_select.py": "2294ac19d2561363793e1bd1f61498a17190b2514263d8fa6da0b5372347f02a",
+  "results/wpd_adk_THIRD_PARTY_MD_DERIVATIVE_retrieval.json": "21c354bd1d82f35934a9f60676d0cb40d4641c5c3fa496b4085c4adeb9906727",
+  "results/wpd_adk_THIRD_PARTY_MD_DERIVATIVE_provenance.json": "e978a2f568b305d7f054037223d531b2c28ee0a40a7bf29bc7eaafcf5a88efe4",
+  "results/wpd_adk_THIRD_PARTY_MD_DERIVATIVE_rule_illustration.json": "b43f1889e24d27d20617d4dacbd73ef4619d0e4679b476c2153f15490739467b",
+  "results/wpd_protocol_freeze.json": "b96f575ba6a29dae417adb02c68bcfe72ec64234f70877dfab6b8028d3e3b4df"
+ },
+ "implementation_sha256": {
+  "heldout_decision.py": "80d0ff35ddf4ffbd5adf73670d5450cf610b7d3bd0bd936bf62601d25ac94a7c",
+  "test_heldout_decision.py": "01c5af8b15f33ef1c37fff6f5b47f381354a3693a0ef074dedcd9fce410c254b"
+ },
+ "tests": {
+  "command": "build/venv/bin/python -B -m pytest -p no:cacheprovider -q test_heldout_decision.py test_mdcath_select.py test_wpd.py",
+  "summary": "32 passed in 1.22s"
+ },
+ "parameters": {
+  "rho": 0.1,
+  "eps_G": 1e-06,
+  "n_boot": 2000,
+  "bootstrap_seed": 20261008,
+  "alpha": 0.05,
+  "min_domains": 24,
+  "interval": "order statistics, numpy inverted_cdf; invalid resamples at -inf (lower) / +inf (upper)"
+ },
+ "disclosure": "Recorded after the metadata-only draw; no mdCATH trajectory downloaded or scored; rho unchanged; no new AdK illustration computed; domains not redrawn."
+}
