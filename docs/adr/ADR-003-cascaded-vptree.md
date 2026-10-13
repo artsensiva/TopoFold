@@ -1,5 +1,7 @@
 # ADR-003: Cascaded Metric VP-Tree Indexing over KD-Trees and HNSW
 
+> **Status notice (Oct 2026): partially superseded.** The VP-tree is built over writhe spectra and its candidates are re-ranked by (κ, τ) Fréchet distance. The writhe-spectrum distance is not a proven lower bound of the Fréchet distance, so full-frame search is **approximate, not exact**. Tier 1 is an RMS distance, not an L∞ filter. Subcurve queries are an exhaustive linear scan. The latency figures are unverified, and the BPTI data were synthetic (KNOWN_ISSUES M6, C1, m9). Current status: [`../ENGINE_MISSION_AND_ROADMAP.md`](../ENGINE_MISSION_AND_ROADMAP.md) §3–§4.
+
 ## Status
 Accepted (v0.2.0)
 

@@ -90,6 +90,7 @@ Proposed fix (hypothesis, to be confirmed): pipeline analysis → results file (
 - m6. Kabsch superposition does not distort internal geometry; the real issue is that the choice of alignment subset redistributes apparent fluctuations.
 - m7. Zenodo 7347434 was attributed to "P. Eastman et al."; the paper is Belyaeva, Zlobin, Maslova, Golovin, PCCP 2023 (doi:10.1039/d2cp05502c), a trypsin–inhibitor complex with six force fields; the scripts download its representative cluster PDBs but do not use them in the analysis.
 - m8. Mpro was described as a 612-residue dimer; one 306-residue chain was analysed.
-- m9. Speed comparisons used a Python-loop Kabsch against Rust; Foldseek/PocketMiner timings were never measured.
+- m9. Speed comparisons used a Python-loop Kabsch against Rust; Foldseek/PocketMiner timings were never measured. Status (2026-10-13): open. Harness-only engineering benchmarks now exist (`benchmarks/audit/eb1/`, `b2opt/`, `bq2/`); no equal-information comparison of the library against external tools has been made.
 - m10. Benchmark print statements still contain "AUTHENTIC"/"pristine" wording; clean up when the scripts are rewritten.
 - m11. No CI; the former "43/43 tests passing" and "release v0.8.3" badges were static.
+- m12. Declared minimum Rust version is not honoured. `Cargo.toml` declares `rust-version = "1.80"`, but `crates/topofold-io/src/dcd.rs` uses `slice::as_chunks` (stable since Rust 1.88.0); the WP-A example also uses `as_chunks` and `is_multiple_of` (stable since 1.87.0). Builds were verified only with rustc 1.98.1. Proposed fix (to be decided): raise the declared version, or replace the newer APIs and add an MSRV CI job. Status: open; no change made.

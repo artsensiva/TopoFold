@@ -6,6 +6,27 @@ This directory contains scientific validation audit trails for TopoFold core met
 
 ---
 
+## Workstream index (reconciled 2026-10-13)
+
+Each directory holds harness code, frozen-protocol references, results files and a report. **Harness code is not production code** (see below). Frozen protocols live in [`../../docs/`](../../docs/).
+
+| Directory | Workstream | Data | Entry point | Status (short) |
+|---|---|---|---|---|
+| [`m3_multimodality/`](m3_multimodality/) | M3 Product-vM multimodality detector audit | SYNTHETIC | [`M3_STATUS.md`](m3_multimodality/M3_STATUS.md) | Authoritative status in `M3_STATUS.md`; not production-ready |
+| [`angular_characterization/`](angular_characterization/) | WP-A angular characterization of the BC torsion scan | SYNTHETIC | [`REPORT.md`](angular_characterization/REPORT.md) | Characterization of one component |
+| [`ordered_representation/`](ordered_representation/) | WP-C ordered angular representation | SYNTHETIC | [`REPORT.md`](ordered_representation/REPORT.md) | Candidate representation, fixtures only |
+| [`adk_feasibility/`](adk_feasibility/) | WP-B AdK real-MD feasibility (G0–G1) | Third-party MD (CC BY 4.0) | [`REPORT.md`](adk_feasibility/REPORT.md) | Data integrity and reference assessment; development data |
+| [`wpd_local_retrieval/`](wpd_local_retrieval/) | WP-D local retrieval: AdK development tier and mdCATH held-out evaluation | Third-party MD derivatives (CC BY 4.0) | [`REPORT_HELDOUT.md`](wpd_local_retrieval/REPORT_HELDOUT.md), [`REPORT_ADK.md`](wpd_local_retrieval/REPORT_ADK.md) | Held-out evaluation completed; see closeout addendum |
+| [`legacy_engine/`](legacy_engine/) | LE-1 legacy κ–τ engine evaluation | AdK derivative + SYNTHETIC | [`REPORT.md`](legacy_engine/REPORT.md) | Legacy Fréchet coupling deprioritized (engineering decision) |
+| [`eb1/`](eb1/) | EB-1 engineering benchmark, Amendments 1–2 | Development data | [`README.md`](eb1/README.md) | EB-1/A1 insufficient evidence; A2 decision engine (projection) |
+| [`b2opt/`](b2opt/) | BQ-1 B2 single-query optimization (V0/V1/V2/V2b) | Development data | [`REPORT.md`](b2opt/REPORT.md) | Acceptance not met; V2b correct and faster on tested workloads |
+| [`bq2/`](bq2/) | BQ-2 scaling confirmation of unchanged V2b | Development data + SYNTHETIC_tiled (performance-only) | [`REPORT.md`](bq2/REPORT.md) | Conclusion C (insufficient evidence) |
+| [`bq3/`](bq3/) | BQ-3 direct-P2 qualification | — | [`README.md`](bq3/README.md) | Stopped at memory preflight; no measurement |
+
+Large or third-party inputs that are not in Git, and how to retrieve or regenerate them: [`../../docs/CHECKPOINT_2026-10-13_PROVENANCE.md`](../../docs/CHECKPOINT_2026-10-13_PROVENANCE.md).
+
+---
+
 ## Audit Principles
 
 ### Why Version Scientific Audit Artifacts?
@@ -38,6 +59,8 @@ This directory contains scientific validation audit trails for TopoFold core met
 ## Current Workstreams
 
 ### M3: Toroidal Multimodality Detection
+
+> **Superseded summary (marker added 2026-10-13).** The status lines below date from M3-A2f (2026-10-03). Later checkpoints (M3-A2g) changed the classification. The authoritative current status is [`m3_multimodality/M3_STATUS.md`](m3_multimodality/M3_STATUS.md). The text below is kept for the record.
 
 **Location:** [m3_multimodality/](m3_multimodality/)
 

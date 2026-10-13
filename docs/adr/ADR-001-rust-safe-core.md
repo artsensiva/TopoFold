@@ -1,5 +1,7 @@
 # ADR-001: Pure Safe Rust Core (#![forbid(unsafe_code)]) over C++ and Fortran
 
+> **Status notice (Oct 2026): decision stands; some consequences are superseded.** The safe-Rust decision remains in force. Superseded statements: the Python bindings are not zero-copy (float32 arrays are copied into f64 `Point3` traces); the PyO3 version is now 0.29; the µs/frame figures were never benchmarked fairly (KNOWN_ISSUES m3, m9). Memory safety does not imply scientific correctness. Current capability status: [`../ENGINE_MISSION_AND_ROADMAP.md`](../ENGINE_MISSION_AND_ROADMAP.md) §4.
+
 ## Status
 Accepted (v0.1.0)
 

@@ -1,5 +1,7 @@
 # ADR-004: Pébay's $O(1)$ Single-Pass Streaming Central Moments over Full-Trajectory Sorting
 
+> **Status notice (Oct 2026): partially superseded.** The Pébay accumulator is O(1) per window, but `compute_bimodality_profile` holds all frames and their invariants in memory, so the pipeline is not end-to-end streaming. BC is a screening heuristic, not a detector of pockets or bistability (KNOWN_ISSUES M3). Angles now use circular means (M2). The BPTI timing refers to a synthetic ensemble (C1). Current status: [`../ENGINE_MISSION_AND_ROADMAP.md`](../ENGINE_MISSION_AND_ROADMAP.md) §4–§5 and [`../ANGULAR_REPRESENTATION_CHARACTERIZATION_PROTOCOL.md`](../ANGULAR_REPRESENTATION_CHARACTERIZATION_PROTOCOL.md).
+
 ## Status
 Accepted (v0.6.5)
 

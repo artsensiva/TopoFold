@@ -1,5 +1,7 @@
 # ADR-002: Spherical Triangle Decomposition (Van Oosterom & Strackee) over Naive Gauss Double Integrals
 
+> **Status notice (Oct 2026).** The resolution note below supersedes the normalisation in v0.8.3. Superseded statements: invariance is tested at 1e-6 rad in the SE(3) test, not "< 10⁻¹²" (m2); the per-window timing is unverified (m9). Writhe is an SE(3)-invariant geometric descriptor, not a topological invariant (m5). Current status: [`../ENGINE_MISSION_AND_ROADMAP.md`](../ENGINE_MISSION_AND_ROADMAP.md) §4.
+
 > **Resolution (Oct 2026).** M1 normalization and sign correction applied. The API convention `segment_pair_writhe()` returns the complete mutual contribution of one unordered non-adjacent segment pair to self-writhe. Enumeration via `i < j` covers each unordered pair exactly once, accounting for both symmetric ordered domains of the full Gauss double integral. This produces an effective factor of two relative to the continuous `1/(4π)` normalization.
 
 ## Status
