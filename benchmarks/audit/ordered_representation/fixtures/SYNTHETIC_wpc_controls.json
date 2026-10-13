@@ -1,0 +1,156 @@
+{
+ "_meta": {
+  "type": "SYNTHETIC",
+  "protocol": "docs/ORDERED_ANGULAR_REPRESENTATION_PROTOCOL.md \u00a74"
+ },
+ "cases": {
+  "N1_e+1e-06": {
+   "W": 5,
+   "F": 1000,
+   "params": {
+    "p": 0.49,
+    "eps_rad": 1e-06,
+    "sigma_rad": 0.017453292519943295,
+    "F": 1000,
+    "n_phi2": 490
+   },
+   "draw_order": [
+    "default_rng(20261104)",
+    "permutation(1000); first 490 -> phi2",
+    "normal(0, np.float64(0.017453292519943295), size=1000) per frame, added to both torsions",
+    "same permutation and noise reused for every eps"
+   ],
+   "torsion_sha256": "e21a9da01c595f86600926dd41c46c9f16bedf7a6402d7f1f0ab921d3ee8f94f",
+   "coords_sha256": "9fd8f046d28aa13ce063a5637426f16ae0f1b1e0cd47f733c9890c57f8d8c68c",
+   "labels_sha256": "574206d8c5b77cadf648ce4d69fdc3b271e84c05bd10e80cce9129c5eb74cb6b",
+   "torsion_file": "N1_e+1e-06.tors.f64",
+   "coords_file": "N1_e+1e-06.coords.f64"
+  },
+  "N1_e-1e-06": {
+   "W": 5,
+   "F": 1000,
+   "params": {
+    "p": 0.49,
+    "eps_rad": -1e-06,
+    "sigma_rad": 0.017453292519943295,
+    "F": 1000,
+    "n_phi2": 490
+   },
+   "draw_order": [
+    "default_rng(20261104)",
+    "permutation(1000); first 490 -> phi2",
+    "normal(0, np.float64(0.017453292519943295), size=1000) per frame, added to both torsions",
+    "same permutation and noise reused for every eps"
+   ],
+   "torsion_sha256": "76f5d45a9527d75c8bb72b1fd91427f99d8563045a13674c6ff127abbb2d6171",
+   "coords_sha256": "303ae5affdeee4329f4af8ae2ebc99ec7d32d2193822a6ee3c801770fc45209e",
+   "labels_sha256": "574206d8c5b77cadf648ce4d69fdc3b271e84c05bd10e80cce9129c5eb74cb6b",
+   "torsion_file": "N1_e-1e-06.tors.f64",
+   "coords_file": "N1_e-1e-06.coords.f64"
+  },
+  "N1_e+1e-03": {
+   "W": 5,
+   "F": 1000,
+   "params": {
+    "p": 0.49,
+    "eps_rad": 0.001,
+    "sigma_rad": 0.017453292519943295,
+    "F": 1000,
+    "n_phi2": 490
+   },
+   "draw_order": [
+    "default_rng(20261104)",
+    "permutation(1000); first 490 -> phi2",
+    "normal(0, np.float64(0.017453292519943295), size=1000) per frame, added to both torsions",
+    "same permutation and noise reused for every eps"
+   ],
+   "torsion_sha256": "16a0f4a415ce7aac272cd9d511fde541659d457261e0bdc094ab71421cbfab85",
+   "coords_sha256": "8690bebb10dea1fdd402c3e8e15067b910670558b8b813a3e7d45596bc2fa86f",
+   "labels_sha256": "574206d8c5b77cadf648ce4d69fdc3b271e84c05bd10e80cce9129c5eb74cb6b",
+   "torsion_file": "N1_e+1e-03.tors.f64",
+   "coords_file": "N1_e+1e-03.coords.f64"
+  },
+  "N1_e-1e-03": {
+   "W": 5,
+   "F": 1000,
+   "params": {
+    "p": 0.49,
+    "eps_rad": -0.001,
+    "sigma_rad": 0.017453292519943295,
+    "F": 1000,
+    "n_phi2": 490
+   },
+   "draw_order": [
+    "default_rng(20261104)",
+    "permutation(1000); first 490 -> phi2",
+    "normal(0, np.float64(0.017453292519943295), size=1000) per frame, added to both torsions",
+    "same permutation and noise reused for every eps"
+   ],
+   "torsion_sha256": "69b815912c6c20fee05247e50d0868baa860476d91a70b8a01a59ae3948d09f0",
+   "coords_sha256": "9c9f96aa8f292da4751e153c0a12cdbf9b673e9b63c6cf0bb6e0f9f3b1dee8cd",
+   "labels_sha256": "574206d8c5b77cadf648ce4d69fdc3b271e84c05bd10e80cce9129c5eb74cb6b",
+   "torsion_file": "N1_e-1e-03.tors.f64",
+   "coords_file": "N1_e-1e-03.coords.f64"
+  },
+  "N1_e+1e-01": {
+   "W": 5,
+   "F": 1000,
+   "params": {
+    "p": 0.49,
+    "eps_rad": 0.1,
+    "sigma_rad": 0.017453292519943295,
+    "F": 1000,
+    "n_phi2": 490
+   },
+   "draw_order": [
+    "default_rng(20261104)",
+    "permutation(1000); first 490 -> phi2",
+    "normal(0, np.float64(0.017453292519943295), size=1000) per frame, added to both torsions",
+    "same permutation and noise reused for every eps"
+   ],
+   "torsion_sha256": "cc226002c3475d855aa8c1e47f3e3e63f6ce366e3b4008ac29c8b95adb09629c",
+   "coords_sha256": "b4f03e8dc29f3d8b9d64a530b9921632ffbdcce1a1651fd13c4a1dfb3418d3ce",
+   "labels_sha256": "574206d8c5b77cadf648ce4d69fdc3b271e84c05bd10e80cce9129c5eb74cb6b",
+   "torsion_file": "N1_e+1e-01.tors.f64",
+   "coords_file": "N1_e+1e-01.coords.f64"
+  },
+  "N1_e-1e-01": {
+   "W": 5,
+   "F": 1000,
+   "params": {
+    "p": 0.49,
+    "eps_rad": -0.1,
+    "sigma_rad": 0.017453292519943295,
+    "F": 1000,
+    "n_phi2": 490
+   },
+   "draw_order": [
+    "default_rng(20261104)",
+    "permutation(1000); first 490 -> phi2",
+    "normal(0, np.float64(0.017453292519943295), size=1000) per frame, added to both torsions",
+    "same permutation and noise reused for every eps"
+   ],
+   "torsion_sha256": "4d0fcf009c13fd5c5e8759ca757688304a24753f132a3eb0f5a15a264c446745",
+   "coords_sha256": "c59a76e4754d075b8dfdb7923d72b8b939ebf3f4f5c285e9fa6b4d257a72d3ee",
+   "labels_sha256": "574206d8c5b77cadf648ce4d69fdc3b271e84c05bd10e80cce9129c5eb74cb6b",
+   "torsion_file": "N1_e-1e-01.tors.f64",
+   "coords_file": "N1_e-1e-01.coords.f64"
+  },
+  "N2_mirror_F1a_s0": {
+   "W": 5,
+   "F": 1000,
+   "params": {
+    "derived_from": "F1a_s0",
+    "transform": "tau -> -tau"
+   },
+   "draw_order": [
+    "deterministic: negation of F1a_s0 torsions"
+   ],
+   "torsion_sha256": "acfbdd7665f4586b5add9e8c0bbcb2cbfd2d41e2e269fc324f5503bdb2fcde36",
+   "coords_sha256": "d793ac3932925d50c3971bf8e81c594befb84290f09e93d6ae907b5eb12aef87",
+   "labels_sha256": "04b95ef6607866371c028390be080031b237062819b03e563e5ffe7ede221d2c",
+   "torsion_file": "N2_mirror_F1a_s0.tors.f64",
+   "coords_file": "N2_mirror_F1a_s0.coords.f64"
+  }
+ }
+}

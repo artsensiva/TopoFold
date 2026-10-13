@@ -1,0 +1,46 @@
+{
+ "_meta": {
+  "type": "SYNTHETIC",
+  "purpose": "Post-run editorial changes to the WP-A report. Separate from the original run provenance, which is not modified."
+ },
+ "entries": [
+  {
+   "date_utc": "2026-10-04",
+   "reason": "Review of WP-A: (1) state coverage explicitly (R1/REF on all cases; R2/P1 on coordinate cases only); (2) remove causal attribution of F4 differences to the sign of epsilon, because F4 configurations use unpaired random draws; qualify the wrap-splitting mechanism; (3) point to this log.",
+   "action": "Edited make_report.py; re-ran make_report.py only. No fixture generation, no Rust/Python path, no compare.py run.",
+   "files_changed": {
+    "make_report.py": {
+     "before": "aaa695c058408871d8c05edb0847bf9b784a66ef23e20cb46069d73b92255bf9",
+     "after": "c2b2b59554ab549367cfc2798aa1c796bbf784190c2ad8e5b28c79bf2bc3a7be"
+    },
+    "REPORT.md": {
+     "before": "5e24e39279b68714a5e012c4fa672c4def03e40da8a552b5ca266f39cb470973",
+     "after": "fcf7ea22d943af543ab8da5825e4d53f967040fd0c6c8fa62f6da26a3a4dfb1b"
+    }
+   },
+   "files_verified_unchanged": {
+    "results/SYNTHETIC_angular_characterization_provenance.json": {
+     "sha256": "92bc69a2fec1fc175a60df9964d5ea404441691b74da89525225eb7c258e41ac",
+     "matches_pre_edit": true
+    },
+    "results/SYNTHETIC_angular_characterization_python.json": {
+     "sha256": "f48e0151e6490ba611e066f3436f95acc8ee8354f85c19485d8340e17e4afed6",
+     "matches_pre_edit": true
+    },
+    "results/SYNTHETIC_angular_characterization_rust.json": {
+     "sha256": "725104ed2d2980a702d00bde991daf00b813d423cacb68c9e2d746f07e0e8cef",
+     "matches_pre_edit": true
+    },
+    "results/SYNTHETIC_angular_characterization_summary.json": {
+     "sha256": "ab156ed48564641d5ee091b1078145aed72fd2770282e21971ba2fe36704a2da",
+     "matches_pre_edit": true
+    },
+    "fixtures/SYNTHETIC_fixtures.json": {
+     "sha256": "17d5bd2827688e917eff84f7fed9404929214d6549a7fadec03ad20fab08c928",
+     "matches_pre_edit": true
+    }
+   },
+   "note": "The original provenance file records the pre-edit hash of make_report.py; that mismatch is expected and explained by this entry."
+  }
+ ]
+}

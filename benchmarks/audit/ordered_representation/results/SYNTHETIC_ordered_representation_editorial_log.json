@@ -1,0 +1,34 @@
+{
+ "_meta": {
+  "type": "SYNTHETIC",
+  "purpose": "Post-run editorial changes to the WP-C report; separate from run provenance (unmodified)."
+ },
+ "entries": [
+  {
+   "date_utc": "2026-10-04",
+   "reason": "(1) N2 has four construction labels: overall chance is 0.250; scores near 0.499 reflect unresolved pairs of classes, not overall chance. (2) One paired draw at +/-1e-6 did not reproduce the WP-A difference; the unpaired WP-A comparison cannot isolate a sign effect, and the paired draw does not prove the earlier difference was caused entirely by draw variation.",
+   "action": "Edited make_report.py wording; re-ran make_report.py only. No synthetic experiment rerun.",
+   "files_changed": {
+    "make_report.py": {
+     "before": "38bb323586aa17bd056bb35d7b0e229b97da61ecd8f76e551851449b0377c4f2",
+     "after": "342fc44c5eb85562638c8027ff83e9bf46d3bd3debc0888d8eb6070ee528baad"
+    },
+    "REPORT.md": {
+     "before": "1acf0857e39b345b5289fda488b6e838b29afe604e14ebef386738acbee4d67b",
+     "after": "f4e9ccaf6e93a6dc96cc44e4b263f176e4a222e08b78231f66c247c8284fc1d7"
+    }
+   },
+   "files_verified_unchanged": {
+    "results/SYNTHETIC_ordered_representation_results.json": {
+     "sha256": "716465028a938dd7b7c368990124fdcd30dfc5fbe489f008c19205732088ed18",
+     "matches_pre_edit": true
+    },
+    "results/SYNTHETIC_ordered_representation_provenance.json": {
+     "sha256": "b6c7c14d63a641ceefd28e3f9a2be3bd7ae21ffe082f91ec1c0795c1feb556c7",
+     "matches_pre_edit": true
+    }
+   },
+   "note": "The run provenance records the pre-edit make_report.py hash; this entry explains the difference."
+  }
+ ]
+}

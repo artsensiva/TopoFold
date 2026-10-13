@@ -36,3 +36,25 @@ raw_data/
 .claude/
 screenshots/
 SomeHistory.md
+
+# WP-A angular characterization: regenerable binaries, wheel and isolated venv only
+# (results/*.json, fixtures/SYNTHETIC_fixtures.json and REPORT.md remain tracked candidates)
+benchmarks/audit/angular_characterization/build/
+
+# WP-C ordered representation: regenerable control binaries and comparator outputs only
+benchmarks/audit/ordered_representation/build/
+
+# WP-B AdK feasibility: raw/derived third-party MD data and isolated environment only
+benchmarks/audit/adk_feasibility/data/
+benchmarks/audit/adk_feasibility/build/
+
+# WP-D local retrieval: isolated environment and derived AdK arrays only
+benchmarks/audit/wpd_local_retrieval/build/
+benchmarks/audit/wpd_local_retrieval/data/
+benchmarks/audit/legacy_engine/build/
+benchmarks/audit/legacy_engine/rust_probe/target/
+benchmarks/audit/eb1/build/
+
+# Checkpoint 2026-10-13: the uncompressed held-out results (131 MB, over the GitHub file limit) stay local;
+# the lossless .json.xz copy is tracked (docs/CHECKPOINT_2026-10-13_PROVENANCE.md)
+benchmarks/audit/wpd_local_retrieval/results/wpd_heldout_THIRD_PARTY_MD_DERIVATIVE_results.json

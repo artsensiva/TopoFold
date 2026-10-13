@@ -1,0 +1,201 @@
+{
+ "_meta": {
+  "type": "SYNTHETIC",
+  "producer": "run_wpa.py",
+  "started_utc": "2026-10-04T09:00:30.438712+00:00"
+ },
+ "git": {
+  "head": "295d739a783cc1d178131c4c61293042a0c56f7d",
+  "status_porcelain": [
+   "M AGENTS.md",
+   " M README.md",
+   " M crates/topofold-io/README.md",
+   " M docs/MANUSCRIPT_DRAFT.md",
+   " M docs/adr/ADR-001-rust-safe-core.md",
+   " M docs/adr/ADR-002-van-oosterom-writhe.md",
+   " M docs/adr/ADR-003-cascaded-vptree.md",
+   " M docs/adr/ADR-004-pebay-streaming-bimodality.md",
+   "?? benchmarks/audit/angular_characterization/",
+   "?? crates/topofold-core/examples/",
+   "?? docs/ANGULAR_REPRESENTATION_CHARACTERIZATION_PROTOCOL.md",
+   "?? docs/ENGINE_MISSION_AND_ROADMAP.md",
+   "?? docs/REAL_MD_EVALUATION_FEASIBILITY.md"
+  ]
+ },
+ "source_sha256": {
+  "crates/topofold-core/src/circular.rs": "94244f9dd563470784b5abe3d2a65211de0b4b261f377519a23ca60fdd440ae3",
+  "crates/topofold-core/src/bimodality.rs": "0c093efd9cf607093e03920e5e10cc5a5c23c5494867c8a325b0ccc5edc6aad0",
+  "crates/topofold-core/src/geometry.rs": "1076afcb996893919e14027e354ab8bf922185fb9e489f04cb581ad4525ea1ba",
+  "crates/topofold-core/src/types.rs": "ae9c9ea98bb7246374c43518c7e605a36118b0e210ac4d6088fda7cd8a74839f",
+  "crates/topofold-core/src/lib.rs": "6024f14ff67b8e17941a6f671899baff89fa9b0c6bb25d5c2dfaf6f8b3dd5ca2",
+  "crates/topofold-python/src/lib.rs": "4d102f1d60126a13d5961ac2592b73566b029594409e1eacf49471ab083d3757",
+  "Cargo.lock": "ed9396593b5d5e19eb9fa9440b84569ea738665e44b586c377fca51384a44a61",
+  "crates/topofold-core/examples/angular_characterization.rs": "aae324beb91c74631e6f39e59bfcdbb22ef55545493d508486abec43cf47825f",
+  "docs/ANGULAR_REPRESENTATION_CHARACTERIZATION_PROTOCOL.md": "0f0ff86d4ec68f796d7af2d1ca88cb3cad811a4ef179eacb59102a7f598712ae"
+ },
+ "harness_sha256": {
+  "common.py": "57ea97784c3b548dbec243cef37a3540e023dd5fced2e450a26e4d320a8f32b0",
+  "build_traces.py": "857543ac2ad230c85e5420d5eac749a3036bf4103233d594dcd851178427f132",
+  "reference.py": "33698c241f3130a20ef794ebfe48b95c42308726e78b92063521819c27b02365",
+  "generate_fixtures.py": "787f0424a76085c5f554b5b857e1fe3d78184a88a768f2b70b97d203dd6578d7",
+  "run_python_path.py": "d0fa6aa61f1bab2adc9df98c10921a1cd94cab237973bd730cd286e110aad648",
+  "compare.py": "0a320d8f64f2a0b7cf1fbbfc40cc7d6c329901f7605729d431c569cd3f67784b",
+  "make_report.py": "aaa695c058408871d8c05edb0847bf9b784a66ef23e20cb46069d73b92255bf9",
+  "run_wpa.py": "3e657f205d0b96ba59f893a9f4452a72821472ab9ebd32965b52a00c9795ff49",
+  "test_harness.py": "171418cf07ba4bee7be8ed1bd1e79ef714e012791de42f995f152d39bb9c6ea1"
+ },
+ "versions": {
+  "rustc": "rustc 1.98.1 (48a229cea 2026-09-01)",
+  "cargo": "cargo 1.98.1 (797e8a9bc 2026-08-05)",
+  "maturin": "maturin 1.15.0",
+  "venv_python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+  "venv_numpy": "2.5.3",
+  "venv_pytest": "9.1.1"
+ },
+ "fixtures_json_sha256": "17d5bd2827688e917eff84f7fed9404929214d6549a7fadec03ad20fab08c928",
+ "extension": {
+  "wheel": "topofold-0.8.3-cp314-cp314-manylinux_2_34_x86_64.whl",
+  "wheel_sha256": "08e0ac85e6d7cfa86c372d2f70849bd179f46d24ac796bcb1f727da04c432f6a",
+  "wheel_so_sha256": {
+   "topofold/topofold.cpython-314-x86_64-linux-gnu.so": "732909cc99ec88835f0b8a1f60152b7f134ae4a353d152be7bd9f048e232ba01"
+  },
+  "loaded_extension_path": "/home/artem/TopoFold/benchmarks/audit/angular_characterization/build/venv/lib/python3.14/site-packages/topofold/topofold.cpython-314-x86_64-linux-gnu.so",
+  "loaded_extension_sha256": "732909cc99ec88835f0b8a1f60152b7f134ae4a353d152be7bd9f048e232ba01",
+  "loaded_equals_freshly_built": true,
+  "loaded_from_isolated_venv": true
+ },
+ "compare_exit": 0,
+ "status": "completed",
+ "commands": [
+  {
+   "cmd": "git rev-parse HEAD",
+   "cwd": ".",
+   "exit": 0,
+   "stdout_tail": [
+    "295d739a783cc1d178131c4c61293042a0c56f7d"
+   ]
+  },
+  {
+   "cmd": "git status --porcelain",
+   "cwd": ".",
+   "exit": 0,
+   "stdout_tail": [
+    "?? docs/ANGULAR_REPRESENTATION_CHARACTERIZATION_PROTOCOL.md",
+    "?? docs/ENGINE_MISSION_AND_ROADMAP.md",
+    "?? docs/REAL_MD_EVALUATION_FEASIBILITY.md"
+   ]
+  },
+  {
+   "cmd": "rustc --version",
+   "cwd": ".",
+   "exit": 0,
+   "stdout_tail": [
+    "rustc 1.98.1 (48a229cea 2026-09-01)"
+   ]
+  },
+  {
+   "cmd": "cargo --version",
+   "cwd": ".",
+   "exit": 0,
+   "stdout_tail": [
+    "cargo 1.98.1 (797e8a9bc 2026-08-05)"
+   ]
+  },
+  {
+   "cmd": "/home/artem/TopoFold/.venv/bin/maturin --version",
+   "cwd": ".",
+   "exit": 0,
+   "stdout_tail": [
+    "maturin 1.15.0"
+   ]
+  },
+  {
+   "cmd": "/home/artem/TopoFold/benchmarks/audit/angular_characterization/build/venv/bin/python -c import sys;print(sys.version)",
+   "cwd": ".",
+   "exit": 0,
+   "stdout_tail": [
+    "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]"
+   ]
+  },
+  {
+   "cmd": "/home/artem/TopoFold/benchmarks/audit/angular_characterization/build/venv/bin/python -c import numpy;print(numpy.__version__)",
+   "cwd": ".",
+   "exit": 0,
+   "stdout_tail": [
+    "2.5.3"
+   ]
+  },
+  {
+   "cmd": "/home/artem/TopoFold/benchmarks/audit/angular_characterization/build/venv/bin/python -c import pytest;print(pytest.__version__)",
+   "cwd": ".",
+   "exit": 0,
+   "stdout_tail": [
+    "9.1.1"
+   ]
+  },
+  {
+   "cmd": "/home/artem/TopoFold/benchmarks/audit/angular_characterization/build/venv/bin/python -B /home/artem/TopoFold/benchmarks/audit/angular_characterization/generate_fixtures.py",
+   "cwd": "benchmarks/audit/angular_characterization",
+   "exit": 0,
+   "stdout_tail": [
+    "422 cases (105 with coordinates) -> /home/artem/TopoFold/benchmarks/audit/angular_characterization/fixtures/SYNTHETIC_fixtures.json"
+   ]
+  },
+  {
+   "cmd": "cargo run --release -q -p topofold-core --example angular_characterization -- benchmarks/audit/angular_characterization/build/fixtures/SYNTHETIC_fixtures.tsv benchmarks/audit/angular_characterization/build/fixtures benchmarks/audit/angular_characterization/results/SYNTHETIC_angular_characterization_rust.json benchmarks/audit/angular_characterization/build/arrays/SYNTHETIC_rust_arrays.f64",
+   "cwd": ".",
+   "exit": 0,
+   "stdout_tail": [
+    "422 cases -> benchmarks/audit/angular_characterization/results/SYNTHETIC_angular_characterization_rust.json"
+   ]
+  },
+  {
+   "cmd": "/home/artem/TopoFold/.venv/bin/maturin build --release -i /home/artem/TopoFold/benchmarks/audit/angular_characterization/build/venv/bin/python --out /home/artem/TopoFold/benchmarks/audit/angular_characterization/build/wheels",
+   "cwd": ".",
+   "exit": 0,
+   "stdout_tail": []
+  },
+  {
+   "cmd": "/home/artem/TopoFold/benchmarks/audit/angular_characterization/build/venv/bin/python -m pip install -q --force-reinstall --no-deps /home/artem/TopoFold/benchmarks/audit/angular_characterization/build/wheels/topofold-0.8.3-cp314-cp314-manylinux_2_34_x86_64.whl",
+   "cwd": ".",
+   "exit": 0,
+   "stdout_tail": []
+  },
+  {
+   "cmd": "/home/artem/TopoFold/benchmarks/audit/angular_characterization/build/venv/bin/python -B -c import topofold, topofold.topofold as e, hashlib, pathlib;p=pathlib.Path(e.__file__).resolve();print(p); print(hashlib.sha256(p.read_bytes()).hexdigest())",
+   "cwd": "benchmarks/audit/angular_characterization",
+   "exit": 0,
+   "stdout_tail": [
+    "/home/artem/TopoFold/benchmarks/audit/angular_characterization/build/venv/lib/python3.14/site-packages/topofold/topofold.cpython-314-x86_64-linux-gnu.so",
+    "732909cc99ec88835f0b8a1f60152b7f134ae4a353d152be7bd9f048e232ba01"
+   ]
+  },
+  {
+   "cmd": "/home/artem/TopoFold/benchmarks/audit/angular_characterization/build/venv/bin/python -B /home/artem/TopoFold/benchmarks/audit/angular_characterization/run_python_path.py",
+   "cwd": "benchmarks/audit/angular_characterization",
+   "exit": 0,
+   "stdout_tail": [
+    "422 cases -> /home/artem/TopoFold/benchmarks/audit/angular_characterization/results/SYNTHETIC_angular_characterization_python.json"
+   ]
+  },
+  {
+   "cmd": "/home/artem/TopoFold/benchmarks/audit/angular_characterization/build/venv/bin/python -B /home/artem/TopoFold/benchmarks/audit/angular_characterization/compare.py",
+   "cwd": "benchmarks/audit/angular_characterization",
+   "exit": 0,
+   "stdout_tail": [
+    "PASS  F6b coordinate path equals scalar path within conditioned tolerance (no wraps)",
+    "conditioned comparisons: 449; not conditioned (recorded only): 69",
+    "HARNESS PASS -> /home/artem/TopoFold/benchmarks/audit/angular_characterization/results/SYNTHETIC_angular_characterization_summary.json"
+   ]
+  },
+  {
+   "cmd": "/home/artem/TopoFold/benchmarks/audit/angular_characterization/build/venv/bin/python -B /home/artem/TopoFold/benchmarks/audit/angular_characterization/make_report.py",
+   "cwd": "benchmarks/audit/angular_characterization",
+   "exit": 0,
+   "stdout_tail": [
+    "REPORT.md written"
+   ]
+  }
+ ],
+ "report_exit": 0
+}
