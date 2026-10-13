@@ -1,0 +1,2769 @@
+{
+ "arrays": {
+  "cache/D1_box.npy": {
+   "shape": [
+    2253,
+    3
+   ],
+   "dtype": "float64"
+  },
+  "cache/D1_kap.npy": {
+   "shape": [
+    2253,
+    212
+   ],
+   "dtype": "float64"
+  },
+  "cache/D1_round.npy": {
+   "shape": [
+    2253,
+    214,
+    3
+   ],
+   "dtype": "float64"
+  },
+  "cache/D1_round_all.npy": {
+   "shape": [
+    2253,
+    214,
+    3
+   ],
+   "dtype": "float64"
+  },
+  "cache/D1_stored.npy": {
+   "shape": [
+    2253,
+    214,
+    3
+   ],
+   "dtype": "float32"
+  },
+  "cache/D1_tau.npy": {
+   "shape": [
+    2253,
+    211
+   ],
+   "dtype": "float64"
+  },
+  "cache/D2_box_0.npy": {
+   "shape": [
+    3
+   ],
+   "dtype": "float64"
+  },
+  "cache/D2_box_1.npy": {
+   "shape": [
+    3
+   ],
+   "dtype": "float64"
+  },
+  "cache/D2_box_2.npy": {
+   "shape": [
+    3
+   ],
+   "dtype": "float64"
+  },
+  "cache/D2_box_3.npy": {
+   "shape": [
+    3
+   ],
+   "dtype": "float64"
+  },
+  "cache/D2_kap.npy": {
+   "shape": [
+    810,
+    49
+   ],
+   "dtype": "float64"
+  },
+  "cache/D2_round.npy": {
+   "shape": [
+    810,
+    51,
+    3
+   ],
+   "dtype": "float64"
+  },
+  "cache/D2_round_all.npy": {
+   "shape": [
+    1602,
+    51,
+    3
+   ],
+   "dtype": "float64"
+  },
+  "cache/D2_stored_0.npy": {
+   "shape": [
+    450,
+    51,
+    3
+   ],
+   "dtype": "float32"
+  },
+  "cache/D2_stored_1.npy": {
+   "shape": [
+    450,
+    51,
+    3
+   ],
+   "dtype": "float32"
+  },
+  "cache/D2_stored_2.npy": {
+   "shape": [
+    430,
+    51,
+    3
+   ],
+   "dtype": "float32"
+  },
+  "cache/D2_stored_3.npy": {
+   "shape": [
+    450,
+    51,
+    3
+   ],
+   "dtype": "float32"
+  },
+  "cache/D2_tau.npy": {
+   "shape": [
+    810,
+    48
+   ],
+   "dtype": "float64"
+  },
+  "cache_a1/D1p_kap.npy": {
+   "shape": [
+    3706,
+    212
+   ],
+   "dtype": "float64"
+  },
+  "cache_a1/D1p_round.npy": {
+   "shape": [
+    3706,
+    214,
+    3
+   ],
+   "dtype": "float64"
+  },
+  "cache_a1/D1p_tau.npy": {
+   "shape": [
+    3706,
+    211
+   ],
+   "dtype": "float64"
+  },
+  "cache_a1/closed_kap.npy": {
+   "shape": [
+    1678,
+    212
+   ],
+   "dtype": "float64"
+  },
+  "cache_a1/closed_round.npy": {
+   "shape": [
+    1678,
+    214,
+    3
+   ],
+   "dtype": "float64"
+  },
+  "cache_a1/closed_tau.npy": {
+   "shape": [
+    1678,
+    211
+   ],
+   "dtype": "float64"
+  },
+  "cache_a1/closed_whole_f64.npy": {
+   "shape": [
+    1678,
+    214,
+    3
+   ],
+   "dtype": "float64"
+  }
+ },
+ "frames": {
+  "D1_stored_before_burn": 2253,
+  "D1_burn_in": 0,
+  "D1_round_all": 2253,
+  "D2_stored_per_traj_before_burn": [
+   450,
+   450,
+   430,
+   450
+  ],
+  "D2_stored_total_before_burn": 1780,
+  "D2_post_burn_per_traj": [
+   405,
+   405,
+   387,
+   405
+  ],
+  "D2_post_burn_total": 1602,
+  "D2_round_all_actual": 1602,
+  "D1p_round": 3706
+ },
+ "index_sets": {
+  "D1": {
+   "n_q": 1013,
+   "n_d": 1015,
+   "q_range": [
+    0,
+    1012
+   ],
+   "d_range": [
+    1238,
+    2252
+   ],
+   "q_contiguous": true,
+   "d_contiguous": true
+  },
+  "D2": {
+   "n_q": 405,
+   "n_d": 405,
+   "q_range": [
+    0,
+    404
+   ],
+   "d_range": [
+    405,
+    809
+   ],
+   "q_contiguous": true,
+   "d_contiguous": true
+  },
+  "D1p": {
+   "n_q": 1013,
+   "n_d": 2693,
+   "q_range": [
+    0,
+    1012
+   ],
+   "d_range": [
+    1013,
+    3705
+   ],
+   "q_contiguous": true,
+   "d_contiguous": true
+  }
+ },
+ "amendment1_design_validation": [
+  {
+   "block": "S2",
+   "args": {
+    "d": "D1",
+    "n": 563
+   },
+   "requested_frames": 563,
+   "available_frames": 2253,
+   "valid": true
+  },
+  {
+   "block": "S2",
+   "args": {
+    "d": "D1",
+    "n": 563
+   },
+   "requested_frames": 563,
+   "available_frames": 2253,
+   "valid": true
+  },
+  {
+   "block": "S2",
+   "args": {
+    "d": "D1",
+    "n": 563
+   },
+   "requested_frames": 563,
+   "available_frames": 2253,
+   "valid": true
+  },
+  {
+   "block": "S3",
+   "args": {
+    "d": "D1",
+    "n": 563
+   },
+   "requested_frames": 563,
+   "available_frames": 2253,
+   "valid": true
+  },
+  {
+   "block": "S3",
+   "args": {
+    "d": "D1",
+    "n": 563
+   },
+   "requested_frames": 563,
+   "available_frames": 2253,
+   "valid": true
+  },
+  {
+   "block": "S3",
+   "args": {
+    "d": "D1",
+    "n": 563
+   },
+   "requested_frames": 563,
+   "available_frames": 2253,
+   "valid": true
+  },
+  {
+   "block": "S2",
+   "args": {
+    "d": "D1",
+    "n": 1126
+   },
+   "requested_frames": 1126,
+   "available_frames": 2253,
+   "valid": true
+  },
+  {
+   "block": "S2",
+   "args": {
+    "d": "D1",
+    "n": 1126
+   },
+   "requested_frames": 1126,
+   "available_frames": 2253,
+   "valid": true
+  },
+  {
+   "block": "S2",
+   "args": {
+    "d": "D1",
+    "n": 1126
+   },
+   "requested_frames": 1126,
+   "available_frames": 2253,
+   "valid": true
+  },
+  {
+   "block": "S3",
+   "args": {
+    "d": "D1",
+    "n": 1126
+   },
+   "requested_frames": 1126,
+   "available_frames": 2253,
+   "valid": true
+  },
+  {
+   "block": "S3",
+   "args": {
+    "d": "D1",
+    "n": 1126
+   },
+   "requested_frames": 1126,
+   "available_frames": 2253,
+   "valid": true
+  },
+  {
+   "block": "S3",
+   "args": {
+    "d": "D1",
+    "n": 1126
+   },
+   "requested_frames": 1126,
+   "available_frames": 2253,
+   "valid": true
+  },
+  {
+   "block": "S2",
+   "args": {
+    "d": "D1",
+    "n": 2253
+   },
+   "requested_frames": 2253,
+   "available_frames": 2253,
+   "valid": true
+  },
+  {
+   "block": "S2",
+   "args": {
+    "d": "D1",
+    "n": 2253
+   },
+   "requested_frames": 2253,
+   "available_frames": 2253,
+   "valid": true
+  },
+  {
+   "block": "S2",
+   "args": {
+    "d": "D1",
+    "n": 2253
+   },
+   "requested_frames": 2253,
+   "available_frames": 2253,
+   "valid": true
+  },
+  {
+   "block": "S3",
+   "args": {
+    "d": "D1",
+    "n": 2253
+   },
+   "requested_frames": 2253,
+   "available_frames": 2253,
+   "valid": true
+  },
+  {
+   "block": "S3",
+   "args": {
+    "d": "D1",
+    "n": 2253
+   },
+   "requested_frames": 2253,
+   "available_frames": 2253,
+   "valid": true
+  },
+  {
+   "block": "S3",
+   "args": {
+    "d": "D1",
+    "n": 2253
+   },
+   "requested_frames": 2253,
+   "available_frames": 2253,
+   "valid": true
+  },
+  {
+   "block": "S2",
+   "args": {
+    "d": "D2",
+    "n": 405
+   },
+   "requested_frames": 405,
+   "available_frames": 1780,
+   "valid": true
+  },
+  {
+   "block": "S2",
+   "args": {
+    "d": "D2",
+    "n": 405
+   },
+   "requested_frames": 405,
+   "available_frames": 1780,
+   "valid": true
+  },
+  {
+   "block": "S2",
+   "args": {
+    "d": "D2",
+    "n": 405
+   },
+   "requested_frames": 405,
+   "available_frames": 1780,
+   "valid": true
+  },
+  {
+   "block": "S3",
+   "args": {
+    "d": "D2",
+    "n": 405
+   },
+   "requested_frames": 405,
+   "available_frames": 1602,
+   "valid": true
+  },
+  {
+   "block": "S3",
+   "args": {
+    "d": "D2",
+    "n": 405
+   },
+   "requested_frames": 405,
+   "available_frames": 1602,
+   "valid": true
+  },
+  {
+   "block": "S3",
+   "args": {
+    "d": "D2",
+    "n": 405
+   },
+   "requested_frames": 405,
+   "available_frames": 1602,
+   "valid": true
+  },
+  {
+   "block": "S2",
+   "args": {
+    "d": "D2",
+    "n": 810
+   },
+   "requested_frames": 810,
+   "available_frames": 1780,
+   "valid": true
+  },
+  {
+   "block": "S2",
+   "args": {
+    "d": "D2",
+    "n": 810
+   },
+   "requested_frames": 810,
+   "available_frames": 1780,
+   "valid": true
+  },
+  {
+   "block": "S2",
+   "args": {
+    "d": "D2",
+    "n": 810
+   },
+   "requested_frames": 810,
+   "available_frames": 1780,
+   "valid": true
+  },
+  {
+   "block": "S3",
+   "args": {
+    "d": "D2",
+    "n": 810
+   },
+   "requested_frames": 810,
+   "available_frames": 1602,
+   "valid": true
+  },
+  {
+   "block": "S3",
+   "args": {
+    "d": "D2",
+    "n": 810
+   },
+   "requested_frames": 810,
+   "available_frames": 1602,
+   "valid": true
+  },
+  {
+   "block": "S3",
+   "args": {
+    "d": "D2",
+    "n": 810
+   },
+   "requested_frames": 810,
+   "available_frames": 1602,
+   "valid": true
+  },
+  {
+   "block": "S2",
+   "args": {
+    "d": "D2",
+    "n": 1620
+   },
+   "requested_frames": 1620,
+   "available_frames": 1780,
+   "valid": true
+  },
+  {
+   "block": "S2",
+   "args": {
+    "d": "D2",
+    "n": 1620
+   },
+   "requested_frames": 1620,
+   "available_frames": 1780,
+   "valid": true
+  },
+  {
+   "block": "S2",
+   "args": {
+    "d": "D2",
+    "n": 1620
+   },
+   "requested_frames": 1620,
+   "available_frames": 1780,
+   "valid": true
+  },
+  {
+   "block": "S3",
+   "args": {
+    "d": "D2",
+    "n": 1620
+   },
+   "requested_frames": 1620,
+   "available_frames": 1602,
+   "valid": false
+  },
+  {
+   "block": "S3",
+   "args": {
+    "d": "D2",
+    "n": 1620
+   },
+   "requested_frames": 1620,
+   "available_frames": 1602,
+   "valid": false
+  },
+  {
+   "block": "S3",
+   "args": {
+    "d": "D2",
+    "n": 1620
+   },
+   "requested_frames": 1620,
+   "available_frames": 1602,
+   "valid": false
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "A",
+    "mode": "batch",
+    "d": "D1",
+    "nq": 32,
+    "nd": 1015,
+    "nwin": 20,
+    "role": "fit"
+   },
+   "requested": [
+    32,
+    1015,
+    20
+   ],
+   "available": [
+    1013,
+    1015,
+    207
+   ],
+   "actual_n_win": 20,
+   "n_win_matches": true,
+   "valid": true
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "A",
+    "mode": "batch",
+    "d": "D1",
+    "nq": 64,
+    "nd": 1015,
+    "nwin": 20,
+    "role": "fit"
+   },
+   "requested": [
+    64,
+    1015,
+    20
+   ],
+   "available": [
+    1013,
+    1015,
+    207
+   ],
+   "actual_n_win": 20,
+   "n_win_matches": true,
+   "valid": true
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "A",
+    "mode": "batch",
+    "d": "D1",
+    "nq": 128,
+    "nd": 1015,
+    "nwin": 20,
+    "role": "fit"
+   },
+   "requested": [
+    128,
+    1015,
+    20
+   ],
+   "available": [
+    1013,
+    1015,
+    207
+   ],
+   "actual_n_win": 20,
+   "n_win_matches": true,
+   "valid": true
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "A",
+    "mode": "batch",
+    "d": "D1",
+    "nq": 192,
+    "nd": 1015,
+    "nwin": 20,
+    "role": "fit"
+   },
+   "requested": [
+    192,
+    1015,
+    20
+   ],
+   "available": [
+    1013,
+    1015,
+    207
+   ],
+   "actual_n_win": 20,
+   "n_win_matches": true,
+   "valid": true
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "A",
+    "mode": "batch",
+    "d": "D1",
+    "nq": 256,
+    "nd": 1015,
+    "nwin": 20,
+    "role": "fit"
+   },
+   "requested": [
+    256,
+    1015,
+    20
+   ],
+   "available": [
+    1013,
+    1015,
+    207
+   ],
+   "actual_n_win": 20,
+   "n_win_matches": true,
+   "valid": true
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "A",
+    "mode": "batch",
+    "d": "D1",
+    "nq": 128,
+    "nd": 250,
+    "nwin": 20,
+    "role": "fit"
+   },
+   "requested": [
+    128,
+    250,
+    20
+   ],
+   "available": [
+    1013,
+    1015,
+    207
+   ],
+   "actual_n_win": 20,
+   "n_win_matches": true,
+   "valid": true
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "A",
+    "mode": "batch",
+    "d": "D1",
+    "nq": 128,
+    "nd": 500,
+    "nwin": 20,
+    "role": "fit"
+   },
+   "requested": [
+    128,
+    500,
+    20
+   ],
+   "available": [
+    1013,
+    1015,
+    207
+   ],
+   "actual_n_win": 20,
+   "n_win_matches": true,
+   "valid": true
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "A",
+    "mode": "batch",
+    "d": "D1",
+    "nq": 256,
+    "nd": 250,
+    "nwin": 20,
+    "role": "fit"
+   },
+   "requested": [
+    256,
+    250,
+    20
+   ],
+   "available": [
+    1013,
+    1015,
+    207
+   ],
+   "actual_n_win": 20,
+   "n_win_matches": true,
+   "valid": true
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "A",
+    "mode": "batch",
+    "d": "D1",
+    "nq": 256,
+    "nd": 500,
+    "nwin": 20,
+    "role": "fit"
+   },
+   "requested": [
+    256,
+    500,
+    20
+   ],
+   "available": [
+    1013,
+    1015,
+    207
+   ],
+   "actual_n_win": 20,
+   "n_win_matches": true,
+   "valid": true
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "A",
+    "mode": "batch",
+    "d": "D1",
+    "nq": 64,
+    "nd": 1015,
+    "nwin": 5,
+    "role": "fit"
+   },
+   "requested": [
+    64,
+    1015,
+    5
+   ],
+   "available": [
+    1013,
+    1015,
+    207
+   ],
+   "actual_n_win": 5,
+   "n_win_matches": true,
+   "valid": true
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "A",
+    "mode": "batch",
+    "d": "D1",
+    "nq": 64,
+    "nd": 1015,
+    "nwin": 80,
+    "role": "fit"
+   },
+   "requested": [
+    64,
+    1015,
+    80
+   ],
+   "available": [
+    1013,
+    1015,
+    207
+   ],
+   "actual_n_win": 80,
+   "n_win_matches": true,
+   "valid": true
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "A",
+    "mode": "single",
+    "d": "D1",
+    "nq": 1,
+    "nd": 250,
+    "nwin": 20,
+    "role": "fit"
+   },
+   "requested": [
+    1,
+    250,
+    20
+   ],
+   "available": [
+    1013,
+    1015,
+    207
+   ],
+   "actual_n_win": 20,
+   "n_win_matches": true,
+   "valid": true
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "A",
+    "mode": "single",
+    "d": "D1",
+    "nq": 1,
+    "nd": 250,
+    "nwin": 207,
+    "role": "fit"
+   },
+   "requested": [
+    1,
+    250,
+    207
+   ],
+   "available": [
+    1013,
+    1015,
+    207
+   ],
+   "actual_n_win": 207,
+   "n_win_matches": true,
+   "valid": true
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "A",
+    "mode": "single",
+    "d": "D1",
+    "nq": 1,
+    "nd": 500,
+    "nwin": 20,
+    "role": "fit"
+   },
+   "requested": [
+    1,
+    500,
+    20
+   ],
+   "available": [
+    1013,
+    1015,
+    207
+   ],
+   "actual_n_win": 20,
+   "n_win_matches": true,
+   "valid": true
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "A",
+    "mode": "single",
+    "d": "D1",
+    "nq": 1,
+    "nd": 500,
+    "nwin": 207,
+    "role": "fit"
+   },
+   "requested": [
+    1,
+    500,
+    207
+   ],
+   "available": [
+    1013,
+    1015,
+    207
+   ],
+   "actual_n_win": 207,
+   "n_win_matches": true,
+   "valid": true
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "A",
+    "mode": "single",
+    "d": "D1",
+    "nq": 1,
+    "nd": 1015,
+    "nwin": 20,
+    "role": "fit"
+   },
+   "requested": [
+    1,
+    1015,
+    20
+   ],
+   "available": [
+    1013,
+    1015,
+    207
+   ],
+   "actual_n_win": 20,
+   "n_win_matches": true,
+   "valid": true
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "A",
+    "mode": "single",
+    "d": "D1",
+    "nq": 1,
+    "nd": 1015,
+    "nwin": 207,
+    "role": "fit"
+   },
+   "requested": [
+    1,
+    1015,
+    207
+   ],
+   "available": [
+    1013,
+    1015,
+    207
+   ],
+   "actual_n_win": 207,
+   "n_win_matches": true,
+   "valid": true
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "A",
+    "mode": "batch",
+    "d": "D1",
+    "nq": 512,
+    "nd": 1015,
+    "nwin": 207,
+    "role": "CW1"
+   },
+   "requested": [
+    512,
+    1015,
+    207
+   ],
+   "available": [
+    1013,
+    1015,
+    207
+   ],
+   "actual_n_win": 207,
+   "n_win_matches": true,
+   "valid": true
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "A",
+    "mode": "batch",
+    "d": "D1p",
+    "nq": 256,
+    "nd": 2693,
+    "nwin": 40,
+    "role": "CW2"
+   },
+   "requested": [
+    256,
+    2693,
+    40
+   ],
+   "available": [
+    1013,
+    2693,
+    207
+   ],
+   "actual_n_win": 40,
+   "n_win_matches": true,
+   "valid": true
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "A",
+    "mode": "single",
+    "d": "D1p",
+    "nq": 1,
+    "nd": 2693,
+    "nwin": 207,
+    "role": "CW3"
+   },
+   "requested": [
+    1,
+    2693,
+    207
+   ],
+   "available": [
+    1013,
+    2693,
+    207
+   ],
+   "actual_n_win": 207,
+   "n_win_matches": true,
+   "valid": true
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "A",
+    "mode": "batch",
+    "d": "D2",
+    "nq": 256,
+    "nd": 405,
+    "nwin": 44,
+    "role": "CW4"
+   },
+   "requested": [
+    256,
+    405,
+    44
+   ],
+   "available": [
+    405,
+    405,
+    44
+   ],
+   "actual_n_win": 44,
+   "n_win_matches": true,
+   "valid": true
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "A",
+    "mode": "single",
+    "d": "D2",
+    "nq": 1,
+    "nd": 405,
+    "nwin": 44,
+    "role": "CW5"
+   },
+   "requested": [
+    1,
+    405,
+    44
+   ],
+   "available": [
+    405,
+    405,
+    44
+   ],
+   "actual_n_win": 44,
+   "n_win_matches": true,
+   "valid": true
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "B2",
+    "mode": "batch",
+    "d": "D1",
+    "nq": 32,
+    "nd": 1015,
+    "nwin": 20,
+    "role": "fit"
+   },
+   "requested": [
+    32,
+    1015,
+    20
+   ],
+   "available": [
+    1013,
+    1015,
+    207
+   ],
+   "actual_n_win": 20,
+   "n_win_matches": true,
+   "valid": true
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "B2",
+    "mode": "batch",
+    "d": "D1",
+    "nq": 64,
+    "nd": 1015,
+    "nwin": 20,
+    "role": "fit"
+   },
+   "requested": [
+    64,
+    1015,
+    20
+   ],
+   "available": [
+    1013,
+    1015,
+    207
+   ],
+   "actual_n_win": 20,
+   "n_win_matches": true,
+   "valid": true
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "B2",
+    "mode": "batch",
+    "d": "D1",
+    "nq": 128,
+    "nd": 1015,
+    "nwin": 20,
+    "role": "fit"
+   },
+   "requested": [
+    128,
+    1015,
+    20
+   ],
+   "available": [
+    1013,
+    1015,
+    207
+   ],
+   "actual_n_win": 20,
+   "n_win_matches": true,
+   "valid": true
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "B2",
+    "mode": "batch",
+    "d": "D1",
+    "nq": 192,
+    "nd": 1015,
+    "nwin": 20,
+    "role": "fit"
+   },
+   "requested": [
+    192,
+    1015,
+    20
+   ],
+   "available": [
+    1013,
+    1015,
+    207
+   ],
+   "actual_n_win": 20,
+   "n_win_matches": true,
+   "valid": true
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "B2",
+    "mode": "batch",
+    "d": "D1",
+    "nq": 256,
+    "nd": 1015,
+    "nwin": 20,
+    "role": "fit"
+   },
+   "requested": [
+    256,
+    1015,
+    20
+   ],
+   "available": [
+    1013,
+    1015,
+    207
+   ],
+   "actual_n_win": 20,
+   "n_win_matches": true,
+   "valid": true
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "B2",
+    "mode": "batch",
+    "d": "D1",
+    "nq": 128,
+    "nd": 250,
+    "nwin": 20,
+    "role": "fit"
+   },
+   "requested": [
+    128,
+    250,
+    20
+   ],
+   "available": [
+    1013,
+    1015,
+    207
+   ],
+   "actual_n_win": 20,
+   "n_win_matches": true,
+   "valid": true
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "B2",
+    "mode": "batch",
+    "d": "D1",
+    "nq": 128,
+    "nd": 500,
+    "nwin": 20,
+    "role": "fit"
+   },
+   "requested": [
+    128,
+    500,
+    20
+   ],
+   "available": [
+    1013,
+    1015,
+    207
+   ],
+   "actual_n_win": 20,
+   "n_win_matches": true,
+   "valid": true
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "B2",
+    "mode": "batch",
+    "d": "D1",
+    "nq": 256,
+    "nd": 250,
+    "nwin": 20,
+    "role": "fit"
+   },
+   "requested": [
+    256,
+    250,
+    20
+   ],
+   "available": [
+    1013,
+    1015,
+    207
+   ],
+   "actual_n_win": 20,
+   "n_win_matches": true,
+   "valid": true
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "B2",
+    "mode": "batch",
+    "d": "D1",
+    "nq": 256,
+    "nd": 500,
+    "nwin": 20,
+    "role": "fit"
+   },
+   "requested": [
+    256,
+    500,
+    20
+   ],
+   "available": [
+    1013,
+    1015,
+    207
+   ],
+   "actual_n_win": 20,
+   "n_win_matches": true,
+   "valid": true
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "B2",
+    "mode": "batch",
+    "d": "D1",
+    "nq": 64,
+    "nd": 1015,
+    "nwin": 5,
+    "role": "fit"
+   },
+   "requested": [
+    64,
+    1015,
+    5
+   ],
+   "available": [
+    1013,
+    1015,
+    207
+   ],
+   "actual_n_win": 5,
+   "n_win_matches": true,
+   "valid": true
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "B2",
+    "mode": "batch",
+    "d": "D1",
+    "nq": 64,
+    "nd": 1015,
+    "nwin": 80,
+    "role": "fit"
+   },
+   "requested": [
+    64,
+    1015,
+    80
+   ],
+   "available": [
+    1013,
+    1015,
+    207
+   ],
+   "actual_n_win": 80,
+   "n_win_matches": true,
+   "valid": true
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "B2",
+    "mode": "single",
+    "d": "D1",
+    "nq": 1,
+    "nd": 250,
+    "nwin": 20,
+    "role": "fit"
+   },
+   "requested": [
+    1,
+    250,
+    20
+   ],
+   "available": [
+    1013,
+    1015,
+    207
+   ],
+   "actual_n_win": 20,
+   "n_win_matches": true,
+   "valid": true
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "B2",
+    "mode": "single",
+    "d": "D1",
+    "nq": 1,
+    "nd": 250,
+    "nwin": 207,
+    "role": "fit"
+   },
+   "requested": [
+    1,
+    250,
+    207
+   ],
+   "available": [
+    1013,
+    1015,
+    207
+   ],
+   "actual_n_win": 207,
+   "n_win_matches": true,
+   "valid": true
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "B2",
+    "mode": "single",
+    "d": "D1",
+    "nq": 1,
+    "nd": 500,
+    "nwin": 20,
+    "role": "fit"
+   },
+   "requested": [
+    1,
+    500,
+    20
+   ],
+   "available": [
+    1013,
+    1015,
+    207
+   ],
+   "actual_n_win": 20,
+   "n_win_matches": true,
+   "valid": true
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "B2",
+    "mode": "single",
+    "d": "D1",
+    "nq": 1,
+    "nd": 500,
+    "nwin": 207,
+    "role": "fit"
+   },
+   "requested": [
+    1,
+    500,
+    207
+   ],
+   "available": [
+    1013,
+    1015,
+    207
+   ],
+   "actual_n_win": 207,
+   "n_win_matches": true,
+   "valid": true
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "B2",
+    "mode": "single",
+    "d": "D1",
+    "nq": 1,
+    "nd": 1015,
+    "nwin": 20,
+    "role": "fit"
+   },
+   "requested": [
+    1,
+    1015,
+    20
+   ],
+   "available": [
+    1013,
+    1015,
+    207
+   ],
+   "actual_n_win": 20,
+   "n_win_matches": true,
+   "valid": true
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "B2",
+    "mode": "single",
+    "d": "D1",
+    "nq": 1,
+    "nd": 1015,
+    "nwin": 207,
+    "role": "fit"
+   },
+   "requested": [
+    1,
+    1015,
+    207
+   ],
+   "available": [
+    1013,
+    1015,
+    207
+   ],
+   "actual_n_win": 207,
+   "n_win_matches": true,
+   "valid": true
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "B2",
+    "mode": "batch",
+    "d": "D1",
+    "nq": 512,
+    "nd": 1015,
+    "nwin": 207,
+    "role": "CW1"
+   },
+   "requested": [
+    512,
+    1015,
+    207
+   ],
+   "available": [
+    1013,
+    1015,
+    207
+   ],
+   "actual_n_win": 207,
+   "n_win_matches": true,
+   "valid": true
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "B2",
+    "mode": "batch",
+    "d": "D1p",
+    "nq": 256,
+    "nd": 2693,
+    "nwin": 40,
+    "role": "CW2"
+   },
+   "requested": [
+    256,
+    2693,
+    40
+   ],
+   "available": [
+    1013,
+    2693,
+    207
+   ],
+   "actual_n_win": 40,
+   "n_win_matches": true,
+   "valid": true
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "B2",
+    "mode": "single",
+    "d": "D1p",
+    "nq": 1,
+    "nd": 2693,
+    "nwin": 207,
+    "role": "CW3"
+   },
+   "requested": [
+    1,
+    2693,
+    207
+   ],
+   "available": [
+    1013,
+    2693,
+    207
+   ],
+   "actual_n_win": 207,
+   "n_win_matches": true,
+   "valid": true
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "B2",
+    "mode": "batch",
+    "d": "D2",
+    "nq": 256,
+    "nd": 405,
+    "nwin": 44,
+    "role": "CW4"
+   },
+   "requested": [
+    256,
+    405,
+    44
+   ],
+   "available": [
+    405,
+    405,
+    44
+   ],
+   "actual_n_win": 44,
+   "n_win_matches": true,
+   "valid": true
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "B2",
+    "mode": "single",
+    "d": "D2",
+    "nq": 1,
+    "nd": 405,
+    "nwin": 44,
+    "role": "CW5"
+   },
+   "requested": [
+    1,
+    405,
+    44
+   ],
+   "available": [
+    405,
+    405,
+    44
+   ],
+   "actual_n_win": 44,
+   "n_win_matches": true,
+   "valid": true
+  }
+ ],
+ "amendment1_invalid": [
+  {
+   "block": "S3",
+   "args": {
+    "d": "D2",
+    "n": 1620
+   },
+   "requested_frames": 1620,
+   "available_frames": 1602,
+   "valid": false
+  },
+  {
+   "block": "S3",
+   "args": {
+    "d": "D2",
+    "n": 1620
+   },
+   "requested_frames": 1620,
+   "available_frames": 1602,
+   "valid": false
+  },
+  {
+   "block": "S3",
+   "args": {
+    "d": "D2",
+    "n": 1620
+   },
+   "requested_frames": 1620,
+   "available_frames": 1602,
+   "valid": false
+  }
+ ],
+ "amendment1_memory_classification": [
+  {
+   "block": "S2",
+   "args": {
+    "d": "D1",
+    "n": 563
+   },
+   "status": "ok",
+   "memory_affected": true,
+   "reason": "load transient: memory-mapped source pages coexisted with the copy (lifetime peak)"
+  },
+  {
+   "block": "S2",
+   "args": {
+    "d": "D1",
+    "n": 563
+   },
+   "status": "ok",
+   "memory_affected": true,
+   "reason": "load transient: memory-mapped source pages coexisted with the copy (lifetime peak)"
+  },
+  {
+   "block": "S2",
+   "args": {
+    "d": "D1",
+    "n": 563
+   },
+   "status": "ok",
+   "memory_affected": true,
+   "reason": "load transient: memory-mapped source pages coexisted with the copy (lifetime peak)"
+  },
+  {
+   "block": "S3",
+   "args": {
+    "d": "D1",
+    "n": 563
+   },
+   "status": "ok",
+   "memory_affected": true,
+   "reason": "load transient: memory-mapped source pages coexisted with the copy (lifetime peak)"
+  },
+  {
+   "block": "S3",
+   "args": {
+    "d": "D1",
+    "n": 563
+   },
+   "status": "ok",
+   "memory_affected": true,
+   "reason": "load transient: memory-mapped source pages coexisted with the copy (lifetime peak)"
+  },
+  {
+   "block": "S3",
+   "args": {
+    "d": "D1",
+    "n": 563
+   },
+   "status": "ok",
+   "memory_affected": true,
+   "reason": "load transient: memory-mapped source pages coexisted with the copy (lifetime peak)"
+  },
+  {
+   "block": "S2",
+   "args": {
+    "d": "D1",
+    "n": 1126
+   },
+   "status": "ok",
+   "memory_affected": true,
+   "reason": "load transient: memory-mapped source pages coexisted with the copy (lifetime peak)"
+  },
+  {
+   "block": "S2",
+   "args": {
+    "d": "D1",
+    "n": 1126
+   },
+   "status": "ok",
+   "memory_affected": true,
+   "reason": "load transient: memory-mapped source pages coexisted with the copy (lifetime peak)"
+  },
+  {
+   "block": "S2",
+   "args": {
+    "d": "D1",
+    "n": 1126
+   },
+   "status": "ok",
+   "memory_affected": true,
+   "reason": "load transient: memory-mapped source pages coexisted with the copy (lifetime peak)"
+  },
+  {
+   "block": "S3",
+   "args": {
+    "d": "D1",
+    "n": 1126
+   },
+   "status": "ok",
+   "memory_affected": true,
+   "reason": "load transient: memory-mapped source pages coexisted with the copy (lifetime peak)"
+  },
+  {
+   "block": "S3",
+   "args": {
+    "d": "D1",
+    "n": 1126
+   },
+   "status": "ok",
+   "memory_affected": true,
+   "reason": "load transient: memory-mapped source pages coexisted with the copy (lifetime peak)"
+  },
+  {
+   "block": "S3",
+   "args": {
+    "d": "D1",
+    "n": 1126
+   },
+   "status": "ok",
+   "memory_affected": true,
+   "reason": "load transient: memory-mapped source pages coexisted with the copy (lifetime peak)"
+  },
+  {
+   "block": "S2",
+   "args": {
+    "d": "D1",
+    "n": 2253
+   },
+   "status": "ok",
+   "memory_affected": true,
+   "reason": "load transient: memory-mapped source pages coexisted with the copy (lifetime peak)"
+  },
+  {
+   "block": "S2",
+   "args": {
+    "d": "D1",
+    "n": 2253
+   },
+   "status": "ok",
+   "memory_affected": true,
+   "reason": "load transient: memory-mapped source pages coexisted with the copy (lifetime peak)"
+  },
+  {
+   "block": "S2",
+   "args": {
+    "d": "D1",
+    "n": 2253
+   },
+   "status": "ok",
+   "memory_affected": true,
+   "reason": "load transient: memory-mapped source pages coexisted with the copy (lifetime peak)"
+  },
+  {
+   "block": "S3",
+   "args": {
+    "d": "D1",
+    "n": 2253
+   },
+   "status": "ok",
+   "memory_affected": true,
+   "reason": "load transient: memory-mapped source pages coexisted with the copy (lifetime peak)"
+  },
+  {
+   "block": "S3",
+   "args": {
+    "d": "D1",
+    "n": 2253
+   },
+   "status": "ok",
+   "memory_affected": true,
+   "reason": "load transient: memory-mapped source pages coexisted with the copy (lifetime peak)"
+  },
+  {
+   "block": "S3",
+   "args": {
+    "d": "D1",
+    "n": 2253
+   },
+   "status": "ok",
+   "memory_affected": true,
+   "reason": "load transient: memory-mapped source pages coexisted with the copy (lifetime peak)"
+  },
+  {
+   "block": "S2",
+   "args": {
+    "d": "D2",
+    "n": 405
+   },
+   "status": "ok",
+   "memory_affected": true,
+   "reason": "retained backing: full concatenate of all D2 trajectories alive during the cell"
+  },
+  {
+   "block": "S2",
+   "args": {
+    "d": "D2",
+    "n": 405
+   },
+   "status": "ok",
+   "memory_affected": true,
+   "reason": "retained backing: full concatenate of all D2 trajectories alive during the cell"
+  },
+  {
+   "block": "S2",
+   "args": {
+    "d": "D2",
+    "n": 405
+   },
+   "status": "ok",
+   "memory_affected": true,
+   "reason": "retained backing: full concatenate of all D2 trajectories alive during the cell"
+  },
+  {
+   "block": "S3",
+   "args": {
+    "d": "D2",
+    "n": 405
+   },
+   "status": "ok",
+   "memory_affected": true,
+   "reason": "load transient: memory-mapped source pages coexisted with the copy (lifetime peak)"
+  },
+  {
+   "block": "S3",
+   "args": {
+    "d": "D2",
+    "n": 405
+   },
+   "status": "ok",
+   "memory_affected": true,
+   "reason": "load transient: memory-mapped source pages coexisted with the copy (lifetime peak)"
+  },
+  {
+   "block": "S3",
+   "args": {
+    "d": "D2",
+    "n": 405
+   },
+   "status": "ok",
+   "memory_affected": true,
+   "reason": "load transient: memory-mapped source pages coexisted with the copy (lifetime peak)"
+  },
+  {
+   "block": "S2",
+   "args": {
+    "d": "D2",
+    "n": 810
+   },
+   "status": "ok",
+   "memory_affected": true,
+   "reason": "retained backing: full concatenate of all D2 trajectories alive during the cell"
+  },
+  {
+   "block": "S2",
+   "args": {
+    "d": "D2",
+    "n": 810
+   },
+   "status": "ok",
+   "memory_affected": true,
+   "reason": "retained backing: full concatenate of all D2 trajectories alive during the cell"
+  },
+  {
+   "block": "S2",
+   "args": {
+    "d": "D2",
+    "n": 810
+   },
+   "status": "ok",
+   "memory_affected": true,
+   "reason": "retained backing: full concatenate of all D2 trajectories alive during the cell"
+  },
+  {
+   "block": "S3",
+   "args": {
+    "d": "D2",
+    "n": 810
+   },
+   "status": "ok",
+   "memory_affected": true,
+   "reason": "load transient: memory-mapped source pages coexisted with the copy (lifetime peak)"
+  },
+  {
+   "block": "S3",
+   "args": {
+    "d": "D2",
+    "n": 810
+   },
+   "status": "ok",
+   "memory_affected": true,
+   "reason": "load transient: memory-mapped source pages coexisted with the copy (lifetime peak)"
+  },
+  {
+   "block": "S3",
+   "args": {
+    "d": "D2",
+    "n": 810
+   },
+   "status": "ok",
+   "memory_affected": true,
+   "reason": "load transient: memory-mapped source pages coexisted with the copy (lifetime peak)"
+  },
+  {
+   "block": "S2",
+   "args": {
+    "d": "D2",
+    "n": 1620
+   },
+   "status": "ok",
+   "memory_affected": true,
+   "reason": "retained backing: full concatenate of all D2 trajectories alive during the cell"
+  },
+  {
+   "block": "S2",
+   "args": {
+    "d": "D2",
+    "n": 1620
+   },
+   "status": "ok",
+   "memory_affected": true,
+   "reason": "retained backing: full concatenate of all D2 trajectories alive during the cell"
+  },
+  {
+   "block": "S2",
+   "args": {
+    "d": "D2",
+    "n": 1620
+   },
+   "status": "ok",
+   "memory_affected": true,
+   "reason": "retained backing: full concatenate of all D2 trajectories alive during the cell"
+  },
+  {
+   "block": "S3",
+   "args": {
+    "d": "D2",
+    "n": 1620
+   },
+   "status": "failed",
+   "memory_affected": true,
+   "reason": "load transient: memory-mapped source pages coexisted with the copy (lifetime peak)"
+  },
+  {
+   "block": "S3",
+   "args": {
+    "d": "D2",
+    "n": 1620
+   },
+   "status": "failed",
+   "memory_affected": true,
+   "reason": "load transient: memory-mapped source pages coexisted with the copy (lifetime peak)"
+  },
+  {
+   "block": "S3",
+   "args": {
+    "d": "D2",
+    "n": 1620
+   },
+   "status": "failed",
+   "memory_affected": true,
+   "reason": "load transient: memory-mapped source pages coexisted with the copy (lifetime peak)"
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "A",
+    "mode": "batch",
+    "d": "D1",
+    "nq": 32,
+    "nd": 1015,
+    "nwin": 20,
+    "role": "fit"
+   },
+   "status": "ok",
+   "memory_affected": true,
+   "reason": "repeated outputs: previous repetition outputs alive during the next"
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "A",
+    "mode": "batch",
+    "d": "D1",
+    "nq": 64,
+    "nd": 1015,
+    "nwin": 20,
+    "role": "fit"
+   },
+   "status": "ok",
+   "memory_affected": true,
+   "reason": "repeated outputs: previous repetition outputs alive during the next"
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "A",
+    "mode": "batch",
+    "d": "D1",
+    "nq": 128,
+    "nd": 1015,
+    "nwin": 20,
+    "role": "fit"
+   },
+   "status": "ok",
+   "memory_affected": true,
+   "reason": "repeated outputs: previous repetition outputs alive during the next"
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "A",
+    "mode": "batch",
+    "d": "D1",
+    "nq": 192,
+    "nd": 1015,
+    "nwin": 20,
+    "role": "fit"
+   },
+   "status": "ok",
+   "memory_affected": true,
+   "reason": "repeated outputs: previous repetition outputs alive during the next"
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "A",
+    "mode": "batch",
+    "d": "D1",
+    "nq": 256,
+    "nd": 1015,
+    "nwin": 20,
+    "role": "fit"
+   },
+   "status": "ok",
+   "memory_affected": true,
+   "reason": "repeated outputs: previous repetition outputs alive during the next"
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "A",
+    "mode": "batch",
+    "d": "D1",
+    "nq": 128,
+    "nd": 250,
+    "nwin": 20,
+    "role": "fit"
+   },
+   "status": "ok",
+   "memory_affected": true,
+   "reason": "repeated outputs: previous repetition outputs alive during the next"
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "A",
+    "mode": "batch",
+    "d": "D1",
+    "nq": 128,
+    "nd": 500,
+    "nwin": 20,
+    "role": "fit"
+   },
+   "status": "ok",
+   "memory_affected": true,
+   "reason": "repeated outputs: previous repetition outputs alive during the next"
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "A",
+    "mode": "batch",
+    "d": "D1",
+    "nq": 256,
+    "nd": 250,
+    "nwin": 20,
+    "role": "fit"
+   },
+   "status": "ok",
+   "memory_affected": true,
+   "reason": "repeated outputs: previous repetition outputs alive during the next"
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "A",
+    "mode": "batch",
+    "d": "D1",
+    "nq": 256,
+    "nd": 500,
+    "nwin": 20,
+    "role": "fit"
+   },
+   "status": "ok",
+   "memory_affected": true,
+   "reason": "repeated outputs: previous repetition outputs alive during the next"
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "A",
+    "mode": "batch",
+    "d": "D1",
+    "nq": 64,
+    "nd": 1015,
+    "nwin": 5,
+    "role": "fit"
+   },
+   "status": "ok",
+   "memory_affected": true,
+   "reason": "repeated outputs: previous repetition outputs alive during the next"
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "A",
+    "mode": "batch",
+    "d": "D1",
+    "nq": 64,
+    "nd": 1015,
+    "nwin": 80,
+    "role": "fit"
+   },
+   "status": "ok",
+   "memory_affected": true,
+   "reason": "repeated outputs: previous repetition outputs alive during the next"
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "A",
+    "mode": "single",
+    "d": "D1",
+    "nq": 1,
+    "nd": 250,
+    "nwin": 20,
+    "role": "fit"
+   },
+   "status": "ok",
+   "memory_affected": true,
+   "reason": "repeated outputs: previous repetition outputs alive during the next; load transient comparable to compute-phase transients"
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "A",
+    "mode": "single",
+    "d": "D1",
+    "nq": 1,
+    "nd": 250,
+    "nwin": 207,
+    "role": "fit"
+   },
+   "status": "ok",
+   "memory_affected": true,
+   "reason": "repeated outputs: previous repetition outputs alive during the next; load transient comparable to compute-phase transients"
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "A",
+    "mode": "single",
+    "d": "D1",
+    "nq": 1,
+    "nd": 500,
+    "nwin": 20,
+    "role": "fit"
+   },
+   "status": "ok",
+   "memory_affected": true,
+   "reason": "repeated outputs: previous repetition outputs alive during the next; load transient comparable to compute-phase transients"
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "A",
+    "mode": "single",
+    "d": "D1",
+    "nq": 1,
+    "nd": 500,
+    "nwin": 207,
+    "role": "fit"
+   },
+   "status": "ok",
+   "memory_affected": true,
+   "reason": "repeated outputs: previous repetition outputs alive during the next; load transient comparable to compute-phase transients"
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "A",
+    "mode": "single",
+    "d": "D1",
+    "nq": 1,
+    "nd": 1015,
+    "nwin": 20,
+    "role": "fit"
+   },
+   "status": "ok",
+   "memory_affected": true,
+   "reason": "repeated outputs: previous repetition outputs alive during the next; load transient comparable to compute-phase transients"
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "A",
+    "mode": "single",
+    "d": "D1",
+    "nq": 1,
+    "nd": 1015,
+    "nwin": 207,
+    "role": "fit"
+   },
+   "status": "ok",
+   "memory_affected": true,
+   "reason": "repeated outputs: previous repetition outputs alive during the next; load transient comparable to compute-phase transients"
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "A",
+    "mode": "batch",
+    "d": "D1",
+    "nq": 512,
+    "nd": 1015,
+    "nwin": 207,
+    "role": "CW1"
+   },
+   "status": "ok",
+   "memory_affected": false,
+   "reason": null
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "A",
+    "mode": "batch",
+    "d": "D1p",
+    "nq": 256,
+    "nd": 2693,
+    "nwin": 40,
+    "role": "CW2"
+   },
+   "status": "ok",
+   "memory_affected": false,
+   "reason": null
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "A",
+    "mode": "single",
+    "d": "D1p",
+    "nq": 1,
+    "nd": 2693,
+    "nwin": 207,
+    "role": "CW3"
+   },
+   "status": "ok",
+   "memory_affected": true,
+   "reason": "repeated outputs: previous repetition outputs alive during the next; load transient comparable to compute-phase transients"
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "A",
+    "mode": "batch",
+    "d": "D2",
+    "nq": 256,
+    "nd": 405,
+    "nwin": 44,
+    "role": "CW4"
+   },
+   "status": "ok",
+   "memory_affected": true,
+   "reason": "repeated outputs: previous repetition outputs alive during the next"
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "A",
+    "mode": "single",
+    "d": "D2",
+    "nq": 1,
+    "nd": 405,
+    "nwin": 44,
+    "role": "CW5"
+   },
+   "status": "ok",
+   "memory_affected": true,
+   "reason": "repeated outputs: previous repetition outputs alive during the next; load transient comparable to compute-phase transients"
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "B2",
+    "mode": "batch",
+    "d": "D1",
+    "nq": 32,
+    "nd": 1015,
+    "nwin": 20,
+    "role": "fit"
+   },
+   "status": "ok",
+   "memory_affected": true,
+   "reason": "repeated outputs: previous repetition outputs alive during the next"
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "B2",
+    "mode": "batch",
+    "d": "D1",
+    "nq": 64,
+    "nd": 1015,
+    "nwin": 20,
+    "role": "fit"
+   },
+   "status": "ok",
+   "memory_affected": true,
+   "reason": "repeated outputs: previous repetition outputs alive during the next"
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "B2",
+    "mode": "batch",
+    "d": "D1",
+    "nq": 128,
+    "nd": 1015,
+    "nwin": 20,
+    "role": "fit"
+   },
+   "status": "ok",
+   "memory_affected": false,
+   "reason": null
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "B2",
+    "mode": "batch",
+    "d": "D1",
+    "nq": 192,
+    "nd": 1015,
+    "nwin": 20,
+    "role": "fit"
+   },
+   "status": "ok",
+   "memory_affected": false,
+   "reason": null
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "B2",
+    "mode": "batch",
+    "d": "D1",
+    "nq": 256,
+    "nd": 1015,
+    "nwin": 20,
+    "role": "fit"
+   },
+   "status": "ok",
+   "memory_affected": false,
+   "reason": null
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "B2",
+    "mode": "batch",
+    "d": "D1",
+    "nq": 128,
+    "nd": 250,
+    "nwin": 20,
+    "role": "fit"
+   },
+   "status": "ok",
+   "memory_affected": true,
+   "reason": "repeated outputs: previous repetition outputs alive during the next"
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "B2",
+    "mode": "batch",
+    "d": "D1",
+    "nq": 128,
+    "nd": 500,
+    "nwin": 20,
+    "role": "fit"
+   },
+   "status": "ok",
+   "memory_affected": true,
+   "reason": "repeated outputs: previous repetition outputs alive during the next"
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "B2",
+    "mode": "batch",
+    "d": "D1",
+    "nq": 256,
+    "nd": 250,
+    "nwin": 20,
+    "role": "fit"
+   },
+   "status": "ok",
+   "memory_affected": true,
+   "reason": "repeated outputs: previous repetition outputs alive during the next"
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "B2",
+    "mode": "batch",
+    "d": "D1",
+    "nq": 256,
+    "nd": 500,
+    "nwin": 20,
+    "role": "fit"
+   },
+   "status": "ok",
+   "memory_affected": false,
+   "reason": null
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "B2",
+    "mode": "batch",
+    "d": "D1",
+    "nq": 64,
+    "nd": 1015,
+    "nwin": 5,
+    "role": "fit"
+   },
+   "status": "ok",
+   "memory_affected": true,
+   "reason": "repeated outputs: previous repetition outputs alive during the next"
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "B2",
+    "mode": "batch",
+    "d": "D1",
+    "nq": 64,
+    "nd": 1015,
+    "nwin": 80,
+    "role": "fit"
+   },
+   "status": "ok",
+   "memory_affected": false,
+   "reason": null
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "B2",
+    "mode": "single",
+    "d": "D1",
+    "nq": 1,
+    "nd": 250,
+    "nwin": 20,
+    "role": "fit"
+   },
+   "status": "ok",
+   "memory_affected": true,
+   "reason": "repeated outputs: previous repetition outputs alive during the next; load transient comparable to compute-phase transients"
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "B2",
+    "mode": "single",
+    "d": "D1",
+    "nq": 1,
+    "nd": 250,
+    "nwin": 207,
+    "role": "fit"
+   },
+   "status": "ok",
+   "memory_affected": true,
+   "reason": "repeated outputs: previous repetition outputs alive during the next; load transient comparable to compute-phase transients"
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "B2",
+    "mode": "single",
+    "d": "D1",
+    "nq": 1,
+    "nd": 500,
+    "nwin": 20,
+    "role": "fit"
+   },
+   "status": "ok",
+   "memory_affected": true,
+   "reason": "repeated outputs: previous repetition outputs alive during the next; load transient comparable to compute-phase transients"
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "B2",
+    "mode": "single",
+    "d": "D1",
+    "nq": 1,
+    "nd": 500,
+    "nwin": 207,
+    "role": "fit"
+   },
+   "status": "ok",
+   "memory_affected": true,
+   "reason": "repeated outputs: previous repetition outputs alive during the next; load transient comparable to compute-phase transients"
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "B2",
+    "mode": "single",
+    "d": "D1",
+    "nq": 1,
+    "nd": 1015,
+    "nwin": 20,
+    "role": "fit"
+   },
+   "status": "ok",
+   "memory_affected": true,
+   "reason": "repeated outputs: previous repetition outputs alive during the next; load transient comparable to compute-phase transients"
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "B2",
+    "mode": "single",
+    "d": "D1",
+    "nq": 1,
+    "nd": 1015,
+    "nwin": 207,
+    "role": "fit"
+   },
+   "status": "ok",
+   "memory_affected": true,
+   "reason": "repeated outputs: previous repetition outputs alive during the next; load transient comparable to compute-phase transients"
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "B2",
+    "mode": "batch",
+    "d": "D1",
+    "nq": 512,
+    "nd": 1015,
+    "nwin": 207,
+    "role": "CW1"
+   },
+   "status": "ok",
+   "memory_affected": false,
+   "reason": null
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "B2",
+    "mode": "batch",
+    "d": "D1p",
+    "nq": 256,
+    "nd": 2693,
+    "nwin": 40,
+    "role": "CW2"
+   },
+   "status": "ok",
+   "memory_affected": false,
+   "reason": null
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "B2",
+    "mode": "single",
+    "d": "D1p",
+    "nq": 1,
+    "nd": 2693,
+    "nwin": 207,
+    "role": "CW3"
+   },
+   "status": "ok",
+   "memory_affected": true,
+   "reason": "repeated outputs: previous repetition outputs alive during the next; load transient comparable to compute-phase transients"
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "B2",
+    "mode": "batch",
+    "d": "D2",
+    "nq": 256,
+    "nd": 405,
+    "nwin": 44,
+    "role": "CW4"
+   },
+   "status": "ok",
+   "memory_affected": false,
+   "reason": null
+  },
+  {
+   "block": "S4",
+   "args": {
+    "m": "B2",
+    "mode": "single",
+    "d": "D2",
+    "nq": 1,
+    "nd": 405,
+    "nwin": 44,
+    "role": "CW5"
+   },
+   "status": "ok",
+   "memory_affected": true,
+   "reason": "repeated outputs: previous repetition outputs alive during the next; load transient comparable to compute-phase transients"
+  }
+ ],
+ "note": "Read-only inventory: array headers and index metadata only; no timing."
+}

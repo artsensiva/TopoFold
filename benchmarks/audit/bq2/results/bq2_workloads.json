@@ -1,0 +1,292 @@
+{
+ "W": 8,
+ "k": 10,
+ "seed": 20261018,
+ "workloads": [
+  {
+   "id": "F_nD100_nwin5",
+   "kind": "real",
+   "d": "D1p",
+   "nd": 100,
+   "nwin": 5,
+   "role": "fit",
+   "queries": [
+    856,
+    930,
+    948
+   ],
+   "baseline": false
+  },
+  {
+   "id": "F_nD100_nwin20",
+   "kind": "real",
+   "d": "D1p",
+   "nd": 100,
+   "nwin": 20,
+   "role": "fit",
+   "queries": [
+    856,
+    930,
+    948
+   ],
+   "baseline": false
+  },
+  {
+   "id": "F_nD100_nwin60",
+   "kind": "real",
+   "d": "D1p",
+   "nd": 100,
+   "nwin": 60,
+   "role": "fit",
+   "queries": [
+    856,
+    930,
+    948
+   ],
+   "baseline": false
+  },
+  {
+   "id": "F_nD100_nwin207",
+   "kind": "real",
+   "d": "D1p",
+   "nd": 100,
+   "nwin": 207,
+   "role": "fit",
+   "queries": [
+    856,
+    930,
+    948
+   ],
+   "baseline": false
+  },
+  {
+   "id": "F_nD700_nwin5",
+   "kind": "real",
+   "d": "D1p",
+   "nd": 700,
+   "nwin": 5,
+   "role": "fit",
+   "queries": [
+    856,
+    930,
+    948
+   ],
+   "baseline": false
+  },
+  {
+   "id": "F_nD700_nwin20",
+   "kind": "real",
+   "d": "D1p",
+   "nd": 700,
+   "nwin": 20,
+   "role": "fit",
+   "queries": [
+    856,
+    930,
+    948
+   ],
+   "baseline": false
+  },
+  {
+   "id": "F_nD700_nwin60",
+   "kind": "real",
+   "d": "D1p",
+   "nd": 700,
+   "nwin": 60,
+   "role": "fit",
+   "queries": [
+    856,
+    930,
+    948
+   ],
+   "baseline": false
+  },
+  {
+   "id": "F_nD700_nwin207",
+   "kind": "real",
+   "d": "D1p",
+   "nd": 700,
+   "nwin": 207,
+   "role": "fit",
+   "queries": [
+    856,
+    930,
+    948
+   ],
+   "baseline": false
+  },
+  {
+   "id": "F_nD2693_nwin5",
+   "kind": "real",
+   "d": "D1p",
+   "nd": 2693,
+   "nwin": 5,
+   "role": "fit",
+   "queries": [
+    856,
+    930,
+    948
+   ],
+   "baseline": false
+  },
+  {
+   "id": "F_nD2693_nwin20",
+   "kind": "real",
+   "d": "D1p",
+   "nd": 2693,
+   "nwin": 20,
+   "role": "fit",
+   "queries": [
+    856,
+    930,
+    948
+   ],
+   "baseline": false
+  },
+  {
+   "id": "F_nD2693_nwin60",
+   "kind": "real",
+   "d": "D1p",
+   "nd": 2693,
+   "nwin": 60,
+   "role": "fit",
+   "queries": [
+    856,
+    930,
+    948
+   ],
+   "baseline": false
+  },
+  {
+   "id": "F_nD2693_nwin207",
+   "kind": "real",
+   "d": "D1p",
+   "nd": 2693,
+   "nwin": 207,
+   "role": "fit",
+   "queries": [
+    856,
+    930,
+    948
+   ],
+   "baseline": false
+  },
+  {
+   "id": "RC1",
+   "kind": "real",
+   "d": "D1p",
+   "nd": 1500,
+   "nwin": 120,
+   "role": "confirm_real",
+   "queries": [
+    529,
+    860,
+    877
+   ],
+   "baseline": true
+  },
+  {
+   "id": "RC2",
+   "kind": "real",
+   "d": "D1p",
+   "nd": 2693,
+   "nwin": 207,
+   "role": "confirm_real",
+   "queries": [
+    734,
+    853,
+    897
+   ],
+   "baseline": true
+  },
+  {
+   "id": "RC3",
+   "kind": "real",
+   "d": "D2",
+   "nd": 405,
+   "nwin": 44,
+   "role": "confirm_real",
+   "queries": [
+    256,
+    258,
+    326
+   ],
+   "baseline": true
+  },
+  {
+   "id": "S1",
+   "kind": "SYNTHETIC_tiled",
+   "d": "D1p",
+   "nd": 1000,
+   "nwin": 993,
+   "role": "confirm_stress",
+   "queries": [
+    0,
+    1,
+    2
+   ],
+   "baseline": true
+  },
+  {
+   "id": "S2",
+   "kind": "SYNTHETIC_tiled",
+   "d": "D1p",
+   "nd": 2500,
+   "nwin": 993,
+   "role": "confirm_stress",
+   "queries": [
+    0,
+    1,
+    2
+   ],
+   "baseline": true
+  },
+  {
+   "id": "S4_P2slice",
+   "kind": "SYNTHETIC_tiled",
+   "d": "D1p",
+   "nd": 10000,
+   "nwin": 100,
+   "role": "confirm_stress",
+   "queries": [
+    0,
+    1,
+    2
+   ],
+   "baseline": true
+  },
+  {
+   "id": "S3",
+   "kind": "SYNTHETIC_tiled",
+   "d": "D1p",
+   "nd": 4000,
+   "nwin": 993,
+   "role": "confirm_stress_if_memory",
+   "queries": [
+    0,
+    1,
+    2
+   ],
+   "baseline": true
+  },
+  {
+   "id": "P2D",
+   "kind": "SYNTHETIC_tiled",
+   "d": "D1p",
+   "nd": 10000,
+   "nwin": 993,
+   "role": "direct_P2_if_memory",
+   "queries": [
+    0,
+    1,
+    2
+   ],
+   "baseline": false
+  }
+ ],
+ "note": "real query values are D1+/D2 query positions; database = first n_D database rows. SYNTHETIC_tiled rows: bq2_lib.tiled_rows (database rows 0\u2026n_D\u22121, query rows QUERY_OFFSET + q), L = 1000; performance-only.",
+ "pools_after_exclusion": {
+  "D1p": 463,
+  "D2": 124
+ }
+}

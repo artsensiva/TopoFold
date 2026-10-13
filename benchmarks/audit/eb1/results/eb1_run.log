@@ -1,0 +1,17 @@
+<frozen site>:107: RuntimeWarning: Unexpected value in sys.prefix, expected /home/artem/TopoFold/benchmarks/audit/wpd_local_retrieval/build/venv, got /home/artem/TopoFold/benchmarks/audit/eb1/../wpd_local_retrieval/build/venv
+<frozen site>:107: RuntimeWarning: Unexpected value in sys.exec_prefix, expected /home/artem/TopoFold/benchmarks/audit/wpd_local_retrieval/build/venv, got /home/artem/TopoFold/benchmarks/audit/eb1/../wpd_local_retrieval/build/venv
+prep
+correctness
+0/108 cells, cpu 0.024 h
+10/108 cells, cpu 0.041 h
+20/108 cells, cpu 0.046 h
+30/108 cells, cpu 0.049 h
+40/108 cells, cpu 0.050 h
+50/108 cells, cpu 0.052 h
+60/108 cells, cpu 0.053 h
+70/108 cells, cpu 0.058 h
+80/108 cells, cpu 0.064 h
+90/108 cells, cpu 0.065 h
+100/108 cells, cpu 0.068 h
+done 108 / 108 cpu 0.072 h
+exit 0

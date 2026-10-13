@@ -1,0 +1,4 @@
+<frozen site>:107: RuntimeWarning: Unexpected value in sys.prefix, expected /home/artem/TopoFold/benchmarks/audit/wpd_local_retrieval/build/venv, got /home/artem/TopoFold/benchmarks/audit/bq2/../wpd_local_retrieval/build/venv
+<frozen site>:107: RuntimeWarning: Unexpected value in sys.exec_prefix, expected /home/artem/TopoFold/benchmarks/audit/wpd_local_retrieval/build/venv, got /home/artem/TopoFold/benchmarks/audit/bq2/../wpd_local_retrieval/build/venv
+done 78 cells ok; {'P2D': 'skipped_memory_rule'} cpu 0.182 h
+exit 0

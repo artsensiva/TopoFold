@@ -1,0 +1,34 @@
+{
+ "recorded_utc": "2026-10-12T18:41:25.008631+00:00",
+ "frozen_files_unchanged": {
+  "docs/EB1_AMENDMENT_1.md": true,
+  "benchmarks/audit/eb1/eb1a1_lib.py": true,
+  "benchmarks/audit/eb1/eb1a1_run.py": true,
+  "benchmarks/audit/eb1/eb1a1_analyse.py": true,
+  "benchmarks/audit/eb1/test_eb1a1.py": true,
+  "benchmarks/audit/eb1/results/eb1a1_temp_calibration.json": true,
+  "benchmarks/audit/eb1/eb1_lib.py": true,
+  "benchmarks/audit/eb1/eb1_run.py": true,
+  "benchmarks/audit/eb1/eb1_analyse.py": true
+ },
+ "original_eb1_unchanged": {
+  "results/eb1_measurements.json": true,
+  "results/eb1_analysis.json": true,
+  "results/eb1_protocol_freeze.json": true,
+  "results/eb1_run_record.json": true,
+  "REPORT.md": true
+ },
+ "measurements_sha256": "223eea0f1f251c76ce72a95af07f63c746befca3e5e6bff648b793da5e8dbbdc",
+ "analysis_sha256": "34869f82389338951d5b71073108084f98366f7a1457c723200e4ee5cbd3ac0a",
+ "report_sha256": "a11e765489ae2c2ea8b96d0597e2adf6ff7ea3c546e22f5b9f850598e5e8d77c",
+ "log_sha256": "512283fda9eed612aae4f44c321c783cceeef063740d83a3b74dfd6c0504ca01",
+ "aggregate_cpu_h_including_original": 0.2166585877777778,
+ "cells_ok": 77,
+ "cells_planned": 80,
+ "decision": {
+  "outcome": "insufficient_evidence",
+  "reason": "missing cells: [\"S3 {'d': 'D2', 'n': 1620}: failed\", \"S3 {'d': 'D2', 'n': 1620}: failed\", \"S3 {'d': 'D2', 'n': 1620}: failed\"]"
+ },
+ "design_error": "S3 D2 size 1620 exceeds the 1602 available post-burn-in D2 frames; 3 cells failed with IndexError; outcome insufficient evidence by the frozen missing-cell rule",
+ "non_deciding_observation": "all B2 models supported and confirmed; R2_B2 (single-query, all windows) projected above its limit; no loader requirement violated"
+}

@@ -1,0 +1,24 @@
+{
+ "recorded_utc": "2026-10-12T19:01:31.685035+00:00",
+ "commands": [
+  "eb1a2_preflight.py (before freeze)",
+  "eb1a2_run.py (exit 0)",
+  "eb1a2_analyse.py (exit 0)",
+  "make_report_a2.py (exit 0)"
+ ],
+ "tests_after_run": "19 passed in 2.95s",
+ "freeze_and_preserved_hashes_unchanged": true,
+ "changed": [],
+ "cpu": {
+  "prior_cpu_h": 0.2166585877777778,
+  "amendment_cpu_h": 0.03246426138888889,
+  "aggregate_cpu_h_including_prior": 0.2491228516666667
+ },
+ "cpu_cap_h": 2.0,
+ "outputs_sha256": {
+  "results/eb1a2_measurements.json": "1f3158f5f819778e4b2153dfc4cc1e93b3feeb278bc33b7728d7b06cfc0130e4",
+  "results/eb1a2_analysis.json": "bb1fcfdbcb4f3187d091d48e7ac0a857a1fb6afd179d7ce9b0645c4505b9f4b6",
+  "REPORT_A2.md": "0c8c8ce1030080ae835d751416ed07f7f830e6a946f3735d9ee8dc7a3578b62d"
+ },
+ "notes": "No downloads, no held-out data, no production code changes, nothing staged or committed."
+}

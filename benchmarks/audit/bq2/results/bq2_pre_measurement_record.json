@@ -1,0 +1,17 @@
+{
+ "recorded_utc": "2026-10-12T19:38:48.131002+00:00",
+ "sha256": {
+  "benchmarks/audit/bq2/bq2_lib.py": "c7aa0795a1413dac0229e89bec1b7e68cff1a96e6c5f78937b28251ab7415919",
+  "benchmarks/audit/bq2/bq2_run.py": "7e70f3afd5bea083b7e12e98dd7d73c2b04d57b65d6a7ffccfc1c881f8a55aea",
+  "benchmarks/audit/bq2/bq2_analyse.py": "470649a592b7fd660f0031179c1a8305842597207847efc75d6665e9e69d21d4",
+  "benchmarks/audit/bq2/test_bq2.py": "dceba0efdcd8d53d39a8caf39c0c22aceada87e31a94a3dcd2f082e640531704",
+  "benchmarks/audit/bq2/results/bq2_protocol_freeze.json": "4ebc8325ddcba26a115efd797f14e4801fb927a30626ea68cbca02505ef9d8e4",
+  "benchmarks/audit/b2opt/b2opt_lib.py": "3e0e5a1ba622463bf2e05dfdf1fc9a2bfabc3101008cfbb69b8c8e7ce735d614",
+  "benchmarks/audit/eb1/eb1a2_lib.py": "73a1f62ead43a5294c1c0ab12d3f50c0d2715bb75a8c6053bbb6f505e9d821e6",
+  "benchmarks/audit/eb1/eb1_lib.py": "94b7014f4889149460405288990969bab29cc77985abd7f57faee471635658fa",
+  "benchmarks/audit/eb1/eb1a1_analyse.py": "7392b792b15588dd04ab2333889574494fbba8fe59f27685a0d72ca72efbe39d",
+  "benchmarks/audit/eb1/eb1_analyse.py": "95746738d3d21ef99c60f45c016fe3f55423a4750011fd7419babf1f1e6d639f"
+ },
+ "tests": "5 passed in 0.26s",
+ "disclosure": "Before any BQ-2 measurement. Prior to this record: SYNTHETIC tests, a loader shape check (no timing) and a fabricated-data smoke test of the analysis code (scratchpad, discarded)."
+}

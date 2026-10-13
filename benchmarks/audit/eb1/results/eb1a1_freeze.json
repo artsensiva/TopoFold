@@ -1,0 +1,24 @@
+{
+ "frozen_utc": "2026-10-12T17:08:32.557112+00:00",
+ "sha256": {
+  "docs/EB1_AMENDMENT_1.md": "459aa72c3beaef1a4e16072e52d9ec1f2f758d9eb71bc202894223395931e435",
+  "benchmarks/audit/eb1/eb1a1_lib.py": "83210f699414fe3ce929a5f93258fdb484f0b53acf02f94f04365d113258a03e",
+  "benchmarks/audit/eb1/eb1a1_run.py": "61acfc85af18a8cf2da050a659d5b75187a37d67c320138d8b735065215a3ebb",
+  "benchmarks/audit/eb1/eb1a1_analyse.py": "7392b792b15588dd04ab2333889574494fbba8fe59f27685a0d72ca72efbe39d",
+  "benchmarks/audit/eb1/test_eb1a1.py": "406ac6e30a1d2ea2936d0ef5c2dd5002319568d16a846a303cf597168977263e",
+  "benchmarks/audit/eb1/results/eb1a1_temp_calibration.json": "55e4f491ac74baf074451f8ef650a9ef79166d26e1cea646d3ada1e8f1edc1cb",
+  "benchmarks/audit/eb1/eb1_lib.py": "94b7014f4889149460405288990969bab29cc77985abd7f57faee471635658fa",
+  "benchmarks/audit/eb1/eb1_run.py": "7784d4716ed2c0fa5fd788cd252d7d1286e5a941fbac912a81d390c5f77a4fa7",
+  "benchmarks/audit/eb1/eb1_analyse.py": "95746738d3d21ef99c60f45c016fe3f55423a4750011fd7419babf1f1e6d639f"
+ },
+ "original_eb1_preserved": {
+  "results/eb1_measurements.json": "6d7cd8c13670c92f6b9123f2052468fb4c448fa1628febbefded3d6dbeb04b9a",
+  "results/eb1_analysis.json": "0bedf18ceb6faa2df060b88569d8039fb23276add9715b8f5d9d8e9d535e79fa",
+  "results/eb1_protocol_freeze.json": "35ae036dde2bff8417e46462d244ad06c32ca3556aa4a6f1cd1576574061030d",
+  "results/eb1_run_record.json": "97fb2a71ea12b45f48391780d2335988c249f25052aa57e4ad1c0ef4e91232d7",
+  "REPORT.md": "c3b939675de0d7ac180bf17fb4aab4ddc39afd3f0d5281a0313ddb1c5b2cc0b9"
+ },
+ "original_protocol_sha256": "666f1591f17c556f98e1b0b260b7a7b9a115bb56cadf0f936a34cf1ccd404e67",
+ "tests": "13 passed (test_eb1a1.py, test_eb1.py)",
+ "disclosure": "Recorded after the original EB-1 results (and the R4_S4 specification error) were known; before any Amendment 1 measurement. Calibration is SYNTHETIC. MemAvailable ~1.1 GB at freeze."
+}

@@ -1,0 +1,22 @@
+{
+ "recorded_utc": "2026-10-12T15:07:49.279358+00:00",
+ "pre_measurement_files_unchanged": {
+  "eb1_lib.py": true,
+  "eb1_run.py": true,
+  "eb1_analyse.py": true,
+  "test_eb1.py": true
+ },
+ "measurements_sha256": "6d7cd8c13670c92f6b9123f2052468fb4c448fa1628febbefded3d6dbeb04b9a",
+ "analysis_sha256": "0bedf18ceb6faa2df060b88569d8039fb23276add9715b8f5d9d8e9d535e79fa",
+ "report_sha256": "c3b939675de0d7ac180bf17fb4aab4ddc39afd3f0d5281a0313ddb1c5b2cc0b9",
+ "run_log_sha256": "39fbeae358dfc93e1abcba6d8db72a1283a1df84a8026673940eee7ed94bef8a",
+ "aggregate_cpu_h": 0.07187713944444445,
+ "cells_ok": 108,
+ "cells_planned": 108,
+ "correctness_pass": true,
+ "decision": {
+  "outcome": "insufficient_evidence",
+  "reason": "unsupported projections: ['R4_S4']"
+ },
+ "post_hoc_note": "R4_S4 unsupported because the S4 memory work variable omitted the actual batch size (specification error); outcome stands as insufficient evidence; any correction requires a recorded amendment and new pre-declared measurements."
+}

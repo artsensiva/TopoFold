@@ -1,0 +1,51 @@
+{
+ "recorded_utc": "2026-10-13T08:52:01.099130+00:00",
+ "workload": {
+  "n_D": 10000,
+  "L": 1000,
+  "W": 8,
+  "n_win": 993,
+  "queries": 3,
+  "label": "SYNTHETIC_tiled, performance-only"
+ },
+ "components_bytes": {
+  "baseline_interpreter_numpy": 62914560,
+  "transient_allowance": 67108864,
+  "tiling_source_D1p": 19034016,
+  "resident_rows": 240072000,
+  "prepared_arrays": 1986000000,
+  "retained_topk": 79440,
+  "distance_array_per_query": 79440000,
+  "headroom": 629145600
+ },
+ "process_peak_estimate_bytes": {
+  "timing_V2b": 2375208880,
+  "gate_V2b": 2534088880,
+  "reference": 627449440,
+  "timing_V0_baseline": 389208880
+ },
+ "required_mem_available_bytes": {
+  "timing_V2b": 3004354480,
+  "gate_V2b": 3163234480,
+  "reference": 1256595040,
+  "timing_V0_baseline": 1018354480
+ },
+ "largest_requirement": {
+  "process": "gate_V2b",
+  "bytes": 3163234480
+ },
+ "processes_run_sequentially": true,
+ "meminfo_bytes": {
+  "MemTotal": 16088064000,
+  "MemAvailable": 2031603712,
+  "SwapTotal": 4294963200,
+  "SwapFree": 135168
+ },
+ "loadavg": [
+  "0.86",
+  "1.05",
+  "0.86"
+ ],
+ "sufficient": false,
+ "shortfall_bytes": 1131630768
+}

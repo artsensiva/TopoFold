@@ -1,0 +1,18 @@
+{
+ "recorded_utc": "2026-10-12T20:00:54.682846+00:00",
+ "commands": [
+  "bq2_workloads.py (before freeze)",
+  "bq2_run.py (exit 0)",
+  "bq2_analyse.py",
+  "make_report.py"
+ ],
+ "cpu_h": 0.18182687833333333,
+ "freeze_hashes_unchanged": true,
+ "changed": [],
+ "outputs_sha256": {
+  "results/bq2_measurements.json": "dac8123124020dd4c0b77df07be92442fac1b5f788ea8466f4fc62ac04014c8e",
+  "results/bq2_analysis.json": "1347fe3ba37e9ef15055caef0415303269ad2bb2fdd68af4d74cdcbc1d5f4494",
+  "REPORT.md": "25342bc19fccce3a763f891bc6b6d07693a2791f441f78020c19f3ab9e9a48dc"
+ },
+ "notes": "No downloads, held-out scoring, production changes, staging or commits; no application closed; no system setting changed."
+}

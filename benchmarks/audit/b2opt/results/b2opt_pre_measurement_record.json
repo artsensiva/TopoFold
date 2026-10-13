@@ -1,0 +1,17 @@
+{
+ "recorded_utc": "2026-10-12T19:20:35.474146+00:00",
+ "sha256": {
+  "docs/B2_SINGLE_QUERY_OPTIMIZATION_AMENDMENT_1.md": "e259c0596dba524f72c051197002cdec4fab18633f265fcadc4cf89c4a88e615",
+  "benchmarks/audit/b2opt/b2opt_lib.py": "3e0e5a1ba622463bf2e05dfdf1fc9a2bfabc3101008cfbb69b8c8e7ce735d614",
+  "benchmarks/audit/b2opt/b2opt_run.py": "a3332fd72a7d7a91a6ea349a3309e80eb3ad34c57db484cfb30c4d94ae1de091",
+  "benchmarks/audit/b2opt/b2opt_analyse.py": "1d23691f8ee7019635ca5d5af091f737431cb6330ef764eeb2e6c8bd9f590a9d",
+  "benchmarks/audit/b2opt/test_b2opt.py": "855876bf0404b50fd99d958ad5a79847a54f26aba8fa2daf525c0e4a3b4b0315",
+  "benchmarks/audit/b2opt/results/b2opt_protocol_freeze.json": "d474c3a6b4adf5e19b5a6cc672aa2cbe8063ed4b0f805c36df5659ad0ad229f3",
+  "benchmarks/audit/eb1/eb1a2_lib.py": "73a1f62ead43a5294c1c0ab12d3f50c0d2715bb75a8c6053bbb6f505e9d821e6",
+  "benchmarks/audit/eb1/eb1_lib.py": "94b7014f4889149460405288990969bab29cc77985abd7f57faee471635658fa",
+  "benchmarks/audit/eb1/eb1a1_analyse.py": "7392b792b15588dd04ab2333889574494fbba8fe59f27685a0d72ca72efbe39d",
+  "benchmarks/audit/eb1/eb1_analyse.py": "95746738d3d21ef99c60f45c016fe3f55423a4750011fd7419babf1f1e6d639f"
+ },
+ "tests": "17 passed in 2.09s",
+ "disclosure": "Recorded before any real-data distance computation or timing. Before this record: SYNTHETIC unit tests and one SYNTHETIC smoke run of synthetic_suite/calibrate_alpha per arm (showing the frozen-V2 degenerate-window failure documented in Amendment 1) and a fabricated-data smoke test of the analysis code (scratchpad, discarded)."
+}

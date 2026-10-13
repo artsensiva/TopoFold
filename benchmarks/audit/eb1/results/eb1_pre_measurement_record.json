@@ -1,0 +1,11 @@
+{
+ "recorded_utc": "2026-10-12T14:55:26.978777+00:00",
+ "note": "harness, analysis and tests hashed before any EB-1 measurement",
+ "sha256": {
+  "eb1_lib.py": "94b7014f4889149460405288990969bab29cc77985abd7f57faee471635658fa",
+  "eb1_run.py": "7784d4716ed2c0fa5fd788cd252d7d1286e5a941fbac912a81d390c5f77a4fa7",
+  "eb1_analyse.py": "95746738d3d21ef99c60f45c016fe3f55423a4750011fd7419babf1f1e6d639f",
+  "test_eb1.py": "64fe2ebcea736826e4c5e3c06cc7a741074c2f0171862b90408da05a1ca8f8ff"
+ },
+ "protocol_sha256": "666f1591f17c556f98e1b0b260b7a7b9a115bb56cadf0f936a34cf1ccd404e67"
+}

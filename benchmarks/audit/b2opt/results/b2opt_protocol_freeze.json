@@ -1,0 +1,12 @@
+{
+ "frozen_utc": "2026-10-12T19:14:42.762346+00:00",
+ "sha256": {
+  "docs/B2_SINGLE_QUERY_OPTIMIZATION_PROTOCOL.md": "7ffe9d3f8034492ce6e7ba3bdc9785b35752b99b451e55c0717c6d5459b32e35",
+  "benchmarks/audit/b2opt/b2opt_workloads.py": "2b9be009ec0f9ed316d2ed4872e61b01f1d2e074ce0064dbc64194519e28bee4",
+  "benchmarks/audit/b2opt/results/b2opt_workloads.json": "6ff33bcf3b15f9104b2a8db5e4bad0bc666477710632441217a57000aa76baf2",
+  "docs/EB1_B2_SINGLE_QUERY_OPTIMIZATION_PROPOSAL.md": "ebc123027ed3bf80916e4703f5ec5c355ec0aedbcef137d6b41902b0a2890d04",
+  "benchmarks/audit/eb1/results/eb1a2_analysis.json": "bb1fcfdbcb4f3187d091d48e7ac0a857a1fb6afd179d7ce9b0645c4505b9f4b6",
+  "benchmarks/audit/eb1/results/eb1a2_freeze.json": "bec3d79481e4a3cd2b1f65a819dcbb054f814d7ea404b47c31d79e7eda9bfa05"
+ },
+ "disclosure": "Frozen before any B2 optimization code was written and before any timing. References verified by web search 2026-10-12 (bibliographic data; E0 starting value); polynomial coefficients derived, to be tested."
+}

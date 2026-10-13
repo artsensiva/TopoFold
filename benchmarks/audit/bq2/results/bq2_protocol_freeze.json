@@ -1,0 +1,19 @@
+{
+ "frozen_utc": "2026-10-12T19:35:58.995180+00:00",
+ "sha256": {
+  "docs/B2_SCALING_CONFIRMATION_PROTOCOL.md": "6e0915b106a1f426be9ba05446de2684a708397ccd43b266adf62ab970e21e36",
+  "benchmarks/audit/bq2/bq2_workloads.py": "1fa8edbb11d5b648d66122aa5e7e0118325fe5670b25f12011f23eab75aff794",
+  "benchmarks/audit/bq2/results/bq2_workloads.json": "2980e99117ed6ae90bd24789ae0a940b51dbff0c22c92e8bcba38c9fd8ccd532"
+ },
+ "bq1_preserved": {
+  "benchmarks/audit/b2opt/b2opt_lib.py": "3e0e5a1ba622463bf2e05dfdf1fc9a2bfabc3101008cfbb69b8c8e7ce735d614",
+  "benchmarks/audit/b2opt/results/b2opt_measurements.json": "95092c326dbdea1ba3d0c2a81d8a0a0627aab63563fd1ff8c0dd69b2120507e4",
+  "benchmarks/audit/b2opt/results/b2opt_analysis.json": "3c2821ecc7b751de504daba86549803a67a9781e2f5bcd2540ed964841466925",
+  "benchmarks/audit/b2opt/REPORT.md": "57c21e3e1c25cb77c59e95592f18b36432f4ad4c41038550d40196aeb1a01f03",
+  "benchmarks/audit/b2opt/results/b2opt_protocol_freeze.json": "d474c3a6b4adf5e19b5a6cc672aa2cbe8063ed4b0f805c36df5659ad0ad229f3",
+  "benchmarks/audit/b2opt/results/b2opt_pre_measurement_record.json": "65bf8754364cdb3c2a612f359127eb894a8690445085b745c3ab5c516bd83a48",
+  "docs/B2_SINGLE_QUERY_OPTIMIZATION_PROTOCOL.md": "7ffe9d3f8034492ce6e7ba3bdc9785b35752b99b451e55c0717c6d5459b32e35",
+  "docs/B2_SINGLE_QUERY_OPTIMIZATION_AMENDMENT_1.md": "e259c0596dba524f72c051197002cdec4fab18633f265fcadc4cf89c4a88e615"
+ },
+ "disclosure": "Frozen after BQ-1 results were known (informed by BQ-1) and before any BQ-2 code beyond bq2_lib helpers or any BQ-2 measurement. MemAvailable ~1.76 GB at freeze: P2D expected to be skipped by the start rule."
+}
