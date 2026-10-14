@@ -1,0 +1,23 @@
+{
+ "recorded_utc": "2026-10-13T14:53:22.047297+00:00",
+ "sha256": {
+  "benchmarks/audit/cmp1/cmp1_adapters.py": "09d5b04bbfacd13763e29f532c56d6dad1b905c491b4ae14fc574c0875957535",
+  "benchmarks/audit/cmp1/cmp1_accuracy.py": "c82641935bff47b8bf9fddd564e191e1203fbe3a99f48621c8c03a455dae7e29",
+  "benchmarks/audit/cmp1/cmp1_criteria.py": "030846c43fbd92101b2a2c6ee2470b3131e400158cf5748020d85a68b97f8401",
+  "benchmarks/audit/cmp1/cmp1_data.py": "f9b8b08f9bd22c95c77ccb97bffcf975f31d797630bd0b1dba1caf4059cbe791",
+  "benchmarks/audit/cmp1/cmp1_run.py": "152c2df53f7cc27e1995a24e70328e11f9fea135f331d4d52948389758023753",
+  "benchmarks/audit/cmp1/cmp1_analyse.py": "13af4e77cfb7a24469483735fe42d753173c2fbec4c70e6819eaf9d2b67863d6",
+  "benchmarks/audit/cmp1/make_report.py": "84d03cb5115c307b5d46d26759855264e2c2b35f759250fdd52ae61d31f06b71",
+  "benchmarks/audit/cmp1/test_cmp1.py": "12ee7a12026e57c1277a6827db35646e7cfce5450e3c9c81c36082bb7fd8993f",
+  "benchmarks/audit/cmp1/cmp1_devchecks.py": "0d754443ba94ddb3430dc8914bc6a2a1302cd21d3feb955972c55a310a33f5be",
+  "benchmarks/audit/cmp1/results/cmp1_protocol_freeze.json": "b0390d5adf6664f9572d6b121cff14f30176a4f4ee703fcdfaeabbf334ac991f",
+  "benchmarks/audit/b2opt/b2opt_lib.py": "3e0e5a1ba622463bf2e05dfdf1fc9a2bfabc3101008cfbb69b8c8e7ce735d614",
+  "benchmarks/audit/bq2/bq2_lib.py": "c7aa0795a1413dac0229e89bec1b7e68cff1a96e6c5f78937b28251ab7415919",
+  "benchmarks/audit/bq2/bq2_run.py": "7e70f3afd5bea083b7e12e98dd7d73c2b04d57b65d6a7ffccfc1c881f8a55aea",
+  "benchmarks/audit/eb1/eb1_lib.py": "94b7014f4889149460405288990969bab29cc77985abd7f57faee471635658fa",
+  "benchmarks/audit/eb1/eb1a2_lib.py": "73a1f62ead43a5294c1c0ab12d3f50c0d2715bb75a8c6053bbb6f505e9d821e6"
+ },
+ "tests": "6 passed in 0.10s",
+ "v2b_matches_BQ1_pre_measurement_hash": true,
+ "disclosure": "Before any deciding measurement. Prior: adapter-development checks (recorded), unit tests."
+}

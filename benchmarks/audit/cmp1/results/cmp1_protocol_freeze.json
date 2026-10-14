@@ -1,0 +1,12 @@
+{
+ "frozen_utc": "2026-10-13T14:53:22.046224+00:00",
+ "sha256": {
+  "docs/CMP1_COMPETITIVE_EVALUATION_PROTOCOL.md": "3ec41b8b98c3dd42c0d983f053f00312f234ac07d40087e10e86ea2d93987e1c",
+  "benchmarks/audit/cmp1/results/cmp1_workloads.json": "bc2f5383f90422b236d7261d8371eee63af9681b45bb4498b4bf5e1be0054d72",
+  "benchmarks/audit/cmp1/cmp1_workloads.py": "80138d10c6b68c5f330bed9846318bb22c8b0a023b5996a3dac8f795dabc7f06",
+  "benchmarks/audit/cmp1/results/cmp1_adapter_dev_checks.json": "6464977987a952c78147e126c31d506eaf83e278f1c65476c78ff0e957e2c95d",
+  "benchmarks/audit/cmp1/results/cmp1_environment.json": "27283dea8c64d9dc38ff7040e11e01dc8f9f54e82b46ae8de99f44b08640113c",
+  "benchmarks/audit/cmp1/requirements_cmp1.in": "199a13cd03c29fea9369387d527af5cfbe908991ef50b6f68c6515e126050b20"
+ },
+ "disclosure": "Frozen after adapter-development checks (separate queries/sizes/seeds) and before any deciding measurement."
+}

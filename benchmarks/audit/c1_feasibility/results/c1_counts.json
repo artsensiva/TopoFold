@@ -1,0 +1,471 @@
+{
+ "source": {
+  "path": "sources/rascore_8f77dc201cf9b1eb838d8e0d4d15bc0397dc3769/src/rascore/util/data/entry.tsv",
+  "sha256": "bac0fcfbe9992fc816eb95d33e64a110b9dfd9baa16eb6352cc13f663ff8132a",
+  "commit": "8f77dc201cf9b1eb838d8e0d4d15bc0397dc3769",
+  "n_rows": 767
+ },
+ "n_entries": 442,
+ "by_isoform": {
+  "HRAS": 284,
+  "NRAS": 11,
+  "KRAS": 472
+ },
+ "methods": {
+  "XRAY": 738,
+  "NMR": 26,
+  "NEUTRON": 1,
+  "EM": 2
+ },
+ "deposit_range": [
+  "1990-04-30",
+  "2022-07-11"
+ ],
+ "SW1": {
+  "Disordered": {
+   "chains": {
+    "HRAS": 25,
+    "all_chains": 118,
+    "KRAS": 93
+   },
+   "distinct_entries": 53,
+   "distinct_crystal_forms": 25,
+   "distinct_pharmacological_ligands": 15,
+   "usable_label": false
+  },
+  "Outlier": {
+   "chains": {
+    "HRAS": 80,
+    "all_chains": 156,
+    "KRAS": 73,
+    "NRAS": 3
+   },
+   "distinct_entries": 132,
+   "distinct_crystal_forms": 59,
+   "distinct_pharmacological_ligands": 25,
+   "usable_label": false
+  },
+  "Y32in.3P-ON": {
+   "chains": {
+    "HRAS": 138,
+    "all_chains": 277,
+    "KRAS": 137,
+    "NRAS": 2
+   },
+   "distinct_entries": 183,
+   "distinct_crystal_forms": 41,
+   "distinct_pharmacological_ligands": 22,
+   "usable_label": true
+  },
+  "Y32out.0P-GEF": {
+   "chains": {
+    "HRAS": 23,
+    "all_chains": 23
+   },
+   "distinct_entries": 23,
+   "distinct_crystal_forms": 1,
+   "distinct_pharmacological_ligands": 0,
+   "usable_label": true
+  },
+  "Y32out.2P-OFF": {
+   "chains": {
+    "HRAS": 18,
+    "all_chains": 193,
+    "NRAS": 6,
+    "KRAS": 169
+   },
+   "distinct_entries": 118,
+   "distinct_crystal_forms": 51,
+   "distinct_pharmacological_ligands": 68,
+   "usable_label": true
+  }
+ },
+ "SW1_usable_chains": 493,
+ "SW1_temporal_entries_by_cutoff": {
+  "2019-01-01": {
+   "Y32in.3P-ON": {
+    "dev": 136,
+    "test": 47
+   },
+   "Y32out.0P-GEF": {
+    "dev": 16,
+    "test": 7
+   },
+   "Y32out.2P-OFF": {
+    "dev": 60,
+    "test": 58
+   }
+  },
+  "2020-01-01": {
+   "Y32in.3P-ON": {
+    "dev": 154,
+    "test": 29
+   },
+   "Y32out.0P-GEF": {
+    "dev": 23,
+    "test": 0
+   },
+   "Y32out.2P-OFF": {
+    "dev": 76,
+    "test": 42
+   }
+  },
+  "2021-01-01": {
+   "Y32in.3P-ON": {
+    "dev": 169,
+    "test": 14
+   },
+   "Y32out.0P-GEF": {
+    "dev": 23,
+    "test": 0
+   },
+   "Y32out.2P-OFF": {
+    "dev": 90,
+    "test": 28
+   }
+  },
+  "2022-01-01": {
+   "Y32in.3P-ON": {
+    "dev": 183,
+    "test": 0
+   },
+   "Y32out.0P-GEF": {
+    "dev": 23,
+    "test": 0
+   },
+   "Y32out.2P-OFF": {
+    "dev": 107,
+    "test": 11
+   }
+  }
+ },
+ "SW1_isoform_entries": {
+  "Y32in.3P-ON": {
+   "HRAS+NRAS": 127,
+   "KRAS": 56
+  },
+  "Y32out.0P-GEF": {
+   "HRAS+NRAS": 23
+  },
+  "Y32out.2P-OFF": {
+   "HRAS+NRAS": 15,
+   "KRAS": 103
+  }
+ },
+ "SW2": {
+  "Disordered": {
+   "chains": {
+    "HRAS": 39,
+    "all_chains": 184,
+    "NRAS": 5,
+    "KRAS": 140
+   },
+   "distinct_entries": 101,
+   "distinct_crystal_forms": 43,
+   "distinct_pharmacological_ligands": 24,
+   "usable_label": false
+  },
+  "Outlier": {
+   "chains": {
+    "HRAS": 108,
+    "all_chains": 270,
+    "KRAS": 161,
+    "NRAS": 1
+   },
+   "distinct_entries": 193,
+   "distinct_crystal_forms": 86,
+   "distinct_pharmacological_ligands": 58,
+   "usable_label": false
+  },
+  "Y71in.2P-SP12": {
+   "chains": {
+    "KRAS": 20,
+    "all_chains": 20
+   },
+   "distinct_entries": 15,
+   "distinct_crystal_forms": 2,
+   "distinct_pharmacological_ligands": 8,
+   "usable_label": true
+  },
+  "Y71in.3P-R": {
+   "chains": {
+    "HRAS": 70,
+    "all_chains": 105,
+    "KRAS": 32,
+    "NRAS": 3
+   },
+   "distinct_entries": 91,
+   "distinct_crystal_forms": 26,
+   "distinct_pharmacological_ligands": 8,
+   "usable_label": true
+  },
+  "Y71in.3P-SP12-A": {
+   "chains": {
+    "HRAS": 1,
+    "all_chains": 32,
+    "KRAS": 31
+   },
+   "distinct_entries": 17,
+   "distinct_crystal_forms": 7,
+   "distinct_pharmacological_ligands": 8,
+   "usable_label": true
+  },
+  "Y71in.3P-SP12-B": {
+   "chains": {
+    "KRAS": 12,
+    "all_chains": 12
+   },
+   "distinct_entries": 12,
+   "distinct_crystal_forms": 1,
+   "distinct_pharmacological_ligands": 7,
+   "usable_label": true
+  },
+  "Y71out.0P-GEF": {
+   "chains": {
+    "HRAS": 46,
+    "all_chains": 52,
+    "KRAS": 6
+   },
+   "distinct_entries": 52,
+   "distinct_crystal_forms": 4,
+   "distinct_pharmacological_ligands": 4,
+   "usable_label": true
+  },
+  "Y71out.2P-BINDER": {
+   "chains": {
+    "KRAS": 13,
+    "all_chains": 13
+   },
+   "distinct_entries": 5,
+   "distinct_crystal_forms": 4,
+   "distinct_pharmacological_ligands": 0,
+   "usable_label": true
+  },
+  "Y71out.2P-SP2-A": {
+   "chains": {
+    "KRAS": 39,
+    "all_chains": 39
+   },
+   "distinct_entries": 28,
+   "distinct_crystal_forms": 11,
+   "distinct_pharmacological_ligands": 26,
+   "usable_label": true
+  },
+  "Y71out.2P-SP2-B": {
+   "chains": {
+    "KRAS": 18,
+    "all_chains": 20,
+    "NRAS": 2
+   },
+   "distinct_entries": 10,
+   "distinct_crystal_forms": 6,
+   "distinct_pharmacological_ligands": 2,
+   "usable_label": true
+  },
+  "Y71out.3P-T": {
+   "chains": {
+    "HRAS": 20,
+    "all_chains": 20
+   },
+   "distinct_entries": 20,
+   "distinct_crystal_forms": 1,
+   "distinct_pharmacological_ligands": 0,
+   "usable_label": true
+  }
+ },
+ "SW2_usable_chains": 313,
+ "SW2_temporal_entries_by_cutoff": {
+  "2019-01-01": {
+   "Y71in.2P-SP12": {
+    "dev": 13,
+    "test": 2
+   },
+   "Y71in.3P-R": {
+    "dev": 58,
+    "test": 33
+   },
+   "Y71in.3P-SP12-A": {
+    "dev": 14,
+    "test": 3
+   },
+   "Y71in.3P-SP12-B": {
+    "dev": 12,
+    "test": 0
+   },
+   "Y71out.0P-GEF": {
+    "dev": 44,
+    "test": 8
+   },
+   "Y71out.2P-BINDER": {
+    "dev": 4,
+    "test": 1
+   },
+   "Y71out.2P-SP2-A": {
+    "dev": 6,
+    "test": 22
+   },
+   "Y71out.2P-SP2-B": {
+    "dev": 5,
+    "test": 5
+   },
+   "Y71out.3P-T": {
+    "dev": 20,
+    "test": 0
+   }
+  },
+  "2020-01-01": {
+   "Y71in.2P-SP12": {
+    "dev": 14,
+    "test": 1
+   },
+   "Y71in.3P-R": {
+    "dev": 73,
+    "test": 18
+   },
+   "Y71in.3P-SP12-A": {
+    "dev": 14,
+    "test": 3
+   },
+   "Y71in.3P-SP12-B": {
+    "dev": 12,
+    "test": 0
+   },
+   "Y71out.0P-GEF": {
+    "dev": 51,
+    "test": 1
+   },
+   "Y71out.2P-BINDER": {
+    "dev": 4,
+    "test": 1
+   },
+   "Y71out.2P-SP2-A": {
+    "dev": 12,
+    "test": 16
+   },
+   "Y71out.2P-SP2-B": {
+    "dev": 5,
+    "test": 5
+   },
+   "Y71out.3P-T": {
+    "dev": 20,
+    "test": 0
+   }
+  },
+  "2021-01-01": {
+   "Y71in.2P-SP12": {
+    "dev": 15,
+    "test": 0
+   },
+   "Y71in.3P-R": {
+    "dev": 82,
+    "test": 9
+   },
+   "Y71in.3P-SP12-A": {
+    "dev": 17,
+    "test": 0
+   },
+   "Y71in.3P-SP12-B": {
+    "dev": 12,
+    "test": 0
+   },
+   "Y71out.0P-GEF": {
+    "dev": 52,
+    "test": 0
+   },
+   "Y71out.2P-BINDER": {
+    "dev": 5,
+    "test": 0
+   },
+   "Y71out.2P-SP2-A": {
+    "dev": 12,
+    "test": 16
+   },
+   "Y71out.2P-SP2-B": {
+    "dev": 9,
+    "test": 1
+   },
+   "Y71out.3P-T": {
+    "dev": 20,
+    "test": 0
+   }
+  },
+  "2022-01-01": {
+   "Y71in.2P-SP12": {
+    "dev": 15,
+    "test": 0
+   },
+   "Y71in.3P-R": {
+    "dev": 91,
+    "test": 0
+   },
+   "Y71in.3P-SP12-A": {
+    "dev": 17,
+    "test": 0
+   },
+   "Y71in.3P-SP12-B": {
+    "dev": 12,
+    "test": 0
+   },
+   "Y71out.0P-GEF": {
+    "dev": 52,
+    "test": 0
+   },
+   "Y71out.2P-BINDER": {
+    "dev": 5,
+    "test": 0
+   },
+   "Y71out.2P-SP2-A": {
+    "dev": 24,
+    "test": 4
+   },
+   "Y71out.2P-SP2-B": {
+    "dev": 9,
+    "test": 1
+   },
+   "Y71out.3P-T": {
+    "dev": 20,
+    "test": 0
+   }
+  }
+ },
+ "SW2_isoform_entries": {
+  "Y71in.2P-SP12": {
+   "KRAS": 15
+  },
+  "Y71in.3P-R": {
+   "HRAS+NRAS": 68,
+   "KRAS": 23
+  },
+  "Y71in.3P-SP12-A": {
+   "HRAS+NRAS": 1,
+   "KRAS": 16
+  },
+  "Y71in.3P-SP12-B": {
+   "KRAS": 12
+  },
+  "Y71out.0P-GEF": {
+   "HRAS+NRAS": 46,
+   "KRAS": 6
+  },
+  "Y71out.2P-BINDER": {
+   "KRAS": 5
+  },
+  "Y71out.2P-SP2-A": {
+   "KRAS": 28
+  },
+  "Y71out.2P-SP2-B": {
+   "KRAS": 9,
+   "HRAS+NRAS": 1
+  },
+  "Y71out.3P-T": {
+   "HRAS+NRAS": 20
+  }
+ },
+ "both_loops_usable_chains": 277,
+ "both_loops_usable_entries": 183,
+ "chains_per_entry": {
+  "max": 8,
+  "entries_with_gt1_chain": 179
+ },
+ "entries_with_multiple_SW1_labels": 23
+}

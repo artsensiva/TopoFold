@@ -1,0 +1,44 @@
+{
+ "task": "SW1 binary: Y32in.3P-ON vs Y32out.2P-OFF; X-ray chains; group = crystal form",
+ "chains_all_methods": {
+  "Y32in.3P-ON": 277,
+  "Y32out.2P-OFF": 193
+ },
+ "chains_xray": {
+  "Y32in.3P-ON": 272,
+  "Y32out.2P-OFF": 190
+ },
+ "entries_xray": {
+  "Y32in.3P-ON": 178,
+  "Y32out.2P-OFF": 115
+ },
+ "crystal_forms_xray_total": 86,
+ "crystal_forms_mixed_classes": 4,
+ "crystal_forms_single_class": {
+  "Y32in.3P-ON": 36,
+  "Y32out.2P-OFF": 46
+ },
+ "largest_crystal_form_chains": 67,
+ "isoforms_xray": {
+  "Y32in.3P-ON": {
+   "HRAS": 137,
+   "KRAS": 133,
+   "NRAS": 2
+  },
+  "Y32out.2P-OFF": {
+   "HRAS": 18,
+   "NRAS": 6,
+   "KRAS": 166
+  }
+ },
+ "precision_95ci_halfwidth_for_paired_difference": {
+  "unit": "crystal form (conservative; chains within a CF are not independent)",
+  "n_units": 86,
+  "formula": "1.96 * sqrt(p_d / n) (paired difference near 0, McNemar-type, units = CFs)",
+  "by_assumed_discordance": {
+   "0.1": 0.067,
+   "0.2": 0.095,
+   "0.3": 0.116
+  }
+ }
+}

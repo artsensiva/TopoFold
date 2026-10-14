@@ -1,0 +1,83 @@
+{
+ "retrieved_utc": "2026-10-13T16:46:57.767335+00:00",
+ "note": "small public metadata only; no coordinates downloaded; files kept locally (git-ignored)",
+ "files": [
+  {
+   "path": "sources/PMC9256797_fulltext.xml",
+   "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9256797/fullTextXML",
+   "sha256": "e69bf32b90fad3da8f58522d4e7773db060eeb7cd6a84a8f46e4b6d8774ec22e",
+   "bytes": 163452,
+   "what": "Parker et al. 2022 Cancer Res 82:2485, doi:10.1158/0008-5472.CAN-22-0804; article licence CC BY-NC-ND 4.0 (permissions element)"
+  },
+  {
+   "path": "sources/wwpdb_usage_policies.html",
+   "url": "https://www.wwpdb.org/about/usage-policies",
+   "sha256": "eb1c5cda6ffc9ec515d7994bb71a31e9130d43ecedfaf4185312a6b17a406e80",
+   "bytes": 14815,
+   "what": "wwPDB usage policy: PDB archive data files under CC0 1.0"
+  },
+  {
+   "path": "sources/rascore_site.html",
+   "url": "http://dunbrack.fccc.edu/rascore/",
+   "sha256": "702e34bc5d7fe933346886c728feff7555fb31cdb1a248f9fdcb2b663a4d2f78",
+   "bytes": 892,
+   "what": "Rascore live database landing page (JavaScript Streamlit app; no terms visible in static HTML)"
+  },
+  {
+   "path": "sources/rascore_8f77dc201cf9b1eb838d8e0d4d15bc0397dc3769/LICENSE",
+   "url": "https://raw.githubusercontent.com/mitch-parker/rascore/8f77dc201cf9b1eb838d8e0d4d15bc0397dc3769/LICENSE",
+   "sha256": "756227d1454b0bdd047c5ad6462a5d897c8a72c38345d717ec76fa57d1c12c45",
+   "bytes": 10766,
+   "what": "mitch-parker/rascore @ 8f77dc201cf9b1eb838d8e0d4d15bc0397dc3769 (2024-03-19), GitHub API licence Apache-2.0"
+  },
+  {
+   "path": "sources/rascore_8f77dc201cf9b1eb838d8e0d4d15bc0397dc3769/README.md",
+   "url": "https://raw.githubusercontent.com/mitch-parker/rascore/8f77dc201cf9b1eb838d8e0d4d15bc0397dc3769/README.md",
+   "sha256": "ef9f03fc2dad7809171ae90bf40223c23a5105bca288d580466e851194964a1a",
+   "bytes": 4226,
+   "what": "mitch-parker/rascore @ 8f77dc201cf9b1eb838d8e0d4d15bc0397dc3769 (2024-03-19), GitHub API licence Apache-2.0"
+  },
+  {
+   "path": "sources/rascore_8f77dc201cf9b1eb838d8e0d4d15bc0397dc3769/pyproject.toml",
+   "url": "https://raw.githubusercontent.com/mitch-parker/rascore/8f77dc201cf9b1eb838d8e0d4d15bc0397dc3769/pyproject.toml",
+   "sha256": "a535e44b6e5004159ef14a080c0cec59bd5ddfb8eade8ffc4486c5d2a967b2cf",
+   "bytes": 821,
+   "what": "mitch-parker/rascore @ 8f77dc201cf9b1eb838d8e0d4d15bc0397dc3769 (2024-03-19), GitHub API licence Apache-2.0"
+  },
+  {
+   "path": "sources/rascore_8f77dc201cf9b1eb838d8e0d4d15bc0397dc3769/src/rascore/util/data/entry.tsv",
+   "url": "https://raw.githubusercontent.com/mitch-parker/rascore/8f77dc201cf9b1eb838d8e0d4d15bc0397dc3769/src/rascore/util/data/entry.tsv",
+   "sha256": "bac0fcfbe9992fc816eb95d33e64a110b9dfd9baa16eb6352cc13f663ff8132a",
+   "bytes": 772712,
+   "what": "mitch-parker/rascore @ 8f77dc201cf9b1eb838d8e0d4d15bc0397dc3769 (2024-03-19), GitHub API licence Apache-2.0"
+  },
+  {
+   "path": "sources/rascore_8f77dc201cf9b1eb838d8e0d4d15bc0397dc3769/src/rascore/util/data/rascore_cluster/SW1/SW1_result.tsv",
+   "url": "https://raw.githubusercontent.com/mitch-parker/rascore/8f77dc201cf9b1eb838d8e0d4d15bc0397dc3769/src/rascore/util/data/rascore_cluster/SW1/SW1_result.tsv",
+   "sha256": "14ea3884095d0e5960749577eeba6d7e837b0cd30a3f6d91a352006ebf47e9b3",
+   "bytes": 1037927,
+   "what": "mitch-parker/rascore @ 8f77dc201cf9b1eb838d8e0d4d15bc0397dc3769 (2024-03-19), GitHub API licence Apache-2.0"
+  },
+  {
+   "path": "sources/rascore_8f77dc201cf9b1eb838d8e0d4d15bc0397dc3769/src/rascore/util/data/rascore_cluster/SW1/SW1_summary.tsv",
+   "url": "https://raw.githubusercontent.com/mitch-parker/rascore/8f77dc201cf9b1eb838d8e0d4d15bc0397dc3769/src/rascore/util/data/rascore_cluster/SW1/SW1_summary.tsv",
+   "sha256": "64058dafb71b550bfa79410632da8b6274cadc70f3fda5d4c8b1fa5d29c60bce",
+   "bytes": 752,
+   "what": "mitch-parker/rascore @ 8f77dc201cf9b1eb838d8e0d4d15bc0397dc3769 (2024-03-19), GitHub API licence Apache-2.0"
+  },
+  {
+   "path": "sources/rascore_8f77dc201cf9b1eb838d8e0d4d15bc0397dc3769/src/rascore/util/data/rascore_cluster/SW2/SW2_result.tsv",
+   "url": "https://raw.githubusercontent.com/mitch-parker/rascore/8f77dc201cf9b1eb838d8e0d4d15bc0397dc3769/src/rascore/util/data/rascore_cluster/SW2/SW2_result.tsv",
+   "sha256": "afdc70026b85eea9bd810b62119d854e711a1681c9c21280833ff5757073594b",
+   "bytes": 1137872,
+   "what": "mitch-parker/rascore @ 8f77dc201cf9b1eb838d8e0d4d15bc0397dc3769 (2024-03-19), GitHub API licence Apache-2.0"
+  },
+  {
+   "path": "sources/rascore_8f77dc201cf9b1eb838d8e0d4d15bc0397dc3769/src/rascore/util/data/rascore_cluster/SW2/SW2_summary.tsv",
+   "url": "https://raw.githubusercontent.com/mitch-parker/rascore/8f77dc201cf9b1eb838d8e0d4d15bc0397dc3769/src/rascore/util/data/rascore_cluster/SW2/SW2_summary.tsv",
+   "sha256": "ba165df606f31d2a09b6559c356170254fc053467d17ac413c5f859ac92af079",
+   "bytes": 1542,
+   "what": "mitch-parker/rascore @ 8f77dc201cf9b1eb838d8e0d4d15bc0397dc3769 (2024-03-19), GitHub API licence Apache-2.0"
+  }
+ ]
+}

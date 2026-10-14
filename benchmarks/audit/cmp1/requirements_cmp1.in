@@ -1,0 +1,7 @@
+# CMP-1 isolated audit environment (top-level pins; resolved artifacts are recorded with SHA-256)
+numpy==2.5.3
+scipy==1.18.1
+MDAnalysis==2.10.0
+mdtraj==1.11.2
+threadpoolctl==3.7.0
+pytest==9.1.1

@@ -1,0 +1,43 @@
+{
+ "note": "post-hoc diagnostic after CMP-1 analysis; not part of any decision",
+ "workload": "R1_D1",
+ "queries": {
+  "0": {
+   "pairs": 210105,
+   "pairs_over_1e-3": 1,
+   "max_err_A": 0.003460613924179512,
+   "ref_rmsd_of_pairs_over_1e-3_A": [
+    1.9391656239450832
+   ],
+   "max_err_where_ref_rmsd_ge_0.1A": 0.003460613924179512,
+   "max_err_where_ref_rmsd_ge_0.5A": 0.003460613924179512,
+   "min_ref_rmsd_A": 0.08304785699154778,
+   "topk_contains_over_tol_pair": 0
+  },
+  "1": {
+   "pairs": 210105,
+   "pairs_over_1e-3": 1,
+   "max_err_A": 0.0012115083582124875,
+   "ref_rmsd_of_pairs_over_1e-3_A": [
+    2.062945172940997
+   ],
+   "max_err_where_ref_rmsd_ge_0.1A": 0.0012115083582124875,
+   "max_err_where_ref_rmsd_ge_0.5A": 0.0012115083582124875,
+   "min_ref_rmsd_A": 0.08597802875181908,
+   "topk_contains_over_tol_pair": 0
+  },
+  "2": {
+   "pairs": 210105,
+   "pairs_over_1e-3": 1,
+   "max_err_A": 0.0013213990284464128,
+   "ref_rmsd_of_pairs_over_1e-3_A": [
+    1.8036579726292155
+   ],
+   "max_err_where_ref_rmsd_ge_0.1A": 0.0013213990284464128,
+   "max_err_where_ref_rmsd_ge_0.5A": 0.0013213990284464128,
+   "min_ref_rmsd_A": 0.08439314326935395,
+   "topk_contains_over_tol_pair": 0
+  }
+ },
+ "cpu_s": 1.254258
+}

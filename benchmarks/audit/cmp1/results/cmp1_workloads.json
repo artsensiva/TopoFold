@@ -1,0 +1,96 @@
+{
+ "seed": 20261020,
+ "W": 8,
+ "k": 10,
+ "workloads": [
+  {
+   "id": "R1_D1",
+   "kind": "real",
+   "d": "D1",
+   "nd": 1015,
+   "nwin": 207,
+   "queries": [
+    570,
+    580,
+    736
+   ]
+  },
+  {
+   "id": "R2_D1plus",
+   "kind": "real",
+   "d": "D1p",
+   "nd": 2693,
+   "nwin": 207,
+   "queries": [
+    932,
+    941,
+    942
+   ]
+  },
+  {
+   "id": "R3_D2",
+   "kind": "real",
+   "d": "D2",
+   "nd": 405,
+   "nwin": 44,
+   "queries": [
+    273,
+    319,
+    388
+   ]
+  },
+  {
+   "id": "S1_P2slice",
+   "kind": "SYNTHETIC_tiled",
+   "d": "D1p",
+   "nd": 10000,
+   "nwin": 100,
+   "queries": [
+    20,
+    21,
+    22
+   ]
+  },
+  {
+   "id": "S2_P2D",
+   "kind": "SYNTHETIC_tiled",
+   "d": "D1p",
+   "nd": 10000,
+   "nwin": 993,
+   "queries": [
+    23,
+    24,
+    25
+   ]
+  }
+ ],
+ "required_for_conclusion": [
+  "R1_D1",
+  "R2_D1plus",
+  "R3_D2",
+  "S1_P2slice",
+  "S2_P2D"
+ ],
+ "pool_sizes": {
+  "D1/D1+": 454,
+  "D2": 121
+ },
+ "dev_queries_excluded": {
+  "D1": [
+   557,
+   688,
+   720
+  ],
+  "D2": [
+   263,
+   315,
+   371
+  ],
+  "tiled": [
+   7,
+   8,
+   9
+  ]
+ },
+ "note": "real = reused development data (AdK Or\u00e4dd 2021; mdCATH 1ha8A00 development domain), non-duplicated MD frames; SYNTHETIC_tiled = performance-only repeated real frames (tiled query rows QUERY_OFFSET + q); no held-out cohort domain is used"
+}

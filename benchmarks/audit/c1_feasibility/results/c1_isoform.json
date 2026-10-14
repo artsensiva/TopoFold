@@ -1,0 +1,171 @@
+{
+ "source_entry_tsv": "sources/rascore_8f77dc201cf9b1eb838d8e0d4d15bc0397dc3769/src/rascore/util/data/entry.tsv",
+ "by_isoform": {
+  "HRAS": {
+   "Y32in.3P-ON": {
+    "chains": 137,
+    "entries": 125,
+    "crystal_forms": 20,
+    "crystal_forms_single_class": 19,
+    "largest_crystal_form_chains": 42,
+    "mutation_status": {
+     "WT": 55,
+     "G12D": 2,
+     "G12V": 13,
+     "G12P,A122G": 1,
+     "G12P": 2,
+     "A59G": 3,
+     "E31K": 2,
+     "Y64A": 29,
+     "Q61G": 1,
+     "D38E": 1,
+     "Q61I": 1,
+     "Q61K": 1,
+     "Q61V": 1,
+     "Q61L": 4,
+     "D30E,E31K": 1,
+     "T50I": 1,
+     "G12R": 1,
+     "Q70E": 5,
+     "G12C": 5,
+     "G12V,A59T": 1,
+     "M72C": 1,
+     "L120A": 2,
+     "Q61H": 1,
+     "A59T": 1,
+     "D33K": 2
+    },
+    "bound_ligand_classes": {
+     "None": 135,
+     "SP12": 2
+    }
+   },
+   "Y32out.2P-OFF": {
+    "chains": 18,
+    "entries": 11,
+    "crystal_forms": 5,
+    "crystal_forms_single_class": 4,
+    "largest_crystal_form_chains": 8,
+    "mutation_status": {
+     "WT": 4,
+     "A59G": 1,
+     "G60A": 1,
+     "Q61G": 1,
+     "K117R": 1,
+     "G12C": 1,
+     "M72C": 1,
+     "G12S": 8
+    },
+    "bound_ligand_classes": {
+     "None": 16,
+     "SP2": 1,
+     "SP12": 1
+    }
+   },
+   "crystal_forms_with_both_classes": 1
+  },
+  "KRAS": {
+   "Y32in.3P-ON": {
+    "chains": 133,
+    "entries": 52,
+    "crystal_forms": 21,
+    "crystal_forms_single_class": 18,
+    "largest_crystal_form_chains": 67,
+    "mutation_status": {
+     "Q61H": 57,
+     "WT": 25,
+     "G12D": 32,
+     "G12A,C118S": 2,
+     "G12R": 2,
+     "G12D,C118S": 2,
+     "G12V": 1,
+     "P34R": 2,
+     "G13D": 2,
+     "Q61L": 1,
+     "Q61R": 1,
+     "G12V,C118S": 2,
+     "C118S": 2,
+     "Q25A": 2
+    },
+    "bound_ligand_classes": {
+     "None": 80,
+     "SP12": 49,
+     "SP2": 1,
+     "Multiple": 3
+    }
+   },
+   "Y32out.2P-OFF": {
+    "chains": 166,
+    "entries": 100,
+    "crystal_forms": 43,
+    "crystal_forms_single_class": 40,
+    "largest_crystal_form_chains": 19,
+    "mutation_status": {
+     "G12D,C118S": 1,
+     "C118S": 5,
+     "G12V,C118S": 2,
+     "G12C": 16,
+     "WT": 17,
+     "G12C,C51S,C80L,C118S": 59,
+     "G12V,Q70C,C118S": 2,
+     "G12V,S39C,C118S": 5,
+     "G12R": 1,
+     "G12V": 17,
+     "G13D": 2,
+     "G12D": 8,
+     "C51S,M72C,C80L,C118S": 1,
+     "G12A,C118S": 4,
+     "Q61A,C118S": 2,
+     "D154Q": 1,
+     "G12C,C51S,C80L,C118S,V160I": 1,
+     "K104Q": 4,
+     "G12D,K104Q": 4,
+     "M1S,G12C": 1,
+     "G12D,C51S,C80L,C118S": 6,
+     "G12S,C51S,C80L,C118S": 3,
+     "G12S": 2,
+     "G12C,C118S": 2
+    },
+    "bound_ligand_classes": {
+     "None": 68,
+     "SP12": 13,
+     "SP2": 84,
+     "Multiple": 1
+    }
+   },
+   "crystal_forms_with_both_classes": 3
+  },
+  "NRAS": {
+   "Y32in.3P-ON": {
+    "chains": 2,
+    "entries": 1,
+    "crystal_forms": 1,
+    "crystal_forms_single_class": 1,
+    "largest_crystal_form_chains": 2,
+    "mutation_status": {
+     "Q61R,C118S": 2
+    },
+    "bound_ligand_classes": {
+     "SP12": 2
+    }
+   },
+   "Y32out.2P-OFF": {
+    "chains": 6,
+    "entries": 4,
+    "crystal_forms": 4,
+    "crystal_forms_single_class": 4,
+    "largest_crystal_form_chains": 2,
+    "mutation_status": {
+     "WT": 3,
+     "C118S": 3
+    },
+    "bound_ligand_classes": {
+     "None": 5,
+     "Multiple": 1
+    }
+   },
+   "crystal_forms_with_both_classes": 0
+  }
+ },
+ "crystal_forms_spanning_isoforms": 4
+}
