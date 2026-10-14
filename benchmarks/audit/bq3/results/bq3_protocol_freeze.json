@@ -1,0 +1,16 @@
+{
+ "frozen_utc": "2026-10-13T10:30:19.991107+00:00",
+ "starting_checkpoint": "f55def1a7c70a116e97fd0b6179fd2d249db5446",
+ "sha256": {
+  "docs/B2_DIRECT_P2_QUALIFICATION_PROTOCOL.md": "4c2b6fecc4decd203440698528b607c6361c5f289c9e27590e6818bc31f9e74d",
+  "benchmarks/audit/bq3/results/bq3_memory_preflight.json": "371835d82c3d69ce6d5f678e94ec20b387d520295fde961e9a1fcfea2fc93bd8",
+  "benchmarks/audit/bq2/results/bq2_workloads.json": "2980e99117ed6ae90bd24789ae0a940b51dbff0c22c92e8bcba38c9fd8ccd532",
+  "benchmarks/audit/bq2/bq2_lib.py": "c7aa0795a1413dac0229e89bec1b7e68cff1a96e6c5f78937b28251ab7415919",
+  "benchmarks/audit/bq2/bq2_run.py": "7e70f3afd5bea083b7e12e98dd7d73c2b04d57b65d6a7ffccfc1c881f8a55aea",
+  "benchmarks/audit/b2opt/b2opt_lib.py": "3e0e5a1ba622463bf2e05dfdf1fc9a2bfabc3101008cfbb69b8c8e7ce735d614",
+  "benchmarks/audit/bq2/results/bq2_analysis.json": "1347fe3ba37e9ef15055caef0415303269ad2bb2fdd68af4d74cdcbc1d5f4494",
+  "benchmarks/audit/eb1/results/eb1a2_analysis.json": "bb1fcfdbcb4f3187d091d48e7ac0a857a1fb6afd179d7ce9b0645c4505b9f4b6"
+ },
+ "mem_available_bytes_at_freeze": 5863489536,
+ "disclosure": "Frozen before any BQ-3 measurement code was written. Informed by BQ-1/BQ-2 and the BQ-3 preflight."
+}

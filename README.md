@@ -76,7 +76,8 @@ One pre-registered, held-out evaluation has been completed: **Cα-only local-con
 | EB-1 engineering benchmark, Amendments 1–2 | EB-1 and Amendment 1: **insufficient evidence**. Amendment 2: decision **engine**, from the projected single-query B2 latency at the P2 target (an extrapolation, not a P2 measurement). The loader and A were within requirements as projected. | [`benchmarks/audit/eb1/`](benchmarks/audit/eb1/README.md) |
 | BQ-1 B2 single-query optimization | Correctness preserved by V0, V1 and V2b; frozen V2 rejected on degenerate geometry. **V2b measured faster than the harness baseline on every tested workload.** Overall acceptance **not met**: the preparation projection was unsupported. | [`benchmarks/audit/b2opt/REPORT.md`](benchmarks/audit/b2opt/REPORT.md) |
 | BQ-2 scaling confirmation of unchanged V2b | Query-time and memory models supported and confirmed, including on SYNTHETIC performance-only stress rows. Preparation model unconfirmed on the largest stress cells. **Conclusion C: insufficient evidence.** | [`benchmarks/audit/bq2/REPORT.md`](benchmarks/audit/bq2/REPORT.md) |
-| BQ-3 direct-P2 qualification | **Stopped at memory preflight**; no P2 measurement was made. The run needs about 3.2 GB of available memory and about 2.0 GB was available. | [`docs/B2_DIRECT_P2_QUALIFICATION_PREFLIGHT.md`](docs/B2_DIRECT_P2_QUALIFICATION_PREFLIGHT.md) |
+| BQ-3 direct-P2 qualification | First attempt **stopped at memory preflight**. After a memory recheck, the direct run on SYNTHETIC P2-dimension rows (performance-only, repeated frames) gave:<br>• **Prepared-database operation: qualified.** All query latencies ≤ 10 s, peak memory within 8 GiB, verification passed.<br>• **Preparation + first query: did not meet 10 s.** That span excludes input loading and row construction.<br>BQ-2's conclusion C is unchanged. | [`docs/B2_DIRECT_P2_QUALIFICATION_CLOSEOUT_2026-10-13.md`](docs/B2_DIRECT_P2_QUALIFICATION_CLOSEOUT_2026-10-13.md), [`benchmarks/audit/bq3/REPORT_SYNTHETIC_P2.md`](benchmarks/audit/bq3/REPORT_SYNTHETIC_P2.md) |
+| CMP-1 bounded competitive evaluation (V2b vs MDTraj 1.11.2 and MDAnalysis 2.10.0, one thread) | **No decisive advantage** under the frozen rules (common F32 track):<br>• **MDTraj** passed the common accuracy track on two real workloads and was about 3–4× faster than V2b there.<br>• **MDTraj** exceeded that track's 1e-3 Å distance tolerance on rare pairs in the other three workloads. Its rankings stayed equivalent.<br>• **V2b** was about 2–3× faster than the remaining eligible comparator, MDAnalysis per-pair QCP.<br>• **Integration of V2b is not supported by this evidence.**<br>Bounded comparison on development and SYNTHETIC data, not a field-wide best-tool claim; CPPTRAJ was not evaluated. | [`benchmarks/audit/cmp1/REPORT.md`](benchmarks/audit/cmp1/REPORT.md) |
 
 What these results do and do not show:
 - V2b computes the **same** exhaustive proper-rotation Cα RMSD top-k as the baseline, faster on the tested development and SYNTHETIC workloads. Per-workload speed-ups are in the BQ-1 and BQ-2 reports.
@@ -86,10 +87,11 @@ What these results do and do not show:
 
 ### Next tasks
 
-1. **Direct P2 qualification of unchanged V2b** (bounded engineering task), on a machine with at least about 3.2 GB of available memory. A protocol and acceptance rule are frozen before execution, with mandatory verification.
-2. **Strong competitive comparisons**: equal-information comparisons against established tools and the strongest reasonable baselines (AGENTS.md rule 6).
-3. **Biological validation**: application-specific, held-out evaluations with independent ground truth ([`docs/ONCOLOGY_VALIDATION_REQUIREMENTS.md`](docs/ONCOLOGY_VALIDATION_REQUIREMENTS.md)).
-4. **Library integration of any harness variant**: only after a separate review, never as a side effect of an engineering result.
+1. **CMP-1 is closed** ([`docs/CMP1_CLOSEOUT_2026-10-13.md`](docs/CMP1_CLOSEOUT_2026-10-13.md)). The outcome is no decisive advantage, and V2b integration is unsupported. MDTraj is recommended only on workloads where it met the common accuracy requirement. The 0.001 Å tolerance is an engineering acceptance criterion, not a biological adequacy result. V2b stays an audit artifact.
+2. **First biological-validation task (decision pending).** [`docs/BIOLOGICAL_VALIDATION_DECISION_MEMO_2026-10-13.md`](docs/BIOLOGICAL_VALIDATION_DECISION_MEMO_2026-10-13.md) recommends RAS switch-region local-conformation retrieval against expert structural labels. It is conditional on three metadata-only verifications (label terms, usable counts, label-definition overlap). The task concerns geometric agreement with expert labels, not function, drug response, pockets or clinical benefit. The feasibility checks ([`docs/C1_FEASIBILITY_CHECKS_2026-10-13.md`](docs/C1_FEASIBILITY_CHECKS_2026-10-13.md)) found it **blocked**: the label-data terms are unresolved, and a request to the Rascore maintainers ([`docs/C1_RASCORE_TERMS_REQUEST_DRAFT.md`](docs/C1_RASCORE_TERMS_REQUEST_DRAFT.md)) is with the project owner to send. Enough labelled chains exist for an SW1 ON-vs-OFF design, but the independence of units and the confounding (isoform, ligand site, construct) are unresolved; see [`docs/C1_DECISION_NOTE_2026-10-13.md`](docs/C1_DECISION_NOTE_2026-10-13.md). A KRAS-only evaluation design ([`docs/C1_EVALUATION_DESIGN_DRAFT.md`](docs/C1_EVALUATION_DESIGN_DRAFT.md)) is drafted. It is **unfrozen**, and scoring is paused until the label terms are clarified.
+3. **Integration decision.** The options in [`docs/B2_V2B_INTEGRATION_PROPOSAL.md`](docs/B2_V2B_INTEGRATION_PROPOSAL.md) are not implemented and are not supported by CMP-1. Any reconsideration needs a reviewed decision (e.g. a demonstrated float64-accuracy requirement).
+4. **Biological validation**: application-specific, held-out evaluations with independent ground truth ([`docs/ONCOLOGY_VALIDATION_REQUIREMENTS.md`](docs/ONCOLOGY_VALIDATION_REQUIREMENTS.md)).
+5. **Library integration of any harness variant**: only after a separate review, never as a side effect of an engineering result.
 
 ## What TopoFold does not (yet) do
 
@@ -166,7 +168,7 @@ assets/             v0.8.3 figures (superseded, kept for the record)
 ## Roadmap
 
 1. Fix the issues in [`docs/KNOWN_ISSUES.md`](docs/KNOWN_ISSUES.md), each with a regression test.
-2. Direct P2 qualification of the V2b harness variant (see *Next tasks*), then strong, equal-information competitive comparisons.
+2. Engine-choice review after CMP-1 (see *Next tasks*). Direct P2 qualification (BQ-3) and a bounded competitive evaluation (CMP-1) were completed with scoped outcomes.
 3. Validate on real, independently generated MD trajectories, with ground truth that does not come from TopoFold itself, for each intended application.
 4. Measure full-frame index recall against brute force, and performance against vectorised MDTraj/MDAnalysis on identical tasks.
 5. Release with a Zenodo DOI and a preprint.

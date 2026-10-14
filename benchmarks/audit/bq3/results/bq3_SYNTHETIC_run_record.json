@@ -1,0 +1,34 @@
+{
+ "recorded_utc": "2026-10-13T10:40:02.700187+00:00",
+ "starting_checkpoint": "f55def1a7c70a116e97fd0b6179fd2d249db5446",
+ "commands": [
+  "bq3_run.py (exit 0)",
+  "bq3_analyse.py",
+  "make_report.py"
+ ],
+ "cpu_h": 0.10431188305555555,
+ "freeze_hashes_unchanged": true,
+ "changed": [
+  "benchmarks/audit/bq3/make_report.py"
+ ],
+ "outputs_sha256": {
+  "results/bq3_SYNTHETIC_measurements.json": "d9dbc98edaed8cb43023dc37e9f67a374f6bad8f1a06c44df196e19a8755ad35",
+  "results/bq3_SYNTHETIC_analysis.json": "2ae2df4e398eeda138838849c4c5d5d496f2385d5f067bee55f58854024c0247",
+  "REPORT_SYNTHETIC_P2.md": "263a2f5dfc32395247a00461f814406cc11c6c8e0eed8cec39ba450173903f23"
+ },
+ "notes": "Not committed or pushed (stopped for review). No downloads, held-out scoring or production changes; no application closed; no system setting changed.",
+ "changed_after_pre_measurement": {
+  "benchmarks/audit/bq3/bq3_lib.py": true,
+  "benchmarks/audit/bq3/bq3_run.py": true,
+  "benchmarks/audit/bq3/bq3_analyse.py": true,
+  "benchmarks/audit/bq3/make_report.py": false,
+  "benchmarks/audit/bq3/test_bq3.py": true,
+  "benchmarks/audit/bq3/results/bq3_protocol_freeze.json": true,
+  "benchmarks/audit/b2opt/b2opt_lib.py": true,
+  "benchmarks/audit/bq2/bq2_lib.py": true,
+  "benchmarks/audit/bq2/bq2_run.py": true,
+  "benchmarks/audit/eb1/eb1a2_lib.py": true,
+  "benchmarks/audit/eb1/eb1_run.py": true
+ },
+ "post_measurement_disclosure": "make_report.py edited after measurement to add a ranking-verification limitation and this disclosure (report text only); acceptance code unchanged."
+}

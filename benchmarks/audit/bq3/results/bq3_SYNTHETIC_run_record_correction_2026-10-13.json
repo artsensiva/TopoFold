@@ -1,0 +1,62 @@
+{
+ "recorded_utc": "2026-10-13T14:02:29.632368+00:00",
+ "type": "editorial correction of a provenance record (no rerun, no change to scientific or decision artifacts)",
+ "corrects": {
+  "path": "benchmarks/audit/bq3/results/bq3_SYNTHETIC_run_record.json",
+  "sha256_preserved_unchanged": "0c8ad9c007d938d595cfc643d9b75a56cd5d5a7d71e1b51448300e255fda99a1"
+ },
+ "defect": "The original record's field 'freeze_hashes_unchanged' is true although make_report.py differs from its pre-measurement hash, and its map 'changed_after_pre_measurement' uses true to mean 'hash matches' (unchanged), the opposite of its name.",
+ "corrected_fields": {
+  "all_pre_measurement_hashes_unchanged": false,
+  "files_matching_pre_measurement_hash": [
+   "benchmarks/audit/b2opt/b2opt_lib.py",
+   "benchmarks/audit/bq2/bq2_lib.py",
+   "benchmarks/audit/bq2/bq2_run.py",
+   "benchmarks/audit/bq3/bq3_analyse.py",
+   "benchmarks/audit/bq3/bq3_lib.py",
+   "benchmarks/audit/bq3/bq3_run.py",
+   "benchmarks/audit/bq3/results/bq3_protocol_freeze.json",
+   "benchmarks/audit/bq3/test_bq3.py",
+   "benchmarks/audit/eb1/eb1_run.py",
+   "benchmarks/audit/eb1/eb1a2_lib.py"
+  ],
+  "files_differing_from_pre_measurement_hash": [
+   "benchmarks/audit/bq3/make_report.py"
+  ],
+  "decision_and_scientific_files_match_pre_measurement_hash": true,
+  "decision_and_scientific_files_checked": [
+   "benchmarks/audit/bq3/bq3_lib.py",
+   "benchmarks/audit/bq3/bq3_run.py",
+   "benchmarks/audit/bq3/bq3_analyse.py",
+   "benchmarks/audit/bq3/test_bq3.py",
+   "benchmarks/audit/bq3/results/bq3_protocol_freeze.json",
+   "benchmarks/audit/b2opt/b2opt_lib.py",
+   "benchmarks/audit/bq2/bq2_lib.py",
+   "benchmarks/audit/bq2/bq2_run.py"
+  ],
+  "make_report_py": {
+   "pre_measurement_sha256": "8d8e2682aa35c4184ee496852df8c776282fcab8d47798697caf44e8ea669d7a",
+   "current_sha256": "3dc98848705999c6be33650480bc16fc6cd7767c966eb90264f8c07bd00c39a8",
+   "change": "report text only: ranking-verification limitation and a post-measurement disclosure bullet (two successive edits; the intermediate hash was not recorded)"
+  }
+ },
+ "outputs": {
+  "results/bq3_SYNTHETIC_measurements.json": {
+   "recorded_in_original": "d9dbc98edaed8cb43023dc37e9f67a374f6bad8f1a06c44df196e19a8755ad35",
+   "current": "d9dbc98edaed8cb43023dc37e9f67a374f6bad8f1a06c44df196e19a8755ad35",
+   "unchanged_since_original": true
+  },
+  "results/bq3_SYNTHETIC_analysis.json": {
+   "recorded_in_original": "2ae2df4e398eeda138838849c4c5d5d496f2385d5f067bee55f58854024c0247",
+   "current": "2ae2df4e398eeda138838849c4c5d5d496f2385d5f067bee55f58854024c0247",
+   "unchanged_since_original": true
+  },
+  "REPORT_SYNTHETIC_P2.md": {
+   "recorded_in_original": "263a2f5dfc32395247a00461f814406cc11c6c8e0eed8cec39ba450173903f23",
+   "current": "263a2f5dfc32395247a00461f814406cc11c6c8e0eed8cec39ba450173903f23",
+   "unchanged_since_original": true
+  }
+ },
+ "history_disclosure": "The original run record was itself written twice before review: the first version (not preserved) stated freeze_hashes_unchanged=false with make_report.py listed as changed; it was then overwritten by the current version, which introduced the ambiguous fields. REPORT_SYNTHETIC_P2.md was regenerated after each make_report.py edit; only the final report hash is recorded.",
+ "measurement_and_analysis_files_unaffected": true
+}

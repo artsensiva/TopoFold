@@ -1,0 +1,18 @@
+{
+ "recorded_utc": "2026-10-13T10:32:40.398214+00:00",
+ "sha256": {
+  "benchmarks/audit/bq3/bq3_lib.py": "a0d6117fbc8cb3685ec26f061a8a91ea34e628c586d11478c26fc22117e187ea",
+  "benchmarks/audit/bq3/bq3_run.py": "77d570f5dde88b68e6880a7f008f77d40a403cb5f98eb711b93d631c65530030",
+  "benchmarks/audit/bq3/bq3_analyse.py": "ea2b0cd17f0161ddb6752d7d85145df443e779444255ddd5bbaf5b1d829f2563",
+  "benchmarks/audit/bq3/make_report.py": "8d8e2682aa35c4184ee496852df8c776282fcab8d47798697caf44e8ea669d7a",
+  "benchmarks/audit/bq3/test_bq3.py": "d6b518f7611be0a523eb24953524efcb6e5a78f125f6d24d96acddd24f501ec2",
+  "benchmarks/audit/bq3/results/bq3_protocol_freeze.json": "8395de9d544086ac2670058b8e76816c47e2ffddc74d3774008dca461ef42fef",
+  "benchmarks/audit/b2opt/b2opt_lib.py": "3e0e5a1ba622463bf2e05dfdf1fc9a2bfabc3101008cfbb69b8c8e7ce735d614",
+  "benchmarks/audit/bq2/bq2_lib.py": "c7aa0795a1413dac0229e89bec1b7e68cff1a96e6c5f78937b28251ab7415919",
+  "benchmarks/audit/bq2/bq2_run.py": "7e70f3afd5bea083b7e12e98dd7d73c2b04d57b65d6a7ffccfc1c881f8a55aea",
+  "benchmarks/audit/eb1/eb1a2_lib.py": "73a1f62ead43a5294c1c0ab12d3f50c0d2715bb75a8c6053bbb6f505e9d821e6",
+  "benchmarks/audit/eb1/eb1_run.py": "7784d4716ed2c0fa5fd788cd252d7d1286e5a941fbac912a81d390c5f77a4fa7"
+ },
+ "tests": "6 passed in 0.03s",
+ "disclosure": "Before any BQ-3 measurement. Prior: failure-path tests and a fabricated-data smoke test of the analysis code (scratchpad, discarded)."
+}

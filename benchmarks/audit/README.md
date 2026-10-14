@@ -23,7 +23,7 @@ Each directory holds harness code, frozen-protocol references, results files and
 | [`bq2/`](bq2/) | BQ-2 scaling confirmation of unchanged V2b | Development data + SYNTHETIC_tiled (performance-only) | [`REPORT.md`](bq2/REPORT.md) | Conclusion C (insufficient evidence) |
 | [`c1_feasibility/`](c1_feasibility/) | C1 feasibility checks (RAS switch labels): terms, counts, label definitions | Public metadata only (no coordinates) | [`docs/C1_FEASIBILITY_CHECKS_2026-10-13.md`](../../docs/C1_FEASIBILITY_CHECKS_2026-10-13.md) | Blocked on label-data terms; SW1 two-class feasible on counts |
 | [`cmp1/`](cmp1/) | CMP-1 bounded competitive evaluation (V2b vs MDTraj 1.11.2, MDAnalysis 2.10.0) | Development + SYNTHETIC_tiled | [`REPORT.md`](cmp1/REPORT.md) | No decisive advantage under frozen criteria; V2b integration not supported |
-| [`bq3/`](bq3/) | BQ-3 direct-P2 qualification | — | [`README.md`](bq3/README.md) | Stopped at memory preflight; no measurement |
+| [`bq3/`](bq3/) | BQ-3 direct-P2 qualification | SYNTHETIC_tiled (performance-only) | [`REPORT_SYNTHETIC_P2.md`](bq3/REPORT_SYNTHETIC_P2.md), [`README.md`](bq3/README.md) | Preflight stop (first attempt); direct run: prepared-database operation qualified, first query did not meet 10 s (excludes input loading) |
 
 Large or third-party inputs that are not in Git, and how to retrieve or regenerate them: [`../../docs/CHECKPOINT_2026-10-13_PROVENANCE.md`](../../docs/CHECKPOINT_2026-10-13_PROVENANCE.md).
 

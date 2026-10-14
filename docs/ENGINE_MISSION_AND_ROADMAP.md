@@ -85,7 +85,7 @@ Definitions:
 | MI coupling network | ✔ | 2 unit tests | ✘ | Estimator inconsistent with docs; no significance; autocorrelation unhandled (M7) |
 | IDP topological density | ✔ | 3 unit tests | ✘ | Naming and ablation (m4) |
 | DCD reader/writer | ✔ | Python I/O tests (skipped when data absent) | — | Frame-by-frame reader in Rust; Python `read_dcd` collects all frames |
-| Throughput | — | EB-1 (2026-10-12): harness implementations on development data, per stage, with correctness checks. EB-1 and Amendment 1: insufficient evidence. Amendment 2: decision engine (B2 single-query R2 projection). BQ-1: V2b harness variant correct and faster than the harness baseline on tested workloads; acceptance not met. BQ-2: conclusion C (insufficient evidence). BQ-3: stopped at memory preflight, no P2 measurement | — | Harness-only; not in the library. Earlier µs/frame figures are unverified (m9) |
+| Throughput | — | EB-1 (2026-10-12): harness implementations on development data, per stage, with correctness checks. EB-1 and Amendment 1: insufficient evidence. Amendment 2: decision engine (B2 single-query R2 projection). BQ-1: V2b harness variant correct and faster than the harness baseline on tested workloads; acceptance not met. BQ-2: conclusion C (insufficient evidence). BQ-3: first attempt stopped at memory preflight; the direct run on SYNTHETIC P2-dimension rows qualified prepared-database operation, while preparation + first query (excluding input loading) did not meet 10 s. CMP-1 (bounded, one thread): no decisive advantage for V2b over MDTraj 1.11.2 / MDAnalysis 2.10.0 under the frozen criteria | — | Harness-only; not in the library. Earlier µs/frame figures are unverified (m9) |
 | XTC reader, φ/ψ/χ, cavity features, CLI, reports | Proposed | — | — | See §6 and §8 |
 
 ## 5. Representation requirements
@@ -233,8 +233,14 @@ results `benchmarks/audit/wpd_local_retrieval/REPORT_HELDOUT.md`; interpretation
   R2_B2 not supported by the tested NumPy variants; see `benchmarks/audit/b2opt/REPORT.md`. BQ-2
   (`B2_SCALING_CONFIRMATION_PROTOCOL.md`; `benchmarks/audit/bq2/REPORT.md`): unchanged V2b; query-time and memory models
   confirmed; preparation model unconfirmed on the largest SYNTHETIC stress cells; **conclusion C (insufficient
-  evidence)**. BQ-3 (`B2_DIRECT_P2_QUALIFICATION_PREFLIGHT.md`): stopped at its memory preflight; **no direct P2
-  measurement**. These are harness-only engineering results; they imply no biological capability, novelty or production
+  evidence)**. BQ-3: the first attempt stopped at its memory preflight (`B2_DIRECT_P2_QUALIFICATION_PREFLIGHT.md`). After
+  a memory recheck, the direct run (`B2_DIRECT_P2_QUALIFICATION_PROTOCOL.md`; closeout
+  `B2_DIRECT_P2_QUALIFICATION_CLOSEOUT_2026-10-13.md`) on SYNTHETIC, performance-only P2-dimension rows **qualified
+  prepared-database operation**. **Preparation plus the first query did not meet 10 s**; that span excludes input
+  loading and row construction. BQ-2's conclusion C stands. CMP-1 (`CMP1_COMPETITIVE_EVALUATION_PROTOCOL.md`; `benchmarks/audit/cmp1/REPORT.md`): bounded
+  comparison with MDTraj 1.11.2 and MDAnalysis 2.10.0 on development and SYNTHETIC workloads. Frozen conclusion: **no
+  decisive advantage**, so V2b integration is not supported. MDTraj was faster where it met the common F32 accuracy
+  track; V2b was faster than MDAnalysis per-pair QCP elsewhere. These are harness-only engineering results; they imply no biological capability, novelty or production
   readiness. Oncology evidence requirements: `ONCOLOGY_VALIDATION_REQUIREMENTS.md` (no target chosen).
 
 **Held-out selection, specified before any AdK scoring**
@@ -250,7 +256,7 @@ results `benchmarks/audit/wpd_local_retrieval/REPORT_HELDOUT.md`; interpretation
 
 | Done | Next (bounded) | Subsequent priorities | Needs more |
 |------|----------------|-----------------------|------------|
-| WP-A, WP-C, WP-B (G0–G1), WP-D AdK tier, LE-1, WP-D held-out evaluation and closeout; EB-1 with Amendments 1–2; BQ-1 (acceptance not met; V2b correct and faster on tested workloads); BQ-2 (conclusion C); BQ-3 (stopped at memory preflight) | Direct P2 qualification of unchanged V2b, on a host with ≥ about 3.2 GB available memory; protocol and mandatory-verification acceptance rule frozen before execution | Strong equal-information competitive comparisons (external tools and strongest reasonable baselines); biological validation per application. Library integration of any harness variant only after a separate review | Any oncology task needs the evidence in `ONCOLOGY_VALIDATION_REQUIREMENTS.md`; track-specific work needs the blockers in §6 |
+| WP-A, WP-C, WP-B (G0–G1), WP-D AdK tier, LE-1, WP-D held-out evaluation and closeout; EB-1 with Amendments 1–2; BQ-1 (acceptance not met; V2b correct and faster on tested workloads); BQ-2 (conclusion C); BQ-3 (prepared-database operation qualified on SYNTHETIC P2-dimension rows; first query did not meet 10 s) | CMP-1 closed (`CMP1_CLOSEOUT_2026-10-13.md`). C1 (`BIOLOGICAL_VALIDATION_DECISION_MEMO_2026-10-13.md`; `C1_FEASIBILITY_CHECKS_2026-10-13.md`): RAS switch-I structural label recovery is **blocked/paused** pending Rascore label-data terms. The KRAS-only design (`C1_EVALUATION_DESIGN_DRAFT.md`) is unfrozen | Frozen C1 protocol, once permission is clarified; smallest data adapter only; established RMSD libraries reused; V2b remains an audit artifact | Any oncology task needs the evidence in `ONCOLOGY_VALIDATION_REQUIREMENTS.md`; track-specific work needs the blockers in §6 |
 
 Historical issues block only the capabilities mapped to them in §6 and §10. They do not block
 everything.
