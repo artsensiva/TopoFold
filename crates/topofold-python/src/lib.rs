@@ -929,7 +929,8 @@ pub fn compute_bimodality_profile<'py>(
 /// cb_coords : numpy.ndarray of shape (F, N, 3), dtype=float32, optional
 ///     Optional C-beta coordinates for side-chain rotamer orientation.
 /// regularizer_eps : float, default=1e-6
-///     Diagonal regularizer jitter added to covariance matrices.
+///     Ridge added once to the diagonal of every marginal and joint covariance (regularized Gaussian MI;
+///     no copula transform or significance test). Outputs changed in 2026-10 (KNOWN_ISSUES M7).
 ///
 /// Returns
 /// -------
@@ -966,7 +967,8 @@ pub fn compute_allosteric_network<'py>(
 /// cb_coords_b : numpy.ndarray of shape (F, N_B, 3), dtype=float32, optional
 ///     Optional C-beta coordinates for Chain B.
 /// regularizer_eps : float, default=1e-6
-///     Diagonal regularizer jitter added to covariance matrices.
+///     Ridge added once to the diagonal of every marginal and joint covariance (regularized Gaussian MI;
+///     no copula transform or significance test). Outputs changed in 2026-10 (KNOWN_ISSUES M7).
 ///
 /// Returns
 /// -------
