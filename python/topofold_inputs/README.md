@@ -1,0 +1,60 @@
+# topofold_inputs — Cα input adapter (engineering, optional)
+
+Converts an MDAnalysis `Universe` into Cα coordinates (Å, float64) with explicit residue identity, breaks and
+provenance. It reads nothing itself; supported formats are exactly MDAnalysis's. MDAnalysis is **not** a dependency of
+the core `topofold` package; this package is imported from `python/` when needed.
+
+**Output** (`CATrajectory`, exported as `<run_id>.npz` + `<run_id>.json`):
+- `coordinates_angstrom` (frames, residues, 3), NaN for residues without a Cα;
+- frame indices, time in ps (NaN when the format has no time), run id;
+- per residue: chain (and whether it came from chainID or segid), segid, resid, insertion code, resname, caller label,
+  MDAnalysis residue/atom index, altloc used, status (`present`, `no_CA_atom`, `residue_not_found`);
+- breaks (`chain_boundary`, `missing_CA`, `numbering_discontinuity`, `ca_ca_distance` with frames) and the
+  half-open `segments` between them;
+- source units and reader precision, configuration, altloc decisions, PBC statistics, MDAnalysis warnings, software
+  versions, SHA-256 of the source files, the adapter source and the exported npz.
+
+**Policies.** Correspondence to external numbering only as supplied (`--correspondence`, list of
+`{chain, resid, icode, label}`); duplicate residue keys, unresolved alternate locations and non-finite coordinates
+raise `AdapterError`; `--altloc reject|blank_then_A|highest_occupancy` (default `reject`); `--pbc none|make_whole_sequential`
+(default `none`; orthorhombic boxes only; never across a break). GRO input loses chain IDs and insertion codes; such
+cases are rejected, not guessed.
+
+**Frame identity (fixed-topology contract).** Atom identity comes from the topology and is assumed identical, in the
+same order, in every frame. Multi-model PDB identity records are checked per model and differences raise; for
+coordinate-only formats (XTC, DCD, TRR) and in-memory readers this cannot be checked and is reported as
+`not_verifiable`. Output order (topology or correspondence) is a separate choice. Readers with unit conversion
+disabled are rejected unless already in Å; readers declaring no unit need `assume_angstrom_if_undeclared=True`.
+
+**Continuity.** Adjacency is taken from numbering only, conservatively: 52 → 52A → 52B → 53 is continuous; skipped,
+reversed or unusual insertion codes, 52 → 53A, chain/segment changes and all other jumps are breaks. Distance never
+establishes continuity; it only adds breaks (Cα–Cα above `--max-ca-ca`).
+
+**Features** (`features.py`, needs the `topofold` extension, not MDAnalysis): κ per residue and τ per hinge from the
+existing core `compute_invariants`, computed only within segments and split at degenerate segments
+(`--min-segment`) and near-collinear vertices (`--collinear-sin-tol`). Every cell is valid or carries a reason
+(`missing_coordinates`, `terminal_or_break`, `degenerate_segment`, `near_collinear`, `run_too_short_for_core`,
+`core_error`, `non_finite_core_output`); invalid cells are NaN. The core receives float32 input.
+
+**Run** (repository root):
+
+```bash
+# whole pipeline: input -> checked coordinates -> kappa/tau -> NPZ + JSON + inspection report
+PYTHONPATH=python .venv/bin/python -m topofold_inputs.pipeline TOP [TRAJ ...] --run-id ID --out OUTDIR \
+    --adapter-python benchmarks/audit/wpd_local_retrieval/build/venv/bin/python [adapter options]
+# SYNTHETIC example input for the command above
+PYTHONPATH=python benchmarks/audit/wpd_local_retrieval/build/venv/bin/python python/examples/ca_adapter_example.py --out OUTDIR
+# tests
+PYTHONPATH=python benchmarks/audit/wpd_local_retrieval/build/venv/bin/python -m pytest tests/test_ca_adapter.py
+.venv/bin/python -m pytest tests/test_ca_features.py
+```
+
+**Not included, and what would activate it.**
+- N/C atoms and φ/ψ: a selected comparison that needs the peptide-plane or φ/ψ target (e.g. the WP-D φ/ψ task).
+- Side-chain features: an application whose state definition depends on side chains (e.g. kinase DFG χ).
+- Streaming: a permitted run whose arrays exceed the memory ceiling (EB-1 R4, 8 GiB).
+- New readers: a permitted dataset in a format MDAnalysis cannot read.
+- Indexing or optimization: a measured bottleneck in a real workflow.
+
+Engineering component only: tested on SYNTHETIC fixtures, one local PDB read and the DEV-CA-1 development run
+(`benchmarks/audit/dev_ca_pipeline/`); no biological validation is implied.
