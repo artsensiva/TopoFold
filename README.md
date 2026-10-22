@@ -83,15 +83,25 @@ What these results do and do not show:
 - V2b computes the **same** exhaustive proper-rotation Cα RMSD top-k as the baseline, faster on the tested development and SYNTHETIC workloads. Per-workload speed-ups are in the BQ-1 and BQ-2 reports.
 - They show no new biological capability, no technological novelty over existing RMSD software, and no production readiness.
 - A successful engineering qualification would not establish any of those either.
-- No equal-information comparison against external tools (e.g. MDAnalysis, MDTraj) has been made yet.
+- CMP-1 is the only equal-information comparison against external tools (MDTraj, MDAnalysis) so far. It is bounded to harness single-query Cα RMSD search on development and SYNTHETIC workloads; the library has not been compared.
 
 ### Next tasks
 
-1. **CMP-1 is closed** ([`docs/CMP1_CLOSEOUT_2026-10-13.md`](docs/CMP1_CLOSEOUT_2026-10-13.md)). The outcome is no decisive advantage, and V2b integration is unsupported. MDTraj is recommended only on workloads where it met the common accuracy requirement. The 0.001 Å tolerance is an engineering acceptance criterion, not a biological adequacy result. V2b stays an audit artifact.
-2. **First biological-validation task (decision pending).** [`docs/BIOLOGICAL_VALIDATION_DECISION_MEMO_2026-10-13.md`](docs/BIOLOGICAL_VALIDATION_DECISION_MEMO_2026-10-13.md) recommends RAS switch-region local-conformation retrieval against expert structural labels. It is conditional on three metadata-only verifications (label terms, usable counts, label-definition overlap). The task concerns geometric agreement with expert labels, not function, drug response, pockets or clinical benefit. The feasibility checks ([`docs/C1_FEASIBILITY_CHECKS_2026-10-13.md`](docs/C1_FEASIBILITY_CHECKS_2026-10-13.md)) found it **blocked**: the label-data terms are unresolved, and a request to the Rascore maintainers ([`docs/C1_RASCORE_TERMS_REQUEST_DRAFT.md`](docs/C1_RASCORE_TERMS_REQUEST_DRAFT.md)) is with the project owner to send. Enough labelled chains exist for an SW1 ON-vs-OFF design, but the independence of units and the confounding (isoform, ligand site, construct) are unresolved; see [`docs/C1_DECISION_NOTE_2026-10-13.md`](docs/C1_DECISION_NOTE_2026-10-13.md). A KRAS-only evaluation design ([`docs/C1_EVALUATION_DESIGN_DRAFT.md`](docs/C1_EVALUATION_DESIGN_DRAFT.md)) is drafted. It is **unfrozen**, and scoring is paused until the label terms are clarified.
-3. **Integration decision.** The options in [`docs/B2_V2B_INTEGRATION_PROPOSAL.md`](docs/B2_V2B_INTEGRATION_PROPOSAL.md) are not implemented and are not supported by CMP-1. Any reconsideration needs a reviewed decision (e.g. a demonstrated float64-accuracy requirement).
-4. **Biological validation**: application-specific, held-out evaluations with independent ground truth ([`docs/ONCOLOGY_VALIDATION_REQUIREMENTS.md`](docs/ONCOLOGY_VALIDATION_REQUIREMENTS.md)).
-5. **Library integration of any harness variant**: only after a separate review, never as a side effect of an engineering result.
+The development programme, evidence levels (A–E) and the current queue are in
+[`docs/ENGINE_MISSION_AND_ROADMAP.md`](docs/ENGINE_MISSION_AND_ROADMAP.md) §12; recorded decisions are in
+[`docs/DECISION_LOG.md`](docs/DECISION_LOG.md). In short:
+- **KRAS C1** (RAS switch-I structural label recovery) is blocked and unfrozen pending the Rascore label-data terms
+  ([`docs/C1_DECISION_NOTE_2026-10-13.md`](docs/C1_DECISION_NOTE_2026-10-13.md),
+  [`docs/C1_EVALUATION_DESIGN_DRAFT.md`](docs/C1_EVALUATION_DESIGN_DRAFT.md)). A positive result would be structural
+  (level B), not functional.
+- **V2b** stays an audit artifact; CMP-1 does not support integration
+  ([`docs/CMP1_CLOSEOUT_2026-10-13.md`](docs/CMP1_CLOSEOUT_2026-10-13.md)).
+- The MI network's double regularization is fixed (2026-10-22, KNOWN_ISSUES M7); its outputs can differ from earlier
+  versions. This is a numerical correction and does not validate allostery.
+- An optional Cα input pipeline (`python/topofold_inputs`: MDAnalysis adapter → core κ/τ with explicit validity →
+  NPZ/JSON/inspection report) is engineering-ready, with a development run on local AdK data
+  ([`benchmarks/audit/dev_ca_pipeline/`](benchmarks/audit/dev_ca_pipeline/README.md)). It is not a scientific
+  validation.
 
 ## What TopoFold does not (yet) do
 

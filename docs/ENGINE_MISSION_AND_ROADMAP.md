@@ -1,12 +1,15 @@
 # TopoFold Engine: Mission, Capabilities and Roadmap
 
-**Status:** DRAFT for review (2026-10-04; WP-D status reconciled 2026-10-12; engineering status reconciled 2026-10-13)
-**Baseline:** `295d739` (branch `scientific-rebuild`)
+**Status:** DRAFT for review (2026-10-04; WP-D status reconciled 2026-10-12; engineering status reconciled 2026-10-13;
+development programme added 2026-10-22, §12)
+**Baseline:** `295d739` (branch `scientific-rebuild`); programme reconciled against `7ff4b90`
 
 This document states what TopoFold is for, what it can do today and the evidence for that,
 and what must happen next. Where it conflicts with older material (ADRs, whitepaper, v0.8.3
 benchmark descriptions), this document and [`KNOWN_ISSUES.md`](KNOWN_ISSUES.md) take precedence.
 Rules for contributors stay in [`../AGENTS.md`](../AGENTS.md).
+Recorded decisions and superseded claims are listed in [`DECISION_LOG.md`](DECISION_LOG.md). This is the only
+programme document; other files link here instead of restating status.
 
 ---
 
@@ -16,6 +19,30 @@ Rules for contributors stay in [`../AGENTS.md`](../AGENTS.md).
 > ensembles: helping researchers locate, compare, retrieve, and investigate structural changes
 > across protein and RNA trajectories, with traceable evidence and application-specific
 > validation.
+
+**Long-term purpose.** Contribute to cancer research and, ultimately, treatment, with appropriate commercial returns
+and scientific recognition. This purpose sets direction; it is not a capability or a near-term claim.
+
+**Near-term mission (2026-10-22).**
+
+> Develop reproducible methods for locating, comparing and retrieving molecular conformational changes, and establish
+> whether they improve oncology-relevant research decisions beyond established tools.
+
+**Evidence levels.** Every result states the level it supports. Passing one level does not establish the next.
+
+| Level | Meaning | Results at this level so far (observation) |
+|---|---|---|
+| A | Mathematical and numerical correctness | Writhe and circular-mean fixes with reference tests (M1, M2); WP-A characterization; V2b numerical correctness against SVD/QCP references (BQ-1, CMP-1) |
+| B | Structural/geometric task performance | WP-D held-out, within mdCATH only: A on the φ/ψ target, B2 on the peptide-plane target (scoped geometric retrieval). LE-1: AdK development tier, inconclusive. C1, if run, would be level B (expert structural labels) |
+| C | Biological relevance | None |
+| D | Practical value to researchers | None. EB-1, BQ-1–3 and CMP-1 are harness engineering measurements, not user value |
+| E | Therapeutic or clinical benefit | None, and outside the near-term scope (`ONCOLOGY_VALIDATION_REQUIREMENTS.md` §2) |
+
+Not validated at any level as detectors: the scalar BC scan (M3) and the Product-vM diagnostic (M3-A2, provisional O2).
+
+Distinctions kept in every report: harness implementation vs library capability; synthetic control vs real MD vs
+experimental measurement; structural label vs independent functional evidence; association vs causation; engineering
+improvement vs methodological novelty.
 
 Three consequences follow:
 
@@ -82,7 +109,7 @@ Definitions:
 | Product-vM mixture ΔBIC detector | Python audit prototype only | M3-A2 audit: provisional O2 | ✘ | Not in the engine |
 | Subcurve search (`query_subcurve`) | ✔ | One integration test; LE-1 Rust-vs-NumPy agreement on AdK | ✘ | Exhaustive linear scan, so exact for its distance by construction. *2026-10-12:* the legacy flexible (Fréchet) coupling was deprioritized for same-sequence windows (LE-1, AdK development; engineering decision; formal outcome inconclusive) |
 | Full-frame search (`query`) | ✔ | One integration test | ✘ | Approximate cascade. *2026-10-12:* Recall@10 vs exhaustive measured only on AdK development data at the default radius (LE-1), with no speed-up observed there; unmeasured elsewhere (M6) |
-| MI coupling network | ✔ | 2 unit tests | ✘ | Estimator inconsistent with docs; no significance; autocorrelation unhandled (M7) |
+| MI coupling network | ✔ | 2 unit tests | ✘ | Estimator inconsistent with docs; no significance; autocorrelation unhandled (M7). *2026-10-22:* double regularization fixed (ε now added once; regularized I_ε, analytical regression tests); module description corrected (no copula transform). Remaining M7 items open |
 | IDP topological density | ✔ | 3 unit tests | ✘ | Naming and ablation (m4) |
 | DCD reader/writer | ✔ | Python I/O tests (skipped when data absent) | — | Frame-by-frame reader in Rust; Python `read_dcd` collects all frames |
 | Throughput | — | EB-1 (2026-10-12): harness implementations on development data, per stage, with correctness checks. EB-1 and Amendment 1: insufficient evidence. Amendment 2: decision engine (B2 single-query R2 projection). BQ-1: V2b harness variant correct and faster than the harness baseline on tested workloads; acceptance not met. BQ-2: conclusion C (insufficient evidence). BQ-3: first attempt stopped at memory preflight; the direct run on SYNTHETIC P2-dimension rows qualified prepared-database operation, while preparation + first query (excluding input loading) did not meet 10 s. CMP-1 (bounded, one thread): no decisive advantage for V2b over MDTraj 1.11.2 / MDAnalysis 2.10.0 under the frozen criteria | — | Harness-only; not in the library. Earlier µs/frame figures are unverified (m9) |
@@ -126,6 +153,8 @@ were synthetic or interpolated (C1).
 | **3. α-synuclein / IDP ensembles** | Distributions of local geometry, transient secondary structure, compaction | Ensemble-averaged experiments (e.g. NMR chemical shifts, SAXS), with entries to be identified | Secondary-structure propensities, Rg, contact maps | m4; writhe scale changed (M1); no real IDP trajectories in the repo |
 | **4. KRAS and Mpro conformational/pocket investigations** | Switch-region backbone change (local); pocket opening (cavity) | Experimental apo/holo structures; curated cryptic-pocket sets (e.g. Meller et al. 2023, to be verified) | Local RMSD/φψ for switches; fpocket/MDpocket and PocketMiner for pockets | No cavity representation; C4/H5; m8. Backbone localization can proceed before pocket claims |
 | **5. RNA riboswitch conformational change** | P-trace geometry, χ, pucker, pairing/stacking | Experimental apo/holo structures, with entries to be identified; chemical probing | η/θ pseudo-torsions, χ, base-pair annotations | M4; no real RNA MD |
+
+Current status, next task and trigger for each track, plus PROTAC/molecular glue: §12.3.
 
 **Sequence.** Shared protein local-conformation analysis and retrieval comes first (§7). It
 underpins tracks 1 and 4 (backbone parts) and partly track 3. Track 5 needs M4 first; track 2
@@ -252,11 +281,8 @@ results `benchmarks/audit/wpd_local_retrieval/REPORT_HELDOUT.md`; interpretation
 
 ### What can proceed now
 
-*Status 2026-10-13 (replaces the 2026-10-12 table; that table's content is preserved in the git history):*
-
-| Done | Next (bounded) | Subsequent priorities | Needs more |
-|------|----------------|-----------------------|------------|
-| WP-A, WP-C, WP-B (G0–G1), WP-D AdK tier, LE-1, WP-D held-out evaluation and closeout; EB-1 with Amendments 1–2; BQ-1 (acceptance not met; V2b correct and faster on tested workloads); BQ-2 (conclusion C); BQ-3 (prepared-database operation qualified on SYNTHETIC P2-dimension rows; first query did not meet 10 s) | CMP-1 closed (`CMP1_CLOSEOUT_2026-10-13.md`). C1 (`BIOLOGICAL_VALIDATION_DECISION_MEMO_2026-10-13.md`; `C1_FEASIBILITY_CHECKS_2026-10-13.md`): RAS switch-I structural label recovery is **blocked/paused** pending Rascore label-data terms. The KRAS-only design (`C1_EVALUATION_DESIGN_DRAFT.md`) is unfrozen | Frozen C1 protocol, once permission is clarified; smallest data adapter only; established RMSD libraries reused; V2b remains an audit artifact | Any oncology task needs the evidence in `ONCOLOGY_VALIDATION_REQUIREMENTS.md`; track-specific work needs the blockers in §6 |
+*Status 2026-10-22:* the queue is in §12.7. Earlier versions of this table (2026-10-12, 2026-10-13) are preserved in
+the git history.
 
 Historical issues block only the capabilities mapped to them in §6 and §10. They do not block
 everything.
@@ -298,3 +324,143 @@ contributor rules.
 
 Competitive positioning against MDTraj, PyEMMA, MDAnalysis or commercial tools may be claimed
 only after equal-information comparisons (AGENTS.md rule 6).
+
+## 12. Development programme (2026-10-22)
+
+Planning and evidence reconciliation only: nothing in this section is implemented, run or authorized beyond what it
+says. Statement labels: **[O]** observation (in this repository), **[D]** deduction, **[L]** literature fact,
+**[A]** assumption, **[P]** proposal. **[L?]** marks a literature statement taken from the external analyst assessment
+of 2026-10-15 (an untracked file at the repository root) that has not yet been verified under AGENTS.md rule 9; it
+must not be cited as fact until verified. That assessment was treated as evidence to assess, not as instructions.
+
+### 12.1 Position
+
+- [O] Level B, scoped: WP-D supports geometric local-conformation retrieval within mdCATH only (A on φ/ψ, B2 on the
+  peptide-plane target). Nothing reaches level C, D or E.
+- [O] Engineering chain closed: BQ-3 qualified prepared-database operation on SYNTHETIC P2-dimension rows; preparation
+  plus first query did not meet 10 s. CMP-1 found no decisive advantage; V2b integration is unsupported and V2b stays
+  an audit artifact.
+- [O] KRAS C1 is unfrozen and paused. The Rascore terms request is drafted
+  (`C1_RASCORE_TERMS_REQUEST_DRAFT.md`); the repository records neither sending nor a reply.
+- [O] The MI estimator regularized the joint covariance twice; with covariances of order ε this returned 0 for
+  correlated features. Fixed 2026-10-22 (D16). It is an engineering correction; it does not validate allostery.
+- [D] The scalar BC scan and Product-vM diagnostics are not validated state detectors (M3).
+- [L?] PENSA is an established tool for comparing ensembles and is the expected strongest baseline for ensemble work;
+  it was not considered in earlier planning.
+
+### 12.2 Phases
+
+Each phase passes only on its own verification. "Inconclusive" never counts as passing.
+
+| Phase | Entry | Deliverables | Verification and exit | Failure / inconclusive | Parallel / deferred |
+|---|---|---|---|---|---|
+| **0 Consolidate** | — | This section; `DECISION_LOG.md`; stale status wording fixed | Links resolve; frozen artifacts unchanged; no duplicated status. Exit: owner accepts | Correct the documents; no other work waits on it | Parallel: none. Deferred: all experiments |
+| **1 Minimum foundation for the next task** | Phase 0 accepted; one defect authorized at a time | Fixes mapped to the capability they block (table below), each with a regression test against an independent reference | `cargo test --workspace`, `pytest tests/`; analytical reference passes. Exit: the defects blocking the next scheduled evaluation are closed | Fix fails its reference: revert, document, keep the capability unvalidated | Parallel: one lightweight feasibility activity. Deferred: defects that block no scheduled evaluation |
+| **2 First bounded application (KRAS C1)** | Written permission covering internal evaluation and publication; design frozen with the §12.5 checklist; adapter-only foundation | Frozen protocol, smallest adapter, results JSON, report | Outcome from the frozen table (`C1_EVALUATION_DESIGN_DRAFT.md` §5). Exit: any of its four outcomes, reported at level B | Permission denied or unresolved: C1 stays **blocked**, not closed, and can resume when permission is clarified. An alternative evaluation runs only after passing its own data-access, feasibility, protocol and budget gates (§12.5). Materially inferior or inconclusive: reported as such; no re-scoring on the same data | Parallel: Phase 1 engineering, Phase 3 feasibility. Deferred: other RAS loops, nucleotide analysis |
+| **3 Reproducible ensemble changes** | One justified system chosen by a recorded rule, with verified data access and licence, a feasibility note, a frozen protocol and a budget; PENSA-class baseline available | Feasibility note, then a frozen protocol comparing two ensembles of one system against established workflows | Replicate-level uncertainty with temporal dependence handled; baselines with equal information. Exit: a level-B result on ensemble differences, or a recorded negative | No accessible data with usable terms: stop and record; do not substitute generated ensembles as MD | Any justified system qualifies; ABL is one candidate, assessed without assuming data access or commercial usability. Deferred: kinetics, adaptive sampling |
+| **4 One research workflow** | A level-B result from Phase 2 or 3; at least a few user conversations recorded | One workflow (API/CLI, report generated from results JSON) and a measurement of end-to-end user value against the user's current tools | Pre-declared task-time or decision-quality endpoint (level D). Exit: measured value or a recorded negative | Value not shown: keep the method as a library function; no product claim | Deferred: multi-target platform, commercial packaging |
+| **5 Selective expansion** | A level-D result, or a level-B result with a recorded reason to extend | One new application or shared path per decision, from §12.3 | As for the corresponding phase | As for the corresponding phase | Everything not selected stays deferred |
+
+**Phase 1 defect map** (the fix is scheduled only when the capability it blocks is needed):
+
+| Defect | Capability it blocks | Needed by |
+|---|---|---|
+| M7 MI estimator (double regularization fixed 2026-10-22); no significance; Gaussian and linear-angle assumptions | MI coupling network | Allostery path only |
+| m1 chain breaks treated as bonds | Real structures with gaps | Phase 2 excludes chains with missing Cα, so not blocking; Phase 3 needs it |
+| No real-structure adapter (mmCIF, residue mapping, altloc) | Any real-data evaluation | Phase 2 (C1 adapter, after freeze), Phase 3 (via MDTraj/MDAnalysis readers) |
+| A and B2 not in the library | Library-level retrieval | Phase 4; Phase 2 can use the harness A with reference tests and an established RMSD library |
+| M5 Cartesian Fréchet naming and units; M6 approximate cascade | Full-frame and Fréchet retrieval | Not needed by Phases 2–3 |
+| M3 BC scan not a test | State detection | Conditional state-detection path only |
+| M4 RNA χ | RNA path | Phase 5 only |
+| m12 MSRV | Reproducible builds | Before any release; small |
+
+**Dependencies**
+
+```
+Phase 0 ──► Phase 1 (only defects needed next)
+              │
+              ├─► Phase 2 KRAS C1 ◄── permission + frozen design + adapter
+              │        │
+              └─► Phase 3 ensemble changes ◄── system choice + data access + PENSA-class baseline
+                       │
+        Phase 2 or 3 level-B result ──► Phase 4 workflow ◄── user research
+                                              │
+                                              ▼
+                                        Phase 5 selective expansion
+```
+
+Phases 2 and 3 do not depend on each other. Phase 3 does not wait for C1, and starting it does not close C1.
+
+### 12.3 Portfolio
+
+Status: **active**, **ready**, **blocked**, **deferred**, **closed**. Budgets are provisional ranges assuming one
+contributor with the current workstation, excluding waiting on third parties; they are not commitments.
+
+| ID and question | Capability and evidence | Limitations and dependencies | Data and permissions | Strongest baseline | Smallest next task | Effort / compute / storage | Accept / negative / inconclusive | Status | Trigger |
+|---|---|---|---|---|---|---|---|---|---|
+| **KR** Does SW1 Cα geometry recover Rascore ON/OFF labels? | Harness A; level B only if run | Cα sees part of the label rule; confounds (`C1_DECISION_NOTE_2026-10-13.md`) | PDB CC0; Rascore label terms unresolved | B2 via established library; B1; Y32–G12 proxy | Freeze design after permission; adapter | 3–8 days / < 2 CPU-h / < 1 GB | Frozen outcome table | blocked | Written permission |
+| **AB** Do kinase state changes (DFG, αC, A-loop) appear in ensemble comparisons? (one candidate system for EN) | None yet | Needs χ and inter-element distances (C4, H5) | [L?] published ABL trajectories reported available on request for non-commercial use; unverified | PENSA-class comparison; φ/ψ, χ, distances, local RMSD | Metadata-only feasibility: data access, terms, state definitions | 1–3 days / none / none | Accessible data with usable terms / none / unclear terms | ready (feasibility only) | Lightweight slot free |
+| **MP-b** Mpro backbone conformational change | Same as other local backbone retrieval (level B scoped, mdCATH only) | m8 (chain description); no Mpro data selected | To be identified | Local RMSD, φ/ψ, PENSA-class comparison | None | — | — | deferred | Selected as a Phase 3 system |
+| **MP-p** Mpro pocket opening | None | Requires cavity observables, which the engine lacks (§5.1) | To be identified | fpocket/MDpocket; [L?] PocketMiner | None until cavity features are scheduled | — | — | deferred | Cavity features scheduled |
+| **AL** Statistical coupling, then perturbation response | MI network implemented, not validated | M7; association ≠ causation; needs perturbation data for causal claims | None needed for the fix | Linear/rank correlation; validated MI estimator | None scheduled; regularization fix done (D16). Significance and estimator choice remain open | — | — | deferred | Allostery selected as an application |
+| **ID** IDP / α-synuclein ensemble distributions | IDP density implemented, not validated | m4; writhe scale (M1) | Real ensembles and ensemble-averaged experiments to be identified | Secondary-structure propensities, Rg, contact maps | None | — | — | deferred | Phase 3 method exists |
+| **RN** RNA riboswitch changes | P-trace κ, τ | M4 χ blindness | To be identified | η/θ, χ, base-pair annotations | None | — | — | deferred | M4 fixed and a data source found |
+| **PG** PROTAC / molecular glue | None; earlier benchmark withdrawn (C5) | Ternary-complex geometry outside current representations | To be identified | To be defined | None | — | — | deferred | A defined geometric question with data |
+| **RP** Representation and feature adequacy | κ, τ, writhe at level A | Cα-only identifiability limit; [D] writhe adds information only relative to an incomplete representation | — | φ/ψ, χ as (sin, cos), distances | Physics statement per feature when an application needs it (AGENTS.md rule 7) | — | — | deferred | Phase 3 system chosen |
+| **RT** Exhaustive retrieval; approximate indexing only if needed | A, B2 at level B (scoped); V2b harness | CMP-1: no decisive advantage | — | MDTraj, MDAnalysis | None; reuse established RMSD | — | — | closed (optimization); ANN deferred | Measured bottleneck in a real workflow |
+| **IO** Adapters; streaming only if needed | Cα pipeline (`python/topofold_inputs`): MDAnalysis adapter → core κ/τ with validity reasons → NPZ/JSON/report; engineering-ready (SYNTHETIC tests; DEV-CA-1 development run on local AdK). Not scientifically validated | Cα only; frames held in memory; frame identity unverifiable for coordinate-only formats; no mmCIF/SIFTS mapping | Per dataset | MDTraj/MDAnalysis readers | Backbone (N, Cα, C) only when a selected comparison needs it (package README lists activation triggers) | — | — | ready (engineering) | Selected comparison needing backbone atoms |
+| **EN** Calibrated ensemble-distribution comparison on any justified system | None | Temporal dependence; replicates | Per system | [L?] PENSA; [L?] MMD with block or wild bootstrap | Done 2026-10-22 (`EN_FEASIBILITY_2026-10-22.md`); next: owner sends the ABL request (`ABL_DESRES_DATA_REQUEST_DRAFT.md`) | — | — | blocked (provider permission) | DESRES reply covering the intended uses and a matched run inventory |
+| **FS** Frame selection for expensive downstream analysis | None | [A] gain depends on cost ratio of screening to analysis and the fraction kept | — | Random and clustering-based selection | None | — | — | deferred | Phase 4 workflow needs it |
+| **SD** Conditional state detection | BC scan, Product-vM: not validated | M3; no calibrated null | — | Dip test or mixture ΔBIC with calibrated null | None | — | — | deferred | A selected application needs discrete states; ensemble differences alone are not sufficient |
+| **KI** Adaptive sampling and kinetics | None | [D] structural retrieval does not determine kinetics | — | MSM workflows | None | — | — | deferred (long-term) | Level-B ensemble result and a kinetic question |
+| **UX** API/CLI, reporting, user research | Results-JSON convention for audits | No CLI or report generator; m11 no CI | — | Users' current scripts and tools | A few structured user conversations (no claims) | 1–3 days / none / none | Recorded needs / no interest / mixed | ready (lightweight) | Lightweight slot free |
+
+Short-lived Git branches are used for each authorized task.
+
+### 12.4 Concurrency and cost
+
+- At most one active scientific evaluation, one bounded engineering task and one lightweight feasibility or
+  user-research activity.
+- **Essential:** Phase 0; the C1 gates; the defect blocking the next evaluation. **Optional:** UX
+  conversations, m12. **Deferred:** everything marked deferred in §12.3.
+- Effort is given as provisional ranges with assumptions; no monetary figures, dates or success probabilities.
+
+### 12.5 Verification rules
+
+**Pre-measurement checklist** (frozen and hashed before any scoring): question; estimand; endpoint; permitted inputs;
+provenance; leakage controls; development/evaluation separation; baselines with equal information; correctness
+references and tolerances; statistical unit, weighting and uncertainty; temporal dependence; multiple testing; margin
+justified separately from sample size; precision assumptions; resource limits and stop rules; permitted conclusions.
+
+**Records:** software versions and file hashes; reports generated from recorded results only.
+
+**Outcome categories** (exactly one per endpoint): implementation failure; data or design failure; materially
+inferior; useful non-inferiority; superior; insufficient evidence. Non-inferiority to a weak method does not establish
+adequacy. Ensemble work includes PENSA and established workflows as baselines; RMSD uses established implementations.
+
+### 12.6 Adaptation rules
+
+At each decision gate:
+1. Compare the result with the frozen criteria.
+2. Classify it with the outcome categories above.
+3. List the smallest next actions.
+4. Compare their information value, cost, dependencies and risk.
+5. Recommend proceed, restrict, switch, defer or close, and record it in `DECISION_LOG.md`.
+
+Prohibited: changing thresholds after results; relabelling failures as success; erasing negative results; changing
+population or endpoint silently; reusing exposed evaluation data as fresh held-out evidence; repeated amendments
+without a named uncertainty. A follow-up needs a concrete question and a bounded budget. Changes to the claim, data,
+acceptance criteria, major dependencies or resource ceiling need a new recorded decision. Routine choices inside an
+authorized package are made without escalation.
+
+Milestone updates state: where we are; what happened; what it means; what comes next; any decision needed. Decision
+tables use Option | Expected benefit | Cost/effort | Main risk | Reversibility | Recommendation, with at most three
+alternatives.
+
+### 12.7 Queue
+
+| Slot | Task | Status | Condition |
+|---|---|---|---|
+| Scientific evaluation | **KR** (C1): freeze the design, then the smallest adapter, then scoring | blocked | Written permission from the Rascore maintainers |
+| Bounded engineering (parallel) | Done: **AL** MI regularization fix (D16); **A** Cα pipeline, engineering-ready, with DEV-CA-1 development run (D21). Next: **B** backbone atoms only when a selected comparison requires them | — | Selected comparison |
+| Lightweight feasibility (fallback) | **EN** feasibility done (`EN_FEASIBILITY_2026-10-22.md`): neither candidate ready; ABL (apo WT vs M472I) recommended and conditional, GPCRmd μOR retained as method-calibration alternative. Next gate: owner sends `ABL_DESRES_DATA_REQUEST_DRAFT.md`; DESRES permission is separate from owner authorization | blocked (provider permission) | Slot authorized. Promoting it to the scientific slot while C1 is blocked requires passing its own data-access, feasibility, protocol and budget gates; C1 stays blocked and resumable |
