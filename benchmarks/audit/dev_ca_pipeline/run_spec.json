@@ -1,0 +1,33 @@
+{
+  "id": "DEV-CA-1",
+  "kind": "engineering development exercise (development evidence only; no scientific claim)",
+  "written_before_execution_utc": "2026-10-23",
+  "dataset": {
+    "name": "AdK open-start MD (Oradd & Andersson 2021)",
+    "source_doi": "10.5281/zenodo.5583119",
+    "licence": "CC BY 4.0 (Zenodo record), as recorded in benchmarks/audit/adk_feasibility/results/adk_g0_provenance.json",
+    "access_record": "WP-B G0 download authorization and provenance (adk_g0_provenance.json, g0_passed = true)",
+    "files": {
+      "benchmarks/audit/adk_feasibility/data/raw/ORADD_open_state.gro": "25c90e78f549d97ed61814950efcdf9b859a0320734bd15bd09003677608a40f",
+      "benchmarks/audit/adk_feasibility/data/raw/ORADD_open_state_traj.xtc": "39e77b58ded7279d27b9e331b2ff9e6d39a803183689612856df0aa800a40019"
+    },
+    "expected_from_g0": {"n_frames": 2253, "n_ca": 214, "nominal_dt_ps": 200.0, "n_segments": 1}
+  },
+  "frame_subset": {"start": 0, "stop": null, "step": 3, "expected_frames": 751,
+                   "rule": "every third source frame from frame 0; deterministic"},
+  "selection": "protein",
+  "policies": {"chain_attribute": "auto", "altloc": "reject", "pbc": "make_whole_sequential",
+               "max_ca_ca_angstrom": 4.2, "min_segment_angstrom": 1e-6, "collinear_sin_tol": 1e-6},
+  "expected_consistency_checks": [
+    "source SHA-256 values equal the G0 record",
+    "214 residues, resids 1-214 consecutive, all with a Calpha; one segment",
+    "751 frames with source indices 0, 3, ..., 2250 and time = 200 ps x source index",
+    "source length unit nm converted to Angstrom by MDAnalysis",
+    "frame identity reported as not_verifiable (XTC stores no per-frame atom identity)",
+    "no non-finite coordinates or valid features",
+    "geometric breaks after make_whole: expected 0; any occurrence is reported with frames",
+    "kappa valid cells expected 751 x 212, tau valid 751 x 211 unless degenerate geometry or breaks; any shortfall explained"
+  ],
+  "resource_cap": {"max_frames": 1000, "cpu_seconds": 1800, "note": "engineering budget, not a performance target"},
+  "not_in_scope": ["state labels or populations", "comparison with other methods", "BC scan", "biological interpretation"]
+}

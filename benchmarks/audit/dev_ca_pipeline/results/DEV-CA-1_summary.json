@@ -1,0 +1,140 @@
+{
+  "run_id": "DEV-CA-1",
+  "spec_sha256": "6f4320e3ce6b7b646441f6a224a10b0c9a044abb90f5624923104c087d4f291f",
+  "source_hashes": {
+    "benchmarks/audit/adk_feasibility/data/raw/ORADD_open_state.gro": {
+      "expected": "25c90e78f549d97ed61814950efcdf9b859a0320734bd15bd09003677608a40f",
+      "observed": "25c90e78f549d97ed61814950efcdf9b859a0320734bd15bd09003677608a40f",
+      "match": true
+    },
+    "benchmarks/audit/adk_feasibility/data/raw/ORADD_open_state_traj.xtc": {
+      "expected": "39e77b58ded7279d27b9e331b2ff9e6d39a803183689612856df0aa800a40019",
+      "observed": "39e77b58ded7279d27b9e331b2ff9e6d39a803183689612856df0aa800a40019",
+      "match": true
+    }
+  },
+  "resources": {
+    "wall_seconds": 10.56,
+    "user_cpu_seconds": "12.02",
+    "system_cpu_seconds": "0.30",
+    "max_rss_kib_largest_process": "123048",
+    "cpu_cap_seconds": 1800,
+    "exit_status": 0,
+    "measurement": "GNU time -v over the pipeline process tree (adapter runs as a child process)"
+  },
+  "status": "completed",
+  "independent_reference": {
+    "max_abs_kappa_diff_rad": 5.551115123125783e-16,
+    "max_circular_tau_diff_rad": 5.551115123125783e-16,
+    "cells_compared": {
+      "kappa": 159212,
+      "tau": 158461
+    },
+    "ca_ca_distance_angstrom": {
+      "min": 2.867088538986006,
+      "max": 4.107859968317095
+    }
+  },
+  "checks": {
+    "source_hashes_match_g0": true,
+    "residue_count": true,
+    "resids_1_to_214_consecutive": true,
+    "all_present": true,
+    "frames_expected": true,
+    "times_equal_dt_times_index": true,
+    "units_converted_from_nm": true,
+    "frame_identity_not_verifiable": true,
+    "no_nonfinite_valid_features": true,
+    "no_breaks": true,
+    "single_segment": true,
+    "kappa_valid_full": true,
+    "tau_valid_full": true,
+    "frames_within_cap": true,
+    "independent_reference_agrees_1e-9": true
+  },
+  "all_checks_pass": true,
+  "mapping": {
+    "residues": 214,
+    "segments": [
+      [
+        0,
+        214
+      ]
+    ],
+    "breaks": [],
+    "chain_attribute": "segid",
+    "chains": [
+      "SYSTEM"
+    ],
+    "frame_identity": {
+      "status": "not_verifiable",
+      "reader": "XTCReader",
+      "note": "format stores no per-frame atom identity; fixed atom order is assumed (fixed-topology contract)"
+    },
+    "units": {
+      "coordinates": "angstrom",
+      "time": "ps",
+      "source_length_unit": "nm",
+      "source_time_unit": "ps",
+      "reader_convert_units": true,
+      "basis": "source unit nm; converted to \u00c5 by MDAnalysis (convert_units=True)"
+    },
+    "pbc": {
+      "policy": "make_whole_sequential",
+      "frames_changed": 0,
+      "max_shift_angstrom": 0.0,
+      "box_present_in_any_frame": true
+    },
+    "precision": {
+      "reader_position_dtype": "float32",
+      "output_dtype": "float64",
+      "nominal_source_resolution": "lossy compression; precision set by the writer (commonly 0.001 nm = 0.01 \u00c5); not read by this adapter",
+      "note": "float64 output does not restore precision lost in the source or the reader"
+    },
+    "read_warnings": []
+  },
+  "features": {
+    "counts": {
+      "kappa": {
+        "valid": 159212,
+        "missing_coordinates": 0,
+        "terminal_or_break": 1502,
+        "degenerate_segment": 0,
+        "near_collinear": 0,
+        "run_too_short_for_core": 0,
+        "core_error": 0,
+        "non_finite_core_output": 0
+      },
+      "tau": {
+        "valid": 158461,
+        "missing_coordinates": 0,
+        "terminal_or_break": 1502,
+        "degenerate_segment": 0,
+        "near_collinear": 0,
+        "run_too_short_for_core": 0,
+        "core_error": 0,
+        "non_finite_core_output": 0
+      }
+    },
+    "non_finite_valid_values": 0,
+    "diagnostics": {
+      "max_float32_rounding_angstrom": 0.0,
+      "core_errors": [],
+      "n_core_errors": 0
+    },
+    "core": {
+      "module": "topofold",
+      "version": "0.8.3",
+      "binary_sha256": "49780093095f27c89bdf234be15e1f5a9bac957d5a9dbf5ae0f93c856ee1590d",
+      "function": "compute_invariants"
+    }
+  },
+  "outputs_sha256": {
+    "DEV-CA-1.json": "7d5d768fbec4dd855c9ac634b9643e83ec78a77dfcebbc652bf7cc2bb1501c09",
+    "DEV-CA-1.npz": "ccf568fa419461f3d00a98fe273cc22d28ad3878ea965e4f16994899a99bc860",
+    "DEV-CA-1_features.json": "30e458c6fa5e5d345507a78c3ff3e775f2741034884a2b4e33fb479aaeefa956",
+    "DEV-CA-1_features.npz": "9e91d69fdb591c0e80438ec4da699de569f27d942597577478241f2090d94c74",
+    "DEV-CA-1_report.md": "72f7754e264ff24c9ec32b90b7ea0263bb10fa935cb141fdc7e0f0c80a159d62"
+  },
+  "evidence_level": "development evidence (engineering); no biological, novelty, superiority or state claim"
+}

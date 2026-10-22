@@ -24,6 +24,7 @@ Each directory holds harness code, frozen-protocol references, results files and
 | [`c1_feasibility/`](c1_feasibility/) | C1 feasibility checks (RAS switch labels): terms, counts, label definitions | Public metadata only (no coordinates) | [`docs/C1_FEASIBILITY_CHECKS_2026-10-13.md`](../../docs/C1_FEASIBILITY_CHECKS_2026-10-13.md) | Blocked on label-data terms; SW1 two-class feasible on counts |
 | [`cmp1/`](cmp1/) | CMP-1 bounded competitive evaluation (V2b vs MDTraj 1.11.2, MDAnalysis 2.10.0) | Development + SYNTHETIC_tiled | [`REPORT.md`](cmp1/REPORT.md) | No decisive advantage under frozen criteria; V2b integration not supported |
 | [`bq3/`](bq3/) | BQ-3 direct-P2 qualification | SYNTHETIC_tiled (performance-only) | [`REPORT_SYNTHETIC_P2.md`](bq3/REPORT_SYNTHETIC_P2.md), [`README.md`](bq3/README.md) | Preflight stop (first attempt); direct run: prepared-database operation qualified, first query did not meet 10 s (excludes input loading) |
+| [`dev_ca_pipeline/`](dev_ca_pipeline/) | DEV-CA-1 Cα pipeline development exercise (adapter → κ/τ → reports) | Third-party MD (CC BY 4.0), local AdK | [`README.md`](dev_ca_pipeline/README.md) | Development evidence: all 15 pre-specified checks pass; engineering only |
 
 Large or third-party inputs that are not in Git, and how to retrieve or regenerate them: [`../../docs/CHECKPOINT_2026-10-13_PROVENANCE.md`](../../docs/CHECKPOINT_2026-10-13_PROVENANCE.md).
 

@@ -1,0 +1,103 @@
+{
+  "schema": "topofold_inputs.features/1",
+  "engineering_note": "Engineering output: geometric descriptors only; no state, pocket or allostery inference.",
+  "run_id": "DEV-CA-1",
+  "units": {
+    "kappa": "radian, [0, pi]",
+    "tau": "radian, (-pi, pi]",
+    "time": "ps"
+  },
+  "definitions": {
+    "kappa[f, i]": "turning angle at residue i from Ca(i-1), Ca(i), Ca(i+1); atoms in kappa_atoms[i]",
+    "tau[f, i]": "dihedral Ca(i-1), Ca(i), Ca(i+1), Ca(i+2) about bond i->i+1; atoms in tau_atoms[i]"
+  },
+  "reason_codes": {
+    "0": "valid",
+    "1": "missing_coordinates",
+    "2": "terminal_or_break",
+    "3": "degenerate_segment",
+    "4": "near_collinear",
+    "5": "run_too_short_for_core",
+    "6": "core_error",
+    "7": "non_finite_core_output"
+  },
+  "shape": {
+    "frames": 751,
+    "residues": 214,
+    "hinges": 213
+  },
+  "counts": {
+    "kappa": {
+      "valid": 159212,
+      "missing_coordinates": 0,
+      "terminal_or_break": 1502,
+      "degenerate_segment": 0,
+      "near_collinear": 0,
+      "run_too_short_for_core": 0,
+      "core_error": 0,
+      "non_finite_core_output": 0
+    },
+    "tau": {
+      "valid": 158461,
+      "missing_coordinates": 0,
+      "terminal_or_break": 1502,
+      "degenerate_segment": 0,
+      "near_collinear": 0,
+      "run_too_short_for_core": 0,
+      "core_error": 0,
+      "non_finite_core_output": 0
+    }
+  },
+  "non_finite_valid_values": 0,
+  "config": {
+    "min_segment_angstrom": 1e-06,
+    "collinear_sin_tol": 1e-06,
+    "core_input_dtype": "float32"
+  },
+  "diagnostics": {
+    "max_float32_rounding_angstrom": 0.0,
+    "core_errors": [],
+    "n_core_errors": 0
+  },
+  "inputs": {
+    "adapter_npz": "DEV-CA-1.npz",
+    "adapter_npz_sha256": "ccf568fa419461f3d00a98fe273cc22d28ad3878ea965e4f16994899a99bc860",
+    "adapter_json": "DEV-CA-1.json",
+    "adapter_json_sha256": "7d5d768fbec4dd855c9ac634b9643e83ec78a77dfcebbc652bf7cc2bb1501c09",
+    "source_files": [
+      {
+        "role": "topology",
+        "path": "/home/artem/TopoFold/benchmarks/audit/adk_feasibility/data/raw/ORADD_open_state.gro",
+        "bytes": 6567118,
+        "sha256": "25c90e78f549d97ed61814950efcdf9b859a0320734bd15bd09003677608a40f"
+      },
+      {
+        "role": "trajectory",
+        "path": "/home/artem/TopoFold/benchmarks/audit/adk_feasibility/data/raw/ORADD_open_state_traj.xtc",
+        "bytes": 780301896,
+        "sha256": "39e77b58ded7279d27b9e331b2ff9e6d39a803183689612856df0aa800a40019"
+      }
+    ]
+  },
+  "provenance": {
+    "features": {
+      "version": "0.1.0",
+      "source_sha256": "c88dee137b5b6999abd189ad86fa5c34d3deb45c78330db2167e0a57022fb416"
+    },
+    "core": {
+      "module": "topofold",
+      "version": "0.8.3",
+      "binary_sha256": "49780093095f27c89bdf234be15e1f5a9bac957d5a9dbf5ae0f93c856ee1590d",
+      "function": "compute_invariants"
+    },
+    "software": {
+      "python": "3.14.4",
+      "numpy": "2.5.3"
+    },
+    "created_utc": "2026-10-22T22:21:02.788105+00:00"
+  },
+  "export": {
+    "npz": "DEV-CA-1_features.npz",
+    "npz_sha256": "9e91d69fdb591c0e80438ec4da699de569f27d942597577478241f2090d94c74"
+  }
+}
