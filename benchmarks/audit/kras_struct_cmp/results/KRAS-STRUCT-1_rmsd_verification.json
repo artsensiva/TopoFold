@@ -1,0 +1,201 @@
+{
+ "id": "KRAS-STRUCT-1 RMSD verification",
+ "self_test": {
+  "recovers_rotation": true,
+  "mirror_rmsd_positive": true,
+  "det_R_on_mirror_case": 0.9999999999999994
+ },
+ "policies": {
+  "blank_then_A": {
+   "n_ca": 168,
+   "rmsd_A": 0.7176579379706376,
+   "deviation_quantiles_A": {
+    "0.5": 0.2627220279046828,
+    "0.75": 0.4615506885905336,
+    "0.9": 0.7410422079181611,
+    "0.95": 1.6019882062063824,
+    "1.0": 3.700746667213217
+   },
+   "n_deviation_gt_1A": 10,
+   "largest_deviations": [
+    {
+     "resid": 107,
+     "resname": "GLU",
+     "dev_A": 3.700746667213217
+    },
+    {
+     "resid": 106,
+     "resname": "SER",
+     "dev_A": 3.53574192198659
+    },
+    {
+     "resid": 35,
+     "resname": "THR",
+     "dev_A": 2.813482647716582
+    },
+    {
+     "resid": 34,
+     "resname": "PRO",
+     "dev_A": 2.7342517053374125
+    },
+    {
+     "resid": 105,
+     "resname": "ASP",
+     "dev_A": 2.355795964896809
+    },
+    {
+     "resid": 33,
+     "resname": "ASP",
+     "dev_A": 2.212974477861097
+    },
+    {
+     "resid": 29,
+     "resname": "VAL",
+     "dev_A": 2.162432613011861
+    },
+    {
+     "resid": 36,
+     "resname": "ILE",
+     "dev_A": 1.9231896354596159
+    },
+    {
+     "resid": 30,
+     "resname": "ASP",
+     "dev_A": 1.8787837851423932
+    },
+    {
+     "resid": 1,
+     "resname": "MET",
+     "dev_A": 1.0879392738966354
+    },
+    {
+     "resid": 61,
+     "resname": "GLN",
+     "dev_A": 0.9278556212527143
+    },
+    {
+     "resid": 108,
+     "resname": "ASP",
+     "dev_A": 0.8921227957405492
+    }
+   ],
+   "context_iterative_rejection_emulation": {
+    "rmsd_A": 0.2693069806491005,
+    "n_kept": 141,
+    "rejected_resids": [
+     1,
+     2,
+     28,
+     29,
+     30,
+     33,
+     34,
+     35,
+     36,
+     37,
+     38,
+     41,
+     42,
+     44,
+     48,
+     49,
+     60,
+     61,
+     65,
+     66,
+     101,
+     104,
+     105,
+     106,
+     107,
+     108,
+     168
+    ],
+    "status": "illustrative emulation of a documented PyMOL default; not verified against PyMOL"
+   },
+   "pipeline_value_mdanalysis_qcp_A": 0.717657940290446,
+   "abs_difference_vs_pipeline_A": 2.319808456441308e-09
+  },
+  "highest_occupancy": {
+   "n_ca": 168,
+   "rmsd_A": 0.7180167039145751,
+   "deviation_quantiles_A": {
+    "0.5": 0.26284421427284377,
+    "0.75": 0.4620637718906988,
+    "0.9": 0.7406743259231141,
+    "0.95": 1.6015889207000913,
+    "1.0": 3.702055080044881
+   },
+   "n_deviation_gt_1A": 10,
+   "largest_deviations": [
+    {
+     "resid": 107,
+     "resname": "GLU",
+     "dev_A": 3.702055080044881
+    },
+    {
+     "resid": 106,
+     "resname": "SER",
+     "dev_A": 3.548538185793391
+    },
+    {
+     "resid": 35,
+     "resname": "THR",
+     "dev_A": 2.8128954621298607
+    },
+    {
+     "resid": 34,
+     "resname": "PRO",
+     "dev_A": 2.7335341804130784
+    },
+    {
+     "resid": 105,
+     "resname": "ASP",
+     "dev_A": 2.356731062361964
+    },
+    {
+     "resid": 33,
+     "resname": "ASP",
+     "dev_A": 2.2122962147919902
+    },
+    {
+     "resid": 29,
+     "resname": "VAL",
+     "dev_A": 2.162569357222454
+    },
+    {
+     "resid": 36,
+     "resname": "ILE",
+     "dev_A": 1.9225591189918336
+    },
+    {
+     "resid": 30,
+     "resname": "ASP",
+     "dev_A": 1.8785287083022644
+    },
+    {
+     "resid": 1,
+     "resname": "MET",
+     "dev_A": 1.0872721722960426
+    },
+    {
+     "resid": 61,
+     "resname": "GLN",
+     "dev_A": 0.9281801638571081
+    },
+    {
+     "resid": 108,
+     "resname": "ASP",
+     "dev_A": 0.8933218892566837
+    }
+   ]
+  }
+ },
+ "paper": {
+  "statement": "They superimpose with a low RMSD (0.3 \u00c5) and show minor differences in Switch-I and -II conformations (Supplementary Fig. 5e).",
+  "source": "Bonsor et al., Nat Commun 17:1614 (2026), Results; PMC12905138",
+  "definition_given": "none: no atom set, residue range, software or outlier rejection is stated for this value (the article's only atom specification, 'over Calpha atoms', belongs to a different comparison of cryo-EM complexes); Methods name PyMOL for figures only",
+  "referent": "the preceding sentence mentions existing KRAS-G12D-MRTX1133 structures, so 'They' most plausibly means the two new structures but is grammatically ambiguous",
+  "not_inspected": "Supplementary Information PDF (37.2 MB, exceeds the 25 MB download budget); the peer-review file (0.3 MB) was searched and contains no RMSD statement"
+ }
+}

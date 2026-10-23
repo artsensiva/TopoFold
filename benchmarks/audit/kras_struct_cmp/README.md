@@ -66,3 +66,28 @@ metrics agree less; d(i−1, i+2) is blind to the sign of τ. Neither pattern sh
 - The concentration in residues 26–40 and 59–66 agrees in location with the authors' qualitative statement of minor
   Switch-I/II differences. That is a description, not a validation.
 - Unused here: Rascore labels, MD, pocket detection, and inference.
+
+## Closeout: the global RMSD discrepancy (2026-10-23)
+
+Frozen artifacts are unchanged. Independent check: `rmsd_verify.py` uses its own fixed-column PDB reader and a numpy
+SVD/Kabsch fit with the determinant correction, which allows proper rotations only. Its self-test recovers a known
+rotation and returns a proper rotation (det +1) for a mirror image. Output: `results/KRAS-STRUCT-1_rmsd_verification.json`.
+
+- **Verified value:** 0.718 Å over the 168 mapped Cα atoms (chain A, residues 1–168). It matches the MDAnalysis QCP
+  value to within 2 × 10⁻⁹ Å. With highest-occupancy altlocs it is 0.718 Å.
+- **Shape of the deviations** after superposition:
+  - median 0.26 Å; 90th percentile 0.74 Å;
+  - 10 residues deviate by more than 1 Å: 105–107, 29–30, 33–36 and Met1, up to 3.70 Å at Glu107.
+  - A few large deviations therefore dominate the all-atom-set value.
+- **What the paper states:** "They superimpose with a low RMSD (0.3 Å)" (Bonsor et al. 2026, Results).
+  - No atom set, residue range, software or outlier rejection is given for this value. Methods name PyMOL for figures
+    only.
+  - The preceding sentence mentions the existing G12D–MRTX1133 structures, so the referent of "They" is slightly
+    ambiguous.
+  - The 37.2 MB Supplementary Information, which holds the cited Supplementary Fig. 5e, was not inspected because it
+    exceeds the download budget. The peer-review file contains no RMSD statement.
+- **Context only (declared in advance; not a reproduction):** an unverified emulation of PyMOL-style iterative outlier
+  rejection (cutoff 2 × RMSD, 5 cycles) keeps 141 of 168 Cα and gives 0.27 Å.
+  - So a value near 0.3 Å is consistent with reporting after outlier rejection.
+  - The paper does not say this was done, and PyMOL was not run. The discrepancy is recorded as **unreconciled
+    definitions**, not an error in either value.
