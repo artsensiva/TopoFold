@@ -1,0 +1,4606 @@
+{
+ "id": "SYNTHETIC_REPCHAR-1",
+ "label": "SYNTHETIC",
+ "status": "complete",
+ "cells_not_run": [],
+ "freeze_utc": "2026-10-23T14:15:22.621011+00:00",
+ "spec_json_sha256": "6b81e6c7b0491bb7c2f7959ce222d86ae3856261f24e420de383c76d088d0b52",
+ "resources": {
+  "cpu_s": 289.121965,
+  "wall_s": 289.99240589141846,
+  "cap_cpu_s": 900,
+  "mean_cpu_s_per_repetition": 0.016921490158730155
+ },
+ "cells": [
+  {
+   "cell": {
+    "scenario": "S0",
+    "channel": "linear",
+    "phi": 0.0,
+    "cell": 0
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 0,
+    "replica_dependent": 0,
+    "inconclusive": 200
+   },
+   "frequency": {
+    "consistent": 0.0,
+    "replica_dependent": 0.0,
+    "inconclusive": 1.0
+   },
+   "wilson95": {
+    "consistent": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "replica_dependent": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "inconclusive": [
+     0.9811546736227335,
+     1.0
+    ]
+   },
+   "call": {
+    "frequency": 0.0,
+    "wilson95": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "breakdown": {
+     "consistent": 0,
+     "replica_dependent": 0
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 0.04,
+    "iqr": [
+     0.0,
+     0.08
+    ]
+   },
+   "median_ratio_between_within": 1.0026277063091507,
+   "median_pooled": 0.04361846542550057
+  },
+  {
+   "cell": {
+    "scenario": "S0",
+    "channel": "linear",
+    "phi": 0.8,
+    "cell": 1
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 0,
+    "replica_dependent": 0,
+    "inconclusive": 200
+   },
+   "frequency": {
+    "consistent": 0.0,
+    "replica_dependent": 0.0,
+    "inconclusive": 1.0
+   },
+   "wilson95": {
+    "consistent": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "replica_dependent": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "inconclusive": [
+     0.9811546736227335,
+     1.0
+    ]
+   },
+   "call": {
+    "frequency": 0.0,
+    "wilson95": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "breakdown": {
+     "consistent": 0,
+     "replica_dependent": 0
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 0.04,
+    "iqr": [
+     0.0,
+     0.08
+    ]
+   },
+   "median_ratio_between_within": 0.9857170398401748,
+   "median_pooled": 0.06571566098440669
+  },
+  {
+   "cell": {
+    "scenario": "S0",
+    "channel": "linear",
+    "phi": 0.95,
+    "cell": 2
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 0,
+    "replica_dependent": 0,
+    "inconclusive": 200
+   },
+   "frequency": {
+    "consistent": 0.0,
+    "replica_dependent": 0.0,
+    "inconclusive": 1.0
+   },
+   "wilson95": {
+    "consistent": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "replica_dependent": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "inconclusive": [
+     0.9811546736227335,
+     1.0
+    ]
+   },
+   "call": {
+    "frequency": 0.0,
+    "wilson95": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "breakdown": {
+     "consistent": 0,
+     "replica_dependent": 0
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 0.04,
+    "iqr": [
+     0.0,
+     0.08
+    ]
+   },
+   "median_ratio_between_within": 0.982178600080522,
+   "median_pooled": 0.11524680350692354
+  },
+  {
+   "cell": {
+    "scenario": "S0",
+    "channel": "circular",
+    "phi": 0.0,
+    "cell": 3
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 0,
+    "replica_dependent": 0,
+    "inconclusive": 200
+   },
+   "frequency": {
+    "consistent": 0.0,
+    "replica_dependent": 0.0,
+    "inconclusive": 1.0
+   },
+   "wilson95": {
+    "consistent": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "replica_dependent": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "inconclusive": [
+     0.9811546736227335,
+     1.0
+    ]
+   },
+   "call": {
+    "frequency": 0.0,
+    "wilson95": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "breakdown": {
+     "consistent": 0,
+     "replica_dependent": 0
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 0.04,
+    "iqr": [
+     0.0,
+     0.08
+    ]
+   },
+   "median_ratio_between_within": 0.9933186966916856,
+   "median_pooled": 0.047637805674582104
+  },
+  {
+   "cell": {
+    "scenario": "S0",
+    "channel": "circular",
+    "phi": 0.8,
+    "cell": 4
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 0,
+    "replica_dependent": 0,
+    "inconclusive": 200
+   },
+   "frequency": {
+    "consistent": 0.0,
+    "replica_dependent": 0.0,
+    "inconclusive": 1.0
+   },
+   "wilson95": {
+    "consistent": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "replica_dependent": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "inconclusive": [
+     0.9811546736227335,
+     1.0
+    ]
+   },
+   "call": {
+    "frequency": 0.0,
+    "wilson95": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "breakdown": {
+     "consistent": 0,
+     "replica_dependent": 0
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 0.04,
+    "iqr": [
+     0.0,
+     0.08
+    ]
+   },
+   "median_ratio_between_within": 0.9916312642480594,
+   "median_pooled": 0.06611666075744066
+  },
+  {
+   "cell": {
+    "scenario": "S0",
+    "channel": "circular",
+    "phi": 0.95,
+    "cell": 5
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 0,
+    "replica_dependent": 0,
+    "inconclusive": 200
+   },
+   "frequency": {
+    "consistent": 0.0,
+    "replica_dependent": 0.0,
+    "inconclusive": 1.0
+   },
+   "wilson95": {
+    "consistent": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "replica_dependent": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "inconclusive": [
+     0.9811546736227335,
+     1.0
+    ]
+   },
+   "call": {
+    "frequency": 0.0,
+    "wilson95": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "breakdown": {
+     "consistent": 0,
+     "replica_dependent": 0
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 0.04,
+    "iqr": [
+     0.0,
+     0.04
+    ]
+   },
+   "median_ratio_between_within": 0.9807850184168797,
+   "median_pooled": 0.11945445825091197
+  },
+  {
+   "cell": {
+    "scenario": "S5",
+    "channel": "linear",
+    "k": 0.25,
+    "phi": 0.0,
+    "cell": 6
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 59,
+    "replica_dependent": 22,
+    "inconclusive": 119
+   },
+   "frequency": {
+    "consistent": 0.295,
+    "replica_dependent": 0.11,
+    "inconclusive": 0.595
+   },
+   "wilson95": {
+    "consistent": [
+     0.23613943856849148,
+     0.36158714524618774
+    ],
+    "replica_dependent": [
+     0.07377244460125303,
+     0.1609269099730149
+    ],
+    "inconclusive": [
+     0.525797100813387,
+     0.6606222871749323
+    ]
+   },
+   "call": {
+    "frequency": 0.405,
+    "wilson95": [
+     0.3393777128250677,
+     0.47420289918661307
+    ],
+    "breakdown": {
+     "consistent": 59,
+     "replica_dependent": 22
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 0.5,
+    "iqr": [
+     0.12,
+     1.0
+    ]
+   },
+   "median_ratio_between_within": 1.3947452130436915,
+   "median_pooled": 0.10676951509489963,
+   "s5_realized_offset_diff_sigma": {
+    "call": 0.45880451559039387,
+    "no_call": 0.12241583794470458
+   },
+   "s5_counts_by_call": {
+    "call": 81,
+    "no_call": 119
+   }
+  },
+  {
+   "cell": {
+    "scenario": "S5",
+    "channel": "linear",
+    "k": 0.25,
+    "phi": 0.8,
+    "cell": 7
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 4,
+    "replica_dependent": 14,
+    "inconclusive": 182
+   },
+   "frequency": {
+    "consistent": 0.02,
+    "replica_dependent": 0.07,
+    "inconclusive": 0.91
+   },
+   "wilson95": {
+    "consistent": [
+     0.0078044264163494685,
+     0.050287086905826436
+    ],
+    "replica_dependent": [
+     0.042152171828342806,
+     0.11405480885610647
+    ],
+    "inconclusive": [
+     0.8622342812328346,
+     0.9423125511378069
+    ]
+   },
+   "call": {
+    "frequency": 0.09,
+    "wilson95": [
+     0.05768744886219316,
+     0.13776571876716542
+    ],
+    "breakdown": {
+     "consistent": 4,
+     "replica_dependent": 14
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 0.16,
+    "iqr": [
+     0.04,
+     0.44
+    ]
+   },
+   "median_ratio_between_within": 1.1811797536347437,
+   "median_pooled": 0.11064322698186124,
+   "s5_realized_offset_diff_sigma": {
+    "call": 0.5728542436782593,
+    "no_call": 0.19996641572905274
+   },
+   "s5_counts_by_call": {
+    "call": 18,
+    "no_call": 182
+   }
+  },
+  {
+   "cell": {
+    "scenario": "S5",
+    "channel": "linear",
+    "k": 0.25,
+    "phi": 0.95,
+    "cell": 8
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 0,
+    "replica_dependent": 3,
+    "inconclusive": 197
+   },
+   "frequency": {
+    "consistent": 0.0,
+    "replica_dependent": 0.015,
+    "inconclusive": 0.985
+   },
+   "wilson95": {
+    "consistent": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "replica_dependent": [
+     0.00511423779325831,
+     0.04316572879269026
+    ],
+    "inconclusive": [
+     0.9568342712073097,
+     0.9948857622067417
+    ]
+   },
+   "call": {
+    "frequency": 0.015,
+    "wilson95": [
+     0.00511423779325831,
+     0.04316572879269026
+    ],
+    "breakdown": {
+     "consistent": 0,
+     "replica_dependent": 3
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 0.08,
+    "iqr": [
+     0.0,
+     0.16
+    ]
+   },
+   "median_ratio_between_within": 1.046451949796193,
+   "median_pooled": 0.14235203726810935,
+   "s5_realized_offset_diff_sigma": {
+    "call": 0.6690208190319372,
+    "no_call": 0.21411108763556777
+   },
+   "s5_counts_by_call": {
+    "call": 3,
+    "no_call": 197
+   }
+  },
+  {
+   "cell": {
+    "scenario": "S5",
+    "channel": "linear",
+    "k": 0.5,
+    "phi": 0.0,
+    "cell": 9
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 123,
+    "replica_dependent": 15,
+    "inconclusive": 62
+   },
+   "frequency": {
+    "consistent": 0.615,
+    "replica_dependent": 0.075,
+    "inconclusive": 0.31
+   },
+   "wilson95": {
+    "consistent": [
+     0.5459986722024608,
+     0.6796669027307678
+    ],
+    "replica_dependent": [
+     0.04597491718438201,
+     0.12004361023629456
+    ],
+    "inconclusive": [
+     0.2499894483607809,
+     0.37717177566258037
+    ]
+   },
+   "call": {
+    "frequency": 0.69,
+    "wilson95": [
+     0.6228282243374195,
+     0.750010551639219
+    ],
+    "breakdown": {
+     "consistent": 123,
+     "replica_dependent": 15
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 1.0,
+    "iqr": [
+     0.66,
+     1.0
+    ]
+   },
+   "median_ratio_between_within": 2.294194956709255,
+   "median_pooled": 0.21231965801273867,
+   "s5_realized_offset_diff_sigma": {
+    "call": 0.686214896753206,
+    "no_call": 0.14681337790320115
+   },
+   "s5_counts_by_call": {
+    "call": 138,
+    "no_call": 62
+   }
+  },
+  {
+   "cell": {
+    "scenario": "S5",
+    "channel": "linear",
+    "k": 0.5,
+    "phi": 0.8,
+    "cell": 10
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 44,
+    "replica_dependent": 27,
+    "inconclusive": 129
+   },
+   "frequency": {
+    "consistent": 0.22,
+    "replica_dependent": 0.135,
+    "inconclusive": 0.645
+   },
+   "wilson95": {
+    "consistent": [
+     0.16816538358833258,
+     0.28238799918293667
+    ],
+    "replica_dependent": [
+     0.09446570454787906,
+     0.18929138370752552
+    ],
+    "inconclusive": [
+     0.5765211307549043,
+     0.7080137245956883
+    ]
+   },
+   "call": {
+    "frequency": 0.355,
+    "wilson95": [
+     0.2919862754043116,
+     0.42347886924509565
+    ],
+    "breakdown": {
+     "consistent": 44,
+     "replica_dependent": 27
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 0.52,
+    "iqr": [
+     0.12,
+     0.96
+    ]
+   },
+   "median_ratio_between_within": 1.5155057388714397,
+   "median_pooled": 0.17583121015350672,
+   "s5_realized_offset_diff_sigma": {
+    "call": 0.8242381676674865,
+    "no_call": 0.2749882374867254
+   },
+   "s5_counts_by_call": {
+    "call": 71,
+    "no_call": 129
+   }
+  },
+  {
+   "cell": {
+    "scenario": "S5",
+    "channel": "linear",
+    "k": 0.5,
+    "phi": 0.95,
+    "cell": 11
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 8,
+    "replica_dependent": 13,
+    "inconclusive": 179
+   },
+   "frequency": {
+    "consistent": 0.04,
+    "replica_dependent": 0.065,
+    "inconclusive": 0.895
+   },
+   "wilson95": {
+    "consistent": [
+     0.020405632066152306,
+     0.07693206820093293
+    ],
+    "replica_dependent": [
+     0.03837635464915299,
+     0.10801907929906895
+    ],
+    "inconclusive": [
+     0.8448196800887696,
+     0.9302925120731899
+    ]
+   },
+   "call": {
+    "frequency": 0.105,
+    "wilson95": [
+     0.06970748792681017,
+     0.1551803199112304
+    ],
+    "breakdown": {
+     "consistent": 8,
+     "replica_dependent": 13
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 0.16,
+    "iqr": [
+     0.04,
+     0.44
+    ]
+   },
+   "median_ratio_between_within": 1.2624938690711407,
+   "median_pooled": 0.2344938946213347,
+   "s5_realized_offset_diff_sigma": {
+    "call": 1.2382913502352673,
+    "no_call": 0.4750229834756646
+   },
+   "s5_counts_by_call": {
+    "call": 21,
+    "no_call": 179
+   }
+  },
+  {
+   "cell": {
+    "scenario": "S1",
+    "channel": "linear",
+    "delta": 0.1,
+    "phi": 0.0,
+    "cell": 12
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 0,
+    "replica_dependent": 1,
+    "inconclusive": 199
+   },
+   "frequency": {
+    "consistent": 0.0,
+    "replica_dependent": 0.005,
+    "inconclusive": 0.995
+   },
+   "wilson95": {
+    "consistent": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "replica_dependent": [
+     0.0008831687156009814,
+     0.02777370439789293
+    ],
+    "inconclusive": [
+     0.9722262956021069,
+     0.9991168312843989
+    ]
+   },
+   "call": {
+    "frequency": 0.005,
+    "wilson95": [
+     0.0008831687156009814,
+     0.02777370439789293
+    ],
+    "breakdown": {
+     "consistent": 0,
+     "replica_dependent": 1
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 0.08,
+    "iqr": [
+     0.04,
+     0.16
+    ]
+   },
+   "median_ratio_between_within": 1.0802873312975727,
+   "median_pooled": 0.0604939733512212
+  },
+  {
+   "cell": {
+    "scenario": "S1",
+    "channel": "linear",
+    "delta": 0.1,
+    "phi": 0.8,
+    "cell": 13
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 0,
+    "replica_dependent": 0,
+    "inconclusive": 200
+   },
+   "frequency": {
+    "consistent": 0.0,
+    "replica_dependent": 0.0,
+    "inconclusive": 1.0
+   },
+   "wilson95": {
+    "consistent": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "replica_dependent": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "inconclusive": [
+     0.9811546736227335,
+     1.0
+    ]
+   },
+   "call": {
+    "frequency": 0.0,
+    "wilson95": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "breakdown": {
+     "consistent": 0,
+     "replica_dependent": 0
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 0.04,
+    "iqr": [
+     0.0,
+     0.08
+    ]
+   },
+   "median_ratio_between_within": 1.0182406397778268,
+   "median_pooled": 0.07426168946581435
+  },
+  {
+   "cell": {
+    "scenario": "S1",
+    "channel": "linear",
+    "delta": 0.1,
+    "phi": 0.95,
+    "cell": 14
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 0,
+    "replica_dependent": 0,
+    "inconclusive": 200
+   },
+   "frequency": {
+    "consistent": 0.0,
+    "replica_dependent": 0.0,
+    "inconclusive": 1.0
+   },
+   "wilson95": {
+    "consistent": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "replica_dependent": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "inconclusive": [
+     0.9811546736227335,
+     1.0
+    ]
+   },
+   "call": {
+    "frequency": 0.0,
+    "wilson95": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "breakdown": {
+     "consistent": 0,
+     "replica_dependent": 0
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 0.04,
+    "iqr": [
+     0.0,
+     0.08
+    ]
+   },
+   "median_ratio_between_within": 0.9889514839142479,
+   "median_pooled": 0.11689930109947587
+  },
+  {
+   "cell": {
+    "scenario": "S1",
+    "channel": "linear",
+    "delta": 0.25,
+    "phi": 0.0,
+    "cell": 15
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 6,
+    "replica_dependent": 33,
+    "inconclusive": 161
+   },
+   "frequency": {
+    "consistent": 0.03,
+    "replica_dependent": 0.165,
+    "inconclusive": 0.805
+   },
+   "wilson95": {
+    "consistent": [
+     0.013820314340111346,
+     0.06389429245451925
+    ],
+    "replica_dependent": [
+     0.11996855328217307,
+     0.2226578153905955
+    ],
+    "inconclusive": [
+     0.7445595562538726,
+     0.8539447946559949
+    ]
+   },
+   "call": {
+    "frequency": 0.195,
+    "wilson95": [
+     0.1460552053440051,
+     0.25544044374612745
+    ],
+    "breakdown": {
+     "consistent": 6,
+     "replica_dependent": 33
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 0.64,
+    "iqr": [
+     0.48,
+     0.76
+    ]
+   },
+   "median_ratio_between_within": 1.4633809246288931,
+   "median_pooled": 0.11197256451421075
+  },
+  {
+   "cell": {
+    "scenario": "S1",
+    "channel": "linear",
+    "delta": 0.25,
+    "phi": 0.8,
+    "cell": 16
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 2,
+    "replica_dependent": 1,
+    "inconclusive": 197
+   },
+   "frequency": {
+    "consistent": 0.01,
+    "replica_dependent": 0.005,
+    "inconclusive": 0.985
+   },
+   "wilson95": {
+    "consistent": [
+     0.0027466581335444384,
+     0.0357217617161768
+    ],
+    "replica_dependent": [
+     0.0008831687156009814,
+     0.02777370439789293
+    ],
+    "inconclusive": [
+     0.9568342712073097,
+     0.9948857622067417
+    ]
+   },
+   "call": {
+    "frequency": 0.015,
+    "wilson95": [
+     0.00511423779325831,
+     0.04316572879269026
+    ],
+    "breakdown": {
+     "consistent": 2,
+     "replica_dependent": 1
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 0.16,
+    "iqr": [
+     0.08,
+     0.32
+    ]
+   },
+   "median_ratio_between_within": 1.1579923875097482,
+   "median_pooled": 0.11767690708682407
+  },
+  {
+   "cell": {
+    "scenario": "S1",
+    "channel": "linear",
+    "delta": 0.25,
+    "phi": 0.95,
+    "cell": 17
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 0,
+    "replica_dependent": 0,
+    "inconclusive": 200
+   },
+   "frequency": {
+    "consistent": 0.0,
+    "replica_dependent": 0.0,
+    "inconclusive": 1.0
+   },
+   "wilson95": {
+    "consistent": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "replica_dependent": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "inconclusive": [
+     0.9811546736227335,
+     1.0
+    ]
+   },
+   "call": {
+    "frequency": 0.0,
+    "wilson95": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "breakdown": {
+     "consistent": 0,
+     "replica_dependent": 0
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 0.04,
+    "iqr": [
+     0.0,
+     0.16
+    ]
+   },
+   "median_ratio_between_within": 1.0484098056025224,
+   "median_pooled": 0.15311457815593366
+  },
+  {
+   "cell": {
+    "scenario": "S1",
+    "channel": "linear",
+    "delta": 0.5,
+    "phi": 0.0,
+    "cell": 18
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 197,
+    "replica_dependent": 3,
+    "inconclusive": 0
+   },
+   "frequency": {
+    "consistent": 0.985,
+    "replica_dependent": 0.015,
+    "inconclusive": 0.0
+   },
+   "wilson95": {
+    "consistent": [
+     0.9568342712073097,
+     0.9948857622067417
+    ],
+    "replica_dependent": [
+     0.00511423779325831,
+     0.04316572879269026
+    ],
+    "inconclusive": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ]
+   },
+   "call": {
+    "frequency": 1.0,
+    "wilson95": [
+     0.9811546736227335,
+     1.0
+    ],
+    "breakdown": {
+     "consistent": 197,
+     "replica_dependent": 3
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 1.0,
+    "iqr": [
+     1.0,
+     1.0
+    ]
+   },
+   "median_ratio_between_within": 2.3963816978986037,
+   "median_pooled": 0.2099742683950538
+  },
+  {
+   "cell": {
+    "scenario": "S1",
+    "channel": "linear",
+    "delta": 0.5,
+    "phi": 0.8,
+    "cell": 19
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 9,
+    "replica_dependent": 52,
+    "inconclusive": 139
+   },
+   "frequency": {
+    "consistent": 0.045,
+    "replica_dependent": 0.26,
+    "inconclusive": 0.695
+   },
+   "wilson95": {
+    "consistent": [
+     0.023852543001492997,
+     0.0832967040018196
+    ],
+    "replica_dependent": [
+     0.20413830063574687,
+     0.32490745602534116
+    ],
+    "inconclusive": [
+     0.6280144790202163,
+     0.7546358436926496
+    ]
+   },
+   "call": {
+    "frequency": 0.305,
+    "wilson95": [
+     0.24536415630735034,
+     0.37198552097978366
+    ],
+    "breakdown": {
+     "consistent": 9,
+     "replica_dependent": 52
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 0.6,
+    "iqr": [
+     0.44,
+     0.77
+    ]
+   },
+   "median_ratio_between_within": 1.7287261758125243,
+   "median_pooled": 0.2120573627013116
+  },
+  {
+   "cell": {
+    "scenario": "S1",
+    "channel": "linear",
+    "delta": 0.5,
+    "phi": 0.95,
+    "cell": 20
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 0,
+    "replica_dependent": 2,
+    "inconclusive": 198
+   },
+   "frequency": {
+    "consistent": 0.0,
+    "replica_dependent": 0.01,
+    "inconclusive": 0.99
+   },
+   "wilson95": {
+    "consistent": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "replica_dependent": [
+     0.0027466581335444384,
+     0.0357217617161768
+    ],
+    "inconclusive": [
+     0.9642782382838231,
+     0.9972533418664555
+    ]
+   },
+   "call": {
+    "frequency": 0.01,
+    "wilson95": [
+     0.0027466581335444384,
+     0.0357217617161768
+    ],
+    "breakdown": {
+     "consistent": 0,
+     "replica_dependent": 2
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 0.16,
+    "iqr": [
+     0.08,
+     0.29000000000000004
+    ]
+   },
+   "median_ratio_between_within": 1.2320755933556975,
+   "median_pooled": 0.2273104221162317
+  },
+  {
+   "cell": {
+    "scenario": "S1",
+    "channel": "linear",
+    "delta": 1.0,
+    "phi": 0.0,
+    "cell": 21
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 200,
+    "replica_dependent": 0,
+    "inconclusive": 0
+   },
+   "frequency": {
+    "consistent": 1.0,
+    "replica_dependent": 0.0,
+    "inconclusive": 0.0
+   },
+   "wilson95": {
+    "consistent": [
+     0.9811546736227335,
+     1.0
+    ],
+    "replica_dependent": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "inconclusive": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ]
+   },
+   "call": {
+    "frequency": 1.0,
+    "wilson95": [
+     0.9811546736227335,
+     1.0
+    ],
+    "breakdown": {
+     "consistent": 200,
+     "replica_dependent": 0
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 1.0,
+    "iqr": [
+     1.0,
+     1.0
+    ]
+   },
+   "median_ratio_between_within": 4.3766618485973225,
+   "median_pooled": 0.39597180568373436
+  },
+  {
+   "cell": {
+    "scenario": "S1",
+    "channel": "linear",
+    "delta": 1.0,
+    "phi": 0.8,
+    "cell": 22
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 154,
+    "replica_dependent": 42,
+    "inconclusive": 4
+   },
+   "frequency": {
+    "consistent": 0.77,
+    "replica_dependent": 0.21,
+    "inconclusive": 0.02
+   },
+   "wilson95": {
+    "consistent": [
+     0.7069169563469642,
+     0.8229065674093119
+    ],
+    "replica_dependent": [
+     0.15928412069979,
+     0.2716461685990246
+    ],
+    "inconclusive": [
+     0.0078044264163494685,
+     0.050287086905826436
+    ]
+   },
+   "call": {
+    "frequency": 0.98,
+    "wilson95": [
+     0.9497129130941735,
+     0.9921955735836505
+    ],
+    "breakdown": {
+     "consistent": 154,
+     "replica_dependent": 42
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 1.0,
+    "iqr": [
+     1.0,
+     1.0
+    ]
+   },
+   "median_ratio_between_within": 2.9672504572831344,
+   "median_pooled": 0.39487012677938077
+  },
+  {
+   "cell": {
+    "scenario": "S1",
+    "channel": "linear",
+    "delta": 1.0,
+    "phi": 0.95,
+    "cell": 23
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 15,
+    "replica_dependent": 49,
+    "inconclusive": 136
+   },
+   "frequency": {
+    "consistent": 0.075,
+    "replica_dependent": 0.245,
+    "inconclusive": 0.68
+   },
+   "wilson95": {
+    "consistent": [
+     0.04597491718438201,
+     0.12004361023629456
+    ],
+    "replica_dependent": [
+     0.1905686808903718,
+     0.30904243556203415
+    ],
+    "inconclusive": [
+     0.6124810156588646,
+     0.7407346668453195
+    ]
+   },
+   "call": {
+    "frequency": 0.32,
+    "wilson95": [
+     0.25926533315468053,
+     0.38751898434113546
+    ],
+    "breakdown": {
+     "consistent": 15,
+     "replica_dependent": 49
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 0.6,
+    "iqr": [
+     0.44,
+     0.8
+    ]
+   },
+   "median_ratio_between_within": 1.8519845677481273,
+   "median_pooled": 0.40085924661753314
+  },
+  {
+   "cell": {
+    "scenario": "S1",
+    "channel": "linear",
+    "delta": 2.0,
+    "phi": 0.0,
+    "cell": 24
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 200,
+    "replica_dependent": 0,
+    "inconclusive": 0
+   },
+   "frequency": {
+    "consistent": 1.0,
+    "replica_dependent": 0.0,
+    "inconclusive": 0.0
+   },
+   "wilson95": {
+    "consistent": [
+     0.9811546736227335,
+     1.0
+    ],
+    "replica_dependent": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "inconclusive": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ]
+   },
+   "call": {
+    "frequency": 1.0,
+    "wilson95": [
+     0.9811546736227335,
+     1.0
+    ],
+    "breakdown": {
+     "consistent": 200,
+     "replica_dependent": 0
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 1.0,
+    "iqr": [
+     1.0,
+     1.0
+    ]
+   },
+   "median_ratio_between_within": 7.39457173450696,
+   "median_pooled": 0.6885077595337837
+  },
+  {
+   "cell": {
+    "scenario": "S1",
+    "channel": "linear",
+    "delta": 2.0,
+    "phi": 0.8,
+    "cell": 25
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 200,
+    "replica_dependent": 0,
+    "inconclusive": 0
+   },
+   "frequency": {
+    "consistent": 1.0,
+    "replica_dependent": 0.0,
+    "inconclusive": 0.0
+   },
+   "wilson95": {
+    "consistent": [
+     0.9811546736227335,
+     1.0
+    ],
+    "replica_dependent": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "inconclusive": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ]
+   },
+   "call": {
+    "frequency": 1.0,
+    "wilson95": [
+     0.9811546736227335,
+     1.0
+    ],
+    "breakdown": {
+     "consistent": 200,
+     "replica_dependent": 0
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 1.0,
+    "iqr": [
+     1.0,
+     1.0
+    ]
+   },
+   "median_ratio_between_within": 5.1726316966282475,
+   "median_pooled": 0.6915036999546014
+  },
+  {
+   "cell": {
+    "scenario": "S1",
+    "channel": "linear",
+    "delta": 2.0,
+    "phi": 0.95,
+    "cell": 26
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 155,
+    "replica_dependent": 42,
+    "inconclusive": 3
+   },
+   "frequency": {
+    "consistent": 0.775,
+    "replica_dependent": 0.21,
+    "inconclusive": 0.015
+   },
+   "wilson95": {
+    "consistent": [
+     0.7122587676433947,
+     0.8273763028491088
+    ],
+    "replica_dependent": [
+     0.15928412069979,
+     0.2716461685990246
+    ],
+    "inconclusive": [
+     0.00511423779325831,
+     0.04316572879269026
+    ]
+   },
+   "call": {
+    "frequency": 0.985,
+    "wilson95": [
+     0.9568342712073097,
+     0.9948857622067417
+    ],
+    "breakdown": {
+     "consistent": 155,
+     "replica_dependent": 42
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 1.0,
+    "iqr": [
+     1.0,
+     1.0
+    ]
+   },
+   "median_ratio_between_within": 2.989634098351929,
+   "median_pooled": 0.6901568809344698
+  },
+  {
+   "cell": {
+    "scenario": "S1",
+    "channel": "circular",
+    "delta": 0.1,
+    "phi": 0.0,
+    "cell": 27
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 0,
+    "replica_dependent": 0,
+    "inconclusive": 200
+   },
+   "frequency": {
+    "consistent": 0.0,
+    "replica_dependent": 0.0,
+    "inconclusive": 1.0
+   },
+   "wilson95": {
+    "consistent": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "replica_dependent": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "inconclusive": [
+     0.9811546736227335,
+     1.0
+    ]
+   },
+   "call": {
+    "frequency": 0.0,
+    "wilson95": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "breakdown": {
+     "consistent": 0,
+     "replica_dependent": 0
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 0.08,
+    "iqr": [
+     0.0,
+     0.16
+    ]
+   },
+   "median_ratio_between_within": 1.0594574519679696,
+   "median_pooled": 0.062412671327025035
+  },
+  {
+   "cell": {
+    "scenario": "S1",
+    "channel": "circular",
+    "delta": 0.1,
+    "phi": 0.8,
+    "cell": 28
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 0,
+    "replica_dependent": 0,
+    "inconclusive": 200
+   },
+   "frequency": {
+    "consistent": 0.0,
+    "replica_dependent": 0.0,
+    "inconclusive": 1.0
+   },
+   "wilson95": {
+    "consistent": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "replica_dependent": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "inconclusive": [
+     0.9811546736227335,
+     1.0
+    ]
+   },
+   "call": {
+    "frequency": 0.0,
+    "wilson95": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "breakdown": {
+     "consistent": 0,
+     "replica_dependent": 0
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 0.04,
+    "iqr": [
+     0.0,
+     0.08
+    ]
+   },
+   "median_ratio_between_within": 1.0254668057629526,
+   "median_pooled": 0.07447413423859316
+  },
+  {
+   "cell": {
+    "scenario": "S1",
+    "channel": "circular",
+    "delta": 0.1,
+    "phi": 0.95,
+    "cell": 29
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 0,
+    "replica_dependent": 0,
+    "inconclusive": 200
+   },
+   "frequency": {
+    "consistent": 0.0,
+    "replica_dependent": 0.0,
+    "inconclusive": 1.0
+   },
+   "wilson95": {
+    "consistent": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "replica_dependent": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "inconclusive": [
+     0.9811546736227335,
+     1.0
+    ]
+   },
+   "call": {
+    "frequency": 0.0,
+    "wilson95": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "breakdown": {
+     "consistent": 0,
+     "replica_dependent": 0
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 0.04,
+    "iqr": [
+     0.0,
+     0.08
+    ]
+   },
+   "median_ratio_between_within": 0.9963708218072755,
+   "median_pooled": 0.1230534379023001
+  },
+  {
+   "cell": {
+    "scenario": "S1",
+    "channel": "circular",
+    "delta": 0.25,
+    "phi": 0.0,
+    "cell": 30
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 6,
+    "replica_dependent": 28,
+    "inconclusive": 166
+   },
+   "frequency": {
+    "consistent": 0.03,
+    "replica_dependent": 0.14,
+    "inconclusive": 0.83
+   },
+   "wilson95": {
+    "consistent": [
+     0.013820314340111346,
+     0.06389429245451925
+    ],
+    "replica_dependent": [
+     0.09866982633455634,
+     0.1948988086570756
+    ],
+    "inconclusive": [
+     0.7718411637168737,
+     0.8757209208741302
+    ]
+   },
+   "call": {
+    "frequency": 0.17,
+    "wilson95": [
+     0.12427907912586969,
+     0.22815883628312625
+    ],
+    "breakdown": {
+     "consistent": 6,
+     "replica_dependent": 28
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 0.6,
+    "iqr": [
+     0.44,
+     0.76
+    ]
+   },
+   "median_ratio_between_within": 1.438966184527707,
+   "median_pooled": 0.11629570092880336
+  },
+  {
+   "cell": {
+    "scenario": "S1",
+    "channel": "circular",
+    "delta": 0.25,
+    "phi": 0.8,
+    "cell": 31
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 0,
+    "replica_dependent": 4,
+    "inconclusive": 196
+   },
+   "frequency": {
+    "consistent": 0.0,
+    "replica_dependent": 0.02,
+    "inconclusive": 0.98
+   },
+   "wilson95": {
+    "consistent": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "replica_dependent": [
+     0.0078044264163494685,
+     0.050287086905826436
+    ],
+    "inconclusive": [
+     0.9497129130941735,
+     0.9921955735836505
+    ]
+   },
+   "call": {
+    "frequency": 0.02,
+    "wilson95": [
+     0.0078044264163494685,
+     0.050287086905826436
+    ],
+    "breakdown": {
+     "consistent": 0,
+     "replica_dependent": 4
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 0.16,
+    "iqr": [
+     0.08,
+     0.32
+    ]
+   },
+   "median_ratio_between_within": 1.1643373059348228,
+   "median_pooled": 0.11992319874230825
+  },
+  {
+   "cell": {
+    "scenario": "S1",
+    "channel": "circular",
+    "delta": 0.25,
+    "phi": 0.95,
+    "cell": 32
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 0,
+    "replica_dependent": 0,
+    "inconclusive": 200
+   },
+   "frequency": {
+    "consistent": 0.0,
+    "replica_dependent": 0.0,
+    "inconclusive": 1.0
+   },
+   "wilson95": {
+    "consistent": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "replica_dependent": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "inconclusive": [
+     0.9811546736227335,
+     1.0
+    ]
+   },
+   "call": {
+    "frequency": 0.0,
+    "wilson95": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "breakdown": {
+     "consistent": 0,
+     "replica_dependent": 0
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 0.04,
+    "iqr": [
+     0.0,
+     0.12
+    ]
+   },
+   "median_ratio_between_within": 1.036384873583598,
+   "median_pooled": 0.1476372049164108
+  },
+  {
+   "cell": {
+    "scenario": "S1",
+    "channel": "circular",
+    "delta": 0.5,
+    "phi": 0.0,
+    "cell": 33
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 192,
+    "replica_dependent": 7,
+    "inconclusive": 1
+   },
+   "frequency": {
+    "consistent": 0.96,
+    "replica_dependent": 0.035,
+    "inconclusive": 0.005
+   },
+   "wilson95": {
+    "consistent": [
+     0.923067931799067,
+     0.9795943679338476
+    ],
+    "replica_dependent": [
+     0.017055542008567192,
+     0.07047061152229073
+    ],
+    "inconclusive": [
+     0.0008831687156009814,
+     0.02777370439789293
+    ]
+   },
+   "call": {
+    "frequency": 0.995,
+    "wilson95": [
+     0.9722262956021069,
+     0.9991168312843989
+    ],
+    "breakdown": {
+     "consistent": 192,
+     "replica_dependent": 7
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 1.0,
+    "iqr": [
+     1.0,
+     1.0
+    ]
+   },
+   "median_ratio_between_within": 2.2290253338254042,
+   "median_pooled": 0.21204184564898143
+  },
+  {
+   "cell": {
+    "scenario": "S1",
+    "channel": "circular",
+    "delta": 0.5,
+    "phi": 0.8,
+    "cell": 34
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 11,
+    "replica_dependent": 41,
+    "inconclusive": 148
+   },
+   "frequency": {
+    "consistent": 0.055,
+    "replica_dependent": 0.205,
+    "inconclusive": 0.74
+   },
+   "wilson95": {
+    "consistent": [
+     0.03098534170345884,
+     0.0957869987723084
+    ],
+    "replica_dependent": [
+     0.15486176203836208,
+     0.26625698052422514
+    ],
+    "inconclusive": [
+     0.6750925439746589,
+     0.7958616993642531
+    ]
+   },
+   "call": {
+    "frequency": 0.26,
+    "wilson95": [
+     0.20413830063574687,
+     0.32490745602534116
+    ],
+    "breakdown": {
+     "consistent": 11,
+     "replica_dependent": 41
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 0.5800000000000001,
+    "iqr": [
+     0.4,
+     0.77
+    ]
+   },
+   "median_ratio_between_within": 1.642042541344372,
+   "median_pooled": 0.21335197097803446
+  },
+  {
+   "cell": {
+    "scenario": "S1",
+    "channel": "circular",
+    "delta": 0.5,
+    "phi": 0.95,
+    "cell": 35
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 1,
+    "replica_dependent": 2,
+    "inconclusive": 197
+   },
+   "frequency": {
+    "consistent": 0.005,
+    "replica_dependent": 0.01,
+    "inconclusive": 0.985
+   },
+   "wilson95": {
+    "consistent": [
+     0.0008831687156009814,
+     0.02777370439789293
+    ],
+    "replica_dependent": [
+     0.0027466581335444384,
+     0.0357217617161768
+    ],
+    "inconclusive": [
+     0.9568342712073097,
+     0.9948857622067417
+    ]
+   },
+   "call": {
+    "frequency": 0.015,
+    "wilson95": [
+     0.00511423779325831,
+     0.04316572879269026
+    ],
+    "breakdown": {
+     "consistent": 1,
+     "replica_dependent": 2
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 0.16,
+    "iqr": [
+     0.08,
+     0.28
+    ]
+   },
+   "median_ratio_between_within": 1.1770968604125742,
+   "median_pooled": 0.2302702352294762
+  },
+  {
+   "cell": {
+    "scenario": "S1",
+    "channel": "circular",
+    "delta": 1.0,
+    "phi": 0.0,
+    "cell": 36
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 200,
+    "replica_dependent": 0,
+    "inconclusive": 0
+   },
+   "frequency": {
+    "consistent": 1.0,
+    "replica_dependent": 0.0,
+    "inconclusive": 0.0
+   },
+   "wilson95": {
+    "consistent": [
+     0.9811546736227335,
+     1.0
+    ],
+    "replica_dependent": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "inconclusive": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ]
+   },
+   "call": {
+    "frequency": 1.0,
+    "wilson95": [
+     0.9811546736227335,
+     1.0
+    ],
+    "breakdown": {
+     "consistent": 200,
+     "replica_dependent": 0
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 1.0,
+    "iqr": [
+     1.0,
+     1.0
+    ]
+   },
+   "median_ratio_between_within": 3.993349180341902,
+   "median_pooled": 0.39739123779398766
+  },
+  {
+   "cell": {
+    "scenario": "S1",
+    "channel": "circular",
+    "delta": 1.0,
+    "phi": 0.8,
+    "cell": 37
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 171,
+    "replica_dependent": 25,
+    "inconclusive": 4
+   },
+   "frequency": {
+    "consistent": 0.855,
+    "replica_dependent": 0.125,
+    "inconclusive": 0.02
+   },
+   "wilson95": {
+    "consistent": [
+     0.7995133246921847,
+     0.8971064935799559
+    ],
+    "replica_dependent": [
+     0.08611974475712644,
+     0.17801425002582347
+    ],
+    "inconclusive": [
+     0.0078044264163494685,
+     0.050287086905826436
+    ]
+   },
+   "call": {
+    "frequency": 0.98,
+    "wilson95": [
+     0.9497129130941735,
+     0.9921955735836505
+    ],
+    "breakdown": {
+     "consistent": 171,
+     "replica_dependent": 25
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 1.0,
+    "iqr": [
+     1.0,
+     1.0
+    ]
+   },
+   "median_ratio_between_within": 2.893644024834981,
+   "median_pooled": 0.39853284611312845
+  },
+  {
+   "cell": {
+    "scenario": "S1",
+    "channel": "circular",
+    "delta": 1.0,
+    "phi": 0.95,
+    "cell": 38
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 12,
+    "replica_dependent": 43,
+    "inconclusive": 145
+   },
+   "frequency": {
+    "consistent": 0.06,
+    "replica_dependent": 0.215,
+    "inconclusive": 0.725
+   },
+   "wilson95": {
+    "consistent": [
+     0.03465219425433187,
+     0.1019316929576627
+    ],
+    "replica_dependent": [
+     0.1637187625450758,
+     0.27702307348996613
+    ],
+    "inconclusive": [
+     0.6593166064233035,
+     0.7822029967069265
+    ]
+   },
+   "call": {
+    "frequency": 0.275,
+    "wilson95": [
+     0.21779700329307355,
+     0.34068339357669647
+    ],
+    "breakdown": {
+     "consistent": 12,
+     "replica_dependent": 43
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 0.6,
+    "iqr": [
+     0.4,
+     0.77
+    ]
+   },
+   "median_ratio_between_within": 1.8145180599533446,
+   "median_pooled": 0.4058720256667542
+  },
+  {
+   "cell": {
+    "scenario": "S1",
+    "channel": "circular",
+    "delta": 2.0,
+    "phi": 0.0,
+    "cell": 39
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 200,
+    "replica_dependent": 0,
+    "inconclusive": 0
+   },
+   "frequency": {
+    "consistent": 1.0,
+    "replica_dependent": 0.0,
+    "inconclusive": 0.0
+   },
+   "wilson95": {
+    "consistent": [
+     0.9811546736227335,
+     1.0
+    ],
+    "replica_dependent": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "inconclusive": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ]
+   },
+   "call": {
+    "frequency": 1.0,
+    "wilson95": [
+     0.9811546736227335,
+     1.0
+    ],
+    "breakdown": {
+     "consistent": 200,
+     "replica_dependent": 0
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 1.0,
+    "iqr": [
+     1.0,
+     1.0
+    ]
+   },
+   "median_ratio_between_within": 6.882423315588312,
+   "median_pooled": 0.6917665991008191
+  },
+  {
+   "cell": {
+    "scenario": "S1",
+    "channel": "circular",
+    "delta": 2.0,
+    "phi": 0.8,
+    "cell": 40
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 200,
+    "replica_dependent": 0,
+    "inconclusive": 0
+   },
+   "frequency": {
+    "consistent": 1.0,
+    "replica_dependent": 0.0,
+    "inconclusive": 0.0
+   },
+   "wilson95": {
+    "consistent": [
+     0.9811546736227335,
+     1.0
+    ],
+    "replica_dependent": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "inconclusive": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ]
+   },
+   "call": {
+    "frequency": 1.0,
+    "wilson95": [
+     0.9811546736227335,
+     1.0
+    ],
+    "breakdown": {
+     "consistent": 200,
+     "replica_dependent": 0
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 1.0,
+    "iqr": [
+     1.0,
+     1.0
+    ]
+   },
+   "median_ratio_between_within": 4.956032539937865,
+   "median_pooled": 0.6915739659312943
+  },
+  {
+   "cell": {
+    "scenario": "S1",
+    "channel": "circular",
+    "delta": 2.0,
+    "phi": 0.95,
+    "cell": 41
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 152,
+    "replica_dependent": 43,
+    "inconclusive": 5
+   },
+   "frequency": {
+    "consistent": 0.76,
+    "replica_dependent": 0.215,
+    "inconclusive": 0.025
+   },
+   "wilson95": {
+    "consistent": [
+     0.6962665902079583,
+     0.8139338400758631
+    ],
+    "replica_dependent": [
+     0.1637187625450758,
+     0.27702307348996613
+    ],
+    "inconclusive": [
+     0.010724719651761264,
+     0.05717834040664198
+    ]
+   },
+   "call": {
+    "frequency": 0.975,
+    "wilson95": [
+     0.942821659593358,
+     0.9892752803482386
+    ],
+    "breakdown": {
+     "consistent": 152,
+     "replica_dependent": 43
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 1.0,
+    "iqr": [
+     1.0,
+     1.0
+    ]
+   },
+   "median_ratio_between_within": 2.8879483706407143,
+   "median_pooled": 0.694639171403982
+  },
+  {
+   "cell": {
+    "scenario": "S2",
+    "channel": "linear",
+    "rho": 1.25,
+    "phi": 0.0,
+    "cell": 42
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 18,
+    "replica_dependent": 80,
+    "inconclusive": 102
+   },
+   "frequency": {
+    "consistent": 0.09,
+    "replica_dependent": 0.4,
+    "inconclusive": 0.51
+   },
+   "wilson95": {
+    "consistent": [
+     0.05768744886219316,
+     0.13776571876716542
+    ],
+    "replica_dependent": [
+     0.33460578566807336,
+     0.46916327960737997
+    ],
+    "inconclusive": [
+     0.44118587678458643,
+     0.5784372166878682
+    ]
+   },
+   "call": {
+    "frequency": 0.49,
+    "wilson95": [
+     0.42156278331213176,
+     0.5588141232154135
+    ],
+    "breakdown": {
+     "consistent": 18,
+     "replica_dependent": 80
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 0.76,
+    "iqr": [
+     0.64,
+     0.92
+    ]
+   },
+   "median_ratio_between_within": 1.5945442020381604,
+   "median_pooled": 0.13505629314880652
+  },
+  {
+   "cell": {
+    "scenario": "S2",
+    "channel": "linear",
+    "rho": 1.25,
+    "phi": 0.8,
+    "cell": 43
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 0,
+    "replica_dependent": 4,
+    "inconclusive": 196
+   },
+   "frequency": {
+    "consistent": 0.0,
+    "replica_dependent": 0.02,
+    "inconclusive": 0.98
+   },
+   "wilson95": {
+    "consistent": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "replica_dependent": [
+     0.0078044264163494685,
+     0.050287086905826436
+    ],
+    "inconclusive": [
+     0.9497129130941735,
+     0.9921955735836505
+    ]
+   },
+   "call": {
+    "frequency": 0.02,
+    "wilson95": [
+     0.0078044264163494685,
+     0.050287086905826436
+    ],
+    "breakdown": {
+     "consistent": 0,
+     "replica_dependent": 4
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 0.24,
+    "iqr": [
+     0.08,
+     0.4
+    ]
+   },
+   "median_ratio_between_within": 1.3056956077528885,
+   "median_pooled": 0.1414482598809599
+  },
+  {
+   "cell": {
+    "scenario": "S2",
+    "channel": "linear",
+    "rho": 1.25,
+    "phi": 0.95,
+    "cell": 44
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 0,
+    "replica_dependent": 0,
+    "inconclusive": 200
+   },
+   "frequency": {
+    "consistent": 0.0,
+    "replica_dependent": 0.0,
+    "inconclusive": 1.0
+   },
+   "wilson95": {
+    "consistent": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "replica_dependent": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "inconclusive": [
+     0.9811546736227335,
+     1.0
+    ]
+   },
+   "call": {
+    "frequency": 0.0,
+    "wilson95": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "breakdown": {
+     "consistent": 0,
+     "replica_dependent": 0
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 0.04,
+    "iqr": [
+     0.0,
+     0.12
+    ]
+   },
+   "median_ratio_between_within": 1.088352261251738,
+   "median_pooled": 0.1704434144544093
+  },
+  {
+   "cell": {
+    "scenario": "S2",
+    "channel": "linear",
+    "rho": 1.5,
+    "phi": 0.0,
+    "cell": 45
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 197,
+    "replica_dependent": 3,
+    "inconclusive": 0
+   },
+   "frequency": {
+    "consistent": 0.985,
+    "replica_dependent": 0.015,
+    "inconclusive": 0.0
+   },
+   "wilson95": {
+    "consistent": [
+     0.9568342712073097,
+     0.9948857622067417
+    ],
+    "replica_dependent": [
+     0.00511423779325831,
+     0.04316572879269026
+    ],
+    "inconclusive": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ]
+   },
+   "call": {
+    "frequency": 1.0,
+    "wilson95": [
+     0.9811546736227335,
+     1.0
+    ],
+    "breakdown": {
+     "consistent": 197,
+     "replica_dependent": 3
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 1.0,
+    "iqr": [
+     1.0,
+     1.0
+    ]
+   },
+   "median_ratio_between_within": 2.316022009627269,
+   "median_pooled": 0.2281123946442989
+  },
+  {
+   "cell": {
+    "scenario": "S2",
+    "channel": "linear",
+    "rho": 1.5,
+    "phi": 0.8,
+    "cell": 46
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 24,
+    "replica_dependent": 75,
+    "inconclusive": 101
+   },
+   "frequency": {
+    "consistent": 0.12,
+    "replica_dependent": 0.375,
+    "inconclusive": 0.505
+   },
+   "wilson95": {
+    "consistent": [
+     0.08197992706375512,
+     0.17234252098296743
+    ],
+    "replica_dependent": [
+     0.31085436858409826,
+     0.44385696301021843
+    ],
+    "inconclusive": [
+     0.43627000033527485,
+     0.5735415464009526
+    ]
+   },
+   "call": {
+    "frequency": 0.495,
+    "wilson95": [
+     0.4264584535990475,
+     0.5637299996647251
+    ],
+    "breakdown": {
+     "consistent": 24,
+     "replica_dependent": 75
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 0.76,
+    "iqr": [
+     0.55,
+     0.92
+    ]
+   },
+   "median_ratio_between_within": 1.7994272269786218,
+   "median_pooled": 0.23437434524006712
+  },
+  {
+   "cell": {
+    "scenario": "S2",
+    "channel": "linear",
+    "rho": 1.5,
+    "phi": 0.95,
+    "cell": 47
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 1,
+    "replica_dependent": 4,
+    "inconclusive": 195
+   },
+   "frequency": {
+    "consistent": 0.005,
+    "replica_dependent": 0.02,
+    "inconclusive": 0.975
+   },
+   "wilson95": {
+    "consistent": [
+     0.0008831687156009814,
+     0.02777370439789293
+    ],
+    "replica_dependent": [
+     0.0078044264163494685,
+     0.050287086905826436
+    ],
+    "inconclusive": [
+     0.942821659593358,
+     0.9892752803482386
+    ]
+   },
+   "call": {
+    "frequency": 0.025,
+    "wilson95": [
+     0.010724719651761264,
+     0.05717834040664198
+    ],
+    "breakdown": {
+     "consistent": 1,
+     "replica_dependent": 4
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 0.16,
+    "iqr": [
+     0.08,
+     0.32
+    ]
+   },
+   "median_ratio_between_within": 1.352272804619297,
+   "median_pooled": 0.26129682643598057
+  },
+  {
+   "cell": {
+    "scenario": "S2",
+    "channel": "linear",
+    "rho": 2.0,
+    "phi": 0.0,
+    "cell": 48
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 200,
+    "replica_dependent": 0,
+    "inconclusive": 0
+   },
+   "frequency": {
+    "consistent": 1.0,
+    "replica_dependent": 0.0,
+    "inconclusive": 0.0
+   },
+   "wilson95": {
+    "consistent": [
+     0.9811546736227335,
+     1.0
+    ],
+    "replica_dependent": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "inconclusive": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ]
+   },
+   "call": {
+    "frequency": 1.0,
+    "wilson95": [
+     0.9811546736227335,
+     1.0
+    ],
+    "breakdown": {
+     "consistent": 200,
+     "replica_dependent": 0
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 1.0,
+    "iqr": [
+     1.0,
+     1.0
+    ]
+   },
+   "median_ratio_between_within": 3.288653272304105,
+   "median_pooled": 0.36337052858026764
+  },
+  {
+   "cell": {
+    "scenario": "S2",
+    "channel": "linear",
+    "rho": 2.0,
+    "phi": 0.8,
+    "cell": 49
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 186,
+    "replica_dependent": 14,
+    "inconclusive": 0
+   },
+   "frequency": {
+    "consistent": 0.93,
+    "replica_dependent": 0.07,
+    "inconclusive": 0.0
+   },
+   "wilson95": {
+    "consistent": [
+     0.8859451911438936,
+     0.9578478281716571
+    ],
+    "replica_dependent": [
+     0.042152171828342806,
+     0.11405480885610647
+    ],
+    "inconclusive": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ]
+   },
+   "call": {
+    "frequency": 1.0,
+    "wilson95": [
+     0.9811546736227335,
+     1.0
+    ],
+    "breakdown": {
+     "consistent": 186,
+     "replica_dependent": 14
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 1.0,
+    "iqr": [
+     1.0,
+     1.0
+    ]
+   },
+   "median_ratio_between_within": 2.5170038284762173,
+   "median_pooled": 0.3648954384859937
+  },
+  {
+   "cell": {
+    "scenario": "S2",
+    "channel": "linear",
+    "rho": 2.0,
+    "phi": 0.95,
+    "cell": 50
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 4,
+    "replica_dependent": 32,
+    "inconclusive": 164
+   },
+   "frequency": {
+    "consistent": 0.02,
+    "replica_dependent": 0.16,
+    "inconclusive": 0.82
+   },
+   "wilson95": {
+    "consistent": [
+     0.0078044264163494685,
+     0.050287086905826436
+    ],
+    "replica_dependent": [
+     0.1156741203158702,
+     0.21714070162067106
+    ],
+    "inconclusive": [
+     0.7608852497127511,
+     0.8670537414057983
+    ]
+   },
+   "call": {
+    "frequency": 0.18,
+    "wilson95": [
+     0.13294625859420173,
+     0.23911475028724882
+    ],
+    "breakdown": {
+     "consistent": 4,
+     "replica_dependent": 32
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 0.48,
+    "iqr": [
+     0.24,
+     0.68
+    ]
+   },
+   "median_ratio_between_within": 1.6617413725809729,
+   "median_pooled": 0.37872943851683216
+  },
+  {
+   "cell": {
+    "scenario": "S3",
+    "channel": "linear",
+    "w_b": 0.4,
+    "D": 1,
+    "cell": 51
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 0,
+    "replica_dependent": 2,
+    "inconclusive": 198
+   },
+   "frequency": {
+    "consistent": 0.0,
+    "replica_dependent": 0.01,
+    "inconclusive": 0.99
+   },
+   "wilson95": {
+    "consistent": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "replica_dependent": [
+     0.0027466581335444384,
+     0.0357217617161768
+    ],
+    "inconclusive": [
+     0.9642782382838231,
+     0.9972533418664555
+    ]
+   },
+   "call": {
+    "frequency": 0.01,
+    "wilson95": [
+     0.0027466581335444384,
+     0.0357217617161768
+    ],
+    "breakdown": {
+     "consistent": 0,
+     "replica_dependent": 2
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 0.32,
+    "iqr": [
+     0.16,
+     0.45
+    ]
+   },
+   "median_ratio_between_within": 1.2130764235977858,
+   "median_pooled": 0.09699927311432074
+  },
+  {
+   "cell": {
+    "scenario": "S3",
+    "channel": "linear",
+    "w_b": 0.4,
+    "D": 20,
+    "cell": 52
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 0,
+    "replica_dependent": 0,
+    "inconclusive": 200
+   },
+   "frequency": {
+    "consistent": 0.0,
+    "replica_dependent": 0.0,
+    "inconclusive": 1.0
+   },
+   "wilson95": {
+    "consistent": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "replica_dependent": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "inconclusive": [
+     0.9811546736227335,
+     1.0
+    ]
+   },
+   "call": {
+    "frequency": 0.0,
+    "wilson95": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "breakdown": {
+     "consistent": 0,
+     "replica_dependent": 0
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 0.04,
+    "iqr": [
+     0.0,
+     0.08
+    ]
+   },
+   "median_ratio_between_within": 0.9947862380208592,
+   "median_pooled": 0.09896291748003866
+  },
+  {
+   "cell": {
+    "scenario": "S3",
+    "channel": "linear",
+    "w_b": 0.4,
+    "D": 100,
+    "cell": 53
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 0,
+    "replica_dependent": 0,
+    "inconclusive": 200
+   },
+   "frequency": {
+    "consistent": 0.0,
+    "replica_dependent": 0.0,
+    "inconclusive": 1.0
+   },
+   "wilson95": {
+    "consistent": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "replica_dependent": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "inconclusive": [
+     0.9811546736227335,
+     1.0
+    ]
+   },
+   "call": {
+    "frequency": 0.0,
+    "wilson95": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "breakdown": {
+     "consistent": 0,
+     "replica_dependent": 0
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 0.04,
+    "iqr": [
+     0.0,
+     0.08
+    ]
+   },
+   "median_ratio_between_within": 0.9797114942664147,
+   "median_pooled": 0.14014808353700509
+  },
+  {
+   "cell": {
+    "scenario": "S3",
+    "channel": "linear",
+    "w_b": 0.3,
+    "D": 1,
+    "cell": 54
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 113,
+    "replica_dependent": 70,
+    "inconclusive": 17
+   },
+   "frequency": {
+    "consistent": 0.565,
+    "replica_dependent": 0.35,
+    "inconclusive": 0.085
+   },
+   "wilson95": {
+    "consistent": [
+     0.49570736259794607,
+     0.6318427449730093
+    ],
+    "replica_dependent": [
+     0.28728824127358077,
+     0.4183653566395992
+    ],
+    "inconclusive": [
+     0.05374575017747561,
+     0.13189587071565567
+    ]
+   },
+   "call": {
+    "frequency": 0.915,
+    "wilson95": [
+     0.8681041292843443,
+     0.9462542498225244
+    ],
+    "breakdown": {
+     "consistent": 113,
+     "replica_dependent": 70
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 1.0,
+    "iqr": [
+     0.92,
+     1.0
+    ]
+   },
+   "median_ratio_between_within": 1.7368194942388109,
+   "median_pooled": 0.1768989890322345
+  },
+  {
+   "cell": {
+    "scenario": "S3",
+    "channel": "linear",
+    "w_b": 0.3,
+    "D": 20,
+    "cell": 55
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 0,
+    "replica_dependent": 3,
+    "inconclusive": 197
+   },
+   "frequency": {
+    "consistent": 0.0,
+    "replica_dependent": 0.015,
+    "inconclusive": 0.985
+   },
+   "wilson95": {
+    "consistent": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "replica_dependent": [
+     0.00511423779325831,
+     0.04316572879269026
+    ],
+    "inconclusive": [
+     0.9568342712073097,
+     0.9948857622067417
+    ]
+   },
+   "call": {
+    "frequency": 0.015,
+    "wilson95": [
+     0.00511423779325831,
+     0.04316572879269026
+    ],
+    "breakdown": {
+     "consistent": 0,
+     "replica_dependent": 3
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 0.16,
+    "iqr": [
+     0.08,
+     0.28
+    ]
+   },
+   "median_ratio_between_within": 1.2440285555813837,
+   "median_pooled": 0.18587852039366537
+  },
+  {
+   "cell": {
+    "scenario": "S3",
+    "channel": "linear",
+    "w_b": 0.3,
+    "D": 100,
+    "cell": 56
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 0,
+    "replica_dependent": 2,
+    "inconclusive": 198
+   },
+   "frequency": {
+    "consistent": 0.0,
+    "replica_dependent": 0.01,
+    "inconclusive": 0.99
+   },
+   "wilson95": {
+    "consistent": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "replica_dependent": [
+     0.0027466581335444384,
+     0.0357217617161768
+    ],
+    "inconclusive": [
+     0.9642782382838231,
+     0.9972533418664555
+    ]
+   },
+   "call": {
+    "frequency": 0.01,
+    "wilson95": [
+     0.0027466581335444384,
+     0.0357217617161768
+    ],
+    "breakdown": {
+     "consistent": 0,
+     "replica_dependent": 2
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 0.04,
+    "iqr": [
+     0.0,
+     0.12
+    ]
+   },
+   "median_ratio_between_within": 1.0548908483893946,
+   "median_pooled": 0.20214504680312034
+  },
+  {
+   "cell": {
+    "scenario": "S3",
+    "channel": "linear",
+    "w_b": 0.1,
+    "D": 1,
+    "cell": 57
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 200,
+    "replica_dependent": 0,
+    "inconclusive": 0
+   },
+   "frequency": {
+    "consistent": 1.0,
+    "replica_dependent": 0.0,
+    "inconclusive": 0.0
+   },
+   "wilson95": {
+    "consistent": [
+     0.9811546736227335,
+     1.0
+    ],
+    "replica_dependent": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "inconclusive": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ]
+   },
+   "call": {
+    "frequency": 1.0,
+    "wilson95": [
+     0.9811546736227335,
+     1.0
+    ],
+    "breakdown": {
+     "consistent": 200,
+     "replica_dependent": 0
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 1.0,
+    "iqr": [
+     1.0,
+     1.0
+    ]
+   },
+   "median_ratio_between_within": 3.3074519609680504,
+   "median_pooled": 0.37103569165962336
+  },
+  {
+   "cell": {
+    "scenario": "S3",
+    "channel": "linear",
+    "w_b": 0.1,
+    "D": 20,
+    "cell": 58
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 21,
+    "replica_dependent": 53,
+    "inconclusive": 126
+   },
+   "frequency": {
+    "consistent": 0.105,
+    "replica_dependent": 0.265,
+    "inconclusive": 0.63
+   },
+   "wilson95": {
+    "consistent": [
+     0.06970748792681017,
+     0.1551803199112304
+    ],
+    "replica_dependent": [
+     0.2086815414710911,
+     0.3301757619262242
+    ],
+    "inconclusive": [
+     0.5612262992405018,
+     0.6938739159014088
+    ]
+   },
+   "call": {
+    "frequency": 0.37,
+    "wilson95": [
+     0.30612608409859116,
+     0.4387737007594981
+    ],
+    "breakdown": {
+     "consistent": 21,
+     "replica_dependent": 53
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 0.64,
+    "iqr": [
+     0.4,
+     0.81
+    ]
+   },
+   "median_ratio_between_within": 2.347626290846323,
+   "median_pooled": 0.37825359342394493
+  },
+  {
+   "cell": {
+    "scenario": "S3",
+    "channel": "linear",
+    "w_b": 0.1,
+    "D": 100,
+    "cell": 59
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 4,
+    "replica_dependent": 23,
+    "inconclusive": 173
+   },
+   "frequency": {
+    "consistent": 0.02,
+    "replica_dependent": 0.115,
+    "inconclusive": 0.865
+   },
+   "wilson95": {
+    "consistent": [
+     0.0078044264163494685,
+     0.050287086905826436
+    ],
+    "replica_dependent": [
+     0.07786373232561955,
+     0.16664716898487572
+    ],
+    "inconclusive": [
+     0.8107086162924745,
+     0.9055342954521209
+    ]
+   },
+   "call": {
+    "frequency": 0.135,
+    "wilson95": [
+     0.09446570454787906,
+     0.18929138370752552
+    ],
+    "breakdown": {
+     "consistent": 4,
+     "replica_dependent": 23
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 0.16,
+    "iqr": [
+     0.08,
+     0.32
+    ]
+   },
+   "median_ratio_between_within": 1.6313823752313283,
+   "median_pooled": 0.37062005234183093
+  },
+  {
+   "cell": {
+    "scenario": "S4a",
+    "channel": "linear",
+    "delta": 0.0,
+    "phi": 0.0,
+    "cell": 60
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 0,
+    "replica_dependent": 0,
+    "inconclusive": 200
+   },
+   "frequency": {
+    "consistent": 0.0,
+    "replica_dependent": 0.0,
+    "inconclusive": 1.0
+   },
+   "wilson95": {
+    "consistent": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "replica_dependent": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "inconclusive": [
+     0.9811546736227335,
+     1.0
+    ]
+   },
+   "call": {
+    "frequency": 0.0,
+    "wilson95": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "breakdown": {
+     "consistent": 0,
+     "replica_dependent": 0
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 0.04,
+    "iqr": [
+     0.0,
+     0.08
+    ]
+   },
+   "median_ratio_between_within": 0.9836841978055875,
+   "median_pooled": 0.19457426750393236
+  },
+  {
+   "cell": {
+    "scenario": "S4a",
+    "channel": "linear",
+    "delta": 0.0,
+    "phi": 0.8,
+    "cell": 61
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 0,
+    "replica_dependent": 0,
+    "inconclusive": 200
+   },
+   "frequency": {
+    "consistent": 0.0,
+    "replica_dependent": 0.0,
+    "inconclusive": 1.0
+   },
+   "wilson95": {
+    "consistent": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "replica_dependent": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "inconclusive": [
+     0.9811546736227335,
+     1.0
+    ]
+   },
+   "call": {
+    "frequency": 0.0,
+    "wilson95": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "breakdown": {
+     "consistent": 0,
+     "replica_dependent": 0
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 0.04,
+    "iqr": [
+     0.0,
+     0.08
+    ]
+   },
+   "median_ratio_between_within": 1.0038143012424425,
+   "median_pooled": 0.1982159292079163
+  },
+  {
+   "cell": {
+    "scenario": "S4a",
+    "channel": "linear",
+    "delta": 0.0,
+    "phi": 0.95,
+    "cell": 62
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 0,
+    "replica_dependent": 0,
+    "inconclusive": 200
+   },
+   "frequency": {
+    "consistent": 0.0,
+    "replica_dependent": 0.0,
+    "inconclusive": 1.0
+   },
+   "wilson95": {
+    "consistent": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "replica_dependent": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "inconclusive": [
+     0.9811546736227335,
+     1.0
+    ]
+   },
+   "call": {
+    "frequency": 0.0,
+    "wilson95": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "breakdown": {
+     "consistent": 0,
+     "replica_dependent": 0
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 0.04,
+    "iqr": [
+     0.0,
+     0.08
+    ]
+   },
+   "median_ratio_between_within": 1.0027132666083158,
+   "median_pooled": 0.22389701897630077
+  },
+  {
+   "cell": {
+    "scenario": "S4a",
+    "channel": "linear",
+    "delta": 1.0,
+    "phi": 0.0,
+    "cell": 63
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 0,
+    "replica_dependent": 200,
+    "inconclusive": 0
+   },
+   "frequency": {
+    "consistent": 0.0,
+    "replica_dependent": 1.0,
+    "inconclusive": 0.0
+   },
+   "wilson95": {
+    "consistent": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "replica_dependent": [
+     0.9811546736227335,
+     1.0
+    ],
+    "inconclusive": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ]
+   },
+   "call": {
+    "frequency": 1.0,
+    "wilson95": [
+     0.9811546736227335,
+     1.0
+    ],
+    "breakdown": {
+     "consistent": 0,
+     "replica_dependent": 200
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 0.0,
+    "iqr": [
+     0.0,
+     0.0
+    ]
+   },
+   "median_ratio_between_within": 4.044757904138065,
+   "median_pooled": 0.2800778472094587
+  },
+  {
+   "cell": {
+    "scenario": "S4a",
+    "channel": "linear",
+    "delta": 1.0,
+    "phi": 0.8,
+    "cell": 64
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 0,
+    "replica_dependent": 170,
+    "inconclusive": 30
+   },
+   "frequency": {
+    "consistent": 0.0,
+    "replica_dependent": 0.85,
+    "inconclusive": 0.15
+   },
+   "wilson95": {
+    "consistent": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "replica_dependent": [
+     0.7939442071583334,
+     0.89286406437758
+    ],
+    "inconclusive": [
+     0.10713593562241995,
+     0.20605579284166659
+    ]
+   },
+   "call": {
+    "frequency": 0.85,
+    "wilson95": [
+     0.7939442071583334,
+     0.89286406437758
+    ],
+    "breakdown": {
+     "consistent": 0,
+     "replica_dependent": 170
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 0.0,
+    "iqr": [
+     0.0,
+     0.0
+    ]
+   },
+   "median_ratio_between_within": 2.6984252056779034,
+   "median_pooled": 0.2791020024372205
+  },
+  {
+   "cell": {
+    "scenario": "S4a",
+    "channel": "linear",
+    "delta": 1.0,
+    "phi": 0.95,
+    "cell": 65
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 0,
+    "replica_dependent": 18,
+    "inconclusive": 182
+   },
+   "frequency": {
+    "consistent": 0.0,
+    "replica_dependent": 0.09,
+    "inconclusive": 0.91
+   },
+   "wilson95": {
+    "consistent": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "replica_dependent": [
+     0.05768744886219316,
+     0.13776571876716542
+    ],
+    "inconclusive": [
+     0.8622342812328346,
+     0.9423125511378069
+    ]
+   },
+   "call": {
+    "frequency": 0.09,
+    "wilson95": [
+     0.05768744886219316,
+     0.13776571876716542
+    ],
+    "breakdown": {
+     "consistent": 0,
+     "replica_dependent": 18
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 0.0,
+    "iqr": [
+     0.0,
+     0.0
+    ]
+   },
+   "median_ratio_between_within": 1.637229502976394,
+   "median_pooled": 0.30041467161101104
+  },
+  {
+   "cell": {
+    "scenario": "S4b",
+    "channel": "linear",
+    "k": 0.25,
+    "delta": 0.0,
+    "phi": 0.0,
+    "cell": 66
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 0,
+    "replica_dependent": 1,
+    "inconclusive": 199
+   },
+   "frequency": {
+    "consistent": 0.0,
+    "replica_dependent": 0.005,
+    "inconclusive": 0.995
+   },
+   "wilson95": {
+    "consistent": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "replica_dependent": [
+     0.0008831687156009814,
+     0.02777370439789293
+    ],
+    "inconclusive": [
+     0.9722262956021069,
+     0.9991168312843989
+    ]
+   },
+   "call": {
+    "frequency": 0.005,
+    "wilson95": [
+     0.0008831687156009814,
+     0.02777370439789293
+    ],
+    "breakdown": {
+     "consistent": 0,
+     "replica_dependent": 1
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 0.04,
+    "iqr": [
+     0.0,
+     0.08
+    ]
+   },
+   "median_ratio_between_within": 0.9638181425065842,
+   "median_pooled": 0.06858528558749838
+  },
+  {
+   "cell": {
+    "scenario": "S4b",
+    "channel": "linear",
+    "k": 0.25,
+    "delta": 0.0,
+    "phi": 0.8,
+    "cell": 67
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 0,
+    "replica_dependent": 0,
+    "inconclusive": 200
+   },
+   "frequency": {
+    "consistent": 0.0,
+    "replica_dependent": 0.0,
+    "inconclusive": 1.0
+   },
+   "wilson95": {
+    "consistent": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "replica_dependent": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "inconclusive": [
+     0.9811546736227335,
+     1.0
+    ]
+   },
+   "call": {
+    "frequency": 0.0,
+    "wilson95": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "breakdown": {
+     "consistent": 0,
+     "replica_dependent": 0
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 0.04,
+    "iqr": [
+     0.0,
+     0.04
+    ]
+   },
+   "median_ratio_between_within": 0.9934615637752109,
+   "median_pooled": 0.08648569240462803
+  },
+  {
+   "cell": {
+    "scenario": "S4b",
+    "channel": "linear",
+    "k": 0.25,
+    "delta": 0.0,
+    "phi": 0.95,
+    "cell": 68
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 0,
+    "replica_dependent": 0,
+    "inconclusive": 200
+   },
+   "frequency": {
+    "consistent": 0.0,
+    "replica_dependent": 0.0,
+    "inconclusive": 1.0
+   },
+   "wilson95": {
+    "consistent": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "replica_dependent": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "inconclusive": [
+     0.9811546736227335,
+     1.0
+    ]
+   },
+   "call": {
+    "frequency": 0.0,
+    "wilson95": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "breakdown": {
+     "consistent": 0,
+     "replica_dependent": 0
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 0.04,
+    "iqr": [
+     0.0,
+     0.08
+    ]
+   },
+   "median_ratio_between_within": 0.9783277390735645,
+   "median_pooled": 0.12011340368519566
+  },
+  {
+   "cell": {
+    "scenario": "S4b",
+    "channel": "linear",
+    "k": 0.25,
+    "delta": 1.0,
+    "phi": 0.0,
+    "cell": 69
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 36,
+    "replica_dependent": 80,
+    "inconclusive": 84
+   },
+   "frequency": {
+    "consistent": 0.18,
+    "replica_dependent": 0.4,
+    "inconclusive": 0.42
+   },
+   "wilson95": {
+    "consistent": [
+     0.13294625859420173,
+     0.23911475028724882
+    ],
+    "replica_dependent": [
+     0.33460578566807336,
+     0.46916327960737997
+    ],
+    "inconclusive": [
+     0.35373599161616726,
+     0.4892792606041954
+    ]
+   },
+   "call": {
+    "frequency": 0.58,
+    "wilson95": [
+     0.5107207393958046,
+     0.6462640083838327
+    ],
+    "breakdown": {
+     "consistent": 36,
+     "replica_dependent": 80
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 0.76,
+    "iqr": [
+     0.56,
+     0.92
+    ]
+   },
+   "median_ratio_between_within": 2.7996017506876676,
+   "median_pooled": 0.38202919071802066
+  },
+  {
+   "cell": {
+    "scenario": "S4b",
+    "channel": "linear",
+    "k": 0.25,
+    "delta": 1.0,
+    "phi": 0.8,
+    "cell": 70
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 20,
+    "replica_dependent": 66,
+    "inconclusive": 114
+   },
+   "frequency": {
+    "consistent": 0.1,
+    "replica_dependent": 0.33,
+    "inconclusive": 0.57
+   },
+   "wilson95": {
+    "consistent": [
+     0.06567044866909588,
+     0.1494058124327174
+    ],
+    "replica_dependent": [
+     0.26857425870603957,
+     0.39783315226223115
+    ],
+    "inconclusive": [
+     0.5007048776415268,
+     0.6366567766656557
+    ]
+   },
+   "call": {
+    "frequency": 0.43,
+    "wilson95": [
+     0.36334322333434416,
+     0.4992951223584731
+    ],
+    "breakdown": {
+     "consistent": 20,
+     "replica_dependent": 66
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 0.64,
+    "iqr": [
+     0.48,
+     0.88
+    ]
+   },
+   "median_ratio_between_within": 2.3727934685695242,
+   "median_pooled": 0.3886462611513946
+  },
+  {
+   "cell": {
+    "scenario": "S4b",
+    "channel": "linear",
+    "k": 0.25,
+    "delta": 1.0,
+    "phi": 0.95,
+    "cell": 71
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 4,
+    "replica_dependent": 25,
+    "inconclusive": 171
+   },
+   "frequency": {
+    "consistent": 0.02,
+    "replica_dependent": 0.125,
+    "inconclusive": 0.855
+   },
+   "wilson95": {
+    "consistent": [
+     0.0078044264163494685,
+     0.050287086905826436
+    ],
+    "replica_dependent": [
+     0.08611974475712644,
+     0.17801425002582347
+    ],
+    "inconclusive": [
+     0.7995133246921847,
+     0.8971064935799559
+    ]
+   },
+   "call": {
+    "frequency": 0.145,
+    "wilson95": [
+     0.10289350642004402,
+     0.20048667530781522
+    ],
+    "breakdown": {
+     "consistent": 4,
+     "replica_dependent": 25
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 0.36,
+    "iqr": [
+     0.24,
+     0.64
+    ]
+   },
+   "median_ratio_between_within": 1.6962262272393134,
+   "median_pooled": 0.39731463483479657
+  },
+  {
+   "cell": {
+    "scenario": "S4b",
+    "channel": "linear",
+    "k": 0.5,
+    "delta": 0.0,
+    "phi": 0.0,
+    "cell": 72
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 0,
+    "replica_dependent": 0,
+    "inconclusive": 200
+   },
+   "frequency": {
+    "consistent": 0.0,
+    "replica_dependent": 0.0,
+    "inconclusive": 1.0
+   },
+   "wilson95": {
+    "consistent": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "replica_dependent": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "inconclusive": [
+     0.9811546736227335,
+     1.0
+    ]
+   },
+   "call": {
+    "frequency": 0.0,
+    "wilson95": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "breakdown": {
+     "consistent": 0,
+     "replica_dependent": 0
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 0.04,
+    "iqr": [
+     0.0,
+     0.08
+    ]
+   },
+   "median_ratio_between_within": 0.951406352061306,
+   "median_pooled": 0.10597298364843977
+  },
+  {
+   "cell": {
+    "scenario": "S4b",
+    "channel": "linear",
+    "k": 0.5,
+    "delta": 0.0,
+    "phi": 0.8,
+    "cell": 73
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 0,
+    "replica_dependent": 1,
+    "inconclusive": 199
+   },
+   "frequency": {
+    "consistent": 0.0,
+    "replica_dependent": 0.005,
+    "inconclusive": 0.995
+   },
+   "wilson95": {
+    "consistent": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "replica_dependent": [
+     0.0008831687156009814,
+     0.02777370439789293
+    ],
+    "inconclusive": [
+     0.9722262956021069,
+     0.9991168312843989
+    ]
+   },
+   "call": {
+    "frequency": 0.005,
+    "wilson95": [
+     0.0008831687156009814,
+     0.02777370439789293
+    ],
+    "breakdown": {
+     "consistent": 0,
+     "replica_dependent": 1
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 0.04,
+    "iqr": [
+     0.0,
+     0.08
+    ]
+   },
+   "median_ratio_between_within": 0.9642660725456225,
+   "median_pooled": 0.1212125259877947
+  },
+  {
+   "cell": {
+    "scenario": "S4b",
+    "channel": "linear",
+    "k": 0.5,
+    "delta": 0.0,
+    "phi": 0.95,
+    "cell": 74
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 0,
+    "replica_dependent": 1,
+    "inconclusive": 199
+   },
+   "frequency": {
+    "consistent": 0.0,
+    "replica_dependent": 0.005,
+    "inconclusive": 0.995
+   },
+   "wilson95": {
+    "consistent": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "replica_dependent": [
+     0.0008831687156009814,
+     0.02777370439789293
+    ],
+    "inconclusive": [
+     0.9722262956021069,
+     0.9991168312843989
+    ]
+   },
+   "call": {
+    "frequency": 0.005,
+    "wilson95": [
+     0.0008831687156009814,
+     0.02777370439789293
+    ],
+    "breakdown": {
+     "consistent": 0,
+     "replica_dependent": 1
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 0.04,
+    "iqr": [
+     0.0,
+     0.04
+    ]
+   },
+   "median_ratio_between_within": 0.962487194909843,
+   "median_pooled": 0.1500085053767697
+  },
+  {
+   "cell": {
+    "scenario": "S4b",
+    "channel": "linear",
+    "k": 0.5,
+    "delta": 1.0,
+    "phi": 0.0,
+    "cell": 75
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 4,
+    "replica_dependent": 16,
+    "inconclusive": 180
+   },
+   "frequency": {
+    "consistent": 0.02,
+    "replica_dependent": 0.08,
+    "inconclusive": 0.9
+   },
+   "wilson95": {
+    "consistent": [
+     0.0078044264163494685,
+     0.050287086905826436
+    ],
+    "replica_dependent": [
+     0.049840585889759974,
+     0.12598948826714396
+    ],
+    "inconclusive": [
+     0.8505941875672826,
+     0.9343295513309041
+    ]
+   },
+   "call": {
+    "frequency": 0.1,
+    "wilson95": [
+     0.06567044866909588,
+     0.1494058124327174
+    ],
+    "breakdown": {
+     "consistent": 4,
+     "replica_dependent": 16
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 0.28,
+    "iqr": [
+     0.16,
+     0.48
+    ]
+   },
+   "median_ratio_between_within": 1.7849620756503297,
+   "median_pooled": 0.3689369644765481
+  },
+  {
+   "cell": {
+    "scenario": "S4b",
+    "channel": "linear",
+    "k": 0.5,
+    "delta": 1.0,
+    "phi": 0.8,
+    "cell": 76
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 0,
+    "replica_dependent": 12,
+    "inconclusive": 188
+   },
+   "frequency": {
+    "consistent": 0.0,
+    "replica_dependent": 0.06,
+    "inconclusive": 0.94
+   },
+   "wilson95": {
+    "consistent": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "replica_dependent": [
+     0.03465219425433187,
+     0.1019316929576627
+    ],
+    "inconclusive": [
+     0.8980683070423372,
+     0.9653478057456681
+    ]
+   },
+   "call": {
+    "frequency": 0.06,
+    "wilson95": [
+     0.03465219425433187,
+     0.1019316929576627
+    ],
+    "breakdown": {
+     "consistent": 0,
+     "replica_dependent": 12
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 0.24,
+    "iqr": [
+     0.16,
+     0.4
+    ]
+   },
+   "median_ratio_between_within": 1.660313959423978,
+   "median_pooled": 0.36442142792647003
+  },
+  {
+   "cell": {
+    "scenario": "S4b",
+    "channel": "linear",
+    "k": 0.5,
+    "delta": 1.0,
+    "phi": 0.95,
+    "cell": 77
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 2,
+    "replica_dependent": 10,
+    "inconclusive": 188
+   },
+   "frequency": {
+    "consistent": 0.01,
+    "replica_dependent": 0.05,
+    "inconclusive": 0.94
+   },
+   "wilson95": {
+    "consistent": [
+     0.0027466581335444384,
+     0.0357217617161768
+    ],
+    "replica_dependent": [
+     0.02738264560076393,
+     0.08957814813877599
+    ],
+    "inconclusive": [
+     0.8980683070423372,
+     0.9653478057456681
+    ]
+   },
+   "call": {
+    "frequency": 0.06,
+    "wilson95": [
+     0.03465219425433187,
+     0.1019316929576627
+    ],
+    "breakdown": {
+     "consistent": 2,
+     "replica_dependent": 10
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 0.2,
+    "iqr": [
+     0.08,
+     0.36
+    ]
+   },
+   "median_ratio_between_within": 1.3756851243575,
+   "median_pooled": 0.3605177603015195
+  },
+  {
+   "cell": {
+    "scenario": "S4c",
+    "channel": "linear",
+    "D": 1,
+    "cell": 78
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 0,
+    "replica_dependent": 0,
+    "inconclusive": 200
+   },
+   "frequency": {
+    "consistent": 0.0,
+    "replica_dependent": 0.0,
+    "inconclusive": 1.0
+   },
+   "wilson95": {
+    "consistent": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "replica_dependent": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "inconclusive": [
+     0.9811546736227335,
+     1.0
+    ]
+   },
+   "call": {
+    "frequency": 0.0,
+    "wilson95": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "breakdown": {
+     "consistent": 0,
+     "replica_dependent": 0
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 0.04,
+    "iqr": [
+     0.0,
+     0.08
+    ]
+   },
+   "median_ratio_between_within": 0.99842535324594,
+   "median_pooled": 0.09579787381668872
+  },
+  {
+   "cell": {
+    "scenario": "S4c",
+    "channel": "linear",
+    "D": 20,
+    "cell": 79
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 0,
+    "replica_dependent": 0,
+    "inconclusive": 200
+   },
+   "frequency": {
+    "consistent": 0.0,
+    "replica_dependent": 0.0,
+    "inconclusive": 1.0
+   },
+   "wilson95": {
+    "consistent": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "replica_dependent": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "inconclusive": [
+     0.9811546736227335,
+     1.0
+    ]
+   },
+   "call": {
+    "frequency": 0.0,
+    "wilson95": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "breakdown": {
+     "consistent": 0,
+     "replica_dependent": 0
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 0.04,
+    "iqr": [
+     0.0,
+     0.08
+    ]
+   },
+   "median_ratio_between_within": 0.9973142056853475,
+   "median_pooled": 0.08662474167984231
+  },
+  {
+   "cell": {
+    "scenario": "S4c",
+    "channel": "linear",
+    "D": 100,
+    "cell": 80
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 0,
+    "replica_dependent": 0,
+    "inconclusive": 200
+   },
+   "frequency": {
+    "consistent": 0.0,
+    "replica_dependent": 0.0,
+    "inconclusive": 1.0
+   },
+   "wilson95": {
+    "consistent": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "replica_dependent": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "inconclusive": [
+     0.9811546736227335,
+     1.0
+    ]
+   },
+   "call": {
+    "frequency": 0.0,
+    "wilson95": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ],
+    "breakdown": {
+     "consistent": 0,
+     "replica_dependent": 0
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 0.0,
+    "iqr": [
+     0.0,
+     0.04
+    ]
+   },
+   "median_ratio_between_within": 0.9954679712673391,
+   "median_pooled": 0.04934393395656529
+  },
+  {
+   "cell": {
+    "scenario": "S6",
+    "channel": "linear",
+    "n_rep": 3,
+    "delta": 1.0,
+    "phi": 0.8,
+    "cell": 81
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 186,
+    "replica_dependent": 14,
+    "inconclusive": 0
+   },
+   "frequency": {
+    "consistent": 0.93,
+    "replica_dependent": 0.07,
+    "inconclusive": 0.0
+   },
+   "wilson95": {
+    "consistent": [
+     0.8859451911438936,
+     0.9578478281716571
+    ],
+    "replica_dependent": [
+     0.042152171828342806,
+     0.11405480885610647
+    ],
+    "inconclusive": [
+     1.734723475976807e-18,
+     0.018845326377266575
+    ]
+   },
+   "call": {
+    "frequency": 1.0,
+    "wilson95": [
+     0.9811546736227335,
+     1.0
+    ],
+    "breakdown": {
+     "consistent": 186,
+     "replica_dependent": 14
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 1.0,
+    "iqr": [
+     1.0,
+     1.0
+    ]
+   },
+   "median_ratio_between_within": 3.028756326306188,
+   "median_pooled": 0.4040032954606622
+  },
+  {
+   "cell": {
+    "scenario": "S6",
+    "channel": "linear",
+    "n_rep": 5,
+    "delta": 1.0,
+    "phi": 0.8,
+    "cell": 82
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 162,
+    "replica_dependent": 32,
+    "inconclusive": 6
+   },
+   "frequency": {
+    "consistent": 0.81,
+    "replica_dependent": 0.16,
+    "inconclusive": 0.03
+   },
+   "wilson95": {
+    "consistent": [
+     0.7499876129240015,
+     0.8583282847220932
+    ],
+    "replica_dependent": [
+     0.1156741203158702,
+     0.21714070162067106
+    ],
+    "inconclusive": [
+     0.013820314340111346,
+     0.06389429245451925
+    ]
+   },
+   "call": {
+    "frequency": 0.97,
+    "wilson95": [
+     0.9361057075454807,
+     0.9861796856598887
+    ],
+    "breakdown": {
+     "consistent": 162,
+     "replica_dependent": 32
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 1.0,
+    "iqr": [
+     1.0,
+     1.0
+    ]
+   },
+   "median_ratio_between_within": 3.024541024324439,
+   "median_pooled": 0.39322746282295357
+  },
+  {
+   "cell": {
+    "scenario": "S6",
+    "channel": "linear",
+    "n_rep": 8,
+    "delta": 1.0,
+    "phi": 0.8,
+    "cell": 83
+   },
+   "repetitions": 200,
+   "counts": {
+    "consistent": 102,
+    "replica_dependent": 81,
+    "inconclusive": 17
+   },
+   "frequency": {
+    "consistent": 0.51,
+    "replica_dependent": 0.405,
+    "inconclusive": 0.085
+   },
+   "wilson95": {
+    "consistent": [
+     0.44118587678458643,
+     0.5784372166878682
+    ],
+    "replica_dependent": [
+     0.3393777128250677,
+     0.47420289918661307
+    ],
+    "inconclusive": [
+     0.05374575017747561,
+     0.13189587071565567
+    ]
+   },
+   "call": {
+    "frequency": 0.915,
+    "wilson95": [
+     0.8681041292843443,
+     0.9462542498225244
+    ],
+    "breakdown": {
+     "consistent": 102,
+     "replica_dependent": 81
+    }
+   },
+   "fraction_between_above_max_within": {
+    "median": 1.0,
+    "iqr": [
+     0.953125,
+     1.0
+    ]
+   },
+   "median_ratio_between_within": 2.9828306874420796,
+   "median_pooled": 0.39373510588704075
+  }
+ ]
+}

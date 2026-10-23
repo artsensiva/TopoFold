@@ -1,0 +1,633 @@
+{
+ "id": "SYNTHETIC_REPCHAR-1",
+ "data": "SYNTHETIC only; no real data or real feature arrays",
+ "rule": "topofold_inputs.compare.replica_comparison (as DEV-REP-1)",
+ "fixed": {
+  "n_rep": 5,
+  "n_frames": 387,
+  "bins": 36,
+  "linear": {
+   "mu": 5.5,
+   "sigma": 0.2,
+   "lo": 3.0,
+   "hi": 8.0
+  },
+  "circular": {
+   "mu": 3.141592653589793,
+   "s": 0.3,
+   "origin": -3.141592653589793
+  },
+  "log_base": 2
+ },
+ "seed": {
+  "master": 20261023,
+  "scheme": "default_rng(SeedSequence([master, cell, repetition]))",
+  "draw_order": [
+   "condition offsets (S5: A, B)",
+   "replica offsets (S4b: A0..An-1, B0..Bn-1)",
+   "series A0..An-1, then B0..Bn-1"
+  ]
+ },
+ "repetitions": 200,
+ "budget": {
+  "cpu_seconds": 900,
+  "stop_rule": "before each cell: stop if used + 1.5 x mean CPU per repetition x 200 x (n_rep/5) > cap; cells all-or-nothing; results rewritten after each cell"
+ },
+ "reading_aid": "smallest effect per scenario at which consistent + replica_dependent >= 0.5 (not a criterion)",
+ "cells": [
+  {
+   "scenario": "S0",
+   "channel": "linear",
+   "phi": 0.0,
+   "cell": 0
+  },
+  {
+   "scenario": "S0",
+   "channel": "linear",
+   "phi": 0.8,
+   "cell": 1
+  },
+  {
+   "scenario": "S0",
+   "channel": "linear",
+   "phi": 0.95,
+   "cell": 2
+  },
+  {
+   "scenario": "S0",
+   "channel": "circular",
+   "phi": 0.0,
+   "cell": 3
+  },
+  {
+   "scenario": "S0",
+   "channel": "circular",
+   "phi": 0.8,
+   "cell": 4
+  },
+  {
+   "scenario": "S0",
+   "channel": "circular",
+   "phi": 0.95,
+   "cell": 5
+  },
+  {
+   "scenario": "S5",
+   "channel": "linear",
+   "k": 0.25,
+   "phi": 0.0,
+   "cell": 6
+  },
+  {
+   "scenario": "S5",
+   "channel": "linear",
+   "k": 0.25,
+   "phi": 0.8,
+   "cell": 7
+  },
+  {
+   "scenario": "S5",
+   "channel": "linear",
+   "k": 0.25,
+   "phi": 0.95,
+   "cell": 8
+  },
+  {
+   "scenario": "S5",
+   "channel": "linear",
+   "k": 0.5,
+   "phi": 0.0,
+   "cell": 9
+  },
+  {
+   "scenario": "S5",
+   "channel": "linear",
+   "k": 0.5,
+   "phi": 0.8,
+   "cell": 10
+  },
+  {
+   "scenario": "S5",
+   "channel": "linear",
+   "k": 0.5,
+   "phi": 0.95,
+   "cell": 11
+  },
+  {
+   "scenario": "S1",
+   "channel": "linear",
+   "delta": 0.1,
+   "phi": 0.0,
+   "cell": 12
+  },
+  {
+   "scenario": "S1",
+   "channel": "linear",
+   "delta": 0.1,
+   "phi": 0.8,
+   "cell": 13
+  },
+  {
+   "scenario": "S1",
+   "channel": "linear",
+   "delta": 0.1,
+   "phi": 0.95,
+   "cell": 14
+  },
+  {
+   "scenario": "S1",
+   "channel": "linear",
+   "delta": 0.25,
+   "phi": 0.0,
+   "cell": 15
+  },
+  {
+   "scenario": "S1",
+   "channel": "linear",
+   "delta": 0.25,
+   "phi": 0.8,
+   "cell": 16
+  },
+  {
+   "scenario": "S1",
+   "channel": "linear",
+   "delta": 0.25,
+   "phi": 0.95,
+   "cell": 17
+  },
+  {
+   "scenario": "S1",
+   "channel": "linear",
+   "delta": 0.5,
+   "phi": 0.0,
+   "cell": 18
+  },
+  {
+   "scenario": "S1",
+   "channel": "linear",
+   "delta": 0.5,
+   "phi": 0.8,
+   "cell": 19
+  },
+  {
+   "scenario": "S1",
+   "channel": "linear",
+   "delta": 0.5,
+   "phi": 0.95,
+   "cell": 20
+  },
+  {
+   "scenario": "S1",
+   "channel": "linear",
+   "delta": 1.0,
+   "phi": 0.0,
+   "cell": 21
+  },
+  {
+   "scenario": "S1",
+   "channel": "linear",
+   "delta": 1.0,
+   "phi": 0.8,
+   "cell": 22
+  },
+  {
+   "scenario": "S1",
+   "channel": "linear",
+   "delta": 1.0,
+   "phi": 0.95,
+   "cell": 23
+  },
+  {
+   "scenario": "S1",
+   "channel": "linear",
+   "delta": 2.0,
+   "phi": 0.0,
+   "cell": 24
+  },
+  {
+   "scenario": "S1",
+   "channel": "linear",
+   "delta": 2.0,
+   "phi": 0.8,
+   "cell": 25
+  },
+  {
+   "scenario": "S1",
+   "channel": "linear",
+   "delta": 2.0,
+   "phi": 0.95,
+   "cell": 26
+  },
+  {
+   "scenario": "S1",
+   "channel": "circular",
+   "delta": 0.1,
+   "phi": 0.0,
+   "cell": 27
+  },
+  {
+   "scenario": "S1",
+   "channel": "circular",
+   "delta": 0.1,
+   "phi": 0.8,
+   "cell": 28
+  },
+  {
+   "scenario": "S1",
+   "channel": "circular",
+   "delta": 0.1,
+   "phi": 0.95,
+   "cell": 29
+  },
+  {
+   "scenario": "S1",
+   "channel": "circular",
+   "delta": 0.25,
+   "phi": 0.0,
+   "cell": 30
+  },
+  {
+   "scenario": "S1",
+   "channel": "circular",
+   "delta": 0.25,
+   "phi": 0.8,
+   "cell": 31
+  },
+  {
+   "scenario": "S1",
+   "channel": "circular",
+   "delta": 0.25,
+   "phi": 0.95,
+   "cell": 32
+  },
+  {
+   "scenario": "S1",
+   "channel": "circular",
+   "delta": 0.5,
+   "phi": 0.0,
+   "cell": 33
+  },
+  {
+   "scenario": "S1",
+   "channel": "circular",
+   "delta": 0.5,
+   "phi": 0.8,
+   "cell": 34
+  },
+  {
+   "scenario": "S1",
+   "channel": "circular",
+   "delta": 0.5,
+   "phi": 0.95,
+   "cell": 35
+  },
+  {
+   "scenario": "S1",
+   "channel": "circular",
+   "delta": 1.0,
+   "phi": 0.0,
+   "cell": 36
+  },
+  {
+   "scenario": "S1",
+   "channel": "circular",
+   "delta": 1.0,
+   "phi": 0.8,
+   "cell": 37
+  },
+  {
+   "scenario": "S1",
+   "channel": "circular",
+   "delta": 1.0,
+   "phi": 0.95,
+   "cell": 38
+  },
+  {
+   "scenario": "S1",
+   "channel": "circular",
+   "delta": 2.0,
+   "phi": 0.0,
+   "cell": 39
+  },
+  {
+   "scenario": "S1",
+   "channel": "circular",
+   "delta": 2.0,
+   "phi": 0.8,
+   "cell": 40
+  },
+  {
+   "scenario": "S1",
+   "channel": "circular",
+   "delta": 2.0,
+   "phi": 0.95,
+   "cell": 41
+  },
+  {
+   "scenario": "S2",
+   "channel": "linear",
+   "rho": 1.25,
+   "phi": 0.0,
+   "cell": 42
+  },
+  {
+   "scenario": "S2",
+   "channel": "linear",
+   "rho": 1.25,
+   "phi": 0.8,
+   "cell": 43
+  },
+  {
+   "scenario": "S2",
+   "channel": "linear",
+   "rho": 1.25,
+   "phi": 0.95,
+   "cell": 44
+  },
+  {
+   "scenario": "S2",
+   "channel": "linear",
+   "rho": 1.5,
+   "phi": 0.0,
+   "cell": 45
+  },
+  {
+   "scenario": "S2",
+   "channel": "linear",
+   "rho": 1.5,
+   "phi": 0.8,
+   "cell": 46
+  },
+  {
+   "scenario": "S2",
+   "channel": "linear",
+   "rho": 1.5,
+   "phi": 0.95,
+   "cell": 47
+  },
+  {
+   "scenario": "S2",
+   "channel": "linear",
+   "rho": 2.0,
+   "phi": 0.0,
+   "cell": 48
+  },
+  {
+   "scenario": "S2",
+   "channel": "linear",
+   "rho": 2.0,
+   "phi": 0.8,
+   "cell": 49
+  },
+  {
+   "scenario": "S2",
+   "channel": "linear",
+   "rho": 2.0,
+   "phi": 0.95,
+   "cell": 50
+  },
+  {
+   "scenario": "S3",
+   "channel": "linear",
+   "w_b": 0.4,
+   "D": 1,
+   "cell": 51
+  },
+  {
+   "scenario": "S3",
+   "channel": "linear",
+   "w_b": 0.4,
+   "D": 20,
+   "cell": 52
+  },
+  {
+   "scenario": "S3",
+   "channel": "linear",
+   "w_b": 0.4,
+   "D": 100,
+   "cell": 53
+  },
+  {
+   "scenario": "S3",
+   "channel": "linear",
+   "w_b": 0.3,
+   "D": 1,
+   "cell": 54
+  },
+  {
+   "scenario": "S3",
+   "channel": "linear",
+   "w_b": 0.3,
+   "D": 20,
+   "cell": 55
+  },
+  {
+   "scenario": "S3",
+   "channel": "linear",
+   "w_b": 0.3,
+   "D": 100,
+   "cell": 56
+  },
+  {
+   "scenario": "S3",
+   "channel": "linear",
+   "w_b": 0.1,
+   "D": 1,
+   "cell": 57
+  },
+  {
+   "scenario": "S3",
+   "channel": "linear",
+   "w_b": 0.1,
+   "D": 20,
+   "cell": 58
+  },
+  {
+   "scenario": "S3",
+   "channel": "linear",
+   "w_b": 0.1,
+   "D": 100,
+   "cell": 59
+  },
+  {
+   "scenario": "S4a",
+   "channel": "linear",
+   "delta": 0.0,
+   "phi": 0.0,
+   "cell": 60
+  },
+  {
+   "scenario": "S4a",
+   "channel": "linear",
+   "delta": 0.0,
+   "phi": 0.8,
+   "cell": 61
+  },
+  {
+   "scenario": "S4a",
+   "channel": "linear",
+   "delta": 0.0,
+   "phi": 0.95,
+   "cell": 62
+  },
+  {
+   "scenario": "S4a",
+   "channel": "linear",
+   "delta": 1.0,
+   "phi": 0.0,
+   "cell": 63
+  },
+  {
+   "scenario": "S4a",
+   "channel": "linear",
+   "delta": 1.0,
+   "phi": 0.8,
+   "cell": 64
+  },
+  {
+   "scenario": "S4a",
+   "channel": "linear",
+   "delta": 1.0,
+   "phi": 0.95,
+   "cell": 65
+  },
+  {
+   "scenario": "S4b",
+   "channel": "linear",
+   "k": 0.25,
+   "delta": 0.0,
+   "phi": 0.0,
+   "cell": 66
+  },
+  {
+   "scenario": "S4b",
+   "channel": "linear",
+   "k": 0.25,
+   "delta": 0.0,
+   "phi": 0.8,
+   "cell": 67
+  },
+  {
+   "scenario": "S4b",
+   "channel": "linear",
+   "k": 0.25,
+   "delta": 0.0,
+   "phi": 0.95,
+   "cell": 68
+  },
+  {
+   "scenario": "S4b",
+   "channel": "linear",
+   "k": 0.25,
+   "delta": 1.0,
+   "phi": 0.0,
+   "cell": 69
+  },
+  {
+   "scenario": "S4b",
+   "channel": "linear",
+   "k": 0.25,
+   "delta": 1.0,
+   "phi": 0.8,
+   "cell": 70
+  },
+  {
+   "scenario": "S4b",
+   "channel": "linear",
+   "k": 0.25,
+   "delta": 1.0,
+   "phi": 0.95,
+   "cell": 71
+  },
+  {
+   "scenario": "S4b",
+   "channel": "linear",
+   "k": 0.5,
+   "delta": 0.0,
+   "phi": 0.0,
+   "cell": 72
+  },
+  {
+   "scenario": "S4b",
+   "channel": "linear",
+   "k": 0.5,
+   "delta": 0.0,
+   "phi": 0.8,
+   "cell": 73
+  },
+  {
+   "scenario": "S4b",
+   "channel": "linear",
+   "k": 0.5,
+   "delta": 0.0,
+   "phi": 0.95,
+   "cell": 74
+  },
+  {
+   "scenario": "S4b",
+   "channel": "linear",
+   "k": 0.5,
+   "delta": 1.0,
+   "phi": 0.0,
+   "cell": 75
+  },
+  {
+   "scenario": "S4b",
+   "channel": "linear",
+   "k": 0.5,
+   "delta": 1.0,
+   "phi": 0.8,
+   "cell": 76
+  },
+  {
+   "scenario": "S4b",
+   "channel": "linear",
+   "k": 0.5,
+   "delta": 1.0,
+   "phi": 0.95,
+   "cell": 77
+  },
+  {
+   "scenario": "S4c",
+   "channel": "linear",
+   "D": 1,
+   "cell": 78
+  },
+  {
+   "scenario": "S4c",
+   "channel": "linear",
+   "D": 20,
+   "cell": 79
+  },
+  {
+   "scenario": "S4c",
+   "channel": "linear",
+   "D": 100,
+   "cell": 80
+  },
+  {
+   "scenario": "S6",
+   "channel": "linear",
+   "n_rep": 3,
+   "delta": 1.0,
+   "phi": 0.8,
+   "cell": 81
+  },
+  {
+   "scenario": "S6",
+   "channel": "linear",
+   "n_rep": 5,
+   "delta": 1.0,
+   "phi": 0.8,
+   "cell": 82
+  },
+  {
+   "scenario": "S6",
+   "channel": "linear",
+   "n_rep": 8,
+   "delta": 1.0,
+   "phi": 0.8,
+   "cell": 83
+  }
+ ]
+}

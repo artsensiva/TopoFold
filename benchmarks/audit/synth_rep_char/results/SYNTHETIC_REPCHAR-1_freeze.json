@@ -1,0 +1,12 @@
+{
+  "id": "SYNTHETIC_REPCHAR-1",
+  "frozen_utc": "2026-10-23T14:15:22.621011+00:00",
+  "spec_json_sha256": "6b81e6c7b0491bb7c2f7959ce222d86ae3856261f24e420de383c76d088d0b52",
+  "spec_doc_sha256": "e055fdf6f2ef59ae19e7163fb99ef083e91b31c063d99ac351ea5a0447608f2a",
+  "code_sha256": {
+    "python/topofold_inputs/compare.py": "a7494c6ae1c1813a150572e7f44ee69ebc3190873ba83a3a6be4e438effb3422",
+    "benchmarks/audit/synth_rep_char/synthetic_generators.py": "347c3ca5f7f1ea1fd72b01b094617d54e86802721d4933dfb2b35cf0f3c9751f",
+    "benchmarks/audit/synth_rep_char/run_char.py": "e3809a30ae9f85198efbb3717220227882ff7fc28c9489da33eb4b59b9783287",
+    "tests/test_synthetic_generators.py": "b1fce8916739ffc08926b542f93a45edfc5e26260d47c34b4a466d28edf1def5"
+  }
+}
