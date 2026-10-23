@@ -54,7 +54,7 @@ labels time as INFERRED (the files have no timestamps) and records hashes.
   - PERM-1: near-nominal under identical distributions and more sensitive than the screen.
   - NULLSTRESS-1: it also rejects when only temporal correlation differs, so a rejection means the replica
     histograms differ (geometry and/or dynamics).
-- Not yet evaluated on real data.
+- Not yet evaluated on real data, and not validated for isolating marginal-geometry differences (the real-data design is deferred).
 
 **Run** (repository root):
 

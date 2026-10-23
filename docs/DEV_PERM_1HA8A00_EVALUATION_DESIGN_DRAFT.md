@@ -1,5 +1,13 @@
 # DEV-PERM-1 Real-Data Evaluation Design — DRAFT, not frozen, not scored (2026-10-23)
 
+> **DEFERRED, not scored (notice dated 2026-10-23).**
+> - The replica permutation method (PERM-1) responds to differences in finite-trajectory histogram distributions,
+>   including differences caused solely by temporal correlation (NULLSTRESS-1). It is not validated for isolating
+>   differences in marginal geometry, so this design is deferred.
+> - The descriptive comparison pipeline remains available.
+> - Two statements below were corrected under the same notice: the meaning of a shared starting structure
+>   (assumption 2) and the definition of exchangeability (assumption 1).
+
 **Purpose:** one bounded development evaluation of the PERM-1 replica permutation method on real MD data, with a
 single fixed global statistic, synchronized whole-replica permutations across windows, and descriptive residue maps.
 - **Evidence level:** development evidence on an exposed development domain. It is not confirmatory, not a
@@ -39,11 +47,17 @@ single fixed global statistic, synchronized whole-replica permutations across wi
 
 ## Exchangeability assumptions (explicit)
 
-1. Under H0, the joint distribution of the ten replica-level histogram sets (all windows together) is invariant to
-   permuting replica labels across temperatures. This requires the **same marginal geometry and the same temporal
-   structure** at both temperatures.
-2. All ten replicas share one equilibrated starting configuration across both temperatures. This is symmetric between
-   conditions, but it makes replicas dependent; the probability is conditional on that shared start.
+1. **Exchangeability (definition):** the joint distribution of the quantities entering the statistic, here the ten
+   replica-level histogram sets, is invariant under every permutation of replica labels across the two temperatures.
+   That invariance is what the exact permutation probability requires.
+   - Identical marginal geometry and identical dynamics in independent, identically distributed replicas is one
+     sufficient condition. It is not a universally necessary one.
+   - NULLSTRESS-1 shows that different temporal correlation alone can break it.
+2. **Shared starting configuration:** all ten replicas start from one equilibrated configuration.
+   - With independent stochastic seeds, replicas are conditionally independent given that start. A shared fixed start
+     does not by itself make them dependent.
+   - The limitation is **limited starting-state coverage**: every replica, and every conclusion, is conditional on
+     that one start, and slow components may stay correlated with it within 430 ns.
 3. Frame identity cannot be verified for the HDF5 coordinates, and time is inferred (1 ns per frame). Equal frame
    spacing at both temperatures is assumed.
 4. Replica heterogeneity is assumed to be common to both temperatures. A replica unusual at one temperature only

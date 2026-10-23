@@ -111,9 +111,11 @@ The development programme, evidence levels (A–E) and the current queue are in
     correlation), PERM-1 (exact replica permutation: near-nominal under identical distributions, more sensitive) and
     NULLSTRESS-1 (the permutation also rejects when only temporal correlation differs), in
     [`benchmarks/audit/`](benchmarks/audit/README.md).
-  - **Biological validation:** none yet. ABL remains the preferred route; a real-data permutation evaluation on
-    `1ha8A00` is drafted, not scored
-    ([`docs/DEV_PERM_1HA8A00_EVALUATION_DESIGN_DRAFT.md`](docs/DEV_PERM_1HA8A00_EVALUATION_DESIGN_DRAFT.md)).
+  - **Biological validation:** none yet. ABL remains the preferred route.
+  - The real-data permutation design for `1ha8A00` is **deferred, not scored**
+    ([`docs/DEV_PERM_1HA8A00_EVALUATION_DESIGN_DRAFT.md`](docs/DEV_PERM_1HA8A00_EVALUATION_DESIGN_DRAFT.md)). The
+    permutation method responds to histogram differences caused by temporal correlation alone, so it is not validated
+    for marginal-geometry comparison.
 
 ## What TopoFold does not (yet) do
 
