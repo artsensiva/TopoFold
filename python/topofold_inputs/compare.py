@@ -145,3 +145,57 @@ def compare_channel(x_a: np.ndarray, x_b: np.ndarray, valid_a: np.ndarray, valid
             "fraction_block_between_above_max_within": float(np.mean(np.array(between) > max_within)),
         })
     return out
+
+
+def replica_comparison(hists_a: Sequence[np.ndarray], hists_b: Sequence[np.ndarray]) -> dict[str, Any]:
+    """Replica-level description of one window: condition A replicas vs condition B replicas (one histogram each).
+
+    Pairwise distances share replicas and are therefore dependent; no test is made. Categories (descriptive):
+
+    * ``consistent``: every between-condition replica-pair distance exceeds every within-condition one. Removing a
+      replica cannot break this (the within maximum can only fall and fewer between pairs remain).
+    * ``replica_dependent``: not consistent with all replicas, but consistent once one specific replica is left out
+      (the replica(s) are listed).
+    * ``inconclusive``: neither; no complete separation from replica-to-replica variation at this replica count.
+
+    Also reports the fraction of between pairs above the largest within pair, the JS distance between pooled
+    histograms, and that pooled distance's range over leave-one-replica-out subsets.
+    """
+    A, B = [np.asarray(h) for h in hists_a], [np.asarray(h) for h in hists_b]
+    if len(A) < 2 or len(B) < 2:
+        raise ValueError("at least two replicas per condition")
+
+    def summary(a_idx, b_idx):
+        wa = [js_distance(A[i], A[j]) for k, i in enumerate(a_idx) for j in a_idx[k + 1:]]
+        wb = [js_distance(B[i], B[j]) for k, i in enumerate(b_idx) for j in b_idx[k + 1:]]
+        bt = [js_distance(A[i], B[j]) for i in a_idx for j in b_idx]
+        within = wa + wb
+        mx = max(within)
+        pooled = js_distance(sum(A[i] for i in a_idx), sum(B[j] for j in b_idx))
+        return {"between": bt, "within_a": wa, "within_b": wb, "max_within": mx, "min_between": min(bt),
+                "fraction_between_above_max_within": float(np.mean(np.array(bt) > mx)), "pooled": pooled}
+
+    ia, ib = list(range(len(A))), list(range(len(B)))
+    full = summary(ia, ib)
+    loro = []
+    for side, n in (("a", len(A)), ("b", len(B))):
+        for k in range(n):
+            if (side == "a" and len(A) < 3) or (side == "b" and len(B) < 3):
+                continue  # keep at least two replicas per condition
+            s = summary([i for i in ia if not (side == "a" and i == k)], [j for j in ib if not (side == "b" and j == k)])
+            loro.append({"left_out": f"{side}{k}", "fraction": s["fraction_between_above_max_within"],
+                         "pooled": s["pooled"]})
+    if full["fraction_between_above_max_within"] == 1.0:
+        cat, which = "consistent", []
+    else:
+        which = [r["left_out"] for r in loro if r["fraction"] == 1.0]
+        cat = "replica_dependent" if which else "inconclusive"
+    return {"category": cat, "separating_when_left_out": which,
+            "fraction_between_above_max_within": full["fraction_between_above_max_within"],
+            "min_between": full["min_between"], "max_within": full["max_within"],
+            "median_between": float(np.median(full["between"])),
+            "median_within": float(np.median(full["within_a"] + full["within_b"])),
+            "pooled": full["pooled"],
+            "pooled_loro_range": [min(r["pooled"] for r in loro), max(r["pooled"] for r in loro)] if loro else None,
+            "loro": loro, "pairs": {"between": full["between"], "within_a": full["within_a"],
+                                    "within_b": full["within_b"]}}

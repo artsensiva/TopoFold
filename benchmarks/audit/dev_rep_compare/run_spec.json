@@ -1,0 +1,65 @@
+{
+  "id": "DEV-REP-1",
+  "kind": "replicated descriptive development comparison (development evidence only; no test, no biological claim)",
+  "question": "For mdCATH domain 1ha8A00, which per-window local Calpha geometries differ between 320 K and 348 K beyond replica-to-replica variation within a temperature?",
+  "dataset": {
+    "file": "benchmarks/audit/wpd_local_retrieval/data/mdcath/mdcath_dataset_1ha8A00.h5",
+    "sha256": "e06d8cdb5d8b6fef7e1a5c23df7b95c77972bc6c90c5cdbe7e17404291bcc8cc",
+    "source": "mdCATH (Mirarchi, Giorgino, De Fabritiis, Sci. Data 2024, doi:10.1038/s41597-024-04140-z), pinned revision 5e3ed8aec62b689e01751db16275fdcdbc39e47f; CC BY 4.0",
+    "domain": "1ha8A00", "residues": 51,
+    "conditions": {"320": ["0", "1", "2", "3", "4"], "348": ["0", "1", "2", "3", "4"]},
+    "replica_frames_recorded": {"320": [450, 450, 440, 450, 440], "348": [430, 450, 450, 450, 450]},
+    "replica_independence": "all replicas start from one equilibrated configuration (velocities differ); they measure reproducibility given that start, not independent starting conditions",
+    "exposure_history": [
+      "WP-D schema check (wpd_mdcath_schema_check.json)",
+      "WP-D held-out runner development validation (wpd_heldout_runner_dev_validation.json; 320/0, 320/1, 348/0, 348/1; geometric retrieval)",
+      "EB-1 engineering benchmark workload D2 (320 K, replicas 0 and 1; timing and correctness)",
+      "CMP-1 competitive evaluation workload R3_D2 (Calpha RMSD accuracy and timing)",
+      "No previous per-window distribution comparison between temperatures on this domain",
+      "Not part of the protected WP-D held-out cohort, which is not touched"
+    ]
+  },
+  "sampling": {
+    "common_frame_range": "source frames 0-429 (430 frames; the shortest replica has 430)",
+    "initial_frame_exclusion": "frames 0-42 (first 10 % of the common range, the WP-D/EB-1 burn-in convention), fixed before scoring",
+    "used_frames": {"start": 43, "stop": 430, "step": 1, "per_replica": 387},
+    "time": "files store no timestamps; inferred time = source frame index x 1 ns (dataset paper), labelled INFERRED",
+    "frame_indices": "source frame indices preserved in all outputs"
+  },
+  "pipeline_policies": {"selection": "protein", "altloc": "reject", "pbc": "make_whole_sequential (stored box, nm x 10, applied to all frames)",
+                        "max_ca_ca_angstrom": 4.2, "min_segment_angstrom": 1e-6, "collinear_sin_tol": 1e-6},
+  "channels": {
+    "kappa": {"window": "3 residues (i-1, i, i+1)", "type": "linear", "lo": 0.0, "hi": 3.141592653589793},
+    "d_i_i2": {"window": "3 residues: Calpha(i-1)-Calpha(i+1), equal-information baseline for kappa", "type": "linear", "lo": 3.0, "hi": 8.0},
+    "tau": {"window": "4 residues (i-1..i+2)", "type": "circular", "origin": -3.141592653589793},
+    "d_i_i3": {"window": "4 residues: Calpha(i-1)-Calpha(i+2), equal-information baseline for tau", "type": "linear", "lo": 3.0, "hi": 12.0}
+  },
+  "pairs": [["kappa", "d_i_i2"], ["tau", "d_i_i3"]],
+  "measure": {"name": "Jensen-Shannon distance = sqrt(divergence)", "log_base": 2, "zero_counts": "0 log 0 = 0; no pseudocounts",
+              "out_of_range": "explicit underflow/overflow bins, counts reported", "identical_bins": "all replicas and both temperatures"},
+  "configurations": {"primary": {"bins": 36, "tau_origin_shift_bins": 0.0},
+                     "sensitivity": [{"name": "bins18", "bins": 18, "tau_origin_shift_bins": 0.0},
+                                     {"name": "bins72", "bins": 72, "tau_origin_shift_bins": 0.0},
+                                     {"name": "tau_origin_half_bin", "bins": 36, "tau_origin_shift_bins": 0.5}],
+                     "rule": "primary fixed in advance; sensitivity reported, never used for selection"},
+  "replica_level_analysis": {
+    "unit": "replica (one histogram per replica and window)",
+    "pairs": "within 320: 10; within 348: 10; between: 25. Pairwise distances share replicas and are treated as dependent; no test, no p-value",
+    "categories": {
+      "consistent": "every between-temperature pair distance exceeds every within-temperature pair distance",
+      "replica_dependent": "not consistent with all replicas, but consistent when one specific replica is left out (listed)",
+      "inconclusive": "neither; no complete separation from replica-to-replica variation at 5 replicas per temperature (not evidence of no difference)"
+    },
+    "leave_one_replica_out": "10 subsets (one replica removed from either temperature): category membership and the range of the pooled 320-vs-348 distance",
+    "pooled": "JS distance between pooled 320 K and pooled 348 K histograms, reported separately from replica-pair distances",
+    "matched_observations": "a window enters a channel pair only if every used frame is valid in every replica for both channels"
+  },
+  "physics_notes": [
+    "kappa and the i->i+2 distance are near-deterministic functions of each other when bond lengths are nearly constant",
+    "the i->i+3 distance cannot distinguish tau from -tau",
+    "marginal per-window distributions can miss changes in joint relationships",
+    "320 K vs 348 K is a simulation-condition contrast, not a measured biological endpoint"
+  ],
+  "resource_budget": {"max_total_frames": 3870, "cpu_seconds": 1800, "note": "51-residue domain; engineering budget, not a performance target"},
+  "not_in_scope": ["p-values", "state assignment", "populations or equilibration claims", "biological interpretation", "representation superiority", "combined scores", "protected cohort domains"]
+}

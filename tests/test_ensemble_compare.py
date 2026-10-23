@@ -110,3 +110,26 @@ def test_spearman():
     assert spearman([1, 2, 3, 4], [10, 20, 30, 40]) == pytest.approx(1.0)
     assert spearman([1, 2, 3, 4], [4, 3, 2, 1]) == pytest.approx(-1.0)
     assert spearman([1, 1, 2], [3, 3, 4]) == pytest.approx(1.0)
+
+
+def _h(center, rng, n=400):
+    return linear_hist(rng.normal(center, 0.3, n), 3.0, 8.0, 36)[0]
+
+
+def test_replica_comparison_categories():
+    from topofold_inputs.compare import replica_comparison
+    rng = np.random.default_rng(4)
+    same = replica_comparison([_h(5.0, rng) for _ in range(5)], [_h(5.0, rng) for _ in range(5)])
+    assert same["category"] == "inconclusive"
+    shifted = replica_comparison([_h(4.5, rng) for _ in range(5)], [_h(6.0, rng) for _ in range(5)])
+    assert shifted["category"] == "consistent" and shifted["fraction_between_above_max_within"] == 1.0
+    assert len(shifted["pairs"]["between"]) == 25 and len(shifted["pairs"]["within_a"]) == 10
+    assert len(shifted["loro"]) == 10 and all(r["fraction"] == 1.0 for r in shifted["loro"])
+    # one outlier replica in condition A overlaps condition B: separation depends on leaving it out
+    a = [_h(4.5, rng) for _ in range(4)] + [_h(6.0, rng)]
+    dep = replica_comparison(a, [_h(6.0, rng) for _ in range(5)])
+    assert dep["category"] == "replica_dependent" and dep["separating_when_left_out"] == ["a4"]
+    lo, hi = dep["pooled_loro_range"]
+    assert 0.0 <= lo <= hi <= 1.0
+    with pytest.raises(ValueError):
+        replica_comparison([_h(5.0, rng)], [_h(5.0, rng), _h(5.0, rng)])

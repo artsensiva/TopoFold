@@ -1,0 +1,14 @@
+{
+  "id": "DEV-REP-1",
+  "frozen_utc": "2026-10-23T12:00:11.872850+00:00",
+  "spec_sha256": "d929a2d3272d04a5e99af60f02e74fab5f09174c499a3241a5fd2ace2e614251",
+  "code_sha256": {
+    "python/topofold_inputs/compare.py": "a7494c6ae1c1813a150572e7f44ee69ebc3190873ba83a3a6be4e438effb3422",
+    "python/topofold_inputs/features.py": "9138358ce5040a8dc1e2ff5692e6d3aa77e5334bfb840cc3e8620ca46598271e",
+    "python/topofold_inputs/ca_adapter.py": "0dfd026fae6e549b5fedc151e3c0f2636db83069c295c5a138d129979052bb67",
+    "python/topofold_inputs/mdcath_bridge.py": "0b326fef664867233da6e1724d45ce0eb919c173d23f92afe522b5a2df9749c5",
+    "benchmarks/audit/dev_rep_compare/run_rep.py": "1ab3a581b431868f8f6111d833621a16b12269e87db08d8725204031af7a6c22",
+    "tests/test_ensemble_compare.py": "3f6f9e77e20bf64a296c9248733dcda782bcf713d3e5599f499b8b2981bfb3e3",
+    "tests/test_mdcath_bridge.py": "ed60cb9f2f0300190b21ec6c5a0fec9d5d74ee1bddd67e2abb95678b95c91212"
+  }
+}

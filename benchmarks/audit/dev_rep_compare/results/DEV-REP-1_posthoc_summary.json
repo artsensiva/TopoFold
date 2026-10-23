@@ -1,0 +1,192 @@
+{
+ "posthoc": true,
+ "source": "DEV-REP-1_results.json",
+ "source_sha256": "e7532407fcc292f8257239b73173bf8bfb5d8f155065679e0b09602b1103abcf",
+ "description": "per channel, over windows: fraction of the 25 between-temperature pairs above the largest of the 20 within-temperature pairs; ratio of median between to median within; pooled 320-vs-348 distance and the widest leave-one-replica-out range",
+ "channels": {
+  "kappa": {
+   "windows": 49,
+   "fraction_between_above_max_within": {
+    "median": 0.0,
+    "max": 0.28,
+    "windows_with_zero": 27
+   },
+   "median_between_over_median_within": {
+    "median": 0.9010715959586755,
+    "min": 0.5831461722050894,
+    "max": 1.2738843052279816,
+    "windows_above_1": 15
+   },
+   "pooled": {
+    "median": 0.10839326984770177,
+    "max": 0.25906589816457637
+   },
+   "pooled_loro_span_max": 0.2382542193848301,
+   "highest_fraction_windows": [
+    {
+     "residues": "32-34",
+     "fraction": 0.28,
+     "pooled": 0.19159012059466735
+    },
+    {
+     "residues": "11-13",
+     "fraction": 0.08,
+     "pooled": 0.0821816743690497
+    },
+    {
+     "residues": "15-17",
+     "fraction": 0.08,
+     "pooled": 0.049708114457989616
+    },
+    {
+     "residues": "28-30",
+     "fraction": 0.08,
+     "pooled": 0.20214906557716414
+    },
+    {
+     "residues": "33-35",
+     "fraction": 0.08,
+     "pooled": 0.23914175637077673
+    }
+   ]
+  },
+  "d_i_i2": {
+   "windows": 49,
+   "fraction_between_above_max_within": {
+    "median": 0.0,
+    "max": 0.28,
+    "windows_with_zero": 26
+   },
+   "median_between_over_median_within": {
+    "median": 0.9402465627274053,
+    "min": 0.737571963988315,
+    "max": 1.3189730768245407,
+    "windows_above_1": 15
+   },
+   "pooled": {
+    "median": 0.11575162866622454,
+    "max": 0.26129772952466723
+   },
+   "pooled_loro_span_max": 0.24941123427973438,
+   "highest_fraction_windows": [
+    {
+     "residues": "32-34",
+     "fraction": 0.28,
+     "pooled": 0.19428740794407323
+    },
+    {
+     "residues": "4-6",
+     "fraction": 0.08,
+     "pooled": 0.17919866748338523
+    },
+    {
+     "residues": "11-13",
+     "fraction": 0.08,
+     "pooled": 0.08736644055693278
+    },
+    {
+     "residues": "15-17",
+     "fraction": 0.08,
+     "pooled": 0.07257311698934592
+    },
+    {
+     "residues": "28-30",
+     "fraction": 0.08,
+     "pooled": 0.2048740309390753
+    }
+   ]
+  },
+  "tau": {
+   "windows": 48,
+   "fraction_between_above_max_within": {
+    "median": 0.02,
+    "max": 0.2,
+    "windows_with_zero": 24
+   },
+   "median_between_over_median_within": {
+    "median": 0.9703667200820003,
+    "min": 0.753775045084514,
+    "max": 1.3152269440100088,
+    "windows_above_1": 19
+   },
+   "pooled": {
+    "median": 0.22387166181520624,
+    "max": 0.35006061416638967
+   },
+   "pooled_loro_span_max": 0.23559120176261333,
+   "highest_fraction_windows": [
+    {
+     "residues": "31-34",
+     "fraction": 0.2,
+     "pooled": 0.2863568680158748
+    },
+    {
+     "residues": "30-33",
+     "fraction": 0.16,
+     "pooled": 0.28792240119069223
+    },
+    {
+     "residues": "15-18",
+     "fraction": 0.12,
+     "pooled": 0.24462527461043293
+    },
+    {
+     "residues": "6-9",
+     "fraction": 0.08,
+     "pooled": 0.18105326762172044
+    },
+    {
+     "residues": "27-30",
+     "fraction": 0.08,
+     "pooled": 0.2598641291814608
+    }
+   ]
+  },
+  "d_i_i3": {
+   "windows": 48,
+   "fraction_between_above_max_within": {
+    "median": 0.04,
+    "max": 0.12,
+    "windows_with_zero": 22
+   },
+   "median_between_over_median_within": {
+    "median": 0.9444764163849924,
+    "min": 0.6447936340180562,
+    "max": 1.2956545968060431,
+    "windows_above_1": 13
+   },
+   "pooled": {
+    "median": 0.17894292692408734,
+    "max": 0.2917260451602214
+   },
+   "pooled_loro_span_max": 0.22976260713818927,
+   "highest_fraction_windows": [
+    {
+     "residues": "29-32",
+     "fraction": 0.12,
+     "pooled": 0.2555110439486342
+    },
+    {
+     "residues": "30-33",
+     "fraction": 0.12,
+     "pooled": 0.2917260451602214
+    },
+    {
+     "residues": "36-39",
+     "fraction": 0.12,
+     "pooled": 0.21239371074078772
+    },
+    {
+     "residues": "6-9",
+     "fraction": 0.08,
+     "pooled": 0.17834234351905898
+    },
+    {
+     "residues": "22-25",
+     "fraction": 0.08,
+     "pooled": 0.20500846191344296
+    }
+   ]
+  }
+ }
+}
