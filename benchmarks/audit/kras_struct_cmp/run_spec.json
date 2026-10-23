@@ -1,0 +1,47 @@
+{
+ "id": "KRAS-STRUCT-1",
+ "kind": "descriptive comparison of two experimental crystal structures (static); no ensemble, population, kinetic or functional inference",
+ "question": "Where along the KRAS backbone does local Calpha geometry differ between GDP-bound (9O0N) and GMPPNP-bound (9O0O) wild-type KRAS(1-169), both crystallized with MRTX1133, and do curvature/torsion, window-matched Calpha distances and proper-rotation local Calpha RMSD locate the same differences?",
+ "selection": {
+  "screen": "RCSB search: UniProt P01116, X-ray, GNP- or GDP-bound (111 and 320 entries); pairs with identical entity sequence and one polymer entity within one primary citation; full non-polymer entity lists checked",
+  "examined_pairs": {
+   "A": "9O0N (GDP) / 9O0O (GMPPNP): selected",
+   "B": "9U5T (GDP) / 9USB (GMPPNP), wild type with a pan-KRAS inhibitor in both: not usable here because RCSB provides mmCIF only and no mmCIF reader is available in the existing environments (MDAnalysis without gemmi); no installation in scope"
+  },
+  "identified_not_examined": "5US4 (GDP) / 5USJ (GMPPNP), KRAS G12D, Welsch et al. Cell 2017: the only matched pair in the screen without a pharmacological ligand; not examined because of the two-pair limit",
+  "reason": "matched construct (identical sequence, residues 0-169 incl. expression-tag Gly0), wild type, one chain each, high resolution, same inhibitor in both, primary paper documents the context"
+ },
+ "structures": {
+  "GDP": {"pdb": "9O0N", "file": "benchmarks/audit/kras_struct_cmp/data_pdb/9O0N.pdb", "sha256": "b8ab08fedf0c9c330def32232e984112f6e497225d43489ebd2febcd4c50a92e",
+          "mmcif_sha256": "9ca32c46abffe582ca460ac68e15f342ecbd6b92739721d00e185f596834c9a7", "resolution_A": 1.40,
+          "space_group": "P 21 21 21", "nucleotide": "GDP", "other_ligands": ["MRTX1133 (6IC)", "MG", "CL", "MPD"],
+          "observed_residues": "1-169 (Gly0 tag unobserved)", "altloc_CA_residues": 7},
+  "GNP": {"pdb": "9O0O", "file": "benchmarks/audit/kras_struct_cmp/data_pdb/9O0O.pdb", "sha256": "8ac5d4be7827bbc4c938cc733f09c2a1f1292b3e33bee575ae84a49fbd0e0d35",
+          "mmcif_sha256": "36b8eea03d9846efcbd88e6042a16efe0c9303d8526726dfb36f63a5b6fce42d", "resolution_A": 1.90,
+          "space_group": "P 2 3", "nucleotide": "GMPPNP (GNP)", "other_ligands": ["MRTX1133 (6IC)", "MG", "CL", "NA", "GOL", "SO4"],
+          "observed_residues": "0-168 (Lys169 unobserved); side chain of Asp30 incomplete (REMARK 470)", "altloc_CA_residues": 1}
+ },
+ "access": "PDB archive data CC0 1.0 (wwPDB policy, as recorded in docs/C1_FEASIBILITY_CHECKS_2026-10-13.md); primary citation Bonsor et al., Nat Commun 17:1614 (2026), doi:10.1038/s41467-026-68319-1, CC BY",
+ "independent_context": "The authors report that the two structures superimpose with a low RMSD (0.3 A) and show minor differences in Switch-I and -II, that MRTX1133 occupies the Switch-II pocket, and (ITC) that MRTX1133 binds wild-type KRAS in both nucleotide states with tighter binding to the GDP-bound state (PMC12905138, Results). The two crystals grew in different conditions (Methods).",
+ "mapping": {"chain": "A", "residues": "1-168 (author numbering, no insertion codes), explicit correspondence list; residue names must match between structures", "on_missing": "reject"},
+ "altloc": {"primary": "blank_then_A", "sensitivity": "highest_occupancy (reported as unavailable if the adapter rejects a tie)"},
+ "windows": {"three_residue": "centered on residue i: (i-1, i, i+1)", "four_residue": "(i-1, i, i+1, i+2), hinge i -> i+1"},
+ "metrics": {
+  "d_kappa": "|kappa_GNP - kappa_GDP| (rad), three-residue window, from the TopoFold core",
+  "d_tau": "circular |wrap(tau_GNP - tau_GDP)| (rad), four-residue window, from the TopoFold core",
+  "d_i_i2": "|d(i-1,i+1)_GNP - d_GDP| (A), three-residue window",
+  "d_i_i3": "|d(i-1,i+2)_GNP - d_GDP| (A), four-residue window",
+  "rmsd3": "proper-rotation Calpha RMSD of the three-residue window after optimal superposition (MDAnalysis QCP, MDAnalysis.analysis.rms.rmsd with center and superposition) (A)",
+  "rmsd4": "the same for the four-residue window (A)",
+  "global_rmsd": "Calpha RMSD over all mapped residues after optimal superposition (MDAnalysis QCP), context only"
+ },
+ "equal_information": "every metric uses the same mapped Calpha coordinates (adapter output) for the same residues",
+ "reporting": ["residue-mapped table of all metrics; windows touching an altloc residue flagged",
+               "per metric: the ten largest windows (descriptive)",
+               "Spearman rank correlation between metrics on shared windows (descriptive)",
+               "global RMSD beside the authors' reported value (context only)",
+               "altloc sensitivity: maximum change of each metric"],
+ "permitted_interpretation": "Direct geometric differences between these two crystal structures. Confounded by crystal form and packing (different space groups and crystallization conditions), resolution (1.40 vs 1.90 A), alternate conformations and coordinate error; both contain MRTX1133, so this is not apo KRAS. No ensemble, population, kinetic or functional-state claim; nucleotide identity does not establish functional state; agreement or disagreement between metrics does not show that one representation is better.",
+ "budget": {"downloads_MB_max": 25, "cpu_seconds_max": 1800},
+ "not_in_scope": ["Rascore labels", "MD", "pockets", "inference", "other pairs"]
+}

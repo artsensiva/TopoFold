@@ -89,7 +89,7 @@ Three consequences follow:
 | Representations | Cα κ, τ, local and total writhe, Cβ angle θβ (backbone-only), RNA P-trace κ, τ, RNA base vector | No φ/ψ, χ, inter-domain geometry, contacts or cavity descriptors. RNA base vector cannot measure χ (M4) |
 | Comparison and search | (κ, τ) discrete Fréchet and DTW, writhe-spectrum distance, VP-tree, exhaustive subcurve search | Full-frame cascade is approximate; its recall is measured only on AdK development data (LE-1) (M6). No residue-aligned κ–τ distance (A) or window RMSD in the library (the V2b window-RMSD search exists only as harness code in `benchmarks/audit/b2opt/`). The writhe-spectrum distance is not a metric for unequal lengths (M6). The Python `discrete_frechet_distance` is Cartesian and not SE(3)-invariant (M5). Fréchet weights are fixed at 1.0 in queries |
 | Analysis | Window BC scan with circular means (M2), Gaussian MI network, IDP density, RNA hinge scan | BC is not a test (M3). MI estimator undocumented and untested for significance (M7). "Spectral" density has no ablation (m4) |
-| Outputs | Results JSON convention (AGENTS.md rule 3), audit tooling for M3 | No CLI, no report generator, no library-level provenance record |
+| Outputs | Results JSON convention (AGENTS.md rule 3); Python CLIs for the Cα adapter, κ/τ pipeline and descriptive group comparison (`python -m topofold_inputs`, `.pipeline`, `.ensemble`), which write tables, hashed manifests and generated reports | No CLI for the Rust core; no CI (m11); provenance records exist for the Python workflows, not for the core library |
 
 ## 4. Capability matrix
 
@@ -322,11 +322,11 @@ contributor rules.
 
 | Target / hypothesis | Current state | What would test it |
 |---------------------|---------------|--------------------|
-| Blind identification of experimentally known pockets from third-party data, delivered as an automated report | No cavity representation; no report generator; no CLI | Cavity features plus a held-out pocket benchmark with independent ground truth; an implemented report pipeline that reads only results JSON |
+| Blind identification of experimentally known pockets from third-party data, delivered as an automated report | No cavity representation; no pocket report (the existing generated reports cover descriptive ensemble comparison only); no CLI | Cavity features plus a held-out pocket benchmark with independent ground truth; an implemented report pipeline that reads only results JSON |
 | Robustness to disordered termini (local analysis unaffected by tail motion) | True by construction for window descriptors; untested for full-frame search and for any pocket claim | WP-A/WP-B plus tail-perturbation tests of full-frame search |
 | Throughput of 50,000–100,000 frames/s on a standard server | Unmeasured for the library. Python path copies float32 to f64; trajectories are loaded fully into memory. EB-1/BQ-1/BQ-2 measured harness-only single-query search, not library frame throughput | Benchmark against vectorized MDTraj/MDAnalysis on identical tasks and hardware, with the configuration recorded |
 | Analyses usable without per-dataset tuning | Not currently true: window size, BC threshold, coarse radius, writhe tolerance, gap and regularizer are parameters | Documented defaults plus sensitivity analysis across them |
-| Automated pipeline removing manual transcription of results (M8) | Results-JSON convention exists for audits only | Report generator that reads results files and has tests |
+| Automated pipeline removing manual transcription of results (M8) | Results-JSON convention for audits; the descriptive ensemble command generates its report from its tables | Report generator that reads results files and has tests |
 
 Competitive positioning against MDTraj, PyEMMA, MDAnalysis or commercial tools may be claimed
 only after equal-information comparisons (AGENTS.md rule 6).
@@ -419,7 +419,7 @@ contributor with the current workstation, excluding waiting on third parties; th
 | **FS** Frame selection for expensive downstream analysis | None | [A] gain depends on cost ratio of screening to analysis and the fraction kept | — | Random and clustering-based selection | None | — | — | deferred | Phase 4 workflow needs it |
 | **SD** Conditional state detection | BC scan, Product-vM: not validated | M3; no calibrated null | — | Dip test or mixture ΔBIC with calibrated null | None | — | — | deferred | A selected application needs discrete states; ensemble differences alone are not sufficient |
 | **KI** Adaptive sampling and kinetics | None | [D] structural retrieval does not determine kinetics | — | MSM workflows | None | — | — | deferred (long-term) | Level-B ensemble result and a kinetic question |
-| **UX** API/CLI, reporting, user research | Results-JSON convention for audits | No CLI or report generator; m11 no CI | — | Users' current scripts and tools | A few structured user conversations (no claims) | 1–3 days / none / none | Recorded needs / no interest / mixed | ready (lightweight) | Lightweight slot free |
+| **UX** API/CLI, reporting, user research | Python CLIs and generated reports (adapter, pipeline, `ensemble` v0.3.0); pilot handoff; separate-agent review | No Rust-core CLI; m11 no CI; no independent user trial yet | — | Users' current scripts and tools | A few structured user conversations (no claims) | 1–3 days / none / none | Recorded needs / no interest / mixed | ready (lightweight) | Lightweight slot free |
 
 Short-lived Git branches are used for each authorized task.
 
@@ -470,3 +470,15 @@ alternatives.
 | Scientific evaluation | **KR** (C1): freeze the design, then the smallest adapter, then scoring | blocked | Written permission from the Rascore maintainers |
 | Bounded engineering (parallel) | Done: **AL** MI fix (D16); **A** Cα pipeline (D21); descriptive group-comparison command `python -m topofold_inputs.ensemble` (D34), corrected to v0.2.0 (D36). Calibration phase closed (D33): inference reopens only under the recorded conditions. Next: practical user pilot of the descriptive tool (`docs/PILOT_HANDOFF_ENSEMBLE_TOOL.md`; internal walkthrough done, independent user run pending; D37); **B** backbone atoms only when a selected comparison requires them | — | Selected comparison or user need |
 | Biological route (parallel) | **ABL** preferred (D35): run inventory and permissions need the owner to send the D. E. Shaw Research request; processed HDX uptake was not found in the inspected resources and the authors' processing pipeline is unavailable locally (raw PRIDE data are public); requests to D. E. Shaw Research and the HDX authors drafted, not sent. Other routes resumable (C1, GPCRmd, mdCATH method work) | blocked (owner actions) | Data and permissions received |
+
+**Application paths: next actions (2026-10-23).** Each path waits on its own dependency; at most one runs as the
+active scientific evaluation at a time.
+
+| Path | Next action | Depends on (capability / data) | Status |
+|---|---|---|---|
+| ABL | Describe apo WT vs M472I with the ensemble tool; relate to the HDX peptide map | Trajectories, run inventory and permissions (D. E. Shaw Research request); processed HDX uptake (request to the HDX authors) | blocked (owner sends both drafts) |
+| KRAS / Mpro | KRAS-STRUCT-1 done (static, descriptive). Next: examine the ligand-free matched pair 5US4/5USJ (G12D) | Existing Cα geometry and RMSD components (available); mmCIF-only entries need a reader (not installed); pocket claims need cavity observables (not available) | ready (KRAS backbone); Mpro and pocket work deferred |
+| Allostery | None scheduled; MI estimator correction done (D16) | Perturbation data for causal claims; validated significance (closed, D33) | deferred |
+| IDP / α-synuclein | None scheduled | Real IDP ensembles with ensemble-averaged experiments; m4 | deferred |
+| RNA riboswitches | None scheduled | RNA χ descriptor (M4); RNA trajectories | deferred |
+| Outside-user trial | Send the invitation and feedback form; record results in the pilot log | Owner nominates a computational scientist | blocked (owner action) |

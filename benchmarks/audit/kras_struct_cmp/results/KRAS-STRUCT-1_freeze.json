@@ -1,0 +1,12 @@
+{
+  "id": "KRAS-STRUCT-1",
+  "frozen_utc": "2026-10-23T21:05:20.250137+00:00",
+  "spec_sha256": "9c7b195c5c60655051fe13dc2a93a92585ab90269d89f7e301d31c42b3075225",
+  "code_sha256": {
+    "benchmarks/audit/kras_struct_cmp/run_kras.py": "21f8b0197a41bfce23b3fe4b16beda2d0381c74747b31180b7a24df2ecc6db0b",
+    "benchmarks/audit/kras_struct_cmp/rmsd_windows.py": "ec5062c0a7da7d5343b4bfe670da96946c715ce945078c02b88f3dd83a6efcf3",
+    "python/topofold_inputs/ca_adapter.py": "0dfd026fae6e549b5fedc151e3c0f2636db83069c295c5a138d129979052bb67",
+    "python/topofold_inputs/features.py": "9138358ce5040a8dc1e2ff5692e6d3aa77e5334bfb840cc3e8620ca46598271e",
+    "python/topofold_inputs/compare.py": "a7494c6ae1c1813a150572e7f44ee69ebc3190873ba83a3a6be4e438effb3422"
+  }
+}

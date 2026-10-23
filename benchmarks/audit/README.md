@@ -34,6 +34,7 @@ Each directory holds harness code, frozen-protocol references, results files and
 | [`dev_ensemble_report/`](dev_ensemble_report/) | Descriptive ensemble-comparison command demonstrated on mdCATH 1ha8A00 and AdK | Third-party MD (CC BY 4.0), local | [`README.md`](dev_ensemble_report/README.md) | Descriptive only; reproducible; agrees with DEV-REP-1/DEV-ENS-1; v0.3.0 exact exclusion causes (`results_v3/`) |
 | [`pilot_review_2026-10-23/`](pilot_review_2026-10-23/) | Separate-agent usability review of the descriptive tool (archived evidence) | Development data (local mdCATH) | [`README.md`](pilot_review_2026-10-23/README.md) | Qualified pass; internal pilot closed; not independent human validation |
 | [`abl_access/`](abl_access/) | ABL biological route: access status (trajectories, permissions, HDX data) | Public metadata; CC0 peptide map (git-ignored) | [`ACCESS_STATUS_2026-10-23.md`](abl_access/ACCESS_STATUS_2026-10-23.md) | Trajectories and processed HDX uptake not obtained; owner actions listed |
+| [`kras_struct_cmp/`](kras_struct_cmp/) | KRAS-STRUCT-1: GDP vs GMPPNP wild-type KRAS crystal structures (both with MRTX1133), local Cα geometry vs RMSD | PDB (CC0), git-ignored local copies | [`README.md`](kras_struct_cmp/README.md) | Descriptive static comparison; differences at residues 26–40, 59–66, 102–110; confounded by crystal form |
 
 Large or third-party inputs that are not in Git, and how to retrieve or regenerate them: [`../../docs/CHECKPOINT_2026-10-13_PROVENANCE.md`](../../docs/CHECKPOINT_2026-10-13_PROVENANCE.md).
 

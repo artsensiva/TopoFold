@@ -129,6 +129,12 @@ The development programme, evidence levels (A–E) and the current queue are in
 - **Pilot:** a handoff for computational scientists is in
   [`docs/PILOT_HANDOFF_ENSEMBLE_TOOL.md`](docs/PILOT_HANDOFF_ENSEMBLE_TOOL.md), with an internal walkthrough (not
   independent user validation) in [`docs/pilot/PILOT_LOG.md`](docs/pilot/PILOT_LOG.md).
+- **KRAS** (static experimental structures): KRAS-STRUCT-1 compares GDP- and GMPPNP-bound wild-type KRAS crystal
+  structures (both with MRTX1133). It reports direct local geometric differences, with κ/τ, Cα distances and local
+  RMSD on identical residues, and no functional claim
+  ([`benchmarks/audit/kras_struct_cmp/`](benchmarks/audit/kras_struct_cmp/README.md)).
+- **Owner actions pending:** nominate an outside computational scientist for the pilot; send the ABL trajectory
+  request; send the processed-HDX request (drafts in `docs/`).
 - **ABL** (preferred biological route): the trajectories, their permissions and processed HDX uptake are not yet
   obtained; the owner actions are listed in
   [`benchmarks/audit/abl_access/ACCESS_STATUS_2026-10-23.md`](benchmarks/audit/abl_access/ACCESS_STATUS_2026-10-23.md).
