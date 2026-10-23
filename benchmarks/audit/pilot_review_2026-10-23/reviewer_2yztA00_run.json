@@ -1,0 +1,23 @@
+{
+  "command": [
+    "/usr/bin/time",
+    "-v",
+    "/home/artem/TopoFold/.venv/bin/python",
+    "-B",
+    "-m",
+    "topofold_inputs.ensemble",
+    "/tmp/topofold-reviewer-pilot-7oe2feoy/reviewer_spec_2yztA00.json",
+    "--out",
+    "/tmp/topofold-reviewer-pilot-7oe2feoy/reviewer_2yztA00",
+    "--adapter-python",
+    "/home/artem/TopoFold/benchmarks/audit/wpd_local_retrieval/build/venv/bin/python"
+  ],
+  "cwd": "/home/artem/TopoFold",
+  "started_utc": "2026-10-23T20:37:52.215634+00:00",
+  "exit_code": 0,
+  "elapsed_wall_s": 20.173658124171197,
+  "environment_overrides": {
+    "PYTHONPATH": "/home/artem/TopoFold/python",
+    "PYTHONDONTWRITEBYTECODE": "1"
+  }
+}

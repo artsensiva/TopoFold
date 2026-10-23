@@ -1,4 +1,4 @@
-# Pilot Handoff: Descriptive Ensemble Comparison (TopoFold v0.2.0 tool)
+# Pilot Handoff: Descriptive Ensemble Comparison (TopoFold tool v0.3.0)
 
 For a computational scientist who wants to inspect, without writing code, where local backbone geometry differs
 between groups of MD trajectories. The tool is descriptive. It gives no p-values, significance labels or uncertainty
@@ -77,17 +77,18 @@ development machine. Cost grows roughly linearly with frames × residues × memb
 | `tables/replicas.csv` | Per group: spread of member centers, and median and maximum JS distance between members of the same group |
 | `tables/between.csv` | Per group pair: pooled JS distance, median between-member JS distance, within-member medians for each group, center difference |
 | `tables/temporal.csv` | Per member: lag-1 autocorrelation, decorrelation lag (first lag with C(k) < 1/e), status |
-| `tables/exclusions.csv` | Windows excluded because any member had invalid frames (missing residue, chain or numbering break, degenerate geometry), with frame counts per member |
+| `tables/exclusions.csv` | One row per excluded window, member and cause. Cause comes from the adapter break record (`numbering_discontinuity`, `chain_boundary`, `missing_CA`, `ca_ca_distance`), the residue status (`missing_coordinates`), or the feature reason code (`degenerate_segment`, `near_collinear`, `run_too_short_for_core`, …). Each row has the residue location, the number of affected frames and the first source frame indices. When no record names the cause, the row says the provenance is insufficient |
 | `distributions.npz` | Pooled and per-member histograms for every channel, window and group, with bin edges |
 | `manifest.json` | Inputs with SHA-256, member specifications, tool version, thresholds, native-extension hash |
-| `members/` | Per-member intermediate coordinates and features (can be deleted; can be larger than the final outputs). `members/<run_id>.json` → `breaks` gives the specific reason for an exclusion (e.g. `numbering_discontinuity`, `chain_boundary`, `missing_CA`, `ca_ca_distance`) |
+| `members/` | Per-member intermediate coordinates and features (can be deleted; can be larger than the final outputs). Exclusion causes are already in `tables/exclusions.csv` |
 
 ## 5. Reading one report: worked example
 
 From `benchmarks/audit/dev_ensemble_report/results_v2/1ha8A00/report.md` (5 replicas per temperature):
 
-- **Exclusions: 0.** Every window had valid frames in all members. If a residue is missing, or the numbering jumps,
-  windows touching it appear in `tables/exclusions.csv` and nowhere else.
+- **Exclusions: 0.** Every window had valid frames in all members.
+  - Example with exclusions: `benchmarks/audit/dev_ensemble_report/results_v3/gap_1s14B00/report.md`. Ten windows
+    are excluded in all four members because of `numbering_discontinuity` at 0:2093 → 0:2117.
 - **Largest differences, τ 32–35:**
 
   | Pooled JS | Between-member JS (median) | Within-member JS (median) | Center difference |
@@ -131,5 +132,6 @@ A pilot run counts as successful only if the user, **without editing the impleme
 4. explains the output's limitations: descriptive only; pooled vs replica variability; sampling and correlation;
    Cα-only.
 
-Record obstacles (commands, error messages, unclear outputs) in `docs/pilot/PILOT_LOG.md`. Entry 1 there is an
-internal walkthrough by the implementer, not independent user validation.
+Record obstacles (commands, error messages, unclear outputs) in `docs/pilot/PILOT_LOG.md`. Entries 1–2 are internal
+(the implementer, then a separate agent), not independent user validation. Outside users: see
+`docs/pilot/OUTSIDE_USER_INVITATION.md` and `docs/pilot/FEEDBACK_FORM.md`.

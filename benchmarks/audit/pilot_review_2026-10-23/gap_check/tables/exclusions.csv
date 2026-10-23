@@ -1,0 +1,11 @@
+channel,window,residues,reason,invalid_frames_by_member
+kappa,76,0:2092-2117,"invalid frames (missing residue, break or degenerate geometry)","{""320K_0"": 40, ""320K_1"": 40, ""348K_0"": 40, ""348K_1"": 40}"
+kappa,77,0:2093-2118,"invalid frames (missing residue, break or degenerate geometry)","{""320K_0"": 40, ""320K_1"": 40, ""348K_0"": 40, ""348K_1"": 40}"
+tau,75,0:2091-2117,"invalid frames (missing residue, break or degenerate geometry)","{""320K_0"": 40, ""320K_1"": 40, ""348K_0"": 40, ""348K_1"": 40}"
+tau,76,0:2092-2118,"invalid frames (missing residue, break or degenerate geometry)","{""320K_0"": 40, ""320K_1"": 40, ""348K_0"": 40, ""348K_1"": 40}"
+tau,77,0:2093-2119,"invalid frames (missing residue, break or degenerate geometry)","{""320K_0"": 40, ""320K_1"": 40, ""348K_0"": 40, ""348K_1"": 40}"
+d_i_i2,76,0:2092-2117,"invalid frames (missing residue, break or degenerate geometry)","{""320K_0"": 40, ""320K_1"": 40, ""348K_0"": 40, ""348K_1"": 40}"
+d_i_i2,77,0:2093-2118,"invalid frames (missing residue, break or degenerate geometry)","{""320K_0"": 40, ""320K_1"": 40, ""348K_0"": 40, ""348K_1"": 40}"
+d_i_i3,75,0:2091-2117,"invalid frames (missing residue, break or degenerate geometry)","{""320K_0"": 40, ""320K_1"": 40, ""348K_0"": 40, ""348K_1"": 40}"
+d_i_i3,76,0:2092-2118,"invalid frames (missing residue, break or degenerate geometry)","{""320K_0"": 40, ""320K_1"": 40, ""348K_0"": 40, ""348K_1"": 40}"
+d_i_i3,77,0:2093-2119,"invalid frames (missing residue, break or degenerate geometry)","{""320K_0"": 40, ""320K_1"": 40, ""348K_0"": 40, ""348K_1"": 40}"

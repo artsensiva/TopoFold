@@ -1,0 +1,20 @@
+{
+  "command": [
+    "/usr/bin/time",
+    "-v",
+    "/home/artem/TopoFold/.venv/bin/python",
+    "-B",
+    "-m",
+    "topofold_inputs.ensemble",
+    "/tmp/topofold-reviewer-pilot-7oe2feoy/reviewer_spec_gap.json",
+    "--out",
+    "/tmp/topofold-reviewer-pilot-7oe2feoy/gap_check",
+    "--adapter-python",
+    "/home/artem/TopoFold/benchmarks/audit/wpd_local_retrieval/build/venv/bin/python"
+  ],
+  "cwd": "/home/artem/TopoFold",
+  "started_utc": "2026-10-23T20:38:42.944942+00:00",
+  "exit_code": 0,
+  "elapsed_wall_s": 17.066586748231202,
+  "purpose": "Operational exclusion check on a known non-cohort development file; no new biological comparison."
+}

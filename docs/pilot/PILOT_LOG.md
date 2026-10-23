@@ -40,3 +40,20 @@ scratch directory.
 
 **Next pilot step:** give the handoff to at least one computational scientist who did not build the tool, and record
 their run, obstacles and explanation of limitations in a new entry. Do not paraphrase or invent their feedback.
+
+## Entry 2 — SEPARATE-AGENT REVIEW, internal pilot closed (2026-10-23)
+
+**This is not independent human validation and not a fresh-install test.** A separate agent with prior familiarity
+with the project followed the handoff in the existing environment. Evidence is archived in
+`benchmarks/audit/pilot_review_2026-10-23/`.
+
+- **Runs:** three CLI runs completed without implementation changes (`1ha8A00` example; reviewer-chosen `2yztA00`;
+  `1s14B00` gap check).
+- **Criteria:** preparing input, completing the run, and explaining limitations were met. Identifying exact exclusion
+  causes from `exclusions.csv` was partly met (the cause was only in the member JSON).
+- **Repository preservation:** verified (570 tracked files unchanged).
+- **Follow-up done:** tool v0.3.0 writes exact causes per member into `tables/exclusions.csv` and `report.md`
+  (adapter break records, residue status and feature reason codes, with locations and source frames).
+- **Internal pilot status: closed.**
+- **Next:** an outside computational scientist, using `docs/pilot/OUTSIDE_USER_INVITATION.md` and
+  `docs/pilot/FEEDBACK_FORM.md`. No feedback has been collected or invented.

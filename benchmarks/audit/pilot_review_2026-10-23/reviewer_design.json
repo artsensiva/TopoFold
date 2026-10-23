@@ -1,0 +1,8 @@
+{
+  "scratch": "/tmp/topofold-reviewer-pilot-7oe2feoy",
+  "selected_domain": "2yztA00",
+  "selection_reason": "Existing non-cohort development domain; 66 residues; not the prior pilot domain. Short replicas require a common 130-frame interval. No selection using scores.",
+  "frames": "13:130:1; first 13 excluded by the existing 10% convention; no equilibration claim",
+  "source_sha256": "4b9cb28795c9b5a61ad4f93d66eeec840cb7b0d1d6de75cb90ee4694eec83cd6",
+  "spec_sha256": "64c019e2f3e947ee0c8b1f42875aee154785d10f5e75ec548db342ffad28e7e0"
+}

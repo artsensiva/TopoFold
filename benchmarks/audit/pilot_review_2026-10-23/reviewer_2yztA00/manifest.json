@@ -1,0 +1,601 @@
+{
+ "schema": "topofold_inputs.ensemble/1",
+ "name": "Reviewer pilot: mdCATH 2yztA00, 320 K vs 348 K; exposed development data, descriptive only",
+ "statement": "Descriptive comparison only: no p-values, significance labels or uncertainty intervals.",
+ "spec_sha256": "64c019e2f3e947ee0c8b1f42875aee154785d10f5e75ec548db342ffad28e7e0",
+ "options": {
+  "bins": 36,
+  "max_lag": 50,
+  "pbc": "none"
+ },
+ "channels": {
+  "kappa": {
+   "kind": "linear",
+   "lo": 0.0,
+   "hi": 3.141592653589793,
+   "unit": "rad"
+  },
+  "tau": {
+   "kind": "circular",
+   "unit": "rad"
+  },
+  "d_i_i2": {
+   "kind": "linear",
+   "lo": 3.0,
+   "hi": 8.0,
+   "unit": "angstrom"
+  },
+  "d_i_i3": {
+   "kind": "linear",
+   "lo": 3.0,
+   "hi": 12.0,
+   "unit": "angstrom"
+  }
+ },
+ "groups": {
+  "320K": [
+   {
+    "run_id": "320K_0",
+    "frames": 117,
+    "frame_index_first_last": [
+     13,
+     129
+    ],
+    "member_spec": {
+     "type": "mdcath",
+     "h5": "/home/artem/TopoFold/benchmarks/audit/wpd_local_retrieval/data/mdcath/mdcath_dataset_2yztA00.h5",
+     "domain": "2yztA00",
+     "temperature": "320",
+     "replica": "0",
+     "start": 13,
+     "stop": 130,
+     "step": 1,
+     "pbc": "make_whole_sequential"
+    },
+    "source_files": [
+     {
+      "role": "hdf5",
+      "path": "/home/artem/TopoFold/benchmarks/audit/wpd_local_retrieval/data/mdcath/mdcath_dataset_2yztA00.h5",
+      "bytes": 319739140,
+      "sha256": "4b9cb28795c9b5a61ad4f93d66eeec840cb7b0d1d6de75cb90ee4694eec83cd6"
+     }
+    ],
+    "adapter_json_sha256": "338b083c89afbe86ff74f1e2963fe9253a52bbe632afc4c38fe1a2765c69c654",
+    "features_json_sha256": "8984a8b99920f5ce963868303f0cc0b04a952f423e3b9ac0a79b09614c610a66",
+    "core": {
+     "version": "0.8.3",
+     "function": "compute_invariants",
+     "wrapper": {
+      "module": "topofold",
+      "path": "/home/artem/TopoFold/.venv/lib/python3.14/site-packages/topofold/__init__.py",
+      "sha256": "49780093095f27c89bdf234be15e1f5a9bac957d5a9dbf5ae0f93c856ee1590d"
+     },
+     "native_extension": {
+      "module": "topofold.topofold",
+      "path": "/home/artem/TopoFold/.venv/lib/python3.14/site-packages/topofold/topofold.cpython-314-x86_64-linux-gnu.so",
+      "sha256": "d90e7ed4f1d8036a3735f387c6fe6aa5a81c7b615da1d0094ce054cf0c13cfa8",
+      "status": "resolved",
+      "loader": "ExtensionFileLoader"
+     }
+    },
+    "frame_identity": "not_verifiable",
+    "units": {
+     "coordinates": "angstrom",
+     "time": null,
+     "source_length_unit": null,
+     "source_time_unit": null,
+     "reader_convert_units": null,
+     "basis": "HDF5 coords unit attribute 'Angstrom'; declared to the adapter as Angstrom"
+    }
+   },
+   {
+    "run_id": "320K_1",
+    "frames": 117,
+    "frame_index_first_last": [
+     13,
+     129
+    ],
+    "member_spec": {
+     "type": "mdcath",
+     "h5": "/home/artem/TopoFold/benchmarks/audit/wpd_local_retrieval/data/mdcath/mdcath_dataset_2yztA00.h5",
+     "domain": "2yztA00",
+     "temperature": "320",
+     "replica": "1",
+     "start": 13,
+     "stop": 130,
+     "step": 1,
+     "pbc": "make_whole_sequential"
+    },
+    "source_files": [
+     {
+      "role": "hdf5",
+      "path": "/home/artem/TopoFold/benchmarks/audit/wpd_local_retrieval/data/mdcath/mdcath_dataset_2yztA00.h5",
+      "bytes": 319739140,
+      "sha256": "4b9cb28795c9b5a61ad4f93d66eeec840cb7b0d1d6de75cb90ee4694eec83cd6"
+     }
+    ],
+    "adapter_json_sha256": "dc859f6dcb8b322aec156131532a255ddd946ed53e2199a7164dcbb18cbc53c6",
+    "features_json_sha256": "b536e4ca9fc0918f560a4a8647a8ff1506cc26d6466f7203a15d4cf548f28d97",
+    "core": {
+     "version": "0.8.3",
+     "function": "compute_invariants",
+     "wrapper": {
+      "module": "topofold",
+      "path": "/home/artem/TopoFold/.venv/lib/python3.14/site-packages/topofold/__init__.py",
+      "sha256": "49780093095f27c89bdf234be15e1f5a9bac957d5a9dbf5ae0f93c856ee1590d"
+     },
+     "native_extension": {
+      "module": "topofold.topofold",
+      "path": "/home/artem/TopoFold/.venv/lib/python3.14/site-packages/topofold/topofold.cpython-314-x86_64-linux-gnu.so",
+      "sha256": "d90e7ed4f1d8036a3735f387c6fe6aa5a81c7b615da1d0094ce054cf0c13cfa8",
+      "status": "resolved",
+      "loader": "ExtensionFileLoader"
+     }
+    },
+    "frame_identity": "not_verifiable",
+    "units": {
+     "coordinates": "angstrom",
+     "time": null,
+     "source_length_unit": null,
+     "source_time_unit": null,
+     "reader_convert_units": null,
+     "basis": "HDF5 coords unit attribute 'Angstrom'; declared to the adapter as Angstrom"
+    }
+   },
+   {
+    "run_id": "320K_2",
+    "frames": 117,
+    "frame_index_first_last": [
+     13,
+     129
+    ],
+    "member_spec": {
+     "type": "mdcath",
+     "h5": "/home/artem/TopoFold/benchmarks/audit/wpd_local_retrieval/data/mdcath/mdcath_dataset_2yztA00.h5",
+     "domain": "2yztA00",
+     "temperature": "320",
+     "replica": "2",
+     "start": 13,
+     "stop": 130,
+     "step": 1,
+     "pbc": "make_whole_sequential"
+    },
+    "source_files": [
+     {
+      "role": "hdf5",
+      "path": "/home/artem/TopoFold/benchmarks/audit/wpd_local_retrieval/data/mdcath/mdcath_dataset_2yztA00.h5",
+      "bytes": 319739140,
+      "sha256": "4b9cb28795c9b5a61ad4f93d66eeec840cb7b0d1d6de75cb90ee4694eec83cd6"
+     }
+    ],
+    "adapter_json_sha256": "b59f4f0338b8c8b34220be2a4254bcf5fbb1772f715d9fabe4f5f1008bc93756",
+    "features_json_sha256": "50e933d1369b84574a2a2e0c081595fcbf85994a7c41f465225ba20ff199b20d",
+    "core": {
+     "version": "0.8.3",
+     "function": "compute_invariants",
+     "wrapper": {
+      "module": "topofold",
+      "path": "/home/artem/TopoFold/.venv/lib/python3.14/site-packages/topofold/__init__.py",
+      "sha256": "49780093095f27c89bdf234be15e1f5a9bac957d5a9dbf5ae0f93c856ee1590d"
+     },
+     "native_extension": {
+      "module": "topofold.topofold",
+      "path": "/home/artem/TopoFold/.venv/lib/python3.14/site-packages/topofold/topofold.cpython-314-x86_64-linux-gnu.so",
+      "sha256": "d90e7ed4f1d8036a3735f387c6fe6aa5a81c7b615da1d0094ce054cf0c13cfa8",
+      "status": "resolved",
+      "loader": "ExtensionFileLoader"
+     }
+    },
+    "frame_identity": "not_verifiable",
+    "units": {
+     "coordinates": "angstrom",
+     "time": null,
+     "source_length_unit": null,
+     "source_time_unit": null,
+     "reader_convert_units": null,
+     "basis": "HDF5 coords unit attribute 'Angstrom'; declared to the adapter as Angstrom"
+    }
+   },
+   {
+    "run_id": "320K_3",
+    "frames": 117,
+    "frame_index_first_last": [
+     13,
+     129
+    ],
+    "member_spec": {
+     "type": "mdcath",
+     "h5": "/home/artem/TopoFold/benchmarks/audit/wpd_local_retrieval/data/mdcath/mdcath_dataset_2yztA00.h5",
+     "domain": "2yztA00",
+     "temperature": "320",
+     "replica": "3",
+     "start": 13,
+     "stop": 130,
+     "step": 1,
+     "pbc": "make_whole_sequential"
+    },
+    "source_files": [
+     {
+      "role": "hdf5",
+      "path": "/home/artem/TopoFold/benchmarks/audit/wpd_local_retrieval/data/mdcath/mdcath_dataset_2yztA00.h5",
+      "bytes": 319739140,
+      "sha256": "4b9cb28795c9b5a61ad4f93d66eeec840cb7b0d1d6de75cb90ee4694eec83cd6"
+     }
+    ],
+    "adapter_json_sha256": "7d945475126daf38e8c853d4a521aa90d95bba5cea13f618042cf4e47f9f958a",
+    "features_json_sha256": "9586994864505d628ac2c6f239f72975729d36ac92e45e7c4640f16878051abe",
+    "core": {
+     "version": "0.8.3",
+     "function": "compute_invariants",
+     "wrapper": {
+      "module": "topofold",
+      "path": "/home/artem/TopoFold/.venv/lib/python3.14/site-packages/topofold/__init__.py",
+      "sha256": "49780093095f27c89bdf234be15e1f5a9bac957d5a9dbf5ae0f93c856ee1590d"
+     },
+     "native_extension": {
+      "module": "topofold.topofold",
+      "path": "/home/artem/TopoFold/.venv/lib/python3.14/site-packages/topofold/topofold.cpython-314-x86_64-linux-gnu.so",
+      "sha256": "d90e7ed4f1d8036a3735f387c6fe6aa5a81c7b615da1d0094ce054cf0c13cfa8",
+      "status": "resolved",
+      "loader": "ExtensionFileLoader"
+     }
+    },
+    "frame_identity": "not_verifiable",
+    "units": {
+     "coordinates": "angstrom",
+     "time": null,
+     "source_length_unit": null,
+     "source_time_unit": null,
+     "reader_convert_units": null,
+     "basis": "HDF5 coords unit attribute 'Angstrom'; declared to the adapter as Angstrom"
+    }
+   },
+   {
+    "run_id": "320K_4",
+    "frames": 117,
+    "frame_index_first_last": [
+     13,
+     129
+    ],
+    "member_spec": {
+     "type": "mdcath",
+     "h5": "/home/artem/TopoFold/benchmarks/audit/wpd_local_retrieval/data/mdcath/mdcath_dataset_2yztA00.h5",
+     "domain": "2yztA00",
+     "temperature": "320",
+     "replica": "4",
+     "start": 13,
+     "stop": 130,
+     "step": 1,
+     "pbc": "make_whole_sequential"
+    },
+    "source_files": [
+     {
+      "role": "hdf5",
+      "path": "/home/artem/TopoFold/benchmarks/audit/wpd_local_retrieval/data/mdcath/mdcath_dataset_2yztA00.h5",
+      "bytes": 319739140,
+      "sha256": "4b9cb28795c9b5a61ad4f93d66eeec840cb7b0d1d6de75cb90ee4694eec83cd6"
+     }
+    ],
+    "adapter_json_sha256": "34a0875e8901a5677aeccf96dc577dfb7e796a21fe5b251a6fcb12437dc7bb99",
+    "features_json_sha256": "7f5f00cad7acecd01c3e01abb30e8445ddd682545f6c95b9280ed9a2cb6ab08f",
+    "core": {
+     "version": "0.8.3",
+     "function": "compute_invariants",
+     "wrapper": {
+      "module": "topofold",
+      "path": "/home/artem/TopoFold/.venv/lib/python3.14/site-packages/topofold/__init__.py",
+      "sha256": "49780093095f27c89bdf234be15e1f5a9bac957d5a9dbf5ae0f93c856ee1590d"
+     },
+     "native_extension": {
+      "module": "topofold.topofold",
+      "path": "/home/artem/TopoFold/.venv/lib/python3.14/site-packages/topofold/topofold.cpython-314-x86_64-linux-gnu.so",
+      "sha256": "d90e7ed4f1d8036a3735f387c6fe6aa5a81c7b615da1d0094ce054cf0c13cfa8",
+      "status": "resolved",
+      "loader": "ExtensionFileLoader"
+     }
+    },
+    "frame_identity": "not_verifiable",
+    "units": {
+     "coordinates": "angstrom",
+     "time": null,
+     "source_length_unit": null,
+     "source_time_unit": null,
+     "reader_convert_units": null,
+     "basis": "HDF5 coords unit attribute 'Angstrom'; declared to the adapter as Angstrom"
+    }
+   }
+  ],
+  "348K": [
+   {
+    "run_id": "348K_0",
+    "frames": 117,
+    "frame_index_first_last": [
+     13,
+     129
+    ],
+    "member_spec": {
+     "type": "mdcath",
+     "h5": "/home/artem/TopoFold/benchmarks/audit/wpd_local_retrieval/data/mdcath/mdcath_dataset_2yztA00.h5",
+     "domain": "2yztA00",
+     "temperature": "348",
+     "replica": "0",
+     "start": 13,
+     "stop": 130,
+     "step": 1,
+     "pbc": "make_whole_sequential"
+    },
+    "source_files": [
+     {
+      "role": "hdf5",
+      "path": "/home/artem/TopoFold/benchmarks/audit/wpd_local_retrieval/data/mdcath/mdcath_dataset_2yztA00.h5",
+      "bytes": 319739140,
+      "sha256": "4b9cb28795c9b5a61ad4f93d66eeec840cb7b0d1d6de75cb90ee4694eec83cd6"
+     }
+    ],
+    "adapter_json_sha256": "26efe1f8732ee554e80e2f62476c7fab3e039b3ce698b031da3da59e95a3608f",
+    "features_json_sha256": "eca0af7e5ac485b4e2577f64f4da4f72aa07a5582f096af71295220dfad4ce43",
+    "core": {
+     "version": "0.8.3",
+     "function": "compute_invariants",
+     "wrapper": {
+      "module": "topofold",
+      "path": "/home/artem/TopoFold/.venv/lib/python3.14/site-packages/topofold/__init__.py",
+      "sha256": "49780093095f27c89bdf234be15e1f5a9bac957d5a9dbf5ae0f93c856ee1590d"
+     },
+     "native_extension": {
+      "module": "topofold.topofold",
+      "path": "/home/artem/TopoFold/.venv/lib/python3.14/site-packages/topofold/topofold.cpython-314-x86_64-linux-gnu.so",
+      "sha256": "d90e7ed4f1d8036a3735f387c6fe6aa5a81c7b615da1d0094ce054cf0c13cfa8",
+      "status": "resolved",
+      "loader": "ExtensionFileLoader"
+     }
+    },
+    "frame_identity": "not_verifiable",
+    "units": {
+     "coordinates": "angstrom",
+     "time": null,
+     "source_length_unit": null,
+     "source_time_unit": null,
+     "reader_convert_units": null,
+     "basis": "HDF5 coords unit attribute 'Angstrom'; declared to the adapter as Angstrom"
+    }
+   },
+   {
+    "run_id": "348K_1",
+    "frames": 117,
+    "frame_index_first_last": [
+     13,
+     129
+    ],
+    "member_spec": {
+     "type": "mdcath",
+     "h5": "/home/artem/TopoFold/benchmarks/audit/wpd_local_retrieval/data/mdcath/mdcath_dataset_2yztA00.h5",
+     "domain": "2yztA00",
+     "temperature": "348",
+     "replica": "1",
+     "start": 13,
+     "stop": 130,
+     "step": 1,
+     "pbc": "make_whole_sequential"
+    },
+    "source_files": [
+     {
+      "role": "hdf5",
+      "path": "/home/artem/TopoFold/benchmarks/audit/wpd_local_retrieval/data/mdcath/mdcath_dataset_2yztA00.h5",
+      "bytes": 319739140,
+      "sha256": "4b9cb28795c9b5a61ad4f93d66eeec840cb7b0d1d6de75cb90ee4694eec83cd6"
+     }
+    ],
+    "adapter_json_sha256": "1a0dfd8d2448680c70d4d8b465f84f2dd9595a5688163bd07e4d5b2fae2c5c16",
+    "features_json_sha256": "c13f7f2cd609f39ec8988fc09361fd86b806f83aee7d3904acf5dfd291363bda",
+    "core": {
+     "version": "0.8.3",
+     "function": "compute_invariants",
+     "wrapper": {
+      "module": "topofold",
+      "path": "/home/artem/TopoFold/.venv/lib/python3.14/site-packages/topofold/__init__.py",
+      "sha256": "49780093095f27c89bdf234be15e1f5a9bac957d5a9dbf5ae0f93c856ee1590d"
+     },
+     "native_extension": {
+      "module": "topofold.topofold",
+      "path": "/home/artem/TopoFold/.venv/lib/python3.14/site-packages/topofold/topofold.cpython-314-x86_64-linux-gnu.so",
+      "sha256": "d90e7ed4f1d8036a3735f387c6fe6aa5a81c7b615da1d0094ce054cf0c13cfa8",
+      "status": "resolved",
+      "loader": "ExtensionFileLoader"
+     }
+    },
+    "frame_identity": "not_verifiable",
+    "units": {
+     "coordinates": "angstrom",
+     "time": null,
+     "source_length_unit": null,
+     "source_time_unit": null,
+     "reader_convert_units": null,
+     "basis": "HDF5 coords unit attribute 'Angstrom'; declared to the adapter as Angstrom"
+    }
+   },
+   {
+    "run_id": "348K_2",
+    "frames": 117,
+    "frame_index_first_last": [
+     13,
+     129
+    ],
+    "member_spec": {
+     "type": "mdcath",
+     "h5": "/home/artem/TopoFold/benchmarks/audit/wpd_local_retrieval/data/mdcath/mdcath_dataset_2yztA00.h5",
+     "domain": "2yztA00",
+     "temperature": "348",
+     "replica": "2",
+     "start": 13,
+     "stop": 130,
+     "step": 1,
+     "pbc": "make_whole_sequential"
+    },
+    "source_files": [
+     {
+      "role": "hdf5",
+      "path": "/home/artem/TopoFold/benchmarks/audit/wpd_local_retrieval/data/mdcath/mdcath_dataset_2yztA00.h5",
+      "bytes": 319739140,
+      "sha256": "4b9cb28795c9b5a61ad4f93d66eeec840cb7b0d1d6de75cb90ee4694eec83cd6"
+     }
+    ],
+    "adapter_json_sha256": "dba868bbb3e3812bcec1e4a99ad1a8b3dda49b9588c2ab23dff99b8bc204c77d",
+    "features_json_sha256": "e09ebfc31a6794ce22f8bfea763210c70a98585f16633941f1417d766f62dc8a",
+    "core": {
+     "version": "0.8.3",
+     "function": "compute_invariants",
+     "wrapper": {
+      "module": "topofold",
+      "path": "/home/artem/TopoFold/.venv/lib/python3.14/site-packages/topofold/__init__.py",
+      "sha256": "49780093095f27c89bdf234be15e1f5a9bac957d5a9dbf5ae0f93c856ee1590d"
+     },
+     "native_extension": {
+      "module": "topofold.topofold",
+      "path": "/home/artem/TopoFold/.venv/lib/python3.14/site-packages/topofold/topofold.cpython-314-x86_64-linux-gnu.so",
+      "sha256": "d90e7ed4f1d8036a3735f387c6fe6aa5a81c7b615da1d0094ce054cf0c13cfa8",
+      "status": "resolved",
+      "loader": "ExtensionFileLoader"
+     }
+    },
+    "frame_identity": "not_verifiable",
+    "units": {
+     "coordinates": "angstrom",
+     "time": null,
+     "source_length_unit": null,
+     "source_time_unit": null,
+     "reader_convert_units": null,
+     "basis": "HDF5 coords unit attribute 'Angstrom'; declared to the adapter as Angstrom"
+    }
+   },
+   {
+    "run_id": "348K_3",
+    "frames": 117,
+    "frame_index_first_last": [
+     13,
+     129
+    ],
+    "member_spec": {
+     "type": "mdcath",
+     "h5": "/home/artem/TopoFold/benchmarks/audit/wpd_local_retrieval/data/mdcath/mdcath_dataset_2yztA00.h5",
+     "domain": "2yztA00",
+     "temperature": "348",
+     "replica": "3",
+     "start": 13,
+     "stop": 130,
+     "step": 1,
+     "pbc": "make_whole_sequential"
+    },
+    "source_files": [
+     {
+      "role": "hdf5",
+      "path": "/home/artem/TopoFold/benchmarks/audit/wpd_local_retrieval/data/mdcath/mdcath_dataset_2yztA00.h5",
+      "bytes": 319739140,
+      "sha256": "4b9cb28795c9b5a61ad4f93d66eeec840cb7b0d1d6de75cb90ee4694eec83cd6"
+     }
+    ],
+    "adapter_json_sha256": "d745202472fcd8a150e36580558b734ca926213c684fd04e0bfd14b578339872",
+    "features_json_sha256": "9ce1aa4a4f98361677ff999902c434f5785c0651d409faa33ab35509570bfb6d",
+    "core": {
+     "version": "0.8.3",
+     "function": "compute_invariants",
+     "wrapper": {
+      "module": "topofold",
+      "path": "/home/artem/TopoFold/.venv/lib/python3.14/site-packages/topofold/__init__.py",
+      "sha256": "49780093095f27c89bdf234be15e1f5a9bac957d5a9dbf5ae0f93c856ee1590d"
+     },
+     "native_extension": {
+      "module": "topofold.topofold",
+      "path": "/home/artem/TopoFold/.venv/lib/python3.14/site-packages/topofold/topofold.cpython-314-x86_64-linux-gnu.so",
+      "sha256": "d90e7ed4f1d8036a3735f387c6fe6aa5a81c7b615da1d0094ce054cf0c13cfa8",
+      "status": "resolved",
+      "loader": "ExtensionFileLoader"
+     }
+    },
+    "frame_identity": "not_verifiable",
+    "units": {
+     "coordinates": "angstrom",
+     "time": null,
+     "source_length_unit": null,
+     "source_time_unit": null,
+     "reader_convert_units": null,
+     "basis": "HDF5 coords unit attribute 'Angstrom'; declared to the adapter as Angstrom"
+    }
+   },
+   {
+    "run_id": "348K_4",
+    "frames": 117,
+    "frame_index_first_last": [
+     13,
+     129
+    ],
+    "member_spec": {
+     "type": "mdcath",
+     "h5": "/home/artem/TopoFold/benchmarks/audit/wpd_local_retrieval/data/mdcath/mdcath_dataset_2yztA00.h5",
+     "domain": "2yztA00",
+     "temperature": "348",
+     "replica": "4",
+     "start": 13,
+     "stop": 130,
+     "step": 1,
+     "pbc": "make_whole_sequential"
+    },
+    "source_files": [
+     {
+      "role": "hdf5",
+      "path": "/home/artem/TopoFold/benchmarks/audit/wpd_local_retrieval/data/mdcath/mdcath_dataset_2yztA00.h5",
+      "bytes": 319739140,
+      "sha256": "4b9cb28795c9b5a61ad4f93d66eeec840cb7b0d1d6de75cb90ee4694eec83cd6"
+     }
+    ],
+    "adapter_json_sha256": "f8bdf70e84cecc03043f8327789c2a165a0b77b421dadd336b2b6cc939b3636c",
+    "features_json_sha256": "319ca2997af4844061e9d0753b55fcf3fd65cf9a0507cd20bb528f67e2328a1b",
+    "core": {
+     "version": "0.8.3",
+     "function": "compute_invariants",
+     "wrapper": {
+      "module": "topofold",
+      "path": "/home/artem/TopoFold/.venv/lib/python3.14/site-packages/topofold/__init__.py",
+      "sha256": "49780093095f27c89bdf234be15e1f5a9bac957d5a9dbf5ae0f93c856ee1590d"
+     },
+     "native_extension": {
+      "module": "topofold.topofold",
+      "path": "/home/artem/TopoFold/.venv/lib/python3.14/site-packages/topofold/topofold.cpython-314-x86_64-linux-gnu.so",
+      "sha256": "d90e7ed4f1d8036a3735f387c6fe6aa5a81c7b615da1d0094ce054cf0c13cfa8",
+      "status": "resolved",
+      "loader": "ExtensionFileLoader"
+     }
+    },
+    "frame_identity": "not_verifiable",
+    "units": {
+     "coordinates": "angstrom",
+     "time": null,
+     "source_length_unit": null,
+     "source_time_unit": null,
+     "reader_convert_units": null,
+     "basis": "HDF5 coords unit attribute 'Angstrom'; declared to the adapter as Angstrom"
+    }
+   }
+  ]
+ },
+ "outputs_sha256": {
+  "between.csv": "7ca2ef8ea71e088929a687c5736c33ce15e167131612a2f922584fb5a35b6961",
+  "distribution.csv": "0b9eee63f01d82f2b846ddbfe67d483dd9c1eb87085ca38869a6113c53f78447",
+  "exclusions.csv": "dec2a5245eb7a58a56e7596ed560b07ae14b6b141640428eb98289606feea29b",
+  "replicas.csv": "3dd33231b6b400fbdc0369d47206b49b1a7159f21fcbe28d926b770d076c85ce",
+  "temporal.csv": "1bee1190e57a4568827bd511d7dbb8e58a82e6021100ddd71de1f9df191934ca",
+  "distributions.npz": "d8a78a6df7f75fc03b5624384a4ba75ded52cf8ff00f9c820b7d11dcb00ab363"
+ },
+ "software": {
+  "python": "3.14.4",
+  "numpy": "2.5.3",
+  "ensemble_version": "0.2.0",
+  "module_sha256": "a3a023c6bcd825875e7c278e486ccae9ab2cafe776c2fd501d41337641a6731b"
+ },
+ "thresholds": {
+  "circular_resultant_length_min": 1e-06,
+  "constant_series_variance": 1e-20
+ },
+ "pooling": "member frames concatenated: members weighted by retained frame counts",
+ "created_utc": "2026-10-23T20:38:12.363307+00:00"
+}

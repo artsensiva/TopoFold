@@ -18,6 +18,12 @@ produces residue-mapped tables, distributions, replica variability and temporal 
   lengths with a numerical conditioning rule, and explicit reasons for unavailable values. See
   `CORRECTION_NOTE_2026-10-23.md`, with verification in `results_v2/verification.json` (`verify_v2.py`).
 - **Pooled distributions** weight members by their retained frame counts.
+- `results_v3/` (tool 0.3.0) writes **exact exclusion causes** per member into `tables/exclusions.csv` and
+  `report.md`, with location and source frames. It adds a gap demonstration (`spec_gap_1s14B00.json`, the
+  separate-agent reviewer's spec).
+  - Verified in `results_v3/verification.json` (`verify_v3.py`): `1ha8A00` and AdK tables and histograms are
+    identical to v2.
+  - The gap run's `between` table and its 10 excluded windows are identical to the reviewer's archived v0.2.0 run.
 
 Each output directory holds `tables/*.csv` (distribution, replicas, between, temporal, exclusions), `report.md`
 and `manifest.json`. `distributions.npz` and the per-member intermediate files are regenerated in the git-ignored

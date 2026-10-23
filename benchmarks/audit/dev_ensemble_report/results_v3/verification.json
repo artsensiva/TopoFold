@@ -1,0 +1,43 @@
+{
+ "note": "v3 adds exact exclusion causes; included windows, masks and pooled JS must be unchanged",
+ "1ha8A00": {
+  "tables_identical_to_v2": {
+   "distribution": true,
+   "replicas": true,
+   "between": true,
+   "temporal": true
+  },
+  "histograms_identical_to_v2": true,
+  "included_windows_identical": true,
+  "exclusion_rows": 0
+ },
+ "adk": {
+  "tables_identical_to_v2": {
+   "distribution": true,
+   "replicas": true,
+   "between": true,
+   "temporal": true
+  },
+  "histograms_identical_to_v2": true,
+  "included_windows_identical": true,
+  "exclusion_rows": 0
+ },
+ "gap_1s14B00": {
+  "compared_with": "archived separate-agent run gap_check (tool v0.2.0, same spec)",
+  "between_table_identical": true,
+  "excluded_windows_identical": true,
+  "excluded_windows": 10,
+  "exclusion_rows": 40,
+  "causes": [
+   "numbering_discontinuity @ 0:2093\u21920:2117"
+  ],
+  "members_with_causes": [
+   "320K_0",
+   "320K_1",
+   "348K_0",
+   "348K_1"
+  ],
+  "source_frames_example": "43;44;45;46;47;48;49;50;51;52",
+  "version": "0.3.0"
+ }
+}

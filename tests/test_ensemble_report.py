@@ -16,7 +16,8 @@ sys.path.insert(0, str(ROOT / "python"))
 from topofold_inputs import ensemble as en  # noqa: E402
 
 
-def _member(run_id, n_res=8, n_frames=120, tau_center=math.pi, phi=0.0, seed=0, invalid=None):
+def _member(run_id, n_res=8, n_frames=120, tau_center=math.pi, phi=0.0, seed=0, invalid=None, invalid_code=2,
+            breaks=None, statuses=None, frame_offset=0):
     rng = np.random.default_rng(seed)
     z = np.empty((n_frames, n_res))
     z[0] = rng.standard_normal(n_res)
@@ -30,11 +31,21 @@ def _member(run_id, n_res=8, n_frames=120, tau_center=math.pi, phi=0.0, seed=0, 
     tau = np.full((n_frames, n_res - 1), np.nan)
     tau[:, 1:-1] = np.angle(np.exp(1j * (tau_center + 0.3 * z[:, 1:-2])))
     kv, tv = np.isfinite(kappa), np.isfinite(tau)
+    kr = np.where(kv, 0, 2).astype(np.uint8)
+    tr = np.where(tv, 0, 2).astype(np.uint8)
     if invalid:
-        kv[:, invalid] = False
-    residues = [{"chain": "A", "resid": i + 1, "icode": "", "resname": "ALA"} for i in range(n_res)]
-    return {"run_id": run_id, "coords": coords, "present": np.ones(n_res, bool), "frame_index": np.arange(n_frames),
-            "kappa": kappa, "kappa_valid": kv, "tau": tau, "tau_valid": tv, "residues": residues,
+        if isinstance(invalid, dict):                      # {window: frame mask} for partial invalidity
+            for w_, fm in invalid.items():
+                kv[fm, w_] = False
+                kr[fm, w_] = invalid_code
+        else:
+            kv[:, invalid] = False
+            kr[:, invalid] = invalid_code
+    residues = [{"chain": "A", "resid": i + 1, "icode": "", "resname": "ALA",
+                 "status": (statuses or {}).get(i, "present")} for i in range(n_res)]
+    return {"run_id": run_id, "coords": coords, "present": np.ones(n_res, bool),
+            "frame_index": np.arange(n_frames) + frame_offset, "kappa": kappa, "kappa_valid": kv, "tau": tau,
+            "tau_valid": tv, "kappa_reason": kr, "tau_reason": tr, "breaks": breaks or [], "residues": residues,
             "provenance": {"source_files": [], "core": {"native_extension": {"status": "SYNTHETIC", "sha256": None}},
                            "frame_identity": "SYNTHETIC", "units": {}}}
 
@@ -58,12 +69,51 @@ def test_mapping_labels_rows_and_single_member_handling():
 
 
 def test_exclusions_reported_not_silent():
-    groups = {"A": [_member("A_0", invalid=[3])], "B": [_member("B_0", seed=5)]}
+    groups = {"A": [_member("A_0", invalid=[3], breaks=[{"after_index": 3, "reasons": ["numbering_discontinuity"]}])],
+              "B": [_member("B_0", seed=5)]}
     res = en.analyze(groups, OPTS)
     ex = res["rows"]["exclusions"]
     assert {(e["channel"], e["window"]) for e in ex} == {("kappa", 3), ("d_i_i2", 3)}
-    assert json.loads(ex[0]["invalid_frames_by_member"]) == {"A_0": 120}
+    r = [e for e in ex if e["channel"] == "kappa"][0]
+    assert r["member"] == "A_0" and r["cause"] == "numbering_discontinuity" and r["location"] == "A:4→A:5"
+    assert r["n_frames"] == 120 and r["source_frames"].startswith("0;1;2") and r["source_frames_truncated"]
     assert not any(r["channel"] == "kappa" and r["window"] == 3 for r in res["rows"]["distribution"])
+
+
+def test_exclusion_causes_numbering_missing_and_degenerate():
+    br = [{"after_index": 2, "reasons": ["numbering_discontinuity", "ca_ca_distance"], "n_frames": 4,
+           "max_distance_angstrom": 7.5, "first_frames": [100, 101]}]
+    a = _member("A_0", invalid=[2], breaks=br, frame_offset=100)
+    deg = np.zeros(120, bool)
+    deg[[5, 6, 7]] = True
+    b = _member("B_0", seed=4, invalid={5: deg}, invalid_code=3)       # degenerate geometry in 3 frames only
+    c = _member("C_0", seed=6, invalid=[4], invalid_code=1, statuses={4: "no_CA_atom"})
+    res = en.analyze({"A": [a], "B": [b], "C": [c]}, OPTS)
+    ex = res["rows"]["exclusions"]
+    ka = [e for e in ex if e["channel"] == "kappa" and e["window"] == 2]
+    assert {e["cause"] for e in ka} == {"numbering_discontinuity", "ca_ca_distance"}   # multiple causes kept
+    assert all(e["location"] == "A:3→A:4" and e["member"] == "A_0" for e in ka)
+    assert "max 7.50 Å" in [e for e in ka if e["cause"] == "ca_ca_distance"][0]["detail"]
+    assert ka[0]["source_frames"].startswith("100;101")                                # source, not local, frames
+    kb = [e for e in ex if e["channel"] == "kappa" and e["window"] == 5]
+    assert len(kb) == 1 and kb[0]["cause"] == "degenerate_segment" and kb[0]["n_frames"] == 3
+    assert kb[0]["source_frames"] == "5;6;7" and not kb[0]["source_frames_truncated"]
+    kc = [e for e in ex if e["channel"] == "kappa" and e["window"] == 4]
+    assert kc[0]["cause"] == "missing_coordinates" and "no_CA_atom" in kc[0]["detail"] and kc[0]["location"] == "A:5"
+    # a break code with no adapter record is reported as insufficient provenance, not guessed
+    d = _member("D_0", invalid=[6])
+    ed = en.analyze({"D": [d], "E": [_member("E_0", seed=9)]}, OPTS)["rows"]["exclusions"]
+    assert ed[0]["cause"] == "terminal_or_break" and "provenance insufficient" in ed[0]["detail"]
+
+
+def test_exclusion_detail_does_not_change_included_windows_or_js():
+    base = {"A": [_member("A_0", seed=1), _member("A_1", seed=2)], "B": [_member("B_0", seed=3)]}
+    r1 = en.analyze(base, OPTS)
+    flagged = {"A": [_member("A_0", seed=1, invalid=[3]), _member("A_1", seed=2)], "B": [_member("B_0", seed=3)]}
+    r2 = en.analyze(flagged, OPTS)
+    keep = lambda rows: {(r["channel"], r["window"], r["group_a"], r["group_b"]): r["pooled_js"] for r in rows  # noqa: E731
+                         if not (r["window"] == 3 and r["channel"] in ("kappa", "d_i_i2"))}
+    assert keep(r1["rows"]["between"]) == keep(r2["rows"]["between"])
 
 
 def test_identity_mismatch_rejected():
@@ -141,6 +191,13 @@ def test_end_to_end_with_adapter_and_reproducibility(tmp_path):
         assert (tmp_path / "o1" / f).read_bytes() == (tmp_path / "o2" / f).read_bytes(), f
     ex = list(csv.DictReader(open(tmp_path / "o1" / "tables/exclusions.csv")))
     assert ex, "the SYNTHETIC fixture has gaps and a missing Cα; windows touching them must be excluded"
+    causes = {(r["cause"], r["location"]) for r in ex}
+    assert ("numbering_discontinuity", "A:13→A:16") in causes
+    assert ("missing_coordinates", "A:18") in causes
+    assert ("chain_boundary", "A:18→B:10") in causes and ("missing_CA", "A:18→B:10") in causes   # both kept
+    assert all(r["member"] and r["source_frames"] != "" for r in ex)
+    rep = (tmp_path / "o1" / "report.md").read_text()
+    assert "numbering_discontinuity" in rep and "missing_coordinates" in rep
     dist = list(csv.DictReader(open(tmp_path / "o1" / "tables/distribution.csv")))
     assert {r["group"] for r in dist} == {"G1", "G2"} and all(r["residues"].startswith(("A:", "B:")) for r in dist)
     m = json.loads((tmp_path / "o1" / "manifest.json").read_text())

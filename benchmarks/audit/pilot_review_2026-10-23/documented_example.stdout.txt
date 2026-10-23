@@ -1,0 +1,1 @@
+groups ['320K', '348K']; rows {'distribution': 388, 'replicas': 388, 'between': 194, 'temporal': 1164, 'exclusions': 0}; wrote /tmp/topofold-reviewer-pilot-7oe2feoy/documented_example/report.md

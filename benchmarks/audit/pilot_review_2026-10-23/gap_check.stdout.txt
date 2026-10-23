@@ -1,0 +1,1 @@
+groups ['320K', '348K']; rows {'distribution': 1384, 'replicas': 1384, 'between': 692, 'temporal': 2768, 'exclusions': 10}; wrote /tmp/topofold-reviewer-pilot-7oe2feoy/gap_check/report.md

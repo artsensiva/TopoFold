@@ -73,6 +73,9 @@ labels time as INFERRED (the files have no timestamps) and records hashes.
     numerical rule).
   - **Degenerate series:** single-frame, constant or short series carry explicit reasons.
   - **Pooling:** pooled distributions weight members by their retained frame counts.
+- **v0.3.0:** `tables/exclusions.csv` gives one row per excluded window, member and cause. Causes come from adapter
+  break records, residue status or feature reason codes, with location, affected frames and source frame indices.
+  "Provenance insufficient" is reported instead of a guess.
 
 **Run** (repository root):
 

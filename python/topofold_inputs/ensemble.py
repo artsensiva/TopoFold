@@ -89,6 +89,7 @@ def extract_member(member: dict, run_id: str, work: Path, adapter_python: str, o
     return {"run_id": run_id, "coords": a["coordinates_angstrom"], "present": a["present"],
             "frame_index": a["frame_index"], "kappa": feats.kappa, "kappa_valid": feats.kappa_valid,
             "tau": feats.tau, "tau_valid": feats.tau_valid, "residues": rep["residues"],
+            "kappa_reason": feats.kappa_reason, "tau_reason": feats.tau_reason, "breaks": rep["breaks"],
             "provenance": {"member_spec": member, "source_files": rep["provenance"]["source_files"],
                            "adapter_json_sha256": _sha256(js),
                            "features_json_sha256": _sha256(work / f"{run_id}_features.json"),
@@ -98,7 +99,7 @@ def extract_member(member: dict, run_id: str, work: Path, adapter_python: str, o
 
 # --- descriptive statistics ------------------------------------------------------------------------------------------
 
-ENSEMBLE_VERSION = "0.2.0"
+ENSEMBLE_VERSION = "0.3.0"
 R_MIN = 1e-6            # numerical conditioning threshold for a circular mean direction (not a biological criterion)
 CONSTANT_VAR = 1e-20    # sample variance (squared units) at or below which a series is treated as constant
 UNAVAILABLE_R = f"unavailable: resultant length below {R_MIN:g} (mean direction numerically ill-conditioned)"
@@ -205,6 +206,80 @@ def _center_difference(ca, cb, sa, sb, ga, gb, circ: bool) -> dict:
     return {"center_difference": _wrap(ca - cb) if circ else ca - cb, "center_difference_status": "ok"}
 
 
+FRAME_LIST_MAX = 10
+_FEATURE_DETAIL = {
+    3: "segment shorter than the minimum length (degenerate geometry)",
+    4: "near-collinear vertex: |sin κ| below tolerance (degenerate geometry)",
+    5: "run shorter than 4 atoms between breaks or degenerate points",
+    6: "TopoFold core rejected the run",
+    7: "TopoFold core returned a non-finite value",
+}
+_FEATURE_CAUSE = {1: "missing_coordinates", 2: "terminal_or_break", 3: "degenerate_segment", 4: "near_collinear",
+                  5: "run_too_short_for_core", 6: "core_error", 7: "non_finite_core_output"}
+
+
+def _res_label(r) -> str:
+    return f"{r['chain']}:{r['resid']}{r['icode'] or ''}"
+
+
+def exclusion_causes(m: dict, ch: str, w: int, valid: np.ndarray) -> list[dict]:
+    """Exact causes for invalid frames of one member in one channel window, from existing records only.
+
+    Sources: the feature reason codes of κ (three-residue channels) or τ (four-residue channels), the adapter's break
+    records for adjacent residue pairs inside the window, and the adapter's residue status. Each distinct cause is one
+    row (several causes are kept). Nothing is inferred beyond these records.
+    """
+    lo, hi = CHANNELS[ch]["span"]
+    span = list(range(w - lo, w + hi + 1))
+    reason = (m["kappa_reason"] if ch in ("kappa", "d_i_i2") else m["tau_reason"])[:, w]
+    fidx = np.asarray(m["frame_index"])
+    res = m["residues"]
+
+    def frames(mask):
+        f = fidx[mask].tolist()
+        return {"n_frames": int(mask.sum()), "source_frames": ";".join(str(int(x)) for x in f[:FRAME_LIST_MAX]),
+                "source_frames_truncated": len(f) > FRAME_LIST_MAX}
+
+    rows = []
+    invalid = ~valid
+    for code in sorted(set(int(c) for c in np.unique(reason[invalid]))):
+        mask = invalid & (reason == code)
+        if code == 0:      # feature valid, but the channel value is not (e.g. a non-finite distance)
+            rows.append({"cause": "distance_not_finite", "source": "window distance", "location": "",
+                         "detail": "Cα–Cα distance not finite", **frames(mask)})
+        elif code == 1:
+            missing = [r for r in (res[i] for i in span if 0 <= i < len(res)) if r["status"] != "present"]
+            for r in missing:
+                rows.append({"cause": "missing_coordinates", "source": "adapter residue status", "location": _res_label(r),
+                             "detail": f"residue status {r['status']}", **frames(mask)})
+            if not missing:
+                rows.append({"cause": "missing_coordinates", "source": "feature reason code", "location": "",
+                             "detail": "no residue status record names the missing residue (provenance insufficient)",
+                             **frames(mask)})
+        elif code == 2:
+            inside = [b for b in m.get("breaks", []) if span[0] <= b["after_index"] < span[-1]]
+            for b in inside:
+                a, c = res[b["after_index"]], res[b["after_index"] + 1]
+                for why in b["reasons"]:
+                    extra = ""
+                    if why == "ca_ca_distance":
+                        extra = (f"; adapter recorded {b.get('n_frames')} frame(s) above threshold, max "
+                                 f"{b.get('max_distance_angstrom', float('nan')):.2f} Å, first source frames "
+                                 f"{b.get('first_frames')}")
+                    rows.append({"cause": why, "source": "adapter break record",
+                                 "location": f"{_res_label(a)}→{_res_label(c)}",
+                                 "detail": f"break between adjacent output residues {b['after_index']} and "
+                                           f"{b['after_index'] + 1}{extra}", **frames(mask)})
+            if not inside:
+                rows.append({"cause": "terminal_or_break", "source": "feature reason code", "location": "",
+                             "detail": "no adapter break record inside the window (provenance insufficient to name the "
+                                       "cause)", **frames(mask)})
+        else:
+            rows.append({"cause": _FEATURE_CAUSE.get(code, f"reason_code_{code}"), "source": "feature reason code",
+                         "location": "", "detail": _FEATURE_DETAIL.get(code, ""), **frames(mask)})
+    return rows
+
+
 def analyze(groups: dict[str, list[dict]], options: dict) -> dict:
     """All tables from extracted members. Pure function of the arrays (deterministic)."""
     names = list(groups)
@@ -228,9 +303,12 @@ def analyze(groups: dict[str, list[dict]], options: dict) -> dict:
                 continue
             bad = {m["run_id"]: int((~arrays[m["run_id"]][ch][1][:, w]).sum()) for m in members}
             if any(bad.values()):
-                rows["exclusions"].append({"channel": ch, "window": w, "residues": lab,
-                                           "reason": "invalid frames (missing residue, break or degenerate geometry)",
-                                           "invalid_frames_by_member": json.dumps({k: v for k, v in bad.items() if v})})
+                for m in members:
+                    if bad[m["run_id"]]:
+                        for c in exclusion_causes(m, ch, w, arrays[m["run_id"]][ch][1][:, w]):
+                            rows["exclusions"].append({"channel": ch, "window": w, "residues": lab,
+                                                       "member": m["run_id"],
+                                                       "member_frames": int(len(m["frame_index"])), **c})
                 continue
             per_group = {}
             for g in names:
@@ -352,9 +430,20 @@ def report(res: dict, groups: dict, manifest: dict) -> str:
     L += [f"- Core: native extension {core['native_extension']['status']} "
           f"(SHA-256 {str(core['native_extension']['sha256'])[:16]}…); analysis options {manifest['options']} "
           "(per-member reading options, e.g. frame slice and PBC policy, are in `manifest.json`)", "",
-          "## Exclusions", "",
-          f"{len(rows['exclusions'])} channel–window combinations excluded (invalid frames in at least one member); "
-          "listed in `tables/exclusions.csv`.", ""]
+          "## Exclusions", ""]
+    ex = rows["exclusions"]
+    windows = sorted({(r["channel"], r["window"], r["residues"]) for r in ex}, key=lambda t: (list(CHANNELS).index(t[0]), t[1]))
+    L.append(f"{len(windows)} channel–window combinations excluded (invalid frames in at least one member). "
+             "`tables/exclusions.csv` has one row per member and cause, with location and source frames.")
+    if windows:
+        L += ["", "| Channel | Window | Members affected | Causes (location) |", "|---|---|---|---|"]
+        for ch, w, lab in windows[:40]:
+            sel = [r for r in ex if r["channel"] == ch and r["window"] == w]
+            causes = sorted({f"{r['cause']}" + (f" ({r['location']})" if r["location"] else "") for r in sel})
+            L.append(f"| {ch} | {lab} | {len({r['member'] for r in sel})} | {'; '.join(causes)} |")
+        if len(windows) > 40:
+            L.append(f"| … | {len(windows) - 40} more in `tables/exclusions.csv` | | |")
+    L.append("")
     for i, ga in enumerate(names):
         for gb in names[i + 1:]:
             L += [f"## {ga} vs {gb}: largest pooled JS distances per channel (descriptive)", "",

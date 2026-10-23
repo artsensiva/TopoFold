@@ -1,0 +1,53 @@
+{
+  "name": "Reviewer operational gap check: mdCATH 1s14B00; development data; exclusion handling only",
+  "groups": {
+    "320K": [
+      {
+        "type": "mdcath",
+        "h5": "/home/artem/TopoFold/benchmarks/audit/wpd_local_retrieval/data/mdcath/mdcath_dataset_1s14B00.h5",
+        "domain": "1s14B00",
+        "temperature": "320",
+        "replica": "2",
+        "start": 43,
+        "stop": 83,
+        "step": 1,
+        "pbc": "make_whole_sequential"
+      },
+      {
+        "type": "mdcath",
+        "h5": "/home/artem/TopoFold/benchmarks/audit/wpd_local_retrieval/data/mdcath/mdcath_dataset_1s14B00.h5",
+        "domain": "1s14B00",
+        "temperature": "320",
+        "replica": "3",
+        "start": 43,
+        "stop": 83,
+        "step": 1,
+        "pbc": "make_whole_sequential"
+      }
+    ],
+    "348K": [
+      {
+        "type": "mdcath",
+        "h5": "/home/artem/TopoFold/benchmarks/audit/wpd_local_retrieval/data/mdcath/mdcath_dataset_1s14B00.h5",
+        "domain": "1s14B00",
+        "temperature": "348",
+        "replica": "2",
+        "start": 43,
+        "stop": 83,
+        "step": 1,
+        "pbc": "make_whole_sequential"
+      },
+      {
+        "type": "mdcath",
+        "h5": "/home/artem/TopoFold/benchmarks/audit/wpd_local_retrieval/data/mdcath/mdcath_dataset_1s14B00.h5",
+        "domain": "1s14B00",
+        "temperature": "348",
+        "replica": "3",
+        "start": 43,
+        "stop": 83,
+        "step": 1,
+        "pbc": "make_whole_sequential"
+      }
+    ]
+  }
+}

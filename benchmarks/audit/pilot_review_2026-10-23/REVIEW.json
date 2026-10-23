@@ -1,0 +1,234 @@
+{
+  "id": "TOPOFOLD_SEPARATE_AGENT_USABILITY_REVIEW_2026-10-23",
+  "reviewer": "Codex, separate from the implementing agent; prior reviewer familiarity disclosed",
+  "scope": "Installed-environment usability review on development data, not clean-install validation, independent human feedback or biological validation",
+  "finished_utc": "2026-10-23T20:41:00.032287+00:00",
+  "repository": "/home/artem/TopoFold",
+  "head": "389f2d7d168cfa9b4b76af2366a4e2d1cce4289d",
+  "repository_preservation": {
+    "tracked_files_checked": 570,
+    "changed_tracked_files": [],
+    "git_status_identical": true,
+    "head_unchanged": true
+  },
+  "criteria": {
+    "prepare_new_input": "met: reviewer-selected 2yztA00, five replicas per group, frames 13:130",
+    "complete_run": "met: three CLI runs, no implementation edits",
+    "identify_exclusions_and_causes_from_exclusions_csv": "partly met: 10 excluded channel-windows identifiable; exact numbering_discontinuity requires members JSON",
+    "explain_limitations": "met: descriptive only, correlated finite samples, exposed development data, C-alpha only, same-start limitations, no significance or causal interpretation"
+  },
+  "checks": {
+    "documented_example": {
+      "output_hashes_matched": [
+        "between.csv",
+        "distribution.csv",
+        "exclusions.csv",
+        "replicas.csv",
+        "temporal.csv",
+        "distributions.npz"
+      ],
+      "output_hashes_mismatched_or_missing": [],
+      "table_rows": {
+        "between": 194,
+        "distribution": 388,
+        "exclusions": 0,
+        "replicas": 388,
+        "temporal": 1164
+      },
+      "analysis_module_matches": true
+    },
+    "reviewer_2yztA00": {
+      "output_hashes_matched": [
+        "between.csv",
+        "distribution.csv",
+        "exclusions.csv",
+        "replicas.csv",
+        "temporal.csv",
+        "distributions.npz"
+      ],
+      "output_hashes_mismatched_or_missing": [],
+      "table_rows": {
+        "between": 254,
+        "distribution": 508,
+        "exclusions": 0,
+        "replicas": 508,
+        "temporal": 2540
+      },
+      "analysis_module_matches": true
+    },
+    "gap_check": {
+      "output_hashes_matched": [
+        "between.csv",
+        "distribution.csv",
+        "exclusions.csv",
+        "replicas.csv",
+        "temporal.csv",
+        "distributions.npz"
+      ],
+      "output_hashes_mismatched_or_missing": [],
+      "table_rows": {
+        "between": 692,
+        "distribution": 1384,
+        "exclusions": 10,
+        "replicas": 1384,
+        "temporal": 2768
+      },
+      "analysis_module_matches": true
+    }
+  },
+  "resources": [
+    {
+      "run": "documented_example",
+      "exit_code": 0,
+      "wall_s": 9.183438326232135,
+      "cpu_s": 18.790000000000003,
+      "peak_rss_kib": 110288.0
+    },
+    {
+      "run": "reviewer_2yztA00",
+      "exit_code": 0,
+      "wall_s": 20.173658124171197,
+      "cpu_s": 33.78,
+      "peak_rss_kib": 109476.0
+    },
+    {
+      "run": "gap_check",
+      "exit_code": 0,
+      "wall_s": 17.066586748231202,
+      "cpu_s": 21.470000000000002,
+      "peak_rss_kib": 112884.0
+    }
+  ],
+  "total_cpu_s": 74.04,
+  "peak_rss_mib": 110.23828125,
+  "new_dataset": {
+    "scratch": "/tmp/topofold-reviewer-pilot-7oe2feoy",
+    "selected_domain": "2yztA00",
+    "selection_reason": "Existing non-cohort development domain; 66 residues; not the prior pilot domain. Short replicas require a common 130-frame interval. No selection using scores.",
+    "frames": "13:130:1; first 13 excluded by the existing 10% convention; no equilibration claim",
+    "source_sha256": "4b9cb28795c9b5a61ad4f93d66eeec840cb7b0d1d6de75cb90ee4694eec83cd6",
+    "spec_sha256": "64c019e2f3e947ee0c8b1f42875aee154785d10f5e75ec548db342ffad28e7e0"
+  },
+  "independent_js_check": {
+    "rows": 254,
+    "method": "Entropy-form Jensen-Shannon distance calculated independently from saved histogram counts; compared to six-significant-digit CSV",
+    "max_abs_csv_difference": 4.972973803724079e-07
+  },
+  "mapping_check": {
+    "method": "Separate h5py read; C-alpha atom indices parsed directly from embedded PDB ATOM/HETATM records; compared across all ten new-domain member exports",
+    "max_coordinate_difference_angstrom": 0.0,
+    "frames_and_residue_ids_match": true,
+    "pbc_frames_changed_per_member": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "limitation": "same HDF5 decoder, not an independent file-format implementation"
+  },
+  "descriptive_peak_rows": {
+    "kappa": {
+      "channel": "kappa",
+      "window": "46",
+      "residues": "0:47-49",
+      "group_a": "320K",
+      "group_b": "348K",
+      "pooled_js": "0.399178",
+      "between_member_js_median": "0.429255",
+      "within_member_js_median_a": "0.25254",
+      "within_member_js_median_b": "0.457194",
+      "center_difference": "0.224094",
+      "center_difference_status": "ok"
+    },
+    "tau": {
+      "channel": "tau",
+      "window": "55",
+      "residues": "0:56-59",
+      "group_a": "320K",
+      "group_b": "348K",
+      "pooled_js": "0.437531",
+      "between_member_js_median": "0.705294",
+      "within_member_js_median_a": "0.559438",
+      "within_member_js_median_b": "0.864824",
+      "center_difference": "0.416275",
+      "center_difference_status": "ok"
+    },
+    "d_i_i2": {
+      "channel": "d_i_i2",
+      "window": "46",
+      "residues": "0:47-49",
+      "group_a": "320K",
+      "group_b": "348K",
+      "pooled_js": "0.409504",
+      "between_member_js_median": "0.44164",
+      "within_member_js_median_a": "0.272537",
+      "within_member_js_median_b": "0.454986",
+      "center_difference": "-0.497828",
+      "center_difference_status": "ok"
+    },
+    "d_i_i3": {
+      "channel": "d_i_i3",
+      "window": "45",
+      "residues": "0:46-49",
+      "group_a": "320K",
+      "group_b": "348K",
+      "pooled_js": "0.420525",
+      "between_member_js_median": "0.479592",
+      "within_member_js_median_a": "0.292886",
+      "within_member_js_median_b": "0.508916",
+      "center_difference": "-1.24984",
+      "center_difference_status": "ok"
+    }
+  },
+  "gap_check": {
+    "excluded_channel_windows": 10,
+    "reported_causes": [
+      {
+        "after_index": 76,
+        "reasons": [
+          "numbering_discontinuity"
+        ]
+      }
+    ],
+    "numbering_around_gap": [
+      [
+        74,
+        2091
+      ],
+      [
+        75,
+        2092
+      ],
+      [
+        76,
+        2093
+      ],
+      [
+        77,
+        2117
+      ],
+      [
+        78,
+        2118
+      ],
+      [
+        79,
+        2119
+      ]
+    ]
+  },
+  "obstacles": [
+    "Exact exclusion causes are not in exclusions.csv; intermediates are required. Deleting members/ removes that explanation.",
+    "Environment setup is assumed: two existing interpreters and local MD data. A fresh-machine installation was not tested.",
+    "Existing output directories can be overwritten; fresh output directories were used.",
+    "The report displays a default global pbc value although per-member policies are the effective settings.",
+    "The worked reading uses five replicas per group, whereas the handoff command uses three; identical numerical results should not be expected."
+  ],
+  "recommendation": "Operationally usable on the documented installed environment; qualified pilot pass, with exclusion-cause criterion partly met. Next: inline exact exclusion reasons and first outside-user trial; no new inference campaign."
+}
