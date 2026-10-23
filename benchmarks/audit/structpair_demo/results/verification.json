@@ -1,0 +1,176 @@
+{
+ "id": "STRUCTPAIR-VERIFY-1",
+ "created_utc": "20261023T225352Z",
+ "command": "python -m topofold_inputs.structpair",
+ "module_sha256": "882d09d311af708875741a28a14283bd4eb26e54b30a9d8d59aa8658f7708ea9",
+ "checks": {
+  "C1_struct1_reproduction": {
+   "exit_code": 0,
+   "n_values_compared": 993,
+   "n_mismatches": 0,
+   "max_abs_difference": 0.0,
+   "mismatches": [],
+   "global_rmsd": {
+    "new": 0.717657940290446,
+    "recorded": 0.717657940290446,
+    "abs_difference": 0.0,
+    "numpy_kabsch_abs_difference": 1.1068923555512811e-13
+   },
+   "agreement_max_abs_difference": 0.0,
+   "altloc_sensitivity_max_abs_difference": 0.0
+  },
+  "C2_struct2_primary": {
+   "exit_code": 0,
+   "n_values_compared": 918,
+   "n_mismatches": 0,
+   "max_abs_difference": 0.0,
+   "mismatches": [],
+   "global_rmsd_abs_difference": 0.0,
+   "altloc_sensitivity_status": "not applicable: no alternate locations at the mapped C\u03b1 atoms",
+   "exclusions": [
+    [
+     "A:57..A:68",
+     "numbering_discontinuity"
+    ],
+    [
+     "A:58..A:68",
+     "numbering_discontinuity"
+    ],
+    [
+     "A:58..A:69",
+     "numbering_discontinuity"
+    ],
+    [
+     "A:59..A:69",
+     "numbering_discontinuity"
+    ],
+    [
+     "A:59..A:70",
+     "numbering_discontinuity"
+    ]
+   ],
+   "recorded_exclusions": {
+    "three_residue": [
+     {
+      "window": "58-68",
+      "cause": "numbering_discontinuity 59->68"
+     },
+     {
+      "window": "59-69",
+      "cause": "numbering_discontinuity 59->68"
+     }
+    ],
+    "four_residue": [
+     {
+      "window": "57-68",
+      "cause": "numbering_discontinuity 59->68"
+     },
+     {
+      "window": "58-69",
+      "cause": "numbering_discontinuity 59->68"
+     },
+     {
+      "window": "59-70",
+      "cause": "numbering_discontinuity 59->68"
+     }
+    ]
+   }
+  },
+  "C3_struct2_all_12_pairings": {
+   "n_pairings_run": 12,
+   "exit_codes": {
+    "A-A": 0,
+    "A-B": 0,
+    "A-C": 0,
+    "A-D": 0,
+    "A-E": 0,
+    "A-F": 0,
+    "B-A": 0,
+    "B-B": 0,
+    "B-C": 0,
+    "B-D": 0,
+    "B-E": 0,
+    "B-F": 0
+   },
+   "global_rmsd_max_abs_difference": 0.0,
+   "n_aggregate_values_compared": 2754,
+   "n_aggregate_mismatches": 0,
+   "mismatches": []
+  },
+  "C4_explicit_pairs_on_missing_exclude": {
+   "exit_code": 0,
+   "n_exclusion_rows": 56,
+   "causes": [
+    "missing_CA",
+    "missing_coordinates"
+   ],
+   "missing_locations": {
+    "A": [
+     "A:60",
+     "A:61",
+     "A:62",
+     "A:63",
+     "A:64"
+    ],
+    "B": [
+     "A:61",
+     "A:62",
+     "A:63"
+    ]
+   },
+   "expected_missing": {
+    "A": [
+     "A:60",
+     "A:61",
+     "A:62",
+     "A:63",
+     "A:64"
+    ],
+    "B": [
+     "A:61",
+     "A:62",
+     "A:63"
+    ]
+   },
+   "windows_away_from_gap_identical_to_C2": {
+    "n_values_compared": 903,
+    "n_mismatches": 0,
+    "max_abs_difference": 0.0,
+    "mismatches": []
+   }
+  },
+  "C5_resname_mismatch": {
+   "flag_exit_code": 0,
+   "mismatches": [
+    [
+     "A:12",
+     "GLY",
+     "ASP"
+    ]
+   ],
+   "window3_centres_flagged": [
+    11,
+    12,
+    13
+   ],
+   "reject_exit_code": 2,
+   "reject_message": "spec error: residue names differ at A:12 GLY vs B:12 ASP; fix the correspondence or set resname_mismatch to 'flag'"
+  },
+  "C6_nonempty_output_refused": {
+   "exit_code": 2,
+   "message": "spec error: output directory /home/artem/TopoFold/benchmarks/audit/structpair_demo/build/20261023T225352Z/kras1 is not empty; use a fresh directory"
+  },
+  "C7_missing_chain_refused": {
+   "exit_code": 2,
+   "message": "spec error: structures.B.chain is required (no default chain is chosen)"
+  },
+  "C8_absent_chain_refused": {
+   "exit_code": 2,
+   "message": "input error: rejected: correspondence residue ('Z', 1, '') not found in selection 'protein'"
+  }
+ },
+ "resources": {
+  "cpu_s": 182.3535
+ },
+ "build_dir": "benchmarks/audit/structpair_demo/build/20261023T225352Z"
+}

@@ -1,0 +1,5 @@
+{"name": "KRAS-STRUCT-2 primary pair: 5US4 chain A (GDP) vs 5USJ chain A (GMPPNP), KRAS G12D",
+ "structures": {"A": {"label": "5US4 A GDP", "file": "../../kras_struct_g12d/data_pdb/5US4.pdb", "chain": "A", "altloc": "reject"},
+                "B": {"label": "5USJ A GMPPNP", "file": "../../kras_struct_g12d/data_pdb/5USJ.pdb", "chain": "A", "altloc": "reject"}},
+ "correspondence": {"same_numbering": "1-59,68-166"},
+ "on_missing": "reject", "resname_mismatch": "reject", "altloc_sensitivity": "highest_occupancy"}

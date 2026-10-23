@@ -67,3 +67,4 @@ benchmarks/audit/eb1/build/
 benchmarks/audit/wpd_local_retrieval/results/wpd_heldout_THIRD_PARTY_MD_DERIVATIVE_results.json
 benchmarks/audit/kras_struct_g12d/build/
 benchmarks/audit/kras_struct_g12d/data_pdb/
+benchmarks/audit/structpair_demo/build/

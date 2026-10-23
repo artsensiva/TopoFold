@@ -1,0 +1,493 @@
+{
+ "top": {
+  "d_kappa": [
+   {
+    "position": 34,
+    "window_A": "A:34..A:36",
+    "value": 0.5372956019271938,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 33,
+    "window_A": "A:33..A:35",
+    "value": 0.41405554103783304,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 51,
+    "window_A": "A:51..A:53",
+    "value": 0.2806854543770214,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 57,
+    "window_A": "A:57..A:59",
+    "value": 0.2703275638347622,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 35,
+    "window_A": "A:35..A:37",
+    "value": 0.26624490587609095,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 50,
+    "window_A": "A:50..A:52",
+    "value": 0.26359011401246824,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 36,
+    "window_A": "A:36..A:38",
+    "value": 0.23764137348294823,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 37,
+    "window_A": "A:37..A:39",
+    "value": 0.22963011240561804,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 73,
+    "window_A": "A:73..A:75",
+    "value": 0.212034229716219,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 74,
+    "window_A": "A:74..A:76",
+    "value": 0.2027678112428124,
+    "altloc": false,
+    "mismatch": false
+   }
+  ],
+  "d_i_i2": [
+   {
+    "position": 34,
+    "window_A": "A:34..A:36",
+    "value": 1.0670646992059085,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 33,
+    "window_A": "A:33..A:35",
+    "value": 0.9236495116875361,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 35,
+    "window_A": "A:35..A:37",
+    "value": 0.6509978185562675,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 51,
+    "window_A": "A:51..A:53",
+    "value": 0.6233246483167614,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 73,
+    "window_A": "A:73..A:75",
+    "value": 0.5386082656807458,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 57,
+    "window_A": "A:57..A:59",
+    "value": 0.46049526447189404,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 36,
+    "window_A": "A:36..A:38",
+    "value": 0.45972247495551244,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 56,
+    "window_A": "A:56..A:58",
+    "value": 0.4305543348787726,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 25,
+    "window_A": "A:25..A:27",
+    "value": 0.42593710148030084,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 72,
+    "window_A": "A:72..A:74",
+    "value": 0.41119173208952997,
+    "altloc": false,
+    "mismatch": false
+   }
+  ],
+  "rmsd3": [
+   {
+    "position": 34,
+    "window_A": "A:34..A:36",
+    "value": 0.599082497435285,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 33,
+    "window_A": "A:33..A:35",
+    "value": 0.48403158669722296,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 51,
+    "window_A": "A:51..A:53",
+    "value": 0.32570259436154203,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 35,
+    "window_A": "A:35..A:37",
+    "value": 0.323089015332805,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 57,
+    "window_A": "A:57..A:59",
+    "value": 0.2882784458707668,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 50,
+    "window_A": "A:50..A:52",
+    "value": 0.2706803546152271,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 36,
+    "window_A": "A:36..A:38",
+    "value": 0.26424002119568846,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 73,
+    "window_A": "A:73..A:75",
+    "value": 0.263268267650823,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 37,
+    "window_A": "A:37..A:39",
+    "value": 0.219048659217612,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 74,
+    "window_A": "A:74..A:76",
+    "value": 0.2122439776574276,
+    "altloc": false,
+    "mismatch": false
+   }
+  ],
+  "d_tau": [
+   {
+    "position": 33,
+    "window_A": "A:33..A:36",
+    "value": 2.8939751830290237,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 35,
+    "window_A": "A:35..A:38",
+    "value": 2.4974258490245034,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 31,
+    "window_A": "A:31..A:34",
+    "value": 1.8115443332413925,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 34,
+    "window_A": "A:34..A:37",
+    "value": 1.2771442585319532,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 29,
+    "window_A": "A:29..A:32",
+    "value": 1.181740441745902,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 30,
+    "window_A": "A:30..A:33",
+    "value": 1.0086112060013355,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 37,
+    "window_A": "A:37..A:40",
+    "value": 0.7724835742882019,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 50,
+    "window_A": "A:50..A:53",
+    "value": 0.7119358822861583,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 72,
+    "window_A": "A:72..A:75",
+    "value": 0.6958977986705285,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 49,
+    "window_A": "A:49..A:52",
+    "value": 0.6447952638439587,
+    "altloc": false,
+    "mismatch": false
+   }
+  ],
+  "d_i_i3": [
+   {
+    "position": 33,
+    "window_A": "A:33..A:36",
+    "value": 4.082263864261431,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 35,
+    "window_A": "A:35..A:38",
+    "value": 2.7153069402813363,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 31,
+    "window_A": "A:31..A:34",
+    "value": 1.8015276325219576,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 29,
+    "window_A": "A:29..A:32",
+    "value": 1.5633312572632185,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 34,
+    "window_A": "A:34..A:37",
+    "value": 1.2076647868044095,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 73,
+    "window_A": "A:73..A:76",
+    "value": 0.775285150650852,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 56,
+    "window_A": "A:56..A:59",
+    "value": 0.6365261664858544,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 32,
+    "window_A": "A:32..A:35",
+    "value": 0.6021473280963558,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 65,
+    "window_A": "A:65..A:68",
+    "value": 0.5576832719234135,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 24,
+    "window_A": "A:24..A:27",
+    "value": 0.5164560043304949,
+    "altloc": false,
+    "mismatch": false
+   }
+  ],
+  "rmsd4": [
+   {
+    "position": 33,
+    "window_A": "A:33..A:36",
+    "value": 2.334159503051689,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 35,
+    "window_A": "A:35..A:38",
+    "value": 2.0035080268517693,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 31,
+    "window_A": "A:31..A:34",
+    "value": 1.6408413298419786,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 34,
+    "window_A": "A:34..A:37",
+    "value": 1.288720958651966,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 29,
+    "window_A": "A:29..A:32",
+    "value": 0.9059957035097371,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 30,
+    "window_A": "A:30..A:33",
+    "value": 0.8695144883767569,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 72,
+    "window_A": "A:72..A:75",
+    "value": 0.6285740728385745,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 36,
+    "window_A": "A:36..A:39",
+    "value": 0.6059987217376566,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 37,
+    "window_A": "A:37..A:40",
+    "value": 0.5278964777077872,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 73,
+    "window_A": "A:73..A:76",
+    "value": 0.4900077682263227,
+    "altloc": false,
+    "mismatch": false
+   }
+  ]
+ },
+ "agreement": {
+  "d_kappa~d_i_i2": {
+   "spearman": 0.7901283188310521,
+   "n_windows": 157
+  },
+  "d_kappa~rmsd3": {
+   "spearman": 0.932426398079869,
+   "n_windows": 157
+  },
+  "d_i_i2~rmsd3": {
+   "spearman": 0.9101178995156258,
+   "n_windows": 157
+  },
+  "d_tau~d_i_i3": {
+   "spearman": 0.3745834810350939,
+   "n_windows": 155
+  },
+  "d_tau~rmsd4": {
+   "spearman": 0.8180819180819181,
+   "n_windows": 155
+  },
+  "d_i_i3~rmsd4": {
+   "spearman": 0.611317714543521,
+   "n_windows": 155
+  }
+ },
+ "n_windows": {
+  "d_kappa": 157,
+  "d_i_i2": 157,
+  "rmsd3": 157,
+  "d_tau": 155,
+  "d_i_i3": 155,
+  "rmsd4": 155
+ },
+ "global": {
+  "rmsd_qcp_angstrom": 1.260929598676933,
+  "n_ca": 161,
+  "rmsd_numpy_kabsch_angstrom": 1.2609295986769886
+ },
+ "altloc_sensitivity": null,
+ "metric_definitions": {
+  "d_kappa": "|\u03ba_B \u2212 \u03ba_A|, three-residue window (i\u22121, i, i+1), TopoFold core",
+  "d_i_i2": "|d(i\u22121,i+1)_B \u2212 d(i\u22121,i+1)_A|, same three-residue window (distance baseline)",
+  "rmsd3": "proper-rotation C\u03b1 RMSD of the three-residue window after optimal superposition (MDAnalysis QCP)",
+  "d_tau": "circular |wrap(\u03c4_B \u2212 \u03c4_A)|, four-residue window (i\u22121 .. i+2), hinge i\u2192i+1, TopoFold core",
+  "d_i_i3": "|d(i\u22121,i+2)_B \u2212 d(i\u22121,i+2)_A|, same four-residue window (distance baseline)",
+  "rmsd4": "proper-rotation C\u03b1 RMSD of the four-residue window after optimal superposition (MDAnalysis QCP)"
+ },
+ "units": {
+  "d_kappa": "rad",
+  "d_i_i2": "angstrom",
+  "rmsd3": "angstrom",
+  "d_tau": "rad",
+  "d_i_i3": "angstrom",
+  "rmsd4": "angstrom"
+ },
+ "n_exclusion_rows": 56
+}

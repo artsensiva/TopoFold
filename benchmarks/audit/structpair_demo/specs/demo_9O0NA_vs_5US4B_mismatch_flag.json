@@ -1,0 +1,23 @@
+{
+ "name": "Input-handling demonstration (values not interpreted): 9O0N chain A (WT) vs 5US4 chain B (G12D), residue-name mismatch flagged",
+ "structures": {
+  "A": {
+   "label": "9O0N A WT GDP",
+   "file": "../../kras_struct_cmp/data_pdb/9O0N.pdb",
+   "chain": "A",
+   "altloc": "blank_then_A"
+  },
+  "B": {
+   "label": "5US4 B G12D GDP",
+   "file": "../../kras_struct_g12d/data_pdb/5US4.pdb",
+   "chain": "B",
+   "altloc": "reject"
+  }
+ },
+ "correspondence": {
+  "same_numbering": "1-166"
+ },
+ "on_missing": "exclude",
+ "resname_mismatch": "flag",
+ "top_n": 5
+}

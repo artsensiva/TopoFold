@@ -77,6 +77,22 @@ labels time as INFERRED (the files have no timestamps) and records hashes.
   break records, residue status or feature reason codes, with location, affected frames and source frame indices.
   "Provenance insufficient" is reported instead of a guess.
 
+**Two-structure comparison** (`structpair.py`, v0.1.0):
+`python -m topofold_inputs.structpair SPEC.json --out NEW_DIR [--adapter-python PATH]`.
+- **Input:** two single-model structures, one chain each (named in the spec), and an explicit residue correspondence:
+  identical numbering over stated ranges, or explicit A→B residue pairs. Correspondence and chains are never inferred.
+- **Policies, all explicit:**
+  - alternate locations per structure (`reject`, `blank_then_A`, `highest_occupancy`), with an optional second policy
+    as a sensitivity check;
+  - missing residues `reject` (stop) or `exclude` (keep as missing rows; their windows excluded with named causes);
+  - residue-name mismatches `reject` or `flag`.
+- **Outputs:** `windows.csv` (κ, τ, window Cα distances and 3/4-residue local RMSD for each structure and their
+  differences; units in column names), `residues.csv`, `exclusions.csv`, `summary.json`, `report.md`, `figure.png`
+  and a hashed `manifest.json` (input, software and output provenance). Global RMSD comes from MDAnalysis QCP, with an
+  independent numpy SVD/Kabsch check.
+- **Scope:** static and descriptive only. Verified against KRAS-STRUCT-1/-2 in `benchmarks/audit/structpair_demo/`;
+  user guide in `docs/STRUCTPAIR_USER_GUIDE.md`.
+
 **Run** (repository root):
 
 ```bash
