@@ -58,6 +58,16 @@ labels time as INFERRED (the files have no timestamps) and records hashes.
 - `dependent_bootstrap.py` (stationary bootstrap + Kuiper, replicas resampled separately) is an audit prototype. It
   failed SYNTHETIC calibration under unequal temporal correlation (DABOOT-1) and is not recommended for inference.
 
+**Descriptive group comparison** (`ensemble.py`):
+`python -m topofold_inputs.ensemble SPEC.json --out DIR [--adapter-python PATH]`.
+- **Input:** named groups of members, either MDAnalysis files or mdCATH HDF5 replicas, sharing one residue mapping.
+- **Outputs:**
+  - residue-mapped CSV tables: per-group distributions, replica variability, pairwise group differences,
+    per-member temporal diagnostics, and exclusions with reasons;
+  - `distributions.npz`, `report.md` and a hashed `manifest.json`.
+- **Scope:** descriptive only, with no p-values, significance labels or uncertainty intervals. Demonstration in
+  `benchmarks/audit/dev_ensemble_report/`.
+
 **Run** (repository root):
 
 ```bash

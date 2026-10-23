@@ -120,6 +120,15 @@ The development programme, evidence levels (A–E) and the current queue are in
     calibration (DABOOT-1: null rejection 0.095–0.230 at α = 0.05). Ensemble comparisons therefore remain
     descriptive, without inferential claims
     ([`benchmarks/audit/synth_daboot/`](benchmarks/audit/synth_daboot/README.md)).
+  - The calibration phase is closed. Conditions for reopening inference are in
+    [`benchmarks/audit/synth_daboot/CLOSEOUT_2026-10-23.md`](benchmarks/audit/synth_daboot/CLOSEOUT_2026-10-23.md).
+- **Descriptive group comparison:** `python -m topofold_inputs.ensemble SPEC.json --out DIR` takes named groups of
+  trajectories and produces residue-mapped tables, distributions, replica variability and temporal diagnostics, with
+  no p-values. It is demonstrated on development data in
+  [`benchmarks/audit/dev_ensemble_report/`](benchmarks/audit/dev_ensemble_report/README.md).
+- **ABL** (preferred biological route): the trajectories, their permissions and processed HDX uptake are not yet
+  obtained; the owner actions are listed in
+  [`benchmarks/audit/abl_access/ACCESS_STATUS_2026-10-23.md`](benchmarks/audit/abl_access/ACCESS_STATUS_2026-10-23.md).
 
 ## What TopoFold does not (yet) do
 

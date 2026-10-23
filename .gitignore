@@ -53,6 +53,8 @@ benchmarks/audit/wpd_local_retrieval/build/
 benchmarks/audit/dev_ca_pipeline/build/
 benchmarks/audit/dev_ens_compare/build/
 benchmarks/audit/dev_rep_compare/build/
+benchmarks/audit/dev_ensemble_report/build/
+benchmarks/audit/abl_access/data_*/
 benchmarks/audit/wpd_local_retrieval/data/
 benchmarks/audit/legacy_engine/build/
 benchmarks/audit/legacy_engine/rust_probe/target/

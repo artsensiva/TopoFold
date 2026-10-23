@@ -1,0 +1,175 @@
+{
+ "schema": "topofold_inputs.ensemble/1",
+ "name": "AdK open-start vs closed-start, single runs, 0-335.2 ns every 4th frame (development data)",
+ "statement": "Descriptive comparison only: no p-values, significance labels or uncertainty intervals.",
+ "spec_sha256": "c65bb783f6e820b8d08396d110780f5d7babf6bdb59ae7f2c57df27ea7999936",
+ "options": {
+  "bins": 36,
+  "max_lag": 50,
+  "pbc": "none"
+ },
+ "channels": {
+  "kappa": {
+   "kind": "linear",
+   "lo": 0.0,
+   "hi": 3.141592653589793,
+   "unit": "rad"
+  },
+  "tau": {
+   "kind": "circular",
+   "unit": "rad"
+  },
+  "d_i_i2": {
+   "kind": "linear",
+   "lo": 3.0,
+   "hi": 8.0,
+   "unit": "angstrom"
+  },
+  "d_i_i3": {
+   "kind": "linear",
+   "lo": 3.0,
+   "hi": 12.0,
+   "unit": "angstrom"
+  }
+ },
+ "groups": {
+  "open_start": [
+   {
+    "run_id": "open_start_0",
+    "frames": 420,
+    "frame_index_first_last": [
+     0,
+     1676
+    ],
+    "member_spec": {
+     "type": "mdanalysis",
+     "topology": "benchmarks/audit/adk_feasibility/data/raw/ORADD_open_state.gro",
+     "trajectories": [
+      "benchmarks/audit/adk_feasibility/data/raw/ORADD_open_state_traj.xtc"
+     ],
+     "start": 0,
+     "stop": 1677,
+     "step": 4,
+     "pbc": "make_whole_sequential"
+    },
+    "source_files": [
+     {
+      "role": "topology",
+      "path": "/home/artem/TopoFold/benchmarks/audit/adk_feasibility/data/raw/ORADD_open_state.gro",
+      "bytes": 6567118,
+      "sha256": "25c90e78f549d97ed61814950efcdf9b859a0320734bd15bd09003677608a40f"
+     },
+     {
+      "role": "trajectory",
+      "path": "/home/artem/TopoFold/benchmarks/audit/adk_feasibility/data/raw/ORADD_open_state_traj.xtc",
+      "bytes": 780301896,
+      "sha256": "39e77b58ded7279d27b9e331b2ff9e6d39a803183689612856df0aa800a40019"
+     }
+    ],
+    "adapter_json_sha256": "3c87f95b808b1fb4276cc7ce987c87e7df13e38661e45141506a54b88ea6a40b",
+    "features_json_sha256": "5b92c5231b99778e4a1982ae3313819ab2ace02109547c52c60410902b4966e9",
+    "core": {
+     "version": "0.8.3",
+     "function": "compute_invariants",
+     "wrapper": {
+      "module": "topofold",
+      "path": "/home/artem/TopoFold/.venv/lib/python3.14/site-packages/topofold/__init__.py",
+      "sha256": "49780093095f27c89bdf234be15e1f5a9bac957d5a9dbf5ae0f93c856ee1590d"
+     },
+     "native_extension": {
+      "module": "topofold.topofold",
+      "path": "/home/artem/TopoFold/.venv/lib/python3.14/site-packages/topofold/topofold.cpython-314-x86_64-linux-gnu.so",
+      "sha256": "d90e7ed4f1d8036a3735f387c6fe6aa5a81c7b615da1d0094ce054cf0c13cfa8",
+      "status": "resolved",
+      "loader": "ExtensionFileLoader"
+     }
+    },
+    "frame_identity": "not_verifiable",
+    "units": {
+     "coordinates": "angstrom",
+     "time": "ps",
+     "source_length_unit": "nm",
+     "source_time_unit": "ps",
+     "reader_convert_units": true,
+     "basis": "source unit nm; converted to \u00c5 by MDAnalysis (convert_units=True)"
+    }
+   }
+  ],
+  "closed_start": [
+   {
+    "run_id": "closed_start_0",
+    "frames": 420,
+    "frame_index_first_last": [
+     0,
+     1676
+    ],
+    "member_spec": {
+     "type": "mdanalysis",
+     "topology": "benchmarks/audit/adk_feasibility/data/raw/ORADD_closed_state.gro",
+     "trajectories": [
+      "benchmarks/audit/adk_feasibility/data/raw/ORADD_closed_state_traj.xtc"
+     ],
+     "start": 0,
+     "stop": 1677,
+     "step": 4,
+     "pbc": "make_whole_sequential"
+    },
+    "source_files": [
+     {
+      "role": "topology",
+      "path": "/home/artem/TopoFold/benchmarks/audit/adk_feasibility/data/raw/ORADD_closed_state.gro",
+      "bytes": 6568567,
+      "sha256": "4d05b0d3767e1f5e948b2c038a42e9b1a2132e3085c5b50899f4bf797e9f16e4"
+     },
+     {
+      "role": "trajectory",
+      "path": "/home/artem/TopoFold/benchmarks/audit/adk_feasibility/data/raw/ORADD_closed_state_traj.xtc",
+      "bytes": 580049352,
+      "sha256": "f950ff0a7beadab0992d9c1cffaea540675b62d06ed9d1eadcc988f20f6f3cc9"
+     }
+    ],
+    "adapter_json_sha256": "ff80c8ce650c88af58d5a2d953b3f0d3adca14579452d24092fedbb05f1fc50f",
+    "features_json_sha256": "59d53089b0deffe263e1d1f177f4b67298882e61bb86ecc3c90ebc7cd121f3aa",
+    "core": {
+     "version": "0.8.3",
+     "function": "compute_invariants",
+     "wrapper": {
+      "module": "topofold",
+      "path": "/home/artem/TopoFold/.venv/lib/python3.14/site-packages/topofold/__init__.py",
+      "sha256": "49780093095f27c89bdf234be15e1f5a9bac957d5a9dbf5ae0f93c856ee1590d"
+     },
+     "native_extension": {
+      "module": "topofold.topofold",
+      "path": "/home/artem/TopoFold/.venv/lib/python3.14/site-packages/topofold/topofold.cpython-314-x86_64-linux-gnu.so",
+      "sha256": "d90e7ed4f1d8036a3735f387c6fe6aa5a81c7b615da1d0094ce054cf0c13cfa8",
+      "status": "resolved",
+      "loader": "ExtensionFileLoader"
+     }
+    },
+    "frame_identity": "not_verifiable",
+    "units": {
+     "coordinates": "angstrom",
+     "time": "ps",
+     "source_length_unit": "nm",
+     "source_time_unit": "ps",
+     "reader_convert_units": true,
+     "basis": "source unit nm; converted to \u00c5 by MDAnalysis (convert_units=True)"
+    }
+   }
+  ]
+ },
+ "outputs_sha256": {
+  "between.csv": "671f7936984a83ea38bc99a0758d29fd9ca1075d11dc35a47bcaa9cf1abb1e48",
+  "distribution.csv": "2c381d94af54262e79a4676db4b0dd86cb45d4d2bec70177e56bf4bea460f023",
+  "exclusions.csv": "dec2a5245eb7a58a56e7596ed560b07ae14b6b141640428eb98289606feea29b",
+  "replicas.csv": "ec53243da3a7215edeb01dc2a59b99dfd9ecaffc255d8f609b3101818e7d7347",
+  "temporal.csv": "72da971b05c5e93c9f7aee8798f43352470ea91143b120acd078f35a40783678",
+  "distributions.npz": "544a55b589c2155ef7add0e7fd97cae690f3e92cc771234cdb919c1291d42329"
+ },
+ "software": {
+  "python": "3.14.4",
+  "numpy": "2.5.3",
+  "module_sha256": "6179db0b65e0cd2126307bef8e3e9938d6eb529dcf15c06949dfb27fb2ca0583"
+ },
+ "created_utc": "2026-10-23T17:20:57.468795+00:00"
+}

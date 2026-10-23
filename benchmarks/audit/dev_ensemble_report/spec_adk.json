@@ -1,0 +1,31 @@
+{
+ "name": "AdK open-start vs closed-start, single runs, 0-335.2 ns every 4th frame (development data)",
+ "groups": {
+  "open_start": [
+   {
+    "type": "mdanalysis",
+    "topology": "benchmarks/audit/adk_feasibility/data/raw/ORADD_open_state.gro",
+    "trajectories": [
+     "benchmarks/audit/adk_feasibility/data/raw/ORADD_open_state_traj.xtc"
+    ],
+    "start": 0,
+    "stop": 1677,
+    "step": 4,
+    "pbc": "make_whole_sequential"
+   }
+  ],
+  "closed_start": [
+   {
+    "type": "mdanalysis",
+    "topology": "benchmarks/audit/adk_feasibility/data/raw/ORADD_closed_state.gro",
+    "trajectories": [
+     "benchmarks/audit/adk_feasibility/data/raw/ORADD_closed_state_traj.xtc"
+    ],
+    "start": 0,
+    "stop": 1677,
+    "step": 4,
+    "pbc": "make_whole_sequential"
+   }
+  ]
+ }
+}
