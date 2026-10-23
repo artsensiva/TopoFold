@@ -1,0 +1,17 @@
+{
+  "id": "SYNTHETIC_NULLSTRESS-1",
+  "frozen_utc": "2026-10-23T16:10:45.261191+00:00",
+  "spec_json_sha256": "8a83f0d0a8aef2890ad0192509376c92731f99974c8d6f41e94950d2fc565bff",
+  "spec_doc_sha256": "8bbb54fdb5a8115392f7674843e6b3181c9d8b10d824f9ebbd4b85c5e01f2169",
+  "code_sha256": {
+    "benchmarks/audit/synth_null_stress/run_stress.py": "ff26e9cf2f8b392c287feacad29b40540bde99aa661125ea2d38b0b2fd1cfb77",
+    "benchmarks/audit/synth_rep_char/synthetic_generators.py": "347c3ca5f7f1ea1fd72b01b094617d54e86802721d4933dfb2b35cf0f3c9751f",
+    "python/topofold_inputs/compare.py": "a7494c6ae1c1813a150572e7f44ee69ebc3190873ba83a3a6be4e438effb3422",
+    "python/topofold_inputs/replica_permutation.py": "baf7511aa6a9c567051bd36789f98102964506f24993114bad621484410b65a0"
+  },
+  "environment": {
+    "python": "3.14.4",
+    "numpy": "2.5.3",
+    "platform": "Linux-7.0.0-31-generic-x86_64-with-glibc2.43"
+  }
+}

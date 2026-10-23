@@ -1,0 +1,304 @@
+{
+ "id": "SYNTHETIC_NULLSTRESS-1",
+ "label": "SYNTHETIC",
+ "status": "complete",
+ "cells_planned": 6,
+ "cells_done": 6,
+ "cells_not_run": [],
+ "freeze_utc": "2026-10-23T16:10:45.261191+00:00",
+ "alpha": 0.05,
+ "environment": {
+  "python": "3.14.4",
+  "numpy": "2.5.3",
+  "platform": "Linux-7.0.0-31-generic-x86_64-with-glibc2.43"
+ },
+ "resources": {
+  "cpu_s": 23.922511,
+  "wall_s": 23.16846251487732,
+  "cap_cpu_s": 120
+ },
+ "cells": [
+  {
+   "cell": {
+    "cell": 0,
+    "channel": "linear",
+    "phi_a": 0.0,
+    "phi_b": 0.8
+   },
+   "repetitions": 200,
+   "permutation": {
+    "rejections": 25,
+    "frequency": 0.125,
+    "wilson95": [
+     0.08611974475712644,
+     0.17801425002582347
+    ]
+   },
+   "screen": {
+    "counts": {
+     "consistent": 0,
+     "replica_dependent": 0,
+     "inconclusive": 200
+    },
+    "frequency": {
+     "consistent": 0.0,
+     "replica_dependent": 0.0,
+     "inconclusive": 1.0
+    },
+    "wilson95": {
+     "consistent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "replica_dependent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "inconclusive": [
+      0.9811546736227335,
+      1.0
+     ]
+    }
+   },
+   "median_within_distance": {
+    "A": 0.0935045226479162,
+    "B": 0.13495121538569835
+   }
+  },
+  {
+   "cell": {
+    "cell": 1,
+    "channel": "linear",
+    "phi_a": 0.0,
+    "phi_b": 0.95
+   },
+   "repetitions": 200,
+   "permutation": {
+    "rejections": 104,
+    "frequency": 0.52,
+    "wilson95": [
+     0.4510378507281424,
+     0.588208336216767
+    ]
+   },
+   "screen": {
+    "counts": {
+     "consistent": 0,
+     "replica_dependent": 1,
+     "inconclusive": 199
+    },
+    "frequency": {
+     "consistent": 0.0,
+     "replica_dependent": 0.005,
+     "inconclusive": 0.995
+    },
+    "wilson95": {
+     "consistent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "replica_dependent": [
+      0.0008831687156009814,
+      0.02777370439789293
+     ],
+     "inconclusive": [
+      0.9722262956021069,
+      0.9991168312843989
+     ]
+    }
+   },
+   "median_within_distance": {
+    "A": 0.09472400007943567,
+    "B": 0.240751539143234
+   }
+  },
+  {
+   "cell": {
+    "cell": 2,
+    "channel": "linear",
+    "phi_a": 0.8,
+    "phi_b": 0.95
+   },
+   "repetitions": 200,
+   "permutation": {
+    "rejections": 27,
+    "frequency": 0.135,
+    "wilson95": [
+     0.09446570454787906,
+     0.18929138370752552
+    ]
+   },
+   "screen": {
+    "counts": {
+     "consistent": 0,
+     "replica_dependent": 0,
+     "inconclusive": 200
+    },
+    "frequency": {
+     "consistent": 0.0,
+     "replica_dependent": 0.0,
+     "inconclusive": 1.0
+    },
+    "wilson95": {
+     "consistent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "replica_dependent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "inconclusive": [
+      0.9811546736227335,
+      1.0
+     ]
+    }
+   },
+   "median_within_distance": {
+    "A": 0.1350475666329673,
+    "B": 0.23125419522894494
+   }
+  },
+  {
+   "cell": {
+    "cell": 3,
+    "channel": "circular",
+    "phi_a": 0.0,
+    "phi_b": 0.8
+   },
+   "repetitions": 200,
+   "permutation": {
+    "rejections": 23,
+    "frequency": 0.115,
+    "wilson95": [
+     0.07786373232561955,
+     0.16664716898487572
+    ]
+   },
+   "screen": {
+    "counts": {
+     "consistent": 0,
+     "replica_dependent": 0,
+     "inconclusive": 200
+    },
+    "frequency": {
+     "consistent": 0.0,
+     "replica_dependent": 0.0,
+     "inconclusive": 1.0
+    },
+    "wilson95": {
+     "consistent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "replica_dependent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "inconclusive": [
+      0.9811546736227335,
+      1.0
+     ]
+    }
+   },
+   "median_within_distance": {
+    "A": 0.10154562365298184,
+    "B": 0.14276373730033415
+   }
+  },
+  {
+   "cell": {
+    "cell": 4,
+    "channel": "circular",
+    "phi_a": 0.0,
+    "phi_b": 0.95
+   },
+   "repetitions": 200,
+   "permutation": {
+    "rejections": 105,
+    "frequency": 0.525,
+    "wilson95": [
+     0.4559739601468475,
+     0.5930837735342891
+    ]
+   },
+   "screen": {
+    "counts": {
+     "consistent": 0,
+     "replica_dependent": 0,
+     "inconclusive": 200
+    },
+    "frequency": {
+     "consistent": 0.0,
+     "replica_dependent": 0.0,
+     "inconclusive": 1.0
+    },
+    "wilson95": {
+     "consistent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "replica_dependent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "inconclusive": [
+      0.9811546736227335,
+      1.0
+     ]
+    }
+   },
+   "median_within_distance": {
+    "A": 0.10273923018533478,
+    "B": 0.24635788874007772
+   }
+  },
+  {
+   "cell": {
+    "cell": 5,
+    "channel": "circular",
+    "phi_a": 0.8,
+    "phi_b": 0.95
+   },
+   "repetitions": 200,
+   "permutation": {
+    "rejections": 17,
+    "frequency": 0.085,
+    "wilson95": [
+     0.05374575017747561,
+     0.13189587071565567
+    ]
+   },
+   "screen": {
+    "counts": {
+     "consistent": 0,
+     "replica_dependent": 0,
+     "inconclusive": 200
+    },
+    "frequency": {
+     "consistent": 0.0,
+     "replica_dependent": 0.0,
+     "inconclusive": 1.0
+    },
+    "wilson95": {
+     "consistent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "replica_dependent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "inconclusive": [
+      0.9811546736227335,
+      1.0
+     ]
+    }
+   },
+   "median_within_distance": {
+    "A": 0.14522455238861914,
+    "B": 0.2500907766522393
+   }
+  }
+ ]
+}

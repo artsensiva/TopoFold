@@ -1,0 +1,62 @@
+{
+ "id": "SYNTHETIC_NULLSTRESS-1",
+ "label": "SYNTHETIC",
+ "seed_master": 20261024,
+ "repetitions": 200,
+ "n_rep": 5,
+ "n_frames": 387,
+ "bins": 36,
+ "linear": {
+  "mu": 5.5,
+  "sigma": 0.2,
+  "lo": 3.0,
+  "hi": 8.0
+ },
+ "circular": {
+  "mu": 3.141592653589793,
+  "s": 0.3,
+  "origin": -3.141592653589793
+ },
+ "alpha": 0.05,
+ "budget": {
+  "cpu_seconds": 120
+ },
+ "cells": [
+  {
+   "cell": 0,
+   "channel": "linear",
+   "phi_a": 0.0,
+   "phi_b": 0.8
+  },
+  {
+   "cell": 1,
+   "channel": "linear",
+   "phi_a": 0.0,
+   "phi_b": 0.95
+  },
+  {
+   "cell": 2,
+   "channel": "linear",
+   "phi_a": 0.8,
+   "phi_b": 0.95
+  },
+  {
+   "cell": 3,
+   "channel": "circular",
+   "phi_a": 0.0,
+   "phi_b": 0.8
+  },
+  {
+   "cell": 4,
+   "channel": "circular",
+   "phi_a": 0.0,
+   "phi_b": 0.95
+  },
+  {
+   "cell": 5,
+   "channel": "circular",
+   "phi_a": 0.8,
+   "phi_b": 0.95
+  }
+ ]
+}
