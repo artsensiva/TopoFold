@@ -126,6 +126,9 @@ The development programme, evidence levels (A–E) and the current queue are in
   trajectories and produces residue-mapped tables, distributions, replica variability and temporal diagnostics, with
   no p-values. It is demonstrated on development data in
   [`benchmarks/audit/dev_ensemble_report/`](benchmarks/audit/dev_ensemble_report/README.md).
+- **Pilot:** a handoff for computational scientists is in
+  [`docs/PILOT_HANDOFF_ENSEMBLE_TOOL.md`](docs/PILOT_HANDOFF_ENSEMBLE_TOOL.md), with an internal walkthrough (not
+  independent user validation) in [`docs/pilot/PILOT_LOG.md`](docs/pilot/PILOT_LOG.md).
 - **ABL** (preferred biological route): the trajectories, their permissions and processed HDX uptake are not yet
   obtained; the owner actions are listed in
   [`benchmarks/audit/abl_access/ACCESS_STATUS_2026-10-23.md`](benchmarks/audit/abl_access/ACCESS_STATUS_2026-10-23.md).

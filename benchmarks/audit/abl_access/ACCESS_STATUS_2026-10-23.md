@@ -17,6 +17,7 @@ scoring was done.
 1. Send the D. E. Shaw Research request (run inventory and permissions).
 2. Ask the HDX authors (Engen laboratory, co-authors of the paper) for processed peptide-level uptake for apo WT and
    M472I with replicate values, or confirm a processing route for the PRIDE raw files.
+   Drafts for both requests, not sent: `docs/ABL_DESRES_DATA_REQUEST_DRAFT.md` and `docs/ABL_HDX_DATA_REQUEST_DRAFT.md`.
 
 ## Alternative routes (kept open)
 

@@ -1,0 +1,69 @@
+{
+ "name": "Pilot example: mdCATH 1ha8A00, 320 K vs 348 K, 3 replicas each",
+ "groups": {
+  "320K": [
+   {
+    "type": "mdcath",
+    "h5": "benchmarks/audit/wpd_local_retrieval/data/mdcath/mdcath_dataset_1ha8A00.h5",
+    "domain": "1ha8A00",
+    "temperature": "320",
+    "replica": "0",
+    "start": 43,
+    "stop": 430,
+    "pbc": "make_whole_sequential"
+   },
+   {
+    "type": "mdcath",
+    "h5": "benchmarks/audit/wpd_local_retrieval/data/mdcath/mdcath_dataset_1ha8A00.h5",
+    "domain": "1ha8A00",
+    "temperature": "320",
+    "replica": "1",
+    "start": 43,
+    "stop": 430,
+    "pbc": "make_whole_sequential"
+   },
+   {
+    "type": "mdcath",
+    "h5": "benchmarks/audit/wpd_local_retrieval/data/mdcath/mdcath_dataset_1ha8A00.h5",
+    "domain": "1ha8A00",
+    "temperature": "320",
+    "replica": "2",
+    "start": 43,
+    "stop": 430,
+    "pbc": "make_whole_sequential"
+   }
+  ],
+  "348K": [
+   {
+    "type": "mdcath",
+    "h5": "benchmarks/audit/wpd_local_retrieval/data/mdcath/mdcath_dataset_1ha8A00.h5",
+    "domain": "1ha8A00",
+    "temperature": "348",
+    "replica": "0",
+    "start": 43,
+    "stop": 430,
+    "pbc": "make_whole_sequential"
+   },
+   {
+    "type": "mdcath",
+    "h5": "benchmarks/audit/wpd_local_retrieval/data/mdcath/mdcath_dataset_1ha8A00.h5",
+    "domain": "1ha8A00",
+    "temperature": "348",
+    "replica": "1",
+    "start": 43,
+    "stop": 430,
+    "pbc": "make_whole_sequential"
+   },
+   {
+    "type": "mdcath",
+    "h5": "benchmarks/audit/wpd_local_retrieval/data/mdcath/mdcath_dataset_1ha8A00.h5",
+    "domain": "1ha8A00",
+    "temperature": "348",
+    "replica": "2",
+    "start": 43,
+    "stop": 430,
+    "pbc": "make_whole_sequential"
+   }
+  ]
+ }
+}
