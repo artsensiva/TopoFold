@@ -29,7 +29,7 @@ from typing import Any, Sequence
 
 import numpy as np
 
-FEATURES_VERSION = "0.1.0"
+FEATURES_VERSION = "0.1.1"
 
 REASONS = {
     0: "valid",
@@ -240,9 +240,8 @@ def export_features(feats: CAFeatures, adapter_npz: str | Path, adapter_json: st
     counts = {"kappa": _reason_counts(feats.kappa_reason), "tau": _reason_counts(feats.tau_reason)}
     nonfinite_valid = int((~np.isfinite(feats.kappa[feats.kappa_valid])).sum()
                           + (~np.isfinite(feats.tau[feats.tau_valid])).sum())
-    core_file = getattr(core, "__file__", None)
     doc = {
-        "schema": "topofold_inputs.features/1",
+        "schema": "topofold_inputs.features/2",
         "engineering_note": "Engineering output: geometric descriptors only; no state, pocket or allostery inference.",
         "run_id": rep["run_id"],
         "units": {"kappa": "radian, [0, pi]", "tau": "radian, (-pi, pi]", "time": rep["units"].get("time")},
@@ -262,9 +261,7 @@ def export_features(feats: CAFeatures, adapter_npz: str | Path, adapter_json: st
                    "source_files": rep["provenance"]["source_files"]},
         "provenance": {
             "features": {"version": FEATURES_VERSION, "source_sha256": _sha256(__file__)},
-            "core": {"module": getattr(core, "__name__", None), "version": _core_version(core),
-                     "binary_sha256": _sha256(core_file) if core_file and Path(core_file).is_file() else None,
-                     "function": "compute_invariants"},
+            "core": core_provenance(core),
             "software": {"python": platform.python_version(), "numpy": np.__version__},
             "created_utc": _dt.datetime.now(_dt.timezone.utc).isoformat(),
         },
@@ -280,6 +277,41 @@ def export_features(feats: CAFeatures, adapter_npz: str | Path, adapter_json: st
 
 def _reason_counts(reason: np.ndarray) -> dict[str, int]:
     return {REASONS[k]: int((reason == k).sum()) for k in REASONS}
+
+
+def core_provenance(core) -> dict[str, Any]:
+    """Identify the Python wrapper and, separately, the native extension that defines ``compute_invariants``.
+
+    The native module is taken from the function's own ``__module__`` and accepted only if Python loaded it with an
+    extension-module loader from a file with an extension-module suffix. Nothing is inferred from file names; if this
+    identification fails, the native entry says ``unresolved`` and carries no hash.
+    """
+    import importlib.machinery
+    import sys
+
+    wrapper_file = getattr(core, "__file__", None)
+    wrapper = {"module": getattr(core, "__name__", None), "path": wrapper_file,
+               "sha256": _sha256(wrapper_file) if wrapper_file and Path(wrapper_file).is_file() else None}
+    fn = getattr(core, "compute_invariants", None)
+    mod_name = getattr(fn, "__module__", None)
+    mod = sys.modules.get(mod_name) if mod_name else None
+    native: dict[str, Any] = {"module": mod_name, "path": None, "sha256": None}
+    spec = getattr(mod, "__spec__", None)
+    path = getattr(mod, "__file__", None)
+    if fn is None:
+        native.update(status="unresolved", reason="core has no compute_invariants")
+    elif mod is None:
+        native.update(status="unresolved", reason=f"defining module {mod_name!r} is not loaded")
+    elif not isinstance(getattr(spec, "loader", None), importlib.machinery.ExtensionFileLoader):
+        native.update(status="unresolved", reason=f"defining module {mod_name!r} is not a loaded extension module")
+    elif not (path and Path(path).is_file()
+              and any(str(path).endswith(sfx) for sfx in importlib.machinery.EXTENSION_SUFFIXES)):
+        native.update(status="unresolved", reason=f"extension module file {path!r} not found or unexpected suffix")
+    else:
+        native.update(status="resolved", path=str(Path(path).resolve()), sha256=_sha256(path),
+                      loader="ExtensionFileLoader")
+    return {"version": _core_version(core), "function": "compute_invariants", "wrapper": wrapper,
+            "native_extension": native}
 
 
 def _core_version(core) -> str | None:

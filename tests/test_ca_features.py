@@ -213,6 +213,38 @@ def test_multiple_frames_independent():
         check_against_reference(feat, X[f], f=f)
 
 
+def test_core_provenance_distinguishes_wrapper_and_native_extension():
+    import importlib.machinery
+    import hashlib
+    from topofold_inputs.features import core_provenance
+    prov = core_provenance(tf)
+    w, n = prov["wrapper"], prov["native_extension"]
+    assert n["status"] == "resolved" and n["module"] == tf.compute_invariants.__module__
+    assert any(n["path"].endswith(sfx) for sfx in importlib.machinery.EXTENSION_SUFFIXES)
+    assert Path(n["path"]).resolve() != Path(w["path"]).resolve()
+    assert n["sha256"] == hashlib.sha256(Path(n["path"]).read_bytes()).hexdigest()
+    assert w["sha256"] == hashlib.sha256(Path(w["path"]).read_bytes()).hexdigest()
+    assert n["sha256"] != w["sha256"]
+
+
+def test_core_provenance_unresolved_extension_is_explicit():
+    import types
+    from topofold_inputs.features import core_provenance
+    fake = types.ModuleType("SYNTHETIC_core")
+    fake.__file__ = __file__
+
+    def compute_invariants(_):  # a pure-Python function: defining module is not an extension
+        raise NotImplementedError
+    fake.compute_invariants = compute_invariants
+    n = core_provenance(fake)["native_extension"]
+    assert n["status"] == "unresolved" and n["sha256"] is None and n["path"] is None
+    compute_invariants.__module__ = "SYNTHETIC_not_loaded"
+    n = core_provenance(fake)["native_extension"]
+    assert n["status"] == "unresolved" and "not loaded" in n["reason"]
+    del fake.compute_invariants
+    assert core_provenance(fake)["native_extension"]["status"] == "unresolved"
+
+
 def _adapter_python():
     cand = os.environ.get("TOPOFOLD_ADAPTER_PYTHON") or str(
         ROOT / "benchmarks/audit/wpd_local_retrieval/build/venv/bin/python")
@@ -239,6 +271,9 @@ def test_end_to_end_pipeline(tmp_path):
     data = np.load(tmp_path / "SYNTHETIC_e2e_features.npz")
     assert doc["counts"]["kappa"]["valid"] == int(data["kappa_valid"].sum())
     assert doc["non_finite_valid_values"] == 0 and doc["units"]["kappa"].startswith("radian")
+    core = doc["provenance"]["core"]
+    assert core["native_extension"]["status"] == "resolved"
+    assert core["native_extension"]["sha256"] != core["wrapper"]["sha256"] and "binary_sha256" not in core
     assert data["label"][0] == "SYNTH_A:10" and data["kappa_rad"].shape == (3, 12)
     assert (tmp_path / "SYNTHETIC_e2e_report.md").read_text().startswith("# Cα feature inspection report")
     # tampering with the adapter export is detected
