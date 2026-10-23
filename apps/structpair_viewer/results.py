@@ -10,6 +10,7 @@ from __future__ import annotations
 import hashlib
 import json
 import math
+import re
 from dataclasses import dataclass, field
 from pathlib import Path
 
@@ -18,6 +19,10 @@ import pandas as pd
 
 SCHEMA = "topofold_inputs.structpair/1"
 REQUIRED = ("manifest.json", "summary.json", "windows.csv", "residues.csv", "exclusions.csv")
+# essential scientific outputs: each must have a valid SHA-256 entry in manifest["outputs_sha256"] and match it.
+# Optional outputs (report.md, figure.png) are verified when listed; listed-but-absent ones are noted, not fatal.
+# The manifest does not hash itself.
+HASHED_REQUIRED = ("summary.json", "windows.csv", "residues.csv", "exclusions.csv")
 METRICS = {  # key -> (windows.csv column, unit, window size, short label)
     "d_kappa": ("d_kappa_rad", "rad", 3, "|Δκ| (curvature)"),
     "d_i_i2": ("d_i_i2_angstrom", "Å", 3, "|Δd(i−1,i+1)| (distance baseline)"),
@@ -95,12 +100,19 @@ def load_result(path: str | Path) -> StructpairResult:
         raise ResultError(f"{p}: unreadable JSON ({e})") from e
     if manifest.get("schema") != SCHEMA:
         raise ResultError(f"{p}: manifest schema {manifest.get('schema')!r}, expected {SCHEMA!r}")
-    # integrity: every output recorded in the manifest must match its hash
-    recorded = manifest.get("outputs_sha256", {})
+    # integrity: essential outputs need a valid hash entry; every recorded output must match its hash
+    recorded = manifest.get("outputs_sha256")
+    if not isinstance(recorded, dict):
+        raise ResultError(f"{p}: manifest has no outputs_sha256 table")
+    no_entry = [f for f in HASHED_REQUIRED
+                if not (isinstance(recorded.get(f), str) and re.fullmatch(r"[0-9a-f]{64}", recorded[f]))]
+    if no_entry:
+        raise ResultError(f"{p}: manifest lacks a valid SHA-256 entry for {', '.join(no_entry)}; "
+                          "these outputs cannot be verified")
     checked = {f: (sha256(p / f) == h) if (p / f).is_file() else None for f, h in recorded.items()}
     bad = [f for f, ok in checked.items() if ok is False]
     absent = [f for f, ok in checked.items() if ok is None]
-    if bad or any(f in absent for f in REQUIRED):
+    if bad or any(f in absent for f in HASHED_REQUIRED):
         raise ResultError(f"{p}: files differ from the manifest hashes: {', '.join(bad + absent)}")
     # keep_default_na=False + explicit "" handling: empty cells -> NaN, never 0; residue labels stay strings
     read = lambda f: pd.read_csv(p / f, dtype=str, keep_default_na=False)  # noqa: E731
@@ -198,13 +210,18 @@ def _label(chain: str, resid: int, icode: str) -> str:
     return f"{chain}:{resid}{icode}"
 
 
-def read_ca(pdb: Path, chain: str, altloc_policy: str) -> dict[str, np.ndarray]:
+def read_ca(pdb: Path, chain: str, altloc_policy: str, expected_sha256: str | None = None) -> dict[str, np.ndarray]:
     """Cα coordinates of one chain from a PDB file (first model), keyed by structpair residue label 'C:123A'.
 
     Alternate locations follow the policy recorded in the manifest (blank_then_A or highest_occupancy; 'reject'
-    uses the single location, which structpair guaranteed)."""
+    uses the single location, which structpair guaranteed). With expected_sha256, the bytes parsed are the bytes
+    hashed, and a mismatch raises ResultError."""
+    data = Path(pdb).read_bytes()
+    if expected_sha256 is not None and hashlib.sha256(data).hexdigest() != expected_sha256:
+        raise ResultError(f"{Path(pdb).name}: SHA-256 differs from the manifest; molecular view disabled for this "
+                          "structure")
     cand: dict[str, list] = {}
-    for line in Path(pdb).read_text().splitlines():
+    for line in data.decode().splitlines():
         if line.startswith("ENDMDL"):
             break
         if not line.startswith(("ATOM", "HETATM")) or line[12:16].strip() != "CA" or line[21] != chain:

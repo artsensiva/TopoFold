@@ -136,9 +136,13 @@ PYTHONPATH=python $PY -m topofold_inputs.structpair \
 - **Missing values:** values that are unavailable are shown as gaps or empty cells, never as zero.
 - **Results only:**
   - The viewer computes nothing new. Its one calculation is a display-only superposition for the 3D view.
-  - A result whose files no longer match their manifest hashes is refused.
-  - The 3D view needs the original input files with matching SHA-256. Without them, the rest of the viewer still
-    works.
+  - Result files are re-read and re-checked against the manifest on every page update, not only when the manifest
+    changes. The manifest must hold a valid SHA-256 entry for `summary.json`, `windows.csv`, `residues.csv` and
+    `exclusions.csv`. A result with a missing entry, or with a file that no longer matches, is refused with the file
+    named. Optional outputs (`report.md`, `figure.png`) are checked when listed and only noted if absent. The manifest
+    does not hash itself.
+  - The input structures are re-hashed on every page update too. If one is missing or changed, the 3D view is
+    disabled with the reason, and the rest of the viewer still works.
 - **Dependencies:** Streamlit, pandas, Altair, Plotly and NumPy (tested with Streamlit 1.64.0, pandas 3.0.6,
   Altair 6.3.0, Plotly 7.1.0 and NumPy 2.5.3). It needs neither the compiled TopoFold core nor MDAnalysis.
 - **Older app:** `apps/streamlit_app.py` is a historical dashboard from before the re-validation. Its claims are not

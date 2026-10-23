@@ -34,21 +34,24 @@ def cli_results_dir() -> Path:
     return Path(a.results)
 
 
-@st.cache_data(max_entries=16)
-def cached_result(path: str, stamp: float):
-    return load_result(path)
+@st.cache_data(max_entries=32)
+def cached_ca(path: str, sha: str, chain: str, altloc: str):
+    """Parsed Cα coordinates, keyed by the file's verified SHA-256 (a changed file is a new key, never a stale hit)."""
+    return read_ca(path, chain, altloc, expected_sha256=sha)
 
 
-@st.cache_data(max_entries=16)
-def cached_coords(path: str, stamp: float):
-    res = load_result(path)
+def structure_coords(res):
+    """Locate and hash both input structures on every rerun (not cached); a missing or changed file disables the view."""
     coords, status = {}, {}
     for k in "AB":
         f, msg = locate_input(res, k, REPO)
         status[k] = msg
         if f is not None:
             inp = res.manifest["inputs"][k]
-            coords[k] = read_ca(f, inp["chain"], inp["altloc_policy"])
+            try:
+                coords[k] = cached_ca(str(f), inp["sha256"], inp["chain"], inp["altloc_policy"])
+            except ResultError as e:
+                status[k] = str(e)
     return coords, status
 
 
@@ -88,7 +91,7 @@ with st.sidebar:
 
 path = found[choice]
 try:
-    res = cached_result(str(path), (path / "manifest.json").stat().st_mtime)
+    res = load_result(path)          # re-read and hash-verified on every rerun; deliberately not cached
 except ResultError as e:
     st.error(f"This result cannot be displayed: {e}")
     st.stop()
@@ -156,7 +159,7 @@ with left:
 with right:
     st.markdown("**Molecular view** — Cα traces; A superposed on B for display only (all residues present in both). "
                 f"Orange: residues of the focus window ({size or 3} residues).")
-    coords, cstatus = cached_coords(str(path), (path / "manifest.json").stat().st_mtime)
+    coords, cstatus = structure_coords(res)
     if set(coords) != {"A", "B"}:
         st.warning("Molecular view unavailable. " + " · ".join(f"{k}: {m}" for k, m in cstatus.items()))
     else:

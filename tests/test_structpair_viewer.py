@@ -6,6 +6,7 @@ import csv
 import hashlib
 import json
 import math
+import os
 import shutil
 import sys
 from pathlib import Path
@@ -263,3 +264,69 @@ def test_viewer_does_not_import_core_or_mdanalysis():
     r = subprocess.run([sys.executable, "-c", code], capture_output=True, text=True, timeout=300)
     assert r.returncode == 0, r.stderr[-1500:]
     assert r.stdout.strip().splitlines()[-1] == "[]"
+
+
+# --- integrity corrections: required hash entries; no stale cache ------------------------------------------------------
+
+@pytest.mark.parametrize("entry", ["summary.json", "windows.csv", "residues.csv", "exclusions.csv"])
+@pytest.mark.parametrize("how", ["missing", "malformed"])
+def test_required_hash_entries(tmp_path, entry, how):
+    d = make_synthetic(tmp_path)
+    m = json.loads((d / "manifest.json").read_text())
+    if how == "missing":
+        del m["outputs_sha256"][entry]
+    else:
+        m["outputs_sha256"][entry] = "not-a-hash"
+    (d / "manifest.json").write_text(json.dumps(m))
+    with pytest.raises(R.ResultError, match=f"lacks a valid SHA-256 entry for {entry}"):
+        R.load_result(d)
+
+
+def test_optional_outputs_policy_and_no_self_hash(tmp_path):
+    d = make_synthetic(tmp_path)
+    m = json.loads((d / "manifest.json").read_text())
+    assert "manifest.json" not in m["outputs_sha256"]
+    m["outputs_sha256"]["figure.png"] = "0" * 64                      # listed optional output, absent: noted only
+    (d / "manifest.json").write_text(json.dumps(m))
+    res = R.load_result(d)
+    assert res.integrity["figure.png"] is None and any("figure.png" in n for n in res.notes)
+    del m["outputs_sha256"]
+    (d / "manifest.json").write_text(json.dumps(m))
+    with pytest.raises(R.ResultError, match="no outputs_sha256"):
+        R.load_result(d)
+
+
+def _same_mtime(path, fn):
+    st_ = os.stat(path)
+    fn()
+    os.utime(path, ns=(st_.st_atime_ns, st_.st_mtime_ns))
+
+
+def test_csv_modified_after_cache_warm_is_detected(tmp_path):
+    d = make_synthetic(tmp_path)
+    at = _app(d)
+    at.selectbox(key="focus").set_value(2).run()                       # warm every cache
+    assert not at.exception and not at.error
+    mstat = (d / "manifest.json").stat().st_mtime_ns
+    _same_mtime(d / "windows.csv", lambda: (d / "windows.csv").write_text(
+        (d / "windows.csv").read_text().replace("0.21", "0.99", 1)))
+    assert (d / "manifest.json").stat().st_mtime_ns == mstat          # manifest untouched
+    at.run()
+    assert not at.exception and "cannot be displayed" in at.error[0].value and "windows.csv" in at.error[0].value
+
+
+@pytest.mark.parametrize("change", ["modify", "delete"])
+def test_structure_changed_after_cache_warm_disables_molecular_view(tmp_path, change):
+    d = make_synthetic(tmp_path)
+    at = _app(d)
+    assert not at.exception and not any("Molecular view unavailable" in w.value for w in at.warning)
+    pdb = tmp_path / "SYNTHETIC_B.pdb"
+    if change == "modify":
+        _same_mtime(pdb, lambda: pdb.write_text(pdb.read_text().replace(" 1.00 20.00", " 1.00 21.00", 1)))
+    else:
+        pdb.unlink()
+    at.run()
+    warn = " ".join(w.value for w in at.warning)
+    assert not at.exception and "Molecular view unavailable" in warn
+    assert ("differs from the manifest" if change == "modify" else "not found") in warn
+    assert not at.error                                                 # the results themselves still display
