@@ -39,7 +39,7 @@ All figures in `assets/` belong to v0.8.3 and carry the old labels; they are kep
 | Writhe (total, local window) | Discrete Gauss integral over segment pairs via solid angles (van Oosterom–Strackee) | Implemented; normalisation and sign corrected on `scientific-rebuild` (M1, unreleased), regression-tested against independent polygonal and numerical Gauss references. Values differ from v0.8.3 by a factor of −2 |
 | Cβ orientation θβ | Angle of the Cα→Cβ vector in the local Frenet frame | Implemented; a backbone descriptor, **not** a side-chain rotamer descriptor |
 | RNA invariants | κ, τ on P atoms; base vector C1′→N9/N1 | Implemented; base vector lies along the glycosidic bond and cannot measure χ (syn/anti), fix pending |
-| Window bimodality scan | Sarle's bimodality coefficient of window-averaged descriptors over an ensemble | Implemented as a **heuristic**. Circular means for τ and θβ on `scientific-rebuild` (M2, unreleased). BC is not a statistical test: no calibrated null model or multiple-testing control (M3); characterization pending |
+| Window bimodality scan | Sarle's bimodality coefficient of window-averaged descriptors over an ensemble | Implemented as a **heuristic**. Circular means for τ and θβ on `scientific-rebuild` (M2, unreleased). BC is not a statistical test: no calibrated null model or multiple-testing control (M3). Characterized on SYNTHETIC fixtures in WP-A (2026-10-04, decision CHANGE): coordinate-wise changes that keep the window circular mean are invisible, and the output is numerically sensitive near cancellation, so a low BC does not mean one state and a high BC does not mean two. The later replica-level studies (REPCHAR-1, PERM-1) concern JS-distance comparisons and do not validate BC |
 | Subcurve search | Full-frame `query()`: approximate VP-tree cascade over writhe spectra + (κ, τ) Fréchet. Subcurve `query_subcurve()`: exhaustive search using invariant Fréchet distance | Implemented; full-frame cascade is **approximate** (recall measured only on AdK development data, LE-1); subcurve is exhaustive; the legacy Fréchet coupling was deprioritized for same-sequence windows (LE-1) |
 | Correlation network | Gaussian (covariance-based) mutual information between per-residue (κ, τ, θβ) | Implemented; no significance testing yet |
 
@@ -102,6 +102,18 @@ The development programme, evidence levels (A–E) and the current queue are in
   NPZ/JSON/inspection report) is engineering-ready, with a development run on local AdK data
   ([`benchmarks/audit/dev_ca_pipeline/`](benchmarks/audit/dev_ca_pipeline/README.md)). It is not a scientific
   validation.
+- Ensemble comparison, kept in three separate evidence classes:
+  - **Development evidence (real MD, descriptive):** DEV-ENS-1 compared one AdK open-start and one closed-start run
+    (single runs, so the starting structure is confounded); DEV-REP-1 compared 5 vs 5 mdCATH `1ha8A00` replicas at
+    320 vs 348 K, and no window met the complete-separation criterion
+    ([`benchmarks/audit/dev_rep_compare/`](benchmarks/audit/dev_rep_compare/INTERPRETATION_NOTE_2026-10-23.md)).
+  - **SYNTHETIC calibration:** REPCHAR-1 (complete-separation screen: no null calls, low sensitivity under temporal
+    correlation), PERM-1 (exact replica permutation: near-nominal under identical distributions, more sensitive) and
+    NULLSTRESS-1 (the permutation also rejects when only temporal correlation differs), in
+    [`benchmarks/audit/`](benchmarks/audit/README.md).
+  - **Biological validation:** none yet. ABL remains the preferred route; a real-data permutation evaluation on
+    `1ha8A00` is drafted, not scored
+    ([`docs/DEV_PERM_1HA8A00_EVALUATION_DESIGN_DRAFT.md`](docs/DEV_PERM_1HA8A00_EVALUATION_DESIGN_DRAFT.md)).
 
 ## What TopoFold does not (yet) do
 

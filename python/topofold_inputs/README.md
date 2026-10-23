@@ -40,6 +40,22 @@ existing core `compute_invariants`, computed only within segments and split at d
 with explicit under/overflow, circular bins with a stated origin, κ/τ window-matched Cα distances, equal-duration
 blocks. Descriptive only; used by `benchmarks/audit/dev_ens_compare/`.
 
+**mdCATH bridge** (`mdcath_bridge.py`, needs h5py and MDAnalysis): one HDF5 replica → in-memory Universe from the
+file's own topology. It checks the mapping atom by atom, requires `coords` in Å, preserves source frame indices,
+labels time as INFERRED (the files have no timestamps) and records hashes.
+
+**Replica-level comparison** (development and SYNTHETIC evidence only; neither validates the BC scan):
+- `compare.replica_comparison` is the complete-separation screen, with categories consistent, replica-dependent and
+  inconclusive.
+  - REPCHAR-1: no calls under the identical-distribution null; low sensitivity under temporal correlation; calls
+    condition-confounded sampling.
+- `replica_permutation.permutation_test` is an exact replica-label permutation: 252 allocations for 5 vs 5, α chosen
+  by the caller.
+  - PERM-1: near-nominal under identical distributions and more sensitive than the screen.
+  - NULLSTRESS-1: it also rejects when only temporal correlation differs, so a rejection means the replica
+    histograms differ (geometry and/or dynamics).
+- Not yet evaluated on real data.
+
 **Run** (repository root):
 
 ```bash
