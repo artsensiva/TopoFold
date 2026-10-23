@@ -16,6 +16,11 @@ It reports, residue by residue:
 
 It is descriptive only: no p-values or significance claims.
 
+**Alternative, if you work with experimental structures rather than MD:** a second command compares two structures
+(one chain each, on a residue correspondence you state). For each 3- and 4-residue window it reports local backbone
+geometry, distance baselines and local RMSD, and it lists exclusions with their causes. It runs in seconds per pair.
+Guide: `docs/STRUCTPAIR_USER_GUIDE.md`.
+
 **What I'd ask:**
 - **Run:** the documented example, then, if you can, one comparison of your own (any MD-readable trajectories or
   mdCATH files you are allowed to use).

@@ -57,3 +57,25 @@ with the project followed the handoff in the existing environment. Evidence is a
 - **Internal pilot status: closed.**
 - **Next:** an outside computational scientist, using `docs/pilot/OUTSIDE_USER_INVITATION.md` and
   `docs/pilot/FEEDBACK_FORM.md`. No feedback has been collected or invented.
+
+## Entry 3 — INTERNAL SMOKE TEST of `structpair` by the implementer (2026-10-24)
+
+**Not independent user validation and not a clean-machine install.** The implementer (a Claude agent) followed
+`docs/STRUCTPAIR_USER_GUIDE.md` §2 in a fresh git clone of commit `3b2fad2`, writing to fresh output directories.
+Record: `benchmarks/audit/structpair_demo/results/smoke_test_2026-10-24.json`.
+
+- **Deviations from a clean install:**
+  - The existing interpreters were used: the prebuilt core extension in `.venv`, and MDAnalysis 2.10.0 in the
+    git-ignored audit venv.
+  - Inputs were copied with `fetch_inputs.py --source`; the RCSB download path was not exercised.
+  - No Rust or maturin build was performed.
+- **Results:**
+  - Inputs: 4 of 4 hashes ok.
+  - Runs: 2 of 2 spec runs exited 0 (10.6 and 14.9 CPU-s).
+  - Outputs: 6 of 6 compared output files (`windows.csv`, `residues.csv` and `exclusions.csv` for both runs) were
+    byte-identical to the reference results.
+- **Corrected before release:**
+  - The guide's expected stdout now says 10 exclusion rows: 5 windows, listed once per structure.
+  - The guide's per-run CPU estimate was corrected to the measured values.
+- **Next:** an outside computational scientist (owner nominates; invitation updated to mention both tools). No feedback
+  has been collected or invented.

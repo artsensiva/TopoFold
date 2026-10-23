@@ -136,7 +136,12 @@ The development programme, evidence levels (A–E) and the current queue are in
   independently verified; the paper's 0.3 Å has no stated definition. KRAS-STRUCT-2 repeats the comparison on
   KRAS G12D GDP vs GMPPNP structures without a modelled pharmacological inhibitor (5US4/5USJ), with all chain
   pairings: residues ~29–39 differ most in every pairing and in both studies; other locations depend on the structure
-  or chain ([`benchmarks/audit/kras_struct_g12d/`](benchmarks/audit/kras_struct_g12d/README.md)).
+  or chain ([`benchmarks/audit/kras_struct_g12d/`](benchmarks/audit/kras_struct_g12d/README.md)). The milestone is
+  closed ([`docs/KRAS_STRUCT_MILESTONE_CLOSEOUT_2026-10-24.md`](docs/KRAS_STRUCT_MILESTONE_CLOSEOUT_2026-10-24.md)).
+- **Two-structure comparison:** `python -m topofold_inputs.structpair SPEC.json --out DIR` compares two experimental
+  structures (one chain each, explicit residue correspondence). It reports per-window κ/τ, distance baselines, local
+  RMSD, exclusions with causes, a figure and a hashed manifest. It reproduces both KRAS studies exactly; guide for
+  outside users in [`docs/STRUCTPAIR_USER_GUIDE.md`](docs/STRUCTPAIR_USER_GUIDE.md). No independent user has run it yet.
 - **Owner actions pending:** nominate an outside computational scientist for the pilot; send the ABL trajectory
   request; send the processed-HDX request (drafts in `docs/`).
 - **ABL** (preferred biological route): the trajectories, their permissions and processed HDX uptake are not yet

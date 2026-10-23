@@ -1,4 +1,8 @@
-# Outside-user feedback form (descriptive ensemble comparison tool)
+# Outside-user feedback form (descriptive comparison tools)
+
+**Which tool did you run?** `topofold_inputs.ensemble` (groups of trajectories, `docs/PILOT_HANDOFF_ENSEMBLE_TOOL.md`)
+and/or `topofold_inputs.structpair` (two experimental structures, `docs/STRUCTPAIR_USER_GUIDE.md`). For structpair, read
+"spec" below as the two-structure spec, and "members" as structures A and B.
 
 Please answer in your own words; short answers are fine. Record only what happened.
 

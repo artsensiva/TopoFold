@@ -89,7 +89,7 @@ Three consequences follow:
 | Representations | Cα κ, τ, local and total writhe, Cβ angle θβ (backbone-only), RNA P-trace κ, τ, RNA base vector | No φ/ψ, χ, inter-domain geometry, contacts or cavity descriptors. RNA base vector cannot measure χ (M4) |
 | Comparison and search | (κ, τ) discrete Fréchet and DTW, writhe-spectrum distance, VP-tree, exhaustive subcurve search | Full-frame cascade is approximate; its recall is measured only on AdK development data (LE-1) (M6). No residue-aligned κ–τ distance (A) or window RMSD in the library (the V2b window-RMSD search exists only as harness code in `benchmarks/audit/b2opt/`). The writhe-spectrum distance is not a metric for unequal lengths (M6). The Python `discrete_frechet_distance` is Cartesian and not SE(3)-invariant (M5). Fréchet weights are fixed at 1.0 in queries |
 | Analysis | Window BC scan with circular means (M2), Gaussian MI network, IDP density, RNA hinge scan | BC is not a test (M3). MI estimator undocumented and untested for significance (M7). "Spectral" density has no ablation (m4) |
-| Outputs | Results JSON convention (AGENTS.md rule 3); Python CLIs for the Cα adapter, κ/τ pipeline and descriptive group comparison (`python -m topofold_inputs`, `.pipeline`, `.ensemble`), which write tables, hashed manifests and generated reports | No CLI for the Rust core; no CI (m11); provenance records exist for the Python workflows, not for the core library |
+| Outputs | Results JSON convention (AGENTS.md rule 3); Python CLIs for the Cα adapter, κ/τ pipeline and descriptive group comparison (`python -m topofold_inputs`, `.pipeline`, `.ensemble`, `.structpair`), which write tables, hashed manifests and generated reports | No CLI for the Rust core; no CI (m11); provenance records exist for the Python workflows, not for the core library |
 
 ## 4. Capability matrix
 
@@ -419,7 +419,7 @@ contributor with the current workstation, excluding waiting on third parties; th
 | **FS** Frame selection for expensive downstream analysis | None | [A] gain depends on cost ratio of screening to analysis and the fraction kept | — | Random and clustering-based selection | None | — | — | deferred | Phase 4 workflow needs it |
 | **SD** Conditional state detection | BC scan, Product-vM: not validated | M3; no calibrated null | — | Dip test or mixture ΔBIC with calibrated null | None | — | — | deferred | A selected application needs discrete states; ensemble differences alone are not sufficient |
 | **KI** Adaptive sampling and kinetics | None | [D] structural retrieval does not determine kinetics | — | MSM workflows | None | — | — | deferred (long-term) | Level-B ensemble result and a kinetic question |
-| **UX** API/CLI, reporting, user research | Python CLIs and generated reports (adapter, pipeline, `ensemble` v0.3.0); pilot handoff; separate-agent review | No Rust-core CLI; m11 no CI; no independent user trial yet | — | Users' current scripts and tools | A few structured user conversations (no claims) | 1–3 days / none / none | Recorded needs / no interest / mixed | ready (lightweight) | Lightweight slot free |
+| **UX** API/CLI, reporting, user research | Python CLIs and generated reports (adapter, pipeline, `ensemble` v0.3.0, `structpair` v0.1.0); pilot handoff; separate-agent review | No Rust-core CLI; m11 no CI; no independent user trial yet | — | Users' current scripts and tools | A few structured user conversations (no claims) | 1–3 days / none / none | Recorded needs / no interest / mixed | ready (lightweight) | Lightweight slot free |
 
 Short-lived Git branches are used for each authorized task.
 
@@ -477,8 +477,8 @@ active scientific evaluation at a time.
 | Path | Next action | Depends on (capability / data) | Status |
 |---|---|---|---|
 | ABL | Describe apo WT vs M472I with the ensemble tool; relate to the HDX peptide map | Trajectories, run inventory and permissions (D. E. Shaw Research request); processed HDX uptake (request to the HDX authors) | blocked (owner sends both drafts) |
-| KRAS / Mpro | KRAS-STRUCT-1 closed (RMSD verified, D40); KRAS-STRUCT-2 done on 5US4/5USJ (G12D, no modelled inhibitor; D41). Next (only if a question needs it): a GDP/GMPPNP pair in one crystal form, to reduce the packing confound; otherwise pause until ABL data or user feedback | Existing Cα geometry and RMSD components (available); mmCIF-only entries need a reader (not installed); pocket claims need cavity observables (not available) | ready (KRAS backbone); Mpro and pocket work deferred |
+| KRAS / Mpro | Static-structure milestone closed (D42; KRAS-STRUCT-1/-2). Reusable `structpair` command delivered (D43). No new KRAS case now; possible later: a GDP/GMPPNP pair in one crystal form, only if a specific question needs it | Existing Cα geometry and RMSD components (available); mmCIF-only entries need a reader (not installed); pocket claims need cavity observables (not available) | ready (KRAS backbone); Mpro and pocket work deferred |
 | Allostery | None scheduled; MI estimator correction done (D16) | Perturbation data for causal claims; validated significance (closed, D33) | deferred |
 | IDP / α-synuclein | None scheduled | Real IDP ensembles with ensemble-averaged experiments; m4 | deferred |
 | RNA riboswitches | None scheduled | RNA χ descriptor (M4); RNA trajectories | deferred |
-| Outside-user trial | Send the invitation and feedback form; record results in the pilot log | Owner nominates a computational scientist | blocked (owner action) |
+| Outside-user trial | Send the invitation (now covering `ensemble` and `structpair`) and the feedback form; record results in the pilot log | Owner nominates a computational scientist | blocked (owner action) |

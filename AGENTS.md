@@ -26,3 +26,8 @@ TopoFold is a research prototype under scientific re-validation. Versions ≤ 0.
 - Each fix comes with a regression test; update `docs/KNOWN_ISSUES.md` (status and issue ID only) and, if behaviour changed, the README and manuscript draft.
 - Keep units explicit: Å for distances, radians in code (degrees only in text), float64 in the core.
 - Angles are circular quantities: use circular means or (sin, cos) embeddings, never plain arithmetic means.
+- End each substantial task with a handoff report of at most 400 words: (1) plain-language summary, at most 100
+  words; (2) question, inputs, principal results and limitations; (3) artifact paths and verification results;
+  (4) actual resource use, commits and repository status; (5) one recommended next task. Keep detailed logs and hashes
+  in repository artifacts. Name each check with its actual counts (never "all checks passed"), and keep measured
+  results separate from explanations or hypotheses.

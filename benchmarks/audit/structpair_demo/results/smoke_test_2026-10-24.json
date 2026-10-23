@@ -1,0 +1,47 @@
+{
+ "id": "STRUCTPAIR-SMOKE-1",
+ "date_utc": "2026-10-23T22:57:25Z",
+ "label": "internal smoke test by the implementer (Claude agent) in a fresh git clone; NOT independent user validation, NOT a clean-machine install",
+ "code_commit": "3b2fad2",
+ "clone": "git clone of the local repository at 3b2fad2 into a fresh scratch directory; fresh output directories",
+ "deviations_from_a_clean_install": [
+  "used the implementer's existing interpreters: .venv (core extension prebuilt, Python 3.14.4, NumPy 2.5.3, matplotlib 3.11.2) and the git-ignored audit venv with MDAnalysis 2.10.0",
+  "inputs obtained with fetch_inputs.py --source <local copies> (no network); the RCSB download path was not exercised",
+  "no Rust build or maturin step was performed"
+ ],
+ "commands": [
+  "fetch_inputs.py --source SRC",
+  "python -m topofold_inputs.structpair specs/kras2_5US4A_vs_5USJA.json --out OUT/kras2_5US4A_vs_5USJA --adapter-python ADAPTER",
+  "python -m topofold_inputs.structpair specs/kras1_9O0N_vs_9O0O.json --out OUT/kras1_9O0N_vs_9O0O --adapter-python ADAPTER"
+ ],
+ "results": {
+  "fetch_inputs": "4 of 4 files hash ok",
+  "kras2": {
+   "exit_code": 0,
+   "stdout": "158 positions; global Cα RMSD 0.974 Å over 158 Cα; 10 exclusion rows",
+   "cpu_s": 10.58,
+   "wall_s": 5.74
+  },
+  "kras1": {
+   "exit_code": 0,
+   "stdout": "168 positions; global Cα RMSD 0.718 Å over 168 Cα; 0 exclusion rows",
+   "cpu_s": 14.87,
+   "wall_s": 6.17
+  },
+  "byte_identical_to_reference_results": {
+   "kras2": [
+    "windows.csv",
+    "residues.csv",
+    "exclusions.csv"
+   ],
+   "kras1": [
+    "windows.csv",
+    "residues.csv",
+    "exclusions.csv"
+   ]
+  },
+  "files_compared": 6,
+  "files_differing": 0
+ },
+ "finding": "guide text corrected before release: expected stdout says 10 exclusion rows (5 windows x 2 structures), and per-run CPU is about 10.6-14.9 s"
+}

@@ -86,7 +86,7 @@ rotation and returns a proper rotation (det +1) for a mirror image. Output: `res
     ambiguous.
   - The 37.2 MB Supplementary Information, which holds the cited Supplementary Fig. 5e, was not inspected because it
     exceeds the download budget. The peer-review file contains no RMSD statement.
-- **Context only (declared in advance; not a reproduction):** an unverified emulation of PyMOL-style iterative outlier
+- **Exploratory only (declared in advance; not a reproduction; not pursued further, see `docs/KRAS_STRUCT_MILESTONE_CLOSEOUT_2026-10-24.md`):** an unverified emulation of PyMOL-style iterative outlier
   rejection (cutoff 2 × RMSD, 5 cycles) keeps 141 of 168 Cα and gives 0.27 Å.
   - So a value near 0.3 Å is consistent with reporting after outlier rejection.
   - The paper does not say this was done, and PyMOL was not run. The discrepancy is recorded as **unreconciled
