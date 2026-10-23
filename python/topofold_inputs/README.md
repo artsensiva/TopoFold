@@ -55,6 +55,8 @@ labels time as INFERRED (the files have no timestamps) and records hashes.
   - NULLSTRESS-1: it also rejects when only temporal correlation differs, so a rejection means the replica
     histograms differ (geometry and/or dynamics).
 - Not yet evaluated on real data, and not validated for isolating marginal-geometry differences (the real-data design is deferred).
+- `dependent_bootstrap.py` (stationary bootstrap + Kuiper, replicas resampled separately) is an audit prototype. It
+  failed SYNTHETIC calibration under unequal temporal correlation (DABOOT-1) and is not recommended for inference.
 
 **Run** (repository root):
 

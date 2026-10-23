@@ -1,0 +1,115 @@
+{
+ "id": "SYNTHETIC_DABOOT-1",
+ "label": "SYNTHETIC",
+ "data_seed_master": 20261024,
+ "bootstrap_seed_master": 20261025,
+ "null_cells_from": "benchmarks/audit/synth_null_stress/run_spec.json (cells 0-5, identical draws)",
+ "repetitions": 200,
+ "n_rep": 5,
+ "n_frames": 387,
+ "B": 499,
+ "alpha": 0.05,
+ "linear": {
+  "mu": 5.5,
+  "sigma": 0.2,
+  "grid": [
+   3.0,
+   8.0,
+   256
+  ]
+ },
+ "circular": {
+  "mu": 3.141592653589793,
+  "s": 0.3,
+  "grid": "256 arc ends from -pi+2pi/256 to pi"
+ },
+ "criteria": {
+  "calibration_failure": "any null cell rejection > 0.10 or Wilson lower bound > 0.05",
+  "sensitivity_useful": "rejection >= 0.80 in both delta=2 positive controls"
+ },
+ "budget": {
+  "cpu_seconds": 900
+ },
+ "cells": [
+  {
+   "cell": 0,
+   "channel": "linear",
+   "phi_a": 0.0,
+   "phi_b": 0.8,
+   "role": "null",
+   "delta": 0.0
+  },
+  {
+   "cell": 1,
+   "channel": "linear",
+   "phi_a": 0.0,
+   "phi_b": 0.95,
+   "role": "null",
+   "delta": 0.0
+  },
+  {
+   "cell": 2,
+   "channel": "linear",
+   "phi_a": 0.8,
+   "phi_b": 0.95,
+   "role": "null",
+   "delta": 0.0
+  },
+  {
+   "cell": 3,
+   "channel": "circular",
+   "phi_a": 0.0,
+   "phi_b": 0.8,
+   "role": "null",
+   "delta": 0.0
+  },
+  {
+   "cell": 4,
+   "channel": "circular",
+   "phi_a": 0.0,
+   "phi_b": 0.95,
+   "role": "null",
+   "delta": 0.0
+  },
+  {
+   "cell": 5,
+   "channel": "circular",
+   "phi_a": 0.8,
+   "phi_b": 0.95,
+   "role": "null",
+   "delta": 0.0
+  },
+  {
+   "cell": 6,
+   "channel": "linear",
+   "phi_a": 0.0,
+   "phi_b": 0.95,
+   "delta": 1.0,
+   "role": "positive_control"
+  },
+  {
+   "cell": 7,
+   "channel": "linear",
+   "phi_a": 0.0,
+   "phi_b": 0.95,
+   "delta": 2.0,
+   "role": "positive_control"
+  },
+  {
+   "cell": 8,
+   "channel": "circular",
+   "phi_a": 0.0,
+   "phi_b": 0.95,
+   "delta": 1.0,
+   "role": "positive_control"
+  },
+  {
+   "cell": 9,
+   "channel": "circular",
+   "phi_a": 0.0,
+   "phi_b": 0.95,
+   "delta": 2.0,
+   "role": "positive_control"
+  }
+ ]
+}

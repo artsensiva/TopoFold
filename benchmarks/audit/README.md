@@ -30,6 +30,7 @@ Each directory holds harness code, frozen-protocol references, results files and
 | [`synth_rep_char/`](synth_rep_char/) | SYNTHETIC_REPCHAR-1 sensitivity characterization of the replica-comparison rule (84 cells × 200 repetitions) | SYNTHETIC | [`README.md`](synth_rep_char/README.md) | Complete; conservative under the identical-distribution null, low sensitivity under temporal correlation, confounded by condition-shared sampling |
 | [`synth_rep_perm/`](synth_rep_perm/) | SYNTHETIC_PERM-1 prospective replica permutation method vs complete-separation screen (81 cells x 200) | SYNTHETIC | [`README.md`](synth_rep_perm/README.md) | Complete; near-nominal null rejection, higher sensitivity; confounding unresolved; real-data evaluation needs its own design |
 | [`synth_null_stress/`](synth_null_stress/) | SYNTHETIC_NULLSTRESS-1: identical marginals, different temporal correlation between conditions (6 cells x 200) | SYNTHETIC | [`README.md`](synth_null_stress/README.md) | Complete; permutation rejects 0.085–0.525 (nominal 0.048); screen almost never calls |
+| [`synth_daboot/`](synth_daboot/) | SYNTHETIC_DABOOT-1: stationary-bootstrap Kuiper test of equal marginals under unequal temporal correlation (10 cells x 200) | SYNTHETIC | [`README.md`](synth_daboot/README.md) | Calibration failure (null rejection 0.095–0.230); positive controls 1.000; stopped as predeclared |
 
 Large or third-party inputs that are not in Git, and how to retrieve or regenerate them: [`../../docs/CHECKPOINT_2026-10-13_PROVENANCE.md`](../../docs/CHECKPOINT_2026-10-13_PROVENANCE.md).
 

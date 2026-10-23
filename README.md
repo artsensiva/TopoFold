@@ -116,6 +116,10 @@ The development programme, evidence levels (A–E) and the current queue are in
     ([`docs/DEV_PERM_1HA8A00_EVALUATION_DESIGN_DRAFT.md`](docs/DEV_PERM_1HA8A00_EVALUATION_DESIGN_DRAFT.md)). The
     permutation method responds to histogram differences caused by temporal correlation alone, so it is not validated
     for marginal-geometry comparison.
+  - A dependence-aware alternative (stationary block bootstrap with a Kuiper statistic) **failed** SYNTHETIC
+    calibration (DABOOT-1: null rejection 0.095–0.230 at α = 0.05). Ensemble comparisons therefore remain
+    descriptive, without inferential claims
+    ([`benchmarks/audit/synth_daboot/`](benchmarks/audit/synth_daboot/README.md)).
 
 ## What TopoFold does not (yet) do
 

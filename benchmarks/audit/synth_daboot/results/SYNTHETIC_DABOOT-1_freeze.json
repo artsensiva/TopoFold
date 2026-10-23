@@ -1,0 +1,19 @@
+{
+  "id": "SYNTHETIC_DABOOT-1",
+  "frozen_utc": "2026-10-23T16:42:18.841873+00:00",
+  "spec_json_sha256": "6101f01eef06c3398e83b83cb54024067c20ebae6bcecca6ebf1a8212d97b35c",
+  "spec_doc_sha256": "e6a1bd7919080098bc4e0dee910eb88e39ea7dde213b51e731e82498d55a2ec0",
+  "nullstress_spec_sha256": "8a83f0d0a8aef2890ad0192509376c92731f99974c8d6f41e94950d2fc565bff",
+  "code_sha256": {
+    "python/topofold_inputs/dependent_bootstrap.py": "3390184fad9260e27863eb1446969ee32f8fb6fb7d8ee37166c4057ad33dd4a1",
+    "benchmarks/audit/synth_daboot/run_daboot.py": "e117b820376c2c042b598c8bf6916b7846dee572f4dc36fcf2a39c513ff70d3b",
+    "benchmarks/audit/synth_rep_char/synthetic_generators.py": "347c3ca5f7f1ea1fd72b01b094617d54e86802721d4933dfb2b35cf0f3c9751f",
+    "benchmarks/audit/synth_null_stress/run_stress.py": "ff26e9cf2f8b392c287feacad29b40540bde99aa661125ea2d38b0b2fd1cfb77",
+    "tests/test_dependent_bootstrap.py": "c891cb17bfe4114e969929bd2a3141214e088d28c8201f448a3e1eac04f53b84"
+  },
+  "environment": {
+    "python": "3.14.4",
+    "numpy": "2.5.3",
+    "platform": "Linux-7.0.0-31-generic-x86_64-with-glibc2.43"
+  }
+}
