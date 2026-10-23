@@ -8,6 +8,22 @@ Please answer in your own words; short answers are fine. Record only what happen
 
 **About you (optional):** role / field; how often you analyse MD ensembles; tools you normally use for this.
 
+## 0. Trial record (filled in with the facilitator; kept private unless §6 allows otherwise)
+a. **Environment:** OS, Python version, how the core was built (or not), where MDAnalysis came from, and whether a
+   viewer was used.
+b. **Task:** the comparison you attempted and why it is relevant to your work (inputs can be described without naming
+   them).
+c. **Commands:** paste the commands as run, including failed ones.
+d. **Assistance:** none / some. If some: at which step, what was asked, and what help was given (documentation
+   pointer, explanation, workaround, code change).
+e. **Failures:** errors or dead ends, and whether each one was resolved.
+f. **Outcome** (tick one):
+   - completed **unaided**;
+   - completed **after assistance** (list the steps in d);
+   - not completed.
+g. **Understanding:** could you explain each exclusion from the outputs alone? Could you state what the result does
+   **not** show (no populations, kinetics, functional state, or causal attribution to a ligand or mutation)?
+
 ## 1. Installation and environment
 1. Did you use the provided environments or install your own? What did you have to install or configure?
 2. Time from start to the first successful run (approximate).
@@ -36,3 +52,5 @@ Please answer in your own words; short answers are fine. Record only what happen
 
 ## 6. Permission
 15. May we quote your answers (anonymously / with attribution / not at all)?
+16. May we record your name or affiliation in the repository's pilot log (yes / no)? Without a yes, the log
+    describes you only as "outside tester 1" and stores no identifying details.

@@ -114,7 +114,37 @@ PYTHONPATH=python $PY -m topofold_inputs.structpair \
   value only when the definition is stated. In this repository, for example, 0.718 Å over 168 Cα could not be
   reconciled with an undefined published 0.3 Å.
 
-## 6. Feedback
+## 6. Browse results in the viewer (optional)
+
+"TopoFold Structural Comparison" is a local, read-only viewer for structpair output directories:
+
+```bash
+.venv/bin/streamlit run apps/structpair_viewer/app.py --server.address localhost -- --results ~/structpair_out
+```
+
+- `--results` takes one output directory or a folder containing several. Without it, the viewer opens the two KRAS
+  demonstrations in `benchmarks/audit/structpair_demo/results/`.
+- `--server.address localhost` keeps the page on your own machine. Nothing is uploaded, and no external script is
+  loaded.
+- **What it shows:**
+  - one plot per metric, each with its own axis and unit;
+  - the window table, which can be filtered, sorted and selected (selecting a row moves the focus window);
+  - the exclusions, each with its recorded cause and an explanation of that cause type;
+  - the residue correspondence, keeping chain IDs and insertion codes exactly as in the files;
+  - provenance, with every output re-checked against its manifest hash;
+  - a 3D Cα view of both structures in which the focus window is highlighted.
+- **Missing values:** values that are unavailable are shown as gaps or empty cells, never as zero.
+- **Results only:**
+  - The viewer computes nothing new. Its one calculation is a display-only superposition for the 3D view.
+  - A result whose files no longer match their manifest hashes is refused.
+  - The 3D view needs the original input files with matching SHA-256. Without them, the rest of the viewer still
+    works.
+- **Dependencies:** Streamlit, pandas, Altair, Plotly and NumPy (tested with Streamlit 1.64.0, pandas 3.0.6,
+  Altair 6.3.0, Plotly 7.1.0 and NumPy 2.5.3). It needs neither the compiled TopoFold core nor MDAnalysis.
+- **Older app:** `apps/streamlit_app.py` is a historical dashboard from before the re-validation. Its claims are not
+  current; do not use it to read these results.
+
+## 7. Feedback
 
 Please record the following in `docs/pilot/FEEDBACK_FORM.md`, or send them to the project owner:
 - whether you completed the setup and a run on your own structures;

@@ -419,7 +419,7 @@ contributor with the current workstation, excluding waiting on third parties; th
 | **FS** Frame selection for expensive downstream analysis | None | [A] gain depends on cost ratio of screening to analysis and the fraction kept | — | Random and clustering-based selection | None | — | — | deferred | Phase 4 workflow needs it |
 | **SD** Conditional state detection | BC scan, Product-vM: not validated | M3; no calibrated null | — | Dip test or mixture ΔBIC with calibrated null | None | — | — | deferred | A selected application needs discrete states; ensemble differences alone are not sufficient |
 | **KI** Adaptive sampling and kinetics | None | [D] structural retrieval does not determine kinetics | — | MSM workflows | None | — | — | deferred (long-term) | Level-B ensemble result and a kinetic question |
-| **UX** API/CLI, reporting, user research | Python CLIs and generated reports (adapter, pipeline, `ensemble` v0.3.0, `structpair` v0.1.0); pilot handoff; separate-agent review | No Rust-core CLI; m11 no CI; no independent user trial yet | — | Users' current scripts and tools | A few structured user conversations (no claims) | 1–3 days / none / none | Recorded needs / no interest / mixed | ready (lightweight) | Lightweight slot free |
+| **UX** API/CLI, reporting, user research | Python CLIs and generated reports (adapter, pipeline, `ensemble` v0.3.0, `structpair` v0.1.0); local read-only viewer for structpair results (`apps/structpair_viewer`); pilot handoff; separate-agent review | No Rust-core CLI; m11 no CI; no independent user trial yet | — | Users' current scripts and tools | A few structured user conversations (no claims) | 1–3 days / none / none | Recorded needs / no interest / mixed | ready (lightweight) | Lightweight slot free |
 
 Short-lived Git branches are used for each authorized task.
 
@@ -481,4 +481,4 @@ active scientific evaluation at a time.
 | Allostery | None scheduled; MI estimator correction done (D16) | Perturbation data for causal claims; validated significance (closed, D33) | deferred |
 | IDP / α-synuclein | None scheduled | Real IDP ensembles with ensemble-averaged experiments; m4 | deferred |
 | RNA riboswitches | None scheduled | RNA χ descriptor (M4); RNA trajectories | deferred |
-| Outside-user trial | Send the invitation (now covering `ensemble` and `structpair`) and the feedback form; record results in the pilot log | Owner nominates a computational scientist | blocked (owner action) |
+| Outside-user trial | Send the invitation (covering `ensemble`, `structpair` and the results viewer) and the feedback form; record the trial with the form's §0 (unaided vs assisted), with consent before publishing or identifying the tester | Owner nominates a computational scientist | blocked (owner action) |
