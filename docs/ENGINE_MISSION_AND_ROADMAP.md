@@ -477,7 +477,7 @@ active scientific evaluation at a time.
 | Path | Next action | Depends on (capability / data) | Status |
 |---|---|---|---|
 | ABL | Describe apo WT vs M472I with the ensemble tool; relate to the HDX peptide map | Trajectories, run inventory and permissions (D. E. Shaw Research request); processed HDX uptake (request to the HDX authors) | blocked (owner sends both drafts) |
-| KRAS / Mpro | KRAS-STRUCT-1 done (static, descriptive). Next: examine the ligand-free matched pair 5US4/5USJ (G12D) | Existing Cα geometry and RMSD components (available); mmCIF-only entries need a reader (not installed); pocket claims need cavity observables (not available) | ready (KRAS backbone); Mpro and pocket work deferred |
+| KRAS / Mpro | KRAS-STRUCT-1 closed (RMSD verified, D40); KRAS-STRUCT-2 done on 5US4/5USJ (G12D, no modelled inhibitor; D41). Next (only if a question needs it): a GDP/GMPPNP pair in one crystal form, to reduce the packing confound; otherwise pause until ABL data or user feedback | Existing Cα geometry and RMSD components (available); mmCIF-only entries need a reader (not installed); pocket claims need cavity observables (not available) | ready (KRAS backbone); Mpro and pocket work deferred |
 | Allostery | None scheduled; MI estimator correction done (D16) | Perturbation data for causal claims; validated significance (closed, D33) | deferred |
 | IDP / α-synuclein | None scheduled | Real IDP ensembles with ensemble-averaged experiments; m4 | deferred |
 | RNA riboswitches | None scheduled | RNA χ descriptor (M4); RNA trajectories | deferred |

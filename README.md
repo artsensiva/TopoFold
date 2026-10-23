@@ -132,7 +132,11 @@ The development programme, evidence levels (A–E) and the current queue are in
 - **KRAS** (static experimental structures): KRAS-STRUCT-1 compares GDP- and GMPPNP-bound wild-type KRAS crystal
   structures (both with MRTX1133). It reports direct local geometric differences, with κ/τ, Cα distances and local
   RMSD on identical residues, and no functional claim
-  ([`benchmarks/audit/kras_struct_cmp/`](benchmarks/audit/kras_struct_cmp/README.md)).
+  ([`benchmarks/audit/kras_struct_cmp/`](benchmarks/audit/kras_struct_cmp/README.md)). Its global RMSD (0.718 Å) is
+  independently verified; the paper's 0.3 Å has no stated definition. KRAS-STRUCT-2 repeats the comparison on
+  KRAS G12D GDP vs GMPPNP structures without a modelled pharmacological inhibitor (5US4/5USJ), with all chain
+  pairings: residues ~29–39 differ most in every pairing and in both studies; other locations depend on the structure
+  or chain ([`benchmarks/audit/kras_struct_g12d/`](benchmarks/audit/kras_struct_g12d/README.md)).
 - **Owner actions pending:** nominate an outside computational scientist for the pilot; send the ABL trajectory
   request; send the processed-HDX request (drafts in `docs/`).
 - **ABL** (preferred biological route): the trajectories, their permissions and processed HDX uptake are not yet
