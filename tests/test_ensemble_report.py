@@ -145,3 +145,84 @@ def test_end_to_end_with_adapter_and_reproducibility(tmp_path):
     assert {r["group"] for r in dist} == {"G1", "G2"} and all(r["residues"].startswith(("A:", "B:")) for r in dist)
     m = json.loads((tmp_path / "o1" / "manifest.json").read_text())
     assert m["groups"]["G2"][0]["frame_index_first_last"] == [1, 2]
+
+
+# --- corrections (2026-10-23): origin-invariant circular diagnostic, conditioning, degenerate series ----------------
+
+def _ar1(n, phi, seed):
+    rng = np.random.default_rng(seed)
+    x = np.empty(n)
+    x[0] = rng.standard_normal()
+    for t in range(1, n):
+        x[t] = phi * x[t - 1] + math.sqrt(1 - phi * phi) * rng.standard_normal()
+    return x
+
+
+def test_circular_autocorrelation_is_origin_invariant():
+    theta = np.angle(np.exp(1j * (0.4 + 0.8 * _ar1(400, 0.85, 3))))
+    base, _ = en.autocorrelation(theta, True, 30)
+    for shift in (0.3, 1.7, -2.9, math.pi, 5.0):
+        rot = np.angle(np.exp(1j * (theta + shift)))
+        c, status = en.autocorrelation(rot, True, 30)
+        assert status == "ok" and np.max(np.abs(c - base)) < 1e-12
+    # the earlier average of separately normalized cos/sin autocorrelations depends on the origin
+    def old(t):
+        a = [en.autocorrelation(np.cos(t), False, 5)[0], en.autocorrelation(np.sin(t), False, 5)[0]]
+        return 0.5 * (a[0] + a[1])
+    assert abs(old(theta)[1] - old(np.angle(np.exp(1j * (theta + 1.0))))[1]) > 1e-3
+
+
+def test_linear_autocorrelation_matches_direct_formula():
+    x = _ar1(500, 0.6, 4)
+    c, _ = en.autocorrelation(x, False, 5)
+    u = x - x.mean()
+    np.testing.assert_allclose(c, [np.dot(u[: len(u) - k], u[k:]) / np.dot(u, u) for k in range(6)], atol=1e-12)
+
+
+def test_circular_summary_conditioning_and_rounding():
+    balanced = np.array([0.0, 2 * math.pi / 3, -2 * math.pi / 3])
+    s = en.circular_summary(balanced)
+    assert s["center"] is None and s["spread"] is None and s["resultant_length"] < en.R_MIN
+    assert "resultant length below" in s["status"]
+    same = en.circular_summary(np.full(1000, 2.5))                 # R may round to slightly above 1
+    assert same["status"] == "ok" and same["spread"] == 0.0 and same["resultant_length"] <= 1.0
+    ok = en.circular_summary(np.array([3.1, -3.1, 3.05]))
+    assert ok["status"] == "ok" and abs(abs(ok["center"]) - math.pi) < 0.1 and 0.99 < ok["resultant_length"] <= 1
+
+
+def test_degenerate_series_have_explicit_reasons():
+    one = en.temporal_diagnostics(np.array([1.0]), False, 50)
+    assert one["lag1"] is None and one["status"] == one["decorrelation_status"] == "unavailable: fewer than 2 frames"
+    const = en.temporal_diagnostics(np.full(100, 2.0), False, 50)
+    assert const["status"] == "unavailable: constant series" and const["decorrelation_lag"] is None
+    cconst = en.temporal_diagnostics(np.full(100, 3.0), True, 50)
+    assert cconst["status"] == "unavailable: constant series"
+    short = en.temporal_diagnostics(np.array([0.0, 0.1, 0.2, 0.3, 0.4]), False, 50)
+    assert short["lags_available"] == 4 and short["status"] == "ok"
+    slow = en.temporal_diagnostics(_ar1(60, 0.99, 5), False, 10)
+    assert slow["decorrelation_status"] == "not reached within 10 lags" and slow["decorrelation_lag"] is None
+
+
+def test_unavailable_values_reach_tables_and_report(tmp_path):
+    a = _member("A_0", n_frames=3, seed=1)
+    b = _member("B_0", n_frames=3, seed=2)
+    for m in (a, b):                                                # τ window 2: exactly balanced angles, R = 0
+        m["tau"][:, 2] = [0.0, 2 * math.pi / 3, -2 * math.pi / 3]
+    single = _member("C_0", n_frames=1, seed=3)
+    groups = {"A": [a], "B": [b], "C": [single]}
+    res = en.analyze(groups, OPTS)
+    d = [r for r in res["rows"]["distribution"] if r["channel"] == "tau" and r["window"] == 2 and r["group"] == "A"][0]
+    assert d["center"] is None and "resultant length below" in d["status"]
+    bt = [r for r in res["rows"]["between"] if r["channel"] == "tau" and r["window"] == 2
+          and r["group_a"] == "A" and r["group_b"] == "B"][0]
+    assert bt["center_difference"] is None and "center of A" in bt["center_difference_status"]
+    assert bt["pooled_js"] == 0.0                                   # JS unaffected by the conditioning rule
+    c = [r for r in res["rows"]["distribution"] if r["group"] == "C" and r["channel"] == "kappa"][0]
+    assert c["spread"] is None and "fewer than 2 frames" in c["status"]
+    t = [r for r in res["rows"]["temporal"] if r["group"] == "C"]
+    assert all(r["status"] == "unavailable: fewer than 2 frames" for r in t)
+    en.write_outputs(res, groups, {"name": "SYNTHETIC degenerate"}, OPTS, tmp_path / "o", None)
+    rep = (tmp_path / "o" / "report.md").read_text()
+    assert "unavailable: fewer than 2 frames" in rep and "beyond max lag" not in rep
+    rows = list(csv.DictReader(open(tmp_path / "o" / "tables/between.csv")))
+    assert any(r["center_difference"] == "" and r["center_difference_status"].startswith("unavailable") for r in rows)

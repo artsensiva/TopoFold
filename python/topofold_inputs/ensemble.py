@@ -98,35 +98,67 @@ def extract_member(member: dict, run_id: str, work: Path, adapter_python: str, o
 
 # --- descriptive statistics ------------------------------------------------------------------------------------------
 
-def _circ_mean(t):
-    return float(np.angle(np.mean(np.exp(1j * t))))
+ENSEMBLE_VERSION = "0.2.0"
+R_MIN = 1e-6            # numerical conditioning threshold for a circular mean direction (not a biological criterion)
+CONSTANT_VAR = 1e-20    # sample variance (squared units) at or below which a series is treated as constant
+UNAVAILABLE_R = f"unavailable: resultant length below {R_MIN:g} (mean direction numerically ill-conditioned)"
 
 
-def _circ_sd(t):
-    R = abs(np.mean(np.exp(1j * t)))
-    return float(math.sqrt(-2.0 * math.log(R))) if R > 0 else float("inf")
+def circular_summary(t) -> dict:
+    """Mean direction, resultant length R = |mean(e^{iθ})| and circular SD sqrt(−2 ln R).
+
+    R is clipped to [0, 1] so rounding can never give R > 1. When R < R_MIN the mean direction is numerically
+    ill-conditioned and is reported as unavailable (as is the spread, which is then very large). R_MIN is a numerical
+    rule only; it says nothing about whether a distribution is biologically meaningful.
+    """
+    m = np.mean(np.exp(1j * np.asarray(t, dtype=np.float64)))
+    R = float(min(max(abs(m), 0.0), 1.0))
+    if R < R_MIN:
+        return {"center": None, "spread": None, "resultant_length": R, "status": UNAVAILABLE_R}
+    return {"center": float(np.angle(m)), "spread": float(math.sqrt(max(-2.0 * math.log(R), 0.0))),
+            "resultant_length": R, "status": "ok"}
 
 
 def _wrap(x):
     return float(math.pi - ((math.pi - x) % (2 * math.pi)))
 
 
-def _autocorr(x, max_lag):
-    x = np.asarray(x, dtype=np.float64) - np.mean(x)
-    v = float(np.dot(x, x))
+def autocorrelation(x, circular: bool, max_lag: int):
+    """Normalized autocorrelation C(0..L) with L = min(max_lag, n − 1), or (None, reason).
+
+    Linear: C(k) = sum_t u_t u_{t+k} / sum_t u_t², u = x − mean(x).
+    Circular: with z_t = e^{iθ_t} and u_t = z_t − mean(z), C(k) = Re sum_t conj(u_t) u_{t+k} / sum_t |u_t|².
+    A common rotation θ → θ + α multiplies every u_t by e^{iα}, so C(k) is independent of the angular origin.
+    Both use the full-series denominator (C(0) = 1, |C(k)| <= 1); they are descriptive, not estimates with stated
+    error.
+    """
+    x = np.asarray(x, dtype=np.float64)
     n = len(x)
-    if v == 0:
-        return np.full(min(max_lag, n - 1) + 1, np.nan)
-    return np.array([np.dot(x[: n - k], x[k:]) / v for k in range(min(max_lag, n - 1) + 1)])
+    if n < 2:
+        return None, "unavailable: fewer than 2 frames"
+    u = np.exp(1j * x) if circular else x.astype(np.complex128)
+    u = u - u.mean()
+    v = float(np.sum(np.abs(u) ** 2))
+    if v / n <= CONSTANT_VAR:
+        return None, "unavailable: constant series"
+    L = min(max_lag, n - 1)
+    return np.array([float(np.real(np.sum(np.conj(u[: n - k]) * u[k:]))) / v for k in range(L + 1)]), "ok"
 
 
 def temporal_diagnostics(x, circular: bool, max_lag: int) -> dict:
-    """Lag-1 autocorrelation and first lag with autocorrelation below 1/e (descriptive). Circular: mean of the
-    autocorrelation functions of cos θ and sin θ."""
-    ac = (0.5 * (_autocorr(np.cos(x), max_lag) + _autocorr(np.sin(x), max_lag))) if circular else _autocorr(x, max_lag)
+    """Lag-1 autocorrelation and the first lag with C(k) < 1/e (descriptive), with explicit statuses.
+
+    decorrelation_status is "reached", "not reached within L lags" (defined series whose C stays >= 1/e up to the
+    largest available lag L), or the reason the diagnostic is unavailable.
+    """
+    ac, why = autocorrelation(x, circular, max_lag)
+    if ac is None:
+        return {"lag1": None, "decorrelation_lag": None, "lags_available": 0, "status": why,
+                "decorrelation_status": why}
+    L = len(ac) - 1
     below = np.flatnonzero(ac[1:] < math.exp(-1))
-    return {"lag1": None if np.isnan(ac[1]) else float(ac[1]),
-            "decorrelation_lag": int(below[0] + 1) if below.size else None, "max_lag": int(len(ac) - 1)}
+    return {"lag1": float(ac[1]), "decorrelation_lag": int(below[0] + 1) if below.size else None, "lags_available": L,
+            "status": "ok", "decorrelation_status": "reached" if below.size else f"not reached within {L} lags"}
 
 
 def _hist(x, ch, bins):
@@ -151,6 +183,26 @@ def window_label(residues, ch, w):
         return None
     ra, rb = residues[a], residues[b]
     return f"{ra['chain']}:{ra['resid']}{ra['icode'] or ''}-{rb['resid']}{rb['icode'] or ''}"
+
+
+def _member_spread(centers, circ: bool) -> dict:
+    if len(centers) < 2:
+        return {"member_center_spread": None, "member_center_spread_status": "unavailable: single member"}
+    if any(c is None for c in centers):
+        return {"member_center_spread": None,
+                "member_center_spread_status": "unavailable: a member's circular mean is ill-conditioned"}
+    if circ:
+        cs = circular_summary(np.array(centers))
+        return {"member_center_spread": cs["spread"], "member_center_spread_status": cs["status"]}
+    return {"member_center_spread": float(np.std(centers, ddof=1)), "member_center_spread_status": "ok"}
+
+
+def _center_difference(ca, cb, sa, sb, ga, gb, circ: bool) -> dict:
+    if ca is None or cb is None:
+        bad = ga if ca is None else gb
+        return {"center_difference": None,
+                "center_difference_status": f"unavailable: center of {bad} {UNAVAILABLE_R.split(': ', 1)[1]}"}
+    return {"center_difference": _wrap(ca - cb) if circ else ca - cb, "center_difference_status": "ok"}
 
 
 def analyze(groups: dict[str, list[dict]], options: dict) -> dict:
@@ -186,31 +238,35 @@ def analyze(groups: dict[str, list[dict]], options: dict) -> dict:
                 mh = [_hist(v, ch, bins) for v in vals]
                 pooled = np.concatenate(vals)
                 hists[(ch, w, g)] = (np.sum(mh, axis=0), np.array(mh))
-                centers = [(_circ_mean(v) if circ else float(np.mean(v))) for v in vals]
+                msum = [circular_summary(v) if circ else None for v in vals]
+                centers = [c["center"] for c in msum] if circ else [float(np.mean(v)) for v in vals]
                 d = {"channel": ch, "window": w, "residues": lab, "group": g, "n_members": len(vals),
-                     "n_frames": int(pooled.size)}
+                     "n_frames": int(pooled.size), "member_frames": json.dumps([int(v.size) for v in vals])}
                 if circ:
-                    d.update(center=_circ_mean(pooled), spread=_circ_sd(pooled), q05=None, q50=None, q95=None)
+                    cs = circular_summary(pooled)
+                    d.update(center=cs["center"], spread=cs["spread"], resultant_length=cs["resultant_length"],
+                             q05=None, q50=None, q95=None, status=cs["status"])
                 else:
                     q = np.quantile(pooled, [0.05, 0.5, 0.95])
-                    d.update(center=float(np.mean(pooled)), spread=float(np.std(pooled, ddof=1)),
-                             q05=float(q[0]), q50=float(q[1]), q95=float(q[2]))
+                    d.update(center=float(np.mean(pooled)),
+                             spread=float(np.std(pooled, ddof=1)) if pooled.size > 1 else None,
+                             resultant_length=None, q05=float(q[0]), q50=float(q[1]), q95=float(q[2]),
+                             status="ok" if pooled.size > 1 else "spread unavailable: fewer than 2 frames")
                 rows["distribution"].append(d)
                 wj = [js_distance(mh[i], mh[j]) for i in range(len(mh)) for j in range(i + 1, len(mh))]
                 rows["replicas"].append({
                     "channel": ch, "window": w, "residues": lab, "group": g, "n_members": len(vals),
-                    "member_center_spread": (None if len(vals) < 2 else
-                                             (_circ_sd(np.array(centers)) if circ else float(np.std(centers, ddof=1)))),
+                    **_member_spread(centers, circ),
                     "within_member_js_median": float(np.median(wj)) if wj else None,
                     "within_member_js_max": float(np.max(wj)) if wj else None})
                 for m, v in zip(groups[g], vals):
                     t = temporal_diagnostics(v, circ, max_lag)
                     rows["temporal"].append({"channel": ch, "window": w, "residues": lab, "group": g,
                                              "member": m["run_id"], "n_frames": int(v.size), **t})
-                per_group[g] = (mh, d["center"])
+                per_group[g] = (mh, d["center"], d["status"])
             for i, ga in enumerate(names):
                 for gb in names[i + 1:]:
-                    (ma, ca), (mb, cb) = per_group[ga], per_group[gb]
+                    (ma, ca, sa), (mb, cb, sb) = per_group[ga], per_group[gb]
                     bt = [js_distance(x, y) for x in ma for y in mb]
                     wa = [js_distance(ma[p], ma[q]) for p in range(len(ma)) for q in range(p + 1, len(ma))]
                     wb = [js_distance(mb[p], mb[q]) for p in range(len(mb)) for q in range(p + 1, len(mb))]
@@ -220,7 +276,7 @@ def analyze(groups: dict[str, list[dict]], options: dict) -> dict:
                         "between_member_js_median": float(np.median(bt)),
                         "within_member_js_median_a": float(np.median(wa)) if wa else None,
                         "within_member_js_median_b": float(np.median(wb)) if wb else None,
-                        "center_difference": _wrap(ca - cb) if circ else ca - cb})
+                        **_center_difference(ca, cb, sa, sb, ga, gb, circ)})
     return {"rows": rows, "hists": hists, "residues": residues}
 
 
@@ -265,7 +321,9 @@ def write_outputs(res: dict, groups: dict, spec: dict, options: dict, out: Path,
         "outputs_sha256": {p.name: _sha256(p) for p in sorted(tables.glob("*.csv"))}
         | {"distributions.npz": _sha256(out / "distributions.npz")},
         "software": {"python": platform.python_version(), "numpy": np.__version__,
-                     "module_sha256": _sha256(__file__)},
+                     "ensemble_version": ENSEMBLE_VERSION, "module_sha256": _sha256(__file__)},
+        "thresholds": {"circular_resultant_length_min": R_MIN, "constant_series_variance": CONSTANT_VAR},
+        "pooling": "member frames concatenated: members weighted by retained frame counts",
         "created_utc": dt.datetime.now(dt.timezone.utc).isoformat(),
     }
     (out / "manifest.json").write_text(json.dumps(manifest, indent=1) + "\n")
@@ -280,7 +338,12 @@ def report(res: dict, groups: dict, manifest: dict) -> str:
          "Generated from the tables in `tables/`. **Descriptive only:** no p-values, significance labels or "
          "uncertainty intervals. Differences between groups can reflect geometry, dynamics, sampling or starting "
          "conditions; replica variability and temporal diagnostics are shown so that readers can judge this. Marginal "
-         "per-window distributions can miss joint changes.", "", "## Inputs", ""]
+         "per-window distributions can miss joint changes.", "",
+         "**Pooling:** each group's pooled distribution concatenates its members' retained frames, so members are "
+         "weighted by their frame counts (`member_frames` in `tables/distribution.csv`).", "",
+         f"**Circular summaries:** the resultant length R is reported; mean directions (and differences involving them) "
+         f"are shown as unavailable when R < {R_MIN:g}, a numerical conditioning rule, not a biological criterion.", "",
+         "## Inputs", ""]
     for g, ms in manifest["groups"].items():
         L.append(f"- **{g}**: {len(ms)} member(s): " + "; ".join(
             f"{m['run_id']} ({m['frames']} frames, source frames {m['frame_index_first_last'][0]}–"
@@ -302,22 +365,33 @@ def report(res: dict, groups: dict, manifest: dict) -> str:
                               and r["group_b"] == gb), key=lambda r: -r["pooled_js"])[:5]
                 for r in sel:
                     wa, wb = r["within_member_js_median_a"], r["within_member_js_median_b"]
+                    cd = r["center_difference"]
                     L.append(f"| {ch} | {r['residues']} | {r['pooled_js']:.3f} | {r['between_member_js_median']:.3f} | "
                              f"{'n/a' if wa is None else f'{wa:.3f}'} / {'n/a' if wb is None else f'{wb:.3f}'} | "
-                             f"{r['center_difference']:+.3f} |")
+                             f"{'n/a' if cd is None else f'{cd:+.3f}'} |")
             L.append("")
-    L += ["## Temporal diagnostics (median over windows; descriptive)", "",
-          "| Channel | Group | Lag-1 autocorrelation | Decorrelation lag (frames; first lag < 1/e) |", "|---|---|---|---|"]
+    L += ["## Temporal diagnostics (median over member-windows with defined values; descriptive)", "",
+          "Autocorrelation C(k): linear channels use the centered series; the circular channel uses centered unit "
+          "vectors, C(k) = Re Σ conj(u_t) u_{t+k} / Σ |u_t|², which does not depend on the angular origin. The "
+          "decorrelation lag is the first lag with C(k) < 1/e.", "",
+          "| Channel | Group | Lag-1 autocorrelation | Decorrelation lag (frames) | Not reached within available lags | "
+          "Unavailable (reason: count) |", "|---|---|---|---|---|---|"]
     for ch in CHANNELS:
         for g in names:
             t = [r for r in rows["temporal"] if r["channel"] == ch and r["group"] == g]
             l1 = [r["lag1"] for r in t if r["lag1"] is not None]
             dl = [r["decorrelation_lag"] for r in t if r["decorrelation_lag"] is not None]
-            beyond = sum(1 for r in t if r["decorrelation_lag"] is None)
-            L.append(f"| {ch} | {g} | {np.median(l1):.3f} | {np.median(dl) if dl else 'n/a'}"
-                     f"{f' ({beyond} member-windows beyond max lag)' if beyond else ''} |" if l1 else
-                     f"| {ch} | {g} | n/a | n/a |")
-    L += ["", "Single-member groups have no replica variability (shown as n/a).", ""]
+            nr = sum(1 for r in t if r["decorrelation_status"].startswith("not reached"))
+            un = {}
+            for r in t:
+                if r["status"] != "ok":
+                    un[r["status"]] = un.get(r["status"], 0) + 1
+            L.append(f"| {ch} | {g} | {f'{np.median(l1):.3f}' if l1 else 'n/a'} | "
+                     f"{np.median(dl) if dl else 'n/a'} | {nr} | "
+                     f"{'; '.join(f'{k}: {v}' for k, v in sorted(un.items())) or 'none'} |")
+    nun = sum(1 for r in rows["distribution"] if r["status"] != "ok")
+    L += ["", f"Distribution rows with an unavailable summary: {nun} (reasons in the `status` column). "
+          "Single-member groups have no replica variability (shown as n/a).", ""]
     return "\n".join(L)
 
 

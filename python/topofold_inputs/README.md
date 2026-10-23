@@ -67,6 +67,12 @@ labels time as INFERRED (the files have no timestamps) and records hashes.
   - `distributions.npz`, `report.md` and a hashed `manifest.json`.
 - **Scope:** descriptive only, with no p-values, significance labels or uncertainty intervals. Demonstration in
   `benchmarks/audit/dev_ensemble_report/`.
+- **v0.2.0 details:**
+  - **Circular temporal diagnostic:** C(k) on centered unit vectors, which is independent of the angular origin.
+  - **Circular summaries:** report the resultant length; centers with R < 10⁻⁶ are reported as unavailable (a
+    numerical rule).
+  - **Degenerate series:** single-frame, constant or short series carry explicit reasons.
+  - **Pooling:** pooled distributions weight members by their retained frame counts.
 
 **Run** (repository root):
 

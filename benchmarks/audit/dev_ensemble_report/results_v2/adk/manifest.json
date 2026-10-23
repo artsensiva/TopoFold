@@ -1,0 +1,181 @@
+{
+ "schema": "topofold_inputs.ensemble/1",
+ "name": "AdK open-start vs closed-start, single runs, 0-335.2 ns every 4th frame (development data)",
+ "statement": "Descriptive comparison only: no p-values, significance labels or uncertainty intervals.",
+ "spec_sha256": "c65bb783f6e820b8d08396d110780f5d7babf6bdb59ae7f2c57df27ea7999936",
+ "options": {
+  "bins": 36,
+  "max_lag": 50,
+  "pbc": "none"
+ },
+ "channels": {
+  "kappa": {
+   "kind": "linear",
+   "lo": 0.0,
+   "hi": 3.141592653589793,
+   "unit": "rad"
+  },
+  "tau": {
+   "kind": "circular",
+   "unit": "rad"
+  },
+  "d_i_i2": {
+   "kind": "linear",
+   "lo": 3.0,
+   "hi": 8.0,
+   "unit": "angstrom"
+  },
+  "d_i_i3": {
+   "kind": "linear",
+   "lo": 3.0,
+   "hi": 12.0,
+   "unit": "angstrom"
+  }
+ },
+ "groups": {
+  "open_start": [
+   {
+    "run_id": "open_start_0",
+    "frames": 420,
+    "frame_index_first_last": [
+     0,
+     1676
+    ],
+    "member_spec": {
+     "type": "mdanalysis",
+     "topology": "benchmarks/audit/adk_feasibility/data/raw/ORADD_open_state.gro",
+     "trajectories": [
+      "benchmarks/audit/adk_feasibility/data/raw/ORADD_open_state_traj.xtc"
+     ],
+     "start": 0,
+     "stop": 1677,
+     "step": 4,
+     "pbc": "make_whole_sequential"
+    },
+    "source_files": [
+     {
+      "role": "topology",
+      "path": "/home/artem/TopoFold/benchmarks/audit/adk_feasibility/data/raw/ORADD_open_state.gro",
+      "bytes": 6567118,
+      "sha256": "25c90e78f549d97ed61814950efcdf9b859a0320734bd15bd09003677608a40f"
+     },
+     {
+      "role": "trajectory",
+      "path": "/home/artem/TopoFold/benchmarks/audit/adk_feasibility/data/raw/ORADD_open_state_traj.xtc",
+      "bytes": 780301896,
+      "sha256": "39e77b58ded7279d27b9e331b2ff9e6d39a803183689612856df0aa800a40019"
+     }
+    ],
+    "adapter_json_sha256": "7275d970a3b3cbe173cd5fd467a4cc12b7df528a03ec35a8e9e418d9d6206eb4",
+    "features_json_sha256": "9e58fcc8b4374d277961c9ebcc95bb2ee44428af011735195e8ceb090f170cd0",
+    "core": {
+     "version": "0.8.3",
+     "function": "compute_invariants",
+     "wrapper": {
+      "module": "topofold",
+      "path": "/home/artem/TopoFold/.venv/lib/python3.14/site-packages/topofold/__init__.py",
+      "sha256": "49780093095f27c89bdf234be15e1f5a9bac957d5a9dbf5ae0f93c856ee1590d"
+     },
+     "native_extension": {
+      "module": "topofold.topofold",
+      "path": "/home/artem/TopoFold/.venv/lib/python3.14/site-packages/topofold/topofold.cpython-314-x86_64-linux-gnu.so",
+      "sha256": "d90e7ed4f1d8036a3735f387c6fe6aa5a81c7b615da1d0094ce054cf0c13cfa8",
+      "status": "resolved",
+      "loader": "ExtensionFileLoader"
+     }
+    },
+    "frame_identity": "not_verifiable",
+    "units": {
+     "coordinates": "angstrom",
+     "time": "ps",
+     "source_length_unit": "nm",
+     "source_time_unit": "ps",
+     "reader_convert_units": true,
+     "basis": "source unit nm; converted to \u00c5 by MDAnalysis (convert_units=True)"
+    }
+   }
+  ],
+  "closed_start": [
+   {
+    "run_id": "closed_start_0",
+    "frames": 420,
+    "frame_index_first_last": [
+     0,
+     1676
+    ],
+    "member_spec": {
+     "type": "mdanalysis",
+     "topology": "benchmarks/audit/adk_feasibility/data/raw/ORADD_closed_state.gro",
+     "trajectories": [
+      "benchmarks/audit/adk_feasibility/data/raw/ORADD_closed_state_traj.xtc"
+     ],
+     "start": 0,
+     "stop": 1677,
+     "step": 4,
+     "pbc": "make_whole_sequential"
+    },
+    "source_files": [
+     {
+      "role": "topology",
+      "path": "/home/artem/TopoFold/benchmarks/audit/adk_feasibility/data/raw/ORADD_closed_state.gro",
+      "bytes": 6568567,
+      "sha256": "4d05b0d3767e1f5e948b2c038a42e9b1a2132e3085c5b50899f4bf797e9f16e4"
+     },
+     {
+      "role": "trajectory",
+      "path": "/home/artem/TopoFold/benchmarks/audit/adk_feasibility/data/raw/ORADD_closed_state_traj.xtc",
+      "bytes": 580049352,
+      "sha256": "f950ff0a7beadab0992d9c1cffaea540675b62d06ed9d1eadcc988f20f6f3cc9"
+     }
+    ],
+    "adapter_json_sha256": "c28b7f9798427ea73a801cacca3550caf5b1aec55353312a0752e957fb5d50b0",
+    "features_json_sha256": "0b3569c9f96e933ae8a2eeae1845f7369f514b559f1b4769f05e415f4b62debc",
+    "core": {
+     "version": "0.8.3",
+     "function": "compute_invariants",
+     "wrapper": {
+      "module": "topofold",
+      "path": "/home/artem/TopoFold/.venv/lib/python3.14/site-packages/topofold/__init__.py",
+      "sha256": "49780093095f27c89bdf234be15e1f5a9bac957d5a9dbf5ae0f93c856ee1590d"
+     },
+     "native_extension": {
+      "module": "topofold.topofold",
+      "path": "/home/artem/TopoFold/.venv/lib/python3.14/site-packages/topofold/topofold.cpython-314-x86_64-linux-gnu.so",
+      "sha256": "d90e7ed4f1d8036a3735f387c6fe6aa5a81c7b615da1d0094ce054cf0c13cfa8",
+      "status": "resolved",
+      "loader": "ExtensionFileLoader"
+     }
+    },
+    "frame_identity": "not_verifiable",
+    "units": {
+     "coordinates": "angstrom",
+     "time": "ps",
+     "source_length_unit": "nm",
+     "source_time_unit": "ps",
+     "reader_convert_units": true,
+     "basis": "source unit nm; converted to \u00c5 by MDAnalysis (convert_units=True)"
+    }
+   }
+  ]
+ },
+ "outputs_sha256": {
+  "between.csv": "f6ed13de2c0ae912fee0aad25e73ff6a8bb470acae3fce13d10ec56fd2938b7c",
+  "distribution.csv": "827f41a7d6a558cea626eb0a6594968340a99f9cc85638241c38be5fe04a31b5",
+  "exclusions.csv": "dec2a5245eb7a58a56e7596ed560b07ae14b6b141640428eb98289606feea29b",
+  "replicas.csv": "f899205a1201ae6ecbcaf017f56164160b1c7d670f7272e46066bc01a78fc948",
+  "temporal.csv": "a39352c892d39efcb331c724aeb5b585225528c121ad004f0a791e63a3688036",
+  "distributions.npz": "544a55b589c2155ef7add0e7fd97cae690f3e92cc771234cdb919c1291d42329"
+ },
+ "software": {
+  "python": "3.14.4",
+  "numpy": "2.5.3",
+  "ensemble_version": "0.2.0",
+  "module_sha256": "a3a023c6bcd825875e7c278e486ccae9ab2cafe776c2fd501d41337641a6731b"
+ },
+ "thresholds": {
+  "circular_resultant_length_min": 1e-06,
+  "constant_series_variance": 1e-20
+ },
+ "pooling": "member frames concatenated: members weighted by retained frame counts",
+ "created_utc": "2026-10-23T17:41:54.613196+00:00"
+}

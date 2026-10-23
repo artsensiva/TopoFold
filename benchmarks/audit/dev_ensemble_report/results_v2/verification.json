@@ -1,0 +1,61 @@
+{
+ "note": "verification of corrected v2 demonstrations; descriptive tool, no inference",
+ "datasets": {
+  "1ha8A00": {
+   "pooled_js_same_windows": true,
+   "pooled_js_max_abs_diff_v1_v2": 0.0,
+   "pooled_js_recorded_precision": "6 significant digits (CSV)",
+   "tau_series_checked": 480,
+   "circular_autocorrelation_origin_invariance_max_abs_diff": 6.661338147750939e-16,
+   "tau_lag1_table_vs_recomputed_max_abs_diff": 4.995248201744573e-07,
+   "tau_lag1_max_change_v1_to_v2": 0.26575999999999994,
+   "status_counts": {
+    "distribution:ok": 388,
+    "replicas:ok": 388,
+    "between:ok": 194,
+    "temporal:ok": 1940
+   },
+   "provenance": {
+    "ensemble_version": "0.2.0",
+    "module_sha256_matches_current_file": true,
+    "native_extension_sha256_in_manifest": [
+     "d90e7ed4f1d8036a3735f387c6fe6aa5a81c7b615da1d0094ce054cf0c13cfa8"
+    ],
+    "native_extension_sha256_loaded_now": "d90e7ed4f1d8036a3735f387c6fe6aa5a81c7b615da1d0094ce054cf0c13cfa8",
+    "thresholds": {
+     "circular_resultant_length_min": 1e-06,
+     "constant_series_variance": 1e-20
+    },
+    "pooling": "member frames concatenated: members weighted by retained frame counts"
+   }
+  },
+  "adk": {
+   "pooled_js_same_windows": true,
+   "pooled_js_max_abs_diff_v1_v2": 0.0,
+   "pooled_js_recorded_precision": "6 significant digits (CSV)",
+   "tau_series_checked": 422,
+   "circular_autocorrelation_origin_invariance_max_abs_diff": 1.033895191682177e-15,
+   "tau_lag1_table_vs_recomputed_max_abs_diff": 4.964018266440107e-07,
+   "tau_lag1_max_change_v1_to_v2": 0.32453300000000007,
+   "status_counts": {
+    "distribution:ok": 1692,
+    "replicas:unavailable: single member": 1692,
+    "between:ok": 846,
+    "temporal:ok": 1692
+   },
+   "provenance": {
+    "ensemble_version": "0.2.0",
+    "module_sha256_matches_current_file": true,
+    "native_extension_sha256_in_manifest": [
+     "d90e7ed4f1d8036a3735f387c6fe6aa5a81c7b615da1d0094ce054cf0c13cfa8"
+    ],
+    "native_extension_sha256_loaded_now": "d90e7ed4f1d8036a3735f387c6fe6aa5a81c7b615da1d0094ce054cf0c13cfa8",
+    "thresholds": {
+     "circular_resultant_length_min": 1e-06,
+     "constant_series_variance": 1e-20
+    },
+    "pooling": "member frames concatenated: members weighted by retained frame counts"
+   }
+  }
+ }
+}

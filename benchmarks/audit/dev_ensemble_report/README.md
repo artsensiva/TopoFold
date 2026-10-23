@@ -12,6 +12,13 @@ produces residue-mapped tables, distributions, replica variability and temporal 
 | `spec_1ha8A00.json` | mdCATH `1ha8A00`, 320 K vs 348 K; 5 replicas each; source frames 43–429 | `results/1ha8A00/` |
 | `spec_adk.json` | AdK open-start vs closed-start; one run each; source frames 0–1676, every 4th | `results/adk/` |
 
+**Versions.**
+- `results/` holds the v1 outputs (tool 0.1.0), kept as history.
+- `results_v2/` holds the corrected outputs (tool 0.2.0): an origin-invariant circular temporal diagnostic, resultant
+  lengths with a numerical conditioning rule, and explicit reasons for unavailable values. See
+  `CORRECTION_NOTE_2026-10-23.md`, with verification in `results_v2/verification.json` (`verify_v2.py`).
+- **Pooled distributions** weight members by their retained frame counts.
+
 Each output directory holds `tables/*.csv` (distribution, replicas, between, temporal, exclusions), `report.md`
 and `manifest.json`. `distributions.npz` and the per-member intermediate files are regenerated in the git-ignored
 `build/`.
@@ -40,7 +47,8 @@ PYTHONPATH=python .venv/bin/python -m topofold_inputs.ensemble benchmarks/audit/
   median distance between replicas of the same temperature. For example, τ 32–35 is 0.614 between, against 0.564
   (320 K) and 0.393 (348 K) within.
 - In κ 22–24, the 348 K replicas differ more among themselves (0.361) than the 320 K replicas (0.165).
-- Median lag-1 autocorrelations are slightly higher at 320 K than at 348 K in every channel (τ 0.646 vs 0.570).
+- Median lag-1 autocorrelations are slightly higher at 320 K than at 348 K in every channel. For τ the v2 values are
+  0.699 vs 0.633; the v1 values (0.646 vs 0.570) came from the superseded circular diagnostic.
 - These are descriptions. Which windows differ, and why, is not established.
 
 **AdK open-start vs closed-start.**
