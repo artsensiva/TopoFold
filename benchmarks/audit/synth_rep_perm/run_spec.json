@@ -1,0 +1,683 @@
+{
+ "id": "SYNTHETIC_PERM-1",
+ "label": "SYNTHETIC",
+ "source_cells": "benchmarks/audit/synth_rep_char/run_spec.json (REPCHAR-1); cell identifiers and seeds preserved; S6 cells 81-83 deferred",
+ "generator_code": "benchmarks/audit/synth_rep_char/run_char.py simulate() and synthetic_generators.py, imported unchanged (hash-recorded)",
+ "methods": {
+  "historical_screen": "topofold_inputs.compare.replica_comparison (complete-separation categories)",
+  "prospective": "topofold_inputs.replica_permutation.permutation_test"
+ },
+ "statistic": "T = mean between-group JS distance - 0.5 x (mean within-A + mean within-B)",
+ "enumeration": "all 252 labelled allocations of 10 replicas into groups of 5, observed allocation included",
+ "p_value": "#{T_perm >= T_obs - tol} / 252, tol = 1e-12 x max(1, |T_obs|) (ties count toward p)",
+ "alpha": 0.05,
+ "nominal_size_note": "p takes values 2k/252; p <= 0.05 iff at most 12 of 252 allocations, nominal size 12/252 = 0.0476 under exact exchangeability without ties",
+ "exchangeability": "under the null, the joint distribution of the ten replica histograms is invariant to permuting replica labels across conditions",
+ "repetitions": 200,
+ "budget": {
+  "cpu_seconds": 900,
+  "stop_rule": "before each cell: stop if used + 1.5 x mean CPU per repetition x 200 > cap; cells all-or-nothing; status 'partial' in every checkpoint until all planned cells finish"
+ },
+ "uncertainty": "Wilson 95% intervals per frequency; 200 repetitions give coarse Monte Carlo precision",
+ "verification_during_run": "historical screen category counts recomputed on the same draws must equal the REPCHAR-1 results for every cell (recorded per cell)",
+ "reporting": [
+  "per cell: screen consistent / replica-dependent / inconclusive frequencies (separately) and permutation rejection frequency at alpha, each with Wilson 95% intervals",
+  "per cell: 2x2 agreement counts (permutation reject vs screen call), screen calls kept split into consistent and replica-dependent",
+  "per scenario role: null cells assessed for rejection frequency against nominal 0.0476; effect cells for sensitivity; S5 and single-replica cells described by their generating assumptions, not as nulls",
+  "per-evaluation synthetic results only; not a multiple-window procedure"
+ ],
+ "no_tuning": "statistic, alpha, tie rule, generators, bins and reporting fixed before the run",
+ "cells": [
+  {
+   "scenario": "S0",
+   "channel": "linear",
+   "phi": 0.0,
+   "cell": 0,
+   "role": "primary_null"
+  },
+  {
+   "scenario": "S0",
+   "channel": "linear",
+   "phi": 0.8,
+   "cell": 1,
+   "role": "primary_null"
+  },
+  {
+   "scenario": "S0",
+   "channel": "linear",
+   "phi": 0.95,
+   "cell": 2,
+   "role": "primary_null"
+  },
+  {
+   "scenario": "S0",
+   "channel": "circular",
+   "phi": 0.0,
+   "cell": 3,
+   "role": "primary_null"
+  },
+  {
+   "scenario": "S0",
+   "channel": "circular",
+   "phi": 0.8,
+   "cell": 4,
+   "role": "primary_null"
+  },
+  {
+   "scenario": "S0",
+   "channel": "circular",
+   "phi": 0.95,
+   "cell": 5,
+   "role": "primary_null"
+  },
+  {
+   "scenario": "S5",
+   "channel": "linear",
+   "k": 0.25,
+   "phi": 0.0,
+   "cell": 6,
+   "role": "condition_confounded_not_null"
+  },
+  {
+   "scenario": "S5",
+   "channel": "linear",
+   "k": 0.25,
+   "phi": 0.8,
+   "cell": 7,
+   "role": "condition_confounded_not_null"
+  },
+  {
+   "scenario": "S5",
+   "channel": "linear",
+   "k": 0.25,
+   "phi": 0.95,
+   "cell": 8,
+   "role": "condition_confounded_not_null"
+  },
+  {
+   "scenario": "S5",
+   "channel": "linear",
+   "k": 0.5,
+   "phi": 0.0,
+   "cell": 9,
+   "role": "condition_confounded_not_null"
+  },
+  {
+   "scenario": "S5",
+   "channel": "linear",
+   "k": 0.5,
+   "phi": 0.8,
+   "cell": 10,
+   "role": "condition_confounded_not_null"
+  },
+  {
+   "scenario": "S5",
+   "channel": "linear",
+   "k": 0.5,
+   "phi": 0.95,
+   "cell": 11,
+   "role": "condition_confounded_not_null"
+  },
+  {
+   "scenario": "S1",
+   "channel": "linear",
+   "delta": 0.1,
+   "phi": 0.0,
+   "cell": 12,
+   "role": "condition_effect"
+  },
+  {
+   "scenario": "S1",
+   "channel": "linear",
+   "delta": 0.1,
+   "phi": 0.8,
+   "cell": 13,
+   "role": "condition_effect"
+  },
+  {
+   "scenario": "S1",
+   "channel": "linear",
+   "delta": 0.1,
+   "phi": 0.95,
+   "cell": 14,
+   "role": "condition_effect"
+  },
+  {
+   "scenario": "S1",
+   "channel": "linear",
+   "delta": 0.25,
+   "phi": 0.0,
+   "cell": 15,
+   "role": "condition_effect"
+  },
+  {
+   "scenario": "S1",
+   "channel": "linear",
+   "delta": 0.25,
+   "phi": 0.8,
+   "cell": 16,
+   "role": "condition_effect"
+  },
+  {
+   "scenario": "S1",
+   "channel": "linear",
+   "delta": 0.25,
+   "phi": 0.95,
+   "cell": 17,
+   "role": "condition_effect"
+  },
+  {
+   "scenario": "S1",
+   "channel": "linear",
+   "delta": 0.5,
+   "phi": 0.0,
+   "cell": 18,
+   "role": "condition_effect"
+  },
+  {
+   "scenario": "S1",
+   "channel": "linear",
+   "delta": 0.5,
+   "phi": 0.8,
+   "cell": 19,
+   "role": "condition_effect"
+  },
+  {
+   "scenario": "S1",
+   "channel": "linear",
+   "delta": 0.5,
+   "phi": 0.95,
+   "cell": 20,
+   "role": "condition_effect"
+  },
+  {
+   "scenario": "S1",
+   "channel": "linear",
+   "delta": 1.0,
+   "phi": 0.0,
+   "cell": 21,
+   "role": "condition_effect"
+  },
+  {
+   "scenario": "S1",
+   "channel": "linear",
+   "delta": 1.0,
+   "phi": 0.8,
+   "cell": 22,
+   "role": "condition_effect"
+  },
+  {
+   "scenario": "S1",
+   "channel": "linear",
+   "delta": 1.0,
+   "phi": 0.95,
+   "cell": 23,
+   "role": "condition_effect"
+  },
+  {
+   "scenario": "S1",
+   "channel": "linear",
+   "delta": 2.0,
+   "phi": 0.0,
+   "cell": 24,
+   "role": "condition_effect"
+  },
+  {
+   "scenario": "S1",
+   "channel": "linear",
+   "delta": 2.0,
+   "phi": 0.8,
+   "cell": 25,
+   "role": "condition_effect"
+  },
+  {
+   "scenario": "S1",
+   "channel": "linear",
+   "delta": 2.0,
+   "phi": 0.95,
+   "cell": 26,
+   "role": "condition_effect"
+  },
+  {
+   "scenario": "S1",
+   "channel": "circular",
+   "delta": 0.1,
+   "phi": 0.0,
+   "cell": 27,
+   "role": "condition_effect"
+  },
+  {
+   "scenario": "S1",
+   "channel": "circular",
+   "delta": 0.1,
+   "phi": 0.8,
+   "cell": 28,
+   "role": "condition_effect"
+  },
+  {
+   "scenario": "S1",
+   "channel": "circular",
+   "delta": 0.1,
+   "phi": 0.95,
+   "cell": 29,
+   "role": "condition_effect"
+  },
+  {
+   "scenario": "S1",
+   "channel": "circular",
+   "delta": 0.25,
+   "phi": 0.0,
+   "cell": 30,
+   "role": "condition_effect"
+  },
+  {
+   "scenario": "S1",
+   "channel": "circular",
+   "delta": 0.25,
+   "phi": 0.8,
+   "cell": 31,
+   "role": "condition_effect"
+  },
+  {
+   "scenario": "S1",
+   "channel": "circular",
+   "delta": 0.25,
+   "phi": 0.95,
+   "cell": 32,
+   "role": "condition_effect"
+  },
+  {
+   "scenario": "S1",
+   "channel": "circular",
+   "delta": 0.5,
+   "phi": 0.0,
+   "cell": 33,
+   "role": "condition_effect"
+  },
+  {
+   "scenario": "S1",
+   "channel": "circular",
+   "delta": 0.5,
+   "phi": 0.8,
+   "cell": 34,
+   "role": "condition_effect"
+  },
+  {
+   "scenario": "S1",
+   "channel": "circular",
+   "delta": 0.5,
+   "phi": 0.95,
+   "cell": 35,
+   "role": "condition_effect"
+  },
+  {
+   "scenario": "S1",
+   "channel": "circular",
+   "delta": 1.0,
+   "phi": 0.0,
+   "cell": 36,
+   "role": "condition_effect"
+  },
+  {
+   "scenario": "S1",
+   "channel": "circular",
+   "delta": 1.0,
+   "phi": 0.8,
+   "cell": 37,
+   "role": "condition_effect"
+  },
+  {
+   "scenario": "S1",
+   "channel": "circular",
+   "delta": 1.0,
+   "phi": 0.95,
+   "cell": 38,
+   "role": "condition_effect"
+  },
+  {
+   "scenario": "S1",
+   "channel": "circular",
+   "delta": 2.0,
+   "phi": 0.0,
+   "cell": 39,
+   "role": "condition_effect"
+  },
+  {
+   "scenario": "S1",
+   "channel": "circular",
+   "delta": 2.0,
+   "phi": 0.8,
+   "cell": 40,
+   "role": "condition_effect"
+  },
+  {
+   "scenario": "S1",
+   "channel": "circular",
+   "delta": 2.0,
+   "phi": 0.95,
+   "cell": 41,
+   "role": "condition_effect"
+  },
+  {
+   "scenario": "S2",
+   "channel": "linear",
+   "rho": 1.25,
+   "phi": 0.0,
+   "cell": 42,
+   "role": "condition_effect"
+  },
+  {
+   "scenario": "S2",
+   "channel": "linear",
+   "rho": 1.25,
+   "phi": 0.8,
+   "cell": 43,
+   "role": "condition_effect"
+  },
+  {
+   "scenario": "S2",
+   "channel": "linear",
+   "rho": 1.25,
+   "phi": 0.95,
+   "cell": 44,
+   "role": "condition_effect"
+  },
+  {
+   "scenario": "S2",
+   "channel": "linear",
+   "rho": 1.5,
+   "phi": 0.0,
+   "cell": 45,
+   "role": "condition_effect"
+  },
+  {
+   "scenario": "S2",
+   "channel": "linear",
+   "rho": 1.5,
+   "phi": 0.8,
+   "cell": 46,
+   "role": "condition_effect"
+  },
+  {
+   "scenario": "S2",
+   "channel": "linear",
+   "rho": 1.5,
+   "phi": 0.95,
+   "cell": 47,
+   "role": "condition_effect"
+  },
+  {
+   "scenario": "S2",
+   "channel": "linear",
+   "rho": 2.0,
+   "phi": 0.0,
+   "cell": 48,
+   "role": "condition_effect"
+  },
+  {
+   "scenario": "S2",
+   "channel": "linear",
+   "rho": 2.0,
+   "phi": 0.8,
+   "cell": 49,
+   "role": "condition_effect"
+  },
+  {
+   "scenario": "S2",
+   "channel": "linear",
+   "rho": 2.0,
+   "phi": 0.95,
+   "cell": 50,
+   "role": "condition_effect"
+  },
+  {
+   "scenario": "S3",
+   "channel": "linear",
+   "w_b": 0.4,
+   "D": 1,
+   "cell": 51,
+   "role": "condition_effect"
+  },
+  {
+   "scenario": "S3",
+   "channel": "linear",
+   "w_b": 0.4,
+   "D": 20,
+   "cell": 52,
+   "role": "condition_effect"
+  },
+  {
+   "scenario": "S3",
+   "channel": "linear",
+   "w_b": 0.4,
+   "D": 100,
+   "cell": 53,
+   "role": "condition_effect"
+  },
+  {
+   "scenario": "S3",
+   "channel": "linear",
+   "w_b": 0.3,
+   "D": 1,
+   "cell": 54,
+   "role": "condition_effect"
+  },
+  {
+   "scenario": "S3",
+   "channel": "linear",
+   "w_b": 0.3,
+   "D": 20,
+   "cell": 55,
+   "role": "condition_effect"
+  },
+  {
+   "scenario": "S3",
+   "channel": "linear",
+   "w_b": 0.3,
+   "D": 100,
+   "cell": 56,
+   "role": "condition_effect"
+  },
+  {
+   "scenario": "S3",
+   "channel": "linear",
+   "w_b": 0.1,
+   "D": 1,
+   "cell": 57,
+   "role": "condition_effect"
+  },
+  {
+   "scenario": "S3",
+   "channel": "linear",
+   "w_b": 0.1,
+   "D": 20,
+   "cell": 58,
+   "role": "condition_effect"
+  },
+  {
+   "scenario": "S3",
+   "channel": "linear",
+   "w_b": 0.1,
+   "D": 100,
+   "cell": 59,
+   "role": "condition_effect"
+  },
+  {
+   "scenario": "S4a",
+   "channel": "linear",
+   "delta": 0.0,
+   "phi": 0.0,
+   "cell": 60,
+   "role": "single_replica_perturbation_not_ordinary_null"
+  },
+  {
+   "scenario": "S4a",
+   "channel": "linear",
+   "delta": 0.0,
+   "phi": 0.8,
+   "cell": 61,
+   "role": "single_replica_perturbation_not_ordinary_null"
+  },
+  {
+   "scenario": "S4a",
+   "channel": "linear",
+   "delta": 0.0,
+   "phi": 0.95,
+   "cell": 62,
+   "role": "single_replica_perturbation_not_ordinary_null"
+  },
+  {
+   "scenario": "S4a",
+   "channel": "linear",
+   "delta": 1.0,
+   "phi": 0.0,
+   "cell": 63,
+   "role": "condition_effect"
+  },
+  {
+   "scenario": "S4a",
+   "channel": "linear",
+   "delta": 1.0,
+   "phi": 0.8,
+   "cell": 64,
+   "role": "condition_effect"
+  },
+  {
+   "scenario": "S4a",
+   "channel": "linear",
+   "delta": 1.0,
+   "phi": 0.95,
+   "cell": 65,
+   "role": "condition_effect"
+  },
+  {
+   "scenario": "S4b",
+   "channel": "linear",
+   "k": 0.25,
+   "delta": 0.0,
+   "phi": 0.0,
+   "cell": 66,
+   "role": "heterogeneous_exchangeable_null"
+  },
+  {
+   "scenario": "S4b",
+   "channel": "linear",
+   "k": 0.25,
+   "delta": 0.0,
+   "phi": 0.8,
+   "cell": 67,
+   "role": "heterogeneous_exchangeable_null"
+  },
+  {
+   "scenario": "S4b",
+   "channel": "linear",
+   "k": 0.25,
+   "delta": 0.0,
+   "phi": 0.95,
+   "cell": 68,
+   "role": "heterogeneous_exchangeable_null"
+  },
+  {
+   "scenario": "S4b",
+   "channel": "linear",
+   "k": 0.25,
+   "delta": 1.0,
+   "phi": 0.0,
+   "cell": 69,
+   "role": "condition_effect"
+  },
+  {
+   "scenario": "S4b",
+   "channel": "linear",
+   "k": 0.25,
+   "delta": 1.0,
+   "phi": 0.8,
+   "cell": 70,
+   "role": "condition_effect"
+  },
+  {
+   "scenario": "S4b",
+   "channel": "linear",
+   "k": 0.25,
+   "delta": 1.0,
+   "phi": 0.95,
+   "cell": 71,
+   "role": "condition_effect"
+  },
+  {
+   "scenario": "S4b",
+   "channel": "linear",
+   "k": 0.5,
+   "delta": 0.0,
+   "phi": 0.0,
+   "cell": 72,
+   "role": "heterogeneous_exchangeable_null"
+  },
+  {
+   "scenario": "S4b",
+   "channel": "linear",
+   "k": 0.5,
+   "delta": 0.0,
+   "phi": 0.8,
+   "cell": 73,
+   "role": "heterogeneous_exchangeable_null"
+  },
+  {
+   "scenario": "S4b",
+   "channel": "linear",
+   "k": 0.5,
+   "delta": 0.0,
+   "phi": 0.95,
+   "cell": 74,
+   "role": "heterogeneous_exchangeable_null"
+  },
+  {
+   "scenario": "S4b",
+   "channel": "linear",
+   "k": 0.5,
+   "delta": 1.0,
+   "phi": 0.0,
+   "cell": 75,
+   "role": "condition_effect"
+  },
+  {
+   "scenario": "S4b",
+   "channel": "linear",
+   "k": 0.5,
+   "delta": 1.0,
+   "phi": 0.8,
+   "cell": 76,
+   "role": "condition_effect"
+  },
+  {
+   "scenario": "S4b",
+   "channel": "linear",
+   "k": 0.5,
+   "delta": 1.0,
+   "phi": 0.95,
+   "cell": 77,
+   "role": "condition_effect"
+  },
+  {
+   "scenario": "S4c",
+   "channel": "linear",
+   "D": 1,
+   "cell": 78,
+   "role": "single_replica_perturbation_not_ordinary_null"
+  },
+  {
+   "scenario": "S4c",
+   "channel": "linear",
+   "D": 20,
+   "cell": 79,
+   "role": "single_replica_perturbation_not_ordinary_null"
+  },
+  {
+   "scenario": "S4c",
+   "channel": "linear",
+   "D": 100,
+   "cell": 80,
+   "role": "single_replica_perturbation_not_ordinary_null"
+  }
+ ]
+}

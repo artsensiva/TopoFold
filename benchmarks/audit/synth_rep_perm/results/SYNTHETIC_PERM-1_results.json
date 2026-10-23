@@ -1,0 +1,4563 @@
+{
+ "id": "SYNTHETIC_PERM-1",
+ "label": "SYNTHETIC",
+ "status": "complete",
+ "cells_planned": 81,
+ "cells_done": 81,
+ "cells_not_run": [],
+ "freeze_utc": "2026-10-23T15:03:53.413641+00:00",
+ "alpha": 0.05,
+ "environment": {
+  "python": "3.14.4",
+  "numpy": "2.5.3",
+  "platform": "Linux-7.0.0-31-generic-x86_64-with-glibc2.43",
+  "machine": "x86_64"
+ },
+ "resources": {
+  "cpu_s": 293.83620099999996,
+  "wall_s": 293.15807580947876,
+  "cap_cpu_s": 900,
+  "mean_cpu_s_per_repetition": 0.01810802901234568
+ },
+ "cells": [
+  {
+   "cell": {
+    "scenario": "S0",
+    "channel": "linear",
+    "phi": 0.0,
+    "cell": 0
+   },
+   "repetitions": 200,
+   "screen": {
+    "counts": {
+     "consistent": 0,
+     "replica_dependent": 0,
+     "inconclusive": 200
+    },
+    "frequency": {
+     "consistent": 0.0,
+     "replica_dependent": 0.0,
+     "inconclusive": 1.0
+    },
+    "wilson95": {
+     "consistent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "replica_dependent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "inconclusive": [
+      0.9811546736227335,
+      1.0
+     ]
+    }
+   },
+   "permutation": {
+    "rejections": 9,
+    "frequency": 0.045,
+    "wilson95": [
+     0.023852543001492997,
+     0.0832967040018196
+    ],
+    "p_median": 0.5396825396825397,
+    "p_min": 0.007936507936507936
+   },
+   "agreement": {
+    "reject&consistent": 0,
+    "reject&replica_dependent": 0,
+    "reject&inconclusive": 9,
+    "accept&consistent": 0,
+    "accept&replica_dependent": 0,
+    "accept&inconclusive": 191
+   },
+   "role": "primary_null",
+   "screen_reproduces_repchar1": true
+  },
+  {
+   "cell": {
+    "scenario": "S0",
+    "channel": "linear",
+    "phi": 0.8,
+    "cell": 1
+   },
+   "repetitions": 200,
+   "screen": {
+    "counts": {
+     "consistent": 0,
+     "replica_dependent": 0,
+     "inconclusive": 200
+    },
+    "frequency": {
+     "consistent": 0.0,
+     "replica_dependent": 0.0,
+     "inconclusive": 1.0
+    },
+    "wilson95": {
+     "consistent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "replica_dependent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "inconclusive": [
+      0.9811546736227335,
+      1.0
+     ]
+    }
+   },
+   "permutation": {
+    "rejections": 8,
+    "frequency": 0.04,
+    "wilson95": [
+     0.020405632066152306,
+     0.07693206820093293
+    ],
+    "p_median": 0.4722222222222222,
+    "p_min": 0.023809523809523808
+   },
+   "agreement": {
+    "reject&consistent": 0,
+    "reject&replica_dependent": 0,
+    "reject&inconclusive": 8,
+    "accept&consistent": 0,
+    "accept&replica_dependent": 0,
+    "accept&inconclusive": 192
+   },
+   "role": "primary_null",
+   "screen_reproduces_repchar1": true
+  },
+  {
+   "cell": {
+    "scenario": "S0",
+    "channel": "linear",
+    "phi": 0.95,
+    "cell": 2
+   },
+   "repetitions": 200,
+   "screen": {
+    "counts": {
+     "consistent": 0,
+     "replica_dependent": 0,
+     "inconclusive": 200
+    },
+    "frequency": {
+     "consistent": 0.0,
+     "replica_dependent": 0.0,
+     "inconclusive": 1.0
+    },
+    "wilson95": {
+     "consistent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "replica_dependent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "inconclusive": [
+      0.9811546736227335,
+      1.0
+     ]
+    }
+   },
+   "permutation": {
+    "rejections": 10,
+    "frequency": 0.05,
+    "wilson95": [
+     0.02738264560076393,
+     0.08957814813877599
+    ],
+    "p_median": 0.5079365079365079,
+    "p_min": 0.007936507936507936
+   },
+   "agreement": {
+    "reject&consistent": 0,
+    "reject&replica_dependent": 0,
+    "reject&inconclusive": 10,
+    "accept&consistent": 0,
+    "accept&replica_dependent": 0,
+    "accept&inconclusive": 190
+   },
+   "role": "primary_null",
+   "screen_reproduces_repchar1": true
+  },
+  {
+   "cell": {
+    "scenario": "S0",
+    "channel": "circular",
+    "phi": 0.0,
+    "cell": 3
+   },
+   "repetitions": 200,
+   "screen": {
+    "counts": {
+     "consistent": 0,
+     "replica_dependent": 0,
+     "inconclusive": 200
+    },
+    "frequency": {
+     "consistent": 0.0,
+     "replica_dependent": 0.0,
+     "inconclusive": 1.0
+    },
+    "wilson95": {
+     "consistent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "replica_dependent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "inconclusive": [
+      0.9811546736227335,
+      1.0
+     ]
+    }
+   },
+   "permutation": {
+    "rejections": 10,
+    "frequency": 0.05,
+    "wilson95": [
+     0.02738264560076393,
+     0.08957814813877599
+    ],
+    "p_median": 0.5079365079365079,
+    "p_min": 0.007936507936507936
+   },
+   "agreement": {
+    "reject&consistent": 0,
+    "reject&replica_dependent": 0,
+    "reject&inconclusive": 10,
+    "accept&consistent": 0,
+    "accept&replica_dependent": 0,
+    "accept&inconclusive": 190
+   },
+   "role": "primary_null",
+   "screen_reproduces_repchar1": true
+  },
+  {
+   "cell": {
+    "scenario": "S0",
+    "channel": "circular",
+    "phi": 0.8,
+    "cell": 4
+   },
+   "repetitions": 200,
+   "screen": {
+    "counts": {
+     "consistent": 0,
+     "replica_dependent": 0,
+     "inconclusive": 200
+    },
+    "frequency": {
+     "consistent": 0.0,
+     "replica_dependent": 0.0,
+     "inconclusive": 1.0
+    },
+    "wilson95": {
+     "consistent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "replica_dependent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "inconclusive": [
+      0.9811546736227335,
+      1.0
+     ]
+    }
+   },
+   "permutation": {
+    "rejections": 7,
+    "frequency": 0.035,
+    "wilson95": [
+     0.017055542008567192,
+     0.07047061152229073
+    ],
+    "p_median": 0.5238095238095238,
+    "p_min": 0.007936507936507936
+   },
+   "agreement": {
+    "reject&consistent": 0,
+    "reject&replica_dependent": 0,
+    "reject&inconclusive": 7,
+    "accept&consistent": 0,
+    "accept&replica_dependent": 0,
+    "accept&inconclusive": 193
+   },
+   "role": "primary_null",
+   "screen_reproduces_repchar1": true
+  },
+  {
+   "cell": {
+    "scenario": "S0",
+    "channel": "circular",
+    "phi": 0.95,
+    "cell": 5
+   },
+   "repetitions": 200,
+   "screen": {
+    "counts": {
+     "consistent": 0,
+     "replica_dependent": 0,
+     "inconclusive": 200
+    },
+    "frequency": {
+     "consistent": 0.0,
+     "replica_dependent": 0.0,
+     "inconclusive": 1.0
+    },
+    "wilson95": {
+     "consistent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "replica_dependent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "inconclusive": [
+      0.9811546736227335,
+      1.0
+     ]
+    }
+   },
+   "permutation": {
+    "rejections": 12,
+    "frequency": 0.06,
+    "wilson95": [
+     0.03465219425433187,
+     0.1019316929576627
+    ],
+    "p_median": 0.5198412698412699,
+    "p_min": 0.015873015873015872
+   },
+   "agreement": {
+    "reject&consistent": 0,
+    "reject&replica_dependent": 0,
+    "reject&inconclusive": 12,
+    "accept&consistent": 0,
+    "accept&replica_dependent": 0,
+    "accept&inconclusive": 188
+   },
+   "role": "primary_null",
+   "screen_reproduces_repchar1": true
+  },
+  {
+   "cell": {
+    "scenario": "S5",
+    "channel": "linear",
+    "k": 0.25,
+    "phi": 0.0,
+    "cell": 6
+   },
+   "repetitions": 200,
+   "screen": {
+    "counts": {
+     "consistent": 59,
+     "replica_dependent": 22,
+     "inconclusive": 119
+    },
+    "frequency": {
+     "consistent": 0.295,
+     "replica_dependent": 0.11,
+     "inconclusive": 0.595
+    },
+    "wilson95": {
+     "consistent": [
+      0.23613943856849148,
+      0.36158714524618774
+     ],
+     "replica_dependent": [
+      0.07377244460125303,
+      0.1609269099730149
+     ],
+     "inconclusive": [
+      0.525797100813387,
+      0.6606222871749323
+     ]
+    }
+   },
+   "permutation": {
+    "rejections": 147,
+    "frequency": 0.735,
+    "wilson95": [
+     0.6698242380737758,
+     0.7913184585289088
+    ],
+    "p_median": 0.007936507936507936,
+    "p_min": 0.007936507936507936
+   },
+   "agreement": {
+    "reject&consistent": 59,
+    "reject&replica_dependent": 22,
+    "reject&inconclusive": 66,
+    "accept&consistent": 0,
+    "accept&replica_dependent": 0,
+    "accept&inconclusive": 53
+   },
+   "role": "condition_confounded_not_null",
+   "screen_reproduces_repchar1": true
+  },
+  {
+   "cell": {
+    "scenario": "S5",
+    "channel": "linear",
+    "k": 0.25,
+    "phi": 0.8,
+    "cell": 7
+   },
+   "repetitions": 200,
+   "screen": {
+    "counts": {
+     "consistent": 4,
+     "replica_dependent": 14,
+     "inconclusive": 182
+    },
+    "frequency": {
+     "consistent": 0.02,
+     "replica_dependent": 0.07,
+     "inconclusive": 0.91
+    },
+    "wilson95": {
+     "consistent": [
+      0.0078044264163494685,
+      0.050287086905826436
+     ],
+     "replica_dependent": [
+      0.042152171828342806,
+      0.11405480885610647
+     ],
+     "inconclusive": [
+      0.8622342812328346,
+      0.9423125511378069
+     ]
+    }
+   },
+   "permutation": {
+    "rejections": 107,
+    "frequency": 0.535,
+    "wilson95": [
+     0.4658664687236316,
+     0.6028143584299599
+    ],
+    "p_median": 0.03968253968253968,
+    "p_min": 0.007936507936507936
+   },
+   "agreement": {
+    "reject&consistent": 4,
+    "reject&replica_dependent": 14,
+    "reject&inconclusive": 89,
+    "accept&consistent": 0,
+    "accept&replica_dependent": 0,
+    "accept&inconclusive": 93
+   },
+   "role": "condition_confounded_not_null",
+   "screen_reproduces_repchar1": true
+  },
+  {
+   "cell": {
+    "scenario": "S5",
+    "channel": "linear",
+    "k": 0.25,
+    "phi": 0.95,
+    "cell": 8
+   },
+   "repetitions": 200,
+   "screen": {
+    "counts": {
+     "consistent": 0,
+     "replica_dependent": 3,
+     "inconclusive": 197
+    },
+    "frequency": {
+     "consistent": 0.0,
+     "replica_dependent": 0.015,
+     "inconclusive": 0.985
+    },
+    "wilson95": {
+     "consistent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "replica_dependent": [
+      0.00511423779325831,
+      0.04316572879269026
+     ],
+     "inconclusive": [
+      0.9568342712073097,
+      0.9948857622067417
+     ]
+    }
+   },
+   "permutation": {
+    "rejections": 47,
+    "frequency": 0.235,
+    "wilson95": [
+     0.18157433415232588,
+     0.29841368882762537
+    ],
+    "p_median": 0.2579365079365079,
+    "p_min": 0.007936507936507936
+   },
+   "agreement": {
+    "reject&consistent": 0,
+    "reject&replica_dependent": 3,
+    "reject&inconclusive": 44,
+    "accept&consistent": 0,
+    "accept&replica_dependent": 0,
+    "accept&inconclusive": 153
+   },
+   "role": "condition_confounded_not_null",
+   "screen_reproduces_repchar1": true
+  },
+  {
+   "cell": {
+    "scenario": "S5",
+    "channel": "linear",
+    "k": 0.5,
+    "phi": 0.0,
+    "cell": 9
+   },
+   "repetitions": 200,
+   "screen": {
+    "counts": {
+     "consistent": 123,
+     "replica_dependent": 15,
+     "inconclusive": 62
+    },
+    "frequency": {
+     "consistent": 0.615,
+     "replica_dependent": 0.075,
+     "inconclusive": 0.31
+    },
+    "wilson95": {
+     "consistent": [
+      0.5459986722024608,
+      0.6796669027307678
+     ],
+     "replica_dependent": [
+      0.04597491718438201,
+      0.12004361023629456
+     ],
+     "inconclusive": [
+      0.2499894483607809,
+      0.37717177566258037
+     ]
+    }
+   },
+   "permutation": {
+    "rejections": 174,
+    "frequency": 0.87,
+    "wilson95": [
+     0.8163364812775159,
+     0.9097179772033067
+    ],
+    "p_median": 0.007936507936507936,
+    "p_min": 0.007936507936507936
+   },
+   "agreement": {
+    "reject&consistent": 123,
+    "reject&replica_dependent": 15,
+    "reject&inconclusive": 36,
+    "accept&consistent": 0,
+    "accept&replica_dependent": 0,
+    "accept&inconclusive": 26
+   },
+   "role": "condition_confounded_not_null",
+   "screen_reproduces_repchar1": true
+  },
+  {
+   "cell": {
+    "scenario": "S5",
+    "channel": "linear",
+    "k": 0.5,
+    "phi": 0.8,
+    "cell": 10
+   },
+   "repetitions": 200,
+   "screen": {
+    "counts": {
+     "consistent": 44,
+     "replica_dependent": 27,
+     "inconclusive": 129
+    },
+    "frequency": {
+     "consistent": 0.22,
+     "replica_dependent": 0.135,
+     "inconclusive": 0.645
+    },
+    "wilson95": {
+     "consistent": [
+      0.16816538358833258,
+      0.28238799918293667
+     ],
+     "replica_dependent": [
+      0.09446570454787906,
+      0.18929138370752552
+     ],
+     "inconclusive": [
+      0.5765211307549043,
+      0.7080137245956883
+     ]
+    }
+   },
+   "permutation": {
+    "rejections": 148,
+    "frequency": 0.74,
+    "wilson95": [
+     0.6750925439746589,
+     0.7958616993642531
+    ],
+    "p_median": 0.007936507936507936,
+    "p_min": 0.007936507936507936
+   },
+   "agreement": {
+    "reject&consistent": 44,
+    "reject&replica_dependent": 27,
+    "reject&inconclusive": 77,
+    "accept&consistent": 0,
+    "accept&replica_dependent": 0,
+    "accept&inconclusive": 52
+   },
+   "role": "condition_confounded_not_null",
+   "screen_reproduces_repchar1": true
+  },
+  {
+   "cell": {
+    "scenario": "S5",
+    "channel": "linear",
+    "k": 0.5,
+    "phi": 0.95,
+    "cell": 11
+   },
+   "repetitions": 200,
+   "screen": {
+    "counts": {
+     "consistent": 8,
+     "replica_dependent": 13,
+     "inconclusive": 179
+    },
+    "frequency": {
+     "consistent": 0.04,
+     "replica_dependent": 0.065,
+     "inconclusive": 0.895
+    },
+    "wilson95": {
+     "consistent": [
+      0.020405632066152306,
+      0.07693206820093293
+     ],
+     "replica_dependent": [
+      0.03837635464915299,
+      0.10801907929906895
+     ],
+     "inconclusive": [
+      0.8448196800887696,
+      0.9302925120731899
+     ]
+    }
+   },
+   "permutation": {
+    "rejections": 106,
+    "frequency": 0.53,
+    "wilson95": [
+     0.4609168291500183,
+     0.5979524512673458
+    ],
+    "p_median": 0.03968253968253968,
+    "p_min": 0.007936507936507936
+   },
+   "agreement": {
+    "reject&consistent": 8,
+    "reject&replica_dependent": 13,
+    "reject&inconclusive": 85,
+    "accept&consistent": 0,
+    "accept&replica_dependent": 0,
+    "accept&inconclusive": 94
+   },
+   "role": "condition_confounded_not_null",
+   "screen_reproduces_repchar1": true
+  },
+  {
+   "cell": {
+    "scenario": "S1",
+    "channel": "linear",
+    "delta": 0.1,
+    "phi": 0.0,
+    "cell": 12
+   },
+   "repetitions": 200,
+   "screen": {
+    "counts": {
+     "consistent": 0,
+     "replica_dependent": 1,
+     "inconclusive": 199
+    },
+    "frequency": {
+     "consistent": 0.0,
+     "replica_dependent": 0.005,
+     "inconclusive": 0.995
+    },
+    "wilson95": {
+     "consistent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "replica_dependent": [
+      0.0008831687156009814,
+      0.02777370439789293
+     ],
+     "inconclusive": [
+      0.9722262956021069,
+      0.9991168312843989
+     ]
+    }
+   },
+   "permutation": {
+    "rejections": 82,
+    "frequency": 0.41,
+    "wilson95": [
+     0.34415674908482885,
+     0.4792354096630791
+    ],
+    "p_median": 0.0873015873015873,
+    "p_min": 0.007936507936507936
+   },
+   "agreement": {
+    "reject&consistent": 0,
+    "reject&replica_dependent": 1,
+    "reject&inconclusive": 81,
+    "accept&consistent": 0,
+    "accept&replica_dependent": 0,
+    "accept&inconclusive": 118
+   },
+   "role": "condition_effect",
+   "screen_reproduces_repchar1": true
+  },
+  {
+   "cell": {
+    "scenario": "S1",
+    "channel": "linear",
+    "delta": 0.1,
+    "phi": 0.8,
+    "cell": 13
+   },
+   "repetitions": 200,
+   "screen": {
+    "counts": {
+     "consistent": 0,
+     "replica_dependent": 0,
+     "inconclusive": 200
+    },
+    "frequency": {
+     "consistent": 0.0,
+     "replica_dependent": 0.0,
+     "inconclusive": 1.0
+    },
+    "wilson95": {
+     "consistent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "replica_dependent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "inconclusive": [
+      0.9811546736227335,
+      1.0
+     ]
+    }
+   },
+   "permutation": {
+    "rejections": 19,
+    "frequency": 0.095,
+    "wilson95": [
+     0.06166310271738653,
+     0.1436016116481994
+    ],
+    "p_median": 0.3412698412698413,
+    "p_min": 0.007936507936507936
+   },
+   "agreement": {
+    "reject&consistent": 0,
+    "reject&replica_dependent": 0,
+    "reject&inconclusive": 19,
+    "accept&consistent": 0,
+    "accept&replica_dependent": 0,
+    "accept&inconclusive": 181
+   },
+   "role": "condition_effect",
+   "screen_reproduces_repchar1": true
+  },
+  {
+   "cell": {
+    "scenario": "S1",
+    "channel": "linear",
+    "delta": 0.1,
+    "phi": 0.95,
+    "cell": 14
+   },
+   "repetitions": 200,
+   "screen": {
+    "counts": {
+     "consistent": 0,
+     "replica_dependent": 0,
+     "inconclusive": 200
+    },
+    "frequency": {
+     "consistent": 0.0,
+     "replica_dependent": 0.0,
+     "inconclusive": 1.0
+    },
+    "wilson95": {
+     "consistent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "replica_dependent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "inconclusive": [
+      0.9811546736227335,
+      1.0
+     ]
+    }
+   },
+   "permutation": {
+    "rejections": 11,
+    "frequency": 0.055,
+    "wilson95": [
+     0.03098534170345884,
+     0.0957869987723084
+    ],
+    "p_median": 0.5079365079365079,
+    "p_min": 0.007936507936507936
+   },
+   "agreement": {
+    "reject&consistent": 0,
+    "reject&replica_dependent": 0,
+    "reject&inconclusive": 11,
+    "accept&consistent": 0,
+    "accept&replica_dependent": 0,
+    "accept&inconclusive": 189
+   },
+   "role": "condition_effect",
+   "screen_reproduces_repchar1": true
+  },
+  {
+   "cell": {
+    "scenario": "S1",
+    "channel": "linear",
+    "delta": 0.25,
+    "phi": 0.0,
+    "cell": 15
+   },
+   "repetitions": 200,
+   "screen": {
+    "counts": {
+     "consistent": 6,
+     "replica_dependent": 33,
+     "inconclusive": 161
+    },
+    "frequency": {
+     "consistent": 0.03,
+     "replica_dependent": 0.165,
+     "inconclusive": 0.805
+    },
+    "wilson95": {
+     "consistent": [
+      0.013820314340111346,
+      0.06389429245451925
+     ],
+     "replica_dependent": [
+      0.11996855328217307,
+      0.2226578153905955
+     ],
+     "inconclusive": [
+      0.7445595562538726,
+      0.8539447946559949
+     ]
+    }
+   },
+   "permutation": {
+    "rejections": 200,
+    "frequency": 1.0,
+    "wilson95": [
+     0.9811546736227335,
+     1.0
+    ],
+    "p_median": 0.007936507936507936,
+    "p_min": 0.007936507936507936
+   },
+   "agreement": {
+    "reject&consistent": 6,
+    "reject&replica_dependent": 33,
+    "reject&inconclusive": 161,
+    "accept&consistent": 0,
+    "accept&replica_dependent": 0,
+    "accept&inconclusive": 0
+   },
+   "role": "condition_effect",
+   "screen_reproduces_repchar1": true
+  },
+  {
+   "cell": {
+    "scenario": "S1",
+    "channel": "linear",
+    "delta": 0.25,
+    "phi": 0.8,
+    "cell": 16
+   },
+   "repetitions": 200,
+   "screen": {
+    "counts": {
+     "consistent": 2,
+     "replica_dependent": 1,
+     "inconclusive": 197
+    },
+    "frequency": {
+     "consistent": 0.01,
+     "replica_dependent": 0.005,
+     "inconclusive": 0.985
+    },
+    "wilson95": {
+     "consistent": [
+      0.0027466581335444384,
+      0.0357217617161768
+     ],
+     "replica_dependent": [
+      0.0008831687156009814,
+      0.02777370439789293
+     ],
+     "inconclusive": [
+      0.9568342712073097,
+      0.9948857622067417
+     ]
+    }
+   },
+   "permutation": {
+    "rejections": 114,
+    "frequency": 0.57,
+    "wilson95": [
+     0.5007048776415268,
+     0.6366567766656557
+    ],
+    "p_median": 0.03968253968253968,
+    "p_min": 0.007936507936507936
+   },
+   "agreement": {
+    "reject&consistent": 2,
+    "reject&replica_dependent": 1,
+    "reject&inconclusive": 111,
+    "accept&consistent": 0,
+    "accept&replica_dependent": 0,
+    "accept&inconclusive": 86
+   },
+   "role": "condition_effect",
+   "screen_reproduces_repchar1": true
+  },
+  {
+   "cell": {
+    "scenario": "S1",
+    "channel": "linear",
+    "delta": 0.25,
+    "phi": 0.95,
+    "cell": 17
+   },
+   "repetitions": 200,
+   "screen": {
+    "counts": {
+     "consistent": 0,
+     "replica_dependent": 0,
+     "inconclusive": 200
+    },
+    "frequency": {
+     "consistent": 0.0,
+     "replica_dependent": 0.0,
+     "inconclusive": 1.0
+    },
+    "wilson95": {
+     "consistent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "replica_dependent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "inconclusive": [
+      0.9811546736227335,
+      1.0
+     ]
+    }
+   },
+   "permutation": {
+    "rejections": 38,
+    "frequency": 0.19,
+    "wilson95": [
+     0.14167171527790676,
+     0.25001238707599854
+    ],
+    "p_median": 0.23809523809523808,
+    "p_min": 0.007936507936507936
+   },
+   "agreement": {
+    "reject&consistent": 0,
+    "reject&replica_dependent": 0,
+    "reject&inconclusive": 38,
+    "accept&consistent": 0,
+    "accept&replica_dependent": 0,
+    "accept&inconclusive": 162
+   },
+   "role": "condition_effect",
+   "screen_reproduces_repchar1": true
+  },
+  {
+   "cell": {
+    "scenario": "S1",
+    "channel": "linear",
+    "delta": 0.5,
+    "phi": 0.0,
+    "cell": 18
+   },
+   "repetitions": 200,
+   "screen": {
+    "counts": {
+     "consistent": 197,
+     "replica_dependent": 3,
+     "inconclusive": 0
+    },
+    "frequency": {
+     "consistent": 0.985,
+     "replica_dependent": 0.015,
+     "inconclusive": 0.0
+    },
+    "wilson95": {
+     "consistent": [
+      0.9568342712073097,
+      0.9948857622067417
+     ],
+     "replica_dependent": [
+      0.00511423779325831,
+      0.04316572879269026
+     ],
+     "inconclusive": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ]
+    }
+   },
+   "permutation": {
+    "rejections": 200,
+    "frequency": 1.0,
+    "wilson95": [
+     0.9811546736227335,
+     1.0
+    ],
+    "p_median": 0.007936507936507936,
+    "p_min": 0.007936507936507936
+   },
+   "agreement": {
+    "reject&consistent": 197,
+    "reject&replica_dependent": 3,
+    "reject&inconclusive": 0,
+    "accept&consistent": 0,
+    "accept&replica_dependent": 0,
+    "accept&inconclusive": 0
+   },
+   "role": "condition_effect",
+   "screen_reproduces_repchar1": true
+  },
+  {
+   "cell": {
+    "scenario": "S1",
+    "channel": "linear",
+    "delta": 0.5,
+    "phi": 0.8,
+    "cell": 19
+   },
+   "repetitions": 200,
+   "screen": {
+    "counts": {
+     "consistent": 9,
+     "replica_dependent": 52,
+     "inconclusive": 139
+    },
+    "frequency": {
+     "consistent": 0.045,
+     "replica_dependent": 0.26,
+     "inconclusive": 0.695
+    },
+    "wilson95": {
+     "consistent": [
+      0.023852543001492997,
+      0.0832967040018196
+     ],
+     "replica_dependent": [
+      0.20413830063574687,
+      0.32490745602534116
+     ],
+     "inconclusive": [
+      0.6280144790202163,
+      0.7546358436926496
+     ]
+    }
+   },
+   "permutation": {
+    "rejections": 199,
+    "frequency": 0.995,
+    "wilson95": [
+     0.9722262956021069,
+     0.9991168312843989
+    ],
+    "p_median": 0.007936507936507936,
+    "p_min": 0.007936507936507936
+   },
+   "agreement": {
+    "reject&consistent": 9,
+    "reject&replica_dependent": 52,
+    "reject&inconclusive": 138,
+    "accept&consistent": 0,
+    "accept&replica_dependent": 0,
+    "accept&inconclusive": 1
+   },
+   "role": "condition_effect",
+   "screen_reproduces_repchar1": true
+  },
+  {
+   "cell": {
+    "scenario": "S1",
+    "channel": "linear",
+    "delta": 0.5,
+    "phi": 0.95,
+    "cell": 20
+   },
+   "repetitions": 200,
+   "screen": {
+    "counts": {
+     "consistent": 0,
+     "replica_dependent": 2,
+     "inconclusive": 198
+    },
+    "frequency": {
+     "consistent": 0.0,
+     "replica_dependent": 0.01,
+     "inconclusive": 0.99
+    },
+    "wilson95": {
+     "consistent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "replica_dependent": [
+      0.0027466581335444384,
+      0.0357217617161768
+     ],
+     "inconclusive": [
+      0.9642782382838231,
+      0.9972533418664555
+     ]
+    }
+   },
+   "permutation": {
+    "rejections": 106,
+    "frequency": 0.53,
+    "wilson95": [
+     0.4609168291500183,
+     0.5979524512673458
+    ],
+    "p_median": 0.047619047619047616,
+    "p_min": 0.007936507936507936
+   },
+   "agreement": {
+    "reject&consistent": 0,
+    "reject&replica_dependent": 2,
+    "reject&inconclusive": 104,
+    "accept&consistent": 0,
+    "accept&replica_dependent": 0,
+    "accept&inconclusive": 94
+   },
+   "role": "condition_effect",
+   "screen_reproduces_repchar1": true
+  },
+  {
+   "cell": {
+    "scenario": "S1",
+    "channel": "linear",
+    "delta": 1.0,
+    "phi": 0.0,
+    "cell": 21
+   },
+   "repetitions": 200,
+   "screen": {
+    "counts": {
+     "consistent": 200,
+     "replica_dependent": 0,
+     "inconclusive": 0
+    },
+    "frequency": {
+     "consistent": 1.0,
+     "replica_dependent": 0.0,
+     "inconclusive": 0.0
+    },
+    "wilson95": {
+     "consistent": [
+      0.9811546736227335,
+      1.0
+     ],
+     "replica_dependent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "inconclusive": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ]
+    }
+   },
+   "permutation": {
+    "rejections": 200,
+    "frequency": 1.0,
+    "wilson95": [
+     0.9811546736227335,
+     1.0
+    ],
+    "p_median": 0.007936507936507936,
+    "p_min": 0.007936507936507936
+   },
+   "agreement": {
+    "reject&consistent": 200,
+    "reject&replica_dependent": 0,
+    "reject&inconclusive": 0,
+    "accept&consistent": 0,
+    "accept&replica_dependent": 0,
+    "accept&inconclusive": 0
+   },
+   "role": "condition_effect",
+   "screen_reproduces_repchar1": true
+  },
+  {
+   "cell": {
+    "scenario": "S1",
+    "channel": "linear",
+    "delta": 1.0,
+    "phi": 0.8,
+    "cell": 22
+   },
+   "repetitions": 200,
+   "screen": {
+    "counts": {
+     "consistent": 154,
+     "replica_dependent": 42,
+     "inconclusive": 4
+    },
+    "frequency": {
+     "consistent": 0.77,
+     "replica_dependent": 0.21,
+     "inconclusive": 0.02
+    },
+    "wilson95": {
+     "consistent": [
+      0.7069169563469642,
+      0.8229065674093119
+     ],
+     "replica_dependent": [
+      0.15928412069979,
+      0.2716461685990246
+     ],
+     "inconclusive": [
+      0.0078044264163494685,
+      0.050287086905826436
+     ]
+    }
+   },
+   "permutation": {
+    "rejections": 200,
+    "frequency": 1.0,
+    "wilson95": [
+     0.9811546736227335,
+     1.0
+    ],
+    "p_median": 0.007936507936507936,
+    "p_min": 0.007936507936507936
+   },
+   "agreement": {
+    "reject&consistent": 154,
+    "reject&replica_dependent": 42,
+    "reject&inconclusive": 4,
+    "accept&consistent": 0,
+    "accept&replica_dependent": 0,
+    "accept&inconclusive": 0
+   },
+   "role": "condition_effect",
+   "screen_reproduces_repchar1": true
+  },
+  {
+   "cell": {
+    "scenario": "S1",
+    "channel": "linear",
+    "delta": 1.0,
+    "phi": 0.95,
+    "cell": 23
+   },
+   "repetitions": 200,
+   "screen": {
+    "counts": {
+     "consistent": 15,
+     "replica_dependent": 49,
+     "inconclusive": 136
+    },
+    "frequency": {
+     "consistent": 0.075,
+     "replica_dependent": 0.245,
+     "inconclusive": 0.68
+    },
+    "wilson95": {
+     "consistent": [
+      0.04597491718438201,
+      0.12004361023629456
+     ],
+     "replica_dependent": [
+      0.1905686808903718,
+      0.30904243556203415
+     ],
+     "inconclusive": [
+      0.6124810156588646,
+      0.7407346668453195
+     ]
+    }
+   },
+   "permutation": {
+    "rejections": 198,
+    "frequency": 0.99,
+    "wilson95": [
+     0.9642782382838231,
+     0.9972533418664555
+    ],
+    "p_median": 0.007936507936507936,
+    "p_min": 0.007936507936507936
+   },
+   "agreement": {
+    "reject&consistent": 15,
+    "reject&replica_dependent": 49,
+    "reject&inconclusive": 134,
+    "accept&consistent": 0,
+    "accept&replica_dependent": 0,
+    "accept&inconclusive": 2
+   },
+   "role": "condition_effect",
+   "screen_reproduces_repchar1": true
+  },
+  {
+   "cell": {
+    "scenario": "S1",
+    "channel": "linear",
+    "delta": 2.0,
+    "phi": 0.0,
+    "cell": 24
+   },
+   "repetitions": 200,
+   "screen": {
+    "counts": {
+     "consistent": 200,
+     "replica_dependent": 0,
+     "inconclusive": 0
+    },
+    "frequency": {
+     "consistent": 1.0,
+     "replica_dependent": 0.0,
+     "inconclusive": 0.0
+    },
+    "wilson95": {
+     "consistent": [
+      0.9811546736227335,
+      1.0
+     ],
+     "replica_dependent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "inconclusive": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ]
+    }
+   },
+   "permutation": {
+    "rejections": 200,
+    "frequency": 1.0,
+    "wilson95": [
+     0.9811546736227335,
+     1.0
+    ],
+    "p_median": 0.007936507936507936,
+    "p_min": 0.007936507936507936
+   },
+   "agreement": {
+    "reject&consistent": 200,
+    "reject&replica_dependent": 0,
+    "reject&inconclusive": 0,
+    "accept&consistent": 0,
+    "accept&replica_dependent": 0,
+    "accept&inconclusive": 0
+   },
+   "role": "condition_effect",
+   "screen_reproduces_repchar1": true
+  },
+  {
+   "cell": {
+    "scenario": "S1",
+    "channel": "linear",
+    "delta": 2.0,
+    "phi": 0.8,
+    "cell": 25
+   },
+   "repetitions": 200,
+   "screen": {
+    "counts": {
+     "consistent": 200,
+     "replica_dependent": 0,
+     "inconclusive": 0
+    },
+    "frequency": {
+     "consistent": 1.0,
+     "replica_dependent": 0.0,
+     "inconclusive": 0.0
+    },
+    "wilson95": {
+     "consistent": [
+      0.9811546736227335,
+      1.0
+     ],
+     "replica_dependent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "inconclusive": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ]
+    }
+   },
+   "permutation": {
+    "rejections": 200,
+    "frequency": 1.0,
+    "wilson95": [
+     0.9811546736227335,
+     1.0
+    ],
+    "p_median": 0.007936507936507936,
+    "p_min": 0.007936507936507936
+   },
+   "agreement": {
+    "reject&consistent": 200,
+    "reject&replica_dependent": 0,
+    "reject&inconclusive": 0,
+    "accept&consistent": 0,
+    "accept&replica_dependent": 0,
+    "accept&inconclusive": 0
+   },
+   "role": "condition_effect",
+   "screen_reproduces_repchar1": true
+  },
+  {
+   "cell": {
+    "scenario": "S1",
+    "channel": "linear",
+    "delta": 2.0,
+    "phi": 0.95,
+    "cell": 26
+   },
+   "repetitions": 200,
+   "screen": {
+    "counts": {
+     "consistent": 155,
+     "replica_dependent": 42,
+     "inconclusive": 3
+    },
+    "frequency": {
+     "consistent": 0.775,
+     "replica_dependent": 0.21,
+     "inconclusive": 0.015
+    },
+    "wilson95": {
+     "consistent": [
+      0.7122587676433947,
+      0.8273763028491088
+     ],
+     "replica_dependent": [
+      0.15928412069979,
+      0.2716461685990246
+     ],
+     "inconclusive": [
+      0.00511423779325831,
+      0.04316572879269026
+     ]
+    }
+   },
+   "permutation": {
+    "rejections": 200,
+    "frequency": 1.0,
+    "wilson95": [
+     0.9811546736227335,
+     1.0
+    ],
+    "p_median": 0.007936507936507936,
+    "p_min": 0.007936507936507936
+   },
+   "agreement": {
+    "reject&consistent": 155,
+    "reject&replica_dependent": 42,
+    "reject&inconclusive": 3,
+    "accept&consistent": 0,
+    "accept&replica_dependent": 0,
+    "accept&inconclusive": 0
+   },
+   "role": "condition_effect",
+   "screen_reproduces_repchar1": true
+  },
+  {
+   "cell": {
+    "scenario": "S1",
+    "channel": "circular",
+    "delta": 0.1,
+    "phi": 0.0,
+    "cell": 27
+   },
+   "repetitions": 200,
+   "screen": {
+    "counts": {
+     "consistent": 0,
+     "replica_dependent": 0,
+     "inconclusive": 200
+    },
+    "frequency": {
+     "consistent": 0.0,
+     "replica_dependent": 0.0,
+     "inconclusive": 1.0
+    },
+    "wilson95": {
+     "consistent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "replica_dependent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "inconclusive": [
+      0.9811546736227335,
+      1.0
+     ]
+    }
+   },
+   "permutation": {
+    "rejections": 71,
+    "frequency": 0.355,
+    "wilson95": [
+     0.2919862754043116,
+     0.42347886924509565
+    ],
+    "p_median": 0.1111111111111111,
+    "p_min": 0.007936507936507936
+   },
+   "agreement": {
+    "reject&consistent": 0,
+    "reject&replica_dependent": 0,
+    "reject&inconclusive": 71,
+    "accept&consistent": 0,
+    "accept&replica_dependent": 0,
+    "accept&inconclusive": 129
+   },
+   "role": "condition_effect",
+   "screen_reproduces_repchar1": true
+  },
+  {
+   "cell": {
+    "scenario": "S1",
+    "channel": "circular",
+    "delta": 0.1,
+    "phi": 0.8,
+    "cell": 28
+   },
+   "repetitions": 200,
+   "screen": {
+    "counts": {
+     "consistent": 0,
+     "replica_dependent": 0,
+     "inconclusive": 200
+    },
+    "frequency": {
+     "consistent": 0.0,
+     "replica_dependent": 0.0,
+     "inconclusive": 1.0
+    },
+    "wilson95": {
+     "consistent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "replica_dependent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "inconclusive": [
+      0.9811546736227335,
+      1.0
+     ]
+    }
+   },
+   "permutation": {
+    "rejections": 26,
+    "frequency": 0.13,
+    "wilson95": [
+     0.0902820227966932,
+     0.18366351872248407
+    ],
+    "p_median": 0.30952380952380953,
+    "p_min": 0.007936507936507936
+   },
+   "agreement": {
+    "reject&consistent": 0,
+    "reject&replica_dependent": 0,
+    "reject&inconclusive": 26,
+    "accept&consistent": 0,
+    "accept&replica_dependent": 0,
+    "accept&inconclusive": 174
+   },
+   "role": "condition_effect",
+   "screen_reproduces_repchar1": true
+  },
+  {
+   "cell": {
+    "scenario": "S1",
+    "channel": "circular",
+    "delta": 0.1,
+    "phi": 0.95,
+    "cell": 29
+   },
+   "repetitions": 200,
+   "screen": {
+    "counts": {
+     "consistent": 0,
+     "replica_dependent": 0,
+     "inconclusive": 200
+    },
+    "frequency": {
+     "consistent": 0.0,
+     "replica_dependent": 0.0,
+     "inconclusive": 1.0
+    },
+    "wilson95": {
+     "consistent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "replica_dependent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "inconclusive": [
+      0.9811546736227335,
+      1.0
+     ]
+    }
+   },
+   "permutation": {
+    "rejections": 13,
+    "frequency": 0.065,
+    "wilson95": [
+     0.03837635464915299,
+     0.10801907929906895
+    ],
+    "p_median": 0.4444444444444444,
+    "p_min": 0.007936507936507936
+   },
+   "agreement": {
+    "reject&consistent": 0,
+    "reject&replica_dependent": 0,
+    "reject&inconclusive": 13,
+    "accept&consistent": 0,
+    "accept&replica_dependent": 0,
+    "accept&inconclusive": 187
+   },
+   "role": "condition_effect",
+   "screen_reproduces_repchar1": true
+  },
+  {
+   "cell": {
+    "scenario": "S1",
+    "channel": "circular",
+    "delta": 0.25,
+    "phi": 0.0,
+    "cell": 30
+   },
+   "repetitions": 200,
+   "screen": {
+    "counts": {
+     "consistent": 6,
+     "replica_dependent": 28,
+     "inconclusive": 166
+    },
+    "frequency": {
+     "consistent": 0.03,
+     "replica_dependent": 0.14,
+     "inconclusive": 0.83
+    },
+    "wilson95": {
+     "consistent": [
+      0.013820314340111346,
+      0.06389429245451925
+     ],
+     "replica_dependent": [
+      0.09866982633455634,
+      0.1948988086570756
+     ],
+     "inconclusive": [
+      0.7718411637168737,
+      0.8757209208741302
+     ]
+    }
+   },
+   "permutation": {
+    "rejections": 200,
+    "frequency": 1.0,
+    "wilson95": [
+     0.9811546736227335,
+     1.0
+    ],
+    "p_median": 0.007936507936507936,
+    "p_min": 0.007936507936507936
+   },
+   "agreement": {
+    "reject&consistent": 6,
+    "reject&replica_dependent": 28,
+    "reject&inconclusive": 166,
+    "accept&consistent": 0,
+    "accept&replica_dependent": 0,
+    "accept&inconclusive": 0
+   },
+   "role": "condition_effect",
+   "screen_reproduces_repchar1": true
+  },
+  {
+   "cell": {
+    "scenario": "S1",
+    "channel": "circular",
+    "delta": 0.25,
+    "phi": 0.8,
+    "cell": 31
+   },
+   "repetitions": 200,
+   "screen": {
+    "counts": {
+     "consistent": 0,
+     "replica_dependent": 4,
+     "inconclusive": 196
+    },
+    "frequency": {
+     "consistent": 0.0,
+     "replica_dependent": 0.02,
+     "inconclusive": 0.98
+    },
+    "wilson95": {
+     "consistent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "replica_dependent": [
+      0.0078044264163494685,
+      0.050287086905826436
+     ],
+     "inconclusive": [
+      0.9497129130941735,
+      0.9921955735836505
+     ]
+    }
+   },
+   "permutation": {
+    "rejections": 112,
+    "frequency": 0.56,
+    "wilson95": [
+     0.4907167533465867,
+     0.6270218074881414
+    ],
+    "p_median": 0.03968253968253968,
+    "p_min": 0.007936507936507936
+   },
+   "agreement": {
+    "reject&consistent": 0,
+    "reject&replica_dependent": 4,
+    "reject&inconclusive": 108,
+    "accept&consistent": 0,
+    "accept&replica_dependent": 0,
+    "accept&inconclusive": 88
+   },
+   "role": "condition_effect",
+   "screen_reproduces_repchar1": true
+  },
+  {
+   "cell": {
+    "scenario": "S1",
+    "channel": "circular",
+    "delta": 0.25,
+    "phi": 0.95,
+    "cell": 32
+   },
+   "repetitions": 200,
+   "screen": {
+    "counts": {
+     "consistent": 0,
+     "replica_dependent": 0,
+     "inconclusive": 200
+    },
+    "frequency": {
+     "consistent": 0.0,
+     "replica_dependent": 0.0,
+     "inconclusive": 1.0
+    },
+    "wilson95": {
+     "consistent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "replica_dependent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "inconclusive": [
+      0.9811546736227335,
+      1.0
+     ]
+    }
+   },
+   "permutation": {
+    "rejections": 41,
+    "frequency": 0.205,
+    "wilson95": [
+     0.15486176203836208,
+     0.26625698052422514
+    ],
+    "p_median": 0.2777777777777778,
+    "p_min": 0.007936507936507936
+   },
+   "agreement": {
+    "reject&consistent": 0,
+    "reject&replica_dependent": 0,
+    "reject&inconclusive": 41,
+    "accept&consistent": 0,
+    "accept&replica_dependent": 0,
+    "accept&inconclusive": 159
+   },
+   "role": "condition_effect",
+   "screen_reproduces_repchar1": true
+  },
+  {
+   "cell": {
+    "scenario": "S1",
+    "channel": "circular",
+    "delta": 0.5,
+    "phi": 0.0,
+    "cell": 33
+   },
+   "repetitions": 200,
+   "screen": {
+    "counts": {
+     "consistent": 192,
+     "replica_dependent": 7,
+     "inconclusive": 1
+    },
+    "frequency": {
+     "consistent": 0.96,
+     "replica_dependent": 0.035,
+     "inconclusive": 0.005
+    },
+    "wilson95": {
+     "consistent": [
+      0.923067931799067,
+      0.9795943679338476
+     ],
+     "replica_dependent": [
+      0.017055542008567192,
+      0.07047061152229073
+     ],
+     "inconclusive": [
+      0.0008831687156009814,
+      0.02777370439789293
+     ]
+    }
+   },
+   "permutation": {
+    "rejections": 200,
+    "frequency": 1.0,
+    "wilson95": [
+     0.9811546736227335,
+     1.0
+    ],
+    "p_median": 0.007936507936507936,
+    "p_min": 0.007936507936507936
+   },
+   "agreement": {
+    "reject&consistent": 192,
+    "reject&replica_dependent": 7,
+    "reject&inconclusive": 1,
+    "accept&consistent": 0,
+    "accept&replica_dependent": 0,
+    "accept&inconclusive": 0
+   },
+   "role": "condition_effect",
+   "screen_reproduces_repchar1": true
+  },
+  {
+   "cell": {
+    "scenario": "S1",
+    "channel": "circular",
+    "delta": 0.5,
+    "phi": 0.8,
+    "cell": 34
+   },
+   "repetitions": 200,
+   "screen": {
+    "counts": {
+     "consistent": 11,
+     "replica_dependent": 41,
+     "inconclusive": 148
+    },
+    "frequency": {
+     "consistent": 0.055,
+     "replica_dependent": 0.205,
+     "inconclusive": 0.74
+    },
+    "wilson95": {
+     "consistent": [
+      0.03098534170345884,
+      0.0957869987723084
+     ],
+     "replica_dependent": [
+      0.15486176203836208,
+      0.26625698052422514
+     ],
+     "inconclusive": [
+      0.6750925439746589,
+      0.7958616993642531
+     ]
+    }
+   },
+   "permutation": {
+    "rejections": 197,
+    "frequency": 0.985,
+    "wilson95": [
+     0.9568342712073097,
+     0.9948857622067417
+    ],
+    "p_median": 0.007936507936507936,
+    "p_min": 0.007936507936507936
+   },
+   "agreement": {
+    "reject&consistent": 11,
+    "reject&replica_dependent": 41,
+    "reject&inconclusive": 145,
+    "accept&consistent": 0,
+    "accept&replica_dependent": 0,
+    "accept&inconclusive": 3
+   },
+   "role": "condition_effect",
+   "screen_reproduces_repchar1": true
+  },
+  {
+   "cell": {
+    "scenario": "S1",
+    "channel": "circular",
+    "delta": 0.5,
+    "phi": 0.95,
+    "cell": 35
+   },
+   "repetitions": 200,
+   "screen": {
+    "counts": {
+     "consistent": 1,
+     "replica_dependent": 2,
+     "inconclusive": 197
+    },
+    "frequency": {
+     "consistent": 0.005,
+     "replica_dependent": 0.01,
+     "inconclusive": 0.985
+    },
+    "wilson95": {
+     "consistent": [
+      0.0008831687156009814,
+      0.02777370439789293
+     ],
+     "replica_dependent": [
+      0.0027466581335444384,
+      0.0357217617161768
+     ],
+     "inconclusive": [
+      0.9568342712073097,
+      0.9948857622067417
+     ]
+    }
+   },
+   "permutation": {
+    "rejections": 102,
+    "frequency": 0.51,
+    "wilson95": [
+     0.44118587678458643,
+     0.5784372166878682
+    ],
+    "p_median": 0.047619047619047616,
+    "p_min": 0.007936507936507936
+   },
+   "agreement": {
+    "reject&consistent": 1,
+    "reject&replica_dependent": 2,
+    "reject&inconclusive": 99,
+    "accept&consistent": 0,
+    "accept&replica_dependent": 0,
+    "accept&inconclusive": 98
+   },
+   "role": "condition_effect",
+   "screen_reproduces_repchar1": true
+  },
+  {
+   "cell": {
+    "scenario": "S1",
+    "channel": "circular",
+    "delta": 1.0,
+    "phi": 0.0,
+    "cell": 36
+   },
+   "repetitions": 200,
+   "screen": {
+    "counts": {
+     "consistent": 200,
+     "replica_dependent": 0,
+     "inconclusive": 0
+    },
+    "frequency": {
+     "consistent": 1.0,
+     "replica_dependent": 0.0,
+     "inconclusive": 0.0
+    },
+    "wilson95": {
+     "consistent": [
+      0.9811546736227335,
+      1.0
+     ],
+     "replica_dependent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "inconclusive": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ]
+    }
+   },
+   "permutation": {
+    "rejections": 200,
+    "frequency": 1.0,
+    "wilson95": [
+     0.9811546736227335,
+     1.0
+    ],
+    "p_median": 0.007936507936507936,
+    "p_min": 0.007936507936507936
+   },
+   "agreement": {
+    "reject&consistent": 200,
+    "reject&replica_dependent": 0,
+    "reject&inconclusive": 0,
+    "accept&consistent": 0,
+    "accept&replica_dependent": 0,
+    "accept&inconclusive": 0
+   },
+   "role": "condition_effect",
+   "screen_reproduces_repchar1": true
+  },
+  {
+   "cell": {
+    "scenario": "S1",
+    "channel": "circular",
+    "delta": 1.0,
+    "phi": 0.8,
+    "cell": 37
+   },
+   "repetitions": 200,
+   "screen": {
+    "counts": {
+     "consistent": 171,
+     "replica_dependent": 25,
+     "inconclusive": 4
+    },
+    "frequency": {
+     "consistent": 0.855,
+     "replica_dependent": 0.125,
+     "inconclusive": 0.02
+    },
+    "wilson95": {
+     "consistent": [
+      0.7995133246921847,
+      0.8971064935799559
+     ],
+     "replica_dependent": [
+      0.08611974475712644,
+      0.17801425002582347
+     ],
+     "inconclusive": [
+      0.0078044264163494685,
+      0.050287086905826436
+     ]
+    }
+   },
+   "permutation": {
+    "rejections": 200,
+    "frequency": 1.0,
+    "wilson95": [
+     0.9811546736227335,
+     1.0
+    ],
+    "p_median": 0.007936507936507936,
+    "p_min": 0.007936507936507936
+   },
+   "agreement": {
+    "reject&consistent": 171,
+    "reject&replica_dependent": 25,
+    "reject&inconclusive": 4,
+    "accept&consistent": 0,
+    "accept&replica_dependent": 0,
+    "accept&inconclusive": 0
+   },
+   "role": "condition_effect",
+   "screen_reproduces_repchar1": true
+  },
+  {
+   "cell": {
+    "scenario": "S1",
+    "channel": "circular",
+    "delta": 1.0,
+    "phi": 0.95,
+    "cell": 38
+   },
+   "repetitions": 200,
+   "screen": {
+    "counts": {
+     "consistent": 12,
+     "replica_dependent": 43,
+     "inconclusive": 145
+    },
+    "frequency": {
+     "consistent": 0.06,
+     "replica_dependent": 0.215,
+     "inconclusive": 0.725
+    },
+    "wilson95": {
+     "consistent": [
+      0.03465219425433187,
+      0.1019316929576627
+     ],
+     "replica_dependent": [
+      0.1637187625450758,
+      0.27702307348996613
+     ],
+     "inconclusive": [
+      0.6593166064233035,
+      0.7822029967069265
+     ]
+    }
+   },
+   "permutation": {
+    "rejections": 196,
+    "frequency": 0.98,
+    "wilson95": [
+     0.9497129130941735,
+     0.9921955735836505
+    ],
+    "p_median": 0.007936507936507936,
+    "p_min": 0.007936507936507936
+   },
+   "agreement": {
+    "reject&consistent": 12,
+    "reject&replica_dependent": 43,
+    "reject&inconclusive": 141,
+    "accept&consistent": 0,
+    "accept&replica_dependent": 0,
+    "accept&inconclusive": 4
+   },
+   "role": "condition_effect",
+   "screen_reproduces_repchar1": true
+  },
+  {
+   "cell": {
+    "scenario": "S1",
+    "channel": "circular",
+    "delta": 2.0,
+    "phi": 0.0,
+    "cell": 39
+   },
+   "repetitions": 200,
+   "screen": {
+    "counts": {
+     "consistent": 200,
+     "replica_dependent": 0,
+     "inconclusive": 0
+    },
+    "frequency": {
+     "consistent": 1.0,
+     "replica_dependent": 0.0,
+     "inconclusive": 0.0
+    },
+    "wilson95": {
+     "consistent": [
+      0.9811546736227335,
+      1.0
+     ],
+     "replica_dependent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "inconclusive": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ]
+    }
+   },
+   "permutation": {
+    "rejections": 200,
+    "frequency": 1.0,
+    "wilson95": [
+     0.9811546736227335,
+     1.0
+    ],
+    "p_median": 0.007936507936507936,
+    "p_min": 0.007936507936507936
+   },
+   "agreement": {
+    "reject&consistent": 200,
+    "reject&replica_dependent": 0,
+    "reject&inconclusive": 0,
+    "accept&consistent": 0,
+    "accept&replica_dependent": 0,
+    "accept&inconclusive": 0
+   },
+   "role": "condition_effect",
+   "screen_reproduces_repchar1": true
+  },
+  {
+   "cell": {
+    "scenario": "S1",
+    "channel": "circular",
+    "delta": 2.0,
+    "phi": 0.8,
+    "cell": 40
+   },
+   "repetitions": 200,
+   "screen": {
+    "counts": {
+     "consistent": 200,
+     "replica_dependent": 0,
+     "inconclusive": 0
+    },
+    "frequency": {
+     "consistent": 1.0,
+     "replica_dependent": 0.0,
+     "inconclusive": 0.0
+    },
+    "wilson95": {
+     "consistent": [
+      0.9811546736227335,
+      1.0
+     ],
+     "replica_dependent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "inconclusive": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ]
+    }
+   },
+   "permutation": {
+    "rejections": 200,
+    "frequency": 1.0,
+    "wilson95": [
+     0.9811546736227335,
+     1.0
+    ],
+    "p_median": 0.007936507936507936,
+    "p_min": 0.007936507936507936
+   },
+   "agreement": {
+    "reject&consistent": 200,
+    "reject&replica_dependent": 0,
+    "reject&inconclusive": 0,
+    "accept&consistent": 0,
+    "accept&replica_dependent": 0,
+    "accept&inconclusive": 0
+   },
+   "role": "condition_effect",
+   "screen_reproduces_repchar1": true
+  },
+  {
+   "cell": {
+    "scenario": "S1",
+    "channel": "circular",
+    "delta": 2.0,
+    "phi": 0.95,
+    "cell": 41
+   },
+   "repetitions": 200,
+   "screen": {
+    "counts": {
+     "consistent": 152,
+     "replica_dependent": 43,
+     "inconclusive": 5
+    },
+    "frequency": {
+     "consistent": 0.76,
+     "replica_dependent": 0.215,
+     "inconclusive": 0.025
+    },
+    "wilson95": {
+     "consistent": [
+      0.6962665902079583,
+      0.8139338400758631
+     ],
+     "replica_dependent": [
+      0.1637187625450758,
+      0.27702307348996613
+     ],
+     "inconclusive": [
+      0.010724719651761264,
+      0.05717834040664198
+     ]
+    }
+   },
+   "permutation": {
+    "rejections": 200,
+    "frequency": 1.0,
+    "wilson95": [
+     0.9811546736227335,
+     1.0
+    ],
+    "p_median": 0.007936507936507936,
+    "p_min": 0.007936507936507936
+   },
+   "agreement": {
+    "reject&consistent": 152,
+    "reject&replica_dependent": 43,
+    "reject&inconclusive": 5,
+    "accept&consistent": 0,
+    "accept&replica_dependent": 0,
+    "accept&inconclusive": 0
+   },
+   "role": "condition_effect",
+   "screen_reproduces_repchar1": true
+  },
+  {
+   "cell": {
+    "scenario": "S2",
+    "channel": "linear",
+    "rho": 1.25,
+    "phi": 0.0,
+    "cell": 42
+   },
+   "repetitions": 200,
+   "screen": {
+    "counts": {
+     "consistent": 18,
+     "replica_dependent": 80,
+     "inconclusive": 102
+    },
+    "frequency": {
+     "consistent": 0.09,
+     "replica_dependent": 0.4,
+     "inconclusive": 0.51
+    },
+    "wilson95": {
+     "consistent": [
+      0.05768744886219316,
+      0.13776571876716542
+     ],
+     "replica_dependent": [
+      0.33460578566807336,
+      0.46916327960737997
+     ],
+     "inconclusive": [
+      0.44118587678458643,
+      0.5784372166878682
+     ]
+    }
+   },
+   "permutation": {
+    "rejections": 200,
+    "frequency": 1.0,
+    "wilson95": [
+     0.9811546736227335,
+     1.0
+    ],
+    "p_median": 0.007936507936507936,
+    "p_min": 0.007936507936507936
+   },
+   "agreement": {
+    "reject&consistent": 18,
+    "reject&replica_dependent": 80,
+    "reject&inconclusive": 102,
+    "accept&consistent": 0,
+    "accept&replica_dependent": 0,
+    "accept&inconclusive": 0
+   },
+   "role": "condition_effect",
+   "screen_reproduces_repchar1": true
+  },
+  {
+   "cell": {
+    "scenario": "S2",
+    "channel": "linear",
+    "rho": 1.25,
+    "phi": 0.8,
+    "cell": 43
+   },
+   "repetitions": 200,
+   "screen": {
+    "counts": {
+     "consistent": 0,
+     "replica_dependent": 4,
+     "inconclusive": 196
+    },
+    "frequency": {
+     "consistent": 0.0,
+     "replica_dependent": 0.02,
+     "inconclusive": 0.98
+    },
+    "wilson95": {
+     "consistent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "replica_dependent": [
+      0.0078044264163494685,
+      0.050287086905826436
+     ],
+     "inconclusive": [
+      0.9497129130941735,
+      0.9921955735836505
+     ]
+    }
+   },
+   "permutation": {
+    "rejections": 176,
+    "frequency": 0.88,
+    "wilson95": [
+     0.8276574790170326,
+     0.9180200729362449
+    ],
+    "p_median": 0.007936507936507936,
+    "p_min": 0.007936507936507936
+   },
+   "agreement": {
+    "reject&consistent": 0,
+    "reject&replica_dependent": 4,
+    "reject&inconclusive": 172,
+    "accept&consistent": 0,
+    "accept&replica_dependent": 0,
+    "accept&inconclusive": 24
+   },
+   "role": "condition_effect",
+   "screen_reproduces_repchar1": true
+  },
+  {
+   "cell": {
+    "scenario": "S2",
+    "channel": "linear",
+    "rho": 1.25,
+    "phi": 0.95,
+    "cell": 44
+   },
+   "repetitions": 200,
+   "screen": {
+    "counts": {
+     "consistent": 0,
+     "replica_dependent": 0,
+     "inconclusive": 200
+    },
+    "frequency": {
+     "consistent": 0.0,
+     "replica_dependent": 0.0,
+     "inconclusive": 1.0
+    },
+    "wilson95": {
+     "consistent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "replica_dependent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "inconclusive": [
+      0.9811546736227335,
+      1.0
+     ]
+    }
+   },
+   "permutation": {
+    "rejections": 49,
+    "frequency": 0.245,
+    "wilson95": [
+     0.1905686808903718,
+     0.30904243556203415
+    ],
+    "p_median": 0.15873015873015872,
+    "p_min": 0.007936507936507936
+   },
+   "agreement": {
+    "reject&consistent": 0,
+    "reject&replica_dependent": 0,
+    "reject&inconclusive": 49,
+    "accept&consistent": 0,
+    "accept&replica_dependent": 0,
+    "accept&inconclusive": 151
+   },
+   "role": "condition_effect",
+   "screen_reproduces_repchar1": true
+  },
+  {
+   "cell": {
+    "scenario": "S2",
+    "channel": "linear",
+    "rho": 1.5,
+    "phi": 0.0,
+    "cell": 45
+   },
+   "repetitions": 200,
+   "screen": {
+    "counts": {
+     "consistent": 197,
+     "replica_dependent": 3,
+     "inconclusive": 0
+    },
+    "frequency": {
+     "consistent": 0.985,
+     "replica_dependent": 0.015,
+     "inconclusive": 0.0
+    },
+    "wilson95": {
+     "consistent": [
+      0.9568342712073097,
+      0.9948857622067417
+     ],
+     "replica_dependent": [
+      0.00511423779325831,
+      0.04316572879269026
+     ],
+     "inconclusive": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ]
+    }
+   },
+   "permutation": {
+    "rejections": 200,
+    "frequency": 1.0,
+    "wilson95": [
+     0.9811546736227335,
+     1.0
+    ],
+    "p_median": 0.007936507936507936,
+    "p_min": 0.007936507936507936
+   },
+   "agreement": {
+    "reject&consistent": 197,
+    "reject&replica_dependent": 3,
+    "reject&inconclusive": 0,
+    "accept&consistent": 0,
+    "accept&replica_dependent": 0,
+    "accept&inconclusive": 0
+   },
+   "role": "condition_effect",
+   "screen_reproduces_repchar1": true
+  },
+  {
+   "cell": {
+    "scenario": "S2",
+    "channel": "linear",
+    "rho": 1.5,
+    "phi": 0.8,
+    "cell": 46
+   },
+   "repetitions": 200,
+   "screen": {
+    "counts": {
+     "consistent": 24,
+     "replica_dependent": 75,
+     "inconclusive": 101
+    },
+    "frequency": {
+     "consistent": 0.12,
+     "replica_dependent": 0.375,
+     "inconclusive": 0.505
+    },
+    "wilson95": {
+     "consistent": [
+      0.08197992706375512,
+      0.17234252098296743
+     ],
+     "replica_dependent": [
+      0.31085436858409826,
+      0.44385696301021843
+     ],
+     "inconclusive": [
+      0.43627000033527485,
+      0.5735415464009526
+     ]
+    }
+   },
+   "permutation": {
+    "rejections": 200,
+    "frequency": 1.0,
+    "wilson95": [
+     0.9811546736227335,
+     1.0
+    ],
+    "p_median": 0.007936507936507936,
+    "p_min": 0.007936507936507936
+   },
+   "agreement": {
+    "reject&consistent": 24,
+    "reject&replica_dependent": 75,
+    "reject&inconclusive": 101,
+    "accept&consistent": 0,
+    "accept&replica_dependent": 0,
+    "accept&inconclusive": 0
+   },
+   "role": "condition_effect",
+   "screen_reproduces_repchar1": true
+  },
+  {
+   "cell": {
+    "scenario": "S2",
+    "channel": "linear",
+    "rho": 1.5,
+    "phi": 0.95,
+    "cell": 47
+   },
+   "repetitions": 200,
+   "screen": {
+    "counts": {
+     "consistent": 1,
+     "replica_dependent": 4,
+     "inconclusive": 195
+    },
+    "frequency": {
+     "consistent": 0.005,
+     "replica_dependent": 0.02,
+     "inconclusive": 0.975
+    },
+    "wilson95": {
+     "consistent": [
+      0.0008831687156009814,
+      0.02777370439789293
+     ],
+     "replica_dependent": [
+      0.0078044264163494685,
+      0.050287086905826436
+     ],
+     "inconclusive": [
+      0.942821659593358,
+      0.9892752803482386
+     ]
+    }
+   },
+   "permutation": {
+    "rejections": 157,
+    "frequency": 0.785,
+    "wilson95": [
+     0.7229769265100339,
+     0.8362812374549242
+    ],
+    "p_median": 0.015873015873015872,
+    "p_min": 0.007936507936507936
+   },
+   "agreement": {
+    "reject&consistent": 1,
+    "reject&replica_dependent": 4,
+    "reject&inconclusive": 152,
+    "accept&consistent": 0,
+    "accept&replica_dependent": 0,
+    "accept&inconclusive": 43
+   },
+   "role": "condition_effect",
+   "screen_reproduces_repchar1": true
+  },
+  {
+   "cell": {
+    "scenario": "S2",
+    "channel": "linear",
+    "rho": 2.0,
+    "phi": 0.0,
+    "cell": 48
+   },
+   "repetitions": 200,
+   "screen": {
+    "counts": {
+     "consistent": 200,
+     "replica_dependent": 0,
+     "inconclusive": 0
+    },
+    "frequency": {
+     "consistent": 1.0,
+     "replica_dependent": 0.0,
+     "inconclusive": 0.0
+    },
+    "wilson95": {
+     "consistent": [
+      0.9811546736227335,
+      1.0
+     ],
+     "replica_dependent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "inconclusive": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ]
+    }
+   },
+   "permutation": {
+    "rejections": 200,
+    "frequency": 1.0,
+    "wilson95": [
+     0.9811546736227335,
+     1.0
+    ],
+    "p_median": 0.007936507936507936,
+    "p_min": 0.007936507936507936
+   },
+   "agreement": {
+    "reject&consistent": 200,
+    "reject&replica_dependent": 0,
+    "reject&inconclusive": 0,
+    "accept&consistent": 0,
+    "accept&replica_dependent": 0,
+    "accept&inconclusive": 0
+   },
+   "role": "condition_effect",
+   "screen_reproduces_repchar1": true
+  },
+  {
+   "cell": {
+    "scenario": "S2",
+    "channel": "linear",
+    "rho": 2.0,
+    "phi": 0.8,
+    "cell": 49
+   },
+   "repetitions": 200,
+   "screen": {
+    "counts": {
+     "consistent": 186,
+     "replica_dependent": 14,
+     "inconclusive": 0
+    },
+    "frequency": {
+     "consistent": 0.93,
+     "replica_dependent": 0.07,
+     "inconclusive": 0.0
+    },
+    "wilson95": {
+     "consistent": [
+      0.8859451911438936,
+      0.9578478281716571
+     ],
+     "replica_dependent": [
+      0.042152171828342806,
+      0.11405480885610647
+     ],
+     "inconclusive": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ]
+    }
+   },
+   "permutation": {
+    "rejections": 200,
+    "frequency": 1.0,
+    "wilson95": [
+     0.9811546736227335,
+     1.0
+    ],
+    "p_median": 0.007936507936507936,
+    "p_min": 0.007936507936507936
+   },
+   "agreement": {
+    "reject&consistent": 186,
+    "reject&replica_dependent": 14,
+    "reject&inconclusive": 0,
+    "accept&consistent": 0,
+    "accept&replica_dependent": 0,
+    "accept&inconclusive": 0
+   },
+   "role": "condition_effect",
+   "screen_reproduces_repchar1": true
+  },
+  {
+   "cell": {
+    "scenario": "S2",
+    "channel": "linear",
+    "rho": 2.0,
+    "phi": 0.95,
+    "cell": 50
+   },
+   "repetitions": 200,
+   "screen": {
+    "counts": {
+     "consistent": 4,
+     "replica_dependent": 32,
+     "inconclusive": 164
+    },
+    "frequency": {
+     "consistent": 0.02,
+     "replica_dependent": 0.16,
+     "inconclusive": 0.82
+    },
+    "wilson95": {
+     "consistent": [
+      0.0078044264163494685,
+      0.050287086905826436
+     ],
+     "replica_dependent": [
+      0.1156741203158702,
+      0.21714070162067106
+     ],
+     "inconclusive": [
+      0.7608852497127511,
+      0.8670537414057983
+     ]
+    }
+   },
+   "permutation": {
+    "rejections": 200,
+    "frequency": 1.0,
+    "wilson95": [
+     0.9811546736227335,
+     1.0
+    ],
+    "p_median": 0.007936507936507936,
+    "p_min": 0.007936507936507936
+   },
+   "agreement": {
+    "reject&consistent": 4,
+    "reject&replica_dependent": 32,
+    "reject&inconclusive": 164,
+    "accept&consistent": 0,
+    "accept&replica_dependent": 0,
+    "accept&inconclusive": 0
+   },
+   "role": "condition_effect",
+   "screen_reproduces_repchar1": true
+  },
+  {
+   "cell": {
+    "scenario": "S3",
+    "channel": "linear",
+    "w_b": 0.4,
+    "D": 1,
+    "cell": 51
+   },
+   "repetitions": 200,
+   "screen": {
+    "counts": {
+     "consistent": 0,
+     "replica_dependent": 2,
+     "inconclusive": 198
+    },
+    "frequency": {
+     "consistent": 0.0,
+     "replica_dependent": 0.01,
+     "inconclusive": 0.99
+    },
+    "wilson95": {
+     "consistent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "replica_dependent": [
+      0.0027466581335444384,
+      0.0357217617161768
+     ],
+     "inconclusive": [
+      0.9642782382838231,
+      0.9972533418664555
+     ]
+    }
+   },
+   "permutation": {
+    "rejections": 195,
+    "frequency": 0.975,
+    "wilson95": [
+     0.942821659593358,
+     0.9892752803482386
+    ],
+    "p_median": 0.007936507936507936,
+    "p_min": 0.007936507936507936
+   },
+   "agreement": {
+    "reject&consistent": 0,
+    "reject&replica_dependent": 2,
+    "reject&inconclusive": 193,
+    "accept&consistent": 0,
+    "accept&replica_dependent": 0,
+    "accept&inconclusive": 5
+   },
+   "role": "condition_effect",
+   "screen_reproduces_repchar1": true
+  },
+  {
+   "cell": {
+    "scenario": "S3",
+    "channel": "linear",
+    "w_b": 0.4,
+    "D": 20,
+    "cell": 52
+   },
+   "repetitions": 200,
+   "screen": {
+    "counts": {
+     "consistent": 0,
+     "replica_dependent": 0,
+     "inconclusive": 200
+    },
+    "frequency": {
+     "consistent": 0.0,
+     "replica_dependent": 0.0,
+     "inconclusive": 1.0
+    },
+    "wilson95": {
+     "consistent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "replica_dependent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "inconclusive": [
+      0.9811546736227335,
+      1.0
+     ]
+    }
+   },
+   "permutation": {
+    "rejections": 18,
+    "frequency": 0.09,
+    "wilson95": [
+     0.05768744886219316,
+     0.13776571876716542
+    ],
+    "p_median": 0.376984126984127,
+    "p_min": 0.007936507936507936
+   },
+   "agreement": {
+    "reject&consistent": 0,
+    "reject&replica_dependent": 0,
+    "reject&inconclusive": 18,
+    "accept&consistent": 0,
+    "accept&replica_dependent": 0,
+    "accept&inconclusive": 182
+   },
+   "role": "condition_effect",
+   "screen_reproduces_repchar1": true
+  },
+  {
+   "cell": {
+    "scenario": "S3",
+    "channel": "linear",
+    "w_b": 0.4,
+    "D": 100,
+    "cell": 53
+   },
+   "repetitions": 200,
+   "screen": {
+    "counts": {
+     "consistent": 0,
+     "replica_dependent": 0,
+     "inconclusive": 200
+    },
+    "frequency": {
+     "consistent": 0.0,
+     "replica_dependent": 0.0,
+     "inconclusive": 1.0
+    },
+    "wilson95": {
+     "consistent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "replica_dependent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "inconclusive": [
+      0.9811546736227335,
+      1.0
+     ]
+    }
+   },
+   "permutation": {
+    "rejections": 12,
+    "frequency": 0.06,
+    "wilson95": [
+     0.03465219425433187,
+     0.1019316929576627
+    ],
+    "p_median": 0.3968253968253968,
+    "p_min": 0.015873015873015872
+   },
+   "agreement": {
+    "reject&consistent": 0,
+    "reject&replica_dependent": 0,
+    "reject&inconclusive": 12,
+    "accept&consistent": 0,
+    "accept&replica_dependent": 0,
+    "accept&inconclusive": 188
+   },
+   "role": "condition_effect",
+   "screen_reproduces_repchar1": true
+  },
+  {
+   "cell": {
+    "scenario": "S3",
+    "channel": "linear",
+    "w_b": 0.3,
+    "D": 1,
+    "cell": 54
+   },
+   "repetitions": 200,
+   "screen": {
+    "counts": {
+     "consistent": 113,
+     "replica_dependent": 70,
+     "inconclusive": 17
+    },
+    "frequency": {
+     "consistent": 0.565,
+     "replica_dependent": 0.35,
+     "inconclusive": 0.085
+    },
+    "wilson95": {
+     "consistent": [
+      0.49570736259794607,
+      0.6318427449730093
+     ],
+     "replica_dependent": [
+      0.28728824127358077,
+      0.4183653566395992
+     ],
+     "inconclusive": [
+      0.05374575017747561,
+      0.13189587071565567
+     ]
+    }
+   },
+   "permutation": {
+    "rejections": 200,
+    "frequency": 1.0,
+    "wilson95": [
+     0.9811546736227335,
+     1.0
+    ],
+    "p_median": 0.007936507936507936,
+    "p_min": 0.007936507936507936
+   },
+   "agreement": {
+    "reject&consistent": 113,
+    "reject&replica_dependent": 70,
+    "reject&inconclusive": 17,
+    "accept&consistent": 0,
+    "accept&replica_dependent": 0,
+    "accept&inconclusive": 0
+   },
+   "role": "condition_effect",
+   "screen_reproduces_repchar1": true
+  },
+  {
+   "cell": {
+    "scenario": "S3",
+    "channel": "linear",
+    "w_b": 0.3,
+    "D": 20,
+    "cell": 55
+   },
+   "repetitions": 200,
+   "screen": {
+    "counts": {
+     "consistent": 0,
+     "replica_dependent": 3,
+     "inconclusive": 197
+    },
+    "frequency": {
+     "consistent": 0.0,
+     "replica_dependent": 0.015,
+     "inconclusive": 0.985
+    },
+    "wilson95": {
+     "consistent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "replica_dependent": [
+      0.00511423779325831,
+      0.04316572879269026
+     ],
+     "inconclusive": [
+      0.9568342712073097,
+      0.9948857622067417
+     ]
+    }
+   },
+   "permutation": {
+    "rejections": 91,
+    "frequency": 0.455,
+    "wilson95": [
+     0.387482193098835,
+     0.524213886275119
+    ],
+    "p_median": 0.06349206349206349,
+    "p_min": 0.007936507936507936
+   },
+   "agreement": {
+    "reject&consistent": 0,
+    "reject&replica_dependent": 3,
+    "reject&inconclusive": 88,
+    "accept&consistent": 0,
+    "accept&replica_dependent": 0,
+    "accept&inconclusive": 109
+   },
+   "role": "condition_effect",
+   "screen_reproduces_repchar1": true
+  },
+  {
+   "cell": {
+    "scenario": "S3",
+    "channel": "linear",
+    "w_b": 0.3,
+    "D": 100,
+    "cell": 56
+   },
+   "repetitions": 200,
+   "screen": {
+    "counts": {
+     "consistent": 0,
+     "replica_dependent": 2,
+     "inconclusive": 198
+    },
+    "frequency": {
+     "consistent": 0.0,
+     "replica_dependent": 0.01,
+     "inconclusive": 0.99
+    },
+    "wilson95": {
+     "consistent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "replica_dependent": [
+      0.0027466581335444384,
+      0.0357217617161768
+     ],
+     "inconclusive": [
+      0.9642782382838231,
+      0.9972533418664555
+     ]
+    }
+   },
+   "permutation": {
+    "rejections": 32,
+    "frequency": 0.16,
+    "wilson95": [
+     0.1156741203158702,
+     0.21714070162067106
+    ],
+    "p_median": 0.30952380952380953,
+    "p_min": 0.007936507936507936
+   },
+   "agreement": {
+    "reject&consistent": 0,
+    "reject&replica_dependent": 2,
+    "reject&inconclusive": 30,
+    "accept&consistent": 0,
+    "accept&replica_dependent": 0,
+    "accept&inconclusive": 168
+   },
+   "role": "condition_effect",
+   "screen_reproduces_repchar1": true
+  },
+  {
+   "cell": {
+    "scenario": "S3",
+    "channel": "linear",
+    "w_b": 0.1,
+    "D": 1,
+    "cell": 57
+   },
+   "repetitions": 200,
+   "screen": {
+    "counts": {
+     "consistent": 200,
+     "replica_dependent": 0,
+     "inconclusive": 0
+    },
+    "frequency": {
+     "consistent": 1.0,
+     "replica_dependent": 0.0,
+     "inconclusive": 0.0
+    },
+    "wilson95": {
+     "consistent": [
+      0.9811546736227335,
+      1.0
+     ],
+     "replica_dependent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "inconclusive": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ]
+    }
+   },
+   "permutation": {
+    "rejections": 200,
+    "frequency": 1.0,
+    "wilson95": [
+     0.9811546736227335,
+     1.0
+    ],
+    "p_median": 0.007936507936507936,
+    "p_min": 0.007936507936507936
+   },
+   "agreement": {
+    "reject&consistent": 200,
+    "reject&replica_dependent": 0,
+    "reject&inconclusive": 0,
+    "accept&consistent": 0,
+    "accept&replica_dependent": 0,
+    "accept&inconclusive": 0
+   },
+   "role": "condition_effect",
+   "screen_reproduces_repchar1": true
+  },
+  {
+   "cell": {
+    "scenario": "S3",
+    "channel": "linear",
+    "w_b": 0.1,
+    "D": 20,
+    "cell": 58
+   },
+   "repetitions": 200,
+   "screen": {
+    "counts": {
+     "consistent": 21,
+     "replica_dependent": 53,
+     "inconclusive": 126
+    },
+    "frequency": {
+     "consistent": 0.105,
+     "replica_dependent": 0.265,
+     "inconclusive": 0.63
+    },
+    "wilson95": {
+     "consistent": [
+      0.06970748792681017,
+      0.1551803199112304
+     ],
+     "replica_dependent": [
+      0.2086815414710911,
+      0.3301757619262242
+     ],
+     "inconclusive": [
+      0.5612262992405018,
+      0.6938739159014088
+     ]
+    }
+   },
+   "permutation": {
+    "rejections": 193,
+    "frequency": 0.965,
+    "wilson95": [
+     0.9295293884777092,
+     0.9829444579914328
+    ],
+    "p_median": 0.007936507936507936,
+    "p_min": 0.007936507936507936
+   },
+   "agreement": {
+    "reject&consistent": 21,
+    "reject&replica_dependent": 53,
+    "reject&inconclusive": 119,
+    "accept&consistent": 0,
+    "accept&replica_dependent": 0,
+    "accept&inconclusive": 7
+   },
+   "role": "condition_effect",
+   "screen_reproduces_repchar1": true
+  },
+  {
+   "cell": {
+    "scenario": "S3",
+    "channel": "linear",
+    "w_b": 0.1,
+    "D": 100,
+    "cell": 59
+   },
+   "repetitions": 200,
+   "screen": {
+    "counts": {
+     "consistent": 4,
+     "replica_dependent": 23,
+     "inconclusive": 173
+    },
+    "frequency": {
+     "consistent": 0.02,
+     "replica_dependent": 0.115,
+     "inconclusive": 0.865
+    },
+    "wilson95": {
+     "consistent": [
+      0.0078044264163494685,
+      0.050287086905826436
+     ],
+     "replica_dependent": [
+      0.07786373232561955,
+      0.16664716898487572
+     ],
+     "inconclusive": [
+      0.8107086162924745,
+      0.9055342954521209
+     ]
+    }
+   },
+   "permutation": {
+    "rejections": 109,
+    "frequency": 0.545,
+    "wilson95": [
+     0.47578611372488105,
+     0.6125178069011651
+    ],
+    "p_median": 0.03968253968253968,
+    "p_min": 0.007936507936507936
+   },
+   "agreement": {
+    "reject&consistent": 4,
+    "reject&replica_dependent": 23,
+    "reject&inconclusive": 82,
+    "accept&consistent": 0,
+    "accept&replica_dependent": 0,
+    "accept&inconclusive": 91
+   },
+   "role": "condition_effect",
+   "screen_reproduces_repchar1": true
+  },
+  {
+   "cell": {
+    "scenario": "S4a",
+    "channel": "linear",
+    "delta": 0.0,
+    "phi": 0.0,
+    "cell": 60
+   },
+   "repetitions": 200,
+   "screen": {
+    "counts": {
+     "consistent": 0,
+     "replica_dependent": 0,
+     "inconclusive": 200
+    },
+    "frequency": {
+     "consistent": 0.0,
+     "replica_dependent": 0.0,
+     "inconclusive": 1.0
+    },
+    "wilson95": {
+     "consistent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "replica_dependent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "inconclusive": [
+      0.9811546736227335,
+      1.0
+     ]
+    }
+   },
+   "permutation": {
+    "rejections": 9,
+    "frequency": 0.045,
+    "wilson95": [
+     0.023852543001492997,
+     0.0832967040018196
+    ],
+    "p_median": 0.5158730158730159,
+    "p_min": 0.007936507936507936
+   },
+   "agreement": {
+    "reject&consistent": 0,
+    "reject&replica_dependent": 0,
+    "reject&inconclusive": 9,
+    "accept&consistent": 0,
+    "accept&replica_dependent": 0,
+    "accept&inconclusive": 191
+   },
+   "role": "single_replica_perturbation_not_ordinary_null",
+   "screen_reproduces_repchar1": true
+  },
+  {
+   "cell": {
+    "scenario": "S4a",
+    "channel": "linear",
+    "delta": 0.0,
+    "phi": 0.8,
+    "cell": 61
+   },
+   "repetitions": 200,
+   "screen": {
+    "counts": {
+     "consistent": 0,
+     "replica_dependent": 0,
+     "inconclusive": 200
+    },
+    "frequency": {
+     "consistent": 0.0,
+     "replica_dependent": 0.0,
+     "inconclusive": 1.0
+    },
+    "wilson95": {
+     "consistent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "replica_dependent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "inconclusive": [
+      0.9811546736227335,
+      1.0
+     ]
+    }
+   },
+   "permutation": {
+    "rejections": 10,
+    "frequency": 0.05,
+    "wilson95": [
+     0.02738264560076393,
+     0.08957814813877599
+    ],
+    "p_median": 0.5238095238095238,
+    "p_min": 0.007936507936507936
+   },
+   "agreement": {
+    "reject&consistent": 0,
+    "reject&replica_dependent": 0,
+    "reject&inconclusive": 10,
+    "accept&consistent": 0,
+    "accept&replica_dependent": 0,
+    "accept&inconclusive": 190
+   },
+   "role": "single_replica_perturbation_not_ordinary_null",
+   "screen_reproduces_repchar1": true
+  },
+  {
+   "cell": {
+    "scenario": "S4a",
+    "channel": "linear",
+    "delta": 0.0,
+    "phi": 0.95,
+    "cell": 62
+   },
+   "repetitions": 200,
+   "screen": {
+    "counts": {
+     "consistent": 0,
+     "replica_dependent": 0,
+     "inconclusive": 200
+    },
+    "frequency": {
+     "consistent": 0.0,
+     "replica_dependent": 0.0,
+     "inconclusive": 1.0
+    },
+    "wilson95": {
+     "consistent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "replica_dependent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "inconclusive": [
+      0.9811546736227335,
+      1.0
+     ]
+    }
+   },
+   "permutation": {
+    "rejections": 11,
+    "frequency": 0.055,
+    "wilson95": [
+     0.03098534170345884,
+     0.0957869987723084
+    ],
+    "p_median": 0.4801587301587301,
+    "p_min": 0.007936507936507936
+   },
+   "agreement": {
+    "reject&consistent": 0,
+    "reject&replica_dependent": 0,
+    "reject&inconclusive": 11,
+    "accept&consistent": 0,
+    "accept&replica_dependent": 0,
+    "accept&inconclusive": 189
+   },
+   "role": "single_replica_perturbation_not_ordinary_null",
+   "screen_reproduces_repchar1": true
+  },
+  {
+   "cell": {
+    "scenario": "S4a",
+    "channel": "linear",
+    "delta": 1.0,
+    "phi": 0.0,
+    "cell": 63
+   },
+   "repetitions": 200,
+   "screen": {
+    "counts": {
+     "consistent": 0,
+     "replica_dependent": 200,
+     "inconclusive": 0
+    },
+    "frequency": {
+     "consistent": 0.0,
+     "replica_dependent": 1.0,
+     "inconclusive": 0.0
+    },
+    "wilson95": {
+     "consistent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "replica_dependent": [
+      0.9811546736227335,
+      1.0
+     ],
+     "inconclusive": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ]
+    }
+   },
+   "permutation": {
+    "rejections": 200,
+    "frequency": 1.0,
+    "wilson95": [
+     0.9811546736227335,
+     1.0
+    ],
+    "p_median": 0.015873015873015872,
+    "p_min": 0.007936507936507936
+   },
+   "agreement": {
+    "reject&consistent": 0,
+    "reject&replica_dependent": 200,
+    "reject&inconclusive": 0,
+    "accept&consistent": 0,
+    "accept&replica_dependent": 0,
+    "accept&inconclusive": 0
+   },
+   "role": "condition_effect",
+   "screen_reproduces_repchar1": true
+  },
+  {
+   "cell": {
+    "scenario": "S4a",
+    "channel": "linear",
+    "delta": 1.0,
+    "phi": 0.8,
+    "cell": 64
+   },
+   "repetitions": 200,
+   "screen": {
+    "counts": {
+     "consistent": 0,
+     "replica_dependent": 170,
+     "inconclusive": 30
+    },
+    "frequency": {
+     "consistent": 0.0,
+     "replica_dependent": 0.85,
+     "inconclusive": 0.15
+    },
+    "wilson95": {
+     "consistent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "replica_dependent": [
+      0.7939442071583334,
+      0.89286406437758
+     ],
+     "inconclusive": [
+      0.10713593562241995,
+      0.20605579284166659
+     ]
+    }
+   },
+   "permutation": {
+    "rejections": 200,
+    "frequency": 1.0,
+    "wilson95": [
+     0.9811546736227335,
+     1.0
+    ],
+    "p_median": 0.031746031746031744,
+    "p_min": 0.007936507936507936
+   },
+   "agreement": {
+    "reject&consistent": 0,
+    "reject&replica_dependent": 170,
+    "reject&inconclusive": 30,
+    "accept&consistent": 0,
+    "accept&replica_dependent": 0,
+    "accept&inconclusive": 0
+   },
+   "role": "condition_effect",
+   "screen_reproduces_repchar1": true
+  },
+  {
+   "cell": {
+    "scenario": "S4a",
+    "channel": "linear",
+    "delta": 1.0,
+    "phi": 0.95,
+    "cell": 65
+   },
+   "repetitions": 200,
+   "screen": {
+    "counts": {
+     "consistent": 0,
+     "replica_dependent": 18,
+     "inconclusive": 182
+    },
+    "frequency": {
+     "consistent": 0.0,
+     "replica_dependent": 0.09,
+     "inconclusive": 0.91
+    },
+    "wilson95": {
+     "consistent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "replica_dependent": [
+      0.05768744886219316,
+      0.13776571876716542
+     ],
+     "inconclusive": [
+      0.8622342812328346,
+      0.9423125511378069
+     ]
+    }
+   },
+   "permutation": {
+    "rejections": 129,
+    "frequency": 0.645,
+    "wilson95": [
+     0.5765211307549043,
+     0.7080137245956883
+    ],
+    "p_median": 0.03968253968253968,
+    "p_min": 0.015873015873015872
+   },
+   "agreement": {
+    "reject&consistent": 0,
+    "reject&replica_dependent": 18,
+    "reject&inconclusive": 111,
+    "accept&consistent": 0,
+    "accept&replica_dependent": 0,
+    "accept&inconclusive": 71
+   },
+   "role": "condition_effect",
+   "screen_reproduces_repchar1": true
+  },
+  {
+   "cell": {
+    "scenario": "S4b",
+    "channel": "linear",
+    "k": 0.25,
+    "delta": 0.0,
+    "phi": 0.0,
+    "cell": 66
+   },
+   "repetitions": 200,
+   "screen": {
+    "counts": {
+     "consistent": 0,
+     "replica_dependent": 1,
+     "inconclusive": 199
+    },
+    "frequency": {
+     "consistent": 0.0,
+     "replica_dependent": 0.005,
+     "inconclusive": 0.995
+    },
+    "wilson95": {
+     "consistent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "replica_dependent": [
+      0.0008831687156009814,
+      0.02777370439789293
+     ],
+     "inconclusive": [
+      0.9722262956021069,
+      0.9991168312843989
+     ]
+    }
+   },
+   "permutation": {
+    "rejections": 10,
+    "frequency": 0.05,
+    "wilson95": [
+     0.02738264560076393,
+     0.08957814813877599
+    ],
+    "p_median": 0.45634920634920634,
+    "p_min": 0.007936507936507936
+   },
+   "agreement": {
+    "reject&consistent": 0,
+    "reject&replica_dependent": 1,
+    "reject&inconclusive": 9,
+    "accept&consistent": 0,
+    "accept&replica_dependent": 0,
+    "accept&inconclusive": 190
+   },
+   "role": "heterogeneous_exchangeable_null",
+   "screen_reproduces_repchar1": true
+  },
+  {
+   "cell": {
+    "scenario": "S4b",
+    "channel": "linear",
+    "k": 0.25,
+    "delta": 0.0,
+    "phi": 0.8,
+    "cell": 67
+   },
+   "repetitions": 200,
+   "screen": {
+    "counts": {
+     "consistent": 0,
+     "replica_dependent": 0,
+     "inconclusive": 200
+    },
+    "frequency": {
+     "consistent": 0.0,
+     "replica_dependent": 0.0,
+     "inconclusive": 1.0
+    },
+    "wilson95": {
+     "consistent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "replica_dependent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "inconclusive": [
+      0.9811546736227335,
+      1.0
+     ]
+    }
+   },
+   "permutation": {
+    "rejections": 16,
+    "frequency": 0.08,
+    "wilson95": [
+     0.049840585889759974,
+     0.12598948826714396
+    ],
+    "p_median": 0.44047619047619047,
+    "p_min": 0.007936507936507936
+   },
+   "agreement": {
+    "reject&consistent": 0,
+    "reject&replica_dependent": 0,
+    "reject&inconclusive": 16,
+    "accept&consistent": 0,
+    "accept&replica_dependent": 0,
+    "accept&inconclusive": 184
+   },
+   "role": "heterogeneous_exchangeable_null",
+   "screen_reproduces_repchar1": true
+  },
+  {
+   "cell": {
+    "scenario": "S4b",
+    "channel": "linear",
+    "k": 0.25,
+    "delta": 0.0,
+    "phi": 0.95,
+    "cell": 68
+   },
+   "repetitions": 200,
+   "screen": {
+    "counts": {
+     "consistent": 0,
+     "replica_dependent": 0,
+     "inconclusive": 200
+    },
+    "frequency": {
+     "consistent": 0.0,
+     "replica_dependent": 0.0,
+     "inconclusive": 1.0
+    },
+    "wilson95": {
+     "consistent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "replica_dependent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "inconclusive": [
+      0.9811546736227335,
+      1.0
+     ]
+    }
+   },
+   "permutation": {
+    "rejections": 10,
+    "frequency": 0.05,
+    "wilson95": [
+     0.02738264560076393,
+     0.08957814813877599
+    ],
+    "p_median": 0.5238095238095238,
+    "p_min": 0.015873015873015872
+   },
+   "agreement": {
+    "reject&consistent": 0,
+    "reject&replica_dependent": 0,
+    "reject&inconclusive": 10,
+    "accept&consistent": 0,
+    "accept&replica_dependent": 0,
+    "accept&inconclusive": 190
+   },
+   "role": "heterogeneous_exchangeable_null",
+   "screen_reproduces_repchar1": true
+  },
+  {
+   "cell": {
+    "scenario": "S4b",
+    "channel": "linear",
+    "k": 0.25,
+    "delta": 1.0,
+    "phi": 0.0,
+    "cell": 69
+   },
+   "repetitions": 200,
+   "screen": {
+    "counts": {
+     "consistent": 36,
+     "replica_dependent": 80,
+     "inconclusive": 84
+    },
+    "frequency": {
+     "consistent": 0.18,
+     "replica_dependent": 0.4,
+     "inconclusive": 0.42
+    },
+    "wilson95": {
+     "consistent": [
+      0.13294625859420173,
+      0.23911475028724882
+     ],
+     "replica_dependent": [
+      0.33460578566807336,
+      0.46916327960737997
+     ],
+     "inconclusive": [
+      0.35373599161616726,
+      0.4892792606041954
+     ]
+    }
+   },
+   "permutation": {
+    "rejections": 200,
+    "frequency": 1.0,
+    "wilson95": [
+     0.9811546736227335,
+     1.0
+    ],
+    "p_median": 0.007936507936507936,
+    "p_min": 0.007936507936507936
+   },
+   "agreement": {
+    "reject&consistent": 36,
+    "reject&replica_dependent": 80,
+    "reject&inconclusive": 84,
+    "accept&consistent": 0,
+    "accept&replica_dependent": 0,
+    "accept&inconclusive": 0
+   },
+   "role": "condition_effect",
+   "screen_reproduces_repchar1": true
+  },
+  {
+   "cell": {
+    "scenario": "S4b",
+    "channel": "linear",
+    "k": 0.25,
+    "delta": 1.0,
+    "phi": 0.8,
+    "cell": 70
+   },
+   "repetitions": 200,
+   "screen": {
+    "counts": {
+     "consistent": 20,
+     "replica_dependent": 66,
+     "inconclusive": 114
+    },
+    "frequency": {
+     "consistent": 0.1,
+     "replica_dependent": 0.33,
+     "inconclusive": 0.57
+    },
+    "wilson95": {
+     "consistent": [
+      0.06567044866909588,
+      0.1494058124327174
+     ],
+     "replica_dependent": [
+      0.26857425870603957,
+      0.39783315226223115
+     ],
+     "inconclusive": [
+      0.5007048776415268,
+      0.6366567766656557
+     ]
+    }
+   },
+   "permutation": {
+    "rejections": 200,
+    "frequency": 1.0,
+    "wilson95": [
+     0.9811546736227335,
+     1.0
+    ],
+    "p_median": 0.007936507936507936,
+    "p_min": 0.007936507936507936
+   },
+   "agreement": {
+    "reject&consistent": 20,
+    "reject&replica_dependent": 66,
+    "reject&inconclusive": 114,
+    "accept&consistent": 0,
+    "accept&replica_dependent": 0,
+    "accept&inconclusive": 0
+   },
+   "role": "condition_effect",
+   "screen_reproduces_repchar1": true
+  },
+  {
+   "cell": {
+    "scenario": "S4b",
+    "channel": "linear",
+    "k": 0.25,
+    "delta": 1.0,
+    "phi": 0.95,
+    "cell": 71
+   },
+   "repetitions": 200,
+   "screen": {
+    "counts": {
+     "consistent": 4,
+     "replica_dependent": 25,
+     "inconclusive": 171
+    },
+    "frequency": {
+     "consistent": 0.02,
+     "replica_dependent": 0.125,
+     "inconclusive": 0.855
+    },
+    "wilson95": {
+     "consistent": [
+      0.0078044264163494685,
+      0.050287086905826436
+     ],
+     "replica_dependent": [
+      0.08611974475712644,
+      0.17801425002582347
+     ],
+     "inconclusive": [
+      0.7995133246921847,
+      0.8971064935799559
+     ]
+    }
+   },
+   "permutation": {
+    "rejections": 179,
+    "frequency": 0.895,
+    "wilson95": [
+     0.8448196800887696,
+     0.9302925120731899
+    ],
+    "p_median": 0.007936507936507936,
+    "p_min": 0.007936507936507936
+   },
+   "agreement": {
+    "reject&consistent": 4,
+    "reject&replica_dependent": 25,
+    "reject&inconclusive": 150,
+    "accept&consistent": 0,
+    "accept&replica_dependent": 0,
+    "accept&inconclusive": 21
+   },
+   "role": "condition_effect",
+   "screen_reproduces_repchar1": true
+  },
+  {
+   "cell": {
+    "scenario": "S4b",
+    "channel": "linear",
+    "k": 0.5,
+    "delta": 0.0,
+    "phi": 0.0,
+    "cell": 72
+   },
+   "repetitions": 200,
+   "screen": {
+    "counts": {
+     "consistent": 0,
+     "replica_dependent": 0,
+     "inconclusive": 200
+    },
+    "frequency": {
+     "consistent": 0.0,
+     "replica_dependent": 0.0,
+     "inconclusive": 1.0
+    },
+    "wilson95": {
+     "consistent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "replica_dependent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "inconclusive": [
+      0.9811546736227335,
+      1.0
+     ]
+    }
+   },
+   "permutation": {
+    "rejections": 10,
+    "frequency": 0.05,
+    "wilson95": [
+     0.02738264560076393,
+     0.08957814813877599
+    ],
+    "p_median": 0.5,
+    "p_min": 0.007936507936507936
+   },
+   "agreement": {
+    "reject&consistent": 0,
+    "reject&replica_dependent": 0,
+    "reject&inconclusive": 10,
+    "accept&consistent": 0,
+    "accept&replica_dependent": 0,
+    "accept&inconclusive": 190
+   },
+   "role": "heterogeneous_exchangeable_null",
+   "screen_reproduces_repchar1": true
+  },
+  {
+   "cell": {
+    "scenario": "S4b",
+    "channel": "linear",
+    "k": 0.5,
+    "delta": 0.0,
+    "phi": 0.8,
+    "cell": 73
+   },
+   "repetitions": 200,
+   "screen": {
+    "counts": {
+     "consistent": 0,
+     "replica_dependent": 1,
+     "inconclusive": 199
+    },
+    "frequency": {
+     "consistent": 0.0,
+     "replica_dependent": 0.005,
+     "inconclusive": 0.995
+    },
+    "wilson95": {
+     "consistent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "replica_dependent": [
+      0.0008831687156009814,
+      0.02777370439789293
+     ],
+     "inconclusive": [
+      0.9722262956021069,
+      0.9991168312843989
+     ]
+    }
+   },
+   "permutation": {
+    "rejections": 13,
+    "frequency": 0.065,
+    "wilson95": [
+     0.03837635464915299,
+     0.10801907929906895
+    ],
+    "p_median": 0.5,
+    "p_min": 0.007936507936507936
+   },
+   "agreement": {
+    "reject&consistent": 0,
+    "reject&replica_dependent": 1,
+    "reject&inconclusive": 12,
+    "accept&consistent": 0,
+    "accept&replica_dependent": 0,
+    "accept&inconclusive": 187
+   },
+   "role": "heterogeneous_exchangeable_null",
+   "screen_reproduces_repchar1": true
+  },
+  {
+   "cell": {
+    "scenario": "S4b",
+    "channel": "linear",
+    "k": 0.5,
+    "delta": 0.0,
+    "phi": 0.95,
+    "cell": 74
+   },
+   "repetitions": 200,
+   "screen": {
+    "counts": {
+     "consistent": 0,
+     "replica_dependent": 1,
+     "inconclusive": 199
+    },
+    "frequency": {
+     "consistent": 0.0,
+     "replica_dependent": 0.005,
+     "inconclusive": 0.995
+    },
+    "wilson95": {
+     "consistent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "replica_dependent": [
+      0.0008831687156009814,
+      0.02777370439789293
+     ],
+     "inconclusive": [
+      0.9722262956021069,
+      0.9991168312843989
+     ]
+    }
+   },
+   "permutation": {
+    "rejections": 10,
+    "frequency": 0.05,
+    "wilson95": [
+     0.02738264560076393,
+     0.08957814813877599
+    ],
+    "p_median": 0.5515873015873016,
+    "p_min": 0.015873015873015872
+   },
+   "agreement": {
+    "reject&consistent": 0,
+    "reject&replica_dependent": 1,
+    "reject&inconclusive": 9,
+    "accept&consistent": 0,
+    "accept&replica_dependent": 0,
+    "accept&inconclusive": 190
+   },
+   "role": "heterogeneous_exchangeable_null",
+   "screen_reproduces_repchar1": true
+  },
+  {
+   "cell": {
+    "scenario": "S4b",
+    "channel": "linear",
+    "k": 0.5,
+    "delta": 1.0,
+    "phi": 0.0,
+    "cell": 75
+   },
+   "repetitions": 200,
+   "screen": {
+    "counts": {
+     "consistent": 4,
+     "replica_dependent": 16,
+     "inconclusive": 180
+    },
+    "frequency": {
+     "consistent": 0.02,
+     "replica_dependent": 0.08,
+     "inconclusive": 0.9
+    },
+    "wilson95": {
+     "consistent": [
+      0.0078044264163494685,
+      0.050287086905826436
+     ],
+     "replica_dependent": [
+      0.049840585889759974,
+      0.12598948826714396
+     ],
+     "inconclusive": [
+      0.8505941875672826,
+      0.9343295513309041
+     ]
+    }
+   },
+   "permutation": {
+    "rejections": 153,
+    "frequency": 0.765,
+    "wilson95": [
+     0.7015863111723746,
+     0.8184256658476741
+    ],
+    "p_median": 0.015873015873015872,
+    "p_min": 0.007936507936507936
+   },
+   "agreement": {
+    "reject&consistent": 4,
+    "reject&replica_dependent": 16,
+    "reject&inconclusive": 133,
+    "accept&consistent": 0,
+    "accept&replica_dependent": 0,
+    "accept&inconclusive": 47
+   },
+   "role": "condition_effect",
+   "screen_reproduces_repchar1": true
+  },
+  {
+   "cell": {
+    "scenario": "S4b",
+    "channel": "linear",
+    "k": 0.5,
+    "delta": 1.0,
+    "phi": 0.8,
+    "cell": 76
+   },
+   "repetitions": 200,
+   "screen": {
+    "counts": {
+     "consistent": 0,
+     "replica_dependent": 12,
+     "inconclusive": 188
+    },
+    "frequency": {
+     "consistent": 0.0,
+     "replica_dependent": 0.06,
+     "inconclusive": 0.94
+    },
+    "wilson95": {
+     "consistent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "replica_dependent": [
+      0.03465219425433187,
+      0.1019316929576627
+     ],
+     "inconclusive": [
+      0.8980683070423372,
+      0.9653478057456681
+     ]
+    }
+   },
+   "permutation": {
+    "rejections": 143,
+    "frequency": 0.715,
+    "wilson95": [
+     0.6488465397039482,
+     0.7730499699538271
+    ],
+    "p_median": 0.023809523809523808,
+    "p_min": 0.007936507936507936
+   },
+   "agreement": {
+    "reject&consistent": 0,
+    "reject&replica_dependent": 12,
+    "reject&inconclusive": 131,
+    "accept&consistent": 0,
+    "accept&replica_dependent": 0,
+    "accept&inconclusive": 57
+   },
+   "role": "condition_effect",
+   "screen_reproduces_repchar1": true
+  },
+  {
+   "cell": {
+    "scenario": "S4b",
+    "channel": "linear",
+    "k": 0.5,
+    "delta": 1.0,
+    "phi": 0.95,
+    "cell": 77
+   },
+   "repetitions": 200,
+   "screen": {
+    "counts": {
+     "consistent": 2,
+     "replica_dependent": 10,
+     "inconclusive": 188
+    },
+    "frequency": {
+     "consistent": 0.01,
+     "replica_dependent": 0.05,
+     "inconclusive": 0.94
+    },
+    "wilson95": {
+     "consistent": [
+      0.0027466581335444384,
+      0.0357217617161768
+     ],
+     "replica_dependent": [
+      0.02738264560076393,
+      0.08957814813877599
+     ],
+     "inconclusive": [
+      0.8980683070423372,
+      0.9653478057456681
+     ]
+    }
+   },
+   "permutation": {
+    "rejections": 117,
+    "frequency": 0.585,
+    "wilson95": [
+     0.5157391490134403,
+     0.6510571455024242
+    ],
+    "p_median": 0.031746031746031744,
+    "p_min": 0.007936507936507936
+   },
+   "agreement": {
+    "reject&consistent": 2,
+    "reject&replica_dependent": 10,
+    "reject&inconclusive": 105,
+    "accept&consistent": 0,
+    "accept&replica_dependent": 0,
+    "accept&inconclusive": 83
+   },
+   "role": "condition_effect",
+   "screen_reproduces_repchar1": true
+  },
+  {
+   "cell": {
+    "scenario": "S4c",
+    "channel": "linear",
+    "D": 1,
+    "cell": 78
+   },
+   "repetitions": 200,
+   "screen": {
+    "counts": {
+     "consistent": 0,
+     "replica_dependent": 0,
+     "inconclusive": 200
+    },
+    "frequency": {
+     "consistent": 0.0,
+     "replica_dependent": 0.0,
+     "inconclusive": 1.0
+    },
+    "wilson95": {
+     "consistent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "replica_dependent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "inconclusive": [
+      0.9811546736227335,
+      1.0
+     ]
+    }
+   },
+   "permutation": {
+    "rejections": 8,
+    "frequency": 0.04,
+    "wilson95": [
+     0.020405632066152306,
+     0.07693206820093293
+    ],
+    "p_median": 0.503968253968254,
+    "p_min": 0.015873015873015872
+   },
+   "agreement": {
+    "reject&consistent": 0,
+    "reject&replica_dependent": 0,
+    "reject&inconclusive": 8,
+    "accept&consistent": 0,
+    "accept&replica_dependent": 0,
+    "accept&inconclusive": 192
+   },
+   "role": "single_replica_perturbation_not_ordinary_null",
+   "screen_reproduces_repchar1": true
+  },
+  {
+   "cell": {
+    "scenario": "S4c",
+    "channel": "linear",
+    "D": 20,
+    "cell": 79
+   },
+   "repetitions": 200,
+   "screen": {
+    "counts": {
+     "consistent": 0,
+     "replica_dependent": 0,
+     "inconclusive": 200
+    },
+    "frequency": {
+     "consistent": 0.0,
+     "replica_dependent": 0.0,
+     "inconclusive": 1.0
+    },
+    "wilson95": {
+     "consistent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "replica_dependent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "inconclusive": [
+      0.9811546736227335,
+      1.0
+     ]
+    }
+   },
+   "permutation": {
+    "rejections": 5,
+    "frequency": 0.025,
+    "wilson95": [
+     0.010724719651761264,
+     0.05717834040664198
+    ],
+    "p_median": 0.5079365079365079,
+    "p_min": 0.015873015873015872
+   },
+   "agreement": {
+    "reject&consistent": 0,
+    "reject&replica_dependent": 0,
+    "reject&inconclusive": 5,
+    "accept&consistent": 0,
+    "accept&replica_dependent": 0,
+    "accept&inconclusive": 195
+   },
+   "role": "single_replica_perturbation_not_ordinary_null",
+   "screen_reproduces_repchar1": true
+  },
+  {
+   "cell": {
+    "scenario": "S4c",
+    "channel": "linear",
+    "D": 100,
+    "cell": 80
+   },
+   "repetitions": 200,
+   "screen": {
+    "counts": {
+     "consistent": 0,
+     "replica_dependent": 0,
+     "inconclusive": 200
+    },
+    "frequency": {
+     "consistent": 0.0,
+     "replica_dependent": 0.0,
+     "inconclusive": 1.0
+    },
+    "wilson95": {
+     "consistent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "replica_dependent": [
+      1.734723475976807e-18,
+      0.018845326377266575
+     ],
+     "inconclusive": [
+      0.9811546736227335,
+      1.0
+     ]
+    }
+   },
+   "permutation": {
+    "rejections": 11,
+    "frequency": 0.055,
+    "wilson95": [
+     0.03098534170345884,
+     0.0957869987723084
+    ],
+    "p_median": 0.5238095238095238,
+    "p_min": 0.007936507936507936
+   },
+   "agreement": {
+    "reject&consistent": 0,
+    "reject&replica_dependent": 0,
+    "reject&inconclusive": 11,
+    "accept&consistent": 0,
+    "accept&replica_dependent": 0,
+    "accept&inconclusive": 189
+   },
+   "role": "single_replica_perturbation_not_ordinary_null",
+   "screen_reproduces_repchar1": true
+  }
+ ]
+}
