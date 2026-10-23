@@ -1,0 +1,80 @@
+{
+ "posthoc": true,
+ "source": "DEV-ENS-1_results.json",
+ "source_sha256": "ca203baa104caa0b936e92c443d72985d2fddc07d632665147d476fe3a636c52",
+ "description": "for the top-10 primary windows per channel: block pairs (open i, closed j) whose between-run distance is at or below the window's largest within-run distance, and which within-run block pair is that largest one",
+ "channels": {
+  "kappa": {
+   "between_pairs_at_or_below_max_within": {
+    "open0-closed0": 7,
+    "open0-closed1": 5,
+    "open0-closed2": 5,
+    "open1-closed0": 1,
+    "open1-closed2": 1,
+    "open2-closed0": 3,
+    "open2-closed1": 1,
+    "open2-closed2": 3
+   },
+   "largest_within_pair": {
+    "closed 0-1": 1,
+    "open 0-1": 2,
+    "open 0-2": 4,
+    "open 1-2": 3
+   }
+  },
+  "d_i_i2": {
+   "between_pairs_at_or_below_max_within": {
+    "open0-closed0": 7,
+    "open0-closed1": 6,
+    "open0-closed2": 6,
+    "open1-closed0": 2,
+    "open1-closed2": 1,
+    "open2-closed0": 3,
+    "open2-closed1": 1,
+    "open2-closed2": 2
+   },
+   "largest_within_pair": {
+    "closed 0-1": 2,
+    "open 0-1": 2,
+    "open 0-2": 4,
+    "open 1-2": 2
+   }
+  },
+  "tau": {
+   "between_pairs_at_or_below_max_within": {
+    "open0-closed0": 7,
+    "open0-closed1": 6,
+    "open0-closed2": 5,
+    "open1-closed0": 2,
+    "open1-closed1": 1,
+    "open1-closed2": 1,
+    "open2-closed0": 3,
+    "open2-closed1": 2,
+    "open2-closed2": 2
+   },
+   "largest_within_pair": {
+    "closed 0-2": 2,
+    "open 0-1": 2,
+    "open 0-2": 5,
+    "open 1-2": 1
+   }
+  },
+  "d_i_i3": {
+   "between_pairs_at_or_below_max_within": {
+    "open0-closed0": 5,
+    "open0-closed1": 4,
+    "open0-closed2": 5,
+    "open1-closed2": 1,
+    "open2-closed0": 4,
+    "open2-closed1": 3,
+    "open2-closed2": 2
+   },
+   "largest_within_pair": {
+    "closed 0-1": 2,
+    "open 0-1": 1,
+    "open 0-2": 6,
+    "open 1-2": 1
+   }
+  }
+ }
+}

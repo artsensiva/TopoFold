@@ -36,6 +36,10 @@ existing core `compute_invariants`, computed only within segments and split at d
 (`missing_coordinates`, `terminal_or_break`, `degenerate_segment`, `near_collinear`, `run_too_short_for_core`,
 `core_error`, `non_finite_core_output`); invalid cells are NaN. The core receives float32 input.
 
+**Comparison** (`compare.py`, NumPy only): histogram Jensen–Shannon distance (base 2, no pseudocounts), linear bins
+with explicit under/overflow, circular bins with a stated origin, κ/τ window-matched Cα distances, equal-duration
+blocks. Descriptive only; used by `benchmarks/audit/dev_ens_compare/`.
+
 **Run** (repository root):
 
 ```bash
@@ -46,7 +50,7 @@ PYTHONPATH=python .venv/bin/python -m topofold_inputs.pipeline TOP [TRAJ ...] --
 PYTHONPATH=python benchmarks/audit/wpd_local_retrieval/build/venv/bin/python python/examples/ca_adapter_example.py --out OUTDIR
 # tests
 PYTHONPATH=python benchmarks/audit/wpd_local_retrieval/build/venv/bin/python -m pytest tests/test_ca_adapter.py
-.venv/bin/python -m pytest tests/test_ca_features.py
+.venv/bin/python -m pytest tests/test_ca_features.py tests/test_ensemble_compare.py
 ```
 
 **Not included, and what would activate it.**

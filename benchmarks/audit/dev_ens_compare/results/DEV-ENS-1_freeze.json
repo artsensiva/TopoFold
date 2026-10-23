@@ -1,0 +1,14 @@
+{
+  "id": "DEV-ENS-1",
+  "frozen_utc": "2026-10-23T04:36:34.913683+00:00",
+  "spec_sha256": "c450e7d796347b7507b5f93559bc7d718931ebf71e29776d20ae8a80c79b1ea1",
+  "code_sha256": {
+    "python/topofold_inputs/compare.py": "8e19b3ccf8a1221c0936af9409867bf7fe9c0ead3c383147844ee5648db58021",
+    "python/topofold_inputs/features.py": "9138358ce5040a8dc1e2ff5692e6d3aa77e5334bfb840cc3e8620ca46598271e",
+    "python/topofold_inputs/ca_adapter.py": "0dfd026fae6e549b5fedc151e3c0f2636db83069c295c5a138d129979052bb67",
+    "python/topofold_inputs/pipeline.py": "b54e7c65e5076d93cc056a9f930d999de7135be344f70b511427f07f3fcc4c64",
+    "python/topofold_inputs/__main__.py": "888f28422877b6128d6f6ce117d9ff02d5f979f588e69304036e13c8c7ff839f",
+    "benchmarks/audit/dev_ens_compare/run_compare.py": "d00f082efa2a3d907071a378b482dce9051011c7c88549ebacd8bda1a60e5436",
+    "tests/test_ensemble_compare.py": "fe9a9882e5378d655e4eceaa2f18b4cfbe6a18f34776892819ee00a5a4d0db1f"
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "id": "DEV-ENS-1",
+  "kind": "descriptive development comparison (development evidence only; not a test, not a replicated biological comparison)",
+  "question": "Which per-window local Calpha geometries differ between the AdK open-start and closed-start trajectories over a matched elapsed-time interval, and how stable is that description across time blocks?",
+  "dataset": {
+    "source_doi": "10.5281/zenodo.5583119",
+    "licence": "CC BY 4.0 (Zenodo record; adk_feasibility/results/adk_g0_provenance.json)",
+    "runs": {
+      "open": {"topology": "benchmarks/audit/adk_feasibility/data/raw/ORADD_open_state.gro",
+               "topology_sha256": "25c90e78f549d97ed61814950efcdf9b859a0320734bd15bd09003677608a40f",
+               "trajectory": "benchmarks/audit/adk_feasibility/data/raw/ORADD_open_state_traj.xtc",
+               "trajectory_sha256": "39e77b58ded7279d27b9e331b2ff9e6d39a803183689612856df0aa800a40019",
+               "g0": {"n_frames": 2253, "time_first_ps": 0.0, "time_last_ps": 450400.0, "dt_ps": 200.0, "cadence_irregularities": 0}},
+      "closed": {"topology": "benchmarks/audit/adk_feasibility/data/raw/ORADD_closed_state.gro",
+                 "topology_sha256": "4d05b0d3767e1f5e948b2c038a42e9b1a2132e3085c5b50899f4bf797e9f16e4",
+                 "trajectory": "benchmarks/audit/adk_feasibility/data/raw/ORADD_closed_state_traj.xtc",
+                 "trajectory_sha256": "f950ff0a7beadab0992d9c1cffaea540675b62d06ed9d1eadcc988f20f6f3cc9",
+                 "g0": {"n_frames": 1678, "time_first_ps": 0.0, "time_last_ps": 335400.0, "dt_ps": 200.0, "cadence_irregularities": 0}}
+    },
+    "confound": "The runs differ in starting structure; equal elapsed time does not remove that confound. One run per starting condition."
+  },
+  "observation_period": {
+    "rule": "common elapsed interval from each run's first timestamp: [0, min(last elapsed)] = [0, 335400] ps; every fourth source frame from frame 0 (cadence 200 ps in both, so samples every 800 ps); no burn-in removed",
+    "source_frame_slice": {"start": 0, "stop": 1677, "step": 4},
+    "expected_samples_per_run": 420,
+    "expected_total_samples": 840,
+    "verification": "selected timestamps must be identical in both runs, equal 800 ps x k, and lie within [0, 335400] ps"
+  },
+  "blocks": {
+    "n_blocks": 3,
+    "rule": "equal-duration blocks of [0, 335400] ps with edges at T/3 and 2T/3; a sample belongs to block b if edge_b <= t < edge_{b+1} (last block includes T); then every block of both runs is truncated to the smallest block size, keeping its earliest samples",
+    "comparisons": "between-run: all 3 x 3 block pairs; within-run: the 3 block pairs of each run; all at the same block sample size. Full-run distances are reported separately and are not compared in magnitude with block distances.",
+    "interpretation": "Blocks are not independent replicates. Fractions of between-run block distances above the largest within-run block distance are descriptive only."
+  },
+  "measure": {
+    "name": "Jensen-Shannon distance = sqrt(Jensen-Shannon divergence)",
+    "log_base": 2,
+    "range": "[0, 1]",
+    "zero_counts": "empty bins contribute 0 (0 log 0 = 0); no pseudocounts",
+    "out_of_range": "linear channels use explicit underflow and overflow bins appended to the histogram; counts reported",
+    "identical_bins": "the same bins for both runs and all blocks within a configuration"
+  },
+  "channels": {
+    "kappa": {"window": "3 residues (i-1, i, i+1)", "type": "linear", "lo": 0.0, "hi": 3.141592653589793, "unit": "rad"},
+    "d_i_i2": {"window": "3 residues (i-1, i, i+1): Calpha(i-1)-Calpha(i+1)", "type": "linear", "lo": 3.0, "hi": 8.0, "unit": "angstrom"},
+    "tau": {"window": "4 residues (i-1, ..., i+2), hinge i -> i+1", "type": "circular", "origin": -3.141592653589793, "unit": "rad"},
+    "d_i_i3": {"window": "4 residues (i-1, ..., i+2): Calpha(i-1)-Calpha(i+2)", "type": "linear", "lo": 3.0, "hi": 12.0, "unit": "angstrom"}
+  },
+  "pairs": [["kappa", "d_i_i2"], ["tau", "d_i_i3"]],
+  "configurations": {
+    "primary": {"bins": 36, "tau_origin_shift_bins": 0.0},
+    "sensitivity": [
+      {"name": "bins18", "bins": 18, "tau_origin_shift_bins": 0.0},
+      {"name": "bins72", "bins": 72, "tau_origin_shift_bins": 0.0},
+      {"name": "tau_origin_half_bin", "bins": 36, "tau_origin_shift_bins": 0.5}
+    ],
+    "rule": "primary declared in advance; sensitivity results are reported, never used to choose a configuration"
+  },
+  "matched_observations": "a window enters a channel pair only if every selected sample is valid in both runs for both channels of that pair; exclusions are reported with reasons",
+  "physics_notes": [
+    "kappa and the i->i+2 distance are near-deterministic functions of each other when Calpha-Calpha bond lengths are nearly constant: d^2 = l1^2 + l2^2 + 2 l1 l2 cos(kappa)",
+    "the i->i+3 distance depends on tau and two kappa values and is unchanged by tau -> -tau (it cannot see chirality)",
+    "marginal per-window distributions can miss changes in joint relationships between windows or features"
+  ],
+  "pipeline_policies": {"selection": "protein", "chain_attribute": "auto", "altloc": "reject", "pbc": "make_whole_sequential",
+                        "max_ca_ca_angstrom": 4.2, "min_segment_angstrom": 1e-6, "collinear_sin_tol": 1e-6},
+  "outputs": ["per-window full-run JS distance per channel", "block-level between/within distances and descriptive fractions",
+              "rank stability: Spearman between matched block-pair rankings within a channel; Spearman between paired channels",
+              "sensitivity: Spearman and top-10 overlap versus primary", "generated report"],
+  "resource_cap": {"max_total_frames": 1000, "cpu_seconds": 1800},
+  "not_in_scope": ["p-values or confidence statements", "state assignment", "populations", "causal or biological interpretation",
+                   "representation superiority", "combined scores", "PENSA reproduction"]
+}

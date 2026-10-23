@@ -51,6 +51,7 @@ benchmarks/audit/adk_feasibility/build/
 # WP-D local retrieval: isolated environment and derived AdK arrays only
 benchmarks/audit/wpd_local_retrieval/build/
 benchmarks/audit/dev_ca_pipeline/build/
+benchmarks/audit/dev_ens_compare/build/
 benchmarks/audit/wpd_local_retrieval/data/
 benchmarks/audit/legacy_engine/build/
 benchmarks/audit/legacy_engine/rust_probe/target/
