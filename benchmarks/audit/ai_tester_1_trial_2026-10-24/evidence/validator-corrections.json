@@ -1,0 +1,12 @@
+{
+  "utc": "2026-10-23T23:56:28.692045+00:00",
+  "actor": "AI tester 1 delegated documentation/validation agent",
+  "project_or_result_changes": false,
+  "attempt1_preserved": true,
+  "corrections": [
+    "Resolve relative manifest spec path from recorded checkout invocation cwd, not validator cwd.",
+    "Use observed CSV schema status residue_not_found for deposited absent residues; original substring missing assumption was unsupported.",
+    "Compare only actually overlapping complete windows; additional correspondence includes residues65\u201367 excluded by primary specification.",
+    "Strengthen independent exclusion audit: parse each explanation location and check exactly one row for each missing-C-alpha occurrence per window and structure."
+  ]
+}

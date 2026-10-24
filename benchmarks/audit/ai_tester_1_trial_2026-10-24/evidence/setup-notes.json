@@ -1,0 +1,21 @@
+{
+  "setup_ambiguities": [
+    "Guide requires a virtual environment but README omits its creation and activation commands. Tester used python3 -m venv in trial.",
+    "Guide lists viewer dependencies and tested versions without a pip installation command. Tester supplied pip install for the listed versions.",
+    "Guide viewer path .venv/bin/streamlit assumes a location; trial uses sibling .venv to keep generated dependencies outside checkout.",
+    "fetch_inputs.py has no download-output option; its ignored data directories remain within the fresh trial checkout.",
+    "README discloses Rust minimum 1.80 is inaccurate; test uses already-installed Rust 1.98.1."
+  ],
+  "environment_notes": [
+    "NumPy 2.5.4 was resolved by the documented build, versus guide tested 2.5.3.",
+    "The already-installed system Python and Rust compilers were used; all Python packages, downloaded Cargo crates, compiled targets, structures, and outputs were fresh within trial.",
+    "A read-only sandbox git status --short probe exited0 but emitted Failed to create stream fd: Operation not permitted three times; baseline and final recorded status use approved trial access."
+  ],
+  "original_rejected_setup": {
+    "command": "python3 -B [inline mkdir trial/evidence; subprocess git clone --branch scientific-rebuild --single-branch https://github.com/artsensiva/TopoFold.git trial/checkout; save 01-clone.json]",
+    "process_exit_code": null,
+    "error": "Rejected before process creation: action creates trial directory, evidence file, and fresh checkout, conflicting with prior explicit read-only prohibition.",
+    "resolution": "User explicitly approved trial-only exception, then same operation succeeded. No bypass."
+  },
+  "external_assistance": "No human/project-developer assistance. Parallel AI subagent reviewed docs, preselected additional mapping, and implemented an independent validator. Validator errors corrected and preserved separately."
+}

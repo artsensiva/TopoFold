@@ -1,0 +1,24 @@
+					14 checkbox d_kappa (rad), Value: 1
+						15 text d_kappa (rad)
+					16 checkbox d_i_i2 (Å), Value: 1
+						17 text d_i_i2 (Å)
+					18 checkbox rmsd3 (Å), Value: 1
+						19 text rmsd3 (Å)
+					20 checkbox d_tau (rad), Value: 1
+						21 text d_tau (rad)
+					22 checkbox d_i_i3 (Å), Value: 1
+						23 text d_i_i3 (Å)
+					24 checkbox rmsd4 (Å), Value: 1
+						25 text rmsd4 (Å)
+					32 combo box (collapsed, settable) Description: Focus window (position · residue in A ↔ in B), Value: 34 · A A:35 ↔ B A:35, ID: react-aria5172480585-:rv:, Secondary Actions: Expand
+								1111 axis Y-axis titled 'rad' for a linear scale with values from 0.0 to 0.6
+								1282 axis Y-axis titled 'Å' for a linear scale with values from 0.0 to 0.6
+								1491 axis Y-axis titled 'Å' for a linear scale with values from 0.0 to 1.1
+								1667 axis Y-axis titled 'rad' for a linear scale with values from 0.0 to 3.0
+								1842 axis Y-axis titled 'Å' for a linear scale with values from 0 to 4
+								2017 axis Y-axis titled 'Å' for a linear scale with values from 0.0 to 2.5
+				445 text 5US4.pdb: SHA-256 matches the manifest · 5USJ.pdb: SHA-256 matches the manifest
+					447 text Focus window at position 34  (3 residues)
+				1480 text d_kappa = 0.5373 rad · d_i_i2 = 1.0671 Å · rmsd3 = 0.5991 Å
+										525 row (selected) 34 A:35 A:35 THR THR A:34..A:36 A:34..A:37 false false
+The focused UI element is 24 checkbox rmsd4 (Å), Value: 1

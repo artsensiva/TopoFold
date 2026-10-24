@@ -1,0 +1,26 @@
+[
+  {
+    "service": "viewer",
+    "pid": 370408,
+    "stop_requested_utc": "2026-10-24T07:33:41.821152+00:00",
+    "exit_code": null,
+    "observed_command": "/home/artem/Documents/Codex/2026-10-24/act-as-an-independent-computational-software/outputs/topofold-ai-tester-1-trial/.venv/bin/python3 /home/artem/Documents/Codex/2026-10-24/act-as-an-independent-computational-software/outputs/topofold-ai-tester-1-trial/.venv/bin/streamlit run apps/structpair_viewer/app.py --server.address localhost -- --results /home/artem/Documents/Codex/2026-10-24/act-as-an-independent-computational-software/outputs/topofold-ai-tester-1-trial/results ",
+    "signal_sent": "SIGTERM",
+    "process_present_after_signal": false,
+    "state_after_signal": "absent",
+    "note": "Detached service: shell exit status unavailable; signal and observed termination recorded, not inferred as exit 0.",
+    "checked_utc": "2026-10-24T07:33:42.724386+00:00"
+  },
+  {
+    "service": "evidence_saver",
+    "pid": 372413,
+    "stop_requested_utc": "2026-10-24T07:33:42.724437+00:00",
+    "exit_code": null,
+    "observed_command": "python3 -B /home/artem/Documents/Codex/2026-10-24/act-as-an-independent-computational-software/outputs/topofold-ai-tester-1-trial/evidence/save_browser_evidence.py ",
+    "signal_sent": "SIGTERM",
+    "process_present_after_signal": false,
+    "state_after_signal": "absent",
+    "note": "Detached service: shell exit status unavailable; signal and observed termination recorded, not inferred as exit 0.",
+    "checked_utc": "2026-10-24T07:33:42.824775+00:00"
+  }
+]

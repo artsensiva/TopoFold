@@ -1,0 +1,120 @@
+Description: Exclusions, ID: react-aria5172480585-:r1b:-tabpanel-1
+					1354 container
+						1355 text One row per excluded window, structure and cause, from  exclusions.csv  (adapter break records, residue status and feature reason codes). The explanation column describes the cause type; the detail column is the record itself.
+					1356 container
+						1357 button Show/hide columns
+						1358 button Download as CSV
+						1359 button Search
+						1360 button Fullscreen
+						1361 container
+							1362 image
+								1364 table
+									1365 row window_size position window_A structure cause location explanation
+										1366 cell (selectable) window_size
+										1367 cell (selectable) position
+										1368 cell (selectable) window_A
+										1369 cell (selectable) structure
+										1370 cell (selectable) cause
+										1371 cell (selectable) location
+										1372 cell (selectable) explanation
+									1373 container
+										1374 row (selectable) 3 4 A:58..A:60 A missing_CA A:59→A:60 A residue next to this junction has no Cα coordinates in this structure.
+											1375 cell (selectable) Value: 3, ID: glide-cell-0-0
+											1376 cell (selectable) Value: 4, ID: glide-cell-1-0
+											1377 cell (selectable) Value: A:58..A:60, ID: glide-cell-2-0
+											1378 cell (selectable) Value: A, ID: glide-cell-3-0
+											1379 cell (selectable) Value: missing_CA, ID: glide-cell-4-0
+											1380 cell (selectable) Value: A:59→A:60, ID: glide-cell-5-0
+											1381 cell (selectable) Value: A residue next to this junction has no Cα coordinates in this structure., ID: glide-cell-6-0
+										1382 row (selectable) 3 5 A:59..A:61 A missing_coordinates A:60 A residue in the window has no Cα coordinates in this structure (unobserved, or absent from the file).
+											1383 cell (selectable) Value: 3, ID: glide-cell-0-1
+											1384 cell (selectable) Value: 5, ID: glide-cell-1-1
+											1385 cell (selectable) Value: A:59..A:61, ID: glide-cell-2-1
+											1386 cell (selectable) Value: A, ID: glide-cell-3-1
+											1387 cell (selectable) Value: missing_coordinates, ID: glide-cell-4-1
+											1388 cell (selectable) Value: A:60, ID: glide-cell-5-1
+											1389 cell (selectable) ID: glide-cell-6-1, Value: A residue in the window has no Cα coordinates in this structure (unobserved, or absent from the file).
+										1390 row (selectable) 3 5 A:59..A:61 A missing_coordinates A:61 A residue in the window has no Cα coordinates in this structure (unobserved, or absent from the file).
+											1391 cell (selectable) Value: 3, ID: glide-cell-0-2
+											1392 cell (selectable) Value: 5, ID: glide-cell-1-2
+											1393 cell (selectable) Value: A:59..A:61, ID: glide-cell-2-2
+											1394 cell (selectable) Value: A, ID: glide-cell-3-2
+											1395 cell (selectable) Value: missing_coordinates, ID: glide-cell-4-2
+											1396 cell (selectable) Value: A:61, ID: glide-cell-5-2
+											1397 cell (selectable) ID: glide-cell-6-2, Value: A residue in the window has no Cα coordinates in this structure (unobserved, or absent from the file).
+										1398 row (selectable) 3 5 A:59..A:61 B missing_CA A:60→A:61 A residue next to this junction has no Cα coordinates in this structure.
+											1399 cell (selectable) Value: 3, ID: glide-cell-0-3
+											1400 cell (selectable) Value: 5, ID: glide-cell-1-3
+											1401 cell (selectable) Value: A:59..A:61, ID: glide-cell-2-3
+											1402 cell (selectable) Value: B, ID: glide-cell-3-3
+											1403 cell (selectable) Value: missing_CA, ID: glide-cell-4-3
+											1404 cell (selectable) Value: A:60→A:61, ID: glide-cell-5-3
+											1405 cell (selectable) Value: A residue next to this junction has no Cα coordinates in this structure., ID: glide-cell-6-3
+										1406 row (selectable) 3 6 A:60..A:62 A missing_coordinates A:60 A residue in the window has no Cα coordinates in this structure (unobserved, or absent from the file).
+											1407 cell (selectable) Value: 3, ID: glide-cell-0-4
+											1408 cell (selectable) Value: 6, ID: glide-cell-1-4
+											1409 cell (selectable) Value: A:60..A:62, ID: glide-cell-2-4
+											1410 cell (selectable) Value: A, ID: glide-cell-3-4
+											1411 cell (selectable) Value: missing_coordinates, ID: glide-cell-4-4
+											1412 cell (selectable) Value: A:60, ID: glide-cell-5-4
+											1413 cell (selectable) ID: glide-cell-6-4, Value: A residue in the window has no Cα coordinates in this structure (unobserved, or absent from the file).
+										1414 row (selectable) 3 6 A:60..A:62 A missing_coordinates A:61 A residue in the window has no Cα coordinates in this structure (unobserved, or absent from the file).
+											1415 cell (selectable) Value: 3, ID: glide-cell-0-5
+											1416 cell (selectable) Value: 6, ID: glide-cell-1-5
+											1417 cell (selectable) Value: A:60..A:62, ID: glide-cell-2-5
+											1418 cell (selectable) Value: A, ID: glide-cell-3-5
+											1419 cell (selectable) Value: missing_coordinates, ID: glide-cell-4-5
+											1420 cell (selectable) Value: A:61, ID: glide-cell-5-5
+											1421 cell (selectable) ID: glide-cell-6-5, Value: A residue in the window has no Cα coordinates in this structure (unobserved, or absent from the file).
+										1422 row (selectable) 3 6 A:60..A:62 A missing_coordinates A:62 A residue in the window has no Cα coordinates in this structure (unobserved, or absent from the file).
+											1423 cell (selectable) Value: 3, ID: glide-cell-0-6
+											1424 cell (selectable) Value: 6, ID: glide-cell-1-6
+											1425 cell (selectable) Value: A:60..A:62, ID: glide-cell-2-6
+											1426 cell (selectable) Value: A, ID: glide-cell-3-6
+											1427 cell (selectable) Value: missing_coordinates, ID: glide-cell-4-6
+											1428 cell (selectable) Value: A:62, ID: glide-cell-5-6
+											1429 cell (selectable) ID: glide-cell-6-6, Value: A residue in the window has no Cα coordinates in this structure (unobserved, or absent from the file).
+										1430 row (selectable) 3 6 A:60..A:62 B missing_coordinates A:61 A residue in the window has no Cα coordinates in this structure (unobserved, or absent from the file).
+											1431 cell (selectable) Value: 3, ID: glide-cell-0-7
+											1432 cell (selectable) Value: 6, ID: glide-cell-1-7
+											1433 cell (selectable) Value: A:60..A:62, ID: glide-cell-2-7
+											1434 cell (selectable) Value: B, ID: glide-cell-3-7
+											1435 cell (selectable) Value: missing_coordinates, ID: glide-cell-4-7
+											1436 cell (selectable) Value: A:61, ID: glide-cell-5-7
+											1437 cell (selectable) ID: glide-cell-6-7, Value: A residue in the window has no Cα coordinates in this structure (unobserved, or absent from the file).
+										1438 row (selectable) 3 6 A:60..A:62 B missing_coordinates A:62 A residue in the window has no Cα coordinates in this structure (unobserved, or absent from the file).
+											1439 cell (selectable) Value: 3, ID: glide-cell-0-8
+											1440 cell (selectable) Value: 6, ID: glide-cell-1-8
+											1441 cell (selectable) Value: A:60..A:62, ID: glide-cell-2-8
+											1442 cell (selectable) Value: B, ID: glide-cell-3-8
+											1443 cell (selectable) Value: missing_coordinates, ID: glide-cell-4-8
+											1444 cell (selectable) Value: A:62, ID: glide-cell-5-8
+											1445 cell (selectable) ID: glide-cell-6-8, Value: A residue in the window has no Cα coordinates in this structure (unobserved, or absent from the file).
+										1446 row (selectable) 3 7 A:61..A:63 A missing_coordinates A:61 A residue in the window has no Cα coordinates in this structure (unobserved, or absent from the file).
+											1447 cell (selectable) Value: 3, ID: glide-cell-0-9
+											1448 cell (selectable) Value: 7, ID: glide-cell-1-9
+											1449 cell (selectable) Value: A:61..A:63, ID: glide-cell-2-9
+											1450 cell (selectable) Value: A, ID: glide-cell-3-9
+											1451 cell (selectable) Value: missing_coordinates, ID: glide-cell-4-9
+											1452 cell (selectable) Value: A:61, ID: glide-cell-5-9
+											1453 cell (selectable) ID: glide-cell-6-9, Value: A residue in the window has no Cα coordinates in this structure (unobserved, or absent from the file).
+										1454 row (selectable) 3 7 A:61..A:63 A missing_coordinates A:62 A residue in the window has no Cα coordinates in this structure (unobserved, or absent from the file).
+											1455 cell (selectable) Value: 3, ID: glide-cell-0-10
+											1456 cell (selectable) Value: 7, ID: glide-cell-1-10
+											1457 cell (selectable) Value: A:61..A:63, ID: glide-cell-2-10
+											1458 cell (selectable) Value: A, ID: glide-cell-3-10
+											1459 cell (selectable) Value: missing_coordinates, ID: glide-cell-4-10
+											1460 cell (selectable) Value: A:62, ID: glide-cell-5-10
+											1461 cell (selectable) ID: glide-cell-6-10, Value: A residue in the window has no Cα coordinates in this structure (unobserved, or absent from the file).
+										1462 row (selectable) 3 7 A:61..A:63 A missing_coordinates A:63 A residue in the window has no Cα coordinates in this structure (unobserved, or absent from the file).
+											1463 cell (selectable) Value: 3, ID: glide-cell-0-11
+											1464 cell (selectable) Value: 7, ID: glide-cell-1-11
+											1465 cell (selectable) Value: A:61..A:63, ID: glide-cell-2-11
+											1466 cell (selectable) Value: A, ID: glide-cell-3-11
+											1467 cell (selectable) Value: missing_coordinates, ID: glide-cell-4-11
+											1468 cell (selectable) Value: A:63, ID: glide-cell-5-11
+											1469 cell (selectable) ID: glide-cell-6-11, Value: A residue in the window has no Cα coordinates in this structure (unobserved, or absent from the file).
+							1363 image
+		1132 image js-plotly-tester
+
+The focused UI element is 1016 tab (selected, settable, boolean) Exclusions, Value: 1, ID: react-aria5172480585-:r1b:-tab-1

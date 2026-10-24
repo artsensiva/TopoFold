@@ -1,0 +1,6 @@
+Collecting maturin
+  Downloading maturin-1.15.0-py3-none-manylinux_2_12_x86_64.manylinux2010_x86_64.musllinux_1_1_x86_64.whl.metadata (17 kB)
+Downloading maturin-1.15.0-py3-none-manylinux_2_12_x86_64.manylinux2010_x86_64.musllinux_1_1_x86_64.whl (10.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.5/10.5 MB 2.5 MB/s eta 0:00:00
+Installing collected packages: maturin
+Successfully installed maturin-1.15.0

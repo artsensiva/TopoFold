@@ -1,0 +1,25 @@
+{
+  "command": [
+    "/home/artem/Documents/Codex/2026-10-24/act-as-an-independent-computational-software/outputs/topofold-ai-tester-1-trial/.venv/bin/streamlit",
+    "run",
+    "apps/structpair_viewer/app.py",
+    "--server.address",
+    "localhost",
+    "--",
+    "--results",
+    "/home/artem/Documents/Codex/2026-10-24/act-as-an-independent-computational-software/outputs/topofold-ai-tester-1-trial/results"
+  ],
+  "cwd": "/home/artem/Documents/Codex/2026-10-24/act-as-an-independent-computational-software/outputs/topofold-ai-tester-1-trial/checkout",
+  "environment_overrides": {
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "STREAMLIT_SERVER_HEADLESS": "true",
+    "STREAMLIT_BROWSER_GATHER_USAGE_STATS": "false",
+    "XDG_CACHE_HOME": "/home/artem/Documents/Codex/2026-10-24/act-as-an-independent-computational-software/outputs/topofold-ai-tester-1-trial/cache",
+    "MPLCONFIGDIR": "/home/artem/Documents/Codex/2026-10-24/act-as-an-independent-computational-software/outputs/topofold-ai-tester-1-trial/cache/matplotlib",
+    "TMPDIR": "/home/artem/Documents/Codex/2026-10-24/act-as-an-independent-computational-software/outputs/topofold-ai-tester-1-trial/tmp"
+  },
+  "pid": 370408,
+  "start_utc": "2026-10-23T23:56:28.287000+00:00",
+  "exit_code": null,
+  "note": "Started for actual browser interaction; final exit and elapsed time recorded after shutdown."
+}

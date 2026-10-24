@@ -143,7 +143,7 @@ The development programme, evidence levels (A–E) and the current queue are in
   RMSD, exclusions with causes, a figure and a hashed manifest. It reproduces both KRAS studies exactly; guide for
   outside users in [`docs/STRUCTPAIR_USER_GUIDE.md`](docs/STRUCTPAIR_USER_GUIDE.md). No independent user has run it yet.
   Results can be browsed locally with the read-only viewer "TopoFold Structural Comparison"
-  (`.venv/bin/streamlit run apps/structpair_viewer/app.py --server.address localhost`).
+  (`streamlit run apps/structpair_viewer/app.py --server.address localhost`; isolated install in the guide, §2).
 - **Owner actions pending:** nominate an outside computational scientist for the pilot; send the ABL trajectory
   request; send the processed-HDX request (drafts in `docs/`).
 - **ABL** (preferred biological route): the trajectories, their permissions and processed HDX uptake are not yet

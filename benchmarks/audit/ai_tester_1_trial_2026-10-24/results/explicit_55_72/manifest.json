@@ -1,0 +1,296 @@
+{
+ "schema": "topofold_inputs.structpair/1",
+ "name": "AI tester 1 technical missing-residue case: explicit 55\u201372 identity mapping",
+ "statement": "Two static structures: the values are direct geometric differences between these coordinate sets. They can reflect crystal form and packing, crystallization conditions, resolution, refinement, alternate conformations and coordinate error as well as any biological difference. No ensemble, population, kinetic, functional-state or treatment-response claim follows. Agreement or disagreement between metrics does not show that one representation is better. Crystal copies of one entry are not independent replicates.",
+ "command": "python -m topofold_inputs.structpair /home/artem/Documents/Codex/2026-10-24/act-as-an-independent-computational-software/outputs/topofold-ai-tester-1-trial/specs/explicit_55_72.json --out /home/artem/Documents/Codex/2026-10-24/act-as-an-independent-computational-software/outputs/topofold-ai-tester-1-trial/results/explicit_55_72 --adapter-python /home/artem/Documents/Codex/2026-10-24/act-as-an-independent-computational-software/outputs/topofold-ai-tester-1-trial/.venv/bin/python",
+ "spec": {
+  "path": "/home/artem/Documents/Codex/2026-10-24/act-as-an-independent-computational-software/outputs/topofold-ai-tester-1-trial/specs/explicit_55_72.json",
+  "sha256": "f1735d19587d818c137f2d6d469af368d643ff32d216b7f2e612b70a5c30754d"
+ },
+ "inputs": {
+  "A": {
+   "label": "5US4 chain A",
+   "path": "/home/artem/Documents/Codex/2026-10-24/act-as-an-independent-computational-software/outputs/topofold-ai-tester-1-trial/checkout/benchmarks/audit/kras_struct_g12d/data_pdb/5US4.pdb",
+   "sha256": "a1d0c9105887a5b64deacf92d17ab5e62a2cdb1d3913f48b8203e9c84f36d22d",
+   "chain": "A",
+   "altloc_policy": "reject",
+   "adapter_json_sha256": "7e63dce2a0f8aba58d63db5b6de0045d9e7e4258511805050a7c94167abdfa62",
+   "features_json_sha256": "7857e9a823219e004c1c9ad392bc3e842691c42aa0de37974e98fdae2b8aea0d",
+   "source_files": [
+    {
+     "role": "topology",
+     "path": "/home/artem/Documents/Codex/2026-10-24/act-as-an-independent-computational-software/outputs/topofold-ai-tester-1-trial/checkout/benchmarks/audit/kras_struct_g12d/data_pdb/5US4.pdb",
+     "bytes": 528282,
+     "sha256": "a1d0c9105887a5b64deacf92d17ab5e62a2cdb1d3913f48b8203e9c84f36d22d"
+    }
+   ],
+   "adapter": {
+    "name": "topofold_inputs.ca_adapter",
+    "version": "0.1.0",
+    "source_sha256": "0dfd026fae6e549b5fedc151e3c0f2636db83069c295c5a138d129979052bb67"
+   },
+   "adapter_software": {
+    "python": "3.14.4",
+    "numpy": "2.5.4",
+    "MDAnalysis": "2.10.0"
+   },
+   "core": {
+    "version": "0.8.3",
+    "function": "compute_invariants",
+    "wrapper": {
+     "module": "topofold",
+     "path": "/home/artem/Documents/Codex/2026-10-24/act-as-an-independent-computational-software/outputs/topofold-ai-tester-1-trial/.venv/lib/python3.14/site-packages/topofold/__init__.py",
+     "sha256": "49780093095f27c89bdf234be15e1f5a9bac957d5a9dbf5ae0f93c856ee1590d"
+    },
+    "native_extension": {
+     "module": "topofold.topofold",
+     "path": "/home/artem/Documents/Codex/2026-10-24/act-as-an-independent-computational-software/outputs/topofold-ai-tester-1-trial/.venv/lib/python3.14/site-packages/topofold/topofold.cpython-314-x86_64-linux-gnu.so",
+     "sha256": "9b19c92e705c6b2a2bd56115095d4f346a22aa1943cff9937754d40d136a6827",
+     "status": "resolved",
+     "loader": "ExtensionFileLoader"
+    }
+   },
+   "features": {
+    "version": "0.1.1",
+    "source_sha256": "9138358ce5040a8dc1e2ff5692e6d3aa77e5334bfb840cc3e8620ca46598271e"
+   },
+   "units": {
+    "coordinates": "angstrom",
+    "time": null,
+    "source_length_unit": "Angstrom",
+    "source_time_unit": null,
+    "reader_convert_units": true,
+    "basis": "source unit Angstrom; no conversion needed"
+   },
+   "frame_identity": "single_frame"
+  },
+  "B": {
+   "label": "5USJ chain A",
+   "path": "/home/artem/Documents/Codex/2026-10-24/act-as-an-independent-computational-software/outputs/topofold-ai-tester-1-trial/checkout/benchmarks/audit/kras_struct_g12d/data_pdb/5USJ.pdb",
+   "sha256": "dab6b79531b0c046050958b914e380d8ba613b8e995522acb5ea323f974dbefe",
+   "chain": "A",
+   "altloc_policy": "reject",
+   "adapter_json_sha256": "6858cd29af6d6be3454ff753e2318dbc5dca14265528f6cf1762cfd51582072a",
+   "features_json_sha256": "9f89858ff3d34d2486adbe4c207ddf74746d3341e275c8796c4a5bc30642ebe0",
+   "source_files": [
+    {
+     "role": "topology",
+     "path": "/home/artem/Documents/Codex/2026-10-24/act-as-an-independent-computational-software/outputs/topofold-ai-tester-1-trial/checkout/benchmarks/audit/kras_struct_g12d/data_pdb/5USJ.pdb",
+     "bytes": 829926,
+     "sha256": "dab6b79531b0c046050958b914e380d8ba613b8e995522acb5ea323f974dbefe"
+    }
+   ],
+   "adapter": {
+    "name": "topofold_inputs.ca_adapter",
+    "version": "0.1.0",
+    "source_sha256": "0dfd026fae6e549b5fedc151e3c0f2636db83069c295c5a138d129979052bb67"
+   },
+   "adapter_software": {
+    "python": "3.14.4",
+    "numpy": "2.5.4",
+    "MDAnalysis": "2.10.0"
+   },
+   "core": {
+    "version": "0.8.3",
+    "function": "compute_invariants",
+    "wrapper": {
+     "module": "topofold",
+     "path": "/home/artem/Documents/Codex/2026-10-24/act-as-an-independent-computational-software/outputs/topofold-ai-tester-1-trial/.venv/lib/python3.14/site-packages/topofold/__init__.py",
+     "sha256": "49780093095f27c89bdf234be15e1f5a9bac957d5a9dbf5ae0f93c856ee1590d"
+    },
+    "native_extension": {
+     "module": "topofold.topofold",
+     "path": "/home/artem/Documents/Codex/2026-10-24/act-as-an-independent-computational-software/outputs/topofold-ai-tester-1-trial/.venv/lib/python3.14/site-packages/topofold/topofold.cpython-314-x86_64-linux-gnu.so",
+     "sha256": "9b19c92e705c6b2a2bd56115095d4f346a22aa1943cff9937754d40d136a6827",
+     "status": "resolved",
+     "loader": "ExtensionFileLoader"
+    }
+   },
+   "features": {
+    "version": "0.1.1",
+    "source_sha256": "9138358ce5040a8dc1e2ff5692e6d3aa77e5334bfb840cc3e8620ca46598271e"
+   },
+   "units": {
+    "coordinates": "angstrom",
+    "time": null,
+    "source_length_unit": "Angstrom",
+    "source_time_unit": null,
+    "reader_convert_units": true,
+    "basis": "source unit Angstrom; no conversion needed"
+   },
+   "frame_identity": "single_frame"
+  }
+ },
+ "correspondence": {
+  "form": "pairs",
+  "n_positions": 18,
+  "pairs": [
+   [
+    "55",
+    "55"
+   ],
+   [
+    "56",
+    "56"
+   ],
+   [
+    "57",
+    "57"
+   ],
+   [
+    "58",
+    "58"
+   ],
+   [
+    "59",
+    "59"
+   ],
+   [
+    "60",
+    "60"
+   ],
+   [
+    "61",
+    "61"
+   ],
+   [
+    "62",
+    "62"
+   ],
+   [
+    "63",
+    "63"
+   ],
+   [
+    "64",
+    "64"
+   ],
+   [
+    "65",
+    "65"
+   ],
+   [
+    "66",
+    "66"
+   ],
+   [
+    "67",
+    "67"
+   ],
+   [
+    "68",
+    "68"
+   ],
+   [
+    "69",
+    "69"
+   ],
+   [
+    "70",
+    "70"
+   ],
+   [
+    "71",
+    "71"
+   ],
+   [
+    "72",
+    "72"
+   ]
+  ]
+ },
+ "policies": {
+  "on_missing": "exclude",
+  "resname_mismatch": "reject",
+  "altloc_sensitivity": "highest_occupancy"
+ },
+ "breaks": {
+  "A": [
+   {
+    "after_index": 4,
+    "reasons": [
+     "missing_CA"
+    ]
+   },
+   {
+    "after_index": 5,
+    "reasons": [
+     "missing_CA"
+    ]
+   },
+   {
+    "after_index": 6,
+    "reasons": [
+     "missing_CA"
+    ]
+   },
+   {
+    "after_index": 7,
+    "reasons": [
+     "missing_CA"
+    ]
+   },
+   {
+    "after_index": 8,
+    "reasons": [
+     "missing_CA"
+    ]
+   },
+   {
+    "after_index": 9,
+    "reasons": [
+     "missing_CA"
+    ]
+   }
+  ],
+  "B": [
+   {
+    "after_index": 5,
+    "reasons": [
+     "missing_CA"
+    ]
+   },
+   {
+    "after_index": 6,
+    "reasons": [
+     "missing_CA"
+    ]
+   },
+   {
+    "after_index": 7,
+    "reasons": [
+     "missing_CA"
+    ]
+   },
+   {
+    "after_index": 8,
+    "reasons": [
+     "missing_CA"
+    ]
+   }
+  ]
+ },
+ "software": {
+  "structpair_version": "0.1.0",
+  "module_sha256": "882d09d311af708875741a28a14283bd4eb26e54b30a9d8d59aa8658f7708ea9",
+  "qcp_module_sha256": "c07f2e3e78da656bea242a0e4ce639380662601b9ddd9d46d4a0e14b6de5cf53",
+  "python": "3.14.4",
+  "numpy": "2.5.4",
+  "qcp": {
+   "MDAnalysis": "2.10.0",
+   "numpy": "2.5.4",
+   "function": "MDAnalysis.analysis.rms.rmsd(center=True, superposition=True)"
+  },
+  "adapter_interpreter": "/home/artem/Documents/Codex/2026-10-24/act-as-an-independent-computational-software/outputs/topofold-ai-tester-1-trial/.venv/bin/python"
+ },
+ "figure": "written",
+ "created_utc": "2026-10-23T23:54:51.110253+00:00",
+ "outputs_sha256": {
+  "windows.csv": "cdd9bc19e58a5eceef01f2475b20782d8522b0e5138584bbe40bf3deb67f0f21",
+  "residues.csv": "39cbc60aa4e393197524cbe5d41f156eb460e6ee808bf9928f4ed3897e2e4a45",
+  "exclusions.csv": "a5f42ee51981d0a6f6aac4f1b3919d0b9393082ce563c75059f49ed1e5a341e3",
+  "summary.json": "f2648db9f83269071f9d822b95713ee9ef0796bda7c07546d36be6d8bb9f9c35",
+  "figure.png": "ed53c1f8bc050887c67b0068b87875dfb0f72aa12a09cc5cdeb38ab3182428d1",
+  "report.md": "b69daf7651da82726b50bda4078b15591689cc7c6d1221c01d38cf3c040a9bc6"
+ }
+}

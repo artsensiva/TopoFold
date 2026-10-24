@@ -1,0 +1,10 @@
+{
+  "recorded_utc": "2026-10-24T07:36:20.522268+00:00",
+  "trial_start_utc": "2026-10-23T23:49:31+00:00",
+  "last_saved_pre_interruption_service_setup_utc": "2026-10-23T23:57:55.560000+00:00",
+  "resume_state_check_utc": "2026-10-24T07:23:28+00:00",
+  "execution_and_browser_testing_finished_utc": "2026-10-24T07:33:42.824775+00:00",
+  "interruption": "Codex usage limit interrupted the turn; user explicitly requested resumption after clearing. Exact suspension instant and active interaction total are unknown. Viewer and local evidence saver remained running during interruption.",
+  "timebox_result": "Not met as continuous wall-clock execution. Do not represent this as a completed uninterrupted 60-minute trial. Computational runs finished in first ten minutes; resumed browser activity about ten minutes; active total only estimated, not measured.",
+  "wall_minutes_to_service_shutdown": 464.19707958333333
+}

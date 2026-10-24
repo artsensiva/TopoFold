@@ -1,0 +1,88 @@
+{
+ "url": "http://localhost:8602/",
+ "steps": [
+  {
+   "step": 1,
+   "action": "load kras2",
+   "focus": "79 \u00b7 A A:88 \u2194 B A:88",
+   "details": "Focus window at position 79 (3 residues)",
+   "selected_positions": [
+    "79"
+   ],
+   "table_rows_scanned": 158,
+   "focus_in_displayed_rows": true,
+   "selection_agrees_with_focus": true
+  },
+  {
+   "step": 2,
+   "action": "sort by d_kappa descending",
+   "focus": "79 \u00b7 A A:88 \u2194 B A:88",
+   "details": "Focus window at position 79 (3 residues)",
+   "selected_positions": [
+    "79"
+   ],
+   "table_rows_scanned": 158,
+   "focus_in_displayed_rows": true,
+   "selection_agrees_with_focus": true
+  },
+  {
+   "step": 3,
+   "action": "rows: without values",
+   "focus": "79 \u00b7 A A:88 \u2194 B A:88",
+   "details": "Focus window at position 79 (3 residues)",
+   "selected_positions": [],
+   "table_rows_scanned": 4,
+   "focus_in_displayed_rows": false,
+   "selection_agrees_with_focus": true
+  },
+  {
+   "step": 4,
+   "action": "select second row",
+   "focus": "58 \u00b7 A A:59 \u2194 B A:59",
+   "details": "Focus window at position 58 (3 residues)",
+   "selected_positions": [
+    "58"
+   ],
+   "table_rows_scanned": 4,
+   "focus_in_displayed_rows": true,
+   "selection_agrees_with_focus": true
+  },
+  {
+   "step": 5,
+   "action": "rows: all",
+   "focus": "58 \u00b7 A A:59 \u2194 B A:59",
+   "details": "Focus window at position 58 (3 residues)",
+   "selected_positions": [
+    "58"
+   ],
+   "table_rows_scanned": 158,
+   "focus_in_displayed_rows": true,
+   "selection_agrees_with_focus": true
+  },
+  {
+   "step": 6,
+   "action": "sort by position",
+   "focus": "58 \u00b7 A A:59 \u2194 B A:59",
+   "details": "Focus window at position 58 (3 residues)",
+   "selected_positions": [
+    "58"
+   ],
+   "table_rows_scanned": 158,
+   "focus_in_displayed_rows": true,
+   "selection_agrees_with_focus": true
+  },
+  {
+   "step": 7,
+   "action": "switch to kras1",
+   "focus": "84 \u00b7 A A:85 \u2194 B A:85",
+   "details": "Focus window at position 84 (3 residues)",
+   "selected_positions": [
+    "84"
+   ],
+   "table_rows_scanned": 168,
+   "focus_in_displayed_rows": true,
+   "selection_agrees_with_focus": true
+  }
+ ],
+ "all_agree": true
+}

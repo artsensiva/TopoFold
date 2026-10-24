@@ -1,0 +1,48 @@
+{
+  "report_links_checked": 21,
+  "missing_links": [],
+  "report_sha256": "c4d78d0c447386b6d921b7fed574d3ab34fbafc134e7aa43fd8db0b7ea16045b",
+  "screenshots": [
+    {
+      "name": "01-overview.jpg",
+      "bytes": 98781,
+      "jpeg_magic": true
+    },
+    {
+      "name": "02-missing-filter.jpg",
+      "bytes": 86477,
+      "jpeg_magic": true
+    },
+    {
+      "name": "03-exclusion-explanation.jpg",
+      "bytes": 87251,
+      "jpeg_magic": true
+    },
+    {
+      "name": "04-filter-selection-state.jpg",
+      "bytes": 102236,
+      "jpeg_magic": true
+    },
+    {
+      "name": "05-metrics-dual-highlights.jpg",
+      "bytes": 99603,
+      "jpeg_magic": true
+    },
+    {
+      "name": "06-provenance.jpg",
+      "bytes": 100978,
+      "jpeg_magic": true
+    },
+    {
+      "name": "07-explicit-missing-residues.jpg",
+      "bytes": 110938,
+      "jpeg_magic": true
+    },
+    {
+      "name": "08-exclusions-table.jpg",
+      "bytes": 125741,
+      "jpeg_magic": true
+    }
+  ],
+  "tracked_audit_passed": true
+}

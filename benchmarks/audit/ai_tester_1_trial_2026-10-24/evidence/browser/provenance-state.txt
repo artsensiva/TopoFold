@@ -1,0 +1,113 @@
+Description: Provenance, ID: react-aria5172480585-:r1b:-tabpanel-3
+					2185 container
+						2186 text Statement recorded with the result:  Two static structures: the values are direct geometric differences between these coordinate sets. They can reflect crystal form and packing, crystallization conditions, resolution, refinement, alternate conformations and coordinate error as well as any biological difference. No ensemble, population, kinetic, functional-state or treatment-response claim follows. Agreement or disagreement between metrics does not show that one representation is better. Crystal copies of one entry are not independent replicates.
+					2187 table
+						2188 row
+							2189 cell
+								2190 text Result directory
+							2191 cell
+								2192 text /home/artem/Documents/Codex/2026-10-24/act-as-an-independent-computational-software/outputs/topofold-ai-tester-1-trial/results/kras2
+						2193 row
+							2194 cell
+								2195 text Created (UTC)
+							2196 cell
+								2197 container
+									2198 text 2026-10-23T23:54 :39 .114752+00 :00
+						2199 row
+							2200 cell
+								2201 text Spec SHA-256
+							2202 cell
+								2203 text 4489dfc485d62738806d232baa41c4ed51c3a21bd3dd64fd3512752a8b9a17c9
+						2204 row
+							2205 cell
+								2206 text Command
+							2207 cell
+								2208 text python -m topofold_inputs.structpair benchmarks/audit/structpair_demo/specs/kras2_5US4A_vs_5USJA.json --out /home/artem/Documents/Codex/2026-10-24/act-as-an-independent-computational-software/outputs/topofold-ai-tester-1-trial/results/kras2 --adapter-python /home/artem/Documents/Codex/2026-10-24/act-as-an-independent-computational-software/outputs/topofold-ai-tester-1-trial/.venv/bin/python
+						2209 row
+							2210 cell
+								2211 text structpair version
+							2212 cell
+								2213 text 0.1.0
+						2214 row
+							2215 cell
+								2216 text structpair module SHA-256
+							2217 cell
+								2218 text 882d09d311af708875741a28a14283bd4eb26e54b30a9d8d59aa8658f7708ea9
+						2219 row
+							2220 cell
+								2221 text Python / NumPy
+							2222 cell
+								2223 text 3.14.4 / 2.5.4
+						2224 row
+							2225 cell
+								2226 text QCP
+							2227 cell
+								2228 text MDAnalysis.analysis.rms.rmsd(center=True, superposition=True) (MDAnalysis 2.10.0)
+						2229 row
+							2230 cell
+								2231 text Policies
+							2232 cell
+								2233 text on_missing=reject, resname_mismatch=reject, altloc_sensitivity=highest_occupancy
+					2234 container
+						2235 button Show/hide columns
+						2236 button Download as CSV
+						2237 button Search
+						2238 button Fullscreen
+						2239 container
+							2240 image
+								2248 table
+									2249 row structure label file chain altloc policy SHA-256
+										2250 cell (selectable) structure
+										2251 cell (selectable) label
+										2252 cell (selectable) file
+										2253 cell (selectable) chain
+										2254 cell (selectable) altloc policy
+										2255 cell (selectable) SHA-256
+									2256 container
+										2257 row (selectable) A 5US4 A GDP 5US4.pdb A reject a1d0c9105887a5b64deacf92d17ab5e62a2cdb1d3913f48b8203e9c84f36d22d
+											2258 cell (selectable) Value: A, ID: glide-cell-0-0
+											2259 cell (selectable) Value: 5US4 A GDP, ID: glide-cell-1-0
+											2260 cell (selectable) Value: 5US4.pdb, ID: glide-cell-2-0
+											2261 cell (selectable) Value: A, ID: glide-cell-3-0
+											2262 cell (selectable) Value: reject, ID: glide-cell-4-0
+											2263 cell (selectable) Value: a1d0c9105887a5b64deacf92d17ab5e62a2cdb1d3913f48b8203e9c84f36d22d, ID: glide-cell-5-0
+										2264 row (selectable) B 5USJ A GMPPNP 5USJ.pdb A reject dab6b79531b0c046050958b914e380d8ba613b8e995522acb5ea323f974dbefe
+											2265 cell (selectable) Value: B, ID: glide-cell-0-1
+											2266 cell (selectable) Value: 5USJ A GMPPNP, ID: glide-cell-1-1
+											2267 cell (selectable) Value: 5USJ.pdb, ID: glide-cell-2-1
+											2268 cell (selectable) Value: A, ID: glide-cell-3-1
+											2269 cell (selectable) Value: reject, ID: glide-cell-4-1
+											2270 cell (selectable) Value: dab6b79531b0c046050958b914e380d8ba613b8e995522acb5ea323f974dbefe, ID: glide-cell-5-1
+					2241 container
+						2242 button Show/hide columns
+						2243 button Download as CSV
+						2244 button Search
+						2245 button Fullscreen
+						2246 container
+							2247 image
+								2271 table
+									2272 row output matches manifest SHA-256
+										2273 cell (selectable) output
+										2274 cell (selectable) matches manifest SHA-256
+									2275 container
+										2276 row (selectable) windows.csv true
+											2277 cell (selectable) Value: windows.csv, ID: glide-cell-0-0
+											2278 cell (selectable) Value: true, ID: glide-cell-1-0
+										2279 row (selectable) residues.csv true
+											2280 cell (selectable) Value: residues.csv, ID: glide-cell-0-1
+											2281 cell (selectable) Value: true, ID: glide-cell-1-1
+										2282 row (selectable) exclusions.csv true
+											2283 cell (selectable) Value: exclusions.csv, ID: glide-cell-0-2
+											2284 cell (selectable) Value: true, ID: glide-cell-1-2
+										2285 row (selectable) summary.json true
+											2286 cell (selectable) Value: summary.json, ID: glide-cell-0-3
+											2287 cell (selectable) Value: true, ID: glide-cell-1-3
+										2288 row (selectable) figure.png true
+											2289 cell (selectable) Value: figure.png, ID: glide-cell-0-4
+											2290 cell (selectable) Value: true, ID: glide-cell-1-4
+										2291 row (selectable) report.md true
+											2292 cell (selectable) Value: report.md, ID: glide-cell-0-5
+											2293 cell (selectable) Value: true, ID: glide-cell-1-5
+		646 image js-plotly-tester
+
+The focused UI element is 487 tab (selected, settable, boolean) Provenance, Value: 1, ID: react-aria5172480585-:r1b:-tab-3

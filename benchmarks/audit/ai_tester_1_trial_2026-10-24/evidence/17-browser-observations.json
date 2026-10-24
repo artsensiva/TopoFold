@@ -1,0 +1,81 @@
+{
+  "tester": "AI tester 1",
+  "application": "Codex desktop in-app browser",
+  "url": "http://localhost:8501/",
+  "interaction_after_resume_utc": "2026-10-24T07:23:28+00:00 to 2026-10-24T07:33:42.824775+00:00",
+  "observed_css_viewport": {
+    "width": 1271,
+    "height": 972
+  },
+  "screenshot_pixels": {
+    "width": 1412,
+    "height": 1080
+  },
+  "checks": [
+    {
+      "name": "separate metrics and units",
+      "result": "All six controls enabled through UI. Six distinct plot Y axes observed: d_kappa and d_tau in rad; d_i_i2, d_i_i3, rmsd3, rmsd4 in Angstrom. Default d_kappa/rmsd3 plots visually inspected with separate axes; additional plots inspected by rendered accessibility state and scrolling.",
+      "evidence": [
+        "browser/all-six-metrics-state.txt",
+        "browser/05-metrics-dual-highlights.jpg"
+      ]
+    },
+    {
+      "name": "filtering and sorting",
+      "result": "Sorted d_kappa descending: first row position34/A35, followed by33/A34. without values with default d_kappa/rmsd3 selected returned positions0,58,59,157. Endpoints outside window range distinguished in text from excluded interior windows; values absent, not zero.",
+      "evidence": [
+        "browser/02-missing-filter.jpg",
+        "browser/exclusion-state.txt"
+      ]
+    },
+    {
+      "name": "row selection and dual highlights",
+      "result": "Selected excluded position58 via checkbox: focus became58/A59 and separate A/B explanations appeared. Then selected position34 in full sorted table: focus became34/A35; table window A34..A36; plotted orange focus lines moved; molecular view showed hollow orange A and filled orange B markers at the corresponding window. Displayed d_kappa0.5373 rad, d_i_i21.0671 Angstrom, rmsd30.5991 Angstrom.",
+      "evidence": [
+        "browser/03-exclusion-explanation.jpg",
+        "browser/05-metrics-dual-highlights.jpg"
+      ]
+    },
+    {
+      "name": "selection persistence inconsistency",
+      "result": "After selecting second row(position58) under without values, switching Rows to all left second visible row(position33) checked while sidebar and detail panel continued to show position58. Screenshot taken after intervening evidence-save operation; not merely first rerender snapshot. Selecting first row(position34) then synchronized focus. Underlying implementation cause not investigated.",
+      "reproduce": [
+        "Load kras2; select d_kappa and rmsd3; sort d_kappa descending.",
+        "Set Rows=without values; select second row, position58.",
+        "Set Rows=all. Observe second row(position33) checked but focus remains58."
+      ],
+      "evidence": [
+        "browser/04-filter-selection-state.jpg"
+      ]
+    },
+    {
+      "name": "additional mapping and exclusions",
+      "result": "Loaded explicit_55_72. Correspondence table says pairs,18positions,5positions missing in A or B,0name mismatches. Visible rows show A60missing/B60GLY present; A61..63 and B61..63 missing; A64missing/B64TYR present. Exclusions tab distinguishes cause, location, explanation; first row A58..60 in A missing_CA at A59->A60. Focus position9 shows missing_coordinates at A64 in A and missing_CA A63->A64 in B.",
+      "evidence": [
+        "browser/07-explicit-missing-residues.jpg",
+        "browser/explicit-residue-state.txt",
+        "browser/explicit-exclusions-state.txt",
+        "browser/08-exclusions-table.jpg"
+      ]
+    },
+    {
+      "name": "provenance",
+      "result": "Viewed command, UTC creation, spec and module SHA256,Python3.14.4,NumPy2.5.4,MDAnalysis2.10.0,QCP method,policies,input names and SHA256. All six output hash match flags true.",
+      "evidence": [
+        "browser/06-provenance.jpg",
+        "browser/provenance-state.txt"
+      ]
+    }
+  ],
+  "diagnostics": {
+    "final_browser_warn_error_entries": [],
+    "viewer_log": "12-viewer.log; startup and Stopping, no traceback"
+  },
+  "limitations": [
+    "One browser and OS only; no human usability study.",
+    "Canvas row selection required coordinate action; some accessibility/Playwright locator paths did not match.",
+    "Screenshots show only visible viewport; long tables and right columns can require scrolling.",
+    "Hover tooltip interaction, 3D rotation, alternate-location dataset behavior, residue-name mismatch rejection, other operating systems and full repository suite were not tested.",
+    "Did not independently implement angle/RMSD geometry; equality to shipped output is reproducibility evidence."
+  ]
+}

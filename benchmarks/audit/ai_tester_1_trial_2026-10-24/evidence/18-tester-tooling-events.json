@@ -1,0 +1,40 @@
+[
+  {
+    "scope": "tester browser tooling, not TopoFold",
+    "operation": "getByRole(row,{name:\"58 A:59 A:59 ALA ALA A:58..A:68 A:58..A:69 false false\",exact:true}).click()",
+    "error": "Playwright selector deadline exceeded; no_matches",
+    "workaround": "Used screenshot-based checkbox coordinates adjusted to CSS viewport; verified rendered selection."
+  },
+  {
+    "scope": "tester browser tooling, not TopoFold",
+    "operation": "getByRole(checkbox,{name:\"d_i_i2 (Å)\",exact:true}).check()",
+    "error": "Playwright selector deadline exceeded; no_matches",
+    "workaround": "Used fresh accessibility element index to click each metric."
+  },
+  {
+    "scope": "tester evidence saver, not TopoFold",
+    "operation": "Save highlight-state.txt through local evidence form; then save all-six-metrics-state.txt",
+    "error": "HTTP400 Bad Request for highlight-state.txt; next helper could not find Save another on error page",
+    "workaround": "Browser Back restored form. Saved compact metric state instead; original highlight screenshot retained. Exact cause of empty/invalid content unknown."
+  },
+  {
+    "scope": "tester state handling",
+    "operation": "var provenanceAx=ax.slice(ax.indexOf(\"Description: Provenance\"))",
+    "error": "Cannot read properties of undefined (reading slice)",
+    "workaround": "Fresh named accessibility snapshot; saved provenance screenshot and state."
+  },
+  {
+    "scope": "tester read-only evidence inventory",
+    "operation": "for p in sorted(e.glob(\"[0-9][0-9]-*.json\")): j=json.loads(p.read_text()); print(p.name,{k:j.get(k) for k in [\"start_utc\",\"end_utc\",\"wall_seconds\",\"exit_code\"]})",
+    "exit_code": 1,
+    "error": "AttributeError: 'list' object has no attribute 'get' on service-shutdown.json",
+    "workaround": "Read required files directly. No project process failed."
+  },
+  {
+    "scope": "tester read-only evidence inventory",
+    "operation": "cat outputs/topofold-ai-tester-1-trial/evidence/all-six-metrics-state.txt",
+    "exit_code": 1,
+    "error": "No such file or directory",
+    "workaround": "Correct location is evidence/browser/all-six-metrics-state.txt; checked during final artifact inventory."
+  }
+]

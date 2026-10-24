@@ -25,33 +25,72 @@ use `docs/pilot/FEEDBACK_FORM.md`.
 
 ## 1. What a clean checkout does not contain
 
-| Needed | Why it is absent | How to get it |
+| Needed | Why it is absent | Where it comes from in §2 |
 |---|---|---|
-| The compiled `topofold` Python extension | Build product | Rust toolchain + `pip install maturin`, then `maturin develop --release` in a virtual environment (README "Installation"). Expect a few minutes of compile time |
-| An interpreter with **MDAnalysis** (≥ 2.x; 2.10.0 tested) | Optional dependency, not in the core package | Either install MDAnalysis into the same environment, or use a separate environment and pass it with `--adapter-python` / `TOPOFOLD_ADAPTER_PYTHON`. Inside this repository the implementer used `benchmarks/audit/wpd_local_retrieval/build/venv`, a local, git-ignored environment that you will not have |
-| **matplotlib** (optional; 3.11.2 tested) | Optional | Without it the figure is skipped and the report says so |
-| The example structures | PDB files are git-ignored | `python benchmarks/audit/structpair_demo/fetch_inputs.py` downloads 9O0N, 9O0O, 5US4 and 5USJ from RCSB (about 2.4 MB, CC0) and checks their SHA-256 |
+| The compiled `topofold` Python extension | Build product | `maturin develop --release` (needs a Rust toolchain) |
+| **MDAnalysis** | Optional dependency, not in the core package | `pip install` into the same environment, which is the simplest option. A separate interpreter can be named with `--adapter-python` or `TOPOFOLD_ADAPTER_PYTHON` instead |
+| **matplotlib** (optional) | Optional | `pip install`; without it the figure is skipped and the report says so |
+| Viewer packages (optional) | Optional | `pip install` (§2, step 5) |
+| The example structures | PDB files are git-ignored | `fetch_inputs.py` downloads 9O0N, 9O0O, 5US4 and 5USJ from RCSB (about 2.4 MB, CC0) and checks their SHA-256 |
 
-**Tested only with:** Python 3.14.4, NumPy 2.5.3 and Linux x86-64, using PDB-format files.
-- mmCIF input depends on the MDAnalysis reader available to you and has not been tested.
-- Other Python versions are untested. The README states Python 3.9+ for the core.
+## 2. Isolated install and the example (one environment)
 
-## 2. Run the example
-
-From the repository root, with `PY` = your interpreter that has the `topofold` extension and `ADAPTER` = your
-interpreter with MDAnalysis (they can be the same):
+This sequence matches the commands that succeeded in the AI technical trial of 2026-10-24 (AI tester 1, checkpoint
+`6ce7b49`, Linux x86-64; `docs/pilot/PILOT_LOG.md` entry 4). The environment can live anywhere; nothing assumes a
+`.venv` inside the checkout. Run everything from the repository root.
 
 ```bash
-$PY benchmarks/audit/structpair_demo/fetch_inputs.py
-PYTHONPATH=python $PY -m topofold_inputs.structpair \
-    benchmarks/audit/structpair_demo/specs/kras2_5US4A_vs_5USJA.json \
-    --out ~/structpair_out/kras2 --adapter-python $ADAPTER
+# 1. code
+git clone --branch scientific-rebuild https://github.com/artsensiva/TopoFold.git
+cd TopoFold
+
+# 2. an isolated environment (any path; here a sibling directory)
+python3 -m venv ../topofold-env
+source ../topofold-env/bin/activate
+
+# 3. the compiled core (Rust toolchain required; about 1 minute on the trial machine)
+pip install maturin
+maturin develop --release
+
+# 4. computation dependencies, the example inputs and the example comparison
+pip install MDAnalysis==2.10.0 matplotlib==3.11.2
+python benchmarks/audit/structpair_demo/fetch_inputs.py
+PYTHONPATH=python python -m topofold_inputs.structpair \
+    benchmarks/audit/structpair_demo/specs/kras2_5US4A_vs_5USJA.json --out ~/structpair_out/kras2
+
+# 5. optional: the results viewer (needs neither the core nor MDAnalysis)
+pip install streamlit==1.64.0 pandas==3.0.6 altair==6.3.0 plotly==7.1.0
+streamlit run apps/structpair_viewer/app.py --server.address localhost -- --results ~/structpair_out
 ```
 
-- **Expected output on stdout:** `158 positions; global Cα RMSD 0.974 Å over 158 Cα; 10 exclusion rows; wrote …/report.md`
-  (5 windows span the 59→68 numbering gap; each is listed once per structure).
-- **Reference outputs to compare against:** `benchmarks/audit/structpair_demo/results/kras2/`.
+- **Expected stdout of step 4:** `158 positions; global Cα RMSD 0.974 Å over 158 Cα; 10 exclusion rows; wrote …/report.md`.
+  The 10 rows are 5 windows that span the 59→68 numbering gap, each listed once per structure.
+- **Reference outputs:** `benchmarks/audit/structpair_demo/results/kras2/`. In the trial, the three CSV files and
+  `summary.json` were byte-identical to them.
 - `--out` must be a new or empty directory, so each run keeps its own record.
+- `PYTHONPATH=python` makes the `topofold_inputs` package importable. It is not installed as a package.
+- **Versions** (an exact record, not a compatibility range):
+
+  | Component | Used in the trial of 2026-10-24 |
+  |---|---|
+  | Python | 3.14.4 |
+  | Rust | 1.98.1 |
+  | maturin | 1.15.0 |
+  | NumPy | 2.5.4 (resolved by the build) |
+  | MDAnalysis | 2.10.0 |
+  | matplotlib | 3.11.2 |
+  | Streamlit | 1.64.0 |
+  | pandas | 3.0.6 |
+  | Altair | 6.3.0 |
+  | Plotly | 7.1.0 |
+
+  The implementer's own checks used the same versions except NumPy 2.5.3. In the trial, installing the viewer packages
+  changed Pillow from 13.0.0 to 12.3.0 after the computation had finished.
+- **Untested:**
+  - other Python, Rust and package versions, and platforms other than Linux x86-64. The README notes that the
+    declared Rust minimum (1.80) is not honoured (KNOWN_ISSUES m12);
+  - a viewer-only environment without the core;
+  - mmCIF input, which depends on the MDAnalysis reader available to you.
 
 ## 3. Write your own spec
 
@@ -116,10 +155,11 @@ PYTHONPATH=python $PY -m topofold_inputs.structpair \
 
 ## 6. Browse results in the viewer (optional)
 
-"TopoFold Structural Comparison" is a local, read-only viewer for structpair output directories:
+"TopoFold Structural Comparison" is a local, read-only viewer for structpair output directories. With the environment
+from §2 active, run from the repository root:
 
 ```bash
-.venv/bin/streamlit run apps/structpair_viewer/app.py --server.address localhost -- --results ~/structpair_out
+streamlit run apps/structpair_viewer/app.py --server.address localhost -- --results ~/structpair_out
 ```
 
 - `--results` takes one output directory or a folder containing several. Without it, the viewer opens the two KRAS
@@ -128,7 +168,8 @@ PYTHONPATH=python $PY -m topofold_inputs.structpair \
   loaded.
 - **What it shows:**
   - one plot per metric, each with its own axis and unit;
-  - the window table, which can be filtered, sorted and selected (selecting a row moves the focus window);
+  - the window table, which can be filtered, sorted and selected. Selecting a row moves the focus window, and the
+    table always marks the focus row, or no row when a filter hides it. The focus is kept per comparison;
   - the exclusions, each with its recorded cause and an explanation of that cause type;
   - the residue correspondence, keeping chain IDs and insertion codes exactly as in the files;
   - provenance, with every output re-checked against its manifest hash;
@@ -143,8 +184,8 @@ PYTHONPATH=python $PY -m topofold_inputs.structpair \
     does not hash itself.
   - The input structures are re-hashed on every page update too. If one is missing or changed, the 3D view is
     disabled with the reason, and the rest of the viewer still works.
-- **Dependencies:** Streamlit, pandas, Altair, Plotly and NumPy (tested with Streamlit 1.64.0, pandas 3.0.6,
-  Altair 6.3.0, Plotly 7.1.0 and NumPy 2.5.3). It needs neither the compiled TopoFold core nor MDAnalysis.
+- **Dependencies:** Streamlit, pandas, Altair, Plotly and NumPy (versions used: §2). It does not import the compiled
+  TopoFold core or MDAnalysis; a test checks this. A viewer-only environment has not been tested.
 - **Older app:** `apps/streamlit_app.py` is a historical dashboard from before the re-validation. Its claims are not
   current; do not use it to read these results.
 

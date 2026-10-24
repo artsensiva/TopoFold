@@ -1,0 +1,57 @@
+window_size,position,structure,window_A,cause,location,source,detail
+3,4,A,A:58..A:60,missing_CA,A:59→A:60,adapter break record,break between adjacent output residues 4 and 5
+3,5,A,A:59..A:61,missing_coordinates,A:60,adapter residue status,residue status residue_not_found
+3,5,A,A:59..A:61,missing_coordinates,A:61,adapter residue status,residue status residue_not_found
+3,5,B,A:59..A:61,missing_CA,A:60→A:61,adapter break record,break between adjacent output residues 5 and 6
+3,6,A,A:60..A:62,missing_coordinates,A:60,adapter residue status,residue status residue_not_found
+3,6,A,A:60..A:62,missing_coordinates,A:61,adapter residue status,residue status residue_not_found
+3,6,A,A:60..A:62,missing_coordinates,A:62,adapter residue status,residue status residue_not_found
+3,6,B,A:60..A:62,missing_coordinates,A:61,adapter residue status,residue status residue_not_found
+3,6,B,A:60..A:62,missing_coordinates,A:62,adapter residue status,residue status residue_not_found
+3,7,A,A:61..A:63,missing_coordinates,A:61,adapter residue status,residue status residue_not_found
+3,7,A,A:61..A:63,missing_coordinates,A:62,adapter residue status,residue status residue_not_found
+3,7,A,A:61..A:63,missing_coordinates,A:63,adapter residue status,residue status residue_not_found
+3,7,B,A:61..A:63,missing_coordinates,A:61,adapter residue status,residue status residue_not_found
+3,7,B,A:61..A:63,missing_coordinates,A:62,adapter residue status,residue status residue_not_found
+3,7,B,A:61..A:63,missing_coordinates,A:63,adapter residue status,residue status residue_not_found
+3,8,A,A:62..A:64,missing_coordinates,A:62,adapter residue status,residue status residue_not_found
+3,8,A,A:62..A:64,missing_coordinates,A:63,adapter residue status,residue status residue_not_found
+3,8,A,A:62..A:64,missing_coordinates,A:64,adapter residue status,residue status residue_not_found
+3,8,B,A:62..A:64,missing_coordinates,A:62,adapter residue status,residue status residue_not_found
+3,8,B,A:62..A:64,missing_coordinates,A:63,adapter residue status,residue status residue_not_found
+3,9,A,A:63..A:65,missing_coordinates,A:63,adapter residue status,residue status residue_not_found
+3,9,A,A:63..A:65,missing_coordinates,A:64,adapter residue status,residue status residue_not_found
+3,9,B,A:63..A:65,missing_CA,A:63→A:64,adapter break record,break between adjacent output residues 8 and 9
+3,10,A,A:64..A:66,missing_CA,A:64→A:65,adapter break record,break between adjacent output residues 9 and 10
+4,3,A,A:57..A:60,missing_coordinates,A:60,adapter residue status,residue status residue_not_found
+4,4,A,A:58..A:61,missing_coordinates,A:60,adapter residue status,residue status residue_not_found
+4,4,A,A:58..A:61,missing_coordinates,A:61,adapter residue status,residue status residue_not_found
+4,4,B,A:58..A:61,missing_coordinates,A:61,adapter residue status,residue status residue_not_found
+4,5,A,A:59..A:62,missing_coordinates,A:60,adapter residue status,residue status residue_not_found
+4,5,A,A:59..A:62,missing_coordinates,A:61,adapter residue status,residue status residue_not_found
+4,5,A,A:59..A:62,missing_coordinates,A:62,adapter residue status,residue status residue_not_found
+4,5,B,A:59..A:62,missing_coordinates,A:61,adapter residue status,residue status residue_not_found
+4,5,B,A:59..A:62,missing_coordinates,A:62,adapter residue status,residue status residue_not_found
+4,6,A,A:60..A:63,missing_coordinates,A:60,adapter residue status,residue status residue_not_found
+4,6,A,A:60..A:63,missing_coordinates,A:61,adapter residue status,residue status residue_not_found
+4,6,A,A:60..A:63,missing_coordinates,A:62,adapter residue status,residue status residue_not_found
+4,6,A,A:60..A:63,missing_coordinates,A:63,adapter residue status,residue status residue_not_found
+4,6,B,A:60..A:63,missing_coordinates,A:61,adapter residue status,residue status residue_not_found
+4,6,B,A:60..A:63,missing_coordinates,A:62,adapter residue status,residue status residue_not_found
+4,6,B,A:60..A:63,missing_coordinates,A:63,adapter residue status,residue status residue_not_found
+4,7,A,A:61..A:64,missing_coordinates,A:61,adapter residue status,residue status residue_not_found
+4,7,A,A:61..A:64,missing_coordinates,A:62,adapter residue status,residue status residue_not_found
+4,7,A,A:61..A:64,missing_coordinates,A:63,adapter residue status,residue status residue_not_found
+4,7,A,A:61..A:64,missing_coordinates,A:64,adapter residue status,residue status residue_not_found
+4,7,B,A:61..A:64,missing_coordinates,A:61,adapter residue status,residue status residue_not_found
+4,7,B,A:61..A:64,missing_coordinates,A:62,adapter residue status,residue status residue_not_found
+4,7,B,A:61..A:64,missing_coordinates,A:63,adapter residue status,residue status residue_not_found
+4,8,A,A:62..A:65,missing_coordinates,A:62,adapter residue status,residue status residue_not_found
+4,8,A,A:62..A:65,missing_coordinates,A:63,adapter residue status,residue status residue_not_found
+4,8,A,A:62..A:65,missing_coordinates,A:64,adapter residue status,residue status residue_not_found
+4,8,B,A:62..A:65,missing_coordinates,A:62,adapter residue status,residue status residue_not_found
+4,8,B,A:62..A:65,missing_coordinates,A:63,adapter residue status,residue status residue_not_found
+4,9,A,A:63..A:66,missing_coordinates,A:63,adapter residue status,residue status residue_not_found
+4,9,A,A:63..A:66,missing_coordinates,A:64,adapter residue status,residue status residue_not_found
+4,9,B,A:63..A:66,missing_coordinates,A:63,adapter residue status,residue status residue_not_found
+4,10,A,A:64..A:67,missing_coordinates,A:64,adapter residue status,residue status residue_not_found

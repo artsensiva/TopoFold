@@ -1,0 +1,41 @@
+{
+  "report": "/home/artem/Documents/Codex/2026-10-24/act-as-an-independent-computational-software/outputs/topofold-ai-tester-1-trial/evidence/numerical-validation.json",
+  "exit_code": 0,
+  "sections": {
+    "reference_comparison": {
+      "counts": {
+        "checks": 6922,
+        "passed": 6922,
+        "exact_values": 3401,
+        "numeric_values": 2939
+      },
+      "failure_count": 0
+    },
+    "primary_manifest_integrity": {
+      "counts": {
+        "checks": 22,
+        "passed": 22,
+        "exact_values": 9
+      },
+      "failure_count": 0
+    },
+    "additional_manifest_integrity": {
+      "counts": {
+        "checks": 22,
+        "passed": 22,
+        "exact_values": 9
+      },
+      "failure_count": 0
+    },
+    "additional_case": {
+      "counts": {
+        "checks": 920,
+        "passed": 920,
+        "numeric_values": 189,
+        "exact_values": 327
+      },
+      "failure_count": 0
+    }
+  },
+  "error": null
+}

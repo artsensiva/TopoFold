@@ -1,0 +1,11 @@
+{
+  "pid": 372413,
+  "command": [
+    "python3",
+    "-B",
+    "/home/artem/Documents/Codex/2026-10-24/act-as-an-independent-computational-software/outputs/topofold-ai-tester-1-trial/evidence/save_browser_evidence.py"
+  ],
+  "started": "2026-10-23T23:57:55.560614+00:00",
+  "purpose": "Save actual screenshots and DOM snapshots via supported browser form interactions; loopback-only; trial evidence writes only.",
+  "tester_tooling_correction": "First screenshot saved as .png was rejected HTTP400: browser screenshot API returned JPEG (FFD8), not PNG. Added .jpg filename support; no image transformation or TopoFold modification."
+}

@@ -1,0 +1,96 @@
+{
+  "name": "AI tester 1 technical missing-residue case: explicit 55\u201372 identity mapping",
+  "structures": {
+    "A": {
+      "label": "5US4 chain A",
+      "file": "../checkout/benchmarks/audit/kras_struct_g12d/data_pdb/5US4.pdb",
+      "chain": "A",
+      "altloc": "reject"
+    },
+    "B": {
+      "label": "5USJ chain A",
+      "file": "../checkout/benchmarks/audit/kras_struct_g12d/data_pdb/5USJ.pdb",
+      "chain": "A",
+      "altloc": "reject"
+    }
+  },
+  "correspondence": {
+    "pairs": [
+      [
+        55,
+        55
+      ],
+      [
+        56,
+        56
+      ],
+      [
+        57,
+        57
+      ],
+      [
+        58,
+        58
+      ],
+      [
+        59,
+        59
+      ],
+      [
+        60,
+        60
+      ],
+      [
+        61,
+        61
+      ],
+      [
+        62,
+        62
+      ],
+      [
+        63,
+        63
+      ],
+      [
+        64,
+        64
+      ],
+      [
+        65,
+        65
+      ],
+      [
+        66,
+        66
+      ],
+      [
+        67,
+        67
+      ],
+      [
+        68,
+        68
+      ],
+      [
+        69,
+        69
+      ],
+      [
+        70,
+        70
+      ],
+      [
+        71,
+        71
+      ],
+      [
+        72,
+        72
+      ]
+    ]
+  },
+  "on_missing": "exclude",
+  "resname_mismatch": "reject",
+  "altloc_sensitivity": "highest_occupancy"
+}

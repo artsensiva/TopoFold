@@ -1,0 +1,119 @@
+{
+  "tester": "AI tester 1",
+  "reported_model_family": "GPT-6",
+  "exact_model_identifier": "unknown",
+  "application": "Codex desktop",
+  "app_version": "unknown",
+  "trial_start_utc": "2026-10-23 23:49:31 UTC",
+  "time_limit_minutes": 60,
+  "checkpoint": "6ce7b49922311e831fc09e701fcb43ae9e314625",
+  "branch": "scientific-rebuild",
+  "branch_relation_at_resolution": "identical",
+  "permission_event": "Initial setup rejected by automatic approval review before process execution due to prior read-only instruction. User then explicitly approved trial-only exception. Retried same setup.",
+  "assistance": "A parallel AI subagent reviewed fixed-checkpoint documentation and proposed additional explicit identity mapping 55\u201372 before trial outputs. No human or project-developer assistance.",
+  "preselected_case": {
+    "structures": "5US4 A versus 5USJ A",
+    "pairs": [
+      [
+        55,
+        55
+      ],
+      [
+        56,
+        56
+      ],
+      [
+        57,
+        57
+      ],
+      [
+        58,
+        58
+      ],
+      [
+        59,
+        59
+      ],
+      [
+        60,
+        60
+      ],
+      [
+        61,
+        61
+      ],
+      [
+        62,
+        62
+      ],
+      [
+        63,
+        63
+      ],
+      [
+        64,
+        64
+      ],
+      [
+        65,
+        65
+      ],
+      [
+        66,
+        66
+      ],
+      [
+        67,
+        67
+      ],
+      [
+        68,
+        68
+      ],
+      [
+        69,
+        69
+      ],
+      [
+        70,
+        70
+      ],
+      [
+        71,
+        71
+      ],
+      [
+        72,
+        72
+      ]
+    ],
+    "on_missing": "exclude",
+    "resname_mismatch": "reject",
+    "altloc": "reject",
+    "altloc_sensitivity": "highest_occupancy"
+  },
+  "comparison_policy": {
+    "numerical_tables": "same shape, same nonnumeric cells and missingness; finite floats abs <= 1e-8 + 1e-7 * abs(reference)",
+    "provenance": "paths, timestamps, machine details may differ; separately verify hashes"
+  },
+  "initial_environment": {
+    "os": "Linux-7.0.0-31-generic-x86_64-with-glibc2.43",
+    "python": "3.14.4",
+    "git": "2.53.0",
+    "rustc": "1.98.1",
+    "cargo": "1.98.1",
+    "pip": "25.1.1",
+    "node": "24.21.0",
+    "npm": "11.19.0",
+    "g++": "15.2.0",
+    "terminal": "available",
+    "browser": "Codex In-app Browser available"
+  },
+  "initial_status_check": {
+    "cwd": "projectless task directory",
+    "command": "git status --porcelain",
+    "exit_code": 128,
+    "stderr": "fatal: not a git repository (or any of the parent directories): .git",
+    "explanation": "No pre-existing checkout; not a TopoFold failure."
+  }
+}

@@ -79,3 +79,65 @@ Record: `benchmarks/audit/structpair_demo/results/smoke_test_2026-10-24.json`.
   - The guide's per-run CPU estimate was corrected to the measured values.
 - **Next:** an outside computational scientist (owner nominates; invitation updated to mention both tools). No feedback
   has been collected or invented.
+
+## Entry 4 — AI TESTER 1: external AI technical trial of checkpoint 6ce7b49 (2026-10-23/24)
+
+**An external AI technical trial, not human validation, a human usability assessment or biological validation.**
+Human consent fields (feedback form items 15 and 16) do not apply. Archived evidence:
+`benchmarks/audit/ai_tester_1_trial_2026-10-24/`. The tester's report is reproduced unchanged as `REPORT.md` there.
+
+- **Tester:** AI tester 1.
+  - Model family as reported: GPT-6. Exact model identifier: unknown. Application: Codex desktop, version unknown.
+  - **AI helper disclosed:** a parallel AI subagent reviewed the documentation, prespecified the additional mapping
+    (5US4 A vs 5USJ A, residues 55–72) before outputs were seen, and wrote the tester's numerical validator.
+  - No human or project-developer assistance.
+- **Tested commit:** `6ce7b49922311e831fc09e701fcb43ae9e314625`, branch `scientific-rebuild`, resolved before checkout.
+- **Environment:**
+  - One platform only: Linux x86-64, system Python 3.14.4 and Rust 1.98.1.
+  - A fresh clone, a fresh venv, and Cargo/pip caches, build products, inputs and outputs, all inside the trial
+    directory.
+- **Permission event:** setup was first refused by the tester application's own approval review. It succeeded after
+  the owner granted a trial-only exception. This was not a TopoFold failure.
+
+| Area | Outcome category | Record |
+|---|---|---|
+| Installation | **Success using a tester-devised workaround** | The guide had no concrete venv or viewer `pip` commands and assumed a `.venv` path; the tester supplied them (`evidence/setup-notes.json`). Each install command exited 0. NumPy resolved to 2.5.4 versus the guide's 2.5.3 |
+| Computation | **Success following the documentation** | Inputs fetched and hash-verified. The documented kras2 command exited 0 in 7.0 s. Outputs were byte-identical to the shipped reference, with 2,939 numeric comparisons at maximum difference 0. The tester's additional explicit mapping (55–72, `on_missing: exclude`) exited 0, with 56 cause rows explaining 26 excluded window/structure combinations |
+| Viewer interaction | **Success using a tester-devised workaround**, with one TopoFold defect | Launched with tester-supplied paths and versions. Six metric axes and units, sorting, filtering, row selection, dual highlights, exclusion explanations and provenance were checked in a real browser. **Defect:** the table selection was out of sync with the focus after a filter change (below). Not tested: 3D rotation, hover, residue-name-mismatch and altloc cases, other platforms, the repository test suite |
+| Interpretation | **Success following the documentation** | Exclusions explained correctly, including the 59→68 correspondence gap and the residues missing in 5US4 (60–64) and 5USJ (61–63). The report states that static coordinate differences establish no dynamics, populations, function, ligand causation or treatment relevance. This is the tester's written interpretation, not a human comprehension test |
+
+**Not an overall pass.** Installation and viewer use needed tester workarounds, and one viewer defect was found.
+
+**Time box:**
+- The trial started at 23:49:31 UTC on 2026-10-23 and its services stopped at 07:33:42 UTC on 2026-10-24, 464.2
+  elapsed minutes. A usage-limit interruption came in between, and the owner then requested resumption.
+- Active time is unknown: computation took about the first 10 minutes and the resumed browser work about 10 minutes.
+- **The continuous 60-minute cap was not met.** See `evidence/16-timing-and-interruption.json`.
+
+**Tester-tooling mistakes, not TopoFold defects** (`evidence/18-tester-tooling-events.json`,
+`evidence/validator-corrections.json`):
+- Playwright locator mismatches;
+- an HTTP 400 from the tester's own evidence form;
+- two read-only inventory mistakes;
+- four corrections to the tester's validator. The first attempt is preserved.
+
+**Findings and actions** (fix commit `f96c3a2`, separate from the tested commit `6ce7b49`):
+1. **Viewer selection out of sync — confirmed and fixed.**
+   - **Reproduced before editing:** a headless-Chrome replay of the reported sequence on `6ce7b49` gave table
+     position 33 against focus and details 58 after "rows: all" (`fix_verification/before_checkpoint_6ce7b49.json`).
+     It also showed stale marks after re-sorting and after switching comparisons, and focus carried across
+     comparisons.
+   - **Cause:** the table selection was a row index that persisted when the displayed rows changed.
+   - **Fix:** the table is keyed by what it displays (comparison, displayed positions, focus) and seeded with the
+     focus row. Focus is remembered per comparison.
+   - **After the fix:** 7 of 7 browser steps agree (`fix_verification/after_fix.json`), and 2 regression tests were
+     added.
+2. **Setup unclear — confirmed and fixed.** `docs/STRUCTPAIR_USER_GUIDE.md` §2 now gives one explicit
+   isolated-install sequence based on the commands that succeeded in the trial. It assumes no `.venv` path and records
+   versions as used, not as a compatibility range.
+3. **Open, not acted on:**
+   - `fetch_inputs.py` has no output-directory option (a setup note, not a blocker);
+   - the declared Rust minimum is inaccurate (already KNOWN_ISSUES m12).
+
+**Next:** a short confirmation run by the tester of the selection behaviour and the setup text, against the fix
+commit.
