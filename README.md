@@ -169,8 +169,10 @@ The development programme, evidence levels (A–E) and the current queue are in
     are code-frozen (D57). The original run passed G0 and stopped at G1 (`Set2/system.gro` is absent in the published model
     archives, D58). A post-hoc amendment (`benchmarks/audit/abl_myr_1a/`, D59) froze and ran an audit of the start files:
     Set1 start coordinates identical between conditions, Set2 structures copies of Set1's, but the original mdp/topology
-    identity rules fail for Myr vs noMyr by construction (verdict V4); no comparison was run. It addresses a separate
-    myristoyl/allostery question.
+    identity rules fail for Myr vs noMyr by construction (verdict V4); no comparison was run. A further post-hoc check of the
+    production run inputs (`benchmarks/audit/abl_myr_1b/`, D60) found tc groups, thermostats and composition comparable,
+    but could not validate the production-start coordinates without a readable box (GROMACS is not installed), so no
+    ABL-MYR-1b protocol was written. It addresses a separate myristoyl/allostery question.
 - **Kinase descriptors** (KIN-DESC-1, four public Abl crystal chains, representation capability only):
   - side-chain-aware descriptors reproduce the stated DFG and A-loop labels;
   - Cα κ/τ separates the A-loop contrast in many windows, but DFG only at a few four-point windows

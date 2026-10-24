@@ -1,0 +1,2036 @@
+{
+ "id": "ABL-MYR-1b-CHECK",
+ "post_hoc": true,
+ "extracted": {
+  "files": 64,
+  "bytes": 177450990,
+  "sha256": {
+   "kinase_kinked_Myr.zip:nvt.mdp:Set1": {
+    "member": "kinase_kinked_Myr/Set1/nvt.mdp",
+    "bytes": 2198,
+    "sha256": "e7494a4e437e13c6a629d70ea420928c51b88b6cc2f03e828d6b5babfdc5b6f6"
+   },
+   "kinase_kinked_Myr.zip:npt.mdp:Set1": {
+    "member": "kinase_kinked_Myr/Set1/npt.mdp",
+    "bytes": 2732,
+    "sha256": "2d44e692f74f84246893ebf4a45f87e5f9d4b3a490adda70707a697855e8ddf6"
+   },
+   "kinase_kinked_Myr.zip:production_md.mdp:Set1": {
+    "member": "kinase_kinked_Myr/Set1/production_md.mdp",
+    "bytes": 2284,
+    "sha256": "86a8f20dee1defe7db9d70ec51f39ffbf690d9058a663381d04caefd9488e612"
+   },
+   "kinase_kinked_Myr.zip:index.ndx:Set1": {
+    "member": "kinase_kinked_Myr/Set1/index.ndx",
+    "bytes": 3434495,
+    "sha256": "4dae2c4685135c04b65e0e8399d08c8376147caa929263a1b9b5ba0903a58ffa"
+   },
+   "kinase_kinked_Myr.zip:topol.top:Set1": {
+    "member": "kinase_kinked_Myr/Set1/topol.top",
+    "bytes": 1381,
+    "sha256": "7d0a244a7fb1c956ee915e6eedb4e53a9ace6d0377a644a4e29ddd28ca33dfb8"
+   },
+   "kinase_kinked_Myr.zip:system_em.gro:Set1": {
+    "member": "kinase_kinked_Myr/Set1/system_em.gro",
+    "bytes": 4257439,
+    "sha256": "4a49d81591eaf998f7f9e592d2836e23729fe91794e1ab13021c7393db0d88cc"
+   },
+   "kinase_kinked_Myr.zip:tpr:Set1:11": {
+    "member": "kinase_kinked_Myr/Set1/11/md.tpr",
+    "bytes": 3673520,
+    "sha256": "34f87afe60507b0087fa5a4b4ff25c025c73f407306c4416aacff6649743676a"
+   },
+   "kinase_kinked_Myr.zip:tpr:Set1:12": {
+    "member": "kinase_kinked_Myr/Set1/12/md.tpr",
+    "bytes": 3673520,
+    "sha256": "ec1c36469a587a62d5dea5d0998c171c4afda0a74539672fd9226a24c08af5c9"
+   },
+   "kinase_kinked_Myr.zip:tpr:Set1:13": {
+    "member": "kinase_kinked_Myr/Set1/13/md.tpr",
+    "bytes": 3673520,
+    "sha256": "303af400c3514557c693fde238cafe1e04b7bdd2d7859bf1f411ba3624370af1"
+   },
+   "kinase_kinked_Myr.zip:tpr:Set1:14": {
+    "member": "kinase_kinked_Myr/Set1/14/md.tpr",
+    "bytes": 3673520,
+    "sha256": "fb42d9230a5d275da0fcac4958451b7eba7c314001b56325cca646f37daefe68"
+   },
+   "kinase_kinked_Myr.zip:tpr:Set1:15": {
+    "member": "kinase_kinked_Myr/Set1/15/md.tpr",
+    "bytes": 3673520,
+    "sha256": "3b470b619d7b59a7ab1f5a7a3120ab50f5237f501d85645dd965d693f2ebe0f8"
+   },
+   "kinase_kinked_Myr.zip:tpr:Set1:16": {
+    "member": "kinase_kinked_Myr/Set1/16/md.tpr",
+    "bytes": 3673520,
+    "sha256": "07edd563cd3faac19fece147229cdd8b0c545ac2dd68638e7bd0a9c82d631cbc"
+   },
+   "kinase_kinked_Myr.zip:tpr:Set1:17": {
+    "member": "kinase_kinked_Myr/Set1/17/md.tpr",
+    "bytes": 3673520,
+    "sha256": "6c64ea398cb0b7863780b7645ce6179d606652fb7388a36bd99feca2f2f6b9a3"
+   },
+   "kinase_kinked_Myr.zip:tpr:Set1:18": {
+    "member": "kinase_kinked_Myr/Set1/18/md.tpr",
+    "bytes": 3673520,
+    "sha256": "3bee395b16b274eb868920c450903c120efdd19772213d4e22c14fdf745aabd9"
+   },
+   "kinase_kinked_Myr.zip:tpr:Set1:19": {
+    "member": "kinase_kinked_Myr/Set1/19/md.tpr",
+    "bytes": 3673520,
+    "sha256": "eb54d7ae98353959b4401e60ccdba167f23b5682457ac3312474fe0f515924c7"
+   },
+   "kinase_kinked_Myr.zip:tpr:Set1:20": {
+    "member": "kinase_kinked_Myr/Set1/20/md.tpr",
+    "bytes": 3673520,
+    "sha256": "4ad0b8a4cb1e042385e056a4f671b722c28a3bf75edf607d6c63ec7cb287e639"
+   },
+   "kinase_kinked_Myr.zip:nvt.mdp:Set2": {
+    "member": "kinase_kinked_Myr/Set2/nvt.mdp",
+    "bytes": 2198,
+    "sha256": "e7494a4e437e13c6a629d70ea420928c51b88b6cc2f03e828d6b5babfdc5b6f6"
+   },
+   "kinase_kinked_Myr.zip:npt.mdp:Set2": {
+    "member": "kinase_kinked_Myr/Set2/npt.mdp",
+    "bytes": 2732,
+    "sha256": "2d44e692f74f84246893ebf4a45f87e5f9d4b3a490adda70707a697855e8ddf6"
+   },
+   "kinase_kinked_Myr.zip:production_md.mdp:Set2": {
+    "member": "kinase_kinked_Myr/Set2/production_md.mdp",
+    "bytes": 2286,
+    "sha256": "e39abd94d79f1d5798e218cd076bd74561ec1e30dac894258e580f354ff65a3c"
+   },
+   "kinase_kinked_Myr.zip:index.ndx:Set2": {
+    "member": "kinase_kinked_Myr/Set2/index.ndx",
+    "bytes": 3458562,
+    "sha256": "6678249057bdabd84a4e5845fa27e8599c815df73f4e64229bfe5203bfcd95d2"
+   },
+   "kinase_kinked_Myr.zip:topol.top:Set2": {
+    "member": "kinase_kinked_Myr/Set2/topol.top",
+    "bytes": 1381,
+    "sha256": "7d0a244a7fb1c956ee915e6eedb4e53a9ace6d0377a644a4e29ddd28ca33dfb8"
+   },
+   "kinase_kinked_Myr.zip:system_em.gro:Set2": {
+    "member": "kinase_kinked_Myr/Set2/system_em.gro",
+    "bytes": 4257439,
+    "sha256": "4a49d81591eaf998f7f9e592d2836e23729fe91794e1ab13021c7393db0d88cc"
+   },
+   "kinase_kinked_Myr.zip:tpr:Set2:21": {
+    "member": "kinase_kinked_Myr/Set2/21/md.tpr",
+    "bytes": 3673612,
+    "sha256": "b331672e30bfa0f4764a47bee974886f195f53526e08ca10f6071704c3803dcb"
+   },
+   "kinase_kinked_Myr.zip:tpr:Set2:22": {
+    "member": "kinase_kinked_Myr/Set2/22/md.tpr",
+    "bytes": 3673612,
+    "sha256": "01faf4a78a53e593392867f201885922b39a750cbfb11c9036afd64831f3b6cd"
+   },
+   "kinase_kinked_Myr.zip:tpr:Set2:23": {
+    "member": "kinase_kinked_Myr/Set2/23/md.tpr",
+    "bytes": 3673612,
+    "sha256": "fd6d30bb5ed1886a4aa43227101dc81696f291e1270b37421ceb3e1e755c8a6d"
+   },
+   "kinase_kinked_Myr.zip:tpr:Set2:24": {
+    "member": "kinase_kinked_Myr/Set2/24/md.tpr",
+    "bytes": 3673612,
+    "sha256": "fb0cf1004b651e3fe81d969dc5cead89d65e26d2ee470011b5a1cbec86e1a3fe"
+   },
+   "kinase_kinked_Myr.zip:tpr:Set2:25": {
+    "member": "kinase_kinked_Myr/Set2/25/md.tpr",
+    "bytes": 3673612,
+    "sha256": "05f45dc8ca7ddad17db1db1f98ce4a137f38ccbaca73df331f3fd6617485e0a2"
+   },
+   "kinase_kinked_Myr.zip:tpr:Set2:26": {
+    "member": "kinase_kinked_Myr/Set2/26/md.tpr",
+    "bytes": 3673612,
+    "sha256": "36109c95829ae33e6c34604d25e65365d41ff54900d286cd3226d848f2a3e3ef"
+   },
+   "kinase_kinked_Myr.zip:tpr:Set2:27": {
+    "member": "kinase_kinked_Myr/Set2/27/md.tpr",
+    "bytes": 3673612,
+    "sha256": "dadb056f3d58d096ca0503ed2e05c0ad70dc19abb1cbafe3e1c8487cc38d5b98"
+   },
+   "kinase_kinked_Myr.zip:tpr:Set2:28": {
+    "member": "kinase_kinked_Myr/Set2/28/md.tpr",
+    "bytes": 3673612,
+    "sha256": "2a180c5c5e73398e2bde82e9392a2ddd2b28c0965197595d519cebf22ebe3cec"
+   },
+   "kinase_kinked_Myr.zip:tpr:Set2:29": {
+    "member": "kinase_kinked_Myr/Set2/29/md.tpr",
+    "bytes": 3673612,
+    "sha256": "591f3efee5e9d73525e97444e59e0713fd35402fccf264b4c722c13e8cc59c46"
+   },
+   "kinase_kinked_Myr.zip:tpr:Set2:30": {
+    "member": "kinase_kinked_Myr/Set2/30/md.tpr",
+    "bytes": 3673612,
+    "sha256": "79ab1c00a2693d2329b6c8258f233dca1f946d702f6e12a3d4d11be4e40e2c50"
+   },
+   "kinase_kinked_noMyr.zip:nvt.mdp:Set1": {
+    "member": "kinase_kinked_noMyr/Set1/nvt.mdp",
+    "bytes": 2193,
+    "sha256": "14cf31f18e977c93b641950465303d925f2bcbf9712aa0844b352788c788b3f8"
+   },
+   "kinase_kinked_noMyr.zip:npt.mdp:Set1": {
+    "member": "kinase_kinked_noMyr/Set1/npt.mdp",
+    "bytes": 2727,
+    "sha256": "2eacc438612b937d229c1a86f9dca6550a20122c77a7b9073a8663d211a227c4"
+   },
+   "kinase_kinked_noMyr.zip:production_md.mdp:Set1": {
+    "member": "kinase_kinked_noMyr/Set1/production_md.mdp",
+    "bytes": 2274,
+    "sha256": "a22c59548ec727165b3f2b763e38ca4a2d092b9ca4545adb495c5fa629185321"
+   },
+   "kinase_kinked_noMyr.zip:index.ndx:Set1": {
+    "member": "kinase_kinked_noMyr/Set1/index.ndx",
+    "bytes": 3431480,
+    "sha256": "13194977e2b4b4ff4d02dc02cb3e3007a633d59d75fa67b7ad7dd96794acb565"
+   },
+   "kinase_kinked_noMyr.zip:topol.top:Set1": {
+    "member": "kinase_kinked_noMyr/Set1/topol.top",
+    "bytes": 1358,
+    "sha256": "53bb1f654b78bac1472c6e1da0e5d709e2a3b4c44f61a2cb983c51b6ec6d5631"
+   },
+   "kinase_kinked_noMyr.zip:system_em.gro:Set1": {
+    "member": "kinase_kinked_noMyr/Set1/system_em.gro",
+    "bytes": 4253976,
+    "sha256": "243b9189e3890a4398683f98d230ac0f894716439846e0f2cf4a8b2053ab17fa"
+   },
+   "kinase_kinked_noMyr.zip:tpr:Set1:11": {
+    "member": "kinase_kinked_noMyr/Set1/11/md.tpr",
+    "bytes": 3656868,
+    "sha256": "ffe4fda8c66fd6ac0e4df7170a814012d364ada3d6191d40ccdfde0f2e1a3b6a"
+   },
+   "kinase_kinked_noMyr.zip:tpr:Set1:12": {
+    "member": "kinase_kinked_noMyr/Set1/12/md.tpr",
+    "bytes": 3656868,
+    "sha256": "f1d0d994380ccdd0b0662fb3fd89a4e5a395fed6ad97e2b21cef98eacfd3b2de"
+   },
+   "kinase_kinked_noMyr.zip:tpr:Set1:13": {
+    "member": "kinase_kinked_noMyr/Set1/13/md.tpr",
+    "bytes": 3656868,
+    "sha256": "c6586915d7662072c2a4e794846e8019d782d22cb92f52fd84116a07125e9c82"
+   },
+   "kinase_kinked_noMyr.zip:tpr:Set1:14": {
+    "member": "kinase_kinked_noMyr/Set1/14/md.tpr",
+    "bytes": 3656868,
+    "sha256": "087703b36ad50125556bbe63ab142003ce64b60bf939f2cb35ca7868bebecf4d"
+   },
+   "kinase_kinked_noMyr.zip:tpr:Set1:15": {
+    "member": "kinase_kinked_noMyr/Set1/15/md.tpr",
+    "bytes": 3656868,
+    "sha256": "e9f6910eb386bd22d10f39835b46885ffb5f449f6412404fef4c8d24842845df"
+   },
+   "kinase_kinked_noMyr.zip:tpr:Set1:16": {
+    "member": "kinase_kinked_noMyr/Set1/16/md.tpr",
+    "bytes": 3656868,
+    "sha256": "a243331780f0036683e0c721c35ba14bb833a28f15d45193aedf1dd84bc65203"
+   },
+   "kinase_kinked_noMyr.zip:tpr:Set1:17": {
+    "member": "kinase_kinked_noMyr/Set1/17/md.tpr",
+    "bytes": 3656868,
+    "sha256": "88549cd73f4c8d0fa555bfdcc142cc6a1a9e4f668acbd15ff86883c6fdc0a39a"
+   },
+   "kinase_kinked_noMyr.zip:tpr:Set1:18": {
+    "member": "kinase_kinked_noMyr/Set1/18/md.tpr",
+    "bytes": 3656868,
+    "sha256": "5d5174f32ffa7c0f901e55a7d73067a200366daab54278ad57eac4745539eea4"
+   },
+   "kinase_kinked_noMyr.zip:tpr:Set1:19": {
+    "member": "kinase_kinked_noMyr/Set1/19/md.tpr",
+    "bytes": 3656868,
+    "sha256": "3862cdc3eaba39425d736dc61f1a66a0b3c90afd79cbe725b2ce2373a69d98aa"
+   },
+   "kinase_kinked_noMyr.zip:tpr:Set1:20": {
+    "member": "kinase_kinked_noMyr/Set1/20/md.tpr",
+    "bytes": 3656868,
+    "sha256": "59115750d22ee3e5ab6329442c481f7b36ed87b8e07831b7a7ed2552c493e40b"
+   },
+   "kinase_kinked_noMyr.zip:nvt.mdp:Set2": {
+    "member": "kinase_kinked_noMyr/Set2/nvt.mdp",
+    "bytes": 2193,
+    "sha256": "14cf31f18e977c93b641950465303d925f2bcbf9712aa0844b352788c788b3f8"
+   },
+   "kinase_kinked_noMyr.zip:npt.mdp:Set2": {
+    "member": "kinase_kinked_noMyr/Set2/npt.mdp",
+    "bytes": 2727,
+    "sha256": "2eacc438612b937d229c1a86f9dca6550a20122c77a7b9073a8663d211a227c4"
+   },
+   "kinase_kinked_noMyr.zip:production_md.mdp:Set2": {
+    "member": "kinase_kinked_noMyr/Set2/production_md.mdp",
+    "bytes": 2276,
+    "sha256": "e38bfb5d6442756e6c96694c334c02bcdbe29a15902c20f84dc947dd6296dd34"
+   },
+   "kinase_kinked_noMyr.zip:index.ndx:Set2": {
+    "member": "kinase_kinked_noMyr/Set2/index.ndx",
+    "bytes": 3459725,
+    "sha256": "7c3c34994f1ee8d9de3c0aa11e9f87a205166a555fc70b801e7948d8fd734e4a"
+   },
+   "kinase_kinked_noMyr.zip:topol.top:Set2": {
+    "member": "kinase_kinked_noMyr/Set2/topol.top",
+    "bytes": 1358,
+    "sha256": "53bb1f654b78bac1472c6e1da0e5d709e2a3b4c44f61a2cb983c51b6ec6d5631"
+   },
+   "kinase_kinked_noMyr.zip:system_em.gro:Set2": {
+    "member": "kinase_kinked_noMyr/Set2/system_em.gro",
+    "bytes": 4253976,
+    "sha256": "243b9189e3890a4398683f98d230ac0f894716439846e0f2cf4a8b2053ab17fa"
+   },
+   "kinase_kinked_noMyr.zip:tpr:Set2:21": {
+    "member": "kinase_kinked_noMyr/Set2/21/md.tpr",
+    "bytes": 3656960,
+    "sha256": "f1f9769ced472f6d43ba907abf59523b2293cc4f8cff92a64e1e2a4f9e46365a"
+   },
+   "kinase_kinked_noMyr.zip:tpr:Set2:22": {
+    "member": "kinase_kinked_noMyr/Set2/22/md.tpr",
+    "bytes": 3656960,
+    "sha256": "b76d3e5474f0c36a002b7428e66c842a16b4c7ed1b6900af01e9db31bf0e748c"
+   },
+   "kinase_kinked_noMyr.zip:tpr:Set2:23": {
+    "member": "kinase_kinked_noMyr/Set2/23/md.tpr",
+    "bytes": 3656960,
+    "sha256": "d2e66523abebe4767b0f13d27aea86ee3d005bb1be3ca788ab45e823a4484e9a"
+   },
+   "kinase_kinked_noMyr.zip:tpr:Set2:24": {
+    "member": "kinase_kinked_noMyr/Set2/24/md.tpr",
+    "bytes": 3656960,
+    "sha256": "4d32e1169b2af991351099fd4274ccb478f98e6e158d8e8043051d369efcd15f"
+   },
+   "kinase_kinked_noMyr.zip:tpr:Set2:25": {
+    "member": "kinase_kinked_noMyr/Set2/25/md.tpr",
+    "bytes": 3656960,
+    "sha256": "1d088161563e624069a50d0d436904a846769f37b3c8d03d4d90020dd565e348"
+   },
+   "kinase_kinked_noMyr.zip:tpr:Set2:26": {
+    "member": "kinase_kinked_noMyr/Set2/26/md.tpr",
+    "bytes": 3656960,
+    "sha256": "bee99f7721f3be69ea58c21ba47df28ae9cedd32461b99be18b9f4865d90973b"
+   },
+   "kinase_kinked_noMyr.zip:tpr:Set2:27": {
+    "member": "kinase_kinked_noMyr/Set2/27/md.tpr",
+    "bytes": 3656960,
+    "sha256": "86eaebe97f803429ead84f2d814efbe745dccd830696308e8b754e749e89c832"
+   },
+   "kinase_kinked_noMyr.zip:tpr:Set2:28": {
+    "member": "kinase_kinked_noMyr/Set2/28/md.tpr",
+    "bytes": 3656960,
+    "sha256": "c506ef50b7459db5ef668568b656ecbde3b975aafc7fc68e13621e8052d6c51a"
+   },
+   "kinase_kinked_noMyr.zip:tpr:Set2:29": {
+    "member": "kinase_kinked_noMyr/Set2/29/md.tpr",
+    "bytes": 3656960,
+    "sha256": "ff488ebe25d4ee6a84b98409a2d366ac4d5e5e59d1f5f6dd10f74be7c3ee3b85"
+   },
+   "kinase_kinked_noMyr.zip:tpr:Set2:30": {
+    "member": "kinase_kinked_noMyr/Set2/30/md.tpr",
+    "bytes": 3656960,
+    "sha256": "e027c34ea0305475921802982ed98f8375e9a5b9840b627bedc3d6948047aaa3"
+   }
+  }
+ },
+ "R1_usable_coordinates": {
+  "per_run": {
+   "Set1:Myr:11": {
+    "positions_finite": true,
+    "box_present": false,
+    "atom_order_matches_em": true,
+    "bonds": {
+     "ok": false
+    },
+    "ca_rmsd_to_em_A": null,
+    "ok": false,
+    "readable": true,
+    "n_atoms": 94607,
+    "velocities_present": true,
+    "protein_residues_outside_gro_set": [
+     "ACE",
+     "NME"
+    ],
+    "box_A": null,
+    "ca_rg_A": null
+   },
+   "Set1:Myr:12": {
+    "positions_finite": true,
+    "box_present": false,
+    "atom_order_matches_em": true,
+    "bonds": {
+     "ok": false
+    },
+    "ca_rmsd_to_em_A": null,
+    "ok": false,
+    "readable": true,
+    "n_atoms": 94607,
+    "velocities_present": true,
+    "protein_residues_outside_gro_set": [
+     "ACE",
+     "NME"
+    ],
+    "box_A": null,
+    "ca_rg_A": null
+   },
+   "Set1:Myr:13": {
+    "positions_finite": true,
+    "box_present": false,
+    "atom_order_matches_em": true,
+    "bonds": {
+     "ok": false
+    },
+    "ca_rmsd_to_em_A": null,
+    "ok": false,
+    "readable": true,
+    "n_atoms": 94607,
+    "velocities_present": true,
+    "protein_residues_outside_gro_set": [
+     "ACE",
+     "NME"
+    ],
+    "box_A": null,
+    "ca_rg_A": null
+   },
+   "Set1:Myr:14": {
+    "positions_finite": true,
+    "box_present": false,
+    "atom_order_matches_em": true,
+    "bonds": {
+     "ok": false
+    },
+    "ca_rmsd_to_em_A": null,
+    "ok": false,
+    "readable": true,
+    "n_atoms": 94607,
+    "velocities_present": true,
+    "protein_residues_outside_gro_set": [
+     "ACE",
+     "NME"
+    ],
+    "box_A": null,
+    "ca_rg_A": null
+   },
+   "Set1:Myr:15": {
+    "positions_finite": true,
+    "box_present": false,
+    "atom_order_matches_em": true,
+    "bonds": {
+     "ok": false
+    },
+    "ca_rmsd_to_em_A": null,
+    "ok": false,
+    "readable": true,
+    "n_atoms": 94607,
+    "velocities_present": true,
+    "protein_residues_outside_gro_set": [
+     "ACE",
+     "NME"
+    ],
+    "box_A": null,
+    "ca_rg_A": null
+   },
+   "Set1:Myr:16": {
+    "positions_finite": true,
+    "box_present": false,
+    "atom_order_matches_em": true,
+    "bonds": {
+     "ok": false
+    },
+    "ca_rmsd_to_em_A": null,
+    "ok": false,
+    "readable": true,
+    "n_atoms": 94607,
+    "velocities_present": true,
+    "protein_residues_outside_gro_set": [
+     "ACE",
+     "NME"
+    ],
+    "box_A": null,
+    "ca_rg_A": null
+   },
+   "Set1:Myr:17": {
+    "positions_finite": true,
+    "box_present": false,
+    "atom_order_matches_em": true,
+    "bonds": {
+     "ok": false
+    },
+    "ca_rmsd_to_em_A": null,
+    "ok": false,
+    "readable": true,
+    "n_atoms": 94607,
+    "velocities_present": true,
+    "protein_residues_outside_gro_set": [
+     "ACE",
+     "NME"
+    ],
+    "box_A": null,
+    "ca_rg_A": null
+   },
+   "Set1:Myr:18": {
+    "positions_finite": true,
+    "box_present": false,
+    "atom_order_matches_em": true,
+    "bonds": {
+     "ok": false
+    },
+    "ca_rmsd_to_em_A": null,
+    "ok": false,
+    "readable": true,
+    "n_atoms": 94607,
+    "velocities_present": true,
+    "protein_residues_outside_gro_set": [
+     "ACE",
+     "NME"
+    ],
+    "box_A": null,
+    "ca_rg_A": null
+   },
+   "Set1:Myr:19": {
+    "positions_finite": true,
+    "box_present": false,
+    "atom_order_matches_em": true,
+    "bonds": {
+     "ok": false
+    },
+    "ca_rmsd_to_em_A": null,
+    "ok": false,
+    "readable": true,
+    "n_atoms": 94607,
+    "velocities_present": true,
+    "protein_residues_outside_gro_set": [
+     "ACE",
+     "NME"
+    ],
+    "box_A": null,
+    "ca_rg_A": null
+   },
+   "Set1:Myr:20": {
+    "positions_finite": true,
+    "box_present": false,
+    "atom_order_matches_em": true,
+    "bonds": {
+     "ok": false
+    },
+    "ca_rmsd_to_em_A": null,
+    "ok": false,
+    "readable": true,
+    "n_atoms": 94607,
+    "velocities_present": true,
+    "protein_residues_outside_gro_set": [
+     "ACE",
+     "NME"
+    ],
+    "box_A": null,
+    "ca_rg_A": null
+   },
+   "Set1:noMyr:11": {
+    "positions_finite": true,
+    "box_present": false,
+    "atom_order_matches_em": true,
+    "bonds": {
+     "ok": false
+    },
+    "ca_rmsd_to_em_A": null,
+    "ok": false,
+    "readable": true,
+    "n_atoms": 94530,
+    "velocities_present": true,
+    "protein_residues_outside_gro_set": [
+     "ACE",
+     "NME"
+    ],
+    "box_A": null,
+    "ca_rg_A": null
+   },
+   "Set1:noMyr:12": {
+    "positions_finite": true,
+    "box_present": false,
+    "atom_order_matches_em": true,
+    "bonds": {
+     "ok": false
+    },
+    "ca_rmsd_to_em_A": null,
+    "ok": false,
+    "readable": true,
+    "n_atoms": 94530,
+    "velocities_present": true,
+    "protein_residues_outside_gro_set": [
+     "ACE",
+     "NME"
+    ],
+    "box_A": null,
+    "ca_rg_A": null
+   },
+   "Set1:noMyr:13": {
+    "positions_finite": true,
+    "box_present": false,
+    "atom_order_matches_em": true,
+    "bonds": {
+     "ok": false
+    },
+    "ca_rmsd_to_em_A": null,
+    "ok": false,
+    "readable": true,
+    "n_atoms": 94530,
+    "velocities_present": true,
+    "protein_residues_outside_gro_set": [
+     "ACE",
+     "NME"
+    ],
+    "box_A": null,
+    "ca_rg_A": null
+   },
+   "Set1:noMyr:14": {
+    "positions_finite": true,
+    "box_present": false,
+    "atom_order_matches_em": true,
+    "bonds": {
+     "ok": false
+    },
+    "ca_rmsd_to_em_A": null,
+    "ok": false,
+    "readable": true,
+    "n_atoms": 94530,
+    "velocities_present": true,
+    "protein_residues_outside_gro_set": [
+     "ACE",
+     "NME"
+    ],
+    "box_A": null,
+    "ca_rg_A": null
+   },
+   "Set1:noMyr:15": {
+    "positions_finite": true,
+    "box_present": false,
+    "atom_order_matches_em": true,
+    "bonds": {
+     "ok": false
+    },
+    "ca_rmsd_to_em_A": null,
+    "ok": false,
+    "readable": true,
+    "n_atoms": 94530,
+    "velocities_present": true,
+    "protein_residues_outside_gro_set": [
+     "ACE",
+     "NME"
+    ],
+    "box_A": null,
+    "ca_rg_A": null
+   },
+   "Set1:noMyr:16": {
+    "positions_finite": true,
+    "box_present": false,
+    "atom_order_matches_em": true,
+    "bonds": {
+     "ok": false
+    },
+    "ca_rmsd_to_em_A": null,
+    "ok": false,
+    "readable": true,
+    "n_atoms": 94530,
+    "velocities_present": true,
+    "protein_residues_outside_gro_set": [
+     "ACE",
+     "NME"
+    ],
+    "box_A": null,
+    "ca_rg_A": null
+   },
+   "Set1:noMyr:17": {
+    "positions_finite": true,
+    "box_present": false,
+    "atom_order_matches_em": true,
+    "bonds": {
+     "ok": false
+    },
+    "ca_rmsd_to_em_A": null,
+    "ok": false,
+    "readable": true,
+    "n_atoms": 94530,
+    "velocities_present": true,
+    "protein_residues_outside_gro_set": [
+     "ACE",
+     "NME"
+    ],
+    "box_A": null,
+    "ca_rg_A": null
+   },
+   "Set1:noMyr:18": {
+    "positions_finite": true,
+    "box_present": false,
+    "atom_order_matches_em": true,
+    "bonds": {
+     "ok": false
+    },
+    "ca_rmsd_to_em_A": null,
+    "ok": false,
+    "readable": true,
+    "n_atoms": 94530,
+    "velocities_present": true,
+    "protein_residues_outside_gro_set": [
+     "ACE",
+     "NME"
+    ],
+    "box_A": null,
+    "ca_rg_A": null
+   },
+   "Set1:noMyr:19": {
+    "positions_finite": true,
+    "box_present": false,
+    "atom_order_matches_em": true,
+    "bonds": {
+     "ok": false
+    },
+    "ca_rmsd_to_em_A": null,
+    "ok": false,
+    "readable": true,
+    "n_atoms": 94530,
+    "velocities_present": true,
+    "protein_residues_outside_gro_set": [
+     "ACE",
+     "NME"
+    ],
+    "box_A": null,
+    "ca_rg_A": null
+   },
+   "Set1:noMyr:20": {
+    "positions_finite": true,
+    "box_present": false,
+    "atom_order_matches_em": true,
+    "bonds": {
+     "ok": false
+    },
+    "ca_rmsd_to_em_A": null,
+    "ok": false,
+    "readable": true,
+    "n_atoms": 94530,
+    "velocities_present": true,
+    "protein_residues_outside_gro_set": [
+     "ACE",
+     "NME"
+    ],
+    "box_A": null,
+    "ca_rg_A": null
+   },
+   "Set2:Myr:21": {
+    "positions_finite": true,
+    "box_present": false,
+    "atom_order_matches_em": true,
+    "bonds": {
+     "ok": false
+    },
+    "ca_rmsd_to_em_A": null,
+    "ok": false,
+    "readable": true,
+    "n_atoms": 94607,
+    "velocities_present": true,
+    "protein_residues_outside_gro_set": [
+     "ACE",
+     "NME"
+    ],
+    "box_A": null,
+    "ca_rg_A": null
+   },
+   "Set2:Myr:22": {
+    "positions_finite": true,
+    "box_present": false,
+    "atom_order_matches_em": true,
+    "bonds": {
+     "ok": false
+    },
+    "ca_rmsd_to_em_A": null,
+    "ok": false,
+    "readable": true,
+    "n_atoms": 94607,
+    "velocities_present": true,
+    "protein_residues_outside_gro_set": [
+     "ACE",
+     "NME"
+    ],
+    "box_A": null,
+    "ca_rg_A": null
+   },
+   "Set2:Myr:23": {
+    "positions_finite": true,
+    "box_present": false,
+    "atom_order_matches_em": true,
+    "bonds": {
+     "ok": false
+    },
+    "ca_rmsd_to_em_A": null,
+    "ok": false,
+    "readable": true,
+    "n_atoms": 94607,
+    "velocities_present": true,
+    "protein_residues_outside_gro_set": [
+     "ACE",
+     "NME"
+    ],
+    "box_A": null,
+    "ca_rg_A": null
+   },
+   "Set2:Myr:24": {
+    "positions_finite": true,
+    "box_present": false,
+    "atom_order_matches_em": true,
+    "bonds": {
+     "ok": false
+    },
+    "ca_rmsd_to_em_A": null,
+    "ok": false,
+    "readable": true,
+    "n_atoms": 94607,
+    "velocities_present": true,
+    "protein_residues_outside_gro_set": [
+     "ACE",
+     "NME"
+    ],
+    "box_A": null,
+    "ca_rg_A": null
+   },
+   "Set2:Myr:25": {
+    "positions_finite": true,
+    "box_present": false,
+    "atom_order_matches_em": true,
+    "bonds": {
+     "ok": false
+    },
+    "ca_rmsd_to_em_A": null,
+    "ok": false,
+    "readable": true,
+    "n_atoms": 94607,
+    "velocities_present": true,
+    "protein_residues_outside_gro_set": [
+     "ACE",
+     "NME"
+    ],
+    "box_A": null,
+    "ca_rg_A": null
+   },
+   "Set2:Myr:26": {
+    "positions_finite": true,
+    "box_present": false,
+    "atom_order_matches_em": true,
+    "bonds": {
+     "ok": false
+    },
+    "ca_rmsd_to_em_A": null,
+    "ok": false,
+    "readable": true,
+    "n_atoms": 94607,
+    "velocities_present": true,
+    "protein_residues_outside_gro_set": [
+     "ACE",
+     "NME"
+    ],
+    "box_A": null,
+    "ca_rg_A": null
+   },
+   "Set2:Myr:27": {
+    "positions_finite": true,
+    "box_present": false,
+    "atom_order_matches_em": true,
+    "bonds": {
+     "ok": false
+    },
+    "ca_rmsd_to_em_A": null,
+    "ok": false,
+    "readable": true,
+    "n_atoms": 94607,
+    "velocities_present": true,
+    "protein_residues_outside_gro_set": [
+     "ACE",
+     "NME"
+    ],
+    "box_A": null,
+    "ca_rg_A": null
+   },
+   "Set2:Myr:28": {
+    "positions_finite": true,
+    "box_present": false,
+    "atom_order_matches_em": true,
+    "bonds": {
+     "ok": false
+    },
+    "ca_rmsd_to_em_A": null,
+    "ok": false,
+    "readable": true,
+    "n_atoms": 94607,
+    "velocities_present": true,
+    "protein_residues_outside_gro_set": [
+     "ACE",
+     "NME"
+    ],
+    "box_A": null,
+    "ca_rg_A": null
+   },
+   "Set2:Myr:29": {
+    "positions_finite": true,
+    "box_present": false,
+    "atom_order_matches_em": true,
+    "bonds": {
+     "ok": false
+    },
+    "ca_rmsd_to_em_A": null,
+    "ok": false,
+    "readable": true,
+    "n_atoms": 94607,
+    "velocities_present": true,
+    "protein_residues_outside_gro_set": [
+     "ACE",
+     "NME"
+    ],
+    "box_A": null,
+    "ca_rg_A": null
+   },
+   "Set2:Myr:30": {
+    "positions_finite": true,
+    "box_present": false,
+    "atom_order_matches_em": true,
+    "bonds": {
+     "ok": false
+    },
+    "ca_rmsd_to_em_A": null,
+    "ok": false,
+    "readable": true,
+    "n_atoms": 94607,
+    "velocities_present": true,
+    "protein_residues_outside_gro_set": [
+     "ACE",
+     "NME"
+    ],
+    "box_A": null,
+    "ca_rg_A": null
+   },
+   "Set2:noMyr:21": {
+    "positions_finite": true,
+    "box_present": false,
+    "atom_order_matches_em": true,
+    "bonds": {
+     "ok": false
+    },
+    "ca_rmsd_to_em_A": null,
+    "ok": false,
+    "readable": true,
+    "n_atoms": 94530,
+    "velocities_present": true,
+    "protein_residues_outside_gro_set": [
+     "ACE",
+     "NME"
+    ],
+    "box_A": null,
+    "ca_rg_A": null
+   },
+   "Set2:noMyr:22": {
+    "positions_finite": true,
+    "box_present": false,
+    "atom_order_matches_em": true,
+    "bonds": {
+     "ok": false
+    },
+    "ca_rmsd_to_em_A": null,
+    "ok": false,
+    "readable": true,
+    "n_atoms": 94530,
+    "velocities_present": true,
+    "protein_residues_outside_gro_set": [
+     "ACE",
+     "NME"
+    ],
+    "box_A": null,
+    "ca_rg_A": null
+   },
+   "Set2:noMyr:23": {
+    "positions_finite": true,
+    "box_present": false,
+    "atom_order_matches_em": true,
+    "bonds": {
+     "ok": false
+    },
+    "ca_rmsd_to_em_A": null,
+    "ok": false,
+    "readable": true,
+    "n_atoms": 94530,
+    "velocities_present": true,
+    "protein_residues_outside_gro_set": [
+     "ACE",
+     "NME"
+    ],
+    "box_A": null,
+    "ca_rg_A": null
+   },
+   "Set2:noMyr:24": {
+    "positions_finite": true,
+    "box_present": false,
+    "atom_order_matches_em": true,
+    "bonds": {
+     "ok": false
+    },
+    "ca_rmsd_to_em_A": null,
+    "ok": false,
+    "readable": true,
+    "n_atoms": 94530,
+    "velocities_present": true,
+    "protein_residues_outside_gro_set": [
+     "ACE",
+     "NME"
+    ],
+    "box_A": null,
+    "ca_rg_A": null
+   },
+   "Set2:noMyr:25": {
+    "positions_finite": true,
+    "box_present": false,
+    "atom_order_matches_em": true,
+    "bonds": {
+     "ok": false
+    },
+    "ca_rmsd_to_em_A": null,
+    "ok": false,
+    "readable": true,
+    "n_atoms": 94530,
+    "velocities_present": true,
+    "protein_residues_outside_gro_set": [
+     "ACE",
+     "NME"
+    ],
+    "box_A": null,
+    "ca_rg_A": null
+   },
+   "Set2:noMyr:26": {
+    "positions_finite": true,
+    "box_present": false,
+    "atom_order_matches_em": true,
+    "bonds": {
+     "ok": false
+    },
+    "ca_rmsd_to_em_A": null,
+    "ok": false,
+    "readable": true,
+    "n_atoms": 94530,
+    "velocities_present": true,
+    "protein_residues_outside_gro_set": [
+     "ACE",
+     "NME"
+    ],
+    "box_A": null,
+    "ca_rg_A": null
+   },
+   "Set2:noMyr:27": {
+    "positions_finite": true,
+    "box_present": false,
+    "atom_order_matches_em": true,
+    "bonds": {
+     "ok": false
+    },
+    "ca_rmsd_to_em_A": null,
+    "ok": false,
+    "readable": true,
+    "n_atoms": 94530,
+    "velocities_present": true,
+    "protein_residues_outside_gro_set": [
+     "ACE",
+     "NME"
+    ],
+    "box_A": null,
+    "ca_rg_A": null
+   },
+   "Set2:noMyr:28": {
+    "positions_finite": true,
+    "box_present": false,
+    "atom_order_matches_em": true,
+    "bonds": {
+     "ok": false
+    },
+    "ca_rmsd_to_em_A": null,
+    "ok": false,
+    "readable": true,
+    "n_atoms": 94530,
+    "velocities_present": true,
+    "protein_residues_outside_gro_set": [
+     "ACE",
+     "NME"
+    ],
+    "box_A": null,
+    "ca_rg_A": null
+   },
+   "Set2:noMyr:29": {
+    "positions_finite": true,
+    "box_present": false,
+    "atom_order_matches_em": true,
+    "bonds": {
+     "ok": false
+    },
+    "ca_rmsd_to_em_A": null,
+    "ok": false,
+    "readable": true,
+    "n_atoms": 94530,
+    "velocities_present": true,
+    "protein_residues_outside_gro_set": [
+     "ACE",
+     "NME"
+    ],
+    "box_A": null,
+    "ca_rg_A": null
+   },
+   "Set2:noMyr:30": {
+    "positions_finite": true,
+    "box_present": false,
+    "atom_order_matches_em": true,
+    "bonds": {
+     "ok": false
+    },
+    "ca_rmsd_to_em_A": null,
+    "ok": false,
+    "readable": true,
+    "n_atoms": 94530,
+    "velocities_present": true,
+    "protein_residues_outside_gro_set": [
+     "ACE",
+     "NME"
+    ],
+    "box_A": null,
+    "ca_rg_A": null
+   }
+  },
+  "runs_ok": 0,
+  "runs": 40
+ },
+ "R2_production_start_geometry": {
+  "Set1": {
+   "within_Myr": {
+    "ca_rmsd_A": {
+     "n": 0
+    },
+    "heavy_rmsd_A": {
+     "n": 0
+    },
+    "pairs_below_0.01A": 0,
+    "distinct_starts": 10,
+    "velocities_present": true,
+    "distinct_velocity_sets": 10
+   },
+   "within_noMyr": {
+    "ca_rmsd_A": {
+     "n": 0
+    },
+    "heavy_rmsd_A": {
+     "n": 0
+    },
+    "pairs_below_0.01A": 0,
+    "distinct_starts": 10,
+    "velocities_present": true,
+    "distinct_velocity_sets": 10
+   },
+   "between_Myr_noMyr": {
+    "ca_rmsd_A": {
+     "n": 0
+    },
+    "heavy_rmsd_A": {
+     "n": 0
+    },
+    "pairs_below_0.01A": 0
+   }
+  },
+  "Set2": {
+   "within_Myr": {
+    "ca_rmsd_A": {
+     "n": 0
+    },
+    "heavy_rmsd_A": {
+     "n": 0
+    },
+    "pairs_below_0.01A": 0,
+    "distinct_starts": 10,
+    "velocities_present": true,
+    "distinct_velocity_sets": 10
+   },
+   "within_noMyr": {
+    "ca_rmsd_A": {
+     "n": 0
+    },
+    "heavy_rmsd_A": {
+     "n": 0
+    },
+    "pairs_below_0.01A": 0,
+    "distinct_starts": 10,
+    "velocities_present": true,
+    "distinct_velocity_sets": 10
+   },
+   "between_Myr_noMyr": {
+    "ca_rmsd_A": {
+     "n": 0
+    },
+    "heavy_rmsd_A": {
+     "n": 0
+    },
+    "pairs_below_0.01A": 0
+   }
+  },
+  "cross_set": {
+   "Myr": {
+    "ca_rmsd_A": {
+     "n": 0
+    },
+    "heavy_rmsd_A": {
+     "n": 0
+    },
+    "pairs_below_0.01A": 0
+   },
+   "noMyr": {
+    "ca_rmsd_A": {
+     "n": 0
+    },
+    "heavy_rmsd_A": {
+     "n": 0
+    },
+    "pairs_below_0.01A": 0
+   }
+  }
+ },
+ "R3_tc_groups": {
+  "Set1": {
+   "Myr": {
+    "tc_grps": [
+     "Protein_MYRP_ATP_MG",
+     "Water_NA_CL"
+    ],
+    "groups": {
+     "Protein_MYRP_ATP_MG": {
+      "atoms": 4573,
+      "residue_counts": {
+       "ACE": 1,
+       "ALA": 19,
+       "ARG": 11,
+       "ASN": 9,
+       "ASP": 11,
+       "ATP": 1,
+       "CYS": 5,
+       "GLN": 8,
+       "GLU": 31,
+       "GLY": 16,
+       "HIS": 6,
+       "ILE": 12,
+       "LEU": 26,
+       "LYS": 20,
+       "MET": 12,
+       "MG": 1,
+       "MYRP": 1,
+       "NME": 1,
+       "PHE": 11,
+       "PRO": 11,
+       "SER": 14,
+       "THR": 15,
+       "TRP": 7,
+       "TYR": 15,
+       "VAL": 19
+      },
+      "role": "solute",
+      "outside_rule": []
+     },
+     "Water_NA_CL": {
+      "atoms": 90034,
+      "residue_counts": {
+       "CL": 87,
+       "NA": 100,
+       "SOL": 29949
+      },
+      "role": "solvent",
+      "outside_rule": []
+     }
+    },
+    "ok": true,
+    "problems": []
+   },
+   "noMyr": {
+    "tc_grps": [
+     "Protein_ATP_MG",
+     "Water_NA_CL"
+    ],
+    "groups": {
+     "Protein_ATP_MG": {
+      "atoms": 4529,
+      "residue_counts": {
+       "ACE": 1,
+       "ALA": 19,
+       "ARG": 11,
+       "ASN": 9,
+       "ASP": 11,
+       "ATP": 1,
+       "CYS": 5,
+       "GLN": 8,
+       "GLU": 31,
+       "GLY": 16,
+       "HIS": 6,
+       "ILE": 12,
+       "LEU": 26,
+       "LYS": 20,
+       "MET": 12,
+       "MG": 1,
+       "NME": 1,
+       "PHE": 11,
+       "PRO": 11,
+       "SER": 14,
+       "THR": 15,
+       "TRP": 7,
+       "TYR": 15,
+       "VAL": 19
+      },
+      "role": "solute",
+      "outside_rule": []
+     },
+     "Water_NA_CL": {
+      "atoms": 90001,
+      "residue_counts": {
+       "CL": 87,
+       "NA": 100,
+       "SOL": 29938
+      },
+      "role": "solvent",
+      "outside_rule": []
+     }
+    },
+    "ok": true,
+    "problems": []
+   }
+  },
+  "Set2": {
+   "Myr": {
+    "tc_grps": [
+     "Protein_MYRP_ATP_MG",
+     "Water_NA_CL"
+    ],
+    "groups": {
+     "Protein_MYRP_ATP_MG": {
+      "atoms": 4573,
+      "residue_counts": {
+       "ACE": 1,
+       "ALA": 19,
+       "ARG": 11,
+       "ASN": 9,
+       "ASP": 11,
+       "ATP": 1,
+       "CYS": 5,
+       "GLN": 8,
+       "GLU": 31,
+       "GLY": 16,
+       "HIS": 6,
+       "ILE": 12,
+       "LEU": 26,
+       "LYS": 20,
+       "MET": 12,
+       "MG": 1,
+       "MYRP": 1,
+       "NME": 1,
+       "PHE": 11,
+       "PRO": 11,
+       "SER": 14,
+       "THR": 15,
+       "TRP": 7,
+       "TYR": 15,
+       "VAL": 19
+      },
+      "role": "solute",
+      "outside_rule": []
+     },
+     "Water_NA_CL": {
+      "atoms": 90034,
+      "residue_counts": {
+       "CL": 87,
+       "NA": 100,
+       "SOL": 29949
+      },
+      "role": "solvent",
+      "outside_rule": []
+     }
+    },
+    "ok": true,
+    "problems": []
+   },
+   "noMyr": {
+    "tc_grps": [
+     "Protein_ATP_MG",
+     "Water_NA_CL"
+    ],
+    "groups": {
+     "Protein_ATP_MG": {
+      "atoms": 4529,
+      "residue_counts": {
+       "ACE": 1,
+       "ALA": 19,
+       "ARG": 11,
+       "ASN": 9,
+       "ASP": 11,
+       "ATP": 1,
+       "CYS": 5,
+       "GLN": 8,
+       "GLU": 31,
+       "GLY": 16,
+       "HIS": 6,
+       "ILE": 12,
+       "LEU": 26,
+       "LYS": 20,
+       "MET": 12,
+       "MG": 1,
+       "NME": 1,
+       "PHE": 11,
+       "PRO": 11,
+       "SER": 14,
+       "THR": 15,
+       "TRP": 7,
+       "TYR": 15,
+       "VAL": 19
+      },
+      "role": "solute",
+      "outside_rule": []
+     },
+     "Water_NA_CL": {
+      "atoms": 90001,
+      "residue_counts": {
+       "CL": 87,
+       "NA": 100,
+       "SOL": 29938
+      },
+      "role": "solvent",
+      "outside_rule": []
+     }
+    },
+    "ok": true,
+    "problems": []
+   }
+  }
+ },
+ "R4_thermostat_and_coupling": {
+  "Set1": {
+   "nvt.mdp": {
+    "differences": {
+     "tc_grps": {
+      "Myr": "Protein_MYRP_ATP_MG Water_NA_CL",
+      "noMyr": "Protein_ATP_MG Water_NA_CL",
+      "class": "inherent_group_name"
+     }
+    },
+    "potential_confounds": [],
+    "ref_t_all_300": [
+     true,
+     true
+    ],
+    "n_tc_groups": [
+     2,
+     2
+    ],
+    "stated": {
+     "Myr": {
+      "integrator": "md",
+      "tcoupl": "V-rescale",
+      "tc_grps": "Protein_MYRP_ATP_MG Water_NA_CL",
+      "tau_t": "0.5 0.5",
+      "ref_t": "300 300",
+      "pcoupl": "no",
+      "tau_p": null,
+      "ref_p": null,
+      "compressibility": null,
+      "define": "-DPOSRES",
+      "gen_vel": "yes",
+      "gen_seed": "-1",
+      "gen_temp": "300",
+      "continuation": "no",
+      "dt": "0.002",
+      "nsteps": "50000",
+      "constraints": "h-bonds",
+      "refcoord_scaling": null
+     },
+     "noMyr": {
+      "integrator": "md",
+      "tcoupl": "V-rescale",
+      "tc_grps": "Protein_ATP_MG Water_NA_CL",
+      "tau_t": "0.5 0.5",
+      "ref_t": "300 300",
+      "pcoupl": "no",
+      "tau_p": null,
+      "ref_p": null,
+      "compressibility": null,
+      "define": "-DPOSRES",
+      "gen_vel": "yes",
+      "gen_seed": "-1",
+      "gen_temp": "300",
+      "continuation": "no",
+      "dt": "0.002",
+      "nsteps": "50000",
+      "constraints": "h-bonds",
+      "refcoord_scaling": null
+     }
+    }
+   },
+   "npt.mdp": {
+    "differences": {
+     "tc_grps": {
+      "Myr": "Protein_MYRP_ATP_MG Water_NA_CL",
+      "noMyr": "Protein_ATP_MG Water_NA_CL",
+      "class": "inherent_group_name"
+     }
+    },
+    "potential_confounds": [],
+    "ref_t_all_300": [
+     true,
+     true
+    ],
+    "n_tc_groups": [
+     2,
+     2
+    ],
+    "stated": {
+     "Myr": {
+      "integrator": "md",
+      "tcoupl": "V-rescale",
+      "tc_grps": "Protein_MYRP_ATP_MG Water_NA_CL",
+      "tau_t": "0.5 0.5",
+      "ref_t": "300 300",
+      "pcoupl": "berendsen",
+      "tau_p": "5.0",
+      "ref_p": "1.0",
+      "compressibility": "4.5e-5",
+      "define": "-DPOSRES",
+      "gen_vel": "no",
+      "gen_seed": null,
+      "gen_temp": null,
+      "continuation": "yes",
+      "dt": "0.002",
+      "nsteps": "500000",
+      "constraints": "h-bonds",
+      "refcoord_scaling": "com"
+     },
+     "noMyr": {
+      "integrator": "md",
+      "tcoupl": "V-rescale",
+      "tc_grps": "Protein_ATP_MG Water_NA_CL",
+      "tau_t": "0.5 0.5",
+      "ref_t": "300 300",
+      "pcoupl": "berendsen",
+      "tau_p": "5.0",
+      "ref_p": "1.0",
+      "compressibility": "4.5e-5",
+      "define": "-DPOSRES",
+      "gen_vel": "no",
+      "gen_seed": null,
+      "gen_temp": null,
+      "continuation": "yes",
+      "dt": "0.002",
+      "nsteps": "500000",
+      "constraints": "h-bonds",
+      "refcoord_scaling": "com"
+     }
+    }
+   },
+   "production_md.mdp": {
+    "differences": {
+     "compressed_x_grps": {
+      "Myr": "Protein_MYRP_ATP_MG",
+      "noMyr": "Protein_ATP_MG",
+      "class": "inherent_group_name"
+     },
+     "tc_grps": {
+      "Myr": "Protein_MYRP_ATP_MG Water_NA_CL",
+      "noMyr": "Protein_ATP_MG Water_NA_CL",
+      "class": "inherent_group_name"
+     }
+    },
+    "potential_confounds": [],
+    "ref_t_all_300": [
+     true,
+     true
+    ],
+    "n_tc_groups": [
+     2,
+     2
+    ],
+    "stated": {
+     "Myr": {
+      "integrator": "md",
+      "tcoupl": "V-rescale",
+      "tc_grps": "Protein_MYRP_ATP_MG Water_NA_CL",
+      "tau_t": "1.0 1.0",
+      "ref_t": "300 300",
+      "pcoupl": "Parrinello-Rahman",
+      "tau_p": "5.0",
+      "ref_p": "1.0",
+      "compressibility": "4.5e-5",
+      "define": null,
+      "gen_vel": "no",
+      "gen_seed": null,
+      "gen_temp": null,
+      "continuation": "yes",
+      "dt": "0.002",
+      "nsteps": "250000000",
+      "constraints": "h-bonds",
+      "refcoord_scaling": "com"
+     },
+     "noMyr": {
+      "integrator": "md",
+      "tcoupl": "V-rescale",
+      "tc_grps": "Protein_ATP_MG Water_NA_CL",
+      "tau_t": "1.0 1.0",
+      "ref_t": "300 300",
+      "pcoupl": "Parrinello-Rahman",
+      "tau_p": "5.0",
+      "ref_p": "1.0",
+      "compressibility": "4.5e-5",
+      "define": null,
+      "gen_vel": "no",
+      "gen_seed": null,
+      "gen_temp": null,
+      "continuation": "yes",
+      "dt": "0.002",
+      "nsteps": "250000000",
+      "constraints": "h-bonds",
+      "refcoord_scaling": "com"
+     }
+    }
+   }
+  },
+  "Set2": {
+   "nvt.mdp": {
+    "differences": {
+     "tc_grps": {
+      "Myr": "Protein_MYRP_ATP_MG Water_NA_CL",
+      "noMyr": "Protein_ATP_MG Water_NA_CL",
+      "class": "inherent_group_name"
+     }
+    },
+    "potential_confounds": [],
+    "ref_t_all_300": [
+     true,
+     true
+    ],
+    "n_tc_groups": [
+     2,
+     2
+    ],
+    "stated": {
+     "Myr": {
+      "integrator": "md",
+      "tcoupl": "V-rescale",
+      "tc_grps": "Protein_MYRP_ATP_MG Water_NA_CL",
+      "tau_t": "0.5 0.5",
+      "ref_t": "300 300",
+      "pcoupl": "no",
+      "tau_p": null,
+      "ref_p": null,
+      "compressibility": null,
+      "define": "-DPOSRES",
+      "gen_vel": "yes",
+      "gen_seed": "-1",
+      "gen_temp": "300",
+      "continuation": "no",
+      "dt": "0.002",
+      "nsteps": "50000",
+      "constraints": "h-bonds",
+      "refcoord_scaling": null
+     },
+     "noMyr": {
+      "integrator": "md",
+      "tcoupl": "V-rescale",
+      "tc_grps": "Protein_ATP_MG Water_NA_CL",
+      "tau_t": "0.5 0.5",
+      "ref_t": "300 300",
+      "pcoupl": "no",
+      "tau_p": null,
+      "ref_p": null,
+      "compressibility": null,
+      "define": "-DPOSRES",
+      "gen_vel": "yes",
+      "gen_seed": "-1",
+      "gen_temp": "300",
+      "continuation": "no",
+      "dt": "0.002",
+      "nsteps": "50000",
+      "constraints": "h-bonds",
+      "refcoord_scaling": null
+     }
+    }
+   },
+   "npt.mdp": {
+    "differences": {
+     "tc_grps": {
+      "Myr": "Protein_MYRP_ATP_MG Water_NA_CL",
+      "noMyr": "Protein_ATP_MG Water_NA_CL",
+      "class": "inherent_group_name"
+     }
+    },
+    "potential_confounds": [],
+    "ref_t_all_300": [
+     true,
+     true
+    ],
+    "n_tc_groups": [
+     2,
+     2
+    ],
+    "stated": {
+     "Myr": {
+      "integrator": "md",
+      "tcoupl": "V-rescale",
+      "tc_grps": "Protein_MYRP_ATP_MG Water_NA_CL",
+      "tau_t": "0.5 0.5",
+      "ref_t": "300 300",
+      "pcoupl": "berendsen",
+      "tau_p": "5.0",
+      "ref_p": "1.0",
+      "compressibility": "4.5e-5",
+      "define": "-DPOSRES",
+      "gen_vel": "no",
+      "gen_seed": null,
+      "gen_temp": null,
+      "continuation": "yes",
+      "dt": "0.002",
+      "nsteps": "500000",
+      "constraints": "h-bonds",
+      "refcoord_scaling": "com"
+     },
+     "noMyr": {
+      "integrator": "md",
+      "tcoupl": "V-rescale",
+      "tc_grps": "Protein_ATP_MG Water_NA_CL",
+      "tau_t": "0.5 0.5",
+      "ref_t": "300 300",
+      "pcoupl": "berendsen",
+      "tau_p": "5.0",
+      "ref_p": "1.0",
+      "compressibility": "4.5e-5",
+      "define": "-DPOSRES",
+      "gen_vel": "no",
+      "gen_seed": null,
+      "gen_temp": null,
+      "continuation": "yes",
+      "dt": "0.002",
+      "nsteps": "500000",
+      "constraints": "h-bonds",
+      "refcoord_scaling": "com"
+     }
+    }
+   },
+   "production_md.mdp": {
+    "differences": {
+     "compressed_x_grps": {
+      "Myr": "Protein_MYRP_ATP_MG",
+      "noMyr": "Protein_ATP_MG",
+      "class": "inherent_group_name"
+     },
+     "tc_grps": {
+      "Myr": "Protein_MYRP_ATP_MG Water_NA_CL",
+      "noMyr": "Protein_ATP_MG Water_NA_CL",
+      "class": "inherent_group_name"
+     }
+    },
+    "potential_confounds": [],
+    "ref_t_all_300": [
+     true,
+     true
+    ],
+    "n_tc_groups": [
+     2,
+     2
+    ],
+    "stated": {
+     "Myr": {
+      "integrator": "md",
+      "tcoupl": "Nose-Hoover",
+      "tc_grps": "Protein_MYRP_ATP_MG Water_NA_CL",
+      "tau_t": "1.0 1.0",
+      "ref_t": "300 300",
+      "pcoupl": "Parrinello-Rahman",
+      "tau_p": "5.0",
+      "ref_p": "1.0",
+      "compressibility": "4.5e-5",
+      "define": null,
+      "gen_vel": "no",
+      "gen_seed": null,
+      "gen_temp": null,
+      "continuation": "yes",
+      "dt": "0.002",
+      "nsteps": "250000000",
+      "constraints": "h-bonds",
+      "refcoord_scaling": "com"
+     },
+     "noMyr": {
+      "integrator": "md",
+      "tcoupl": "Nose-Hoover",
+      "tc_grps": "Protein_ATP_MG Water_NA_CL",
+      "tau_t": "1.0 1.0",
+      "ref_t": "300 300",
+      "pcoupl": "Parrinello-Rahman",
+      "tau_p": "5.0",
+      "ref_p": "1.0",
+      "compressibility": "4.5e-5",
+      "define": null,
+      "gen_vel": "no",
+      "gen_seed": null,
+      "gen_temp": null,
+      "continuation": "yes",
+      "dt": "0.002",
+      "nsteps": "250000000",
+      "constraints": "h-bonds",
+      "refcoord_scaling": "com"
+     }
+    }
+   }
+  }
+ },
+ "R5_composition": {
+  "Set1": {
+   "per_condition": {
+    "Myr": {
+     "residue_counts": {
+      "ACE": 1,
+      "ALA": 19,
+      "ARG": 11,
+      "ASN": 9,
+      "ASP": 11,
+      "ATP": 1,
+      "CL": 87,
+      "CYS": 5,
+      "GLN": 8,
+      "GLU": 31,
+      "GLY": 16,
+      "HIS": 6,
+      "ILE": 12,
+      "LEU": 26,
+      "LYS": 20,
+      "MET": 12,
+      "MG": 1,
+      "MYRP": 1,
+      "NA": 100,
+      "NME": 1,
+      "PHE": 11,
+      "PRO": 11,
+      "SER": 14,
+      "SOL": 29949,
+      "THR": 15,
+      "TRP": 7,
+      "TYR": 15,
+      "VAL": 19
+     },
+     "net_charge": 3.686174750328064e-06,
+     "distinct_compositions_across_runs": 1,
+     "net_charges_across_runs": [
+      4e-06
+     ],
+     "n_atoms": 94607
+    },
+    "noMyr": {
+     "residue_counts": {
+      "ACE": 1,
+      "ALA": 19,
+      "ARG": 11,
+      "ASN": 9,
+      "ASP": 11,
+      "ATP": 1,
+      "CL": 87,
+      "CYS": 5,
+      "GLN": 8,
+      "GLU": 31,
+      "GLY": 16,
+      "HIS": 6,
+      "ILE": 12,
+      "LEU": 26,
+      "LYS": 20,
+      "MET": 12,
+      "MG": 1,
+      "NA": 100,
+      "NME": 1,
+      "PHE": 11,
+      "PRO": 11,
+      "SER": 14,
+      "SOL": 29938,
+      "THR": 15,
+      "TRP": 7,
+      "TYR": 15,
+      "VAL": 19
+     },
+     "net_charge": 3.7010759115219116e-06,
+     "distinct_compositions_across_runs": 1,
+     "net_charges_across_runs": [
+      4e-06
+     ],
+     "n_atoms": 94530
+    }
+   },
+   "comparison": {
+    "differences": {
+     "MYRP": [
+      1,
+      0
+     ],
+     "SOL": [
+      29949,
+      29938
+     ]
+    },
+    "net_charge_e": {
+     "Myr": 4e-06,
+     "noMyr": 4e-06
+    },
+    "net_charge_difference_e": 0.0,
+    "inherent": [
+     "MYRP present only with Myr",
+     "SOL differs by 11 (0.0367% of noMyr)"
+    ],
+    "potential_confounds": [],
+    "ok": true
+   }
+  },
+  "Set2": {
+   "per_condition": {
+    "Myr": {
+     "residue_counts": {
+      "ACE": 1,
+      "ALA": 19,
+      "ARG": 11,
+      "ASN": 9,
+      "ASP": 11,
+      "ATP": 1,
+      "CL": 87,
+      "CYS": 5,
+      "GLN": 8,
+      "GLU": 31,
+      "GLY": 16,
+      "HIS": 6,
+      "ILE": 12,
+      "LEU": 26,
+      "LYS": 20,
+      "MET": 12,
+      "MG": 1,
+      "MYRP": 1,
+      "NA": 100,
+      "NME": 1,
+      "PHE": 11,
+      "PRO": 11,
+      "SER": 14,
+      "SOL": 29949,
+      "THR": 15,
+      "TRP": 7,
+      "TYR": 15,
+      "VAL": 19
+     },
+     "net_charge": 3.686174750328064e-06,
+     "distinct_compositions_across_runs": 1,
+     "net_charges_across_runs": [
+      4e-06
+     ],
+     "n_atoms": 94607
+    },
+    "noMyr": {
+     "residue_counts": {
+      "ACE": 1,
+      "ALA": 19,
+      "ARG": 11,
+      "ASN": 9,
+      "ASP": 11,
+      "ATP": 1,
+      "CL": 87,
+      "CYS": 5,
+      "GLN": 8,
+      "GLU": 31,
+      "GLY": 16,
+      "HIS": 6,
+      "ILE": 12,
+      "LEU": 26,
+      "LYS": 20,
+      "MET": 12,
+      "MG": 1,
+      "NA": 100,
+      "NME": 1,
+      "PHE": 11,
+      "PRO": 11,
+      "SER": 14,
+      "SOL": 29938,
+      "THR": 15,
+      "TRP": 7,
+      "TYR": 15,
+      "VAL": 19
+     },
+     "net_charge": 3.7010759115219116e-06,
+     "distinct_compositions_across_runs": 1,
+     "net_charges_across_runs": [
+      4e-06
+     ],
+     "n_atoms": 94530
+    }
+   },
+   "comparison": {
+    "differences": {
+     "MYRP": [
+      1,
+      0
+     ],
+     "SOL": [
+      29949,
+      29938
+     ]
+    },
+    "net_charge_e": {
+     "Myr": 4e-06,
+     "noMyr": 4e-06
+    },
+    "net_charge_difference_e": 0.0,
+    "inherent": [
+     "MYRP present only with Myr",
+     "SOL differs by 11 (0.0367% of noMyr)"
+    ],
+    "potential_confounds": [],
+    "ok": true
+   }
+  }
+ },
+ "R6_classification": {
+  "inherent_to_Myr_model": [
+   "Set1 nvt.mdp tc_grps: Protein_MYRP_ATP_MG Water_NA_CL | Protein_ATP_MG Water_NA_CL",
+   "Set1 npt.mdp tc_grps: Protein_MYRP_ATP_MG Water_NA_CL | Protein_ATP_MG Water_NA_CL",
+   "Set1 production_md.mdp compressed_x_grps: Protein_MYRP_ATP_MG | Protein_ATP_MG",
+   "Set1 production_md.mdp tc_grps: Protein_MYRP_ATP_MG Water_NA_CL | Protein_ATP_MG Water_NA_CL",
+   "Set1 MYRP present only with Myr",
+   "Set1 SOL differs by 11 (0.0367% of noMyr)",
+   "Set2 nvt.mdp tc_grps: Protein_MYRP_ATP_MG Water_NA_CL | Protein_ATP_MG Water_NA_CL",
+   "Set2 npt.mdp tc_grps: Protein_MYRP_ATP_MG Water_NA_CL | Protein_ATP_MG Water_NA_CL",
+   "Set2 production_md.mdp compressed_x_grps: Protein_MYRP_ATP_MG | Protein_ATP_MG",
+   "Set2 production_md.mdp tc_grps: Protein_MYRP_ATP_MG Water_NA_CL | Protein_ATP_MG Water_NA_CL",
+   "Set2 MYRP present only with Myr",
+   "Set2 SOL differs by 11 (0.0367% of noMyr)"
+  ],
+  "potential_confound": [],
+  "not_separable_from_Myr_presence": [
+   "Set1: production-start geometry differences between Myr and noMyr (see R2 between_Myr_noMyr)",
+   "Set2: production-start geometry differences between Myr and noMyr (see R2 between_Myr_noMyr)"
+  ]
+ },
+ "decision": {
+  "criteria": {
+   "K1_usable_coordinates": false,
+   "K2_thermostat_comparable": true,
+   "K3_tc_groups": true,
+   "K4_composition": true,
+   "K5_replicates_not_copies": true
+  },
+  "failed": [
+   "K1_usable_coordinates"
+  ],
+  "outcome": "not_comparable"
+ },
+ "outcome": "not_comparable",
+ "resources": {
+  "cpu_s": 90.60135999999999,
+  "wall_s": 89.73213839530945,
+  "download_bytes": 0
+ },
+ "amendment": {
+  "id": "ABL-MYR-1b-CHECK-a1",
+  "amendment_sha256": "89251fb2f61e26d7d01fef4f617cb1fee96ea2785d7e4580438b07d8e509e060",
+  "code_sha256": "ffab0d5bb7ad24167471934f1c962050c0e3074fb3c47a77e3a507233ceb1032",
+  "frozen_check_spec_sha256": "cbfe491bee722fa55d784f8977e3fe37647d2fff01e37a5be9d229d6552c4efd",
+  "frozen_check_code_sha256": "a69c8a8e08f7cead8f99a4a1e3128b77ed105f7d02a8f6f731e7736893627492",
+  "original_attempt": "results/ABL-MYR-1b_check_results_attempt1.json (S3 stop)"
+ },
+ "production_start_ca_npz": {
+  "file": "ABL-MYR-1b_production_start_ca_a1.npz",
+  "sha256": "8739c76e681f900923b900c9df0ef75cf421d39cabb54650c4b9ad19b6a76d85",
+  "units": "\u00c5",
+  "atoms": "protein C\u03b1, whole"
+ }
+}

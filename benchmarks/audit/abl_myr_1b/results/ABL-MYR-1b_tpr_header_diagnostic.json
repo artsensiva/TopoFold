@@ -1,0 +1,462 @@
+{
+ "purpose": "diagnostic after ABL-MYR-1b-CHECK-a1 failed K1; not part of a frozen protocol",
+ "mdanalysis_version": "2.10.0",
+ "runs": {
+  "Set1:Myr:11": {
+   "gromacs_version": "VERSION 2020.1-Ubuntu-2020.1-1",
+   "tpx_version": 119,
+   "natoms": 94607,
+   "ngtc": 2,
+   "header_bBox": 1,
+   "header_bX": 1,
+   "header_bV": 1,
+   "universe_dimensions": null,
+   "universe_n_bonds": 64527
+  },
+  "Set1:Myr:12": {
+   "gromacs_version": "VERSION 2020.1-Ubuntu-2020.1-1",
+   "tpx_version": 119,
+   "natoms": 94607,
+   "ngtc": 2,
+   "header_bBox": 1,
+   "header_bX": 1,
+   "header_bV": 1,
+   "universe_dimensions": null,
+   "universe_n_bonds": 64527
+  },
+  "Set1:Myr:13": {
+   "gromacs_version": "VERSION 2020.1-Ubuntu-2020.1-1",
+   "tpx_version": 119,
+   "natoms": 94607,
+   "ngtc": 2,
+   "header_bBox": 1,
+   "header_bX": 1,
+   "header_bV": 1,
+   "universe_dimensions": null,
+   "universe_n_bonds": 64527
+  },
+  "Set1:Myr:14": {
+   "gromacs_version": "VERSION 2020.1-Ubuntu-2020.1-1",
+   "tpx_version": 119,
+   "natoms": 94607,
+   "ngtc": 2,
+   "header_bBox": 1,
+   "header_bX": 1,
+   "header_bV": 1,
+   "universe_dimensions": null,
+   "universe_n_bonds": 64527
+  },
+  "Set1:Myr:15": {
+   "gromacs_version": "VERSION 2020.1-Ubuntu-2020.1-1",
+   "tpx_version": 119,
+   "natoms": 94607,
+   "ngtc": 2,
+   "header_bBox": 1,
+   "header_bX": 1,
+   "header_bV": 1,
+   "universe_dimensions": null,
+   "universe_n_bonds": 64527
+  },
+  "Set1:Myr:16": {
+   "gromacs_version": "VERSION 2020.1-Ubuntu-2020.1-1",
+   "tpx_version": 119,
+   "natoms": 94607,
+   "ngtc": 2,
+   "header_bBox": 1,
+   "header_bX": 1,
+   "header_bV": 1,
+   "universe_dimensions": null,
+   "universe_n_bonds": 64527
+  },
+  "Set1:Myr:17": {
+   "gromacs_version": "VERSION 2020.1-Ubuntu-2020.1-1",
+   "tpx_version": 119,
+   "natoms": 94607,
+   "ngtc": 2,
+   "header_bBox": 1,
+   "header_bX": 1,
+   "header_bV": 1,
+   "universe_dimensions": null,
+   "universe_n_bonds": 64527
+  },
+  "Set1:Myr:18": {
+   "gromacs_version": "VERSION 2020.1-Ubuntu-2020.1-1",
+   "tpx_version": 119,
+   "natoms": 94607,
+   "ngtc": 2,
+   "header_bBox": 1,
+   "header_bX": 1,
+   "header_bV": 1,
+   "universe_dimensions": null,
+   "universe_n_bonds": 64527
+  },
+  "Set1:Myr:19": {
+   "gromacs_version": "VERSION 2020.1-Ubuntu-2020.1-1",
+   "tpx_version": 119,
+   "natoms": 94607,
+   "ngtc": 2,
+   "header_bBox": 1,
+   "header_bX": 1,
+   "header_bV": 1,
+   "universe_dimensions": null,
+   "universe_n_bonds": 64527
+  },
+  "Set1:Myr:20": {
+   "gromacs_version": "VERSION 2020.1-Ubuntu-2020.1-1",
+   "tpx_version": 119,
+   "natoms": 94607,
+   "ngtc": 2,
+   "header_bBox": 1,
+   "header_bX": 1,
+   "header_bV": 1,
+   "universe_dimensions": null,
+   "universe_n_bonds": 64527
+  },
+  "Set1:noMyr:11": {
+   "gromacs_version": "VERSION 2020.1-Ubuntu-2020.1-1",
+   "tpx_version": 119,
+   "natoms": 94530,
+   "ngtc": 2,
+   "header_bBox": 1,
+   "header_bX": 1,
+   "header_bV": 1,
+   "universe_dimensions": null,
+   "universe_n_bonds": 64462
+  },
+  "Set1:noMyr:12": {
+   "gromacs_version": "VERSION 2020.1-Ubuntu-2020.1-1",
+   "tpx_version": 119,
+   "natoms": 94530,
+   "ngtc": 2,
+   "header_bBox": 1,
+   "header_bX": 1,
+   "header_bV": 1,
+   "universe_dimensions": null,
+   "universe_n_bonds": 64462
+  },
+  "Set1:noMyr:13": {
+   "gromacs_version": "VERSION 2020.1-Ubuntu-2020.1-1",
+   "tpx_version": 119,
+   "natoms": 94530,
+   "ngtc": 2,
+   "header_bBox": 1,
+   "header_bX": 1,
+   "header_bV": 1,
+   "universe_dimensions": null,
+   "universe_n_bonds": 64462
+  },
+  "Set1:noMyr:14": {
+   "gromacs_version": "VERSION 2020.1-Ubuntu-2020.1-1",
+   "tpx_version": 119,
+   "natoms": 94530,
+   "ngtc": 2,
+   "header_bBox": 1,
+   "header_bX": 1,
+   "header_bV": 1,
+   "universe_dimensions": null,
+   "universe_n_bonds": 64462
+  },
+  "Set1:noMyr:15": {
+   "gromacs_version": "VERSION 2020.1-Ubuntu-2020.1-1",
+   "tpx_version": 119,
+   "natoms": 94530,
+   "ngtc": 2,
+   "header_bBox": 1,
+   "header_bX": 1,
+   "header_bV": 1,
+   "universe_dimensions": null,
+   "universe_n_bonds": 64462
+  },
+  "Set1:noMyr:16": {
+   "gromacs_version": "VERSION 2020.1-Ubuntu-2020.1-1",
+   "tpx_version": 119,
+   "natoms": 94530,
+   "ngtc": 2,
+   "header_bBox": 1,
+   "header_bX": 1,
+   "header_bV": 1,
+   "universe_dimensions": null,
+   "universe_n_bonds": 64462
+  },
+  "Set1:noMyr:17": {
+   "gromacs_version": "VERSION 2020.1-Ubuntu-2020.1-1",
+   "tpx_version": 119,
+   "natoms": 94530,
+   "ngtc": 2,
+   "header_bBox": 1,
+   "header_bX": 1,
+   "header_bV": 1,
+   "universe_dimensions": null,
+   "universe_n_bonds": 64462
+  },
+  "Set1:noMyr:18": {
+   "gromacs_version": "VERSION 2020.1-Ubuntu-2020.1-1",
+   "tpx_version": 119,
+   "natoms": 94530,
+   "ngtc": 2,
+   "header_bBox": 1,
+   "header_bX": 1,
+   "header_bV": 1,
+   "universe_dimensions": null,
+   "universe_n_bonds": 64462
+  },
+  "Set1:noMyr:19": {
+   "gromacs_version": "VERSION 2020.1-Ubuntu-2020.1-1",
+   "tpx_version": 119,
+   "natoms": 94530,
+   "ngtc": 2,
+   "header_bBox": 1,
+   "header_bX": 1,
+   "header_bV": 1,
+   "universe_dimensions": null,
+   "universe_n_bonds": 64462
+  },
+  "Set1:noMyr:20": {
+   "gromacs_version": "VERSION 2020.1-Ubuntu-2020.1-1",
+   "tpx_version": 119,
+   "natoms": 94530,
+   "ngtc": 2,
+   "header_bBox": 1,
+   "header_bX": 1,
+   "header_bV": 1,
+   "universe_dimensions": null,
+   "universe_n_bonds": 64462
+  },
+  "Set2:Myr:21": {
+   "gromacs_version": "VERSION 2020.1-Ubuntu-2020.1-1",
+   "tpx_version": 119,
+   "natoms": 94607,
+   "ngtc": 2,
+   "header_bBox": 1,
+   "header_bX": 1,
+   "header_bV": 1,
+   "universe_dimensions": null,
+   "universe_n_bonds": 64527
+  },
+  "Set2:Myr:22": {
+   "gromacs_version": "VERSION 2020.1-Ubuntu-2020.1-1",
+   "tpx_version": 119,
+   "natoms": 94607,
+   "ngtc": 2,
+   "header_bBox": 1,
+   "header_bX": 1,
+   "header_bV": 1,
+   "universe_dimensions": null,
+   "universe_n_bonds": 64527
+  },
+  "Set2:Myr:23": {
+   "gromacs_version": "VERSION 2020.1-Ubuntu-2020.1-1",
+   "tpx_version": 119,
+   "natoms": 94607,
+   "ngtc": 2,
+   "header_bBox": 1,
+   "header_bX": 1,
+   "header_bV": 1,
+   "universe_dimensions": null,
+   "universe_n_bonds": 64527
+  },
+  "Set2:Myr:24": {
+   "gromacs_version": "VERSION 2020.1-Ubuntu-2020.1-1",
+   "tpx_version": 119,
+   "natoms": 94607,
+   "ngtc": 2,
+   "header_bBox": 1,
+   "header_bX": 1,
+   "header_bV": 1,
+   "universe_dimensions": null,
+   "universe_n_bonds": 64527
+  },
+  "Set2:Myr:25": {
+   "gromacs_version": "VERSION 2020.1-Ubuntu-2020.1-1",
+   "tpx_version": 119,
+   "natoms": 94607,
+   "ngtc": 2,
+   "header_bBox": 1,
+   "header_bX": 1,
+   "header_bV": 1,
+   "universe_dimensions": null,
+   "universe_n_bonds": 64527
+  },
+  "Set2:Myr:26": {
+   "gromacs_version": "VERSION 2020.1-Ubuntu-2020.1-1",
+   "tpx_version": 119,
+   "natoms": 94607,
+   "ngtc": 2,
+   "header_bBox": 1,
+   "header_bX": 1,
+   "header_bV": 1,
+   "universe_dimensions": null,
+   "universe_n_bonds": 64527
+  },
+  "Set2:Myr:27": {
+   "gromacs_version": "VERSION 2020.1-Ubuntu-2020.1-1",
+   "tpx_version": 119,
+   "natoms": 94607,
+   "ngtc": 2,
+   "header_bBox": 1,
+   "header_bX": 1,
+   "header_bV": 1,
+   "universe_dimensions": null,
+   "universe_n_bonds": 64527
+  },
+  "Set2:Myr:28": {
+   "gromacs_version": "VERSION 2020.1-Ubuntu-2020.1-1",
+   "tpx_version": 119,
+   "natoms": 94607,
+   "ngtc": 2,
+   "header_bBox": 1,
+   "header_bX": 1,
+   "header_bV": 1,
+   "universe_dimensions": null,
+   "universe_n_bonds": 64527
+  },
+  "Set2:Myr:29": {
+   "gromacs_version": "VERSION 2020.1-Ubuntu-2020.1-1",
+   "tpx_version": 119,
+   "natoms": 94607,
+   "ngtc": 2,
+   "header_bBox": 1,
+   "header_bX": 1,
+   "header_bV": 1,
+   "universe_dimensions": null,
+   "universe_n_bonds": 64527
+  },
+  "Set2:Myr:30": {
+   "gromacs_version": "VERSION 2020.1-Ubuntu-2020.1-1",
+   "tpx_version": 119,
+   "natoms": 94607,
+   "ngtc": 2,
+   "header_bBox": 1,
+   "header_bX": 1,
+   "header_bV": 1,
+   "universe_dimensions": null,
+   "universe_n_bonds": 64527
+  },
+  "Set2:noMyr:21": {
+   "gromacs_version": "VERSION 2020.1-Ubuntu-2020.1-1",
+   "tpx_version": 119,
+   "natoms": 94530,
+   "ngtc": 2,
+   "header_bBox": 1,
+   "header_bX": 1,
+   "header_bV": 1,
+   "universe_dimensions": null,
+   "universe_n_bonds": 64462
+  },
+  "Set2:noMyr:22": {
+   "gromacs_version": "VERSION 2020.1-Ubuntu-2020.1-1",
+   "tpx_version": 119,
+   "natoms": 94530,
+   "ngtc": 2,
+   "header_bBox": 1,
+   "header_bX": 1,
+   "header_bV": 1,
+   "universe_dimensions": null,
+   "universe_n_bonds": 64462
+  },
+  "Set2:noMyr:23": {
+   "gromacs_version": "VERSION 2020.1-Ubuntu-2020.1-1",
+   "tpx_version": 119,
+   "natoms": 94530,
+   "ngtc": 2,
+   "header_bBox": 1,
+   "header_bX": 1,
+   "header_bV": 1,
+   "universe_dimensions": null,
+   "universe_n_bonds": 64462
+  },
+  "Set2:noMyr:24": {
+   "gromacs_version": "VERSION 2020.1-Ubuntu-2020.1-1",
+   "tpx_version": 119,
+   "natoms": 94530,
+   "ngtc": 2,
+   "header_bBox": 1,
+   "header_bX": 1,
+   "header_bV": 1,
+   "universe_dimensions": null,
+   "universe_n_bonds": 64462
+  },
+  "Set2:noMyr:25": {
+   "gromacs_version": "VERSION 2020.1-Ubuntu-2020.1-1",
+   "tpx_version": 119,
+   "natoms": 94530,
+   "ngtc": 2,
+   "header_bBox": 1,
+   "header_bX": 1,
+   "header_bV": 1,
+   "universe_dimensions": null,
+   "universe_n_bonds": 64462
+  },
+  "Set2:noMyr:26": {
+   "gromacs_version": "VERSION 2020.1-Ubuntu-2020.1-1",
+   "tpx_version": 119,
+   "natoms": 94530,
+   "ngtc": 2,
+   "header_bBox": 1,
+   "header_bX": 1,
+   "header_bV": 1,
+   "universe_dimensions": null,
+   "universe_n_bonds": 64462
+  },
+  "Set2:noMyr:27": {
+   "gromacs_version": "VERSION 2020.1-Ubuntu-2020.1-1",
+   "tpx_version": 119,
+   "natoms": 94530,
+   "ngtc": 2,
+   "header_bBox": 1,
+   "header_bX": 1,
+   "header_bV": 1,
+   "universe_dimensions": null,
+   "universe_n_bonds": 64462
+  },
+  "Set2:noMyr:28": {
+   "gromacs_version": "VERSION 2020.1-Ubuntu-2020.1-1",
+   "tpx_version": 119,
+   "natoms": 94530,
+   "ngtc": 2,
+   "header_bBox": 1,
+   "header_bX": 1,
+   "header_bV": 1,
+   "universe_dimensions": null,
+   "universe_n_bonds": 64462
+  },
+  "Set2:noMyr:29": {
+   "gromacs_version": "VERSION 2020.1-Ubuntu-2020.1-1",
+   "tpx_version": 119,
+   "natoms": 94530,
+   "ngtc": 2,
+   "header_bBox": 1,
+   "header_bX": 1,
+   "header_bV": 1,
+   "universe_dimensions": null,
+   "universe_n_bonds": 64462
+  },
+  "Set2:noMyr:30": {
+   "gromacs_version": "VERSION 2020.1-Ubuntu-2020.1-1",
+   "tpx_version": 119,
+   "natoms": 94530,
+   "ngtc": 2,
+   "header_bBox": 1,
+   "header_bX": 1,
+   "header_bV": 1,
+   "universe_dimensions": null,
+   "universe_n_bonds": 64462
+  }
+ },
+ "summary": {
+  "runs": 40,
+  "header_box_declared": 40,
+  "universe_box_exposed": 0,
+  "gromacs_versions": [
+   "VERSION 2020.1-Ubuntu-2020.1-1"
+  ],
+  "natoms": [
+   94530,
+   94607
+  ],
+  "n_bonds": [
+   64462,
+   64527
+  ]
+ }
+}
