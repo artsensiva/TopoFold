@@ -1,11 +1,11 @@
 # TopoFold
 
 > [!WARNING]
-> **Version notice (2026-10-25): the newest release tag, `v0.8.3`, is a historical snapshot whose scientific claims were withdrawn. It is not a current or validated release.**
+> **Latest tagged version: v0.8.3 (historical; scientific claims withdrawn). Active development: [`scientific-rebuild`](https://github.com/artsensiva/TopoFold/tree/scientific-rebuild) (unreleased research prototype under validation).**
 >
-> - **v0.8.3's scientific claims were withdrawn** after an audit in October 2026: its benchmarks used generated or interpolated ensembles presented as molecular dynamics, and several reported numbers were estimator or generator artefacts. See the [correction notice](#correction-notice-october-2026) below and [`docs/KNOWN_ISSUES.md`](docs/KNOWN_ISSUES.md).
-> - The tags `v0.8.3` and `v0.8.3-pre-audit` (and older tags) are kept unchanged **for the historical record only**. The `0.8.3` version strings in `Cargo.toml` and `pyproject.toml` on this branch are historical and do not endorse that version. This repository has **no GitHub release**.
-> - Ongoing re-validation work is on the [`scientific-rebuild`](https://github.com/artsensiva/TopoFold/tree/scientific-rebuild) branch. It is **unreleased research code**: it is not a stable release, is not merged into `main`, and none of its results should be read as validated claims about biomolecular dynamics.
+> - **Status of the active branch:** [`docs/KNOWN_ISSUES.md`](https://github.com/artsensiva/TopoFold/blob/scientific-rebuild/docs/KNOWN_ISSUES.md) (open issues and corrections), [roadmap](https://github.com/artsensiva/TopoFold/blob/scientific-rebuild/docs/ENGINE_MISSION_AND_ROADMAP.md) and [decision log](https://github.com/artsensiva/TopoFold/blob/scientific-rebuild/docs/DECISION_LOG.md). The branch is not merged into `main`, is not a stable release, and none of its results should be read as validated claims about biomolecular dynamics.
+> - **Why v0.8.3 is historical:** its scientific claims were withdrawn after an audit in October 2026 (generated or interpolated ensembles had been presented as molecular dynamics, and several reported numbers were estimator or generator artefacts). See the [correction notice](#correction-notice-october-2026) below.
+> - **Kept unchanged for the record:** the `v0.8.3` tag, `v0.8.3-pre-audit` and the older tags. This repository has **no GitHub release page**. The `0.8.3` version strings in `Cargo.toml`, `pyproject.toml` and `CITATION.cff` are historical and are not an endorsement of that version.
 
 **SE(3)-invariant local geometry of biomolecular backbones, in Rust with Python bindings.**
 
