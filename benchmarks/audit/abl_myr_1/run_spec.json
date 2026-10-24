@@ -1,0 +1,60 @@
+{
+ "id": "ABL-MYR-1",
+ "kind": "bounded descriptive comparison of public replicated MD ensembles (de Buhr & Gräter, Dryad 10.5061/dryad.9cnp5hqnx): Abl kinase-only model with a kinked alphaI helix, with vs without myristoyl. Descriptive real-MD evidence only; no experimental endpoint, no biological validation",
+ "frozen_before": "any trajectory, archive or topology file of the dataset was downloaded or inspected (only the Dryad metadata, the rendered README and the eLife text were read)",
+ "question": "At which kinase-domain windows do the Myr and noMyr ensembles differ by more than replicate runs of the same condition differ, for TopoFold kappa/tau and for equal-information Calpha baselines, and is any such window reproduced in both independent thermostat sets?",
+ "separation_from_ayaz": "This myristoyl/allostery question is unrelated to the Ayaz M472I/imatinib-resistance question and its HDX endpoint; no result here is used for, or reported as evidence on, the ABL WT vs M472I preregistration",
+ "not_claimed": ["causality of Myr on any region", "drug response", "clinical relevance", "agreement with experiment", "general kinase behaviour"],
+ "inputs": {
+  "PCA.zip": {"bytes": 875084667, "sha256": "112e495a01b8ac27a30a57066ab50ad2c8b724ba96042dbf4cccc2bb70946fb1",
+              "members_used": ["PCA/traj_kinked_Myr_{11..30}.xtc", "PCA/traj_kinked_noMyr_{11..30}.xtc", "PCA/KD_noIa_bb_ref.pdb", "PCA/average.pdb", "PCA/steps"]},
+  "kinase_kinked_Myr.zip": {"bytes": 132587277, "sha256": "b042bd314c30519a2d6914fcf52307a674276a05ac2ccd09aad47e5d6c02b48d",
+                            "members_used": ["Set1/ and Set2/: system.gro, system_em.gro, topol.top, production_md.mdp, nvt.mdp, npt.mdp; per-replicate md.tpr"]},
+  "kinase_kinked_noMyr.zip": {"bytes": 132251259, "sha256": "8035a204ad343217e1de3242d709b5402c88b9e9859dfc8029972c8086cfe542",
+                              "members_used": ["as for kinase_kinked_Myr.zip"]},
+  "reference_sequence": {"path": "benchmarks/audit/abl_prereg/reference/UniProt_P00519-2.fasta", "isoform": "P00519-2 (IB)",
+                         "sha256": "cfa3c6f25609a22d3a9732b4a3f3cc7a43d70e694e97a0638fb1601738742dd1"},
+  "location": "benchmarks/audit/abl_myr_1/data_dryad/ (git-ignored); archives are never edited; extracted members go to data_dryad/extracted/"
+ },
+ "budget": {"download_bytes_max": 1200000000, "storage_bytes_max": 4000000000, "cpu_hours_max": 2.0,
+            "note": "exceeding any limit stops the run before further work; the actual use is recorded"},
+ "groups": {
+  "primary_set": "Set1 (v-rescale thermostat): Myr = traj_kinked_Myr_11..20, noMyr = traj_kinked_noMyr_11..20",
+  "replication_set": "Set2 (Nosé–Hoover thermostat): Myr = traj_kinked_Myr_21..30, noMyr = traj_kinked_noMyr_21..30",
+  "replicate_unit": "a whole run; frames are never treated as independent; the two sets are analysed separately and never pooled"
+ },
+ "gates": {
+  "G0_access_and_hashes": "the three archives are present and their SHA-256 equal the Dryad digests above; otherwise STOP (blocked: access)",
+  "G1_members": "every member in members_used exists; a missing member stops the run (no substitute)",
+  "G2_topology": "each XTC is read with the existing MDAnalysis adapter using KD_noIa_bb_ref.pdb as topology (average.pdb if and only if KD_noIa_bb_ref.pdb has a different atom count from the XTC and average.pdb matches; the choice is recorded); all 40 XTC have the same atom count; atom names are backbone; the phi/psi comparator runs only if N, CA and C are present for every residue",
+  "G3_mapping": "topofold_inputs.kinase_roles maps the topology chain to P00519-2 with Numbering('reference', 0) and anchors beta3_Lys 290, alphaC_Glu 305, HRD_H 380, DFG_Asp 400 (isoform 1b); refusal stops the run; mutations, unobserved ranges and the author-numbering offset are reported",
+  "G4_shared_start": "within each set, the protein atoms of system.gro are identical between Myr and noMyr (max |Δx| <= 0.001 nm over all protein atoms); production_md.mdp files are identical between Myr and noMyr after removing comments and whitespace; topol.top differ only by the Myr molecule and its parameters; replicate initialisation (gen_vel / gen_seed, continuation) is recorded from the mdp files; any other difference stops the run",
+  "G5_frames": "per run: time stamps from the XTC; the analysis window is t >= 1000 ns (as in the paper); if the file starts at or after 1000 ns all frames are used; frame interval 2 ns within 0.01 ns; a run with fewer than 450 analysis frames is excluded with its cause; if a group of a set keeps fewer than 8 runs, that set is not analysed",
+  "G6_breaks_and_exclusions": "Calpha–Calpha break and missing-coordinate records from the adapter define excluded windows (existing exclusion machinery); if more than 5 % of windows of any channel are excluded, STOP"
+ },
+ "method": {
+  "tool": "topofold_inputs.ensemble analyze() on members read by the existing adapter; options bins = 36, max_lag = 50 frames (100 ns), pbc = 'none' unless G6 shows breaks caused by periodic wrapping, in which case pbc = 'make_whole' is used and recorded",
+  "channels": {
+   "TopoFold": ["kappa", "tau"],
+   "equal_information_baselines": ["d_i_i2 (Calpha i–i+2 distance)", "d_i_i3 (Calpha i–i+3 distance)",
+                                   "rmsf: per-residue Calpha RMSF of each run after superposition of each frame on the run's first analysis frame over all Calpha atoms (topofold_inputs.qcp_rmsd); compared per residue as |RMSF_a - RMSF_b| over run pairs"],
+   "stronger_information_comparator": ["phi, psi per residue (backbone N, CA, C; kinase_geometry.dihedral; circular histograms, 36 bins); reported separately, never as an equal-information baseline"]
+  },
+  "per_window_statistic": "E = median over cross-condition run pairs of the run-pair distance minus max(median over within-Myr pairs, median over within-noMyr pairs); run-pair distance is the Jensen–Shannon distance of run histograms (ensemble.py between_member_js_median and within_member_js_median_*) or, for rmsf, |RMSF difference|",
+  "replicate_exceeding": "E > 0 in the full set AND in all 20 leave-one-run-out recomputations (one run removed from either group)",
+  "reproduced": "replicate_exceeding in both Set1 and Set2",
+  "residue_sets": "R_c = union of residue spans of reproduced windows of channel c (kappa and d_i_i2: i-1..i+1; tau and d_i_i3: i-1..i+2; rmsf, phi, psi: i); R_T = R_kappa ∪ R_tau; R_B = R_d_i_i2 ∪ R_d_i_i3 ∪ R_rmsf; N2(X) = X expanded by ±2 residues",
+  "temporal_dependence": "per run and window the existing temporal diagnostics (autocorrelation to lag 50 frames) are reported; no effective-sample-size correction is used because no inferential statistic is computed (D33)",
+  "no_inference": "no p-values, confidence intervals or significance labels (D33); the authors' p-values are not used"
+ },
+ "outcomes_ordered": [
+  {"step": 1, "label": "blocked", "rule": "any gate G0–G6 fails; the exact gate and remedy are reported and nothing is computed"},
+  {"step": 2, "label": "inconclusive", "rule": "no channel (TopoFold, baselines or comparator) has a reproduced window"},
+  {"step": 3, "label": "TopoFold adds reproduced residues", "rule": "|R_T \\ N2(R_B)| >= 3"},
+  {"step": 4, "label": "baselines cover TopoFold", "rule": "R_T ⊆ N2(R_B)"},
+  {"step": 5, "label": "partial", "rule": "every remaining case (1–2 TopoFold residues outside N2(R_B))"}
+ ],
+ "also_reported": ["|R_B \\ N2(R_T)| (baseline residues TopoFold misses)", "counts of replicate-exceeding windows per channel and set", "Jaccard of reproduced windows between channels", "the phi/psi comparator against R_T", "all exclusions with causes", "resources"],
+ "permitted_interpretation": "Descriptive real-MD evidence about where these two simulated ensembles differ beyond replicate variability, and whether TopoFold localizes residues the equal-information baselines do not. Not biological validation; not evidence about M472I, imatinib or HDX.",
+ "code_freeze": "the runner script is written after this spec freeze and its SHA-256 is recorded in results/ABL-MYR-1_code_freeze.json before any input archive is opened; any later change to spec or runner is a dated amendment in a separate directory"
+}

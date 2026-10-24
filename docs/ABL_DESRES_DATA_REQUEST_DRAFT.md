@@ -2,6 +2,11 @@
 
 *Revised 2026-10-24: the requested sets now reflect the Methods text, which describes no apo M472I simulations (`docs/ABL_WT_M472I_PREREGISTRATION_DRAFT.md` §0).*
 
+*Correction 2026-10-24 (D55): the premise above and the sentence "as far as we can see, no apo M472I runs" in the sent
+text are wrong. The Methods describe WT, M472I and F486S systems from 2F4J, 3 × 20 µs each, with no ligand specified.
+The sent text below is kept unchanged as the record of what was asked; an optional follow-up is drafted, not sent:
+`docs/ABL_DESRES_FOLLOWUP_DRAFT.md`.*
+
 **To:** trajectories@deshawresearch.com (address given in the Data availability statement of Ayaz et al. 2023)
 **Subject:** Request for Abl kinase trajectories from Ayaz et al., Nat Commun 2023 (WT and M472I)
 

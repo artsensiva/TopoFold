@@ -153,15 +153,20 @@ The development programme, evidence levels (A–E) and the current queue are in
   - It re-checks every output and input hash on each update and computes nothing new.
   - It does not need the compiled core.
 - **ABL data requests:** the owner sent the trajectory request and the processed-HDX request (texts in `docs/`).
-  Replies are pending, and whether apo M472I trajectories exist remains unknown until D. E. Shaw Research replies. An
+  Replies are pending. The paper's Methods describe WT and M472I systems from 2F4J (3 × 20 µs each, no ligand
+  specified; correction D55); their ligand-free status and preparation remain unverified until files arrive. An
   independent human trial of the tools remains a future milestone (owner nominates a tester).
 - **ABL** (preferred biological route): the trajectories, their permissions and processed HDX uptake are not yet
   obtained; the owner actions are listed in
   [`benchmarks/audit/abl_access/ACCESS_STATUS_2026-10-23.md`](benchmarks/audit/abl_access/ACCESS_STATUS_2026-10-23.md).
   - An evaluation protocol is drafted but not frozen:
     [`docs/ABL_WT_M472I_PREREGISTRATION_DRAFT.md`](docs/ABL_WT_M472I_PREREGISTRATION_DRAFT.md).
-  - The paper describes no apo M472I simulation, while its HDX comparison is apo; the trajectory request draft now asks
-    about this.
+  - Corrected 2026-10-24 (D55): an earlier statement that the paper describes no apo M472I simulation was wrong. The
+    preferred branch is now WT vs M472I from 2F4J, conditional on verifying from supplied topology and preparation
+    records that both are ligand-free, sequence-correct and identically prepared.
+  - No-reply fallback (D56): a public, CC0, replicated Abl set (de Buhr & Gräter, Myr vs noMyr) is specified and frozen
+    as ABL-MYR-1 ([`benchmarks/audit/abl_myr_1/`](benchmarks/audit/abl_myr_1/README.md)). It is blocked at access
+    (owner download or Dryad token) and addresses a separate myristoyl/allostery question.
 - **Kinase descriptors** (KIN-DESC-1, four public Abl crystal chains, representation capability only):
   - side-chain-aware descriptors reproduce the stated DFG and A-loop labels;
   - Cα κ/τ separates the A-loop contrast in many windows, but DFG only at a few four-point windows

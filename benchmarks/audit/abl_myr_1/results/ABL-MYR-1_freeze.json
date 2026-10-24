@@ -1,0 +1,8 @@
+{
+  "id": "ABL-MYR-1",
+  "frozen_utc": "2026-10-24T19:54:07.684512+00:00",
+  "spec_sha256": "f8825840ee6812268b1f1ee587affff0559e9ccb9a7da2b24b3a7bddcfd95e98",
+  "input_files_present_at_freeze": [],
+  "runner": "not yet written; see code_freeze in the spec",
+  "status_at_freeze": "blocked at G0: Dryad downloads need a bearer token (API) or pass a bot challenge (web); owner action required"
+}

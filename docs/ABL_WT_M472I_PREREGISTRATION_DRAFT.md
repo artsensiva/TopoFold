@@ -1,7 +1,8 @@
 # ABL WT vs M472I evaluation: preregistration DRAFT (2026-10-24)
 
 **Status: DRAFT. Not frozen, not executed. No ABL trajectory or uptake value has been obtained, inspected or scored.**
-Revised 2026-10-24 after a scientific audit; see §12.
+Revised 2026-10-24 after a scientific audit; see §12. **Corrected 2026-10-24 (D55): the premise "no apo M472I
+simulation is described" was wrong; see §0 and §13.**
 It is frozen only after the inputs arrive and pass `benchmarks/audit/abl_prereg/validate_inputs.py`. Every value marked
 *[fix at freeze]* is chosen then, before any comparison is computed.
 
@@ -9,25 +10,51 @@ It is frozen only after the inputs arrive and pass `benchmarks/audit/abl_prereg/
 protein target", *Nat Commun* 14:1885 (2023), doi:10.1038/s41467-023-36956-5. Everything below is from its text, not its
 figures.
 
-## 0. Finding that shapes this design (public-data observation)
+## 0. Simulated systems described in the paper (corrected 2026-10-24, D55)
 
-The Methods list these Anton 2 systems with WT/M472I relevance: "(1) WT bound with imatinib; (2) and (3) M472I and F486S
-mutants bound with imatinib; and (4) apo WT in the DFG-out/AL-closed conformation", all from PDB 1OPJ.
+**Correction.** An earlier version of this section stated: "**No apo M472I simulation is described.** … An apo-vs-apo
+MD/HDX comparison is therefore possible only if unpublished apo M472I runs exist." That was wrong. It read only the
+Methods subsection "Simulations starting from the DFG-out/AL-closed conformation" and missed the next subsection,
+"Simulations starting from the DFG-in/AL-open conformation". Re-read 2026-10-24 from PMC10076256 (HTML SHA-256
+`d1fcf3c7…`, fetched that day). The superseded statement is kept here, and in D47, as the record of the error.
 
-| System (start 1OPJ) | Runs |
-|---|---|
-| WT + imatinib | 5 × 20 µs, plus 5 × 10 µs |
-| M472I + imatinib | 10 × 10 µs |
-| apo WT | 5 × 20 µs |
-| WT, M472I and F486S, each with imatinib and GNF-2 (start 3K5V) | 10 × 10 µs each |
+The Methods describe, with their words in quotation marks:
 
-**No apo M472I simulation is described.** The HDX-MS comparison, by contrast, is apo: "M472I increases HDX in the C-lobe
-of the kinase in the apo form".
-- An apo-vs-apo MD/HDX comparison is therefore possible only if unpublished apo M472I runs exist.
-- The matched sets that are described are imatinib-bound.
-- The owner has sent the trajectory request to D. E. Shaw Research, which asks about apo M472I directly, and the
-  processed-HDX request. Drafts: `docs/ABL_DESRES_DATA_REQUEST_DRAFT.md` and `docs/ABL_HDX_DATA_REQUEST_DRAFT.md`.
-- **Whether apo M472I trajectories exist remains unknown until D. E. Shaw Research replies.**
+| Methods subsection and start | System | Runs | Ligand as written in that subsection |
+|---|---|---|---|
+| DFG-out/AL-closed, 1OPJ | WT + imatinib | 5 × 20 µs, plus 5 × 10 µs | imatinib |
+| same | M472I + imatinib; F486S + imatinib | 10 × 10 µs each | imatinib |
+| same | "apo WT in the DFG-out/AL-closed conformation" | 5 × 20 µs | none ("apo") |
+| same, 3K5V pose | WT, M472I, F486S "each simultaneously bound with imatinib and GNF-2" | 10 × 10 µs each | imatinib + GNF-2 |
+| DFG-in/AL-open, 2F4J | "(1) WT, (2) M472I, and (3) F486S Abl kinase" | "Three independent 20-µs simulations … for each system" | **none specified** |
+
+The 2F4J systems are "~80 Å per side, containing ~65,000 atoms total" and were run "following the same methods used for
+the G0 simulations". The G0 Methods state: a99SB-disp force field; Anton 2; NVT at 310 K with a Nosé–Hoover
+thermostat; 2.5-fs step. For G0 they also state that the DFG Asp was protonated, and that three imatinib molecules were
+placed in the solvent. **Whether those two G0 preparation steps apply to the 2F4J-start systems is not stated.**
+
+**Established, and not established:**
+- **Stated in the paper:**
+  - WT and M472I systems prepared from 2F4J, three runs of 20 µs each;
+  - no ligand is named in that subsection;
+  - the main text does not discuss these runs.
+- **Not stated, and not verified by us:**
+  - that the systems are ligand-free (no ligand specified ≠ a verified ligand-free supplied system);
+  - VX-680 removal;
+  - reversal of 2F4J's engineered H396P mutation to the WT His396;
+  - treatment of the M228 cloning artefact and the construct range;
+  - the DFG Asp381 protonation;
+  - how the three runs were initialised;
+  - the frame interval and file sizes;
+  - whether the WT and M472I systems share every preparation step except residue 472.
+- **The start structure itself:** PDB 2F4J is "the kinase domain of an imatinib-resistant Abl mutant in complex with the
+  Aurora kinase inhibitor VX-680" (Young et al. 2006). In the local copy (`benchmarks/audit/kinase_descriptors/
+  data_pdb/2F4J.pdb`, SHA-256 `50fd239b…`), chain A is residues 227–513, `SEQADV` lists PRO 396 as an engineered
+  mutation of HIS and MET 228 as a cloning artefact, and VX-680 (VX6) is bound. Its conformation is DFG-in/AL-open
+  (active), so the start is not the solution ensemble that apo HDX measures.
+- **No Ayaz trajectory or derived value is held, inspected or scored.** The DESRES request (sent) and the HDX request
+  (sent) are pending. The sent DESRES text contains the superseded premise; an optional follow-up naming the 2F4J sets
+  is drafted, not sent (`docs/ABL_DESRES_FOLLOWUP_DRAFT.md`).
 
 ## 1. Question
 
@@ -38,8 +65,14 @@ equal-information baselines?
 The question is about **localization agreement** with an independent experimental endpoint. It is not about mechanism,
 causality, drug resistance or clinical relevance.
 
-**Branches**, chosen at freeze from the inventory alone, before any data are opened:
-- **A (preferred):** apo WT vs apo M472I from the same start, matched to apo HDX.
+**Branches**, chosen at freeze from the inventory and the verification gates (§2), before any trajectory frame is
+analysed:
+- **A (preferred, corrected 2026-10-24):** WT vs M472I started from 2F4J (3 × 20 µs each, per the Methods), matched to
+  apo HDX. **Only** if the supplied topology and preparation records verify gates V1–V5 (§2): ligand-free, sequence and
+  mutation identity, numbering, and shared starting conditions.
+  - Limits that stay with the result: three runs per variant; one active-state start (DFG-in/AL-open), so the ensembles
+    depend on that start over 20 µs; the HDX apo state is a solution ensemble of unknown composition.
+  - The 1OPJ-start apo WT runs have no M472I counterpart from that start; they are **not** paired with 2F4J-start M472I.
 - **B (exploratory cross-state evidence only):** imatinib-bound WT vs imatinib-bound M472I (1OPJ start), compared with
   apo HDX.
   - The MD ligand state differs from the HDX state, so a branch-B result is **exploratory cross-state evidence**. It is
@@ -52,6 +85,20 @@ causality, drug resistance or clinical relevance.
 ## 2. Required trajectory inventory
 
 Schema: `benchmarks/audit/abl_prereg/schemas/trajectory_inventory.schema.json`.
+
+**Verification gates for branch A (from the supplied topology and preparation records, before any frame is
+analysed):**
+- **V1 ligand-free:** the topology of every WT and M472I system contains no residue other than protein, water and ions
+  (in particular no VX-680 and no imatinib). The provider's word alone is recorded but is not sufficient.
+- **V2 sequence and mutation:** the protein sequence of each system is aligned to P00519 with
+  `topofold_inputs.kinase_roles` under an explicitly declared numbering. WT must carry His396 (2F4J's H396P reversed)
+  and Met472; M472I must differ from WT only at 472 (Ile). Any other difference from P00519, including residue 228,
+  must be identical in both systems and is recorded.
+- **V3 numbering:** the construct range and numbering are confirmed by that alignment, not by author numbers.
+- **V4 shared starting conditions:** same 2F4J-derived start coordinates, force field, temperature, ensemble, ion
+  concentration, box size within the stated range, and Asp381 protonation, documented for both systems.
+- **V5 replicate identity:** three runs per variant, each with a run identifier, length and initialisation record
+  (e.g. new velocities from the same start).
 
 **Minimum to proceed:**
 - written permission for internal evaluation **and** for publication of derived results;
@@ -194,6 +241,11 @@ result is development evidence of localization agreement, not biological validat
 3. The inventory contradicts the paper's description and the provider cannot resolve it.
 4. Sequence mapping of the MD topology to P00519 fails, or the HDX table fails validation.
 5. HDX lacks apo M472I or apo WT, or lacks replicate information.
+5a. **Branch A only (added 2026-10-24, D55):** any of gates V1–V5 (§2) fails or cannot be checked from supplied files.
+    In particular, "no ligand specified" in the Methods is not accepted as ligand-free. Branch A then stops; it is not
+    silently replaced by another branch.
+5b. The supplied 2F4J-start runs are fewer than three per variant, or differ in length or start between WT and M472I
+    without a documented reason.
 6. Branch B is the only option and the owner has not approved running it as exploratory cross-state evidence.
 7. Any change to this protocol after data receipt that is not recorded as a dated amendment made before scoring.
 
@@ -218,4 +270,17 @@ result is development evidence of localization agreement, not biological validat
 | 7 Frozen artifacts | not applicable | Nothing frozen |
 | 8 Negative outcomes | pass | "Not supportive", "inconclusive" and the exploratory negatives are reported |
 | 9 Claim boundaries | pass | Development evidence only; no mechanism, causation or clinical claim |
+
+## 13. Correction record (2026-10-24, D55)
+
+| Item | Before | After |
+|---|---|---|
+| §0 premise | "No apo M472I simulation is described"; apo-vs-apo possible only with unpublished runs | The Methods describe WT, M472I and F486S systems from 2F4J, 3 × 20 µs each, with no ligand specified; ligand-free status is unverified |
+| Branch A | apo WT vs apo M472I, existence unknown | WT vs M472I from 2F4J, conditional on gates V1–V5 |
+| Stop conditions | 1–7 | adds 5a (gates) and 5b (replicate match) |
+| Unchanged | | §§1, 3–9, 11 and 12; branches B and C; the outcome rules and thresholds. The draft remains unfrozen and nothing was scored |
+
+Cause of the error: one Methods subsection was read and the adjacent one was not. Lesson recorded: inventory claims
+of the form "X is not described" are checked against every Methods subsection and the data-availability statement
+before they are used.
 

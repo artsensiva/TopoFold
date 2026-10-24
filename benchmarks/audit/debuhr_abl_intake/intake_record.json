@@ -1,0 +1,218 @@
+{
+ "schema": "topofold.dataset-intake/1",
+ "dataset": {
+  "name": "de Buhr & Gräter, Data from: Myristoyl's dual role in allosterically regulating and localizing Abl kinase",
+  "slug": "debuhr_abl",
+  "type": "MD simulation inputs, analysis outputs and backbone/protein trajectories (GROMACS)",
+  "description": "Equilibrium MD of Abl kinase-only and SH3-SH2-kinase models with and without myristoyl (Myr); metadynamics; umbrella sampling; FDA; PCA"
+ },
+ "source": {
+  "primary_reference": "de Buhr S, Gräter F. Myristoyl's dual role in allosterically regulating and localizing Abl kinase. eLife 12:RP85216 (2023), PMC10619977",
+  "doi_or_accession": [
+   "10.5061/dryad.9cnp5hqnx",
+   "10.7554/eLife.85216",
+   "10.1101/2022.12.20.521177 (preprint)"
+  ],
+  "url": "https://datadryad.org/dataset/doi:10.5061/dryad.9cnp5hqnx",
+  "version_or_release": "Dryad version 5 (API version id 287611), published 2024-04-09",
+  "accessed_utc": "2026-10-24"
+ },
+ "licence": {
+  "data_licence_as_stated": "CC0-1.0",
+  "licence_url": "https://spdx.org/licenses/CC0-1.0.html",
+  "quoted_text": "license: https://spdx.org/licenses/CC0-1.0.html (Dryad API dataset record)",
+  "paper_licence": "CC BY (Europe PMC record)"
+ },
+ "permissions": {
+  "internal_evaluation": {
+   "status": "granted",
+   "evidence": "CC0-1.0 public-domain dedication (Dryad record); citation is good practice"
+  },
+  "publication_of_derived_results": {
+   "status": "granted",
+   "evidence": "CC0-1.0 public-domain dedication (Dryad record); citation is good practice"
+  },
+  "redistribution_of_derived_files": {
+   "status": "granted",
+   "evidence": "CC0-1.0 public-domain dedication (Dryad record); citation is good practice"
+  },
+  "later_commercial_use": {
+   "status": "granted",
+   "evidence": "CC0-1.0 public-domain dedication (Dryad record); citation is good practice"
+  }
+ },
+ "size_and_download": {
+  "total_bytes": 46147435021,
+  "files_listed": 14,
+  "downloaded": [
+   "Dryad dataset and file metadata (API JSON)",
+   "landing page HTML with the rendered README (269,548 B)",
+   "eLife full-text XML via Europe PMC (149,727 B, SHA-256 9f0f8de2e86076633994e503a4ec7d263f9914ededffe7557ec4ebd6e9418928)",
+   "UniProt P00519-2 FASTA (isoform IB)"
+  ],
+  "approval_required": "no trajectory or archive was downloaded; the frozen ABL-MYR-1 budget is ≤ 1.2 GB download, ≤ 4 GB storage, ≤ 2 CPU-h",
+  "approval_obtained": "budget set by the task; access blocked (see open_conditions)",
+  "budget_note": "Needed for ABL-MYR-1: PCA.zip 875,084,667 B; kinase_kinked_Myr.zip 132,587,277 B; kinase_kinked_noMyr.zip 132,251,259 B; total 1,139,923,203 B",
+  "access_mechanism_observed": "2026-10-24: /api/v2/files/<id>/download returns HTTP 401 'must have current bearer token'; /downloads/file_stream/<id> serves an 'Anubis' proof-of-work bot challenge page. Neither was bypassed."
+ },
+ "raw_inventory": {
+  "location": "not downloaded",
+  "git_ignored": true,
+  "files": [
+   {
+    "path": "FDA.zip",
+    "bytes": 26315558872,
+    "sha256_source": "11cc75da2b2ab336453f9b91fa36fd1161dbbc9be41859b73247432ec4c89141",
+    "downloaded": false
+   },
+   {
+    "path": "ff.zip",
+    "bytes": 616252,
+    "sha256_source": "a88550c493d306334b40acd7285d47190a1159c755d66ae75383510d2f4f775e",
+    "downloaded": false
+   },
+   {
+    "path": "kinase_active.zip",
+    "bytes": 123477486,
+    "sha256_source": "78990324693da98026900ec3e716e3ef25be208f0bfeefd00a56fa446b00e13e",
+    "downloaded": false
+   },
+   {
+    "path": "kinase_kinked_Myr.zip",
+    "bytes": 132587277,
+    "sha256_source": "b042bd314c30519a2d6914fcf52307a674276a05ac2ccd09aad47e5d6c02b48d",
+    "downloaded": false
+   },
+   {
+    "path": "kinase_kinked_noMyr.zip",
+    "bytes": 132251259,
+    "sha256_source": "8035a204ad343217e1de3242d709b5402c88b9e9859dfc8029972c8086cfe542",
+    "downloaded": false
+   },
+   {
+    "path": "kinase_straight_Myr.zip",
+    "bytes": 125296033,
+    "sha256_source": "a12f760fd2fb36bf8b7f3437ed2b306063b163e199f56ed4bd131e576d45300d",
+    "downloaded": false
+   },
+   {
+    "path": "kinase_straight_noMyr.zip",
+    "bytes": 125003900,
+    "sha256_source": "0f8d00288ec81598f05b50d91e96c82d79a3e5e705740bc86a963d354b0d2b14",
+    "downloaded": false
+   },
+   {
+    "path": "Metadynamics.zip",
+    "bytes": 1214779742,
+    "sha256_source": "4895f0c402d7f32978c224f350e7d2bb4fb613e9aa8430bbeb1d79d96770e6dd",
+    "downloaded": false
+   },
+   {
+    "path": "PCA.zip",
+    "bytes": 875084667,
+    "sha256_source": "112e495a01b8ac27a30a57066ab50ad2c8b724ba96042dbf4cccc2bb70946fb1",
+    "downloaded": false
+   },
+   {
+    "path": "README.md",
+    "bytes": 216816,
+    "sha256_source": "0de1f79f352a84e03fd8fae72ff8c856cba1a958ffba77157aed0691e37516e6",
+    "downloaded": false
+   },
+   {
+    "path": "setup_analysis.zip",
+    "bytes": 1408,
+    "sha256_source": "6a932498c4d9bcf8800b38e90c56ff08d667cf1884ccbacf4d430329b9cdfe36",
+    "downloaded": false
+   },
+   {
+    "path": "SH3-SH2-KD_Myr.zip",
+    "bytes": 168496599,
+    "sha256_source": "13729b32ee1c757f95dca15c5471f61498d1eab995eb4dbbee75e4634ab3754f",
+    "downloaded": false
+   },
+   {
+    "path": "SH3-SH2-KD_noMyr.zip",
+    "bytes": 1563791508,
+    "sha256_source": "ed22951a9af294653e1fc50af40b95ddcd1172be1f3cc58b83a130832f1e015d",
+    "downloaded": false
+   },
+   {
+    "path": "Umbrella.zip",
+    "bytes": 15370273202,
+    "sha256_source": "d8122ab5ce7a89d9ae687f034b61b7289136efc69f090d4d7a1250ed261d4667",
+    "downloaded": false
+   }
+  ]
+ },
+ "independence": {
+  "prior_topofold_use": "none; not previously seen or used by TopoFold",
+  "overlap_with_other_datasets": "Abl kinase domain also in KIN-DESC-1 (crystal chains 1OPJ, 1OPK, 2F4J) and the ABL/Ayaz route; different structures, force field (CHARMM36m vs a99SB-disp), isoform numbering (1b vs 1a) and question",
+  "labels_from_topofold_output": "no labels used; the comparison is descriptive and has no external endpoint",
+  "equal_information_constraints": "TopoFold κ/τ and the Cα baselines receive the same Cα frames of the same runs; φ/ψ (backbone N, C) is a separately labelled stronger-information comparator"
+ },
+ "endpoint": {
+  "measurement": "none for the ABL-MYR-1 comparison (simulation-only, descriptive)",
+  "provider": null,
+  "processed_values_available": "the authors' own analyses (RMSD, RMSF, helicity, PCA projections, p-values) are included but are not used as labels",
+  "replicates": null,
+  "significance_rule": null,
+  "conformational": null,
+  "condition_mismatches_with_simulation": [
+   "question is myristoyl/allostery in a modelled isoform-1b kinase domain with ATP/Mg2+; it is unrelated to the Ayaz M472I/imatinib-resistance question and to the Ayaz HDX endpoint"
+  ]
+ },
+ "replicates": {
+  "conditions": [
+   "kinase_kinked_Myr",
+   "kinase_kinked_noMyr",
+   "kinase_straight_Myr",
+   "kinase_straight_noMyr",
+   "kinase_active",
+   "SH3-SH2-KD_Myr",
+   "SH3-SH2-KD_noMyr"
+  ],
+  "runs_per_condition": {
+   "each model": "20 = Set1 replicates 11-20 (v-rescale thermostat) + Set2 replicates 21-30 (Nosé–Hoover); README and eLife Methods"
+  },
+  "run_lengths": "2000 ns each; the authors exclude the first 1000 ns from analysis (eLife Methods)",
+  "frame_interval": "PCA.zip traj_{model}_{rep}.xtc: kinase-domain backbone, one frame per 2 ns; FDA.zip: protein atoms, 200 ps, first 1000 ns excluded (README)",
+  "run_independence": "same modelled start per model and set; replicate start method not stated (to be read from the .tpr/.mdp at gate G4)",
+  "temporal_dependence_notes": "the authors report PC1 autocorrelation low after 100 ns and close to zero after 500 ns (eLife Figure 2—figure supplement 3C); runs, not frames, are the replicates",
+  "incomplete_runs": null
+ },
+ "mapping": {
+  "reference_numbering": "UniProt P00519-2 (isoform IB, 1149 aa); the paper uses isoform 1b numbering; 1b = 1a + 19 across the kinase domain (verified: K290, E305, H380-R381-D382, D400-F401-G402, M491; I521, V525, L529)",
+  "method": "topofold_inputs.kinase_roles alignment of the trajectory topology to P00519-2 with an explicit reference numbering (gate G3)",
+  "offsets": {},
+  "mismatches": [],
+  "chain_rule": "the single protein chain of the PCA reference topology",
+  "atoms_available": "PCA.zip: backbone of the kinase domain (topology file KD_noIa_bb_ref.pdb; whether αI is included is unverified)",
+  "atoms_needed": "Cα for κ/τ and the Cα baselines; backbone N, Cα, C for the φ/ψ comparator"
+ },
+ "missing_data_and_exclusions": {
+  "unobserved": "unknown until the topology is read",
+  "exclusion_rules": [
+   "see benchmarks/audit/abl_myr_1/run_spec.json (frozen)"
+  ],
+  "counts": {}
+ },
+ "decision": {
+  "value": "conditional-go",
+  "reasons": [
+   "CC0 covers all intended uses",
+   "a matched, replicated two-condition subset is documented (kinase_kinked_Myr vs kinase_kinked_noMyr, 10 + 10 runs per thermostat set)",
+   "backbone XTC trajectories readable by the existing MDAnalysis adapter are documented in PCA.zip"
+  ],
+  "open_conditions": [
+   "ACCESS (owner): download PCA.zip, kinase_kinked_Myr.zip and kinase_kinked_noMyr.zip in a browser, or provide a Dryad API token; place them in benchmarks/audit/abl_myr_1/data_dryad/",
+   "file-level gates G1-G6 of ABL-MYR-1 (contents, topology, mapping, shared start, frames, breaks)"
+  ],
+  "decided_utc": "2026-10-24"
+ },
+ "sent_externally": "nothing",
+ "notes": [
+  "Model archives (kinase_*.zip, SH3-SH2-KD_*.zip) contain simulation inputs (.mdp, .top/.itp, .gro starting structures, .tpr) and analysis outputs (.xvg, .dat); no trajectory files are listed in them (README directory tree).",
+  "Figshare 10.6084/m9.figshare.4496795 (CC BY 4.0): one 1-µs run of ABL1 242-493 (AMBER99SB-ILDN, 300 K, 250-ps frames, 4000 snapshots) in MDTraj HDF5 (141,949,663 B). Usable only for a loader check, never as replicated evidence; not downloaded, because reading it needs a new HDF5/MDTraj path that the Dryad XTC route does not use."
+ ]
+}

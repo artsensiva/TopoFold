@@ -22,7 +22,16 @@ unknown until D. E. Shaw Research replies.*
    M472I with replicate values, or confirm a processing route for the PRIDE raw files.
    Drafts for both requests, not sent: `docs/ABL_DESRES_DATA_REQUEST_DRAFT.md` and `docs/ABL_HDX_DATA_REQUEST_DRAFT.md`.
 
+*Correction 2026-10-24 (D55): "whether apo M472I trajectories exist is unknown" is superseded. The Methods describe WT,
+M472I and F486S systems from 2F4J, three 20-µs runs each, with no ligand specified. Their ligand-free status, the
+reversal of 2F4J's H396P, numbering and shared preparation are unverified until topology and preparation records are
+supplied. Access is still pending.*
+
 ## Alternative routes (kept open)
+
+- **Public fallback (2026-10-24, D56):** de Buhr & Gräter Abl MD (Dryad 10.5061/dryad.9cnp5hqnx, CC0). A matched,
+  replicated Myr vs noMyr kinase-only subset is frozen as ABL-MYR-1 (`benchmarks/audit/abl_myr_1/`). Access needs an
+  owner browser download or a Dryad API token. It answers a separate myristoyl/allostery question, not the M472I one.
 
 - A bounded search for openly licensed replicated MD with an independent experimental endpoint found no suitable
   data set. ATLAS and GPCRmd remain non-commercial options without such endpoints.
