@@ -1,0 +1,67 @@
+{
+ "purpose": "diagnostic after the original ABL-MYR-1 run stopped at G1; not part of the frozen protocol",
+ "spec_sha256": "f8825840ee6812268b1f1ee587affff0559e9ccb9a7da2b24b3a7bddcfd95e98",
+ "archives_listing_only": {
+  "PCA.zip": {
+   "entries": 441,
+   "required": 43,
+   "present": 43,
+   "missing": []
+  },
+  "kinase_kinked_Myr.zip": {
+   "entries": 175,
+   "required": 32,
+   "present": 31,
+   "missing": [
+    {
+     "key": "gro:Set2",
+     "suffix": "Set2/system.gro",
+     "matches": 0
+    }
+   ]
+  },
+  "kinase_kinked_noMyr.zip": {
+   "entries": 171,
+   "required": 32,
+   "present": 31,
+   "missing": [
+    {
+     "key": "gro:Set2",
+     "suffix": "Set2/system.gro",
+     "matches": 0
+    }
+   ]
+  }
+ },
+ "dataset_readme": {
+  "sha256": "0de1f79f352a84e03fd8fae72ff8c856cba1a958ffba77157aed0691e37516e6",
+  "dryad_listed_sha256": "0de1f79f352a84e03fd8fae72ff8c856cba1a958ffba77157aed0691e37516e6",
+  "matches_dryad_listing": true,
+  "set_gro_files_in_tree": {
+   "kinase_kinked_Myr": {
+    "Set1": [
+     "system.gro",
+     "system_box.gro",
+     "system_em.gro",
+     "system_solv.gro",
+     "system_solv_ions.gro"
+    ],
+    "Set2": [
+     "system_em.gro"
+    ]
+   },
+   "kinase_kinked_noMyr": {
+    "Set1": [
+     "system.gro",
+     "system_box.gro",
+     "system_em.gro",
+     "system_solv.gro",
+     "system_solv_ions.gro"
+    ],
+    "Set2": [
+     "system_em.gro"
+    ]
+   }
+  }
+ }
+}

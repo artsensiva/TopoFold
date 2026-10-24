@@ -1,0 +1,13 @@
+{
+ "id": "ABL-MYR-1",
+ "status": "blocked",
+ "gate": "G1",
+ "cause": "member 'Set2/system.gro': 0 matches in the archive (exactly one required)",
+ "detail": {
+  "suffix": "Set2/system.gro",
+  "hits": []
+ },
+ "utc": "2026-10-24T20:59:46.849812+00:00",
+ "spec_sha256": "f8825840ee6812268b1f1ee587affff0559e9ccb9a7da2b24b3a7bddcfd95e98",
+ "runner_sha256": "419981810da0e105b6295f94b1b522f0168f8f69407f6d02293a85bf64dc9e6c"
+}

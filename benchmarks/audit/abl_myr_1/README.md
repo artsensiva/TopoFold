@@ -1,8 +1,41 @@
-# ABL-MYR-1: Myr vs noMyr kinase-domain ensembles from public replicated MD (spec and runner frozen; BLOCKED at G0)
+# ABL-MYR-1: Myr vs noMyr kinase-domain ensembles from public replicated MD (spec and runner frozen; original run BLOCKED at G1)
 
-**Status (2026-10-24): specification and runner frozen, nothing computed, blocked at G0.** Two of the three required
-archives (`PCA.zip`, `kinase_kinked_noMyr.zip`) are not present. Descriptive real-MD evidence only once run, never
-biological validation.
+**Status (2026-10-24): specification and runner frozen; the original run passed G0 and stopped at G1; nothing was
+computed.** All three required archives are present and verified, but both model archives lack the required member
+`Set2/system.gro`, as published (details below). Descriptive real-MD evidence only once run, never biological
+validation.
+
+## Original run (2026-10-24T20:59:43Z, frozen runner, unmodified)
+
+| Gate | Result |
+|---|---|
+| G0 | **Passed.** Verified twice: with `sha256sum` against the values in `run_spec.json` (sizes and SHA-256 of `PCA.zip`, `kinase_kinked_Myr.zip`, `kinase_kinked_noMyr.zip` all match), and by the runner |
+| G1 | **Failed.** `member 'Set2/system.gro': 0 matches in the archive (exactly one required)`. Record: `results/ABL-MYR-1_blocked.json` (frozen runner and spec hashes inside) |
+| G2–G6 | Not reached; nothing was extracted, no frame read, no statistic computed |
+
+- **Observed cause, in the data:** `results/ABL-MYR-1_g1_member_audit.json` (from `g1_member_audit.py`, which reads zip
+  directory listings only): `PCA.zip` has 43 of 43 required members; each model archive has 31 of 32, missing only
+  `Set2/system.gro`. The dataset README (SHA-256 equals Dryad's listed digest) lists `system.gro`, `system_box.gro`,
+  `system_em.gro`, `system_solv.gro` and `system_solv_ions.gro` for `Set1`, but only `system_em.gro` and `topol.top`
+  for `Set2`, in both models. So the member is absent in the published dataset, not through a bad download.
+- **Not an implementation defect:** the runner behaved as frozen ("a missing member stops the run, no substitute"). No code
+  was changed and no amendment exists. `kinase_straight_noMyr.zip` and the other archives were not used.
+- **My error in the specification:** the frozen spec requires `system.gro` in both sets. The README tree available at intake
+  showed that `Set2` lacks it, and I did not check the member list file by file before freezing.
+- **Why `system_em.gro` is not a free substitute:** it is the energy-minimised structure of each system, so protein
+  coordinates can differ between the Myr and noMyr systems after minimisation. The frozen 0.001 nm identity rule was
+  defined for `system.gro`; using another file would change the test and needs a dated amendment.
+
+## Owner decision needed
+
+Any continuation is a **dated post-hoc amendment** in a separate directory (the original attempt stays as recorded),
+decided before any archive member is extracted. Options, none started:
+
+1. **Amend G4 for Set2:** check `topol.top` and `production_md.mdp` identity (Set2 has both) and state plainly that
+   starting-coordinate identity is not verified for Set2. Set1 keeps the frozen test. Weaker evidence of a shared start for
+   Set2.
+2. **Analyse Set1 only:** the frozen "reproduced" rule needs both sets, so the outcome could not exceed Set1 evidence.
+3. **Stop ABL-MYR-1.**
 
 - **Data:** de Buhr & Gräter, Dryad [10.5061/dryad.9cnp5hqnx](https://doi.org/10.5061/dryad.9cnp5hqnx) (CC0), study
   eLife [10.7554/eLife.85216](https://doi.org/10.7554/eLife.85216). Intake record:
@@ -73,35 +106,29 @@ biological validation.
   a `.gro` difference of exactly the tolerance failed through floating-point noise; and the fixtures themselves needed
   intact chain geometry (noise large enough to break Cα–Cα distances correctly drives the run into G6).
 
-## Present in `data_dryad/` at the code freeze (metadata only)
+## Present in `data_dryad/`
 
-| Required by the frozen spec | Present? |
-|---|---|
-| `PCA.zip` (875,084,667 B) | **no** |
-| `kinase_kinked_Myr.zip` (132,587,277 B) | yes (size equals Dryad's listing; hash not yet checked) |
-| `kinase_kinked_noMyr.zip` (132,251,259 B) | **no** |
+At the code freeze only metadata was listed (`PCA.zip` and `kinase_kinked_noMyr.zip` were absent). Later all three required
+archives arrived and passed G0 (see the original run above). Also present but not part of the specification and not used:
+`README.md` (documentation, read for the G1 audit), `kinase_active.zip`, `kinase_straight_Myr.zip`,
+`kinase_straight_noMyr.zip` and `SH3-SH2-KD_Myr.zip`.
 
-Also present but not part of the specification: `README.md`, `kinase_active.zip`, `kinase_straight_Myr.zip`,
-`kinase_straight_noMyr.zip`. The straight-helix archives are different models; `kinase_straight_noMyr.zip` is not
-`kinase_kinked_noMyr.zip`.
+## Command of the original run
 
-## Resume at G0
-
-With the missing archives in `benchmarks/audit/abl_myr_1/data_dryad/`, from the repository root:
+The command that produced the original attempt (from the repository root; it would stop at the same G1 gate again):
 
 ```bash
 PYTHONPATH=python .venv/bin/python benchmarks/audit/abl_myr_1/run_abl_myr.py run \
     --adapter-python benchmarks/audit/wpd_local_retrieval/build/venv/bin/python
-PYTHONPATH=python .venv/bin/python benchmarks/audit/abl_myr_1/run_abl_myr.py report
 ```
 
 `.venv` has the TopoFold core; the second interpreter has MDAnalysis. G0 verifies the three archives against the frozen
-SHA-256 values before anything is extracted.
+SHA-256 values before anything is extracted. The `report` command only renders a completed `ABL-MYR-1_results.json`; there is none.
 
 ## Blocker and remedy
 
-- **Blocker (G0, observed 2026-10-24):** the Dryad file API returns HTTP 401 ("must have current bearer token"). The
-  web download route serves a proof-of-work bot challenge. Neither was bypassed.
+- **Earlier blocker (G0, observed 2026-10-24; resolved when the owner downloaded the files):** the Dryad file API returned
+  HTTP 401 ("must have current bearer token") and the web route served a proof-of-work bot challenge. Neither was bypassed.
 - **Remedy (owner), either:**
   - download `PCA.zip`, `kinase_kinked_Myr.zip` and `kinase_kinked_noMyr.zip` from the dataset page in a browser into
     `benchmarks/audit/abl_myr_1/data_dryad/`; or
