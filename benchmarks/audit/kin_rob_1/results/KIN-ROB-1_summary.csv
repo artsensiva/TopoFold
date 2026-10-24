@@ -1,0 +1,10 @@
+pdb,chain,kinase,outcome,C1,C2_identity,C2_offset,C3_roles_agree,C4_coverage,C5,C6_altloc_roles,C6_mixed,C7_max_diff,C8,C9,C10_warnings,descriptors_nan
+1ATP,E,"PKA catalytic subunit (Prkaca, mouse)",fail,False,1.0,1,True,0.95,False,0,0,8.764956573870109e-07,True,True,0,D1;D2
+1HCK,A,CDK2 (human),pass,True,1.0,0,True,1.0,True,0,0,5.0876344126482564e-06,True,True,0,
+1FIN,A,"CDK2 (human), with cyclin A",pass,True,1.0,0,True,1.0,True,0,0,1.7264292325069874e-05,True,True,0,
+1FIN,C,"CDK2 (human), with cyclin A",pass,True,1.0,0,True,1.0,True,0,0,8.871620570616301e-06,True,True,0,
+1A9U,A,p38alpha MAPK14 (human),pass,True,1.0,0,True,1.0,True,0,0,2.354143845639811e-06,True,True,0,
+1KV2,A,p38alpha MAPK14 (human),pass_with_exclusions,True,1.0,0,False,0.9,True,0,0,2.016909282698265e-06,True,True,0,Aloop_NO;psi_Phe
+1MQ4,A,Aurora A (human),pass,True,1.0,0,True,1.0,True,0,0,3.5154747237697848e-06,True,True,0,
+1UWH,A,BRAF (human),pass,True,0.9962,1,True,1.0,True,0,0,5.524079634611212e-06,True,True,0,
+1UWH,B,BRAF (human),pass,True,0.9962,1,True,1.0,True,0,0,8.401968762283829e-06,True,True,0,

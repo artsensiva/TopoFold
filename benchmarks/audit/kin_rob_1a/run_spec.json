@@ -1,0 +1,71 @@
+{
+ "id": "KIN-ROB-1a",
+ "kind": "engineering robustness check of named-atom extraction and kinase descriptors on public crystal structures; no state labels, no classification, no biological claim",
+ "frozen_before": "any coordinate file of the panel was downloaded or inspected (only RCSB entry metadata and UniProt accessions were read)",
+ "panel": [
+  {
+   "pdb": "1ATP",
+   "kinase": "PKA catalytic subunit (Prkaca, mouse)",
+   "uniprot": "P05132",
+   "chains": [
+    "E"
+   ]
+  }
+ ],
+ "panel_rationale": "five kinases from different groups (AGC, CMGC, Other/Aurora, TKL), with or without ligands, one or two kinase chains; chosen for diversity of constructs and coordinate quality, not for any expected conformational state",
+ "primary_chain_rule": "every kinase chain listed is processed; the first listed chain of each entry is the primary row, others are additional rows",
+ "sources": {
+  "structures": "https://files.rcsb.org/download/{pdb}.pdb (PDB archive, CC0)",
+  "sequences": "https://rest.uniprot.org/uniprotkb/{uniprot}.fasta (CC BY 4.0)",
+  "budget": {
+   "downloads_MB_max": 10,
+   "cpu_seconds_max": 300
+  }
+ },
+ "role_positions_uniprot": {
+  "source": "standard residue numbering of these kinases as used in the literature (catalytic Lys, alphaC Glu, DFG, HRD/YRD motifs); each position is checked against the UniProt sequence in the run, and a mismatch is a mapping failure; P05132 corrected to UniProt numbering in this amendment",
+  "P05132": {
+   "beta3_Lys": 73,
+   "alphaC_Glu": 92,
+   "alphaC_Glu_plus4": 96,
+   "XDFG_minus1": 183,
+   "XDFG": 184,
+   "DFG_Asp": 185,
+   "DFG_Phe": 186,
+   "DFG_Gly": 187,
+   "DFGxxX": 190,
+   "XHRD": 164
+  }
+ },
+ "checks": {
+  "C1_uniprot_role_identity": "at the UniProt positions: beta3_Lys = K, alphaC_Glu = E, DFG_Asp-Phe-Gly = D-F-G, the residue after XHRD is H or Y followed by R-D; any mismatch = mapping failure",
+  "C2_numbering_mapping": "PDB author numbering -> UniProt by the single offset that maximises exact residue identity over the chain; accepted if identity >= 0.95 of observed residues; mismatches listed (mutations, tags); insertion codes counted and, if any fall in role residues, the role is a mapping failure",
+  "C3_role_residue_identity_in_structure": "the structure's residue names at the mapped role positions agree with UniProt; a disagreement is listed (engineered mutation) and the dependent descriptors are flagged",
+  "C4_required_atom_coverage": "extract_atoms(role_request, on_missing='mark'): per-atom status present / atom_not_found / residue_not_found; coverage fraction; descriptors with a missing atom are NaN with the named atom (kinase_descriptors)",
+  "C5_missing_atom_consistency": "atoms reported missing by the adapter for role residues must equal those listed in the file's REMARK 470 (missing atoms) and REMARK 465 (missing residues) records for those residues",
+  "C6_alternate_locations": "role residues with altlocs listed; descriptors computed under blank_then_A and highest_occupancy; within every role residue at most one non-blank altloc identifier is used (no mixed conformers); maximum descriptor change reported",
+  "C7_independent_parser": "all descriptors recomputed with an independent fixed-column PDB parser (first model; blank-or-A altloc) and compared with the blank_then_A run; pass if max |difference| <= 1e-3 (A or rad)",
+  "C8_calpha_identity": "Calpha of the role residues from extract_atoms equals extract_ca bit for bit under both altloc policies",
+  "C9_determinism": "a second extraction gives bit-identical coordinates",
+  "C10_geometry_plausibility": "for role residues: N-CA, CA-C, C=O, CA-CB bond lengths within 0.10 A of 1.458, 1.525, 1.231, 1.530 A (Engh & Huber ideal values) and Phe CG-CZ within 0.10 A of 2.78 A; outliers are reported as coordinate warnings, not failures"
+ },
+ "outcome_per_chain": {
+  "fail": "any of C1, C2 (identity < 0.95), C5, C7, C8 or C9 fails, or C6 finds mixed conformers",
+  "pass_with_exclusions": "no failure, but at least one descriptor is NaN because of a recorded missing atom or residue, or C3 lists a role-residue mutation",
+  "pass": "no failure and all descriptors computed"
+ },
+ "permitted_interpretation": "Engineering and representation evidence for atom extraction on these 9 chains: whether mapping, coverage, missing-atom reporting, altloc handling and descriptor computation behave as specified. Descriptor values are reported but not classified; no DFG/alphaC state is assigned or compared with any label; no biological, general-kinase or performance claim.",
+ "not_in_scope": [
+  "KinCoRe labels",
+  "state classification",
+  "thresholds",
+  "trajectories",
+  "Calpha-only representation comparison"
+ ],
+ "amendment": {
+  "date": "2026-10-24",
+  "post_hoc": true,
+  "reason": "KIN-ROB-1 chain 1ATP E failed check C1 because the frozen spec gave PKA role positions in conventional literature numbering (K72, E91, DFG 184-186, YRD 164-166), which omits the initiator Met, while labelling them UniProt P05132 positions. UniProt has K73, E92, D185-F186-G187, Y165-R166-D167. This amendment corrects only those PKA positions and reruns only 1ATP chain E with byte-identical code. The KIN-ROB-1 result (fail) is kept unchanged.",
+  "changed": "role_positions_uniprot.P05132 (+1 for every role); panel restricted to 1ATP"
+ }
+}

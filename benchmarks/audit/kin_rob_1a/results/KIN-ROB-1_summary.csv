@@ -1,0 +1,2 @@
+pdb,chain,kinase,outcome,C1,C2_identity,C2_offset,C3_roles_agree,C4_coverage,C5,C6_altloc_roles,C6_mixed,C7_max_diff,C8,C9,C10_warnings,descriptors_nan
+1ATP,E,"PKA catalytic subunit (Prkaca, mouse)",pass,True,1.0,1,True,1.0,True,0,0,8.764956573870109e-07,True,True,0,

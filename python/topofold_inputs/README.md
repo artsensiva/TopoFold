@@ -146,6 +146,8 @@ engineering only).
     fixed-column parser. Measured maximum difference: 1.4 × 10⁻⁶ Å and 3.5 × 10⁻⁶ rad.
   - **Cα consistency:** on 9O0N, which has alternate locations, Cα coordinates are bit-identical to `extract_ca` under
     both altloc policies.
+- **Robustness panel KIN-ROB-1** (9 public kinase chains): 7 pass, 1 pass with exclusions, 1 fail caused by a spec
+  numbering error; the corrected amendment passes. See `benchmarks/audit/kin_rob_1/README.md`.
 - **Limits:**
   - Tested on PDB-format crystal structures only.
   - No hydrogens.

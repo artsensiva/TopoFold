@@ -1,0 +1,1587 @@
+{
+ "id": "KIN-ROB-1",
+ "freeze_utc": "2026-10-24T15:39:29.702940+00:00",
+ "spec_sha256": "c854a74dbdb63ef0392958c96ed6db275ef7e1306516d3a2c940bc07d09e5a6b",
+ "inputs": {
+  "1ATP": {
+   "path": "benchmarks/audit/kin_rob_1/data_pdb/1ATP.pdb",
+   "url": "https://files.rcsb.org/download/1ATP.pdb",
+   "bytes": 299538,
+   "sha256": "5ee1528569a18ad723092ec8b1cd7776af23fd3c5028f0e4074546d4a91e36a2"
+  },
+  "P05132": {
+   "path": "benchmarks/audit/kin_rob_1/data_uniprot/P05132.fasta",
+   "url": "https://rest.uniprot.org/uniprotkb/P05132.fasta",
+   "bytes": 479,
+   "sha256": "726992167216cf536575598d1f53bfa97764b0f29608c8553f11f2d7575c6671"
+  },
+  "1HCK": {
+   "path": "benchmarks/audit/kin_rob_1/data_pdb/1HCK.pdb",
+   "url": "https://files.rcsb.org/download/1HCK.pdb",
+   "bytes": 239274,
+   "sha256": "69f780603cd713311a23b744ea79b3af207d8eecd782d7a5b4bcf76ae6a979cc"
+  },
+  "P24941": {
+   "path": "benchmarks/audit/kin_rob_1/data_uniprot/P24941.fasta",
+   "url": "https://rest.uniprot.org/uniprotkb/P24941.fasta",
+   "bytes": 393,
+   "sha256": "0af10cffa3bde6c6db5c14cd094bdc554c98091188b9ea590392a37a0d7f1485"
+  },
+  "1FIN": {
+   "path": "benchmarks/audit/kin_rob_1/data_pdb/1FIN.pdb",
+   "url": "https://files.rcsb.org/download/1FIN.pdb",
+   "bytes": 817776,
+   "sha256": "12f7920d265a08c0145152e6f960d942a17dd947585fab0470869111e8136fca"
+  },
+  "1A9U": {
+   "path": "benchmarks/audit/kin_rob_1/data_pdb/1A9U.pdb",
+   "url": "https://files.rcsb.org/download/1A9U.pdb",
+   "bytes": 275400,
+   "sha256": "c6fa08f3c26c99b8b8ee78862129103d2ee5ea937160d32e5148777093c05074"
+  },
+  "Q16539": {
+   "path": "benchmarks/audit/kin_rob_1/data_uniprot/Q16539.fasta",
+   "url": "https://rest.uniprot.org/uniprotkb/Q16539.fasta",
+   "bytes": 468,
+   "sha256": "1b6ab2c72476fad6f9fc24679cfa2ad09de96f59f594cfbefa162fe0a724068a"
+  },
+  "1KV2": {
+   "path": "benchmarks/audit/kin_rob_1/data_pdb/1KV2.pdb",
+   "url": "https://files.rcsb.org/download/1KV2.pdb",
+   "bytes": 253287,
+   "sha256": "1c68ca0b760198bbfdb9e4b06154f2e67c596aaf0bdd96c5b994b12b13b64ec2"
+  },
+  "1MQ4": {
+   "path": "benchmarks/audit/kin_rob_1/data_pdb/1MQ4.pdb",
+   "url": "https://files.rcsb.org/download/1MQ4.pdb",
+   "bytes": 228501,
+   "sha256": "1d1a321f83aa235cd8928f0118287a9c51ede1fc81bf64ae6c2b7f803cdddb4d"
+  },
+  "O14965": {
+   "path": "benchmarks/audit/kin_rob_1/data_uniprot/O14965.fasta",
+   "url": "https://rest.uniprot.org/uniprotkb/O14965.fasta",
+   "bytes": 492,
+   "sha256": "bb1d050274bc8b349608fdea38906fe55a3ad002878563bd7de202f1333cf7e4"
+  },
+  "1UWH": {
+   "path": "benchmarks/audit/kin_rob_1/data_pdb/1UWH.pdb",
+   "url": "https://files.rcsb.org/download/1UWH.pdb",
+   "bytes": 393822,
+   "sha256": "d7a45e99371a0d71a50b3dd4c22a255ad45fcdbd19c67c81a8b2f67d5c1515fa"
+  },
+  "P15056": {
+   "path": "benchmarks/audit/kin_rob_1/data_uniprot/P15056.fasta",
+   "url": "https://rest.uniprot.org/uniprotkb/P15056.fasta",
+   "bytes": 881,
+   "sha256": "52042d46fff8c3f0e7b4db8833c0c5d85755ad8234c6140015bdcb601a895912"
+  }
+ },
+ "chains": [
+  {
+   "pdb": "1ATP",
+   "chain": "E",
+   "kinase": "PKA catalytic subunit (Prkaca, mouse)",
+   "uniprot": "P05132",
+   "primary": true,
+   "C1_uniprot_role_identity": {
+    "pass": false,
+    "residues": {
+     "beta3_Lys": "M",
+     "alphaC_Glu": "N",
+     "alphaC_Glu_plus4": "I",
+     "XDFG_minus1": "Q",
+     "XDFG": "V",
+     "DFG_Asp": "T",
+     "DFG_Phe": "D",
+     "DFG_Gly": "F",
+     "DFGxxX": "A",
+     "XHRD": "L"
+    },
+    "hrd_motif": "IYR"
+   },
+   "C2_numbering_mapping": {
+    "pass": true,
+    "offset_uniprot_minus_pdb": 1,
+    "identity": 1.0,
+    "observed_residues": 334,
+    "insertion_codes_in_chain": 0,
+    "insertion_codes_in_role_residues": [],
+    "mismatches": [],
+    "n_mismatches": 0
+   },
+   "C3_role_residue_identity_in_structure": {
+    "all_agree": true,
+    "roles": {
+     "beta3_Lys": {
+      "pdb_resid": 71,
+      "pdb_resname": "MET",
+      "uniprot_aa": "M",
+      "agrees": true
+     },
+     "alphaC_Glu": {
+      "pdb_resid": 90,
+      "pdb_resname": "ASN",
+      "uniprot_aa": "N",
+      "agrees": true
+     },
+     "alphaC_Glu_plus4": {
+      "pdb_resid": 94,
+      "pdb_resname": "ILE",
+      "uniprot_aa": "I",
+      "agrees": true
+     },
+     "XDFG_minus1": {
+      "pdb_resid": 181,
+      "pdb_resname": "GLN",
+      "uniprot_aa": "Q",
+      "agrees": true
+     },
+     "XDFG": {
+      "pdb_resid": 182,
+      "pdb_resname": "VAL",
+      "uniprot_aa": "V",
+      "agrees": true
+     },
+     "DFG_Asp": {
+      "pdb_resid": 183,
+      "pdb_resname": "THR",
+      "uniprot_aa": "T",
+      "agrees": true
+     },
+     "DFG_Phe": {
+      "pdb_resid": 184,
+      "pdb_resname": "ASP",
+      "uniprot_aa": "D",
+      "agrees": true
+     },
+     "DFG_Gly": {
+      "pdb_resid": 185,
+      "pdb_resname": "PHE",
+      "uniprot_aa": "F",
+      "agrees": true
+     },
+     "DFGxxX": {
+      "pdb_resid": 188,
+      "pdb_resname": "ALA",
+      "uniprot_aa": "A",
+      "agrees": true
+     },
+     "XHRD": {
+      "pdb_resid": 162,
+      "pdb_resname": "LEU",
+      "uniprot_aa": "L",
+      "agrees": true
+     }
+    }
+   },
+   "C4_required_atom_coverage": {
+    "atoms_requested": 20,
+    "present_fraction": 0.95,
+    "missing": [
+     "184:CZ=atom_not_found"
+    ],
+    "descriptors_nan": {
+     "D1": [
+      [
+       "DFG_Phe",
+       "CZ",
+       "atom_not_found"
+      ]
+     ],
+     "D2": [
+      [
+       "DFG_Phe",
+       "CZ",
+       "atom_not_found"
+      ]
+     ]
+    }
+   },
+   "C5_missing_atom_consistency": {
+    "pass": false,
+    "adapter_missing_residues": [],
+    "remark465_role_residues": [],
+    "adapter_missing_atoms": {
+     "184": [
+      "CZ"
+     ]
+    },
+    "remark470_role_atoms": {}
+   },
+   "C6_alternate_locations": {
+    "pass": true,
+    "role_residues_with_altlocs": [],
+    "mixed_conformers": [],
+    "max_descriptor_change_between_policies": {
+     "alphaC_CbCb": 0.0,
+     "Aloop_NO": 0.0,
+     "chi1_Phe": 0.0,
+     "phi_XDFG": 0.0,
+     "psi_XDFG": 0.0,
+     "phi_Asp": 0.0,
+     "psi_Asp": 0.0,
+     "phi_Phe": 0.0,
+     "psi_Phe": 0.0
+    }
+   },
+   "C7_independent_parser": {
+    "pass": true,
+    "max_abs_difference": 8.764956573870109e-07,
+    "n_compared": 9,
+    "availability_mismatches": []
+   },
+   "C8_calpha_identity": {
+    "pass": true,
+    "residues": 10
+   },
+   "C9_determinism": {
+    "pass": true
+   },
+   "C10_geometry_plausibility": {
+    "warnings": []
+   },
+   "outcome": "fail",
+   "descriptors_blank_then_A": {
+    "D1": null,
+    "D2": null,
+    "alphaC_CbCb": 19.037108764315022,
+    "Aloop_NO": 8.904872475948457,
+    "chi1_Phe": -2.671280354155687,
+    "phi_XDFG": -1.5792636357679273,
+    "psi_XDFG": 2.0661984405206018,
+    "phi_Asp": -1.837314271084436,
+    "psi_Asp": -2.8903286312284764,
+    "phi_Phe": 0.8504619884552411,
+    "psi_Phe": 1.5195301507415662
+   }
+  },
+  {
+   "pdb": "1HCK",
+   "chain": "A",
+   "kinase": "CDK2 (human)",
+   "uniprot": "P24941",
+   "primary": true,
+   "C1_uniprot_role_identity": {
+    "pass": true,
+    "residues": {
+     "beta3_Lys": "K",
+     "alphaC_Glu": "E",
+     "alphaC_Glu_plus4": "L",
+     "XDFG_minus1": "L",
+     "XDFG": "A",
+     "DFG_Asp": "D",
+     "DFG_Phe": "F",
+     "DFG_Gly": "G",
+     "DFGxxX": "R",
+     "XHRD": "L"
+    },
+    "hrd_motif": "HRD"
+   },
+   "C2_numbering_mapping": {
+    "pass": true,
+    "offset_uniprot_minus_pdb": 0,
+    "identity": 1.0,
+    "observed_residues": 294,
+    "insertion_codes_in_chain": 0,
+    "insertion_codes_in_role_residues": [],
+    "mismatches": [],
+    "n_mismatches": 0
+   },
+   "C3_role_residue_identity_in_structure": {
+    "all_agree": true,
+    "roles": {
+     "beta3_Lys": {
+      "pdb_resid": 33,
+      "pdb_resname": "LYS",
+      "uniprot_aa": "K",
+      "agrees": true
+     },
+     "alphaC_Glu": {
+      "pdb_resid": 51,
+      "pdb_resname": "GLU",
+      "uniprot_aa": "E",
+      "agrees": true
+     },
+     "alphaC_Glu_plus4": {
+      "pdb_resid": 55,
+      "pdb_resname": "LEU",
+      "uniprot_aa": "L",
+      "agrees": true
+     },
+     "XDFG_minus1": {
+      "pdb_resid": 143,
+      "pdb_resname": "LEU",
+      "uniprot_aa": "L",
+      "agrees": true
+     },
+     "XDFG": {
+      "pdb_resid": 144,
+      "pdb_resname": "ALA",
+      "uniprot_aa": "A",
+      "agrees": true
+     },
+     "DFG_Asp": {
+      "pdb_resid": 145,
+      "pdb_resname": "ASP",
+      "uniprot_aa": "D",
+      "agrees": true
+     },
+     "DFG_Phe": {
+      "pdb_resid": 146,
+      "pdb_resname": "PHE",
+      "uniprot_aa": "F",
+      "agrees": true
+     },
+     "DFG_Gly": {
+      "pdb_resid": 147,
+      "pdb_resname": "GLY",
+      "uniprot_aa": "G",
+      "agrees": true
+     },
+     "DFGxxX": {
+      "pdb_resid": 150,
+      "pdb_resname": "ARG",
+      "uniprot_aa": "R",
+      "agrees": true
+     },
+     "XHRD": {
+      "pdb_resid": 124,
+      "pdb_resname": "LEU",
+      "uniprot_aa": "L",
+      "agrees": true
+     }
+    }
+   },
+   "C4_required_atom_coverage": {
+    "atoms_requested": 20,
+    "present_fraction": 1.0,
+    "missing": [],
+    "descriptors_nan": {}
+   },
+   "C5_missing_atom_consistency": {
+    "pass": true,
+    "adapter_missing_residues": [],
+    "remark465_role_residues": [],
+    "adapter_missing_atoms": {},
+    "remark470_role_atoms": {}
+   },
+   "C6_alternate_locations": {
+    "pass": true,
+    "role_residues_with_altlocs": [],
+    "mixed_conformers": [],
+    "max_descriptor_change_between_policies": {
+     "D1": 0.0,
+     "D2": 0.0,
+     "alphaC_CbCb": 0.0,
+     "Aloop_NO": 0.0,
+     "chi1_Phe": 0.0,
+     "phi_XDFG": 0.0,
+     "psi_XDFG": 0.0,
+     "phi_Asp": 0.0,
+     "psi_Asp": 0.0,
+     "phi_Phe": 0.0,
+     "psi_Phe": 0.0
+    }
+   },
+   "C7_independent_parser": {
+    "pass": true,
+    "max_abs_difference": 5.0876344126482564e-06,
+    "n_compared": 11,
+    "availability_mismatches": []
+   },
+   "C8_calpha_identity": {
+    "pass": true,
+    "residues": 10
+   },
+   "C9_determinism": {
+    "pass": true
+   },
+   "C10_geometry_plausibility": {
+    "warnings": []
+   },
+   "outcome": "pass",
+   "descriptors_blank_then_A": {
+    "D1": 10.520691775263671,
+    "D2": 18.37404148201566,
+    "alphaC_CbCb": 14.886297903802975,
+    "Aloop_NO": 5.767561713035518,
+    "chi1_Phe": -2.4798053331662864,
+    "phi_XDFG": -1.7740123143337994,
+    "psi_XDFG": 2.7353189888706155,
+    "phi_Asp": 1.029926205327248,
+    "psi_Asp": 0.4928253147715984,
+    "phi_Phe": -1.1348406786398184,
+    "psi_Phe": 2.097954163197967
+   }
+  },
+  {
+   "pdb": "1FIN",
+   "chain": "A",
+   "kinase": "CDK2 (human), with cyclin A",
+   "uniprot": "P24941",
+   "primary": true,
+   "C1_uniprot_role_identity": {
+    "pass": true,
+    "residues": {
+     "beta3_Lys": "K",
+     "alphaC_Glu": "E",
+     "alphaC_Glu_plus4": "L",
+     "XDFG_minus1": "L",
+     "XDFG": "A",
+     "DFG_Asp": "D",
+     "DFG_Phe": "F",
+     "DFG_Gly": "G",
+     "DFGxxX": "R",
+     "XHRD": "L"
+    },
+    "hrd_motif": "HRD"
+   },
+   "C2_numbering_mapping": {
+    "pass": true,
+    "offset_uniprot_minus_pdb": 0,
+    "identity": 1.0,
+    "observed_residues": 298,
+    "insertion_codes_in_chain": 0,
+    "insertion_codes_in_role_residues": [],
+    "mismatches": [],
+    "n_mismatches": 0
+   },
+   "C3_role_residue_identity_in_structure": {
+    "all_agree": true,
+    "roles": {
+     "beta3_Lys": {
+      "pdb_resid": 33,
+      "pdb_resname": "LYS",
+      "uniprot_aa": "K",
+      "agrees": true
+     },
+     "alphaC_Glu": {
+      "pdb_resid": 51,
+      "pdb_resname": "GLU",
+      "uniprot_aa": "E",
+      "agrees": true
+     },
+     "alphaC_Glu_plus4": {
+      "pdb_resid": 55,
+      "pdb_resname": "LEU",
+      "uniprot_aa": "L",
+      "agrees": true
+     },
+     "XDFG_minus1": {
+      "pdb_resid": 143,
+      "pdb_resname": "LEU",
+      "uniprot_aa": "L",
+      "agrees": true
+     },
+     "XDFG": {
+      "pdb_resid": 144,
+      "pdb_resname": "ALA",
+      "uniprot_aa": "A",
+      "agrees": true
+     },
+     "DFG_Asp": {
+      "pdb_resid": 145,
+      "pdb_resname": "ASP",
+      "uniprot_aa": "D",
+      "agrees": true
+     },
+     "DFG_Phe": {
+      "pdb_resid": 146,
+      "pdb_resname": "PHE",
+      "uniprot_aa": "F",
+      "agrees": true
+     },
+     "DFG_Gly": {
+      "pdb_resid": 147,
+      "pdb_resname": "GLY",
+      "uniprot_aa": "G",
+      "agrees": true
+     },
+     "DFGxxX": {
+      "pdb_resid": 150,
+      "pdb_resname": "ARG",
+      "uniprot_aa": "R",
+      "agrees": true
+     },
+     "XHRD": {
+      "pdb_resid": 124,
+      "pdb_resname": "LEU",
+      "uniprot_aa": "L",
+      "agrees": true
+     }
+    }
+   },
+   "C4_required_atom_coverage": {
+    "atoms_requested": 20,
+    "present_fraction": 1.0,
+    "missing": [],
+    "descriptors_nan": {}
+   },
+   "C5_missing_atom_consistency": {
+    "pass": true,
+    "adapter_missing_residues": [],
+    "remark465_role_residues": [],
+    "adapter_missing_atoms": {},
+    "remark470_role_atoms": {}
+   },
+   "C6_alternate_locations": {
+    "pass": true,
+    "role_residues_with_altlocs": [],
+    "mixed_conformers": [],
+    "max_descriptor_change_between_policies": {
+     "D1": 0.0,
+     "D2": 0.0,
+     "alphaC_CbCb": 0.0,
+     "Aloop_NO": 0.0,
+     "chi1_Phe": 0.0,
+     "phi_XDFG": 0.0,
+     "psi_XDFG": 0.0,
+     "phi_Asp": 0.0,
+     "psi_Asp": 0.0,
+     "phi_Phe": 0.0,
+     "psi_Phe": 0.0
+    }
+   },
+   "C7_independent_parser": {
+    "pass": true,
+    "max_abs_difference": 1.7264292325069874e-05,
+    "n_compared": 11,
+    "availability_mismatches": []
+   },
+   "C8_calpha_identity": {
+    "pass": true,
+    "residues": 10
+   },
+   "C9_determinism": {
+    "pass": true
+   },
+   "C10_geometry_plausibility": {
+    "warnings": []
+   },
+   "outcome": "pass",
+   "descriptors_blank_then_A": {
+    "D1": 6.268826216449643,
+    "D2": 15.396943625484855,
+    "alphaC_CbCb": 8.877984988748791,
+    "Aloop_NO": 3.0724441784562053,
+    "chi1_Phe": -1.268925991322327,
+    "phi_XDFG": -2.5421945820933547,
+    "psi_XDFG": 3.06157493897272,
+    "phi_Asp": 1.0502273149393755,
+    "psi_Asp": 1.228908097467145,
+    "phi_Phe": -1.5467224782186537,
+    "psi_Phe": 0.38946354894952584
+   }
+  },
+  {
+   "pdb": "1FIN",
+   "chain": "C",
+   "kinase": "CDK2 (human), with cyclin A",
+   "uniprot": "P24941",
+   "primary": false,
+   "C1_uniprot_role_identity": {
+    "pass": true,
+    "residues": {
+     "beta3_Lys": "K",
+     "alphaC_Glu": "E",
+     "alphaC_Glu_plus4": "L",
+     "XDFG_minus1": "L",
+     "XDFG": "A",
+     "DFG_Asp": "D",
+     "DFG_Phe": "F",
+     "DFG_Gly": "G",
+     "DFGxxX": "R",
+     "XHRD": "L"
+    },
+    "hrd_motif": "HRD"
+   },
+   "C2_numbering_mapping": {
+    "pass": true,
+    "offset_uniprot_minus_pdb": 0,
+    "identity": 1.0,
+    "observed_residues": 298,
+    "insertion_codes_in_chain": 0,
+    "insertion_codes_in_role_residues": [],
+    "mismatches": [],
+    "n_mismatches": 0
+   },
+   "C3_role_residue_identity_in_structure": {
+    "all_agree": true,
+    "roles": {
+     "beta3_Lys": {
+      "pdb_resid": 33,
+      "pdb_resname": "LYS",
+      "uniprot_aa": "K",
+      "agrees": true
+     },
+     "alphaC_Glu": {
+      "pdb_resid": 51,
+      "pdb_resname": "GLU",
+      "uniprot_aa": "E",
+      "agrees": true
+     },
+     "alphaC_Glu_plus4": {
+      "pdb_resid": 55,
+      "pdb_resname": "LEU",
+      "uniprot_aa": "L",
+      "agrees": true
+     },
+     "XDFG_minus1": {
+      "pdb_resid": 143,
+      "pdb_resname": "LEU",
+      "uniprot_aa": "L",
+      "agrees": true
+     },
+     "XDFG": {
+      "pdb_resid": 144,
+      "pdb_resname": "ALA",
+      "uniprot_aa": "A",
+      "agrees": true
+     },
+     "DFG_Asp": {
+      "pdb_resid": 145,
+      "pdb_resname": "ASP",
+      "uniprot_aa": "D",
+      "agrees": true
+     },
+     "DFG_Phe": {
+      "pdb_resid": 146,
+      "pdb_resname": "PHE",
+      "uniprot_aa": "F",
+      "agrees": true
+     },
+     "DFG_Gly": {
+      "pdb_resid": 147,
+      "pdb_resname": "GLY",
+      "uniprot_aa": "G",
+      "agrees": true
+     },
+     "DFGxxX": {
+      "pdb_resid": 150,
+      "pdb_resname": "ARG",
+      "uniprot_aa": "R",
+      "agrees": true
+     },
+     "XHRD": {
+      "pdb_resid": 124,
+      "pdb_resname": "LEU",
+      "uniprot_aa": "L",
+      "agrees": true
+     }
+    }
+   },
+   "C4_required_atom_coverage": {
+    "atoms_requested": 20,
+    "present_fraction": 1.0,
+    "missing": [],
+    "descriptors_nan": {}
+   },
+   "C5_missing_atom_consistency": {
+    "pass": true,
+    "adapter_missing_residues": [],
+    "remark465_role_residues": [],
+    "adapter_missing_atoms": {},
+    "remark470_role_atoms": {}
+   },
+   "C6_alternate_locations": {
+    "pass": true,
+    "role_residues_with_altlocs": [],
+    "mixed_conformers": [],
+    "max_descriptor_change_between_policies": {
+     "D1": 0.0,
+     "D2": 0.0,
+     "alphaC_CbCb": 0.0,
+     "Aloop_NO": 0.0,
+     "chi1_Phe": 0.0,
+     "phi_XDFG": 0.0,
+     "psi_XDFG": 0.0,
+     "phi_Asp": 0.0,
+     "psi_Asp": 0.0,
+     "phi_Phe": 0.0,
+     "psi_Phe": 0.0
+    }
+   },
+   "C7_independent_parser": {
+    "pass": true,
+    "max_abs_difference": 8.871620570616301e-06,
+    "n_compared": 11,
+    "availability_mismatches": []
+   },
+   "C8_calpha_identity": {
+    "pass": true,
+    "residues": 10
+   },
+   "C9_determinism": {
+    "pass": true
+   },
+   "C10_geometry_plausibility": {
+    "warnings": []
+   },
+   "outcome": "pass",
+   "descriptors_blank_then_A": {
+    "D1": 6.329183383890853,
+    "D2": 16.11380886157683,
+    "alphaC_CbCb": 9.234160322085492,
+    "Aloop_NO": 2.942942858303753,
+    "chi1_Phe": -1.3853280421078893,
+    "phi_XDFG": -2.203570027393432,
+    "psi_XDFG": 3.0908105873775926,
+    "phi_Asp": 1.0481770905729009,
+    "psi_Asp": 1.402727129792983,
+    "phi_Phe": -1.752495233594833,
+    "psi_Phe": 0.4352153596191764
+   }
+  },
+  {
+   "pdb": "1A9U",
+   "chain": "A",
+   "kinase": "p38alpha MAPK14 (human)",
+   "uniprot": "Q16539",
+   "primary": true,
+   "C1_uniprot_role_identity": {
+    "pass": true,
+    "residues": {
+     "beta3_Lys": "K",
+     "alphaC_Glu": "E",
+     "alphaC_Glu_plus4": "L",
+     "XDFG_minus1": "I",
+     "XDFG": "L",
+     "DFG_Asp": "D",
+     "DFG_Phe": "F",
+     "DFG_Gly": "G",
+     "DFGxxX": "R",
+     "XHRD": "I"
+    },
+    "hrd_motif": "HRD"
+   },
+   "C2_numbering_mapping": {
+    "pass": true,
+    "offset_uniprot_minus_pdb": 0,
+    "identity": 1.0,
+    "observed_residues": 351,
+    "insertion_codes_in_chain": 0,
+    "insertion_codes_in_role_residues": [],
+    "mismatches": [],
+    "n_mismatches": 0
+   },
+   "C3_role_residue_identity_in_structure": {
+    "all_agree": true,
+    "roles": {
+     "beta3_Lys": {
+      "pdb_resid": 53,
+      "pdb_resname": "LYS",
+      "uniprot_aa": "K",
+      "agrees": true
+     },
+     "alphaC_Glu": {
+      "pdb_resid": 71,
+      "pdb_resname": "GLU",
+      "uniprot_aa": "E",
+      "agrees": true
+     },
+     "alphaC_Glu_plus4": {
+      "pdb_resid": 75,
+      "pdb_resname": "LEU",
+      "uniprot_aa": "L",
+      "agrees": true
+     },
+     "XDFG_minus1": {
+      "pdb_resid": 166,
+      "pdb_resname": "ILE",
+      "uniprot_aa": "I",
+      "agrees": true
+     },
+     "XDFG": {
+      "pdb_resid": 167,
+      "pdb_resname": "LEU",
+      "uniprot_aa": "L",
+      "agrees": true
+     },
+     "DFG_Asp": {
+      "pdb_resid": 168,
+      "pdb_resname": "ASP",
+      "uniprot_aa": "D",
+      "agrees": true
+     },
+     "DFG_Phe": {
+      "pdb_resid": 169,
+      "pdb_resname": "PHE",
+      "uniprot_aa": "F",
+      "agrees": true
+     },
+     "DFG_Gly": {
+      "pdb_resid": 170,
+      "pdb_resname": "GLY",
+      "uniprot_aa": "G",
+      "agrees": true
+     },
+     "DFGxxX": {
+      "pdb_resid": 173,
+      "pdb_resname": "ARG",
+      "uniprot_aa": "R",
+      "agrees": true
+     },
+     "XHRD": {
+      "pdb_resid": 147,
+      "pdb_resname": "ILE",
+      "uniprot_aa": "I",
+      "agrees": true
+     }
+    }
+   },
+   "C4_required_atom_coverage": {
+    "atoms_requested": 20,
+    "present_fraction": 1.0,
+    "missing": [],
+    "descriptors_nan": {}
+   },
+   "C5_missing_atom_consistency": {
+    "pass": true,
+    "adapter_missing_residues": [],
+    "remark465_role_residues": [],
+    "adapter_missing_atoms": {},
+    "remark470_role_atoms": {}
+   },
+   "C6_alternate_locations": {
+    "pass": true,
+    "role_residues_with_altlocs": [],
+    "mixed_conformers": [],
+    "max_descriptor_change_between_policies": {
+     "D1": 0.0,
+     "D2": 0.0,
+     "alphaC_CbCb": 0.0,
+     "Aloop_NO": 0.0,
+     "chi1_Phe": 0.0,
+     "phi_XDFG": 0.0,
+     "psi_XDFG": 0.0,
+     "phi_Asp": 0.0,
+     "psi_Asp": 0.0,
+     "phi_Phe": 0.0,
+     "psi_Phe": 0.0
+    }
+   },
+   "C7_independent_parser": {
+    "pass": true,
+    "max_abs_difference": 2.354143845639811e-06,
+    "n_compared": 11,
+    "availability_mismatches": []
+   },
+   "C8_calpha_identity": {
+    "pass": true,
+    "residues": 10
+   },
+   "C9_determinism": {
+    "pass": true
+   },
+   "C10_geometry_plausibility": {
+    "warnings": []
+   },
+   "outcome": "pass",
+   "descriptors_blank_then_A": {
+    "D1": 7.504519628672132,
+    "D2": 16.794077361625302,
+    "alphaC_CbCb": 9.697970208892343,
+    "Aloop_NO": 9.828241164160076,
+    "chi1_Phe": -1.3883145224282418,
+    "phi_XDFG": -1.99675629239729,
+    "psi_XDFG": -2.8995387909759773,
+    "phi_Asp": 0.22576000070361896,
+    "psi_Asp": 1.5328333865678496,
+    "phi_Phe": -1.190805874739151,
+    "psi_Phe": 2.382893294246445
+   }
+  },
+  {
+   "pdb": "1KV2",
+   "chain": "A",
+   "kinase": "p38alpha MAPK14 (human)",
+   "uniprot": "Q16539",
+   "primary": true,
+   "C1_uniprot_role_identity": {
+    "pass": true,
+    "residues": {
+     "beta3_Lys": "K",
+     "alphaC_Glu": "E",
+     "alphaC_Glu_plus4": "L",
+     "XDFG_minus1": "I",
+     "XDFG": "L",
+     "DFG_Asp": "D",
+     "DFG_Phe": "F",
+     "DFG_Gly": "G",
+     "DFGxxX": "R",
+     "XHRD": "I"
+    },
+    "hrd_motif": "HRD"
+   },
+   "C2_numbering_mapping": {
+    "pass": true,
+    "offset_uniprot_minus_pdb": 0,
+    "identity": 1.0,
+    "observed_residues": 325,
+    "insertion_codes_in_chain": 0,
+    "insertion_codes_in_role_residues": [],
+    "mismatches": [],
+    "n_mismatches": 0
+   },
+   "C3_role_residue_identity_in_structure": {
+    "all_agree": false,
+    "roles": {
+     "beta3_Lys": {
+      "pdb_resid": 53,
+      "pdb_resname": "LYS",
+      "uniprot_aa": "K",
+      "agrees": true
+     },
+     "alphaC_Glu": {
+      "pdb_resid": 71,
+      "pdb_resname": "GLU",
+      "uniprot_aa": "E",
+      "agrees": true
+     },
+     "alphaC_Glu_plus4": {
+      "pdb_resid": 75,
+      "pdb_resname": "LEU",
+      "uniprot_aa": "L",
+      "agrees": true
+     },
+     "XDFG_minus1": {
+      "pdb_resid": 166,
+      "pdb_resname": "ILE",
+      "uniprot_aa": "I",
+      "agrees": true
+     },
+     "XDFG": {
+      "pdb_resid": 167,
+      "pdb_resname": "LEU",
+      "uniprot_aa": "L",
+      "agrees": true
+     },
+     "DFG_Asp": {
+      "pdb_resid": 168,
+      "pdb_resname": "ASP",
+      "uniprot_aa": "D",
+      "agrees": true
+     },
+     "DFG_Phe": {
+      "pdb_resid": 169,
+      "pdb_resname": "PHE",
+      "uniprot_aa": "F",
+      "agrees": true
+     },
+     "DFG_Gly": {
+      "pdb_resid": 170,
+      "pdb_resname": null,
+      "uniprot_aa": "G",
+      "agrees": false
+     },
+     "DFGxxX": {
+      "pdb_resid": 173,
+      "pdb_resname": null,
+      "uniprot_aa": "R",
+      "agrees": false
+     },
+     "XHRD": {
+      "pdb_resid": 147,
+      "pdb_resname": "ILE",
+      "uniprot_aa": "I",
+      "agrees": true
+     }
+    }
+   },
+   "C4_required_atom_coverage": {
+    "atoms_requested": 20,
+    "present_fraction": 0.9,
+    "missing": [
+     "170:N=residue_not_found",
+     "173:N=residue_not_found"
+    ],
+    "descriptors_nan": {
+     "Aloop_NO": [
+      [
+       "DFGxxX",
+       "N",
+       "residue_not_found"
+      ]
+     ],
+     "psi_Phe": [
+      [
+       "DFG_Gly",
+       "N",
+       "residue_not_found"
+      ]
+     ]
+    }
+   },
+   "C5_missing_atom_consistency": {
+    "pass": true,
+    "adapter_missing_residues": [
+     [
+      170,
+      ""
+     ],
+     [
+      173,
+      ""
+     ]
+    ],
+    "remark465_role_residues": [
+     [
+      170,
+      ""
+     ],
+     [
+      173,
+      ""
+     ]
+    ],
+    "adapter_missing_atoms": {},
+    "remark470_role_atoms": {}
+   },
+   "C6_alternate_locations": {
+    "pass": true,
+    "role_residues_with_altlocs": [],
+    "mixed_conformers": [],
+    "max_descriptor_change_between_policies": {
+     "D1": 0.0,
+     "D2": 0.0,
+     "alphaC_CbCb": 0.0,
+     "chi1_Phe": 0.0,
+     "phi_XDFG": 0.0,
+     "psi_XDFG": 0.0,
+     "phi_Asp": 0.0,
+     "psi_Asp": 0.0,
+     "phi_Phe": 0.0
+    }
+   },
+   "C7_independent_parser": {
+    "pass": true,
+    "max_abs_difference": 2.016909282698265e-06,
+    "n_compared": 9,
+    "availability_mismatches": []
+   },
+   "C8_calpha_identity": {
+    "pass": true,
+    "residues": 10
+   },
+   "C9_determinism": {
+    "pass": true
+   },
+   "C10_geometry_plausibility": {
+    "warnings": []
+   },
+   "outcome": "pass_with_exclusions",
+   "descriptors_blank_then_A": {
+    "D1": 14.81518965899097,
+    "D2": 8.958979843813834,
+    "alphaC_CbCb": 8.352306410789346,
+    "Aloop_NO": null,
+    "chi1_Phe": -1.9746647877166095,
+    "phi_XDFG": -2.6747129421211593,
+    "psi_XDFG": -2.9071456876174913,
+    "phi_Asp": -2.662231700965623,
+    "psi_Asp": 1.8110488136519325,
+    "phi_Phe": -1.098765987683558,
+    "psi_Phe": null
+   }
+  },
+  {
+   "pdb": "1MQ4",
+   "chain": "A",
+   "kinase": "Aurora A (human)",
+   "uniprot": "O14965",
+   "primary": true,
+   "C1_uniprot_role_identity": {
+    "pass": true,
+    "residues": {
+     "beta3_Lys": "K",
+     "alphaC_Glu": "E",
+     "alphaC_Glu_plus4": "Q",
+     "XDFG_minus1": "I",
+     "XDFG": "A",
+     "DFG_Asp": "D",
+     "DFG_Phe": "F",
+     "DFG_Gly": "G",
+     "DFGxxX": "V",
+     "XHRD": "I"
+    },
+    "hrd_motif": "HRD"
+   },
+   "C2_numbering_mapping": {
+    "pass": true,
+    "offset_uniprot_minus_pdb": 0,
+    "identity": 1.0,
+    "observed_residues": 261,
+    "insertion_codes_in_chain": 0,
+    "insertion_codes_in_role_residues": [],
+    "mismatches": [],
+    "n_mismatches": 0
+   },
+   "C3_role_residue_identity_in_structure": {
+    "all_agree": true,
+    "roles": {
+     "beta3_Lys": {
+      "pdb_resid": 162,
+      "pdb_resname": "LYS",
+      "uniprot_aa": "K",
+      "agrees": true
+     },
+     "alphaC_Glu": {
+      "pdb_resid": 181,
+      "pdb_resname": "GLU",
+      "uniprot_aa": "E",
+      "agrees": true
+     },
+     "alphaC_Glu_plus4": {
+      "pdb_resid": 185,
+      "pdb_resname": "GLN",
+      "uniprot_aa": "Q",
+      "agrees": true
+     },
+     "XDFG_minus1": {
+      "pdb_resid": 272,
+      "pdb_resname": "ILE",
+      "uniprot_aa": "I",
+      "agrees": true
+     },
+     "XDFG": {
+      "pdb_resid": 273,
+      "pdb_resname": "ALA",
+      "uniprot_aa": "A",
+      "agrees": true
+     },
+     "DFG_Asp": {
+      "pdb_resid": 274,
+      "pdb_resname": "ASP",
+      "uniprot_aa": "D",
+      "agrees": true
+     },
+     "DFG_Phe": {
+      "pdb_resid": 275,
+      "pdb_resname": "PHE",
+      "uniprot_aa": "F",
+      "agrees": true
+     },
+     "DFG_Gly": {
+      "pdb_resid": 276,
+      "pdb_resname": "GLY",
+      "uniprot_aa": "G",
+      "agrees": true
+     },
+     "DFGxxX": {
+      "pdb_resid": 279,
+      "pdb_resname": "VAL",
+      "uniprot_aa": "V",
+      "agrees": true
+     },
+     "XHRD": {
+      "pdb_resid": 253,
+      "pdb_resname": "ILE",
+      "uniprot_aa": "I",
+      "agrees": true
+     }
+    }
+   },
+   "C4_required_atom_coverage": {
+    "atoms_requested": 20,
+    "present_fraction": 1.0,
+    "missing": [],
+    "descriptors_nan": {}
+   },
+   "C5_missing_atom_consistency": {
+    "pass": true,
+    "adapter_missing_residues": [],
+    "remark465_role_residues": [],
+    "adapter_missing_atoms": {},
+    "remark470_role_atoms": {}
+   },
+   "C6_alternate_locations": {
+    "pass": true,
+    "role_residues_with_altlocs": [],
+    "mixed_conformers": [],
+    "max_descriptor_change_between_policies": {
+     "D1": 0.0,
+     "D2": 0.0,
+     "alphaC_CbCb": 0.0,
+     "Aloop_NO": 0.0,
+     "chi1_Phe": 0.0,
+     "phi_XDFG": 0.0,
+     "psi_XDFG": 0.0,
+     "phi_Asp": 0.0,
+     "psi_Asp": 0.0,
+     "phi_Phe": 0.0,
+     "psi_Phe": 0.0
+    }
+   },
+   "C7_independent_parser": {
+    "pass": true,
+    "max_abs_difference": 3.5154747237697848e-06,
+    "n_compared": 11,
+    "availability_mismatches": []
+   },
+   "C8_calpha_identity": {
+    "pass": true,
+    "residues": 10
+   },
+   "C9_determinism": {
+    "pass": true
+   },
+   "C10_geometry_plausibility": {
+    "warnings": []
+   },
+   "outcome": "pass",
+   "descriptors_blank_then_A": {
+    "D1": 5.607020012686048,
+    "D2": 15.213508857868536,
+    "alphaC_CbCb": 9.055095743135103,
+    "Aloop_NO": 3.1264733526674173,
+    "chi1_Phe": -1.3978446844948704,
+    "phi_XDFG": -2.3140720173878235,
+    "psi_XDFG": 3.130136637110637,
+    "phi_Asp": 1.0906353768712178,
+    "psi_Asp": 1.2609544248249083,
+    "phi_Phe": -1.5894546909255083,
+    "psi_Phe": 0.3754299625487683
+   }
+  },
+  {
+   "pdb": "1UWH",
+   "chain": "A",
+   "kinase": "BRAF (human)",
+   "uniprot": "P15056",
+   "primary": true,
+   "C1_uniprot_role_identity": {
+    "pass": true,
+    "residues": {
+     "beta3_Lys": "K",
+     "alphaC_Glu": "E",
+     "alphaC_Glu_plus4": "L",
+     "XDFG_minus1": "I",
+     "XDFG": "G",
+     "DFG_Asp": "D",
+     "DFG_Phe": "F",
+     "DFG_Gly": "G",
+     "DFGxxX": "T",
+     "XHRD": "I"
+    },
+    "hrd_motif": "HRD"
+   },
+   "C2_numbering_mapping": {
+    "pass": true,
+    "offset_uniprot_minus_pdb": 1,
+    "identity": 0.9962121212121212,
+    "observed_residues": 264,
+    "insertion_codes_in_chain": 0,
+    "insertion_codes_in_role_residues": [],
+    "mismatches": [
+     [
+      521,
+      "ALA",
+      "K"
+     ]
+    ],
+    "n_mismatches": 1
+   },
+   "C3_role_residue_identity_in_structure": {
+    "all_agree": true,
+    "roles": {
+     "beta3_Lys": {
+      "pdb_resid": 482,
+      "pdb_resname": "LYS",
+      "uniprot_aa": "K",
+      "agrees": true
+     },
+     "alphaC_Glu": {
+      "pdb_resid": 500,
+      "pdb_resname": "GLU",
+      "uniprot_aa": "E",
+      "agrees": true
+     },
+     "alphaC_Glu_plus4": {
+      "pdb_resid": 504,
+      "pdb_resname": "LEU",
+      "uniprot_aa": "L",
+      "agrees": true
+     },
+     "XDFG_minus1": {
+      "pdb_resid": 591,
+      "pdb_resname": "ILE",
+      "uniprot_aa": "I",
+      "agrees": true
+     },
+     "XDFG": {
+      "pdb_resid": 592,
+      "pdb_resname": "GLY",
+      "uniprot_aa": "G",
+      "agrees": true
+     },
+     "DFG_Asp": {
+      "pdb_resid": 593,
+      "pdb_resname": "ASP",
+      "uniprot_aa": "D",
+      "agrees": true
+     },
+     "DFG_Phe": {
+      "pdb_resid": 594,
+      "pdb_resname": "PHE",
+      "uniprot_aa": "F",
+      "agrees": true
+     },
+     "DFG_Gly": {
+      "pdb_resid": 595,
+      "pdb_resname": "GLY",
+      "uniprot_aa": "G",
+      "agrees": true
+     },
+     "DFGxxX": {
+      "pdb_resid": 598,
+      "pdb_resname": "THR",
+      "uniprot_aa": "T",
+      "agrees": true
+     },
+     "XHRD": {
+      "pdb_resid": 572,
+      "pdb_resname": "ILE",
+      "uniprot_aa": "I",
+      "agrees": true
+     }
+    }
+   },
+   "C4_required_atom_coverage": {
+    "atoms_requested": 20,
+    "present_fraction": 1.0,
+    "missing": [],
+    "descriptors_nan": {}
+   },
+   "C5_missing_atom_consistency": {
+    "pass": true,
+    "adapter_missing_residues": [],
+    "remark465_role_residues": [],
+    "adapter_missing_atoms": {},
+    "remark470_role_atoms": {}
+   },
+   "C6_alternate_locations": {
+    "pass": true,
+    "role_residues_with_altlocs": [],
+    "mixed_conformers": [],
+    "max_descriptor_change_between_policies": {
+     "D1": 0.0,
+     "D2": 0.0,
+     "alphaC_CbCb": 0.0,
+     "Aloop_NO": 0.0,
+     "chi1_Phe": 0.0,
+     "phi_XDFG": 0.0,
+     "psi_XDFG": 0.0,
+     "phi_Asp": 0.0,
+     "psi_Asp": 0.0,
+     "phi_Phe": 0.0,
+     "psi_Phe": 0.0
+    }
+   },
+   "C7_independent_parser": {
+    "pass": true,
+    "max_abs_difference": 5.524079634611212e-06,
+    "n_compared": 11,
+    "availability_mismatches": []
+   },
+   "C8_calpha_identity": {
+    "pass": true,
+    "residues": 10
+   },
+   "C9_determinism": {
+    "pass": true
+   },
+   "C10_geometry_plausibility": {
+    "warnings": []
+   },
+   "outcome": "pass",
+   "descriptors_blank_then_A": {
+    "D1": 12.49509726220863,
+    "D2": 11.481419231310271,
+    "alphaC_CbCb": 8.45548516748249,
+    "Aloop_NO": 14.570341182981247,
+    "chi1_Phe": -1.0238430325009003,
+    "phi_XDFG": -3.0353343991485726,
+    "psi_XDFG": -2.91083237272977,
+    "phi_Asp": -2.117413453059107,
+    "psi_Asp": 1.5560606025164676,
+    "phi_Phe": -1.4526343100625039,
+    "psi_Phe": 0.28632256834125674
+   }
+  },
+  {
+   "pdb": "1UWH",
+   "chain": "B",
+   "kinase": "BRAF (human)",
+   "uniprot": "P15056",
+   "primary": false,
+   "C1_uniprot_role_identity": {
+    "pass": true,
+    "residues": {
+     "beta3_Lys": "K",
+     "alphaC_Glu": "E",
+     "alphaC_Glu_plus4": "L",
+     "XDFG_minus1": "I",
+     "XDFG": "G",
+     "DFG_Asp": "D",
+     "DFG_Phe": "F",
+     "DFG_Gly": "G",
+     "DFGxxX": "T",
+     "XHRD": "I"
+    },
+    "hrd_motif": "HRD"
+   },
+   "C2_numbering_mapping": {
+    "pass": true,
+    "offset_uniprot_minus_pdb": 1,
+    "identity": 0.9962121212121212,
+    "observed_residues": 264,
+    "insertion_codes_in_chain": 0,
+    "insertion_codes_in_role_residues": [],
+    "mismatches": [
+     [
+      521,
+      "ALA",
+      "K"
+     ]
+    ],
+    "n_mismatches": 1
+   },
+   "C3_role_residue_identity_in_structure": {
+    "all_agree": true,
+    "roles": {
+     "beta3_Lys": {
+      "pdb_resid": 482,
+      "pdb_resname": "LYS",
+      "uniprot_aa": "K",
+      "agrees": true
+     },
+     "alphaC_Glu": {
+      "pdb_resid": 500,
+      "pdb_resname": "GLU",
+      "uniprot_aa": "E",
+      "agrees": true
+     },
+     "alphaC_Glu_plus4": {
+      "pdb_resid": 504,
+      "pdb_resname": "LEU",
+      "uniprot_aa": "L",
+      "agrees": true
+     },
+     "XDFG_minus1": {
+      "pdb_resid": 591,
+      "pdb_resname": "ILE",
+      "uniprot_aa": "I",
+      "agrees": true
+     },
+     "XDFG": {
+      "pdb_resid": 592,
+      "pdb_resname": "GLY",
+      "uniprot_aa": "G",
+      "agrees": true
+     },
+     "DFG_Asp": {
+      "pdb_resid": 593,
+      "pdb_resname": "ASP",
+      "uniprot_aa": "D",
+      "agrees": true
+     },
+     "DFG_Phe": {
+      "pdb_resid": 594,
+      "pdb_resname": "PHE",
+      "uniprot_aa": "F",
+      "agrees": true
+     },
+     "DFG_Gly": {
+      "pdb_resid": 595,
+      "pdb_resname": "GLY",
+      "uniprot_aa": "G",
+      "agrees": true
+     },
+     "DFGxxX": {
+      "pdb_resid": 598,
+      "pdb_resname": "THR",
+      "uniprot_aa": "T",
+      "agrees": true
+     },
+     "XHRD": {
+      "pdb_resid": 572,
+      "pdb_resname": "ILE",
+      "uniprot_aa": "I",
+      "agrees": true
+     }
+    }
+   },
+   "C4_required_atom_coverage": {
+    "atoms_requested": 20,
+    "present_fraction": 1.0,
+    "missing": [],
+    "descriptors_nan": {}
+   },
+   "C5_missing_atom_consistency": {
+    "pass": true,
+    "adapter_missing_residues": [],
+    "remark465_role_residues": [],
+    "adapter_missing_atoms": {},
+    "remark470_role_atoms": {}
+   },
+   "C6_alternate_locations": {
+    "pass": true,
+    "role_residues_with_altlocs": [],
+    "mixed_conformers": [],
+    "max_descriptor_change_between_policies": {
+     "D1": 0.0,
+     "D2": 0.0,
+     "alphaC_CbCb": 0.0,
+     "Aloop_NO": 0.0,
+     "chi1_Phe": 0.0,
+     "phi_XDFG": 0.0,
+     "psi_XDFG": 0.0,
+     "phi_Asp": 0.0,
+     "psi_Asp": 0.0,
+     "phi_Phe": 0.0,
+     "psi_Phe": 0.0
+    }
+   },
+   "C7_independent_parser": {
+    "pass": true,
+    "max_abs_difference": 8.401968762283829e-06,
+    "n_compared": 11,
+    "availability_mismatches": []
+   },
+   "C8_calpha_identity": {
+    "pass": true,
+    "residues": 10
+   },
+   "C9_determinism": {
+    "pass": true
+   },
+   "C10_geometry_plausibility": {
+    "warnings": []
+   },
+   "outcome": "pass",
+   "descriptors_blank_then_A": {
+    "D1": 12.494865179553798,
+    "D2": 11.490851989526709,
+    "alphaC_CbCb": 8.437905448219476,
+    "Aloop_NO": 14.987875212245306,
+    "chi1_Phe": -1.0221498482865048,
+    "phi_XDFG": -3.029243239389734,
+    "psi_XDFG": -2.9161839954598068,
+    "phi_Asp": -2.1169077268341843,
+    "psi_Asp": 1.5492919659654978,
+    "phi_Phe": -1.4515068224505032,
+    "psi_Phe": 0.2869829149647587
+   }
+  }
+ ],
+ "summary": {
+  "pass": 7,
+  "pass_with_exclusions": 1,
+  "fail": 1
+ },
+ "resources": {
+  "cpu_s": 51.551407,
+  "wall_s": 62.766730070114136,
+  "download_bytes": 2510311
+ }
+}

@@ -74,3 +74,7 @@ benchmarks/audit/kras_struct_g12d/build/
 benchmarks/audit/kras_struct_g12d/data_pdb/
 benchmarks/audit/structpair_demo/build/
 benchmarks/audit/kinase_descriptors/data_pdb/
+benchmarks/audit/kin_rob_1/data_pdb/
+benchmarks/audit/kin_rob_1/data_uniprot/
+benchmarks/audit/kin_rob_1a/data_pdb/
+benchmarks/audit/kin_rob_1a/data_uniprot/

@@ -1,0 +1,12 @@
+{
+  "id": "KIN-ROB-1",
+  "frozen_utc": "2026-10-24T15:41:26.370370+00:00",
+  "spec_sha256": "0f0e7ce8caf826b9962004aa04205f509810b2a350fdc3bd0812758ae4019d47",
+  "code_sha256": {
+    "benchmarks/audit/kin_rob_1/run_kin_rob.py": "e191213d358255d9eb8da30f8170a962f9af4a4554862fac95a3826f79fbdef2",
+    "python/topofold_inputs/atom_adapter.py": "f08e2e88ca85b5bf46e61540e7203533d1e1c333e42384598edcd4df81870aaa",
+    "python/topofold_inputs/kinase_geometry.py": "04987c6807dc830e14623ef014ff69b5265768632d0b7e4948270645c870d9d0",
+    "python/topofold_inputs/ca_adapter.py": "0dfd026fae6e549b5fedc151e3c0f2636db83069c295c5a138d129979052bb67"
+  },
+  "panel_files_present_at_freeze": []
+}
