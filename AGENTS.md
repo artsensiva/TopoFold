@@ -31,3 +31,7 @@ TopoFold is a research prototype under scientific re-validation. Versions ≤ 0.
   (4) actual resource use, commits and repository status; (5) one recommended next task. Keep detailed logs and hashes
   in repository artifacts. Name each check with its actual counts (never "all checks passed"), and keep measured
   results separate from explanations or hypotheses.
+
+## Model selection for the Codex reviewer
+- Codex works with the model selected by the user. Do not require a model choice for routine messages.
+- Recommend a different model only when the task would materially benefit from it, explaining why before the user starts that task. Codex cannot switch its own primary model; the user makes that selection.
