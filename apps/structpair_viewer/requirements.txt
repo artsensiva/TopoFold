@@ -1,0 +1,8 @@
+# Viewer-only dependencies (not dependencies of the topofold core wheel).
+# Versions as used in the AI tester 1 trial and the implementer's checks (docs/STRUCTPAIR_USER_GUIDE.md §2);
+# exact pins are a tested set, not a compatibility range.
+streamlit==1.64.0
+pandas==3.0.6
+altair==6.3.0
+plotly==7.1.0
+numpy

@@ -60,7 +60,7 @@ PYTHONPATH=python python -m topofold_inputs.structpair \
     benchmarks/audit/structpair_demo/specs/kras2_5US4A_vs_5USJA.json --out ~/structpair_out/kras2
 
 # 5. optional: the results viewer (needs neither the core nor MDAnalysis)
-pip install streamlit==1.64.0 pandas==3.0.6 altair==6.3.0 plotly==7.1.0
+pip install streamlit==1.64.0 pandas==3.0.6 altair==6.3.0 plotly==7.1.0   # same pins: apps/structpair_viewer/requirements.txt
 streamlit run apps/structpair_viewer/app.py --server.address localhost -- --results ~/structpair_out
 ```
 

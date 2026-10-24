@@ -16,13 +16,23 @@ import pytest
 
 ROOT = Path(__file__).resolve().parents[1]
 APP_DIR = ROOT / "apps/structpair_viewer"
+
+# The viewer's dependencies (apps/structpair_viewer/requirements.txt) are not core dependencies. Without them the module
+# is skipped. With TOPOFOLD_REQUIRE_VIEWER_TESTS=1 (the CI viewer job) they are imported directly, so a missing or broken
+# dependency fails instead of skipping.
+if os.environ.get("TOPOFOLD_REQUIRE_VIEWER_TESTS") == "1":
+    import pandas  # noqa: F401
+    import streamlit
+else:
+    pytest.importorskip("pandas")
+    streamlit = pytest.importorskip("streamlit")
+from streamlit.testing.v1 import AppTest  # noqa: E402
+
 sys.path.insert(0, str(APP_DIR))
 import results as R  # noqa: E402
 
 DEMO = ROOT / "benchmarks/audit/structpair_demo/results"
 STUDIES = [DEMO / "kras1", DEMO / "kras2"]
-streamlit = pytest.importorskip("streamlit")
-from streamlit.testing.v1 import AppTest  # noqa: E402
 
 
 def _sha(p):
