@@ -205,7 +205,7 @@
    "backbone XTC trajectories readable by the existing MDAnalysis adapter are documented in PCA.zip"
   ],
   "open_conditions": [
-   "owner decision: install GROMACS to read md.tpr boxes and coordinates independently, authorise a disclosed amendment, or stop (see benchmarks/audit/abl_myr_1b/README.md)"
+   "independent scientific review of benchmarks/audit/abl_myr_1b/PROTOCOL_1B.md; then a code-frozen implementation wrapper before any trajectory is opened (owner decision)"
   ],
   "decided_utc": "2026-10-24"
  },
@@ -215,6 +215,7 @@
   "Figshare 10.6084/m9.figshare.4496795 (CC BY 4.0): one 1-µs run of ABL1 242-493 (AMBER99SB-ILDN, 300 K, 250-ps frames, 4000 snapshots) in MDTraj HDF5 (141,949,663 B). Usable only for a loader check, never as replicated evidence; not downloaded, because reading it needs a new HDF5/MDTraj path that the Dryad XTC route does not use.",
   "2026-10-24 (D58): the published model archives list system.gro for Set1 but not for Set2 (README tree and archive listings agree); the ABL-MYR-1 spec required it in both sets. This intake record's decision (conditional-go) is unchanged; the access condition is met and G0 passed, G1 failed on this member.",
   "2026-10-24 (D59): the ABL-MYR-1a start-file audit found Set1 start coordinates identical between conditions and Set2 structures identical to Set1's, but mdp index-group names (MYRP) and the water count differ between Myr and noMyr, so the original G4 identity rules fail for any Myr vs noMyr pair (verdict V4). Decision (conditional-go) unchanged.",
-  "2026-10-24 (D60): ABL-MYR-1b run-input check: tc groups, thermostat settings and composition comparable between conditions (inherent Myr differences only); production-start coordinates not validated because the md.tpr box is not exposed by MDAnalysis and GROMACS is not installed (K1). Decision (conditional-go) unchanged."
+  "2026-10-24 (D60): ABL-MYR-1b run-input check: tc groups, thermostat settings and composition comparable between conditions (inherent Myr differences only); production-start coordinates not validated because the md.tpr box is not exposed by MDAnalysis and GROMACS is not installed (K1). Decision (conditional-go) unchanged.",
+  "2026-10-25 (D61): clarification: the ABL-MYR-1b a1 K1 outcome meant production-start comparability was not established (box not exposed by the reader), not that the systems are incomparable. Amendment a2 read the 40 production run inputs independently with GROMACS 2024.5 and passed K1-K5 (criteria passed; not proof of no confound). A post-hoc ABL-MYR-1b protocol is frozen for independent review; no trajectory opened. Decision (conditional-go) unchanged."
  ]
 }

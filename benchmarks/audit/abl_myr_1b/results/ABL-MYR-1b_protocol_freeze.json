@@ -1,0 +1,30 @@
+{
+  "id": "ABL-MYR-1b-PROTOCOL",
+  "frozen_utc": "2026-10-24T22:17:50.483531+00:00",
+  "protocol_sha256": "d68008e2eb090e4599c4355108e475354b25ca9b24acb35a7cb671bbcf5caa25",
+  "protocol_md_sha256": "73f1273343f10a1152e9de5cbc1af5d8f7fc760eff0c174dfd43fb871033050b",
+  "writer_sha256": "1b6a5dae0a3fbdf77a4a4f949e479c92427b6fa7c2ea81bdabee7b9d9841b22e",
+  "a2_results_sha256": "8b07776fe69de9917cfa3ff135e58d7d430f156029147bfe6146df4b7d24ffa6",
+  "lineage_sha256": {
+    "ABL-MYR-1 original specification": "f8825840ee6812268b1f1ee587affff0559e9ccb9a7da2b24b3a7bddcfd95e98",
+    "ABL-MYR-1 specification freeze": "3066d9fe0dcf78f36b30fc06760ec4c19c3d09f43bad106afbfef24591d8b025",
+    "ABL-MYR-1 runner (frozen)": "419981810da0e105b6295f94b1b522f0168f8f69407f6d02293a85bf64dc9e6c",
+    "ABL-MYR-1 code freeze": "159cfdee9086776df066c0ccadfaf763b362947cd7c16b618702572cb83270d1",
+    "ABL-MYR-1 blocked G1 record": "929af481470987a103e0648ccb4f1ccb8a7fa1c8c9039598bfe7097020aa275d",
+    "ABL-MYR-1 member audit": "bdf785e1ff47af1327e576ecda8506243e522207b32ee974dc51d0ba3f97a9cd",
+    "ABL-MYR-1a audit freeze": "533af16382a2a85ec8cc2b5b68db39535402008a74f941a286aa22436c9bf830",
+    "ABL-MYR-1a audit results (verdict V4)": "638f4c6e78e60cb2f7f6d488f2e157c954886d7235dc3b08c69d0f97429914cc",
+    "ABL-MYR-1b check spec": "cbfe491bee722fa55d784f8977e3fe37647d2fff01e37a5be9d229d6552c4efd",
+    "ABL-MYR-1b check freeze": "ab04412eb13f3603b8940679a5b49332fe87b6841ba6949244f6ea2132245153",
+    "ABL-MYR-1b check attempt 1 (S3 stop)": "68bb15af45aabe7a2512e40e5e0d8e671eec10e0aa3e1331f976f94518f45bca",
+    "ABL-MYR-1b amendment a1": "89251fb2f61e26d7d01fef4f617cb1fee96ea2785d7e4580438b07d8e509e060",
+    "ABL-MYR-1b a1 results (K1 not established)": "26f4170b586fce57e394654efa2009988b6399c3555f76b76cdb14f77b33e1cf",
+    "ABL-MYR-1b amendment a2": "4bb77da2738ad5908a2e2e20497f7a76edd3757733c42f4550d96030908998f7",
+    "ABL-MYR-1b a2 freeze": "98c9067dd33ea86a99866cefd54076545c59dc7ab707062185f7f1622e1b0442",
+    "ABL-MYR-1b a2 results (comparable_for_1b)": "8b07776fe69de9917cfa3ff135e58d7d430f156029147bfe6146df4b7d24ffa6",
+    "GROMACS acquisition record": "2361bc8e102e61b0c9b35c2fc35d4648f7b849d766271874734fe00190342893"
+  },
+  "trajectories_opened": false,
+  "xtc_extracted": false,
+  "state": "frozen for independent scientific review; no trajectory opened or scored"
+}
