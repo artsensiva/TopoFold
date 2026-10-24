@@ -1,0 +1,24 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "topofold:abl-prereg/hdx-uptake/1",
+ "title": "Processed peptide-level HDX-MS uptake (requested from the HDX authors), one row per measurement",
+ "description": "Schema for ONE ROW of the processed HDX table (CSV with these column names, or JSON lines). Table-level rules are enforced by validate_inputs.py: unique keys, at least two replicates per peptide/state/time, the same peptide set and times in every compared state, and a matching metadata document. Values must come from the providers; nothing is inferred from figures.",
+ "type": "object",
+ "required": ["peptide_sequence", "construct_start", "construct_end", "state", "ligands", "labeling_time_s", "replicate",
+              "uptake_Da", "charge_states_combined"],
+ "additionalProperties": false,
+ "properties": {
+  "peptide_sequence": {"type": "string", "pattern": "^[ACDEFGHIKLMNPQRSTVWY]+$"},
+  "construct_start": {"type": "integer", "minimum": 1},
+  "construct_end": {"type": "integer", "minimum": 1},
+  "state": {"enum": ["WT", "M472I", "A344V"], "description": "protein variant"},
+  "ligands": {"type": "string", "description": "'none' for apo, otherwise the ligand name(s) separated by '+'"},
+  "labeling_time_s": {"type": "number", "minimum": 0, "description": "0 only for undeuterated controls"},
+  "replicate": {"type": "integer", "minimum": 1},
+  "uptake_Da": {"type": "number", "description": "measured deuterium uptake (Da), not normalised"},
+  "uptake_sd_Da": {"type": "number", "minimum": 0, "description": "only if the provider supplies per-row spreads instead of replicate rows"},
+  "charge_states_combined": {"type": "boolean"},
+  "back_exchange_corrected": {"type": "boolean"},
+  "max_uptake_theoretical": {"type": "integer", "minimum": 0}
+ }
+}

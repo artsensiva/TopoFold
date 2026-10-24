@@ -1,7 +1,9 @@
 # DRAFT — not sent. For the project owner to review, edit and send if appropriate.
 
+*Revised 2026-10-24: the requested sets now reflect the Methods text, which describes no apo M472I simulations (`docs/ABL_WT_M472I_PREREGISTRATION_DRAFT.md` §0).*
+
 **To:** trajectories@deshawresearch.com (address given in the Data availability statement of Ayaz et al. 2023)
-**Subject:** Request for Abl kinase trajectories from Ayaz et al., Nat Commun 2023 (apo WT and M472I)
+**Subject:** Request for Abl kinase trajectories from Ayaz et al., Nat Commun 2023 (WT and M472I)
 
 ---
 
@@ -15,12 +17,16 @@ drug-binding process involving a large conformational change of the protein targ
 ensembles. It is not a commercial product, but it has future commercial ambitions, and we want our use of your data
 to be clearly within your terms.
 
-**Intended use.** A preregistered method evaluation: whether backbone-geometry comparisons of apo wild-type and M472I
+**Intended use.** A preregistered method evaluation: whether backbone-geometry comparisons of wild-type and M472I
 ensembles localize differences that coincide with the HDX-MS differences reported in the paper. We would compare
 against established methods and report negative results.
 
-**Data requested.** Only apo wild-type and apo M472I runs started from the same structure. If such matched runs exist
-for more than one starting structure, the set with the most runs per condition would be our first choice.
+**Data requested.** Wild-type and M472I runs started from the same structure and in the same ligand state.
+- **First choice:** apo wild type and apo M472I, because the HDX-MS comparison was made on the apo proteins. The Methods
+  describe apo WT runs (from 1OPJ) but, as far as we can see, no apo M472I runs. Could you confirm whether apo M472I
+  simulations exist?
+- **Otherwise:** the imatinib-bound WT and M472I runs from 1OPJ (described as 5 × 20 µs plus 5 × 10 µs for WT, and
+  10 × 10 µs for M472I). Optionally also the WT and M472I runs with imatinib and GNF-2 (3K5V), and the apo WT runs.
 
 Could you tell us:
 1. the actual run inventory for these two conditions (number of runs, length of each, and starting structure), since

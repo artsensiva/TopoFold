@@ -1,0 +1,908 @@
+{
+ "id": "ABL-HDX-PEPTIDE-MAP-1",
+ "inputs": {
+  "peptide_map": {
+   "path": "benchmarks/audit/abl_access/data_pride_PXD034008/REI_ABL_KB_dynamX_export_18May22.csv",
+   "sha256": "2fd6b624a52fd5261c838f85a9c637f29b94e098297beb37f58c76b71705ca4a",
+   "source": "PRIDE PXD034008 (CC0)"
+  },
+  "uniprot": {
+   "path": "benchmarks/audit/abl_prereg/reference/UniProt_P00519.fasta",
+   "sha256": "f28f5df82a7b04e5a51dc63582a0ce7a41459f6c221e8efa24313fe7e550cc12",
+   "accession": "P00519 canonical (isoform 1a)",
+   "license": "CC BY 4.0"
+  }
+ },
+ "offset_construct_to_cAbl_1a": 228,
+ "n_peptides": 80,
+ "n_exact_unique_matches": 76,
+ "non_matching_peptides": [
+  {
+   "sequence": "YMVTQISSAM",
+   "cAbl_start": 342,
+   "differences": [
+    {
+     "cAbl_residue": 344,
+     "reference": "A",
+     "peptide": "V"
+    }
+   ]
+  },
+  {
+   "sequence": "MVTQISSA",
+   "cAbl_start": 343,
+   "differences": [
+    {
+     "cAbl_residue": 344,
+     "reference": "A",
+     "peptide": "V"
+    }
+   ]
+  },
+  {
+   "sequence": "LIRACWQWNPSDRPSF",
+   "cAbl_start": 471,
+   "differences": [
+    {
+     "cAbl_residue": 472,
+     "reference": "M",
+     "peptide": "I"
+    }
+   ]
+  },
+  {
+   "sequence": "IRACWQWNPSDRPSF",
+   "cAbl_start": 472,
+   "differences": [
+    {
+     "cAbl_residue": 472,
+     "reference": "M",
+     "peptide": "I"
+    }
+   ]
+  }
+ ],
+ "coverage_cAbl": {
+  "first": 238,
+  "last": 512,
+  "n_residues_covered": 252,
+  "span_length": 275
+ },
+ "landmarks_in_P00519": {
+  "271": "K",
+  "286": "E",
+  "315": "T",
+  "344": "A",
+  "381": "D",
+  "382": "F",
+  "383": "G",
+  "472": "M"
+ },
+ "peptides": [
+  {
+   "sequence": "ERTDITM",
+   "construct_start": 10,
+   "construct_end": 16,
+   "cAbl_start": 238,
+   "cAbl_end": 244,
+   "max_uptake": 6,
+   "exact_match_to_P00519": true,
+   "differences": []
+  },
+  {
+   "sequence": "ERTDITMKHKLGGGQYGE",
+   "construct_start": 10,
+   "construct_end": 27,
+   "cAbl_start": 238,
+   "cAbl_end": 255,
+   "max_uptake": 17,
+   "exact_match_to_P00519": true,
+   "differences": []
+  },
+  {
+   "sequence": "ERTDITMKHKLGGGQYGEV",
+   "construct_start": 10,
+   "construct_end": 28,
+   "cAbl_start": 238,
+   "cAbl_end": 256,
+   "max_uptake": 18,
+   "exact_match_to_P00519": true,
+   "differences": []
+  },
+  {
+   "sequence": "ERTDITMKHKLGGGQYGEVYEGV",
+   "construct_start": 10,
+   "construct_end": 32,
+   "cAbl_start": 238,
+   "cAbl_end": 260,
+   "max_uptake": 22,
+   "exact_match_to_P00519": true,
+   "differences": []
+  },
+  {
+   "sequence": "WKKYSLT",
+   "construct_start": 33,
+   "construct_end": 39,
+   "cAbl_start": 261,
+   "cAbl_end": 267,
+   "max_uptake": 6,
+   "exact_match_to_P00519": true,
+   "differences": []
+  },
+  {
+   "sequence": "WKKYSLTVA",
+   "construct_start": 33,
+   "construct_end": 41,
+   "cAbl_start": 261,
+   "cAbl_end": 269,
+   "max_uptake": 8,
+   "exact_match_to_P00519": true,
+   "differences": []
+  },
+  {
+   "sequence": "VAVKTLKEDTM",
+   "construct_start": 40,
+   "construct_end": 50,
+   "cAbl_start": 268,
+   "cAbl_end": 278,
+   "max_uptake": 10,
+   "exact_match_to_P00519": true,
+   "differences": []
+  },
+  {
+   "sequence": "VAVKTLKEDTME",
+   "construct_start": 40,
+   "construct_end": 51,
+   "cAbl_start": 268,
+   "cAbl_end": 279,
+   "max_uptake": 11,
+   "exact_match_to_P00519": true,
+   "differences": []
+  },
+  {
+   "sequence": "AVKTLKEDTME",
+   "construct_start": 41,
+   "construct_end": 51,
+   "cAbl_start": 269,
+   "cAbl_end": 279,
+   "max_uptake": 10,
+   "exact_match_to_P00519": true,
+   "differences": []
+  },
+  {
+   "sequence": "VKTLKEDTME",
+   "construct_start": 42,
+   "construct_end": 51,
+   "cAbl_start": 270,
+   "cAbl_end": 279,
+   "max_uptake": 9,
+   "exact_match_to_P00519": true,
+   "differences": []
+  },
+  {
+   "sequence": "LKEAAVM",
+   "construct_start": 56,
+   "construct_end": 62,
+   "cAbl_start": 284,
+   "cAbl_end": 290,
+   "max_uptake": 6,
+   "exact_match_to_P00519": true,
+   "differences": []
+  },
+  {
+   "sequence": "VMKEIKHPNL",
+   "construct_start": 61,
+   "construct_end": 70,
+   "cAbl_start": 289,
+   "cAbl_end": 298,
+   "max_uptake": 8,
+   "exact_match_to_P00519": true,
+   "differences": []
+  },
+  {
+   "sequence": "MKEIKHPNL",
+   "construct_start": 62,
+   "construct_end": 70,
+   "cAbl_start": 290,
+   "cAbl_end": 298,
+   "max_uptake": 7,
+   "exact_match_to_P00519": true,
+   "differences": []
+  },
+  {
+   "sequence": "VQLLGVC",
+   "construct_start": 71,
+   "construct_end": 77,
+   "cAbl_start": 299,
+   "cAbl_end": 305,
+   "max_uptake": 6,
+   "exact_match_to_P00519": true,
+   "differences": []
+  },
+  {
+   "sequence": "VQLLGVCTRE",
+   "construct_start": 71,
+   "construct_end": 80,
+   "cAbl_start": 299,
+   "cAbl_end": 308,
+   "max_uptake": 9,
+   "exact_match_to_P00519": true,
+   "differences": []
+  },
+  {
+   "sequence": "LGVCTREPPFY",
+   "construct_start": 74,
+   "construct_end": 84,
+   "cAbl_start": 302,
+   "cAbl_end": 312,
+   "max_uptake": 8,
+   "exact_match_to_P00519": true,
+   "differences": []
+  },
+  {
+   "sequence": "LGVCTREPPFYIITE",
+   "construct_start": 74,
+   "construct_end": 88,
+   "cAbl_start": 302,
+   "cAbl_end": 316,
+   "max_uptake": 12,
+   "exact_match_to_P00519": true,
+   "differences": []
+  },
+  {
+   "sequence": "TREPPFY",
+   "construct_start": 78,
+   "construct_end": 84,
+   "cAbl_start": 306,
+   "cAbl_end": 312,
+   "max_uptake": 4,
+   "exact_match_to_P00519": true,
+   "differences": []
+  },
+  {
+   "sequence": "TREPPFYIITE",
+   "construct_start": 78,
+   "construct_end": 88,
+   "cAbl_start": 306,
+   "cAbl_end": 316,
+   "max_uptake": 8,
+   "exact_match_to_P00519": true,
+   "differences": []
+  },
+  {
+   "sequence": "TREPPFYIITEF",
+   "construct_start": 78,
+   "construct_end": 89,
+   "cAbl_start": 306,
+   "cAbl_end": 317,
+   "max_uptake": 9,
+   "exact_match_to_P00519": true,
+   "differences": []
+  },
+  {
+   "sequence": "EFMTYGNL",
+   "construct_start": 88,
+   "construct_end": 95,
+   "cAbl_start": 316,
+   "cAbl_end": 323,
+   "max_uptake": 7,
+   "exact_match_to_P00519": true,
+   "differences": []
+  },
+  {
+   "sequence": "FMTYGNL",
+   "construct_start": 89,
+   "construct_end": 95,
+   "cAbl_start": 317,
+   "cAbl_end": 323,
+   "max_uptake": 6,
+   "exact_match_to_P00519": true,
+   "differences": []
+  },
+  {
+   "sequence": "FMTYGNLL",
+   "construct_start": 89,
+   "construct_end": 96,
+   "cAbl_start": 317,
+   "cAbl_end": 324,
+   "max_uptake": 7,
+   "exact_match_to_P00519": true,
+   "differences": []
+  },
+  {
+   "sequence": "FMTYGNLLD",
+   "construct_start": 89,
+   "construct_end": 97,
+   "cAbl_start": 317,
+   "cAbl_end": 325,
+   "max_uptake": 8,
+   "exact_match_to_P00519": true,
+   "differences": []
+  },
+  {
+   "sequence": "MTYGNLL",
+   "construct_start": 90,
+   "construct_end": 96,
+   "cAbl_start": 318,
+   "cAbl_end": 324,
+   "max_uptake": 6,
+   "exact_match_to_P00519": true,
+   "differences": []
+  },
+  {
+   "sequence": "MTYGNLLD",
+   "construct_start": 90,
+   "construct_end": 97,
+   "cAbl_start": 318,
+   "cAbl_end": 325,
+   "max_uptake": 7,
+   "exact_match_to_P00519": true,
+   "differences": []
+  },
+  {
+   "sequence": "YLRECNRQEVNA",
+   "construct_start": 98,
+   "construct_end": 109,
+   "cAbl_start": 326,
+   "cAbl_end": 337,
+   "max_uptake": 11,
+   "exact_match_to_P00519": true,
+   "differences": []
+  },
+  {
+   "sequence": "LRECNRQEVNA",
+   "construct_start": 99,
+   "construct_end": 109,
+   "cAbl_start": 327,
+   "cAbl_end": 337,
+   "max_uptake": 10,
+   "exact_match_to_P00519": true,
+   "differences": []
+  },
+  {
+   "sequence": "RECNRQEVNA",
+   "construct_start": 100,
+   "construct_end": 109,
+   "cAbl_start": 328,
+   "cAbl_end": 337,
+   "max_uptake": 9,
+   "exact_match_to_P00519": true,
+   "differences": []
+  },
+  {
+   "sequence": "YMATQISSA",
+   "construct_start": 114,
+   "construct_end": 122,
+   "cAbl_start": 342,
+   "cAbl_end": 350,
+   "max_uptake": 8,
+   "exact_match_to_P00519": true,
+   "differences": []
+  },
+  {
+   "sequence": "YMVTQISSAM",
+   "construct_start": 114,
+   "construct_end": 123,
+   "cAbl_start": 342,
+   "cAbl_end": 351,
+   "max_uptake": 9,
+   "exact_match_to_P00519": false,
+   "differences": [
+    {
+     "cAbl_residue": 344,
+     "reference": "A",
+     "peptide": "V"
+    }
+   ]
+  },
+  {
+   "sequence": "MATQISSA",
+   "construct_start": 115,
+   "construct_end": 122,
+   "cAbl_start": 343,
+   "cAbl_end": 350,
+   "max_uptake": 7,
+   "exact_match_to_P00519": true,
+   "differences": []
+  },
+  {
+   "sequence": "MVTQISSA",
+   "construct_start": 115,
+   "construct_end": 122,
+   "cAbl_start": 343,
+   "cAbl_end": 350,
+   "max_uptake": 7,
+   "exact_match_to_P00519": false,
+   "differences": [
+    {
+     "cAbl_residue": 344,
+     "reference": "A",
+     "peptide": "V"
+    }
+   ]
+  },
+  {
+   "sequence": "ATQISSAM",
+   "construct_start": 116,
+   "construct_end": 123,
+   "cAbl_start": 344,
+   "cAbl_end": 351,
+   "max_uptake": 7,
+   "exact_match_to_P00519": true,
+   "differences": []
+  },
+  {
+   "sequence": "EYLEKKNFIHRDLAA",
+   "construct_start": 124,
+   "construct_end": 138,
+   "cAbl_start": 352,
+   "cAbl_end": 366,
+   "max_uptake": 14,
+   "exact_match_to_P00519": true,
+   "differences": []
+  },
+  {
+   "sequence": "EYLEKKNFIHRDLAARNCL",
+   "construct_start": 124,
+   "construct_end": 142,
+   "cAbl_start": 352,
+   "cAbl_end": 370,
+   "max_uptake": 18,
+   "exact_match_to_P00519": true,
+   "differences": []
+  },
+  {
+   "sequence": "YLEKKNFIHRDLAA",
+   "construct_start": 125,
+   "construct_end": 138,
+   "cAbl_start": 353,
+   "cAbl_end": 366,
+   "max_uptake": 13,
+   "exact_match_to_P00519": true,
+   "differences": []
+  },
+  {
+   "sequence": "YLEKKNFIHRDLAARNCL",
+   "construct_start": 125,
+   "construct_end": 142,
+   "cAbl_start": 353,
+   "cAbl_end": 370,
+   "max_uptake": 17,
+   "exact_match_to_P00519": true,
+   "differences": []
+  },
+  {
+   "sequence": "LEKKNFIHRDLAA",
+   "construct_start": 126,
+   "construct_end": 138,
+   "cAbl_start": 354,
+   "cAbl_end": 366,
+   "max_uptake": 12,
+   "exact_match_to_P00519": true,
+   "differences": []
+  },
+  {
+   "sequence": "LEKKNFIHRDLAARNCL",
+   "construct_start": 126,
+   "construct_end": 142,
+   "cAbl_start": 354,
+   "cAbl_end": 370,
+   "max_uptake": 16,
+   "exact_match_to_P00519": true,
+   "differences": []
+  },
+  {
+   "sequence": "EKKNFIHRDLAA",
+   "construct_start": 127,
+   "construct_end": 138,
+   "cAbl_start": 355,
+   "cAbl_end": 366,
+   "max_uptake": 11,
+   "exact_match_to_P00519": true,
+   "differences": []
+  },
+  {
+   "sequence": "LVGENHLVKVADFGLSR",
+   "construct_start": 142,
+   "construct_end": 158,
+   "cAbl_start": 370,
+   "cAbl_end": 386,
+   "max_uptake": 16,
+   "exact_match_to_P00519": true,
+   "differences": []
+  },
+  {
+   "sequence": "VGENHLVKVAD",
+   "construct_start": 143,
+   "construct_end": 153,
+   "cAbl_start": 371,
+   "cAbl_end": 381,
+   "max_uptake": 10,
+   "exact_match_to_P00519": true,
+   "differences": []
+  },
+  {
+   "sequence": "VGENHLVKVADF",
+   "construct_start": 143,
+   "construct_end": 154,
+   "cAbl_start": 371,
+   "cAbl_end": 382,
+   "max_uptake": 11,
+   "exact_match_to_P00519": true,
+   "differences": []
+  },
+  {
+   "sequence": "VGENHLVKVADFGL",
+   "construct_start": 143,
+   "construct_end": 156,
+   "cAbl_start": 371,
+   "cAbl_end": 384,
+   "max_uptake": 13,
+   "exact_match_to_P00519": true,
+   "differences": []
+  },
+  {
+   "sequence": "HLVKVADFGL",
+   "construct_start": 147,
+   "construct_end": 156,
+   "cAbl_start": 375,
+   "cAbl_end": 384,
+   "max_uptake": 9,
+   "exact_match_to_P00519": true,
+   "differences": []
+  },
+  {
+   "sequence": "VKVADFGL",
+   "construct_start": 149,
+   "construct_end": 156,
+   "cAbl_start": 377,
+   "cAbl_end": 384,
+   "max_uptake": 7,
+   "exact_match_to_P00519": true,
+   "differences": []
+  },
+  {
+   "sequence": "SRLMTGDT",
+   "construct_start": 157,
+   "construct_end": 164,
+   "cAbl_start": 385,
+   "cAbl_end": 392,
+   "max_uptake": 7,
+   "exact_match_to_P00519": true,
+   "differences": []
+  },
+  {
+   "sequence": "MTGDTYTAHAGAKF",
+   "construct_start": 160,
+   "construct_end": 173,
+   "cAbl_start": 388,
+   "cAbl_end": 401,
+   "max_uptake": 13,
+   "exact_match_to_P00519": true,
+   "differences": []
+  },
+  {
+   "sequence": "MTGDTYTAHAGAKFPIKWTAPESL",
+   "construct_start": 160,
+   "construct_end": 183,
+   "cAbl_start": 388,
+   "cAbl_end": 411,
+   "max_uptake": 21,
+   "exact_match_to_P00519": true,
+   "differences": []
+  },
+  {
+   "sequence": "TGDTYTAHAGAKF",
+   "construct_start": 161,
+   "construct_end": 173,
+   "cAbl_start": 389,
+   "cAbl_end": 401,
+   "max_uptake": 12,
+   "exact_match_to_P00519": true,
+   "differences": []
+  },
+  {
+   "sequence": "GDTYTAHAGAKF",
+   "construct_start": 162,
+   "construct_end": 173,
+   "cAbl_start": 390,
+   "cAbl_end": 401,
+   "max_uptake": 11,
+   "exact_match_to_P00519": true,
+   "differences": []
+  },
+  {
+   "sequence": "YTAHAGAKF",
+   "construct_start": 165,
+   "construct_end": 173,
+   "cAbl_start": 393,
+   "cAbl_end": 401,
+   "max_uptake": 8,
+   "exact_match_to_P00519": true,
+   "differences": []
+  },
+  {
+   "sequence": "YTAHAGAKFPIKWTAPESL",
+   "construct_start": 165,
+   "construct_end": 183,
+   "cAbl_start": 393,
+   "cAbl_end": 411,
+   "max_uptake": 16,
+   "exact_match_to_P00519": true,
+   "differences": []
+  },
+  {
+   "sequence": "PIKWTAPES",
+   "construct_start": 174,
+   "construct_end": 182,
+   "cAbl_start": 402,
+   "cAbl_end": 410,
+   "max_uptake": 6,
+   "exact_match_to_P00519": true,
+   "differences": []
+  },
+  {
+   "sequence": "PIKWTAPESL",
+   "construct_start": 174,
+   "construct_end": 183,
+   "cAbl_start": 402,
+   "cAbl_end": 411,
+   "max_uptake": 7,
+   "exact_match_to_P00519": true,
+   "differences": []
+  },
+  {
+   "sequence": "PIKWTAPESLA",
+   "construct_start": 174,
+   "construct_end": 184,
+   "cAbl_start": 402,
+   "cAbl_end": 412,
+   "max_uptake": 8,
+   "exact_match_to_P00519": true,
+   "differences": []
+  },
+  {
+   "sequence": "IKWTAPES",
+   "construct_start": 175,
+   "construct_end": 182,
+   "cAbl_start": 403,
+   "cAbl_end": 410,
+   "max_uptake": 6,
+   "exact_match_to_P00519": true,
+   "differences": []
+  },
+  {
+   "sequence": "AYNKFSIKSDVWAF",
+   "construct_start": 184,
+   "construct_end": 197,
+   "cAbl_start": 412,
+   "cAbl_end": 425,
+   "max_uptake": 13,
+   "exact_match_to_P00519": true,
+   "differences": []
+  },
+  {
+   "sequence": "SIKSDVW",
+   "construct_start": 189,
+   "construct_end": 195,
+   "cAbl_start": 417,
+   "cAbl_end": 423,
+   "max_uptake": 6,
+   "exact_match_to_P00519": true,
+   "differences": []
+  },
+  {
+   "sequence": "SIKSDVWA",
+   "construct_start": 189,
+   "construct_end": 196,
+   "cAbl_start": 417,
+   "cAbl_end": 424,
+   "max_uptake": 7,
+   "exact_match_to_P00519": true,
+   "differences": []
+  },
+  {
+   "sequence": "SIKSDVWAF",
+   "construct_start": 189,
+   "construct_end": 197,
+   "cAbl_start": 417,
+   "cAbl_end": 425,
+   "max_uptake": 8,
+   "exact_match_to_P00519": true,
+   "differences": []
+  },
+  {
+   "sequence": "IATYGMSPYPGIDL",
+   "construct_start": 204,
+   "construct_end": 217,
+   "cAbl_start": 432,
+   "cAbl_end": 445,
+   "max_uptake": 11,
+   "exact_match_to_P00519": true,
+   "differences": []
+  },
+  {
+   "sequence": "YGMSPYPGID",
+   "construct_start": 207,
+   "construct_end": 216,
+   "cAbl_start": 435,
+   "cAbl_end": 444,
+   "max_uptake": 7,
+   "exact_match_to_P00519": true,
+   "differences": []
+  },
+  {
+   "sequence": "YGMSPYPGIDL",
+   "construct_start": 207,
+   "construct_end": 217,
+   "cAbl_start": 435,
+   "cAbl_end": 445,
+   "max_uptake": 8,
+   "exact_match_to_P00519": true,
+   "differences": []
+  },
+  {
+   "sequence": "LEKDYRMERPEGCPEKVYE",
+   "construct_start": 224,
+   "construct_end": 242,
+   "cAbl_start": 452,
+   "cAbl_end": 470,
+   "max_uptake": 16,
+   "exact_match_to_P00519": true,
+   "differences": []
+  },
+  {
+   "sequence": "YRMERPEGCPEKV",
+   "construct_start": 228,
+   "construct_end": 240,
+   "cAbl_start": 456,
+   "cAbl_end": 468,
+   "max_uptake": 10,
+   "exact_match_to_P00519": true,
+   "differences": []
+  },
+  {
+   "sequence": "YRMERPEGCPEKVYE",
+   "construct_start": 228,
+   "construct_end": 242,
+   "cAbl_start": 456,
+   "cAbl_end": 470,
+   "max_uptake": 12,
+   "exact_match_to_P00519": true,
+   "differences": []
+  },
+  {
+   "sequence": "YRMERPEGCPEKVYEL",
+   "construct_start": 228,
+   "construct_end": 243,
+   "cAbl_start": 456,
+   "cAbl_end": 471,
+   "max_uptake": 13,
+   "exact_match_to_P00519": true,
+   "differences": []
+  },
+  {
+   "sequence": "LIRACWQWNPSDRPSF",
+   "construct_start": 243,
+   "construct_end": 258,
+   "cAbl_start": 471,
+   "cAbl_end": 486,
+   "max_uptake": 13,
+   "exact_match_to_P00519": false,
+   "differences": [
+    {
+     "cAbl_residue": 472,
+     "reference": "M",
+     "peptide": "I"
+    }
+   ]
+  },
+  {
+   "sequence": "IRACWQWNPSDRPSF",
+   "construct_start": 244,
+   "construct_end": 258,
+   "cAbl_start": 472,
+   "cAbl_end": 486,
+   "max_uptake": 12,
+   "exact_match_to_P00519": false,
+   "differences": [
+    {
+     "cAbl_residue": 472,
+     "reference": "M",
+     "peptide": "I"
+    }
+   ]
+  },
+  {
+   "sequence": "RACWQWNPSDRPSF",
+   "construct_start": 245,
+   "construct_end": 258,
+   "cAbl_start": 473,
+   "cAbl_end": 486,
+   "max_uptake": 11,
+   "exact_match_to_P00519": true,
+   "differences": []
+  },
+  {
+   "sequence": "CWQWNPSDRPSF",
+   "construct_start": 247,
+   "construct_end": 258,
+   "cAbl_start": 475,
+   "cAbl_end": 486,
+   "max_uptake": 9,
+   "exact_match_to_P00519": true,
+   "differences": []
+  },
+  {
+   "sequence": "CWQWNPSDRPSFA",
+   "construct_start": 247,
+   "construct_end": 259,
+   "cAbl_start": 475,
+   "cAbl_end": 487,
+   "max_uptake": 10,
+   "exact_match_to_P00519": true,
+   "differences": []
+  },
+  {
+   "sequence": "QWNPSDRPSF",
+   "construct_start": 249,
+   "construct_end": 258,
+   "cAbl_start": 477,
+   "cAbl_end": 486,
+   "max_uptake": 7,
+   "exact_match_to_P00519": true,
+   "differences": []
+  },
+  {
+   "sequence": "PSDRPSF",
+   "construct_start": 252,
+   "construct_end": 258,
+   "cAbl_start": 480,
+   "cAbl_end": 486,
+   "max_uptake": 4,
+   "exact_match_to_P00519": true,
+   "differences": []
+  },
+  {
+   "sequence": "AEIHQAF",
+   "construct_start": 259,
+   "construct_end": 265,
+   "cAbl_start": 487,
+   "cAbl_end": 493,
+   "max_uptake": 6,
+   "exact_match_to_P00519": true,
+   "differences": []
+  },
+  {
+   "sequence": "FQESSISDE",
+   "construct_start": 269,
+   "construct_end": 277,
+   "cAbl_start": 497,
+   "cAbl_end": 505,
+   "max_uptake": 8,
+   "exact_match_to_P00519": true,
+   "differences": []
+  },
+  {
+   "sequence": "QESSISDE",
+   "construct_start": 270,
+   "construct_end": 277,
+   "cAbl_start": 498,
+   "cAbl_end": 505,
+   "max_uptake": 7,
+   "exact_match_to_P00519": true,
+   "differences": []
+  },
+  {
+   "sequence": "VEKELGK",
+   "construct_start": 278,
+   "construct_end": 284,
+   "cAbl_start": 506,
+   "cAbl_end": 512,
+   "max_uptake": 6,
+   "exact_match_to_P00519": true,
+   "differences": []
+  }
+ ],
+ "statement": "Sequence-based numbering map only. The input contains no deuterium-uptake values; none are inferred."
+}

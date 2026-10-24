@@ -1,0 +1,104 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "topofold:abl-prereg/trajectory-inventory/1",
+ "title": "ABL WT vs M472I trajectory inventory (requested from D. E. Shaw Research)",
+ "description": "One document per delivery. Records what was received and under which permissions, before any analysis. Values must come from the data provider or from the files themselves; nothing may be inferred from figures.",
+ "type": "object",
+ "required": ["schema_version", "source", "permissions", "systems", "runs"],
+ "additionalProperties": false,
+ "properties": {
+  "schema_version": {"const": "abl-traj-inventory/1"},
+  "source": {
+   "type": "object",
+   "required": ["provider", "received_utc", "reference"],
+   "additionalProperties": false,
+   "properties": {
+    "provider": {"type": "string", "minLength": 1},
+    "received_utc": {"type": "string", "format": "date-time"},
+    "reference": {"type": "string", "description": "e.g. doi:10.1038/s41467-023-36956-5"},
+    "correspondence_record": {"type": "string", "description": "where the provider's written answer is stored (path or identifier)"}
+   }
+  },
+  "permissions": {
+   "type": "object",
+   "required": ["internal_evaluation", "publication_of_derived_results", "redistribution_of_derived_files", "later_commercial_use"],
+   "additionalProperties": false,
+   "properties": {
+    "internal_evaluation": {"$ref": "#/$defs/permission"},
+    "publication_of_derived_results": {"$ref": "#/$defs/permission"},
+    "redistribution_of_derived_files": {"$ref": "#/$defs/permission"},
+    "later_commercial_use": {"$ref": "#/$defs/permission"}
+   }
+  },
+  "systems": {
+   "type": "array", "minItems": 1,
+   "items": {
+    "type": "object",
+    "required": ["system_id", "variant", "ligands", "starting_structure_pdb", "construct_first_cAbl", "construct_last_cAbl",
+                 "numbering", "force_field", "water_model", "temperature_K", "ensemble", "ionic_strength_mM", "protonation_notes"],
+    "additionalProperties": false,
+    "properties": {
+     "system_id": {"type": "string", "minLength": 1},
+     "variant": {"enum": ["WT", "M472I", "F486S", "other"]},
+     "variant_detail": {"type": "string"},
+     "ligands": {"type": "array", "items": {"type": "string"}, "description": "[] for apo; e.g. ['imatinib'], ['imatinib', 'GNF-2']"},
+     "starting_structure_pdb": {"type": "string", "pattern": "^[0-9][A-Za-z0-9]{3}$"},
+     "starting_state_label": {"type": "string", "description": "as stated by the provider, e.g. 'DFG-out/AL-closed'"},
+     "construct_first_cAbl": {"type": "integer"},
+     "construct_last_cAbl": {"type": "integer"},
+     "numbering": {"enum": ["cAbl_1a", "cAbl_1b", "construct"]},
+     "numbering_offset_to_cAbl_1a": {"type": "integer"},
+     "force_field": {"type": "string"},
+     "water_model": {"type": "string"},
+     "temperature_K": {"type": "number", "exclusiveMinimum": 0},
+     "ensemble": {"enum": ["NVT", "NPT", "other"]},
+     "ionic_strength_mM": {"type": "number", "minimum": 0},
+     "protonation_notes": {"type": "string", "description": "e.g. 'Asp381 protonated' or 'default'"}
+    }
+   }
+  },
+  "runs": {
+   "type": "array", "minItems": 1,
+   "items": {
+    "type": "object",
+    "required": ["run_id", "system_id", "independent_start", "length_us", "frame_interval_ns", "n_frames", "atoms_included",
+                 "files"],
+    "additionalProperties": false,
+    "properties": {
+     "run_id": {"type": "string", "minLength": 1},
+     "system_id": {"type": "string"},
+     "independent_start": {"type": "string", "description": "how the run was initialised: e.g. 'same structure, new velocities'; runs sharing a start are conditionally independent, not independent starting states"},
+     "length_us": {"type": "number", "exclusiveMinimum": 0},
+     "frame_interval_ns": {"type": "number", "exclusiveMinimum": 0},
+     "n_frames": {"type": "integer", "minimum": 1},
+     "atoms_included": {"enum": ["all", "protein_heavy", "protein_all", "backbone", "calpha"]},
+     "files": {
+      "type": "array", "minItems": 1,
+      "items": {
+       "type": "object",
+       "required": ["path", "format", "bytes", "sha256"],
+       "additionalProperties": false,
+       "properties": {
+        "path": {"type": "string"}, "format": {"type": "string"},
+        "bytes": {"type": "integer", "minimum": 1},
+        "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+       }
+      }
+     }
+    }
+   }
+  }
+ },
+ "$defs": {
+  "permission": {
+   "type": "object",
+   "required": ["status", "evidence"],
+   "additionalProperties": false,
+   "properties": {
+    "status": {"enum": ["granted", "refused", "conditional", "unknown"]},
+    "conditions": {"type": "string"},
+    "evidence": {"type": "string", "description": "quotation or document reference for the answer"}
+   }
+  }
+ }
+}
