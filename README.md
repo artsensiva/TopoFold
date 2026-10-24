@@ -167,7 +167,10 @@ The development programme, evidence levels (A–E) and the current queue are in
   - No-reply fallback (D56): a public, CC0, replicated Abl set (de Buhr & Gräter, Myr vs noMyr) is specified and frozen
     as ABL-MYR-1 ([`benchmarks/audit/abl_myr_1/`](benchmarks/audit/abl_myr_1/README.md)); its runner and synthetic tests
     are code-frozen (D57). The original run passed G0 and stopped at G1 (`Set2/system.gro` is absent in the published model
-    archives, D58); nothing was computed. It addresses a separate myristoyl/allostery question.
+    archives, D58). A post-hoc amendment (`benchmarks/audit/abl_myr_1a/`, D59) froze and ran an audit of the start files:
+    Set1 start coordinates identical between conditions, Set2 structures copies of Set1's, but the original mdp/topology
+    identity rules fail for Myr vs noMyr by construction (verdict V4); no comparison was run. It addresses a separate
+    myristoyl/allostery question.
 - **Kinase descriptors** (KIN-DESC-1, four public Abl crystal chains, representation capability only):
   - side-chain-aware descriptors reproduce the stated DFG and A-loop labels;
   - Cα κ/τ separates the A-loop contrast in many windows, but DFG only at a few four-point windows

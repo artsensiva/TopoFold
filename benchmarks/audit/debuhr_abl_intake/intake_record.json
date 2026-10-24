@@ -205,7 +205,7 @@
    "backbone XTC trajectories readable by the existing MDAnalysis adapter are documented in PCA.zip"
   ],
   "open_conditions": [
-   "owner decision on a dated ABL-MYR-1 amendment for the missing Set2/system.gro (see benchmarks/audit/abl_myr_1/README.md)"
+   "owner decision on a second dated post-hoc amendment of the ABL-MYR-1 parameter-identity rule (see benchmarks/audit/abl_myr_1a/README.md)"
   ],
   "decided_utc": "2026-10-24"
  },
@@ -213,6 +213,7 @@
  "notes": [
   "Model archives (kinase_*.zip, SH3-SH2-KD_*.zip) contain simulation inputs (.mdp, .top/.itp, .gro starting structures, .tpr) and analysis outputs (.xvg, .dat); no trajectory files are listed in them (README directory tree).",
   "Figshare 10.6084/m9.figshare.4496795 (CC BY 4.0): one 1-µs run of ABL1 242-493 (AMBER99SB-ILDN, 300 K, 250-ps frames, 4000 snapshots) in MDTraj HDF5 (141,949,663 B). Usable only for a loader check, never as replicated evidence; not downloaded, because reading it needs a new HDF5/MDTraj path that the Dryad XTC route does not use.",
-  "2026-10-24 (D58): the published model archives list system.gro for Set1 but not for Set2 (README tree and archive listings agree); the ABL-MYR-1 spec required it in both sets. This intake record's decision (conditional-go) is unchanged; the access condition is met and G0 passed, G1 failed on this member."
+  "2026-10-24 (D58): the published model archives list system.gro for Set1 but not for Set2 (README tree and archive listings agree); the ABL-MYR-1 spec required it in both sets. This intake record's decision (conditional-go) is unchanged; the access condition is met and G0 passed, G1 failed on this member.",
+  "2026-10-24 (D59): the ABL-MYR-1a start-file audit found Set1 start coordinates identical between conditions and Set2 structures identical to Set1's, but mdp index-group names (MYRP) and the water count differ between Myr and noMyr, so the original G4 identity rules fail for any Myr vs noMyr pair (verdict V4). Decision (conditional-go) unchanged."
  ]
 }
