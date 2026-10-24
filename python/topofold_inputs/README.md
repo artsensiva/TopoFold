@@ -106,9 +106,55 @@ PYTHONPATH=python benchmarks/audit/wpd_local_retrieval/build/venv/bin/python -m 
 .venv/bin/python -m pytest tests/test_ca_features.py tests/test_ensemble_compare.py
 ```
 
+**Named backbone and side-chain atoms** (`atom_adapter.py`, `kinase_geometry.py`, v0.1.0; capability "B";
+engineering only).
+- **`extract_atoms(universe, run_id, request)`:** coordinates (Å, every frame) of the requested
+  (residue, atom-name) pairs, in request order. It reuses the Cα adapter's residue identity, chain, unit and provenance
+  rules without modifying that module.
+- **Required atoms per descriptor role:** `KINASE_DESCRIPTOR_ROLES`. The caller maps each role to a residue of its
+  structure; no kinase numbering is built in.
+
+  | Role | Atoms |
+  |---|---|
+  | β3-Lys | CA, CB |
+  | αC-Glu | CB |
+  | αC-Glu+4 | CA |
+  | X-DFG | N, CA, C (its preceding residue: C) |
+  | DFG-Asp | N, CA, C |
+  | DFG-Phe | N, CA, C, CB, CG, CZ |
+  | DFG-Gly | N |
+  | DFGxxX | N |
+  | X-HRD | O |
+
+- **Missing atoms:**
+  - `on_missing="mark"` gives NaN with a per-atom status (`residue_not_found`, `atom_not_found`).
+  - `"reject"` raises.
+  - Nothing is rebuilt or substituted.
+- **Alternate locations are resolved per residue, so one residue never mixes conformers:**
+  - `reject` raises.
+  - `blank_then_A` takes the blank location, else A.
+  - `highest_occupancy` picks one altloc identifier per residue by mean occupancy; a tie raises.
+- **`kinase_descriptors(traj, roles)`:** D1, D2, αC Cβ–Cβ, the A-loop N–O distance, Phe χ1 and φ/ψ of X-DFG, Asp and
+  Phe, using the Modi & Dunbrack 2019 definitions.
+  - A descriptor with a missing atom is NaN, and the atom is named in `missing`.
+  - No thresholds or state labels are applied.
+- **Verification** (`tests/test_atom_adapter.py`, `tests/test_kinase_geometry.py`):
+  - **Policies:** SYNTHETIC missing-atom, altloc, insertion-code and refusal cases.
+  - **Dihedrals:** IUPAC reference cases, and an independent formula on 2,000 SYNTHETIC quadruples (difference
+    < 10⁻¹²).
+  - **Public Abl structures:** on 1OPJ A/B, 1OPK A and 2F4J A, all 44 descriptor values match KIN-DESC-1's independent
+    fixed-column parser. Measured maximum difference: 1.4 × 10⁻⁶ Å and 3.5 × 10⁻⁶ rad.
+  - **Cα consistency:** on 9O0N, which has alternate locations, Cα coordinates are bit-identical to `extract_ca` under
+    both altloc policies.
+- **Limits:**
+  - Tested on PDB-format crystal structures only.
+  - No hydrogens.
+  - No CLI.
+  - Not used in any frozen analysis yet.
+  - This is no claim of biological validation or general kinase performance.
+
 **Not included, and what would activate it.**
-- N/C atoms and φ/ψ: a selected comparison that needs the peptide-plane or φ/ψ target (e.g. the WP-D φ/ψ task).
-- Side-chain features: an application whose state definition depends on side chains (e.g. kinase DFG χ).
+- Full side-chain sets, hydrogens and protection-factor contacts: the ABL protocol's comparator (§6b) at freeze.
 - Streaming: a permitted run whose arrays exceed the memory ceiling (EB-1 R4, 8 GiB).
 - New readers: a permitted dataset in a format MDAnalysis cannot read.
 - Indexing or optimization: a measured bottleneck in a real workflow.
