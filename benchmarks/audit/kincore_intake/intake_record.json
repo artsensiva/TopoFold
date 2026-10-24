@@ -1,0 +1,119 @@
+{
+ "schema": "topofold.dataset-intake/1",
+ "dataset": {
+  "name": "KinCoRe (Kinase Conformation Resource) structure labels",
+  "slug": "kincore",
+  "type": "expert-defined conformational labels of public kinase crystal structures",
+  "description": "Spatial DFG label (DFGin/DFGinter/DFGout), dihedral label (BLAminus, ...), C-helix label per PDB chain, with sequences (PK_labels_PDB.fasta)"
+ },
+ "source": {
+  "primary_reference": "Modi & Dunbrack, PNAS 116:6818-6827 (2019), doi:10.1073/pnas.1814279116; KinCoRe website https://dunbrack.fccc.edu/kincore/ (site states 'Last updated 2026-05-25'); newer criteria preprint doi:10.64898/2026.02.19.706771 (not read)",
+  "doi_or_accession": [
+   "10.1073/pnas.1814279116"
+  ],
+  "url": "https://dunbrack.fccc.edu/kincore/download",
+  "version_or_release": "website files Last-Modified 2026-05-25 (HTTP header)",
+  "accessed_utc": "2026-10-24T15:23:47.388127+00:00"
+ },
+ "licence": {
+  "data_licence_as_stated": null,
+  "licence_url": null,
+  "quoted_text": "No licence or terms of use found on the KinCoRe home, download or about pages (read 2026-10-24). GitHub DunbrackLab/Kincore-standalone2 and -standalone3: no licence file (GitHub API license=none).",
+  "paper_licence": "PNAS 2019 article: CC BY-NC-ND 4.0 (PMC6452665 license element); its supplementary Datasets S1-S3 presumably under the same licence (not downloaded)"
+ },
+ "permissions": {
+  "internal_evaluation": {
+   "status": "unknown",
+   "evidence": "no licence stated for the KinCoRe data; PNAS supplement CC BY-NC-ND 4.0 would make use non-commercial with no redistribution of adapted material"
+  },
+  "publication_of_derived_results": {
+   "status": "unknown",
+   "evidence": "no licence stated for the KinCoRe data; PNAS supplement CC BY-NC-ND 4.0 would make use non-commercial with no redistribution of adapted material"
+  },
+  "redistribution_of_derived_files": {
+   "status": "unknown",
+   "evidence": "no licence stated for the KinCoRe data; PNAS supplement CC BY-NC-ND 4.0 would make use non-commercial with no redistribution of adapted material"
+  },
+  "later_commercial_use": {
+   "status": "unknown",
+   "evidence": "no licence stated for the KinCoRe data; PNAS supplement CC BY-NC-ND 4.0 would make use non-commercial with no redistribution of adapted material"
+  }
+ },
+ "size_and_download": {
+  "total_bytes": null,
+  "files_listed": 2,
+  "downloaded": [
+   "HTML pages (home, download, about) only; no data files"
+  ],
+  "approval_required": true,
+  "approval_obtained": false,
+  "budget_note": "PK_labels_PDB.fasta 5,502,947 bytes (HTTP Content-Length); All coordinate files zip 1,596,199,077 bytes (not needed: structures can come from the PDB, CC0)"
+ },
+ "raw_inventory": {
+  "location": null,
+  "git_ignored": null,
+  "files": []
+ },
+ "independence": {
+  "prior_topofold_use": "none; KIN-DESC-1 used the Modi & Dunbrack definitions (paper text) and 4 Abl chains labelled from Ayaz et al., not KinCoRe labels",
+  "overlap_with_other_datasets": "KinCoRe includes Abl structures (e.g. 1OPJ, 1OPK, 2F4J may be present); KIN-DESC-1 chains must be excluded or reported separately",
+  "labels_from_topofold_output": false,
+  "equal_information_constraints": "KinCoRe labels are computed from side-chain and backbone geometry (D1/D2, dihedrals, C\u03b2 distance). Agreement of TopoFold's kinase_geometry with them is a geometry implementation check, not independent biological validation. For C\u03b1-only representations they are independent expert-defined labels."
+ },
+ "endpoint": {
+  "measurement": "crystallographic conformational state labels assigned by published geometric criteria",
+  "provider": "Dunbrack laboratory (Fox Chase Cancer Center)",
+  "processed_values_available": true,
+  "replicates": null,
+  "significance_rule": null,
+  "conformational": true,
+  "condition_mismatches_with_simulation": []
+ },
+ "replicates": {
+  "conditions": [],
+  "runs_per_condition": {},
+  "run_lengths": null,
+  "frame_interval": null,
+  "run_independence": "not applicable (static structures); several chains/entries per kinase are not independent samples",
+  "temporal_dependence_notes": null,
+  "incomplete_runs": null
+ },
+ "mapping": {
+  "reference_numbering": "UniProt (KinCoRe provides UniProt-renumbered files and an alignment)",
+  "method": "to verify by exact sequence matching per chain",
+  "offsets": {},
+  "mismatches": [],
+  "chain_rule": null,
+  "atoms_available": "PDB heavy atoms",
+  "atoms_needed": "backbone N, CA, C, O and CB/CG/CZ of DFG-Phe, CB of K and E (atom_adapter roles)"
+ },
+ "missing_data_and_exclusions": {
+  "unobserved": null,
+  "exclusion_rules": [],
+  "counts": {}
+ },
+ "decision": {
+  "value": "conditional-go",
+  "allowed_values": [
+   "go",
+   "conditional-go",
+   "no-go"
+  ],
+  "reasons": [
+   "labels are expert-defined, conformational and independent of TopoFold's C\u03b1 outputs",
+   "size is small (5.5 MB labels; structures from PDB)",
+   "licence and permitted use are not stated; the paper's CC BY-NC-ND 4.0 would limit use to non-commercial, without redistribution of adapted labels"
+  ],
+  "open_conditions": [
+   "Owner decision: use KinCoRe labels for internal, non-commercial evaluation without a stated licence, or obtain written permission from the Dunbrack laboratory (owner contact; nothing sent by me)",
+   "If permitted: download PK_labels_PDB.fasta (5.5 MB), record SHA-256, and draw the PDB structures from RCSB (CC0) within a stated budget",
+   "Results based on these labels would be internal and non-commercial unless the permission says otherwise"
+  ],
+  "decided_utc": "2026-10-24T15:23:47.388127+00:00"
+ },
+ "sent_externally": "nothing",
+ "notes": [
+  "No data file was downloaded. Only HTML pages and HTTP headers were read.",
+  "Nothing was sent externally."
+ ]
+}
