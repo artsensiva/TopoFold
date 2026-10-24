@@ -1,0 +1,118 @@
+{
+ "id": "MPRO-DATASET-SEARCH-1",
+ "listed_utc": "2026-10-24T14:21:51.821944+00:00",
+ "bucket": "https://fah-public-data-covid19-moonshot-dynamics.s3.us-east-2.amazonaws.com",
+ "prefix": "SARS-CoV-2-Mpro-Diamond-structures/",
+ "license": "CC0 (AWS Open Data registry entry 'foldingathome-covid19')",
+ "metadata_files": {
+  "fah-README.md": {
+   "source_key": "SARS-CoV-2-Mpro-Diamond-structures/setup/README.md",
+   "bytes": 1976,
+   "sha256": "7edbfbca9adbd6c1dee1a3a737a5b886520c18e13f08c515e80d34eed753993b"
+  },
+  "fah-metadata.csv": {
+   "source_key": "SARS-CoV-2-Mpro-Diamond-structures/setup/fah-metadata.csv",
+   "bytes": 43479,
+   "sha256": "300076cdaaca5a204f4e5cb6ebe7b0c9d53e31007d63d89c813f6146f22f9e6f"
+  }
+ },
+ "projects": {
+  "13430": {
+   "runs_with_files": 305,
+   "files": 2625,
+   "total_GB": 90.69,
+   "clones_per_run_distribution": {
+    "8": 120,
+    "9": 185
+   },
+   "file_MB_median": 44.7,
+   "file_MB_min": 1.2,
+   "file_MB_max": 46.0
+  },
+  "13431": {
+   "runs_with_files": 320,
+   "files": 1882,
+   "total_GB": 50.68,
+   "clones_per_run_distribution": {
+    "5": 38,
+    "6": 282
+   },
+   "file_MB_median": 28.3,
+   "file_MB_min": 1.18,
+   "file_MB_max": 45.9
+  },
+  "13432": {
+   "runs_with_files": 304,
+   "files": 2577,
+   "total_GB": 90.85,
+   "clones_per_run_distribution": {
+    "8": 159,
+    "9": 145
+   },
+   "file_MB_median": 45.1,
+   "file_MB_min": 0.31,
+   "file_MB_max": 46.7
+  },
+  "13433": {
+   "runs_with_files": 319,
+   "files": 1864,
+   "total_GB": 51.61,
+   "clones_per_run_distribution": {
+    "5": 50,
+    "6": 269
+   },
+   "file_MB_median": 28.4,
+   "file_MB_min": 0.31,
+   "file_MB_max": 46.4
+  },
+  "13434": {
+   "runs_with_files": 305,
+   "files": 3039,
+   "total_GB": 171.37,
+   "clones_per_run_distribution": {
+    "9": 11,
+    "10": 294
+   },
+   "file_MB_median": 65.5,
+   "file_MB_min": 0.61,
+   "file_MB_max": 91.1
+  },
+  "13435": {
+   "runs_with_files": 320,
+   "files": 2329,
+   "total_GB": 96.88,
+   "clones_per_run_distribution": {
+    "6": 17,
+    "7": 197,
+    "8": 106
+   },
+   "file_MB_median": 41.7,
+   "file_MB_min": 1.21,
+   "file_MB_max": 90.9
+  },
+  "13436": {
+   "runs_with_files": 304,
+   "files": 3037,
+   "total_GB": 172.56,
+   "clones_per_run_distribution": {
+    "9": 3,
+    "10": 301
+   },
+   "file_MB_median": 66.3,
+   "file_MB_min": 0.62,
+   "file_MB_max": 91.7
+  },
+  "13437": {
+   "runs_with_files": 319,
+   "files": 3190,
+   "total_GB": 128.08,
+   "clones_per_run_distribution": {
+    "10": 319
+   },
+   "file_MB_median": 38.3,
+   "file_MB_min": 2.35,
+   "file_MB_max": 91.4
+  }
+ },
+ "statement": "Object listing only; no trajectory downloaded. Trajectory lengths are not verified from file contents."
+}
