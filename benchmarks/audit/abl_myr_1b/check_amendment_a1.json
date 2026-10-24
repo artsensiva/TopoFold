@@ -1,0 +1,25 @@
+{
+ "id": "ABL-MYR-1b-CHECK-a1",
+ "date": "2026-10-24",
+ "kind": "dated amendment of the frozen ABL-MYR-1b comparability check after an implementation defect; post-hoc like the check itself",
+ "original_attempt": {
+  "results": "results/ABL-MYR-1b_check_results_attempt1.json",
+  "report": "results/ABL-MYR-1b_check_report_attempt1.md",
+  "npz": "results/ABL-MYR-1b_production_start_ca_attempt1.npz",
+  "results_sha256": "68bb15af45aabe7a2512e40e5e0d8e671eec10e0aa3e1331f976f94518f45bca",
+  "outcome": "check_incomplete, stop S3: ValueError: duplicate index group 'MYRP'",
+  "note": "the attempt files were renamed with the suffix _attempt1 and are otherwise unchanged; nothing was computed after the stop (no md.tpr was loaded)"
+ },
+ "defect": "parse_ndx in the frozen run_comp_check.py rejects a repeated group name. GROMACS index files may repeat names: the published index.ndx files repeat the make_ndx default residue-name groups (ATP, MG, NA, CL, and MYRP in the Myr system). The tc groups named in production_md.mdp are not among the repeated names (seen from the group headers and sizes only, after the stop)",
+ "change": {
+  "parse_ndx": "repeated names are accepted; a name whose occurrences have identical atom lists keeps that list; a name whose occurrences differ is marked ambiguous",
+  "tc_group_check": "a tc group whose name is ambiguous fails the K3 rule with the cause 'ambiguous group'; otherwise the frozen rule is applied unchanged"
+ },
+ "unchanged": "check_spec.json (questions, rules, constants, criteria K1-K5, stop conditions, budget) and every other function of run_comp_check.py, which is imported byte-identical; no threshold is changed",
+ "outputs": [
+  "results/ABL-MYR-1b_check_a1_results.json",
+  "results/ABL-MYR-1b_check_a1_report.md",
+  "results/ABL-MYR-1b_production_start_ca_a1.npz"
+ ],
+ "extraction_dir": "benchmarks/audit/abl_myr_1/data_dryad/extracted_1b_a1/ (git-ignored)"
+}

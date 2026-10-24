@@ -1,0 +1,22 @@
+{
+  "id": "ABL-MYR-1b-CHECK-a1",
+  "frozen_utc": "2026-10-24T21:46:49.191031+00:00",
+  "amendment_sha256": "89251fb2f61e26d7d01fef4f617cb1fee96ea2785d7e4580438b07d8e509e060",
+  "code": {
+    "path": "benchmarks/audit/abl_myr_1b/run_comp_check_a1.py",
+    "sha256": "ffab0d5bb7ad24167471934f1c962050c0e3074fb3c47a77e3a507233ceb1032"
+  },
+  "test": {
+    "tests/test_abl_myr_1b_check_a1.py": "c060d2b8d1e413b9c4dae65fb8163df4f2b21b35ce4acdde887180939b7efab1"
+  },
+  "frozen_check": {
+    "spec_sha256": "cbfe491bee722fa55d784f8977e3fe37647d2fff01e37a5be9d229d6552c4efd",
+    "code_sha256": "a69c8a8e08f7cead8f99a4a1e3128b77ed105f7d02a8f6f731e7736893627492",
+    "freeze_record_sha256": "ab04412eb13f3603b8940679a5b49332fe87b6841ba6949244f6ea2132245153"
+  },
+  "attempt1_sha256": {
+    "benchmarks/audit/abl_myr_1b/results/ABL-MYR-1b_check_results_attempt1.json": "68bb15af45aabe7a2512e40e5e0d8e671eec10e0aa3e1331f976f94518f45bca",
+    "benchmarks/audit/abl_myr_1b/results/ABL-MYR-1b_check_report_attempt1.md": "dac8ceaf49696bb1241d65f91b8d7927716f0c0e89030623595818e7622cb9fc",
+    "benchmarks/audit/abl_myr_1b/results/ABL-MYR-1b_production_start_ca_attempt1.npz": "8739c76e681f900923b900c9df0ef75cf421d39cabb54650c4b9ad19b6a76d85"
+  }
+}

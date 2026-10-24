@@ -1,0 +1,29 @@
+{
+  "id": "ABL-MYR-1b-CHECK",
+  "frozen_utc": "2026-10-24T21:44:11.048301+00:00",
+  "spec_sha256": "cbfe491bee722fa55d784f8977e3fe37647d2fff01e37a5be9d229d6552c4efd",
+  "code": {
+    "path": "benchmarks/audit/abl_myr_1b/run_comp_check.py",
+    "sha256": "a69c8a8e08f7cead8f99a4a1e3128b77ed105f7d02a8f6f731e7736893627492"
+  },
+  "test": {
+    "tests/test_abl_myr_1b_check.py": "469cacc6c4c53ffb8315b37ba08d799a0e4dd43fed94778fa23e320121188365"
+  },
+  "preserved_sha256": {
+    "benchmarks/audit/abl_myr_1/run_spec.json": "f8825840ee6812268b1f1ee587affff0559e9ccb9a7da2b24b3a7bddcfd95e98",
+    "benchmarks/audit/abl_myr_1/run_abl_myr.py": "419981810da0e105b6295f94b1b522f0168f8f69407f6d02293a85bf64dc9e6c",
+    "benchmarks/audit/abl_myr_1/g1_member_audit.py": "632620397a7fb32f2b9cd9026e756420813f7c7fb73aa02c49f6164e8727d01e",
+    "benchmarks/audit/abl_myr_1/results/ABL-MYR-1_freeze.json": "3066d9fe0dcf78f36b30fc06760ec4c19c3d09f43bad106afbfef24591d8b025",
+    "benchmarks/audit/abl_myr_1/results/ABL-MYR-1_code_freeze.json": "159cfdee9086776df066c0ccadfaf763b362947cd7c16b618702572cb83270d1",
+    "benchmarks/audit/abl_myr_1/results/ABL-MYR-1_blocked.json": "929af481470987a103e0648ccb4f1ccb8a7fa1c8c9039598bfe7097020aa275d",
+    "benchmarks/audit/abl_myr_1/results/ABL-MYR-1_g1_member_audit.json": "bdf785e1ff47af1327e576ecda8506243e522207b32ee974dc51d0ba3f97a9cd",
+    "benchmarks/audit/abl_myr_1a/audit_spec.json": "37be59e248f90c3b872189bfbad944a771db1886cc1ceb2aeac1b1a3f6464d96",
+    "benchmarks/audit/abl_myr_1a/run_init_audit.py": "2d8b47028ad36ccb39bc1429365d025538c3eadd0a313d1c10e33acffc35e664",
+    "benchmarks/audit/abl_myr_1a/results/ABL-MYR-1a_audit_freeze.json": "533af16382a2a85ec8cc2b5b68db39535402008a74f941a286aa22436c9bf830",
+    "benchmarks/audit/abl_myr_1a/results/ABL-MYR-1a_audit_results.json": "638f4c6e78e60cb2f7f6d488f2e157c954886d7235dc3b08c69d0f97429914cc",
+    "benchmarks/audit/abl_myr_1a/results/ABL-MYR-1a_audit_report.md": "d834bee2f7d551d9336ffafa0a9af8f8284de549e744177df7bc563a8d88251a"
+  },
+  "frozen_runner_matches_original_code_freeze": true,
+  "extracted_before_freeze": [],
+  "gromacs_available": false
+}

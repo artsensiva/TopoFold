@@ -1,0 +1,62 @@
+{
+ "id": "ABL-MYR-1b-CHECK",
+ "kind": "post-hoc comparability check of the 40 production run inputs (md.tpr) and the equilibration/production parameter files, before any ABL-MYR-1b protocol is written. No trajectory is opened, no descriptor computed, no condition difference in dynamics scored",
+ "post_hoc": true,
+ "date": "2026-10-24",
+ "relation_to_earlier": "ABL-MYR-1 (blocked at G1) and ABL-MYR-1a (initialization audit, verdict V4_set1_comparability_failed) are preserved unchanged and remain valid. This check does not overturn V4: V4 states that the ORIGINAL G4 identity rules fail. This check gathers comparability evidence under new, explicitly post-hoc criteria, so that a separate ABL-MYR-1b protocol can be written only if they pass",
+ "already_seen_before_this_freeze": "ABL-MYR-1a results: system.gro/system_em.gro protein comparisons, the differing production_md.mdp lines (compressed-x-grps, tc_grps naming MYRP), the topol.top water counts (29949 vs 29938), md.tpr topology digests, residue counts per md.tpr, and the flag that MDAnalysis returns md.tpr positions. NOT seen: any md.tpr coordinate or velocity value, nvt.mdp, npt.mdp, index.ndx contents",
+ "inputs": {
+  "archives": ["kinase_kinked_Myr.zip", "kinase_kinked_noMyr.zip"],
+  "archive_hashes": "sizes and SHA-256 of ABL-MYR-1/run_spec.json re-verified first",
+  "members": {"each of Set1, Set2 and each condition": ["nvt.mdp", "npt.mdp", "production_md.mdp", "index.ndx", "topol.top", "system_em.gro", "<rep>/md.tpr (Set1 11..20, Set2 21..30)"]},
+  "not_read": ["PCA.zip and every XTC (no trajectory)", "nvt.tpr, npt.tpr", "every other archive"],
+  "extraction_dir": "benchmarks/audit/abl_myr_1/data_dryad/extracted_1b/ (git-ignored), with the frozen ABL-MYR-1 resolver and traversal-safe extractor"
+ },
+ "tools": {
+  "gromacs": "not installed (no gmx, gmx_mpi or gmx_d; no package manager available); gmx dump/check cannot be used",
+  "tpr_reader": "MDAnalysis 2.10.0 (positions, velocities if present, box, bonds, charges, masses, residue names)",
+  "independent_validation": "(a) atom order: the full-system atom-name sequence of each md.tpr equals that of the same-set, same-condition system_em.gro parsed as text by the frozen runner's parser; (b) physics: every protein bond of the tpr bond list has a minimum-image length in [0.9, 2.3] Å; (c) cross-file geometry: the md.tpr Cα trace, made whole along the chain by minimum image, superposes on the text-parsed system_em.gro Cα trace (made whole the same way) with Cα RMSD <= 1.0 Å. The Kabsch superposition is implemented here in NumPy (SVD), independent of the MDAnalysis reader. Basis for (c): the eLife Methods restrain backbone heavy atoms (1000 kJ/mol/nm^2) during the 0.1 ns NVT and 1 ns NPT equilibration between minimization and production"
+ },
+ "do_not": "Set2 system_em.gro is used only as the validation reference for Set2 run inputs, never as a production start",
+ "budget": {"download_bytes_max": 0, "extracted_bytes_max": 1000000000, "cpu_seconds_max": 1800},
+ "constants": {"bond_min_A": 0.9, "bond_max_A": 2.3, "ca_rmsd_to_em_max_A": 1.0, "identical_start_rmsd_A": 0.01,
+               "sol_relative_difference_max": 0.01, "net_charge_difference_max_e": 0.5, "ref_t_K": "300"},
+ "questions": {
+  "R1_usable_coordinates": "Do the 40 md.tpr files provide usable production-start coordinates? Per run: positions finite and box present; validation (a), (b), (c)",
+  "R2_production_start_geometry": "Per run: Cα RMSD to its system_em.gro reference, Cα radius of gyration, box volume, velocities present. Pairwise Cα and protein heavy-atom RMSD after optimal superposition, separately for: within condition (per set, 45 pairs per condition), between conditions (per set, 100 pairs), and Set1 vs Set2 within a condition (100 pairs). Counts of pairs below 0.01 Å Cα RMSD; distinct velocity sets",
+  "R3_tc_groups": "Which atoms each production tc-grps group contains (index.ndx groups mapped onto the md.tpr atom order): residue composition, whether the groups partition the system",
+  "R4_thermostat_and_coupling": "For nvt.mdp, npt.mdp and production_md.mdp in each set: every key compared between conditions; ref_t of every group; tau_t, tcoupl, pcoupl and all other keys; stated initialization (gen_vel, gen_seed, gen_temp, continuation, define)",
+  "R5_composition": "From every md.tpr: complete residue-name counts (protein, ligands, solvent, ions), atom count, net charge (sum of charges, e)",
+  "R6_classification": "Every observed difference between conditions classified as inherent to the Myr model, potential confound, or not separable from Myr presence (rules below)"
+ },
+ "rules": {
+  "mdp_value_equivalence": "two values are equal if identical after whitespace normalization; a difference is 'inherent_group_name' if removing every 'MYRP' component from the underscore-joined group tokens of the Myr value yields the noMyr value; any other difference is a 'potential_confound'",
+  "tc_group_content": "each tc group of production_md.mdp must exist in index.ndx; the groups must partition all atoms (no atom twice, none missing); the coupling group of the solute may contain only protein residues, ATP, MG and (Myr condition only) MYRP; the solvent group only SOL, NA and CL",
+  "composition": "residue-name counts must be identical between conditions except MYRP (present only with Myr) and SOL (|difference| <= 1 % of the noMyr count); |net charge difference| <= 0.5 e",
+  "classification": {
+   "inherent_to_Myr_model": ["MYRP present only in the Myr system", "group names differing only by MYRP", "SOL count difference within 1 % (the solvent fills the volume the Myr does not occupy)"],
+   "potential_confound": ["any other mdp key difference", "any ion or other residue count difference", "a SOL difference above 1 %", "a net charge difference above 0.5 e", "a tc group content outside the rule"],
+   "not_separable_from_Myr_presence": ["differences between Myr and noMyr production-start geometries: both conditions are equilibrated with or without Myr bound, so such differences are not attributed to Myr and are not called confounds"]
+  }
+ },
+ "criteria_all_required": {
+  "K1_usable_coordinates": "all 40 md.tpr: finite positions and a box; validations (a), (b) and (c) pass for every run",
+  "K2_thermostat_comparable": "for every mdp file type and set: no potential_confound difference; every ref_t value equals 300; the number of tc groups equal between conditions",
+  "K3_tc_groups": "the tc group content rule holds for every set and condition",
+  "K4_composition": "the composition rule holds in both sets",
+  "K5_replicates_not_copies": "within each set and condition, the 10 production starts are not all copies: they comprise at least 2 distinct starts (Cα RMSD > 0.01 Å), or velocities are available and not all identical"
+ },
+ "descriptive_only": ["R2 within- vs between-condition RMSD distributions (no threshold, no test)", "box volumes", "Set1 vs Set2 comparisons"],
+ "outcome": {
+  "comparable_for_1b": "K1-K5 all pass. A separate ABL-MYR-1b protocol may then be written and hash-frozen before any trajectory is opened",
+  "not_comparable": "any criterion fails: stop and report the failing criteria. No threshold is relaxed afterwards"
+ },
+ "stop_conditions": {
+  "S1": "an archive size or SHA-256 differs from ABL-MYR-1/run_spec.json",
+  "S2": "a member is missing or matches more than once",
+  "S3": "an mdp, ndx, top or gro file cannot be parsed (an unreadable md.tpr is a K1 failure, not a stop)",
+  "S4": "the extracted size or CPU budget is exceeded"
+ },
+ "interpretation_limits": ["shared start means: both conditions derive from identical pre-minimization protein coordinates (ABL-MYR-1a Q1, Q4) and, if K1-K5 pass, comparable run inputs; production starts are post-equilibration and differ by the equilibration of each system", "no causal Myr claim; nothing about Ayaz WT/M472I, HDX, drug response or biological function"],
+ "outputs": ["results/ABL-MYR-1b_check_results.json", "results/ABL-MYR-1b_check_report.md (generated from the JSON)", "results/ABL-MYR-1b_production_start_ca.npz (per-run whole Cα traces, Å)"]
+}

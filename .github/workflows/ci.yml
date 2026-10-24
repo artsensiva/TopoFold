@@ -105,6 +105,7 @@ jobs:
         run: >-
           python -m pytest tests/test_ca_adapter.py tests/test_atom_adapter.py tests/test_kinase_geometry.py
           tests/test_kinase_roles.py tests/test_kinase_roles_structure.py tests/test_abl_myr_runner_mda.py tests/test_abl_myr_1a_audit.py
+          tests/test_abl_myr_1b_check.py tests/test_abl_myr_1b_check_a1.py
           -v -rs --junitxml=adapter-tests.xml
 
       - name: Only tests needing git-ignored public structures may skip
