@@ -205,7 +205,7 @@
    "backbone XTC trajectories readable by the existing MDAnalysis adapter are documented in PCA.zip"
   ],
   "open_conditions": [
-   "independent scientific review of benchmarks/audit/abl_myr_1b/PROTOCOL_1B.md; then a code-frozen implementation wrapper before any trajectory is opened (owner decision)"
+   "owner decision whether the post-hoc ABL-MYR-1b record suffices or a further (for example human) review is wanted before citation"
   ],
   "decided_utc": "2026-10-24"
  },
@@ -216,6 +216,7 @@
   "2026-10-24 (D58): the published model archives list system.gro for Set1 but not for Set2 (README tree and archive listings agree); the ABL-MYR-1 spec required it in both sets. This intake record's decision (conditional-go) is unchanged; the access condition is met and G0 passed, G1 failed on this member.",
   "2026-10-24 (D59): the ABL-MYR-1a start-file audit found Set1 start coordinates identical between conditions and Set2 structures identical to Set1's, but mdp index-group names (MYRP) and the water count differ between Myr and noMyr, so the original G4 identity rules fail for any Myr vs noMyr pair (verdict V4). Decision (conditional-go) unchanged.",
   "2026-10-24 (D60, wording corrected 2026-10-25 in D63): ABL-MYR-1b run-input check: for the inspected tc groups, thermostat settings and composition, the differences detected between conditions are those expected from the presence of Myr and no unexpected difference was detected (not proof of no confound); production-start comparability was unverified because the md.tpr box was not exposed by MDAnalysis and GROMACS was not installed (K1). Decision (conditional-go) unchanged.",
-  "2026-10-25 (D61): clarification: the ABL-MYR-1b a1 K1 outcome meant production-start comparability was not established (box not exposed by the reader), not that the systems are incomparable. Amendment a2 read the 40 production run inputs independently with GROMACS 2024.5 and passed K1-K5 (criteria passed; not proof of no confound). A post-hoc ABL-MYR-1b protocol is frozen for independent review; no trajectory opened. Decision (conditional-go) unchanged."
+  "2026-10-25 (D61): clarification: the ABL-MYR-1b a1 K1 outcome meant production-start comparability was not established (box not exposed by the reader), not that the systems are incomparable. Amendment a2 read the 40 production run inputs independently with GROMACS 2024.5 and passed K1-K5 (criteria passed; not proof of no confound). A post-hoc ABL-MYR-1b protocol is frozen for independent review; no trajectory opened. Decision (conditional-go) unchanged.",
+  "2026-10-25 (D65): ABL-MYR-1b comparison executed once after an independent AI review and a dated amendment (wrapper frozen before PCA.zip was opened): all gates passed; outcome 'baselines cover TopoFold (post-hoc, descriptive)'; no TopoFold-only residue; alphaI (518-531) not represented in the topology. Descriptive evidence only; not evidence about Ayaz WT/M472I, HDX or biology."
  ]
 }

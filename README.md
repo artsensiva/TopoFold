@@ -172,8 +172,10 @@ The development programme, evidence levels (A–E) and the current queue are in
     identity rules fail for Myr vs noMyr by construction (verdict V4); no comparison was run. A further post-hoc check of the
     production run inputs (`benchmarks/audit/abl_myr_1b/`, D60, D61) first could not establish production-start comparability
     (the reader did not expose the stored box; not proof of incomparability), then passed its frozen criteria K1-K5 when read
-    independently with GROMACS 2024.5. A separate post-hoc ABL-MYR-1b trajectory-comparison protocol is frozen for independent
-    scientific review; no trajectory has been opened. It addresses a separate myristoyl/allostery question.
+    independently with GROMACS 2024.5. The post-hoc ABL-MYR-1b trajectory-comparison protocol was then reviewed (independent AI
+    review), amended and run once (D65): all gates passed and, by the frozen descriptive rule, the equal-information Cα baselines
+    cover every residue TopoFold flags (no TopoFold-only residue); the αI helix is not represented, so no αI or Myr-pocket claim
+    is made. It addresses a separate myristoyl/allostery question and is not evidence about Ayaz WT/M472I, HDX or biology.
 - **Kinase descriptors** (KIN-DESC-1, four public Abl crystal chains, representation capability only):
   - side-chain-aware descriptors reproduce the stated DFG and A-loop labels;
   - Cα κ/τ separates the A-loop contrast in many windows, but DFG only at a few four-point windows
