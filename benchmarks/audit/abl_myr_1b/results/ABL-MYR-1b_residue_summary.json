@@ -1,0 +1,321 @@
+{
+ "numbering": "isoform 1b (UniProt P00519-2); topology resid equals the reference index",
+ "outcome_label": "baselines cover TopoFold (post-hoc, descriptive)",
+ "decision_rule_step": 4,
+ "topology_residue_range": [
+  254,
+  504
+ ],
+ "n_residues": 251,
+ "sets": {
+  "Set1": {
+   "retained_runs": {
+    "Myr": 10,
+    "noMyr": 10
+   },
+   "leave_one_run_out_recomputations": 20,
+   "windows_robust_in_set": {
+    "kappa": 21,
+    "tau": 16,
+    "d_i_i2": 20,
+    "d_i_i3": 30,
+    "rmsf": 10,
+    "phi": 20,
+    "psi": 15
+   }
+  },
+  "Set2": {
+   "retained_runs": {
+    "Myr": 10,
+    "noMyr": 10
+   },
+   "leave_one_run_out_recomputations": 20,
+   "windows_robust_in_set": {
+    "kappa": 20,
+    "tau": 17,
+    "d_i_i2": 21,
+    "d_i_i3": 16,
+    "rmsf": 20,
+    "phi": 14,
+    "psi": 18
+   }
+  }
+ },
+ "windows_robust_in_both_sets": {
+  "kappa": 13,
+  "tau": 6,
+  "d_i_i2": 12,
+  "d_i_i3": 13,
+  "rmsf": 3,
+  "phi": 10,
+  "psi": 12
+ },
+ "R_T": {
+  "residues": [
+   277,
+   278,
+   279,
+   346,
+   347,
+   348,
+   358,
+   359,
+   360,
+   361,
+   362,
+   363,
+   364,
+   365,
+   445,
+   446,
+   447,
+   452,
+   453,
+   454,
+   478,
+   479,
+   480,
+   481,
+   482,
+   483,
+   484,
+   485,
+   486,
+   487,
+   488,
+   489,
+   490,
+   491
+  ],
+  "segments": [
+   [
+    277,
+    279
+   ],
+   [
+    346,
+    348
+   ],
+   [
+    358,
+    365
+   ],
+   [
+    445,
+    447
+   ],
+   [
+    452,
+    454
+   ],
+   [
+    478,
+    491
+   ]
+  ],
+  "count": 34
+ },
+ "R_B": {
+  "residues": [
+   277,
+   278,
+   279,
+   317,
+   346,
+   347,
+   348,
+   349,
+   356,
+   359,
+   360,
+   361,
+   362,
+   363,
+   364,
+   365,
+   366,
+   445,
+   446,
+   447,
+   449,
+   450,
+   451,
+   452,
+   453,
+   454,
+   477,
+   478,
+   479,
+   480,
+   481,
+   482,
+   483,
+   484,
+   485,
+   486,
+   488,
+   489,
+   490,
+   491
+  ],
+  "segments": [
+   [
+    277,
+    279
+   ],
+   [
+    317
+   ],
+   [
+    346,
+    349
+   ],
+   [
+    356
+   ],
+   [
+    359,
+    366
+   ],
+   [
+    445,
+    447
+   ],
+   [
+    449,
+    454
+   ],
+   [
+    477,
+    486
+   ],
+   [
+    488,
+    491
+   ]
+  ],
+  "count": 40
+ },
+ "R_T_outside_N2_R_B": {
+  "residues": [],
+  "segments": [],
+  "count": 0
+ },
+ "R_B_outside_N2_R_T": {
+  "residues": [
+   317
+  ],
+  "segments": [
+   [
+    317
+   ]
+  ],
+  "count": 1
+ },
+ "R_phi_psi": {
+  "residues": [
+   359,
+   360,
+   361,
+   363,
+   364,
+   448,
+   453,
+   454,
+   479,
+   480,
+   481,
+   482,
+   483,
+   484,
+   488
+  ],
+  "segments": [
+   [
+    359,
+    361
+   ],
+   [
+    363,
+    364
+   ],
+   [
+    448
+   ],
+   [
+    453,
+    454
+   ],
+   [
+    479,
+    484
+   ],
+   [
+    488
+   ]
+  ],
+  "count": 15
+ },
+ "R_T_and_R_B_overlap": {
+  "residues": [
+   277,
+   278,
+   279,
+   346,
+   347,
+   348,
+   359,
+   360,
+   361,
+   362,
+   363,
+   364,
+   365,
+   445,
+   446,
+   447,
+   452,
+   453,
+   454,
+   478,
+   479,
+   480,
+   481,
+   482,
+   483,
+   484,
+   485,
+   486,
+   488,
+   489,
+   490,
+   491
+  ],
+  "count": 32
+ },
+ "alpha_I": {
+  "residues_isoform_1b": "518-531",
+  "reference_span": [
+   254,
+   504
+  ],
+  "not_represented": [
+   518,
+   519,
+   520,
+   521,
+   522,
+   523,
+   524,
+   525,
+   526,
+   527,
+   528,
+   529,
+   530,
+   531
+  ],
+  "represented": false,
+  "consequence": "alphaI is not (fully) represented: the analysis is limited to the represented kinase-domain residues and no claim is made about the alphaI helix or the Myr-binding region"
+ }
+}
