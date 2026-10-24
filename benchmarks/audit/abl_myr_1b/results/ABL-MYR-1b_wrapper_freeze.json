@@ -1,0 +1,83 @@
+{
+  "id": "ABL-MYR-1b-WRAPPER",
+  "code_frozen_utc": "2026-10-24T22:40:06.084356+00:00",
+  "wrapper": {
+    "path": "benchmarks/audit/abl_myr_1b/run_abl_myr_1b.py",
+    "sha256": "b1ca747835c645f82c716e2ebad4e6cd9b5b95bbde22324b4a1991297db7df67"
+  },
+  "tests_sha256": {
+    "tests/test_abl_myr_1b_wrapper.py": "5accc43eb222d0f2120618b3acca4963b3af656f2cacf3812d670ae692b7b237"
+  },
+  "dependencies_sha256": {
+    "benchmarks/audit/abl_myr_1/run_abl_myr.py": "419981810da0e105b6295f94b1b522f0168f8f69407f6d02293a85bf64dc9e6c",
+    "benchmarks/audit/abl_myr_1b/write_protocol_1b.py": "1b6a5dae0a3fbdf77a4a4f949e479c92427b6fa7c2ea81bdabee7b9d9841b22e",
+    "benchmarks/audit/abl_myr_1b/results/ABL-MYR-1b_protocol_amendment_a1_freeze.json": "50b8952f3be92a7a61872486796bdef5108844cb911da26ecdabc1f4895014d7",
+    "benchmarks/audit/abl_myr_1b/results/ABL-MYR-1b_protocol_freeze.json": "7ca5782f4f7bed80f5df9d20af4e57fc3e1f8512aea84ae76c4355b873a7c7de",
+    "benchmarks/audit/abl_myr_1b/protocol_amendment_a1_ERRATUM.md": "8babaea36aac6eb93ccd5f6180a720b84acfcb890422bf19bfba0ed5c5c0faf7",
+    "benchmarks/audit/abl_myr_1b/REVIEW_2026-10-25_independent_AI.md": "f0b634e8063e1fb276d4cdd42e9bec71ae34a7eba631b0042a0c6ac2b1021fd4",
+    "python/topofold_inputs/ensemble.py": "25d86d5cc439addb484a69d5001e76ce62e5d41f6f5d9b98c1f42d88b5120f97",
+    "python/topofold_inputs/features.py": "9138358ce5040a8dc1e2ff5692e6d3aa77e5334bfb840cc3e8620ca46598271e",
+    "python/topofold_inputs/compare.py": "a7494c6ae1c1813a150572e7f44ee69ebc3190873ba83a3a6be4e438effb3422",
+    "python/topofold_inputs/ca_adapter.py": "0dfd026fae6e549b5fedc151e3c0f2636db83069c295c5a138d129979052bb67",
+    "python/topofold_inputs/atom_adapter.py": "f08e2e88ca85b5bf46e61540e7203533d1e1c333e42384598edcd4df81870aaa",
+    "python/topofold_inputs/kinase_geometry.py": "04987c6807dc830e14623ef014ff69b5265768632d0b7e4948270645c870d9d0",
+    "python/topofold_inputs/kinase_roles.py": "d1786db4675cc470ee3cec5acdc973b0fc19b3d17886753ed3a41d8f4728c56e",
+    "python/topofold_inputs/__main__.py": "888f28422877b6128d6f6ce117d9ff02d5f979f588e69304036e13c8c7ff839f"
+  },
+  "amendment_sha256": "66ffab08a2d01ca743a055cbfb56212c71f54d362e3981913dcc17ab86edf767",
+  "frozen_cfg": {
+    "conditions": {
+      "Myr": "kinase_kinked_Myr",
+      "noMyr": "kinase_kinked_noMyr"
+    },
+    "sets": {
+      "Set1": [
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "Set2": [
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ]
+    },
+    "t_min_ps": 1000000.0,
+    "dt_ps": 2000.0,
+    "dt_tol_ps": 10.0,
+    "min_frames": 450,
+    "min_runs": 8,
+    "max_excluded_fraction": 0.05,
+    "gro_tol_nm": 0.001,
+    "bins": 36,
+    "max_lag": 50,
+    "anchors": {
+      "beta3_Lys": 290,
+      "alphaC_Glu": 305,
+      "HRD_H": 380,
+      "DFG_Asp": 400
+    },
+    "reference": {
+      "accession": "P00519",
+      "isoform": "P00519-2",
+      "fasta": "benchmarks/audit/abl_prereg/reference/UniProt_P00519-2.fasta"
+    }
+  },
+  "lineage_verified": true,
+  "trajectories_extracted": false,
+  "state": "wrapper frozen before PCA.zip was opened"
+}
