@@ -1,0 +1,67 @@
+{
+ "id": "KIN-DESC-1",
+ "kind": "representation-capability feasibility on public crystal structures (static); no biological, clinical or novelty claim",
+ "question": "On four public Abl kinase-domain chains with independently stated DFG and A-loop states, which representations separate the stated states: established side-chain-aware kinase descriptors, TopoFold Calpha curvature/torsion, direct Calpha distances (window-matched and proxies of the established distances), or local Calpha RMSD?",
+ "structures": {
+  "1OPJ": {"file": "benchmarks/audit/kinase_descriptors/data_pdb/1OPJ.pdb", "sha256": "6d3444a1f081b1e3b5079babd515d4e848586ec7055647fad9d294b9ee8fb7fb",
+           "chains": ["A", "B"], "numbering_offset_to_cAbl_1a": -19, "ligands_HET": ["STI (imatinib)", "MYR", "CL"],
+           "construct_differences_vs_UniProt_P00519": "N-terminal tag residues; Ser at 1a position 336", "resolution_A": 1.75},
+  "1OPK": {"file": "benchmarks/audit/kinase_descriptors/data_pdb/1OPK.pdb", "sha256": "867ed2b25b80e0e2ba52f731e48df25fb8e982b052b89440a123d567c4384974",
+           "chains": ["A"], "numbering_offset_to_cAbl_1a": -19, "ligands_HET": ["P16", "MYR", "GOL"],
+           "construct_differences_vs_UniProt_P00519": "SH3-SH2-kinase construct; Ser at 336; D363N (HRD Asp)", "resolution_A": 1.80},
+  "2F4J": {"file": "benchmarks/audit/kinase_descriptors/data_pdb/2F4J.pdb", "sha256": "50fd239bb06a4bdcf5ad2ff98b17ae7557a4a7792efedf8f0afacb3129746f29",
+           "chains": ["A"], "numbering_offset_to_cAbl_1a": 0, "ligands_HET": ["VX6 (VX-680)"],
+           "construct_differences_vs_UniProt_P00519": "H396P (A-loop); residue 228", "resolution_A": 1.91}
+ },
+ "numbering": "c-Abl isoform 1a (UniProt P00519 canonical). Offsets were derived before this freeze by exact sequence matching of every chain to P00519 (1OPJ A 281/287 and B 283/288, 1OPK 446/449, 2F4J 285/287 identities; mismatches listed above). Landmarks checked in P00519: K271, E286, E290 (alphaC Glu+4), HRD 361-363, DFG 381-383, APE 407-409.",
+ "labels": {
+  "source": "Ayaz et al., Nat Commun 14:1885 (2023), Results/Methods text (not TopoFold output, not figures)",
+  "DFG": {"in": ["2F4J:A"], "out": ["1OPJ:A", "1OPJ:B", "1OPK:A"]},
+  "A_loop": {"closed": ["1OPJ:A", "1OPJ:B"], "open": ["1OPK:A", "2F4J:A"]},
+  "note": "The paper describes 1OPK as 'apo Abl kinase'; the PDB entry contains HET P16. Recorded as a discrepancy, not resolved here. Labels are applied to every chain of an entry."
+ },
+ "alphaC_contrast": "No independent alphaC label is stated for these entries. The established Modi & Dunbrack (2019) criterion (Cbeta(E286)-Cbeta(K271) <= 10 A: alphaC-in) is computed and reported; an alphaC contrast is evaluated only if both classes occur among the four chains, with the criterion itself as the reference.",
+ "residue_range": "c-Abl 1a residues 240-500, Calpha present in all four chains (checked before the freeze; no gaps, no alternate locations in 260-410)",
+ "descriptors": {
+  "established": {
+   "D1": "dist(Calpha E290, Czeta F382) [Modi & Dunbrack 2019: alphaC-Glu(+4)-Calpha to DFG-Phe-Czeta] (A)",
+   "D2": "dist(Calpha K271, Czeta F382) [beta3-Lys-Calpha to DFG-Phe-Czeta] (A)",
+   "alphaC_CbCb": "dist(Cbeta E286, Cbeta K271) (A); <= 10 A defines alphaC-in in Modi & Dunbrack 2019",
+   "Aloop_Hbond_NO": "dist(N of residue 386 (DFGxxX), O of residue 360 (X-HRD)) (A); the extended-A-loop backbone H-bond of Modi & Dunbrack 2019; reported as a distance, 3.5 A donor-acceptor cut stated for reference only",
+   "Phe382_chi1": "chi1 N-CA-CB-CG of F382 (rad, circular)",
+   "phi_psi": "phi and psi of residues 380 (X-DFG), 381 (Asp), 382 (Phe) (rad, circular)"
+  },
+  "calpha_only": {
+   "kappa": "TopoFold core curvature, three-residue windows (i-1, i, i+1), via topofold_inputs.features",
+   "tau": "TopoFold core torsion, four-residue windows (i-1 .. i+2), circular",
+   "d_i_i2": "Calpha(i-1)-Calpha(i+1) distance, same windows as kappa",
+   "d_i_i3": "Calpha(i-1)-Calpha(i+2) distance, same windows as tau",
+   "rmsd3": "pairwise proper-rotation local Calpha RMSD of the three-residue window between chains (numpy SVD/Kabsch)",
+   "rmsd4": "the same for four-residue windows",
+   "proxy_D1": "dist(Calpha E290, Calpha F382)", "proxy_D2": "dist(Calpha K271, Calpha F382)",
+   "proxy_alphaC": "dist(Calpha E286, Calpha K271)", "proxy_Aloop": "dist(Calpha 386, Calpha 360)"
+  }
+ },
+ "physics": {
+  "DFG_flip": "A DFG in/out change moves the Phe side chain by several A and changes backbone phi/psi of X-D-F. Calpha-only descriptors can only detect it through the accompanying backbone (Calpha trace) change; a pure chi1 rotation of Phe is invisible to Calpha.",
+  "A_loop": "Open/closed A-loop states are backbone rearrangements of a ~29-residue segment: visible to Calpha geometry in principle; kappa/tau are local and SE(3)-invariant, so a rigid displacement of an unchanged loop segment is invisible to them but visible to inter-residue distances and to superposition-based RMSD of larger regions.",
+  "alphaC": "alphaC in/out is largely a rigid-body helix displacement: kappa/tau inside an intact helix cannot see it; inter-element Calpha distances (proxy_alphaC) can. Side-chain salt-bridge geometry is not represented by Calpha.",
+  "limits": "Calpha-only representations do not encode side-chain rotamers, ring positions or hydrogen bonds directly."
+ },
+ "regions": {
+  "DFG": "windows whose residues all lie in 378-386",
+  "A_loop": "windows whose residues all lie in 381-409",
+  "alphaC": "windows whose residues all lie in 279-293"
+ },
+ "decision_rule": {
+  "scalar_descriptors": "For a contrast with groups G1, G2 and per-chain scalar x (circular differences wrapped to [0, pi] for angles): between = min |x_i - x_j| over i in G1, j in G2; within = max |x_i - x_k| over pairs inside the same group (0 if no pair). A descriptor SEPARATES the contrast if between > within and between >= floor.",
+  "pairwise_rmsd": "For local RMSD: between = min RMSD over cross-group chain pairs; within = max RMSD over same-group pairs (0 if none). SEPARATES if between > within and between >= floor.",
+  "floors": {"distance_and_rmsd_A": 0.5, "angle_rad": 0.2},
+  "floor_rationale": "fixed before any calculation as an allowance for coordinate error at 1.75-1.91 A resolution; not tuned",
+  "window_metrics": "For window-based representations the count of separating windows in the contrast's region and the number of windows tested are reported; equal information: every Calpha representation uses the same chains, residues and windows",
+  "outcome_per_contrast_and_representation": ["separates in >= 1 tested element", "separates in none", "not assessable (contrast has a single class or missing atoms)"]
+ },
+ "permitted_interpretation": "Whether each representation distinguishes the stated states on these four chains only. Confounded by different ligands (imatinib, P16, VX-680), mutations (D363N in 1OPK, H396P in 2F4J), constructs (SH3-SH2-kinase vs kinase domain) and crystal forms; groups of 1-3 chains; complete separation on so few chains is not a classification accuracy and does not generalize. No biological, clinical or novelty claim.",
+ "budget": {"downloads_MB_max": 5, "cpu_seconds_max": 300},
+ "not_in_scope": ["MD trajectories", "ABL data scoring", "statistics or p-values", "other kinases", "threshold tuning"]
+}

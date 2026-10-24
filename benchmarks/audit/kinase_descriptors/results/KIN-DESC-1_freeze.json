@@ -1,0 +1,9 @@
+{
+  "id": "KIN-DESC-1",
+  "frozen_utc": "2026-10-24T14:11:41.901126+00:00",
+  "spec_sha256": "d004ed036784ef3ccd21bcff3e28dd2f313ecaa7da45321b6ebc15efb21edf23",
+  "code_sha256": {
+    "benchmarks/audit/kinase_descriptors/run_kinase.py": "b8a220cff9c8b91dba7b25d396b7ef26d8e9963c2e62809cbde502d9ac0b59a1",
+    "python/topofold_inputs/features.py": "9138358ce5040a8dc1e2ff5692e6d3aa77e5334bfb840cc3e8620ca46598271e"
+  }
+}
