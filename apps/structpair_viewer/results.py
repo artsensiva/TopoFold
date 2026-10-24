@@ -275,3 +275,17 @@ def display_coordinates(res: StructpairResult, coords: dict[str, dict[str, np.nd
         R = Vt.T @ np.diag([1.0, 1.0, d]) @ U.T
         A = (A - cA) @ R.T + cB
     return A, B
+
+
+# --- table selection identity ----------------------------------------------------------------------------------
+
+def table_key_and_selection(result: str, positions: list[int], focus: int) -> tuple[str, dict]:
+    """Widget key and initial selection for the window table, derived from the identity of what is displayed.
+
+    Selections are stored by row index, so a row index is only meaningful for one exact list of displayed positions.
+    The key therefore changes whenever the comparison, the displayed rows (filter, sort) or the focus changes; each new
+    table starts with the focus row selected (or nothing, if the focus row is not displayed). A stale index from
+    an earlier row order can never be shown."""
+    ident = hashlib.sha256(json.dumps([result, positions, focus]).encode()).hexdigest()[:16]
+    rows = [positions.index(focus)] if focus in positions else []
+    return f"win_table_{ident}", {"selection": {"rows": rows, "columns": []}}

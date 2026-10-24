@@ -227,7 +227,7 @@ def test_app_kras_display_focus_and_sources_unchanged():
         at.segmented_control(key="row_filter").set_value(f).run()
         assert not at.exception
     at.selectbox(key="sort_by").set_value("rmsd4").run()
-    table = at.dataframe(key="win_table").value
+    table = _df(at, "window3_A")
     assert table["rmsd4_angstrom"].iloc[0] == max(float(r["rmsd4_angstrom"]) for r in raw.values() if r["rmsd4_angstrom"])
     at.pills(key="metrics").set_value(["d_tau", "d_i_i3"]).run()
     at.selectbox(key="result_choice").set_value("kras2").run()
@@ -330,3 +330,68 @@ def test_structure_changed_after_cache_warm_disables_molecular_view(tmp_path, ch
     assert not at.exception and "Molecular view unavailable" in warn
     assert ("differs from the manifest" if change == "modify" else "not found") in warn
     assert not at.error                                                 # the results themselves still display
+
+
+# --- AI tester 1 finding: table selection must follow the focus position, not a stale row index ----------------------
+
+def test_table_selection_identity_unit():
+    desc_all = [33, 79, 12, 58]                       # e.g. sorted by d_kappa, all rows
+    without = [58, 0]                                 # filtered to rows without values
+    k1, s1 = R.table_key_and_selection("kras2", without, 58)
+    k2, s2 = R.table_key_and_selection("kras2", desc_all, 58)
+    assert s1["selection"]["rows"] == [0] and desc_all[s2["selection"]["rows"][0]] == 58   # same position, new index
+    assert k1 != k2                                   # different displayed rows -> fresh widget, no stale index
+    k3, s3 = R.table_key_and_selection("kras1", desc_all, 58)
+    assert k3 != k2                                   # different comparison -> fresh widget
+    k4, s4 = R.table_key_and_selection("kras2", desc_all, 79)
+    assert k4 != k2 and desc_all[s4["selection"]["rows"][0]] == 79                         # focus change re-marks
+    assert R.table_key_and_selection("kras2", without, 79)[1]["selection"]["rows"] == []    # focus not displayed
+    assert R.table_key_and_selection("kras2", desc_all, 58) == (k2, s2)                     # deterministic
+
+
+def _window_table(at):
+    """(displayed positions, positions marked by the table's selection default) for the window table."""
+    for d in at.dataframe:
+        if "window3_A" in d.value.columns:
+            shown = [int(p) for p in d.value["position"]]
+            rows = json.loads(d.proto.selection_default)["selection"]["rows"] if d.proto.selection_default else []
+            return shown, [shown[r] for r in rows]
+    raise AssertionError("window table not found")
+
+
+def test_selection_follows_focus_through_filter_sort_and_comparison_switch():
+    """Replays the reported sequence (kras2; sort d_kappa; 'without values'; focus 58; 'all') and continues with a
+    re-sort and comparison switches. At every step the table marks exactly the focus position (if displayed), and
+    the details panel names the same position."""
+    at = _app(DEMO)
+    at.selectbox(key="result_choice").set_value("kras2").run()
+    at.pills(key="metrics").set_value(["d_kappa", "rmsd3"]).run()
+    at.selectbox(key="sort_by").set_value("d_kappa").run()
+    at.segmented_control(key="row_filter").set_value("without values").run()
+    at.selectbox(key="focus").set_value(58).run()          # stands in for selecting the row (same focus effect)
+
+    def check(expect_shown=True):
+        shown, marked = _window_table(at)
+        focus = at.selectbox(key="focus").value
+        assert not at.exception
+        assert marked == ([focus] if expect_shown else []) and ((focus in shown) == expect_shown)
+        assert any(m.value.startswith(f"**Focus window at position {focus}**") for m in at.markdown)
+        return focus, shown
+
+    assert check()[0] == 58
+    at.segmented_control(key="row_filter").set_value("all").run()
+    focus, shown = check()
+    assert focus == 58 and shown.index(58) != 1         # the stale row index (second row) is not what is marked
+    at.selectbox(key="sort_by").set_value("position").run()
+    check()
+    at.segmented_control(key="row_filter").set_value("with values").run()
+    check(expect_shown=False)                             # 58 has no value: hidden, nothing marked
+    at.segmented_control(key="row_filter").set_value("all").run()
+    at.selectbox(key="result_choice").set_value("kras1").run()
+    focus, _ = check()
+    assert focus == 84                                    # kras1 has its own focus (default), not kras2's 58
+    at.selectbox(key="focus").set_value(30).run()
+    at.selectbox(key="result_choice").set_value("kras2").run()
+    assert check()[0] == 58                               # kras2's focus is restored
+    at.selectbox(key="result_choice").set_value("kras1").run()
+    assert check()[0] == 30

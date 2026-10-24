@@ -1,6 +1,6 @@
 """TopoFold Structural Comparison: local, read-only viewer for `topofold_inputs.structpair` results.
 
-    .venv/bin/streamlit run apps/structpair_viewer/app.py [-- --results DIR]
+    streamlit run apps/structpair_viewer/app.py --server.address localhost [-- --results DIR]
 
 DIR is one structpair output directory or a folder of them (default: the KRAS demonstrations in
 benchmarks/audit/structpair_demo/results). Nothing is recomputed: values come from the result files, which are only
@@ -8,6 +8,7 @@ read. Needs streamlit, pandas, altair, plotly and numpy; not the compiled TopoFo
 """
 
 import argparse
+import functools
 import json
 import sys
 from pathlib import Path
@@ -20,6 +21,7 @@ import streamlit as st
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from results import (METRICS, ResultError, discover, display_coordinates, exclusion_explanations,  # noqa: E402
+                     table_key_and_selection,
                      load_result, locate_input, metric_frame, read_ca, window_members)
 
 REPO = Path(__file__).resolve().parents[2]
@@ -62,11 +64,14 @@ def load_name(path: Path) -> str:
         return f"{path.name} (unreadable manifest)"
 
 
-def focus_from_table():
-    """Selecting a table row moves the focus window (runs before the rerun, so the focus widget can be updated)."""
-    rows = st.session_state.win_table.selection.rows
+def focus_from_table(key: str, positions: list[int]):
+    """Selecting a table row moves the focus window (runs before the rerun, so the focus widget can be updated).
+
+    The row index is translated to a position through the rows displayed when the click happened. Clearing the
+    selection keeps the focus; the table is then rebuilt marking the focus row again."""
+    rows = st.session_state[key].selection.rows
     if rows:
-        st.session_state.focus = st.session_state["_table_positions"][rows[0]]
+        st.session_state.focus = positions[rows[0]]
 
 
 st.set_page_config(page_title="TopoFold Structural Comparison", page_icon=":material/compare:", layout="wide")
@@ -104,7 +109,15 @@ with st.sidebar:
     positions = res.windows["position"].tolist()
     lab = {p: f"{p} · A {a} ↔ B {b}" for p, a, b in zip(res.windows["position"], res.windows["A_residue"],
                                                         res.windows["B_residue"])}
-    if "focus" not in st.session_state or st.session_state.focus not in positions:
+    # focus is remembered per comparison: a position index means a different residue pair in another comparison
+    remembered = st.session_state.setdefault("_focus_by_result", {})
+    previous = st.session_state.get("_focus_result")
+    if previous != str(path):
+        if previous is not None and "focus" in st.session_state:
+            remembered[previous] = st.session_state.focus
+        st.session_state.focus = remembered.get(str(path), positions[len(positions) // 2])
+        st.session_state["_focus_result"] = str(path)
+    if st.session_state.get("focus") not in positions:
         st.session_state.focus = positions[len(positions) // 2]
     focus = st.selectbox("Focus window (position · residue in A ↔ in B)", positions, key="focus",
                          format_func=lambda p: lab[p])
@@ -237,9 +250,12 @@ with t_win:
     st.caption("Empty cells are unavailable values (outside the window range or excluded); they are not zero. "
                "Select a row to focus it in the plots and the molecular view.")
     numcfg = {c: st.column_config.NumberColumn(c, format="%.4f") for c in w.columns if c.endswith(("_rad", "_angstrom"))}
-    st.session_state["_table_positions"] = w["position"].tolist()
-    st.dataframe(w, hide_index=True, column_config=numcfg, on_select=focus_from_table, selection_mode="single-row",
-                 key="win_table")
+    shown = w["position"].tolist()
+    tkey, tsel = table_key_and_selection(str(path), shown, focus)
+    if focus not in shown:
+        st.caption(f"The focus window (position {focus}) is not among the displayed rows, so no row is marked.")
+    st.dataframe(w, hide_index=True, column_config=numcfg, on_select=functools.partial(focus_from_table, tkey, shown),
+                 selection_mode="single-row", selection_default=tsel, key=tkey)
 with t_exc:
     if not len(res.exclusions):
         st.success("No window inside the mapped range was excluded.")
