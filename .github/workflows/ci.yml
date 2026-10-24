@@ -104,7 +104,8 @@ jobs:
           TOPOFOLD_REQUIRE_MDANALYSIS_TESTS: '1'
         run: >-
           python -m pytest tests/test_ca_adapter.py tests/test_atom_adapter.py tests/test_kinase_geometry.py
-          tests/test_kinase_roles.py tests/test_kinase_roles_structure.py -v -rs --junitxml=adapter-tests.xml
+          tests/test_kinase_roles.py tests/test_kinase_roles_structure.py tests/test_abl_myr_runner_mda.py
+          -v -rs --junitxml=adapter-tests.xml
 
       - name: Only tests needing git-ignored public structures may skip
         run: >-

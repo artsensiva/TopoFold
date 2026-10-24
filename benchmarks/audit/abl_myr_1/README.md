@@ -1,7 +1,8 @@
-# ABL-MYR-1: Myr vs noMyr kinase-domain ensembles from public replicated MD (frozen spec; BLOCKED at G0)
+# ABL-MYR-1: Myr vs noMyr kinase-domain ensembles from public replicated MD (spec and runner frozen; BLOCKED at G0)
 
-**Status (2026-10-24): specification frozen, nothing computed.** The input archives could not be obtained (gate G0).
-Descriptive real-MD evidence only once run, never biological validation.
+**Status (2026-10-24): specification and runner frozen, nothing computed, blocked at G0.** Two of the three required
+archives (`PCA.zip`, `kinase_kinked_noMyr.zip`) are not present. Descriptive real-MD evidence only once run, never
+biological validation.
 
 - **Data:** de Buhr & Gräter, Dryad [10.5061/dryad.9cnp5hqnx](https://doi.org/10.5061/dryad.9cnp5hqnx) (CC0), study
   eLife [10.7554/eLife.85216](https://doi.org/10.7554/eLife.85216). Intake record:
@@ -10,8 +11,11 @@ Descriptive real-MD evidence only once run, never biological validation.
   ATP/Mg²⁺. It is unrelated to the Ayaz M472I/imatinib-resistance question and its apo HDX endpoint, and no result
   here is evidence for the ABL WT vs M472I preregistration.
 - **Freeze:** `run_spec.json` was frozen in `results/ABL-MYR-1_freeze.json` (2026-10-24T19:54:07Z, SHA-256
-  `f8825840…`) before any trajectory, archive or topology was downloaded (`input_files_present_at_freeze: []`). The runner
-  is to be written and hash-frozen before any archive is opened.
+  `f8825840…`) before any trajectory, archive or topology was downloaded (`input_files_present_at_freeze: []`).
+- **Code freeze:** the runner, its tests and the library modules it uses are hash-recorded in
+  `results/ABL-MYR-1_code_freeze.json` (2026-10-24T20:32:08Z), before any study archive was opened. The runner refuses to
+  run if any of these hashes, the spec or the configuration differs. Files that had already appeared in `data_dryad/` are
+  listed there by name, size and time only; none was hashed, read or opened.
 
 ## Why this subset
 
@@ -48,6 +52,51 @@ Descriptive real-MD evidence only once run, never biological validation.
 - **Outcomes**, ordered: blocked; inconclusive; TopoFold adds reproduced residues (≥ 3 outside the baseline residues
   ± 2); baselines cover TopoFold; partial. Temporal diagnostics are reported. There is no inference (D33).
 - **Budget:** ≤ 1.2 GB download, ≤ 4 GB storage, ≤ 2 CPU-h.
+
+## Engineering preparation (SYNTHETIC tests only; no scientific result)
+
+- **Runner:** `run_abl_myr.py` has the subcommands `freeze-code`, `run` and `report`. `run` applies gates G0–G6 exactly as
+  frozen, then the comparison. A failed gate stops it and writes `ABL-MYR-1_blocked.json` with the gate and the observed
+  cause. The orchestrator needs the TopoFold core; a `_worker` subcommand runs in the MDAnalysis interpreter, because no one
+  environment has both.
+- **Interpretations fixed before any study file was opened** (the spec text is ambiguous on them; listed in the runner
+  docstring): members are found by path suffix with exactly one match; "backbone" atom names; "differ only by the Myr
+  molecule" means every non-Myr line of `topol.top`, including water and ion counts, is identical; a bad time stamp or
+  interval stops the run while only a run with fewer than 450 analysis frames is excluded; the spec's pbc `make_whole` is
+  the adapter's `make_whole_sequential`.
+- **Tests:** `tests/test_abl_myr_runner.py` (16 pure tests that run everywhere, plus 4 end-to-end tests on SYNTHETIC archives
+  that need the core and `TOPOFOLD_ADAPTER_PYTHON`) and `tests/test_abl_myr_runner_mda.py` (6 worker tests in the CI adapter
+  job). They cover archive-member selection, traversal-safe extraction, topology-to-trajectory atom counts, frame time
+  stamps, residue mapping, shared-start checks, exclusion reporting, φ/ψ against an independent formula, RMSF against an
+  independent superposition, and the G4 and G6 stops.
+- **Issues the synthetic runs found before the freeze:** the adapter's make-whole policy has a different name from the spec's;
+  a `.gro` difference of exactly the tolerance failed through floating-point noise; and the fixtures themselves needed
+  intact chain geometry (noise large enough to break Cα–Cα distances correctly drives the run into G6).
+
+## Present in `data_dryad/` at the code freeze (metadata only)
+
+| Required by the frozen spec | Present? |
+|---|---|
+| `PCA.zip` (875,084,667 B) | **no** |
+| `kinase_kinked_Myr.zip` (132,587,277 B) | yes (size equals Dryad's listing; hash not yet checked) |
+| `kinase_kinked_noMyr.zip` (132,251,259 B) | **no** |
+
+Also present but not part of the specification: `README.md`, `kinase_active.zip`, `kinase_straight_Myr.zip`,
+`kinase_straight_noMyr.zip`. The straight-helix archives are different models; `kinase_straight_noMyr.zip` is not
+`kinase_kinked_noMyr.zip`.
+
+## Resume at G0
+
+With the missing archives in `benchmarks/audit/abl_myr_1/data_dryad/`, from the repository root:
+
+```bash
+PYTHONPATH=python .venv/bin/python benchmarks/audit/abl_myr_1/run_abl_myr.py run \
+    --adapter-python benchmarks/audit/wpd_local_retrieval/build/venv/bin/python
+PYTHONPATH=python .venv/bin/python benchmarks/audit/abl_myr_1/run_abl_myr.py report
+```
+
+`.venv` has the TopoFold core; the second interpreter has MDAnalysis. G0 verifies the three archives against the frozen
+SHA-256 values before anything is extracted.
 
 ## Blocker and remedy
 

@@ -1,0 +1,105 @@
+{
+  "id": "ABL-MYR-1",
+  "code_frozen_utc": "2026-10-24T20:32:08.216898+00:00",
+  "spec_sha256": "f8825840ee6812268b1f1ee587affff0559e9ccb9a7da2b24b3a7bddcfd95e98",
+  "spec_freeze_record_sha256": "3066d9fe0dcf78f36b30fc06760ec4c19c3d09f43bad106afbfef24591d8b025",
+  "runner": {
+    "path": "benchmarks/audit/abl_myr_1/run_abl_myr.py",
+    "sha256": "419981810da0e105b6295f94b1b522f0168f8f69407f6d02293a85bf64dc9e6c"
+  },
+  "tests_sha256": {
+    "tests/test_abl_myr_runner.py": "4be24ef940e8a53920869be38ed91d59861cc4724517b068c205042d88ae985c",
+    "tests/test_abl_myr_runner_mda.py": "d31eaaa7f9a76eb4ec028ad7bc6a943f012b973c986d64e58ad829f0023f43c9"
+  },
+  "library_sha256": {
+    "python/topofold_inputs/ensemble.py": "25d86d5cc439addb484a69d5001e76ce62e5d41f6f5d9b98c1f42d88b5120f97",
+    "python/topofold_inputs/features.py": "9138358ce5040a8dc1e2ff5692e6d3aa77e5334bfb840cc3e8620ca46598271e",
+    "python/topofold_inputs/compare.py": "a7494c6ae1c1813a150572e7f44ee69ebc3190873ba83a3a6be4e438effb3422",
+    "python/topofold_inputs/ca_adapter.py": "0dfd026fae6e549b5fedc151e3c0f2636db83069c295c5a138d129979052bb67",
+    "python/topofold_inputs/atom_adapter.py": "f08e2e88ca85b5bf46e61540e7203533d1e1c333e42384598edcd4df81870aaa",
+    "python/topofold_inputs/kinase_geometry.py": "04987c6807dc830e14623ef014ff69b5265768632d0b7e4948270645c870d9d0",
+    "python/topofold_inputs/kinase_roles.py": "d1786db4675cc470ee3cec5acdc973b0fc19b3d17886753ed3a41d8f4728c56e",
+    "python/topofold_inputs/__main__.py": "888f28422877b6128d6f6ce117d9ff02d5f979f588e69304036e13c8c7ff839f"
+  },
+  "reference_fasta_sha256": "cfa3c6f25609a22d3a9732b4a3f3cc7a43d70e694e97a0638fb1601738742dd1",
+  "input_files_present_at_code_freeze": [
+    {
+      "name": "README.md",
+      "bytes": 216816,
+      "mtime_utc": "2026-10-24T20:23:53.213818+00:00"
+    },
+    {
+      "name": "kinase_active.zip",
+      "bytes": 123477486,
+      "mtime_utc": "2026-10-24T20:29:04.103916+00:00"
+    },
+    {
+      "name": "kinase_kinked_Myr.zip",
+      "bytes": 132587277,
+      "mtime_utc": "2026-10-24T20:16:27.673244+00:00"
+    },
+    {
+      "name": "kinase_straight_Myr.zip",
+      "bytes": 125296033,
+      "mtime_utc": "2026-10-24T20:28:44.485847+00:00"
+    },
+    {
+      "name": "kinase_straight_noMyr.zip",
+      "bytes": 125003900,
+      "mtime_utc": "2026-10-24T20:15:53.921125+00:00"
+    }
+  ],
+  "input_files_note": "listed by name, size and mtime only; not hashed, read or opened by any TopoFold code",
+  "frozen_cfg": {
+    "conditions": {
+      "Myr": "kinase_kinked_Myr",
+      "noMyr": "kinase_kinked_noMyr"
+    },
+    "sets": {
+      "Set1": [
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "Set2": [
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ]
+    },
+    "t_min_ps": 1000000.0,
+    "dt_ps": 2000.0,
+    "dt_tol_ps": 10.0,
+    "min_frames": 450,
+    "min_runs": 8,
+    "max_excluded_fraction": 0.05,
+    "gro_tol_nm": 0.001,
+    "bins": 36,
+    "max_lag": 50,
+    "anchors": {
+      "beta3_Lys": 290,
+      "alphaC_Glu": 305,
+      "HRD_H": 380,
+      "DFG_Asp": 400
+    },
+    "reference": {
+      "accession": "P00519",
+      "isoform": "P00519-2",
+      "fasta": "benchmarks/audit/abl_prereg/reference/UniProt_P00519-2.fasta"
+    }
+  }
+}

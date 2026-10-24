@@ -165,8 +165,9 @@ The development programme, evidence levels (A–E) and the current queue are in
     preferred branch is now WT vs M472I from 2F4J, conditional on verifying from supplied topology and preparation
     records that both are ligand-free, sequence-correct and identically prepared.
   - No-reply fallback (D56): a public, CC0, replicated Abl set (de Buhr & Gräter, Myr vs noMyr) is specified and frozen
-    as ABL-MYR-1 ([`benchmarks/audit/abl_myr_1/`](benchmarks/audit/abl_myr_1/README.md)). It is blocked at access
-    (owner download or Dryad token) and addresses a separate myristoyl/allostery question.
+    as ABL-MYR-1 ([`benchmarks/audit/abl_myr_1/`](benchmarks/audit/abl_myr_1/README.md)); its runner and synthetic tests
+    are code-frozen (D57). It is blocked at G0 (`PCA.zip` and `kinase_kinked_noMyr.zip` not yet present) and addresses a
+    separate myristoyl/allostery question.
 - **Kinase descriptors** (KIN-DESC-1, four public Abl crystal chains, representation capability only):
   - side-chain-aware descriptors reproduce the stated DFG and A-loop labels;
   - Cα κ/τ separates the A-loop contrast in many windows, but DFG only at a few four-point windows
