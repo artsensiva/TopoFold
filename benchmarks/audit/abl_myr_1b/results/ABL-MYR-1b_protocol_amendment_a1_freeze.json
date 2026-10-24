@@ -1,0 +1,16 @@
+{
+  "id": "ABL-MYR-1b-PROTOCOL-a1",
+  "frozen_utc": "2026-10-24T22:34:10.779230+00:00",
+  "sha256": {
+    "benchmarks/audit/abl_myr_1b/protocol_amendment_a1.json": "66ffab08a2d01ca743a055cbfb56212c71f54d362e3981913dcc17ab86edf767",
+    "benchmarks/audit/abl_myr_1b/REVIEW_2026-10-25_independent_AI.md": "f0b634e8063e1fb276d4cdd42e9bec71ae34a7eba631b0042a0c6ac2b1021fd4",
+    "benchmarks/audit/abl_myr_1b/protocol_1b.json": "d68008e2eb090e4599c4355108e475354b25ca9b24acb35a7cb671bbcf5caa25",
+    "benchmarks/audit/abl_myr_1b/PROTOCOL_1B.md": "73f1273343f10a1152e9de5cbc1af5d8f7fc760eff0c174dfd43fb871033050b",
+    "benchmarks/audit/abl_myr_1b/results/ABL-MYR-1b_protocol_freeze.json": "7ca5782f4f7bed80f5df9d20af4e57fc3e1f8512aea84ae76c4355b873a7c7de",
+    "benchmarks/audit/abl_myr_1/run_spec.json": "f8825840ee6812268b1f1ee587affff0559e9ccb9a7da2b24b3a7bddcfd95e98",
+    "benchmarks/audit/abl_myr_1/run_abl_myr.py": "419981810da0e105b6295f94b1b522f0168f8f69407f6d02293a85bf64dc9e6c",
+    "benchmarks/audit/abl_myr_1/results/ABL-MYR-1_code_freeze.json": "159cfdee9086776df066c0ccadfaf763b362947cd7c16b618702572cb83270d1"
+  },
+  "trajectories_extracted": false,
+  "review_kind": "independent AI scientific review (not human peer review)"
+}

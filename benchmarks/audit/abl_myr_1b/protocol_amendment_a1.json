@@ -1,0 +1,52 @@
+{
+ "id": "ABL-MYR-1b-PROTOCOL-a1",
+ "date": "2026-10-25",
+ "post_hoc": true,
+ "kind": "dated amendment of the frozen ABL-MYR-1b protocol, made after an independent AI scientific review and before any trajectory was opened",
+ "independent_review": "REVIEW_2026-10-25_independent_AI.md (an AI review, not human peer review; recorded with date and attribution)",
+ "preserved_unchanged": [
+  "protocol_1b.json",
+  "PROTOCOL_1B.md",
+  "results/ABL-MYR-1b_protocol_freeze.json",
+  "the original ABL-MYR-1 specification, runner and code freeze",
+  "ABL-MYR-1a and the ABL-MYR-1b check records (attempt 1, a1, a2)",
+  "the owner's untracked files"
+ ],
+ "scope": "This amendment settles one execution ambiguity, clarifies the leave-one-run-out count, corrects wording and adds an alphaI reporting rule. It does not change the scientific question, any numerical threshold, the baselines, the statistic or the frozen runner's code. If any change here could not be implemented without altering the question or the frozen runner's behaviour beyond what is stated, the implementation stops and says so",
+ "changes": {
+  "C1_bilateral_G5": "The protocol requires agreement across both thermostat sets. After the G5 exclusions of the original specification (a run with fewer than 450 analysis frames is excluded), if any of the four groups (Set1 Myr, Set1 noMyr, Set2 Myr, Set2 noMyr) has fewer than 8 usable runs, the run stops at G5 as blocked, before any extraction or analysis. No single-set analysis and no 'inconclusive' outcome are produced; the cause (per-run exclusion causes and counts) is reported. This replaces, for ABL-MYR-1b only, the original runner's behaviour of continuing with the other set. The thresholds 450 and 8 are unchanged",
+  "C2_leave_one_run_out_count": "Leave-one-run-out checks cover every retained run of a set (one run removed at a time, from either group). The number of recomputations equals the number of retained runs in that set: 20 when all 10 + 10 are retained, otherwise fewer. The frozen runner already behaves this way; the protocol's '20' is a description of the full case. The count is reported per set",
+  "C3_wording": {
+   "thermostat_sets": "The two thermostat sets provide a consistency check across simulation settings. They share their post-minimization starting structures, so agreement between them is not independent replication. 'Consistent across both thermostat sets' in the outcome labels is to be read this way",
+   "start_contrast": "The production-start contrast reported in the protocol (Calpha RMSD based) is a descriptive start-geometry diagnostic. It is not a calibrated negative control for the histogram-based window statistic E, and the protocol's phrase 'negative control' is withdrawn. Its values must not be compared with E values",
+   "decision_rule": "E > 0 in the full set and in every leave-one-run-out recomputation, and the three-residue cutoff, are descriptive filters. They give no error-rate control and no significance, and no outcome is evidence of the superiority of any method or technology",
+   "time_and_features": "The 1000 ns exclusion follows the source study. Backbone frames every 2 ns support the planned geometry description and cannot establish kinetics. Temporal dependence stays visible in the report (lag-1 autocorrelation and decorrelation lag per channel, run-to-run variability)",
+   "causal_and_clinical": "No causal, clinical, biological-validation or novelty claim is made for any outcome"
+  },
+  "C4_alphaI_rule": "The report states whether the alphaI residues named in the source study, 518-531 in isoform 1b numbering, are represented in the topology (inside the aligned reference span and not among the unobserved ranges of G3). If any is not represented, the analysis is limited to the represented kinase-domain residues and no claim is made about the alphaI helix or the Myr-binding region. This is reported; it does not stop the run"
+ },
+ "unchanged": {
+  "thresholds": "450 frames, 8 runs, 5 % excluded windows, E > 0 with leave-one-run-out stability, the >= 3 residue rule, bins 36, max lag 50, the t >= 1000 ns window, the 2 ns interval tolerance",
+  "baselines": "d(i,i+2), d(i,i+3), per-residue C-alpha RMSF; phi/psi stays the separately labelled stronger-information comparator",
+  "budget": {
+   "download_bytes_max": 1200000000,
+   "storage_bytes_max": 4000000000,
+   "cpu_hours_max": 2.0
+  },
+  "gates": "G0, G1 (without Set2/system.gro), G2, G3, G4b, G5 (with C1), G6 as in the protocol",
+  "stop_rule": "the first failed gate stops the run without a workaround. An implementation defect found on real data is handled only by a dated amendment that preserves the original attempt, and the amended run is never presented as the original frozen test"
+ },
+ "report_contents_required": [
+  "gate record with the three archive hashes and every lineage hash verified",
+  "for each thermostat set separately: runs retained and excluded with causes, production-start descriptors per run (Calpha RMSD to system_em.gro, box volume) and the start-geometry summary from the a2 results, run-to-run variability, temporal diagnostics, kappa and tau results, each Calpha baseline separately (d(i,i+2), d(i,i+3), RMSF) and the phi/psi comparator separately",
+  "the number of leave-one-run-out recomputations per set",
+  "whether any TopoFold-only residues survive the frozen descriptive rule, stated without causal, clinical or novelty claims",
+  "the alphaI representation statement (C4)"
+ ],
+ "implementation": {
+  "wrapper": "benchmarks/audit/abl_myr_1b/run_abl_myr_1b.py imports the frozen ABL-MYR-1 runner unchanged and replaces only: G4 by G4b (verifying the ABL-MYR-1a and ABL-MYR-1b a2 evidence by hash), the required Set2 members (no system.gro; system_em.gro is listed only so the unchanged pipeline can run and is not used as a start), G5 by the bilateral rule (C1), the outcome labels, and the report",
+  "order": "this amendment and the review are hash-frozen first; the wrapper, its SYNTHETIC tests and its dependencies are then hash-frozen before PCA.zip is opened",
+  "verification_before_opening": "the three archive hashes, every lineage hash of the protocol freeze, the frozen runner and its code freeze, and the absence of any extracted trajectory"
+ },
+ "restricted_outcome_labels": "as in protocol_1b.json (they contain 'post-hoc' and 'descriptive' and never 'reproduced' or 'independently')"
+}
