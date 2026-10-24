@@ -148,6 +148,14 @@ engineering only).
     both altloc policies.
 - **Robustness panel KIN-ROB-1** (9 public kinase chains): 7 pass, 1 pass with exclusions, 1 fail caused by a spec
   numbering error; the corrected amendment passes. See `benchmarks/audit/kin_rob_1/README.md`.
+- **Role mapping (`kinase_roles.map_kinase_roles`):** maps the ten descriptor roles from a stated reference
+  (accession, isoform, sequence) and an explicit numbering convention to residues of one chain.
+  - Placement is by sequence alignment, with chain breaks taken from peptide-bond geometry; author numbers are never
+    used.
+  - The four anchors are motif-checked, and every problem is named in the refusal. Offsets are never applied.
+  - `RoleMapping.atom_request()` and `residue_specs()` feed `extract_atoms` and `kinase_descriptors`.
+  - On the KIN-ROB-1 panel (KIN-MAP-1), 21 of 21 cases met their frozen expectation. It refuses the original PKA
+    specification and accepts correctly declared PKA mappings. See `benchmarks/audit/kin_map_1/README.md`.
 - **Limits:**
   - Tested on PDB-format crystal structures only.
   - No hydrogens.

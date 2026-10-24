@@ -1,0 +1,33 @@
+{
+ "id": "KIN-MAP-1",
+ "kind": "engineering acceptance check of the kinase residue-role mapping helper (python/topofold_inputs/kinase_roles.py) on the frozen KIN-ROB-1 panel; no state labels, no classification, no biological claim",
+ "not_blind": "The helper was written after KIN-ROB-1 and KIN-ROB-1a were run, and its unit tests use a fixture derived from the same panel. This is a regression and acceptance check against recorded outputs, not an independent test of the method.",
+ "inputs_read_only": {
+  "kin_rob_1_spec": "benchmarks/audit/kin_rob_1/run_spec.json",
+  "kin_rob_1_results": "benchmarks/audit/kin_rob_1/results/KIN-ROB-1_results.json",
+  "kin_rob_1a_spec": "benchmarks/audit/kin_rob_1a/run_spec.json",
+  "kin_rob_1a_results": "benchmarks/audit/kin_rob_1a/results/KIN-ROB-1_results.json",
+  "structures_and_sequences": "the KIN-ROB-1 downloads (git-ignored); SHA-256 must equal KIN-ROB-1_results.json inputs",
+  "independent_parser_fixture": "tests/fixtures/kin_rob_1_panel_observed_chains.json"
+ },
+ "reference_declaration": "UniProt canonical sequence of each accession as downloaded by KIN-ROB-1, isoform stated as '<accession>-1'",
+ "anchors": "beta3_Lys, alphaC_Glu, DFG_Asp from the spec, HRD_H = XHRD + 1; the other six roles are derived by the helper",
+ "cases": {
+  "frozen_spec": {"chains": "all 9", "numbering": "reference, reference_minus_label = 0 (the KIN-ROB-1 spec labels its positions as UniProt)", "expected": "accepted for 8 chains; refused for 1ATP E (literature numbering labelled as UniProt)"},
+  "pka_kin_rob_1a": {"chains": "1ATP E", "numbering": "reference, 0, positions from the KIN-ROB-1a spec", "expected": "accepted"},
+  "pka_literature_declared": {"chains": "1ATP E", "numbering": "reference, reference_minus_label = +1 stated explicitly, positions from the KIN-ROB-1 spec", "expected": "accepted"},
+  "structure_author": {"chains": "all 9", "numbering": "structure_author; anchors are the author residues used by KIN-ROB-1 (KIN-ROB-1a for 1ATP E)", "expected": "accepted"},
+  "pka_structure_author_original": {"chains": "1ATP E", "numbering": "structure_author; anchors are the author residues the failed KIN-ROB-1 run used (71, 90, 163, 183)", "expected": "refused"}
+ },
+ "checks": {
+  "M1_decision": "accepted or refused as expected",
+  "M2_reference_positions": "accepted cases: the ten derived role positions equal the frozen spec positions (KIN-ROB-1a for 1ATP E)",
+  "M3_structure_residues": "accepted cases: mapped author residues equal those of KIN-ROB-1 (KIN-ROB-1a for 1ATP E); roles the helper reports unobserved equal the residues KIN-ROB-1 reported as residue_not_found",
+  "M4_descriptors": "accepted cases: kinase_descriptors on extract_atoms(mapping.atom_request(), altloc='blank_then_A') equal the recorded KIN-ROB-1 (1a) descriptors exactly; NaN where the record has null",
+  "M5_observed_chain": "observed_chain (MDAnalysis) equals the independent fixed-column parse in the committed fixture for every chain",
+  "M6_refusal_content": "refused 1ATP E cases: each anchor motif mismatch is named; for the reference-numbering case the diagnostic reports offset d = +1 and the mapping is not returned",
+  "M7_frozen_artifacts_and_code": "SHA-256 of ca_adapter.py, atom_adapter.py and kinase_geometry.py equal the KIN-ROB-1 freeze; KIN-ROB-1 and KIN-ROB-1a spec, runner and result files equal their values at this freeze"
+ },
+ "permitted_interpretation": "Engineering evidence that the helper reproduces the recorded role residues and descriptor values on these 9 chains, refuses the original PKA specification and accepts correctly declared PKA mappings. No general claim about other kinases, numbering schemes or structures.",
+ "not_in_scope": ["KinCoRe labels", "state classification", "trajectories", "new structures"]
+}

@@ -104,13 +104,14 @@ jobs:
           TOPOFOLD_REQUIRE_MDANALYSIS_TESTS: '1'
         run: >-
           python -m pytest tests/test_ca_adapter.py tests/test_atom_adapter.py tests/test_kinase_geometry.py
-          -v -rs --junitxml=adapter-tests.xml
+          tests/test_kinase_roles.py tests/test_kinase_roles_structure.py -v -rs --junitxml=adapter-tests.xml
 
       - name: Only tests needing git-ignored public structures may skip
         run: >-
           python tests/check_junit_skips.py adapter-tests.xml
           test_abl_descriptors_match_independent_kin_desc_1_values
           test_calpha_identical_to_ca_adapter_on_public_structure
+          test_observed_chain_matches_independent_parser_on_kin_rob_1_panel
 
   audit-reproductions:
     name: Audit reproduction scripts

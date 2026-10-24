@@ -1,0 +1,3107 @@
+{
+ "id": "KIN-MAP-1",
+ "freeze_utc": "2026-10-24T16:04:03.596696+00:00",
+ "spec_sha256": "ea6e0de4c492968f9571d202c85dc2bf479e5e8b5a87ab0997ba7cf8a7518269",
+ "M5_observed_chain": {
+  "pass": true,
+  "per_chain": {
+   "1ATP E": true,
+   "1HCK A": true,
+   "1FIN A": true,
+   "1FIN C": true,
+   "1A9U A": true,
+   "1KV2 A": true,
+   "1MQ4 A": true,
+   "1UWH A": true,
+   "1UWH B": true
+  }
+ },
+ "M7_frozen_artifacts_and_code": {
+  "unchanged_code": {
+   "python/topofold_inputs/ca_adapter.py": true,
+   "python/topofold_inputs/atom_adapter.py": true,
+   "python/topofold_inputs/kinase_geometry.py": true
+  },
+  "frozen_artifacts": {
+   "benchmarks/audit/kin_rob_1/run_spec.json": true,
+   "benchmarks/audit/kin_rob_1/run_kin_rob.py": true,
+   "benchmarks/audit/kin_rob_1/README.md": true,
+   "benchmarks/audit/kin_rob_1/results/KIN-ROB-1_freeze.json": true,
+   "benchmarks/audit/kin_rob_1/results/KIN-ROB-1_results.json": true,
+   "benchmarks/audit/kin_rob_1/results/KIN-ROB-1_summary.csv": true,
+   "benchmarks/audit/kin_rob_1a/run_spec.json": true,
+   "benchmarks/audit/kin_rob_1a/run_kin_rob.py": true,
+   "benchmarks/audit/kin_rob_1a/README.md": true,
+   "benchmarks/audit/kin_rob_1a/results/KIN-ROB-1_freeze.json": true,
+   "benchmarks/audit/kin_rob_1a/results/KIN-ROB-1_results.json": true,
+   "benchmarks/audit/kin_rob_1a/results/KIN-ROB-1_summary.csv": true
+  },
+  "pass": true
+ },
+ "summary": {
+  "cases": 21,
+  "cases_pass": 21,
+  "accepted": 19,
+  "refused": 2,
+  "M5_chains_pass": 9,
+  "M5_chains": 9,
+  "M7_pass": true
+ },
+ "cases": [
+  {
+   "case": "frozen_spec",
+   "pdb": "1ATP",
+   "chain": "E",
+   "uniprot": "P05132",
+   "anchors": {
+    "beta3_Lys": 72,
+    "alphaC_Glu": 91,
+    "HRD_H": 164,
+    "DFG_Asp": 184
+   },
+   "numbering": {
+    "scheme": "reference",
+    "reference_minus_label": 0,
+    "description": "as labelled in the KIN-ROB-1 spec (UniProt)"
+   },
+   "expected_accepted": false,
+   "accepted": false,
+   "M1_decision": true,
+   "M6_refusal_content": {
+    "motif_problems": 4,
+    "diagnostic_offsets": [
+     1
+    ],
+    "pass": true
+   },
+   "problems": [
+    "beta3_Lys: reference P05132 has M at index 72, expected K",
+    "alphaC_Glu: reference P05132 has N at index 91, expected E",
+    "HRD_H: reference P05132 has IYR at index 164, expected H/Y-R-D",
+    "DFG_Asp: reference P05132 has TDF at index 184, expected D-F-G",
+    "all anchor motifs would hold with reference_minus_label = [1]; not applied (declare the numbering explicitly if that is intended)"
+   ],
+   "alignment": {
+    "aligned_pairs": 336,
+    "identity": 1.0,
+    "reference_span": [
+     16,
+     351
+    ],
+    "mutations": [],
+    "insertions": [],
+    "unaligned_terminal": [],
+    "unobserved_reference_ranges": [],
+    "absent_between_bonded_residues": [],
+    "chain_breaks_before": [],
+    "bonding_unknown": 0,
+    "insertion_code_residues": [],
+    "variant_residue_names": [
+     {
+      "resid": 197,
+      "icode": "",
+      "resname": "TPO",
+      "maps_to": "T"
+     },
+     {
+      "resid": 338,
+      "icode": "",
+      "resname": "SEP",
+      "maps_to": "S"
+     }
+    ],
+    "author_numbering_diagnostic": {
+     "reference_index_minus_author_resid": {
+      "1": 336
+     },
+     "note": "reported for inspection only; author numbers are never used to place residues"
+    }
+   },
+   "roles": {
+    "beta3_Lys": {
+     "reference_index": 72,
+     "reference_aa": "M",
+     "resid": 71,
+     "icode": "",
+     "resname": "MET",
+     "status": "observed"
+    },
+    "alphaC_Glu": {
+     "reference_index": 91,
+     "reference_aa": "N",
+     "resid": 90,
+     "icode": "",
+     "resname": "ASN",
+     "status": "observed"
+    },
+    "alphaC_Glu_plus4": {
+     "reference_index": 95,
+     "reference_aa": "I",
+     "resid": 94,
+     "icode": "",
+     "resname": "ILE",
+     "status": "observed"
+    },
+    "XHRD": {
+     "reference_index": 163,
+     "reference_aa": "L",
+     "resid": 162,
+     "icode": "",
+     "resname": "LEU",
+     "status": "observed"
+    },
+    "XDFG_minus1": {
+     "reference_index": 182,
+     "reference_aa": "Q",
+     "resid": 181,
+     "icode": "",
+     "resname": "GLN",
+     "status": "observed"
+    },
+    "XDFG": {
+     "reference_index": 183,
+     "reference_aa": "V",
+     "resid": 182,
+     "icode": "",
+     "resname": "VAL",
+     "status": "observed"
+    },
+    "DFG_Asp": {
+     "reference_index": 184,
+     "reference_aa": "T",
+     "resid": 183,
+     "icode": "",
+     "resname": "THR",
+     "status": "observed"
+    },
+    "DFG_Phe": {
+     "reference_index": 185,
+     "reference_aa": "D",
+     "resid": 184,
+     "icode": "",
+     "resname": "ASP",
+     "status": "observed"
+    },
+    "DFG_Gly": {
+     "reference_index": 186,
+     "reference_aa": "F",
+     "resid": 185,
+     "icode": "",
+     "resname": "PHE",
+     "status": "observed"
+    },
+    "DFGxxX": {
+     "reference_index": 189,
+     "reference_aa": "A",
+     "resid": 188,
+     "icode": "",
+     "resname": "ALA",
+     "status": "observed"
+    }
+   },
+   "pass": true
+  },
+  {
+   "case": "structure_author",
+   "pdb": "1ATP",
+   "chain": "E",
+   "uniprot": "P05132",
+   "anchors": {
+    "beta3_Lys": 72,
+    "alphaC_Glu": 91,
+    "DFG_Asp": 184,
+    "HRD_H": 164
+   },
+   "numbering": {
+    "scheme": "structure_author",
+    "reference_minus_label": null,
+    "description": ""
+   },
+   "expected_accepted": true,
+   "accepted": true,
+   "M1_decision": true,
+   "M2_reference_positions": true,
+   "M3_structure_residues": true,
+   "M4_descriptors": {
+    "pass": true,
+    "mismatches": [],
+    "nan": []
+   },
+   "problems": [],
+   "alignment": {
+    "aligned_pairs": 336,
+    "identity": 1.0,
+    "reference_span": [
+     16,
+     351
+    ],
+    "mutations": [],
+    "insertions": [],
+    "unaligned_terminal": [],
+    "unobserved_reference_ranges": [],
+    "absent_between_bonded_residues": [],
+    "chain_breaks_before": [],
+    "bonding_unknown": 0,
+    "insertion_code_residues": [],
+    "variant_residue_names": [
+     {
+      "resid": 197,
+      "icode": "",
+      "resname": "TPO",
+      "maps_to": "T"
+     },
+     {
+      "resid": 338,
+      "icode": "",
+      "resname": "SEP",
+      "maps_to": "S"
+     }
+    ],
+    "author_numbering_diagnostic": {
+     "reference_index_minus_author_resid": {
+      "1": 336
+     },
+     "note": "reported for inspection only; author numbers are never used to place residues"
+    }
+   },
+   "roles": {
+    "beta3_Lys": {
+     "reference_index": 73,
+     "reference_aa": "K",
+     "resid": 72,
+     "icode": "",
+     "resname": "LYS",
+     "status": "observed"
+    },
+    "alphaC_Glu": {
+     "reference_index": 92,
+     "reference_aa": "E",
+     "resid": 91,
+     "icode": "",
+     "resname": "GLU",
+     "status": "observed"
+    },
+    "alphaC_Glu_plus4": {
+     "reference_index": 96,
+     "reference_aa": "L",
+     "resid": 95,
+     "icode": "",
+     "resname": "LEU",
+     "status": "observed"
+    },
+    "XHRD": {
+     "reference_index": 164,
+     "reference_aa": "I",
+     "resid": 163,
+     "icode": "",
+     "resname": "ILE",
+     "status": "observed"
+    },
+    "XDFG_minus1": {
+     "reference_index": 183,
+     "reference_aa": "V",
+     "resid": 182,
+     "icode": "",
+     "resname": "VAL",
+     "status": "observed"
+    },
+    "XDFG": {
+     "reference_index": 184,
+     "reference_aa": "T",
+     "resid": 183,
+     "icode": "",
+     "resname": "THR",
+     "status": "observed"
+    },
+    "DFG_Asp": {
+     "reference_index": 185,
+     "reference_aa": "D",
+     "resid": 184,
+     "icode": "",
+     "resname": "ASP",
+     "status": "observed"
+    },
+    "DFG_Phe": {
+     "reference_index": 186,
+     "reference_aa": "F",
+     "resid": 185,
+     "icode": "",
+     "resname": "PHE",
+     "status": "observed"
+    },
+    "DFG_Gly": {
+     "reference_index": 187,
+     "reference_aa": "G",
+     "resid": 186,
+     "icode": "",
+     "resname": "GLY",
+     "status": "observed"
+    },
+    "DFGxxX": {
+     "reference_index": 190,
+     "reference_aa": "K",
+     "resid": 189,
+     "icode": "",
+     "resname": "LYS",
+     "status": "observed"
+    }
+   },
+   "pass": true
+  },
+  {
+   "case": "pka_kin_rob_1a",
+   "pdb": "1ATP",
+   "chain": "E",
+   "uniprot": "P05132",
+   "anchors": {
+    "beta3_Lys": 73,
+    "alphaC_Glu": 92,
+    "HRD_H": 165,
+    "DFG_Asp": 185
+   },
+   "numbering": {
+    "scheme": "reference",
+    "reference_minus_label": 0,
+    "description": "UniProt P05132 (KIN-ROB-1a)"
+   },
+   "expected_accepted": true,
+   "accepted": true,
+   "M1_decision": true,
+   "M2_reference_positions": true,
+   "M3_structure_residues": true,
+   "M4_descriptors": {
+    "pass": true,
+    "mismatches": [],
+    "nan": []
+   },
+   "problems": [],
+   "alignment": {
+    "aligned_pairs": 336,
+    "identity": 1.0,
+    "reference_span": [
+     16,
+     351
+    ],
+    "mutations": [],
+    "insertions": [],
+    "unaligned_terminal": [],
+    "unobserved_reference_ranges": [],
+    "absent_between_bonded_residues": [],
+    "chain_breaks_before": [],
+    "bonding_unknown": 0,
+    "insertion_code_residues": [],
+    "variant_residue_names": [
+     {
+      "resid": 197,
+      "icode": "",
+      "resname": "TPO",
+      "maps_to": "T"
+     },
+     {
+      "resid": 338,
+      "icode": "",
+      "resname": "SEP",
+      "maps_to": "S"
+     }
+    ],
+    "author_numbering_diagnostic": {
+     "reference_index_minus_author_resid": {
+      "1": 336
+     },
+     "note": "reported for inspection only; author numbers are never used to place residues"
+    }
+   },
+   "roles": {
+    "beta3_Lys": {
+     "reference_index": 73,
+     "reference_aa": "K",
+     "resid": 72,
+     "icode": "",
+     "resname": "LYS",
+     "status": "observed"
+    },
+    "alphaC_Glu": {
+     "reference_index": 92,
+     "reference_aa": "E",
+     "resid": 91,
+     "icode": "",
+     "resname": "GLU",
+     "status": "observed"
+    },
+    "alphaC_Glu_plus4": {
+     "reference_index": 96,
+     "reference_aa": "L",
+     "resid": 95,
+     "icode": "",
+     "resname": "LEU",
+     "status": "observed"
+    },
+    "XHRD": {
+     "reference_index": 164,
+     "reference_aa": "I",
+     "resid": 163,
+     "icode": "",
+     "resname": "ILE",
+     "status": "observed"
+    },
+    "XDFG_minus1": {
+     "reference_index": 183,
+     "reference_aa": "V",
+     "resid": 182,
+     "icode": "",
+     "resname": "VAL",
+     "status": "observed"
+    },
+    "XDFG": {
+     "reference_index": 184,
+     "reference_aa": "T",
+     "resid": 183,
+     "icode": "",
+     "resname": "THR",
+     "status": "observed"
+    },
+    "DFG_Asp": {
+     "reference_index": 185,
+     "reference_aa": "D",
+     "resid": 184,
+     "icode": "",
+     "resname": "ASP",
+     "status": "observed"
+    },
+    "DFG_Phe": {
+     "reference_index": 186,
+     "reference_aa": "F",
+     "resid": 185,
+     "icode": "",
+     "resname": "PHE",
+     "status": "observed"
+    },
+    "DFG_Gly": {
+     "reference_index": 187,
+     "reference_aa": "G",
+     "resid": 186,
+     "icode": "",
+     "resname": "GLY",
+     "status": "observed"
+    },
+    "DFGxxX": {
+     "reference_index": 190,
+     "reference_aa": "K",
+     "resid": 189,
+     "icode": "",
+     "resname": "LYS",
+     "status": "observed"
+    }
+   },
+   "pass": true
+  },
+  {
+   "case": "pka_literature_declared",
+   "pdb": "1ATP",
+   "chain": "E",
+   "uniprot": "P05132",
+   "anchors": {
+    "beta3_Lys": 72,
+    "alphaC_Glu": 91,
+    "HRD_H": 164,
+    "DFG_Asp": 184
+   },
+   "numbering": {
+    "scheme": "reference",
+    "reference_minus_label": 1,
+    "description": "PKA literature numbering (no initiator Met)"
+   },
+   "expected_accepted": true,
+   "accepted": true,
+   "M1_decision": true,
+   "M2_reference_positions": true,
+   "M3_structure_residues": true,
+   "M4_descriptors": {
+    "pass": true,
+    "mismatches": [],
+    "nan": []
+   },
+   "problems": [],
+   "alignment": {
+    "aligned_pairs": 336,
+    "identity": 1.0,
+    "reference_span": [
+     16,
+     351
+    ],
+    "mutations": [],
+    "insertions": [],
+    "unaligned_terminal": [],
+    "unobserved_reference_ranges": [],
+    "absent_between_bonded_residues": [],
+    "chain_breaks_before": [],
+    "bonding_unknown": 0,
+    "insertion_code_residues": [],
+    "variant_residue_names": [
+     {
+      "resid": 197,
+      "icode": "",
+      "resname": "TPO",
+      "maps_to": "T"
+     },
+     {
+      "resid": 338,
+      "icode": "",
+      "resname": "SEP",
+      "maps_to": "S"
+     }
+    ],
+    "author_numbering_diagnostic": {
+     "reference_index_minus_author_resid": {
+      "1": 336
+     },
+     "note": "reported for inspection only; author numbers are never used to place residues"
+    }
+   },
+   "roles": {
+    "beta3_Lys": {
+     "reference_index": 73,
+     "reference_aa": "K",
+     "resid": 72,
+     "icode": "",
+     "resname": "LYS",
+     "status": "observed"
+    },
+    "alphaC_Glu": {
+     "reference_index": 92,
+     "reference_aa": "E",
+     "resid": 91,
+     "icode": "",
+     "resname": "GLU",
+     "status": "observed"
+    },
+    "alphaC_Glu_plus4": {
+     "reference_index": 96,
+     "reference_aa": "L",
+     "resid": 95,
+     "icode": "",
+     "resname": "LEU",
+     "status": "observed"
+    },
+    "XHRD": {
+     "reference_index": 164,
+     "reference_aa": "I",
+     "resid": 163,
+     "icode": "",
+     "resname": "ILE",
+     "status": "observed"
+    },
+    "XDFG_minus1": {
+     "reference_index": 183,
+     "reference_aa": "V",
+     "resid": 182,
+     "icode": "",
+     "resname": "VAL",
+     "status": "observed"
+    },
+    "XDFG": {
+     "reference_index": 184,
+     "reference_aa": "T",
+     "resid": 183,
+     "icode": "",
+     "resname": "THR",
+     "status": "observed"
+    },
+    "DFG_Asp": {
+     "reference_index": 185,
+     "reference_aa": "D",
+     "resid": 184,
+     "icode": "",
+     "resname": "ASP",
+     "status": "observed"
+    },
+    "DFG_Phe": {
+     "reference_index": 186,
+     "reference_aa": "F",
+     "resid": 185,
+     "icode": "",
+     "resname": "PHE",
+     "status": "observed"
+    },
+    "DFG_Gly": {
+     "reference_index": 187,
+     "reference_aa": "G",
+     "resid": 186,
+     "icode": "",
+     "resname": "GLY",
+     "status": "observed"
+    },
+    "DFGxxX": {
+     "reference_index": 190,
+     "reference_aa": "K",
+     "resid": 189,
+     "icode": "",
+     "resname": "LYS",
+     "status": "observed"
+    }
+   },
+   "pass": true
+  },
+  {
+   "case": "pka_structure_author_original",
+   "pdb": "1ATP",
+   "chain": "E",
+   "uniprot": "P05132",
+   "anchors": {
+    "beta3_Lys": 71,
+    "alphaC_Glu": 90,
+    "DFG_Asp": 183,
+    "HRD_H": 163
+   },
+   "numbering": {
+    "scheme": "structure_author",
+    "reference_minus_label": null,
+    "description": ""
+   },
+   "expected_accepted": false,
+   "accepted": false,
+   "M1_decision": true,
+   "M6_refusal_content": {
+    "motif_problems": 4,
+    "diagnostic_offsets": null,
+    "pass": true
+   },
+   "problems": [
+    "beta3_Lys: reference P05132 has M at index 72, expected K",
+    "alphaC_Glu: reference P05132 has N at index 91, expected E",
+    "HRD_H: reference P05132 has IYR at index 164, expected H/Y-R-D",
+    "DFG_Asp: reference P05132 has TDF at index 184, expected D-F-G"
+   ],
+   "alignment": {
+    "aligned_pairs": 336,
+    "identity": 1.0,
+    "reference_span": [
+     16,
+     351
+    ],
+    "mutations": [],
+    "insertions": [],
+    "unaligned_terminal": [],
+    "unobserved_reference_ranges": [],
+    "absent_between_bonded_residues": [],
+    "chain_breaks_before": [],
+    "bonding_unknown": 0,
+    "insertion_code_residues": [],
+    "variant_residue_names": [
+     {
+      "resid": 197,
+      "icode": "",
+      "resname": "TPO",
+      "maps_to": "T"
+     },
+     {
+      "resid": 338,
+      "icode": "",
+      "resname": "SEP",
+      "maps_to": "S"
+     }
+    ],
+    "author_numbering_diagnostic": {
+     "reference_index_minus_author_resid": {
+      "1": 336
+     },
+     "note": "reported for inspection only; author numbers are never used to place residues"
+    }
+   },
+   "roles": {
+    "beta3_Lys": {
+     "reference_index": 72,
+     "reference_aa": "M",
+     "resid": 71,
+     "icode": "",
+     "resname": "MET",
+     "status": "observed"
+    },
+    "alphaC_Glu": {
+     "reference_index": 91,
+     "reference_aa": "N",
+     "resid": 90,
+     "icode": "",
+     "resname": "ASN",
+     "status": "observed"
+    },
+    "alphaC_Glu_plus4": {
+     "reference_index": 95,
+     "reference_aa": "I",
+     "resid": 94,
+     "icode": "",
+     "resname": "ILE",
+     "status": "observed"
+    },
+    "XHRD": {
+     "reference_index": 163,
+     "reference_aa": "L",
+     "resid": 162,
+     "icode": "",
+     "resname": "LEU",
+     "status": "observed"
+    },
+    "XDFG_minus1": {
+     "reference_index": 182,
+     "reference_aa": "Q",
+     "resid": 181,
+     "icode": "",
+     "resname": "GLN",
+     "status": "observed"
+    },
+    "XDFG": {
+     "reference_index": 183,
+     "reference_aa": "V",
+     "resid": 182,
+     "icode": "",
+     "resname": "VAL",
+     "status": "observed"
+    },
+    "DFG_Asp": {
+     "reference_index": 184,
+     "reference_aa": "T",
+     "resid": 183,
+     "icode": "",
+     "resname": "THR",
+     "status": "observed"
+    },
+    "DFG_Phe": {
+     "reference_index": 185,
+     "reference_aa": "D",
+     "resid": 184,
+     "icode": "",
+     "resname": "ASP",
+     "status": "observed"
+    },
+    "DFG_Gly": {
+     "reference_index": 186,
+     "reference_aa": "F",
+     "resid": 185,
+     "icode": "",
+     "resname": "PHE",
+     "status": "observed"
+    },
+    "DFGxxX": {
+     "reference_index": 189,
+     "reference_aa": "A",
+     "resid": 188,
+     "icode": "",
+     "resname": "ALA",
+     "status": "observed"
+    }
+   },
+   "pass": true
+  },
+  {
+   "case": "frozen_spec",
+   "pdb": "1HCK",
+   "chain": "A",
+   "uniprot": "P24941",
+   "anchors": {
+    "beta3_Lys": 33,
+    "alphaC_Glu": 51,
+    "HRD_H": 125,
+    "DFG_Asp": 145
+   },
+   "numbering": {
+    "scheme": "reference",
+    "reference_minus_label": 0,
+    "description": "as labelled in the KIN-ROB-1 spec (UniProt)"
+   },
+   "expected_accepted": true,
+   "accepted": true,
+   "M1_decision": true,
+   "M2_reference_positions": true,
+   "M3_structure_residues": true,
+   "M4_descriptors": {
+    "pass": true,
+    "mismatches": [],
+    "nan": []
+   },
+   "problems": [],
+   "alignment": {
+    "aligned_pairs": 294,
+    "identity": 1.0,
+    "reference_span": [
+     1,
+     298
+    ],
+    "mutations": [],
+    "insertions": [],
+    "unaligned_terminal": [],
+    "unobserved_reference_ranges": [
+     [
+      37,
+      40
+     ]
+    ],
+    "absent_between_bonded_residues": [],
+    "chain_breaks_before": [
+     {
+      "resid": 41,
+      "icode": "",
+      "resname": "THR"
+     }
+    ],
+    "bonding_unknown": 0,
+    "insertion_code_residues": [],
+    "variant_residue_names": [],
+    "author_numbering_diagnostic": {
+     "reference_index_minus_author_resid": {
+      "0": 294
+     },
+     "note": "reported for inspection only; author numbers are never used to place residues"
+    }
+   },
+   "roles": {
+    "beta3_Lys": {
+     "reference_index": 33,
+     "reference_aa": "K",
+     "resid": 33,
+     "icode": "",
+     "resname": "LYS",
+     "status": "observed"
+    },
+    "alphaC_Glu": {
+     "reference_index": 51,
+     "reference_aa": "E",
+     "resid": 51,
+     "icode": "",
+     "resname": "GLU",
+     "status": "observed"
+    },
+    "alphaC_Glu_plus4": {
+     "reference_index": 55,
+     "reference_aa": "L",
+     "resid": 55,
+     "icode": "",
+     "resname": "LEU",
+     "status": "observed"
+    },
+    "XHRD": {
+     "reference_index": 124,
+     "reference_aa": "L",
+     "resid": 124,
+     "icode": "",
+     "resname": "LEU",
+     "status": "observed"
+    },
+    "XDFG_minus1": {
+     "reference_index": 143,
+     "reference_aa": "L",
+     "resid": 143,
+     "icode": "",
+     "resname": "LEU",
+     "status": "observed"
+    },
+    "XDFG": {
+     "reference_index": 144,
+     "reference_aa": "A",
+     "resid": 144,
+     "icode": "",
+     "resname": "ALA",
+     "status": "observed"
+    },
+    "DFG_Asp": {
+     "reference_index": 145,
+     "reference_aa": "D",
+     "resid": 145,
+     "icode": "",
+     "resname": "ASP",
+     "status": "observed"
+    },
+    "DFG_Phe": {
+     "reference_index": 146,
+     "reference_aa": "F",
+     "resid": 146,
+     "icode": "",
+     "resname": "PHE",
+     "status": "observed"
+    },
+    "DFG_Gly": {
+     "reference_index": 147,
+     "reference_aa": "G",
+     "resid": 147,
+     "icode": "",
+     "resname": "GLY",
+     "status": "observed"
+    },
+    "DFGxxX": {
+     "reference_index": 150,
+     "reference_aa": "R",
+     "resid": 150,
+     "icode": "",
+     "resname": "ARG",
+     "status": "observed"
+    }
+   },
+   "pass": true
+  },
+  {
+   "case": "structure_author",
+   "pdb": "1HCK",
+   "chain": "A",
+   "uniprot": "P24941",
+   "anchors": {
+    "beta3_Lys": 33,
+    "alphaC_Glu": 51,
+    "DFG_Asp": 145,
+    "HRD_H": 125
+   },
+   "numbering": {
+    "scheme": "structure_author",
+    "reference_minus_label": null,
+    "description": ""
+   },
+   "expected_accepted": true,
+   "accepted": true,
+   "M1_decision": true,
+   "M2_reference_positions": true,
+   "M3_structure_residues": true,
+   "M4_descriptors": {
+    "pass": true,
+    "mismatches": [],
+    "nan": []
+   },
+   "problems": [],
+   "alignment": {
+    "aligned_pairs": 294,
+    "identity": 1.0,
+    "reference_span": [
+     1,
+     298
+    ],
+    "mutations": [],
+    "insertions": [],
+    "unaligned_terminal": [],
+    "unobserved_reference_ranges": [
+     [
+      37,
+      40
+     ]
+    ],
+    "absent_between_bonded_residues": [],
+    "chain_breaks_before": [
+     {
+      "resid": 41,
+      "icode": "",
+      "resname": "THR"
+     }
+    ],
+    "bonding_unknown": 0,
+    "insertion_code_residues": [],
+    "variant_residue_names": [],
+    "author_numbering_diagnostic": {
+     "reference_index_minus_author_resid": {
+      "0": 294
+     },
+     "note": "reported for inspection only; author numbers are never used to place residues"
+    }
+   },
+   "roles": {
+    "beta3_Lys": {
+     "reference_index": 33,
+     "reference_aa": "K",
+     "resid": 33,
+     "icode": "",
+     "resname": "LYS",
+     "status": "observed"
+    },
+    "alphaC_Glu": {
+     "reference_index": 51,
+     "reference_aa": "E",
+     "resid": 51,
+     "icode": "",
+     "resname": "GLU",
+     "status": "observed"
+    },
+    "alphaC_Glu_plus4": {
+     "reference_index": 55,
+     "reference_aa": "L",
+     "resid": 55,
+     "icode": "",
+     "resname": "LEU",
+     "status": "observed"
+    },
+    "XHRD": {
+     "reference_index": 124,
+     "reference_aa": "L",
+     "resid": 124,
+     "icode": "",
+     "resname": "LEU",
+     "status": "observed"
+    },
+    "XDFG_minus1": {
+     "reference_index": 143,
+     "reference_aa": "L",
+     "resid": 143,
+     "icode": "",
+     "resname": "LEU",
+     "status": "observed"
+    },
+    "XDFG": {
+     "reference_index": 144,
+     "reference_aa": "A",
+     "resid": 144,
+     "icode": "",
+     "resname": "ALA",
+     "status": "observed"
+    },
+    "DFG_Asp": {
+     "reference_index": 145,
+     "reference_aa": "D",
+     "resid": 145,
+     "icode": "",
+     "resname": "ASP",
+     "status": "observed"
+    },
+    "DFG_Phe": {
+     "reference_index": 146,
+     "reference_aa": "F",
+     "resid": 146,
+     "icode": "",
+     "resname": "PHE",
+     "status": "observed"
+    },
+    "DFG_Gly": {
+     "reference_index": 147,
+     "reference_aa": "G",
+     "resid": 147,
+     "icode": "",
+     "resname": "GLY",
+     "status": "observed"
+    },
+    "DFGxxX": {
+     "reference_index": 150,
+     "reference_aa": "R",
+     "resid": 150,
+     "icode": "",
+     "resname": "ARG",
+     "status": "observed"
+    }
+   },
+   "pass": true
+  },
+  {
+   "case": "frozen_spec",
+   "pdb": "1FIN",
+   "chain": "A",
+   "uniprot": "P24941",
+   "anchors": {
+    "beta3_Lys": 33,
+    "alphaC_Glu": 51,
+    "HRD_H": 125,
+    "DFG_Asp": 145
+   },
+   "numbering": {
+    "scheme": "reference",
+    "reference_minus_label": 0,
+    "description": "as labelled in the KIN-ROB-1 spec (UniProt)"
+   },
+   "expected_accepted": true,
+   "accepted": true,
+   "M1_decision": true,
+   "M2_reference_positions": true,
+   "M3_structure_residues": true,
+   "M4_descriptors": {
+    "pass": true,
+    "mismatches": [],
+    "nan": []
+   },
+   "problems": [],
+   "alignment": {
+    "aligned_pairs": 298,
+    "identity": 1.0,
+    "reference_span": [
+     1,
+     298
+    ],
+    "mutations": [],
+    "insertions": [],
+    "unaligned_terminal": [],
+    "unobserved_reference_ranges": [],
+    "absent_between_bonded_residues": [],
+    "chain_breaks_before": [],
+    "bonding_unknown": 0,
+    "insertion_code_residues": [],
+    "variant_residue_names": [],
+    "author_numbering_diagnostic": {
+     "reference_index_minus_author_resid": {
+      "0": 298
+     },
+     "note": "reported for inspection only; author numbers are never used to place residues"
+    }
+   },
+   "roles": {
+    "beta3_Lys": {
+     "reference_index": 33,
+     "reference_aa": "K",
+     "resid": 33,
+     "icode": "",
+     "resname": "LYS",
+     "status": "observed"
+    },
+    "alphaC_Glu": {
+     "reference_index": 51,
+     "reference_aa": "E",
+     "resid": 51,
+     "icode": "",
+     "resname": "GLU",
+     "status": "observed"
+    },
+    "alphaC_Glu_plus4": {
+     "reference_index": 55,
+     "reference_aa": "L",
+     "resid": 55,
+     "icode": "",
+     "resname": "LEU",
+     "status": "observed"
+    },
+    "XHRD": {
+     "reference_index": 124,
+     "reference_aa": "L",
+     "resid": 124,
+     "icode": "",
+     "resname": "LEU",
+     "status": "observed"
+    },
+    "XDFG_minus1": {
+     "reference_index": 143,
+     "reference_aa": "L",
+     "resid": 143,
+     "icode": "",
+     "resname": "LEU",
+     "status": "observed"
+    },
+    "XDFG": {
+     "reference_index": 144,
+     "reference_aa": "A",
+     "resid": 144,
+     "icode": "",
+     "resname": "ALA",
+     "status": "observed"
+    },
+    "DFG_Asp": {
+     "reference_index": 145,
+     "reference_aa": "D",
+     "resid": 145,
+     "icode": "",
+     "resname": "ASP",
+     "status": "observed"
+    },
+    "DFG_Phe": {
+     "reference_index": 146,
+     "reference_aa": "F",
+     "resid": 146,
+     "icode": "",
+     "resname": "PHE",
+     "status": "observed"
+    },
+    "DFG_Gly": {
+     "reference_index": 147,
+     "reference_aa": "G",
+     "resid": 147,
+     "icode": "",
+     "resname": "GLY",
+     "status": "observed"
+    },
+    "DFGxxX": {
+     "reference_index": 150,
+     "reference_aa": "R",
+     "resid": 150,
+     "icode": "",
+     "resname": "ARG",
+     "status": "observed"
+    }
+   },
+   "pass": true
+  },
+  {
+   "case": "structure_author",
+   "pdb": "1FIN",
+   "chain": "A",
+   "uniprot": "P24941",
+   "anchors": {
+    "beta3_Lys": 33,
+    "alphaC_Glu": 51,
+    "DFG_Asp": 145,
+    "HRD_H": 125
+   },
+   "numbering": {
+    "scheme": "structure_author",
+    "reference_minus_label": null,
+    "description": ""
+   },
+   "expected_accepted": true,
+   "accepted": true,
+   "M1_decision": true,
+   "M2_reference_positions": true,
+   "M3_structure_residues": true,
+   "M4_descriptors": {
+    "pass": true,
+    "mismatches": [],
+    "nan": []
+   },
+   "problems": [],
+   "alignment": {
+    "aligned_pairs": 298,
+    "identity": 1.0,
+    "reference_span": [
+     1,
+     298
+    ],
+    "mutations": [],
+    "insertions": [],
+    "unaligned_terminal": [],
+    "unobserved_reference_ranges": [],
+    "absent_between_bonded_residues": [],
+    "chain_breaks_before": [],
+    "bonding_unknown": 0,
+    "insertion_code_residues": [],
+    "variant_residue_names": [],
+    "author_numbering_diagnostic": {
+     "reference_index_minus_author_resid": {
+      "0": 298
+     },
+     "note": "reported for inspection only; author numbers are never used to place residues"
+    }
+   },
+   "roles": {
+    "beta3_Lys": {
+     "reference_index": 33,
+     "reference_aa": "K",
+     "resid": 33,
+     "icode": "",
+     "resname": "LYS",
+     "status": "observed"
+    },
+    "alphaC_Glu": {
+     "reference_index": 51,
+     "reference_aa": "E",
+     "resid": 51,
+     "icode": "",
+     "resname": "GLU",
+     "status": "observed"
+    },
+    "alphaC_Glu_plus4": {
+     "reference_index": 55,
+     "reference_aa": "L",
+     "resid": 55,
+     "icode": "",
+     "resname": "LEU",
+     "status": "observed"
+    },
+    "XHRD": {
+     "reference_index": 124,
+     "reference_aa": "L",
+     "resid": 124,
+     "icode": "",
+     "resname": "LEU",
+     "status": "observed"
+    },
+    "XDFG_minus1": {
+     "reference_index": 143,
+     "reference_aa": "L",
+     "resid": 143,
+     "icode": "",
+     "resname": "LEU",
+     "status": "observed"
+    },
+    "XDFG": {
+     "reference_index": 144,
+     "reference_aa": "A",
+     "resid": 144,
+     "icode": "",
+     "resname": "ALA",
+     "status": "observed"
+    },
+    "DFG_Asp": {
+     "reference_index": 145,
+     "reference_aa": "D",
+     "resid": 145,
+     "icode": "",
+     "resname": "ASP",
+     "status": "observed"
+    },
+    "DFG_Phe": {
+     "reference_index": 146,
+     "reference_aa": "F",
+     "resid": 146,
+     "icode": "",
+     "resname": "PHE",
+     "status": "observed"
+    },
+    "DFG_Gly": {
+     "reference_index": 147,
+     "reference_aa": "G",
+     "resid": 147,
+     "icode": "",
+     "resname": "GLY",
+     "status": "observed"
+    },
+    "DFGxxX": {
+     "reference_index": 150,
+     "reference_aa": "R",
+     "resid": 150,
+     "icode": "",
+     "resname": "ARG",
+     "status": "observed"
+    }
+   },
+   "pass": true
+  },
+  {
+   "case": "frozen_spec",
+   "pdb": "1FIN",
+   "chain": "C",
+   "uniprot": "P24941",
+   "anchors": {
+    "beta3_Lys": 33,
+    "alphaC_Glu": 51,
+    "HRD_H": 125,
+    "DFG_Asp": 145
+   },
+   "numbering": {
+    "scheme": "reference",
+    "reference_minus_label": 0,
+    "description": "as labelled in the KIN-ROB-1 spec (UniProt)"
+   },
+   "expected_accepted": true,
+   "accepted": true,
+   "M1_decision": true,
+   "M2_reference_positions": true,
+   "M3_structure_residues": true,
+   "M4_descriptors": {
+    "pass": true,
+    "mismatches": [],
+    "nan": []
+   },
+   "problems": [],
+   "alignment": {
+    "aligned_pairs": 298,
+    "identity": 1.0,
+    "reference_span": [
+     1,
+     298
+    ],
+    "mutations": [],
+    "insertions": [],
+    "unaligned_terminal": [],
+    "unobserved_reference_ranges": [],
+    "absent_between_bonded_residues": [],
+    "chain_breaks_before": [],
+    "bonding_unknown": 0,
+    "insertion_code_residues": [],
+    "variant_residue_names": [],
+    "author_numbering_diagnostic": {
+     "reference_index_minus_author_resid": {
+      "0": 298
+     },
+     "note": "reported for inspection only; author numbers are never used to place residues"
+    }
+   },
+   "roles": {
+    "beta3_Lys": {
+     "reference_index": 33,
+     "reference_aa": "K",
+     "resid": 33,
+     "icode": "",
+     "resname": "LYS",
+     "status": "observed"
+    },
+    "alphaC_Glu": {
+     "reference_index": 51,
+     "reference_aa": "E",
+     "resid": 51,
+     "icode": "",
+     "resname": "GLU",
+     "status": "observed"
+    },
+    "alphaC_Glu_plus4": {
+     "reference_index": 55,
+     "reference_aa": "L",
+     "resid": 55,
+     "icode": "",
+     "resname": "LEU",
+     "status": "observed"
+    },
+    "XHRD": {
+     "reference_index": 124,
+     "reference_aa": "L",
+     "resid": 124,
+     "icode": "",
+     "resname": "LEU",
+     "status": "observed"
+    },
+    "XDFG_minus1": {
+     "reference_index": 143,
+     "reference_aa": "L",
+     "resid": 143,
+     "icode": "",
+     "resname": "LEU",
+     "status": "observed"
+    },
+    "XDFG": {
+     "reference_index": 144,
+     "reference_aa": "A",
+     "resid": 144,
+     "icode": "",
+     "resname": "ALA",
+     "status": "observed"
+    },
+    "DFG_Asp": {
+     "reference_index": 145,
+     "reference_aa": "D",
+     "resid": 145,
+     "icode": "",
+     "resname": "ASP",
+     "status": "observed"
+    },
+    "DFG_Phe": {
+     "reference_index": 146,
+     "reference_aa": "F",
+     "resid": 146,
+     "icode": "",
+     "resname": "PHE",
+     "status": "observed"
+    },
+    "DFG_Gly": {
+     "reference_index": 147,
+     "reference_aa": "G",
+     "resid": 147,
+     "icode": "",
+     "resname": "GLY",
+     "status": "observed"
+    },
+    "DFGxxX": {
+     "reference_index": 150,
+     "reference_aa": "R",
+     "resid": 150,
+     "icode": "",
+     "resname": "ARG",
+     "status": "observed"
+    }
+   },
+   "pass": true
+  },
+  {
+   "case": "structure_author",
+   "pdb": "1FIN",
+   "chain": "C",
+   "uniprot": "P24941",
+   "anchors": {
+    "beta3_Lys": 33,
+    "alphaC_Glu": 51,
+    "DFG_Asp": 145,
+    "HRD_H": 125
+   },
+   "numbering": {
+    "scheme": "structure_author",
+    "reference_minus_label": null,
+    "description": ""
+   },
+   "expected_accepted": true,
+   "accepted": true,
+   "M1_decision": true,
+   "M2_reference_positions": true,
+   "M3_structure_residues": true,
+   "M4_descriptors": {
+    "pass": true,
+    "mismatches": [],
+    "nan": []
+   },
+   "problems": [],
+   "alignment": {
+    "aligned_pairs": 298,
+    "identity": 1.0,
+    "reference_span": [
+     1,
+     298
+    ],
+    "mutations": [],
+    "insertions": [],
+    "unaligned_terminal": [],
+    "unobserved_reference_ranges": [],
+    "absent_between_bonded_residues": [],
+    "chain_breaks_before": [],
+    "bonding_unknown": 0,
+    "insertion_code_residues": [],
+    "variant_residue_names": [],
+    "author_numbering_diagnostic": {
+     "reference_index_minus_author_resid": {
+      "0": 298
+     },
+     "note": "reported for inspection only; author numbers are never used to place residues"
+    }
+   },
+   "roles": {
+    "beta3_Lys": {
+     "reference_index": 33,
+     "reference_aa": "K",
+     "resid": 33,
+     "icode": "",
+     "resname": "LYS",
+     "status": "observed"
+    },
+    "alphaC_Glu": {
+     "reference_index": 51,
+     "reference_aa": "E",
+     "resid": 51,
+     "icode": "",
+     "resname": "GLU",
+     "status": "observed"
+    },
+    "alphaC_Glu_plus4": {
+     "reference_index": 55,
+     "reference_aa": "L",
+     "resid": 55,
+     "icode": "",
+     "resname": "LEU",
+     "status": "observed"
+    },
+    "XHRD": {
+     "reference_index": 124,
+     "reference_aa": "L",
+     "resid": 124,
+     "icode": "",
+     "resname": "LEU",
+     "status": "observed"
+    },
+    "XDFG_minus1": {
+     "reference_index": 143,
+     "reference_aa": "L",
+     "resid": 143,
+     "icode": "",
+     "resname": "LEU",
+     "status": "observed"
+    },
+    "XDFG": {
+     "reference_index": 144,
+     "reference_aa": "A",
+     "resid": 144,
+     "icode": "",
+     "resname": "ALA",
+     "status": "observed"
+    },
+    "DFG_Asp": {
+     "reference_index": 145,
+     "reference_aa": "D",
+     "resid": 145,
+     "icode": "",
+     "resname": "ASP",
+     "status": "observed"
+    },
+    "DFG_Phe": {
+     "reference_index": 146,
+     "reference_aa": "F",
+     "resid": 146,
+     "icode": "",
+     "resname": "PHE",
+     "status": "observed"
+    },
+    "DFG_Gly": {
+     "reference_index": 147,
+     "reference_aa": "G",
+     "resid": 147,
+     "icode": "",
+     "resname": "GLY",
+     "status": "observed"
+    },
+    "DFGxxX": {
+     "reference_index": 150,
+     "reference_aa": "R",
+     "resid": 150,
+     "icode": "",
+     "resname": "ARG",
+     "status": "observed"
+    }
+   },
+   "pass": true
+  },
+  {
+   "case": "frozen_spec",
+   "pdb": "1A9U",
+   "chain": "A",
+   "uniprot": "Q16539",
+   "anchors": {
+    "beta3_Lys": 53,
+    "alphaC_Glu": 71,
+    "HRD_H": 148,
+    "DFG_Asp": 168
+   },
+   "numbering": {
+    "scheme": "reference",
+    "reference_minus_label": 0,
+    "description": "as labelled in the KIN-ROB-1 spec (UniProt)"
+   },
+   "expected_accepted": true,
+   "accepted": true,
+   "M1_decision": true,
+   "M2_reference_positions": true,
+   "M3_structure_residues": true,
+   "M4_descriptors": {
+    "pass": true,
+    "mismatches": [],
+    "nan": []
+   },
+   "problems": [],
+   "alignment": {
+    "aligned_pairs": 351,
+    "identity": 1.0,
+    "reference_span": [
+     4,
+     354
+    ],
+    "mutations": [],
+    "insertions": [],
+    "unaligned_terminal": [],
+    "unobserved_reference_ranges": [],
+    "absent_between_bonded_residues": [],
+    "chain_breaks_before": [],
+    "bonding_unknown": 0,
+    "insertion_code_residues": [],
+    "variant_residue_names": [],
+    "author_numbering_diagnostic": {
+     "reference_index_minus_author_resid": {
+      "0": 351
+     },
+     "note": "reported for inspection only; author numbers are never used to place residues"
+    }
+   },
+   "roles": {
+    "beta3_Lys": {
+     "reference_index": 53,
+     "reference_aa": "K",
+     "resid": 53,
+     "icode": "",
+     "resname": "LYS",
+     "status": "observed"
+    },
+    "alphaC_Glu": {
+     "reference_index": 71,
+     "reference_aa": "E",
+     "resid": 71,
+     "icode": "",
+     "resname": "GLU",
+     "status": "observed"
+    },
+    "alphaC_Glu_plus4": {
+     "reference_index": 75,
+     "reference_aa": "L",
+     "resid": 75,
+     "icode": "",
+     "resname": "LEU",
+     "status": "observed"
+    },
+    "XHRD": {
+     "reference_index": 147,
+     "reference_aa": "I",
+     "resid": 147,
+     "icode": "",
+     "resname": "ILE",
+     "status": "observed"
+    },
+    "XDFG_minus1": {
+     "reference_index": 166,
+     "reference_aa": "I",
+     "resid": 166,
+     "icode": "",
+     "resname": "ILE",
+     "status": "observed"
+    },
+    "XDFG": {
+     "reference_index": 167,
+     "reference_aa": "L",
+     "resid": 167,
+     "icode": "",
+     "resname": "LEU",
+     "status": "observed"
+    },
+    "DFG_Asp": {
+     "reference_index": 168,
+     "reference_aa": "D",
+     "resid": 168,
+     "icode": "",
+     "resname": "ASP",
+     "status": "observed"
+    },
+    "DFG_Phe": {
+     "reference_index": 169,
+     "reference_aa": "F",
+     "resid": 169,
+     "icode": "",
+     "resname": "PHE",
+     "status": "observed"
+    },
+    "DFG_Gly": {
+     "reference_index": 170,
+     "reference_aa": "G",
+     "resid": 170,
+     "icode": "",
+     "resname": "GLY",
+     "status": "observed"
+    },
+    "DFGxxX": {
+     "reference_index": 173,
+     "reference_aa": "R",
+     "resid": 173,
+     "icode": "",
+     "resname": "ARG",
+     "status": "observed"
+    }
+   },
+   "pass": true
+  },
+  {
+   "case": "structure_author",
+   "pdb": "1A9U",
+   "chain": "A",
+   "uniprot": "Q16539",
+   "anchors": {
+    "beta3_Lys": 53,
+    "alphaC_Glu": 71,
+    "DFG_Asp": 168,
+    "HRD_H": 148
+   },
+   "numbering": {
+    "scheme": "structure_author",
+    "reference_minus_label": null,
+    "description": ""
+   },
+   "expected_accepted": true,
+   "accepted": true,
+   "M1_decision": true,
+   "M2_reference_positions": true,
+   "M3_structure_residues": true,
+   "M4_descriptors": {
+    "pass": true,
+    "mismatches": [],
+    "nan": []
+   },
+   "problems": [],
+   "alignment": {
+    "aligned_pairs": 351,
+    "identity": 1.0,
+    "reference_span": [
+     4,
+     354
+    ],
+    "mutations": [],
+    "insertions": [],
+    "unaligned_terminal": [],
+    "unobserved_reference_ranges": [],
+    "absent_between_bonded_residues": [],
+    "chain_breaks_before": [],
+    "bonding_unknown": 0,
+    "insertion_code_residues": [],
+    "variant_residue_names": [],
+    "author_numbering_diagnostic": {
+     "reference_index_minus_author_resid": {
+      "0": 351
+     },
+     "note": "reported for inspection only; author numbers are never used to place residues"
+    }
+   },
+   "roles": {
+    "beta3_Lys": {
+     "reference_index": 53,
+     "reference_aa": "K",
+     "resid": 53,
+     "icode": "",
+     "resname": "LYS",
+     "status": "observed"
+    },
+    "alphaC_Glu": {
+     "reference_index": 71,
+     "reference_aa": "E",
+     "resid": 71,
+     "icode": "",
+     "resname": "GLU",
+     "status": "observed"
+    },
+    "alphaC_Glu_plus4": {
+     "reference_index": 75,
+     "reference_aa": "L",
+     "resid": 75,
+     "icode": "",
+     "resname": "LEU",
+     "status": "observed"
+    },
+    "XHRD": {
+     "reference_index": 147,
+     "reference_aa": "I",
+     "resid": 147,
+     "icode": "",
+     "resname": "ILE",
+     "status": "observed"
+    },
+    "XDFG_minus1": {
+     "reference_index": 166,
+     "reference_aa": "I",
+     "resid": 166,
+     "icode": "",
+     "resname": "ILE",
+     "status": "observed"
+    },
+    "XDFG": {
+     "reference_index": 167,
+     "reference_aa": "L",
+     "resid": 167,
+     "icode": "",
+     "resname": "LEU",
+     "status": "observed"
+    },
+    "DFG_Asp": {
+     "reference_index": 168,
+     "reference_aa": "D",
+     "resid": 168,
+     "icode": "",
+     "resname": "ASP",
+     "status": "observed"
+    },
+    "DFG_Phe": {
+     "reference_index": 169,
+     "reference_aa": "F",
+     "resid": 169,
+     "icode": "",
+     "resname": "PHE",
+     "status": "observed"
+    },
+    "DFG_Gly": {
+     "reference_index": 170,
+     "reference_aa": "G",
+     "resid": 170,
+     "icode": "",
+     "resname": "GLY",
+     "status": "observed"
+    },
+    "DFGxxX": {
+     "reference_index": 173,
+     "reference_aa": "R",
+     "resid": 173,
+     "icode": "",
+     "resname": "ARG",
+     "status": "observed"
+    }
+   },
+   "pass": true
+  },
+  {
+   "case": "frozen_spec",
+   "pdb": "1KV2",
+   "chain": "A",
+   "uniprot": "Q16539",
+   "anchors": {
+    "beta3_Lys": 53,
+    "alphaC_Glu": 71,
+    "HRD_H": 148,
+    "DFG_Asp": 168
+   },
+   "numbering": {
+    "scheme": "reference",
+    "reference_minus_label": 0,
+    "description": "as labelled in the KIN-ROB-1 spec (UniProt)"
+   },
+   "expected_accepted": true,
+   "accepted": true,
+   "M1_decision": true,
+   "M2_reference_positions": true,
+   "M3_structure_residues": true,
+   "M4_descriptors": {
+    "pass": true,
+    "mismatches": [],
+    "nan": [
+     "Aloop_NO",
+     "psi_Phe"
+    ]
+   },
+   "problems": [],
+   "alignment": {
+    "aligned_pairs": 325,
+    "identity": 1.0,
+    "reference_span": [
+     5,
+     352
+    ],
+    "mutations": [],
+    "insertions": [],
+    "unaligned_terminal": [],
+    "unobserved_reference_ranges": [
+     [
+      115,
+      122
+     ],
+     [
+      170,
+      184
+     ]
+    ],
+    "absent_between_bonded_residues": [],
+    "chain_breaks_before": [
+     {
+      "resid": 123,
+      "icode": "",
+      "resname": "THR"
+     },
+     {
+      "resid": 185,
+      "icode": "",
+      "resname": "THR"
+     }
+    ],
+    "bonding_unknown": 0,
+    "insertion_code_residues": [],
+    "variant_residue_names": [],
+    "author_numbering_diagnostic": {
+     "reference_index_minus_author_resid": {
+      "0": 325
+     },
+     "note": "reported for inspection only; author numbers are never used to place residues"
+    }
+   },
+   "roles": {
+    "beta3_Lys": {
+     "reference_index": 53,
+     "reference_aa": "K",
+     "resid": 53,
+     "icode": "",
+     "resname": "LYS",
+     "status": "observed"
+    },
+    "alphaC_Glu": {
+     "reference_index": 71,
+     "reference_aa": "E",
+     "resid": 71,
+     "icode": "",
+     "resname": "GLU",
+     "status": "observed"
+    },
+    "alphaC_Glu_plus4": {
+     "reference_index": 75,
+     "reference_aa": "L",
+     "resid": 75,
+     "icode": "",
+     "resname": "LEU",
+     "status": "observed"
+    },
+    "XHRD": {
+     "reference_index": 147,
+     "reference_aa": "I",
+     "resid": 147,
+     "icode": "",
+     "resname": "ILE",
+     "status": "observed"
+    },
+    "XDFG_minus1": {
+     "reference_index": 166,
+     "reference_aa": "I",
+     "resid": 166,
+     "icode": "",
+     "resname": "ILE",
+     "status": "observed"
+    },
+    "XDFG": {
+     "reference_index": 167,
+     "reference_aa": "L",
+     "resid": 167,
+     "icode": "",
+     "resname": "LEU",
+     "status": "observed"
+    },
+    "DFG_Asp": {
+     "reference_index": 168,
+     "reference_aa": "D",
+     "resid": 168,
+     "icode": "",
+     "resname": "ASP",
+     "status": "observed"
+    },
+    "DFG_Phe": {
+     "reference_index": 169,
+     "reference_aa": "F",
+     "resid": 169,
+     "icode": "",
+     "resname": "PHE",
+     "status": "observed"
+    },
+    "DFG_Gly": {
+     "reference_index": 170,
+     "reference_aa": "G",
+     "status": "unobserved",
+     "reason": "inside the aligned span, at a chain break"
+    },
+    "DFGxxX": {
+     "reference_index": 173,
+     "reference_aa": "R",
+     "status": "unobserved",
+     "reason": "inside the aligned span, at a chain break"
+    }
+   },
+   "pass": true
+  },
+  {
+   "case": "structure_author",
+   "pdb": "1KV2",
+   "chain": "A",
+   "uniprot": "Q16539",
+   "anchors": {
+    "beta3_Lys": 53,
+    "alphaC_Glu": 71,
+    "DFG_Asp": 168,
+    "HRD_H": 148
+   },
+   "numbering": {
+    "scheme": "structure_author",
+    "reference_minus_label": null,
+    "description": ""
+   },
+   "expected_accepted": true,
+   "accepted": true,
+   "M1_decision": true,
+   "M2_reference_positions": true,
+   "M3_structure_residues": true,
+   "M4_descriptors": {
+    "pass": true,
+    "mismatches": [],
+    "nan": [
+     "Aloop_NO",
+     "psi_Phe"
+    ]
+   },
+   "problems": [],
+   "alignment": {
+    "aligned_pairs": 325,
+    "identity": 1.0,
+    "reference_span": [
+     5,
+     352
+    ],
+    "mutations": [],
+    "insertions": [],
+    "unaligned_terminal": [],
+    "unobserved_reference_ranges": [
+     [
+      115,
+      122
+     ],
+     [
+      170,
+      184
+     ]
+    ],
+    "absent_between_bonded_residues": [],
+    "chain_breaks_before": [
+     {
+      "resid": 123,
+      "icode": "",
+      "resname": "THR"
+     },
+     {
+      "resid": 185,
+      "icode": "",
+      "resname": "THR"
+     }
+    ],
+    "bonding_unknown": 0,
+    "insertion_code_residues": [],
+    "variant_residue_names": [],
+    "author_numbering_diagnostic": {
+     "reference_index_minus_author_resid": {
+      "0": 325
+     },
+     "note": "reported for inspection only; author numbers are never used to place residues"
+    }
+   },
+   "roles": {
+    "beta3_Lys": {
+     "reference_index": 53,
+     "reference_aa": "K",
+     "resid": 53,
+     "icode": "",
+     "resname": "LYS",
+     "status": "observed"
+    },
+    "alphaC_Glu": {
+     "reference_index": 71,
+     "reference_aa": "E",
+     "resid": 71,
+     "icode": "",
+     "resname": "GLU",
+     "status": "observed"
+    },
+    "alphaC_Glu_plus4": {
+     "reference_index": 75,
+     "reference_aa": "L",
+     "resid": 75,
+     "icode": "",
+     "resname": "LEU",
+     "status": "observed"
+    },
+    "XHRD": {
+     "reference_index": 147,
+     "reference_aa": "I",
+     "resid": 147,
+     "icode": "",
+     "resname": "ILE",
+     "status": "observed"
+    },
+    "XDFG_minus1": {
+     "reference_index": 166,
+     "reference_aa": "I",
+     "resid": 166,
+     "icode": "",
+     "resname": "ILE",
+     "status": "observed"
+    },
+    "XDFG": {
+     "reference_index": 167,
+     "reference_aa": "L",
+     "resid": 167,
+     "icode": "",
+     "resname": "LEU",
+     "status": "observed"
+    },
+    "DFG_Asp": {
+     "reference_index": 168,
+     "reference_aa": "D",
+     "resid": 168,
+     "icode": "",
+     "resname": "ASP",
+     "status": "observed"
+    },
+    "DFG_Phe": {
+     "reference_index": 169,
+     "reference_aa": "F",
+     "resid": 169,
+     "icode": "",
+     "resname": "PHE",
+     "status": "observed"
+    },
+    "DFG_Gly": {
+     "reference_index": 170,
+     "reference_aa": "G",
+     "status": "unobserved",
+     "reason": "inside the aligned span, at a chain break"
+    },
+    "DFGxxX": {
+     "reference_index": 173,
+     "reference_aa": "R",
+     "status": "unobserved",
+     "reason": "inside the aligned span, at a chain break"
+    }
+   },
+   "pass": true
+  },
+  {
+   "case": "frozen_spec",
+   "pdb": "1MQ4",
+   "chain": "A",
+   "uniprot": "O14965",
+   "anchors": {
+    "beta3_Lys": 162,
+    "alphaC_Glu": 181,
+    "HRD_H": 254,
+    "DFG_Asp": 274
+   },
+   "numbering": {
+    "scheme": "reference",
+    "reference_minus_label": 0,
+    "description": "as labelled in the KIN-ROB-1 spec (UniProt)"
+   },
+   "expected_accepted": true,
+   "accepted": true,
+   "M1_decision": true,
+   "M2_reference_positions": true,
+   "M3_structure_residues": true,
+   "M4_descriptors": {
+    "pass": true,
+    "mismatches": [],
+    "nan": []
+   },
+   "problems": [],
+   "alignment": {
+    "aligned_pairs": 261,
+    "identity": 1.0,
+    "reference_span": [
+     126,
+     388
+    ],
+    "mutations": [],
+    "insertions": [],
+    "unaligned_terminal": [],
+    "unobserved_reference_ranges": [
+     [
+      286,
+      287
+     ]
+    ],
+    "absent_between_bonded_residues": [],
+    "chain_breaks_before": [
+     {
+      "resid": 288,
+      "icode": "",
+      "resname": "THR"
+     }
+    ],
+    "bonding_unknown": 0,
+    "insertion_code_residues": [],
+    "variant_residue_names": [],
+    "author_numbering_diagnostic": {
+     "reference_index_minus_author_resid": {
+      "0": 261
+     },
+     "note": "reported for inspection only; author numbers are never used to place residues"
+    }
+   },
+   "roles": {
+    "beta3_Lys": {
+     "reference_index": 162,
+     "reference_aa": "K",
+     "resid": 162,
+     "icode": "",
+     "resname": "LYS",
+     "status": "observed"
+    },
+    "alphaC_Glu": {
+     "reference_index": 181,
+     "reference_aa": "E",
+     "resid": 181,
+     "icode": "",
+     "resname": "GLU",
+     "status": "observed"
+    },
+    "alphaC_Glu_plus4": {
+     "reference_index": 185,
+     "reference_aa": "Q",
+     "resid": 185,
+     "icode": "",
+     "resname": "GLN",
+     "status": "observed"
+    },
+    "XHRD": {
+     "reference_index": 253,
+     "reference_aa": "I",
+     "resid": 253,
+     "icode": "",
+     "resname": "ILE",
+     "status": "observed"
+    },
+    "XDFG_minus1": {
+     "reference_index": 272,
+     "reference_aa": "I",
+     "resid": 272,
+     "icode": "",
+     "resname": "ILE",
+     "status": "observed"
+    },
+    "XDFG": {
+     "reference_index": 273,
+     "reference_aa": "A",
+     "resid": 273,
+     "icode": "",
+     "resname": "ALA",
+     "status": "observed"
+    },
+    "DFG_Asp": {
+     "reference_index": 274,
+     "reference_aa": "D",
+     "resid": 274,
+     "icode": "",
+     "resname": "ASP",
+     "status": "observed"
+    },
+    "DFG_Phe": {
+     "reference_index": 275,
+     "reference_aa": "F",
+     "resid": 275,
+     "icode": "",
+     "resname": "PHE",
+     "status": "observed"
+    },
+    "DFG_Gly": {
+     "reference_index": 276,
+     "reference_aa": "G",
+     "resid": 276,
+     "icode": "",
+     "resname": "GLY",
+     "status": "observed"
+    },
+    "DFGxxX": {
+     "reference_index": 279,
+     "reference_aa": "V",
+     "resid": 279,
+     "icode": "",
+     "resname": "VAL",
+     "status": "observed"
+    }
+   },
+   "pass": true
+  },
+  {
+   "case": "structure_author",
+   "pdb": "1MQ4",
+   "chain": "A",
+   "uniprot": "O14965",
+   "anchors": {
+    "beta3_Lys": 162,
+    "alphaC_Glu": 181,
+    "DFG_Asp": 274,
+    "HRD_H": 254
+   },
+   "numbering": {
+    "scheme": "structure_author",
+    "reference_minus_label": null,
+    "description": ""
+   },
+   "expected_accepted": true,
+   "accepted": true,
+   "M1_decision": true,
+   "M2_reference_positions": true,
+   "M3_structure_residues": true,
+   "M4_descriptors": {
+    "pass": true,
+    "mismatches": [],
+    "nan": []
+   },
+   "problems": [],
+   "alignment": {
+    "aligned_pairs": 261,
+    "identity": 1.0,
+    "reference_span": [
+     126,
+     388
+    ],
+    "mutations": [],
+    "insertions": [],
+    "unaligned_terminal": [],
+    "unobserved_reference_ranges": [
+     [
+      286,
+      287
+     ]
+    ],
+    "absent_between_bonded_residues": [],
+    "chain_breaks_before": [
+     {
+      "resid": 288,
+      "icode": "",
+      "resname": "THR"
+     }
+    ],
+    "bonding_unknown": 0,
+    "insertion_code_residues": [],
+    "variant_residue_names": [],
+    "author_numbering_diagnostic": {
+     "reference_index_minus_author_resid": {
+      "0": 261
+     },
+     "note": "reported for inspection only; author numbers are never used to place residues"
+    }
+   },
+   "roles": {
+    "beta3_Lys": {
+     "reference_index": 162,
+     "reference_aa": "K",
+     "resid": 162,
+     "icode": "",
+     "resname": "LYS",
+     "status": "observed"
+    },
+    "alphaC_Glu": {
+     "reference_index": 181,
+     "reference_aa": "E",
+     "resid": 181,
+     "icode": "",
+     "resname": "GLU",
+     "status": "observed"
+    },
+    "alphaC_Glu_plus4": {
+     "reference_index": 185,
+     "reference_aa": "Q",
+     "resid": 185,
+     "icode": "",
+     "resname": "GLN",
+     "status": "observed"
+    },
+    "XHRD": {
+     "reference_index": 253,
+     "reference_aa": "I",
+     "resid": 253,
+     "icode": "",
+     "resname": "ILE",
+     "status": "observed"
+    },
+    "XDFG_minus1": {
+     "reference_index": 272,
+     "reference_aa": "I",
+     "resid": 272,
+     "icode": "",
+     "resname": "ILE",
+     "status": "observed"
+    },
+    "XDFG": {
+     "reference_index": 273,
+     "reference_aa": "A",
+     "resid": 273,
+     "icode": "",
+     "resname": "ALA",
+     "status": "observed"
+    },
+    "DFG_Asp": {
+     "reference_index": 274,
+     "reference_aa": "D",
+     "resid": 274,
+     "icode": "",
+     "resname": "ASP",
+     "status": "observed"
+    },
+    "DFG_Phe": {
+     "reference_index": 275,
+     "reference_aa": "F",
+     "resid": 275,
+     "icode": "",
+     "resname": "PHE",
+     "status": "observed"
+    },
+    "DFG_Gly": {
+     "reference_index": 276,
+     "reference_aa": "G",
+     "resid": 276,
+     "icode": "",
+     "resname": "GLY",
+     "status": "observed"
+    },
+    "DFGxxX": {
+     "reference_index": 279,
+     "reference_aa": "V",
+     "resid": 279,
+     "icode": "",
+     "resname": "VAL",
+     "status": "observed"
+    }
+   },
+   "pass": true
+  },
+  {
+   "case": "frozen_spec",
+   "pdb": "1UWH",
+   "chain": "A",
+   "uniprot": "P15056",
+   "anchors": {
+    "beta3_Lys": 483,
+    "alphaC_Glu": 501,
+    "HRD_H": 574,
+    "DFG_Asp": 594
+   },
+   "numbering": {
+    "scheme": "reference",
+    "reference_minus_label": 0,
+    "description": "as labelled in the KIN-ROB-1 spec (UniProt)"
+   },
+   "expected_accepted": true,
+   "accepted": true,
+   "M1_decision": true,
+   "M2_reference_positions": true,
+   "M3_structure_residues": true,
+   "M4_descriptors": {
+    "pass": true,
+    "mismatches": [],
+    "nan": []
+   },
+   "problems": [],
+   "alignment": {
+    "aligned_pairs": 264,
+    "identity": 0.9962121212121212,
+    "reference_span": [
+     448,
+     723
+    ],
+    "mutations": [
+     {
+      "resid": 521,
+      "icode": "",
+      "resname": "ALA",
+      "reference_index": 522,
+      "reference_aa": "K",
+      "observed_aa": "A"
+     }
+    ],
+    "insertions": [],
+    "unaligned_terminal": [],
+    "unobserved_reference_ranges": [
+     [
+      601,
+      612
+     ]
+    ],
+    "absent_between_bonded_residues": [],
+    "chain_breaks_before": [
+     {
+      "resid": 612,
+      "icode": "",
+      "resname": "LEU"
+     }
+    ],
+    "bonding_unknown": 0,
+    "insertion_code_residues": [],
+    "variant_residue_names": [],
+    "author_numbering_diagnostic": {
+     "reference_index_minus_author_resid": {
+      "1": 264
+     },
+     "note": "reported for inspection only; author numbers are never used to place residues"
+    }
+   },
+   "roles": {
+    "beta3_Lys": {
+     "reference_index": 483,
+     "reference_aa": "K",
+     "resid": 482,
+     "icode": "",
+     "resname": "LYS",
+     "status": "observed"
+    },
+    "alphaC_Glu": {
+     "reference_index": 501,
+     "reference_aa": "E",
+     "resid": 500,
+     "icode": "",
+     "resname": "GLU",
+     "status": "observed"
+    },
+    "alphaC_Glu_plus4": {
+     "reference_index": 505,
+     "reference_aa": "L",
+     "resid": 504,
+     "icode": "",
+     "resname": "LEU",
+     "status": "observed"
+    },
+    "XHRD": {
+     "reference_index": 573,
+     "reference_aa": "I",
+     "resid": 572,
+     "icode": "",
+     "resname": "ILE",
+     "status": "observed"
+    },
+    "XDFG_minus1": {
+     "reference_index": 592,
+     "reference_aa": "I",
+     "resid": 591,
+     "icode": "",
+     "resname": "ILE",
+     "status": "observed"
+    },
+    "XDFG": {
+     "reference_index": 593,
+     "reference_aa": "G",
+     "resid": 592,
+     "icode": "",
+     "resname": "GLY",
+     "status": "observed"
+    },
+    "DFG_Asp": {
+     "reference_index": 594,
+     "reference_aa": "D",
+     "resid": 593,
+     "icode": "",
+     "resname": "ASP",
+     "status": "observed"
+    },
+    "DFG_Phe": {
+     "reference_index": 595,
+     "reference_aa": "F",
+     "resid": 594,
+     "icode": "",
+     "resname": "PHE",
+     "status": "observed"
+    },
+    "DFG_Gly": {
+     "reference_index": 596,
+     "reference_aa": "G",
+     "resid": 595,
+     "icode": "",
+     "resname": "GLY",
+     "status": "observed"
+    },
+    "DFGxxX": {
+     "reference_index": 599,
+     "reference_aa": "T",
+     "resid": 598,
+     "icode": "",
+     "resname": "THR",
+     "status": "observed"
+    }
+   },
+   "pass": true
+  },
+  {
+   "case": "structure_author",
+   "pdb": "1UWH",
+   "chain": "A",
+   "uniprot": "P15056",
+   "anchors": {
+    "beta3_Lys": 482,
+    "alphaC_Glu": 500,
+    "DFG_Asp": 593,
+    "HRD_H": 573
+   },
+   "numbering": {
+    "scheme": "structure_author",
+    "reference_minus_label": null,
+    "description": ""
+   },
+   "expected_accepted": true,
+   "accepted": true,
+   "M1_decision": true,
+   "M2_reference_positions": true,
+   "M3_structure_residues": true,
+   "M4_descriptors": {
+    "pass": true,
+    "mismatches": [],
+    "nan": []
+   },
+   "problems": [],
+   "alignment": {
+    "aligned_pairs": 264,
+    "identity": 0.9962121212121212,
+    "reference_span": [
+     448,
+     723
+    ],
+    "mutations": [
+     {
+      "resid": 521,
+      "icode": "",
+      "resname": "ALA",
+      "reference_index": 522,
+      "reference_aa": "K",
+      "observed_aa": "A"
+     }
+    ],
+    "insertions": [],
+    "unaligned_terminal": [],
+    "unobserved_reference_ranges": [
+     [
+      601,
+      612
+     ]
+    ],
+    "absent_between_bonded_residues": [],
+    "chain_breaks_before": [
+     {
+      "resid": 612,
+      "icode": "",
+      "resname": "LEU"
+     }
+    ],
+    "bonding_unknown": 0,
+    "insertion_code_residues": [],
+    "variant_residue_names": [],
+    "author_numbering_diagnostic": {
+     "reference_index_minus_author_resid": {
+      "1": 264
+     },
+     "note": "reported for inspection only; author numbers are never used to place residues"
+    }
+   },
+   "roles": {
+    "beta3_Lys": {
+     "reference_index": 483,
+     "reference_aa": "K",
+     "resid": 482,
+     "icode": "",
+     "resname": "LYS",
+     "status": "observed"
+    },
+    "alphaC_Glu": {
+     "reference_index": 501,
+     "reference_aa": "E",
+     "resid": 500,
+     "icode": "",
+     "resname": "GLU",
+     "status": "observed"
+    },
+    "alphaC_Glu_plus4": {
+     "reference_index": 505,
+     "reference_aa": "L",
+     "resid": 504,
+     "icode": "",
+     "resname": "LEU",
+     "status": "observed"
+    },
+    "XHRD": {
+     "reference_index": 573,
+     "reference_aa": "I",
+     "resid": 572,
+     "icode": "",
+     "resname": "ILE",
+     "status": "observed"
+    },
+    "XDFG_minus1": {
+     "reference_index": 592,
+     "reference_aa": "I",
+     "resid": 591,
+     "icode": "",
+     "resname": "ILE",
+     "status": "observed"
+    },
+    "XDFG": {
+     "reference_index": 593,
+     "reference_aa": "G",
+     "resid": 592,
+     "icode": "",
+     "resname": "GLY",
+     "status": "observed"
+    },
+    "DFG_Asp": {
+     "reference_index": 594,
+     "reference_aa": "D",
+     "resid": 593,
+     "icode": "",
+     "resname": "ASP",
+     "status": "observed"
+    },
+    "DFG_Phe": {
+     "reference_index": 595,
+     "reference_aa": "F",
+     "resid": 594,
+     "icode": "",
+     "resname": "PHE",
+     "status": "observed"
+    },
+    "DFG_Gly": {
+     "reference_index": 596,
+     "reference_aa": "G",
+     "resid": 595,
+     "icode": "",
+     "resname": "GLY",
+     "status": "observed"
+    },
+    "DFGxxX": {
+     "reference_index": 599,
+     "reference_aa": "T",
+     "resid": 598,
+     "icode": "",
+     "resname": "THR",
+     "status": "observed"
+    }
+   },
+   "pass": true
+  },
+  {
+   "case": "frozen_spec",
+   "pdb": "1UWH",
+   "chain": "B",
+   "uniprot": "P15056",
+   "anchors": {
+    "beta3_Lys": 483,
+    "alphaC_Glu": 501,
+    "HRD_H": 574,
+    "DFG_Asp": 594
+   },
+   "numbering": {
+    "scheme": "reference",
+    "reference_minus_label": 0,
+    "description": "as labelled in the KIN-ROB-1 spec (UniProt)"
+   },
+   "expected_accepted": true,
+   "accepted": true,
+   "M1_decision": true,
+   "M2_reference_positions": true,
+   "M3_structure_residues": true,
+   "M4_descriptors": {
+    "pass": true,
+    "mismatches": [],
+    "nan": []
+   },
+   "problems": [],
+   "alignment": {
+    "aligned_pairs": 264,
+    "identity": 0.9962121212121212,
+    "reference_span": [
+     448,
+     723
+    ],
+    "mutations": [
+     {
+      "resid": 521,
+      "icode": "",
+      "resname": "ALA",
+      "reference_index": 522,
+      "reference_aa": "K",
+      "observed_aa": "A"
+     }
+    ],
+    "insertions": [],
+    "unaligned_terminal": [],
+    "unobserved_reference_ranges": [
+     [
+      601,
+      612
+     ]
+    ],
+    "absent_between_bonded_residues": [],
+    "chain_breaks_before": [
+     {
+      "resid": 612,
+      "icode": "",
+      "resname": "LEU"
+     }
+    ],
+    "bonding_unknown": 0,
+    "insertion_code_residues": [],
+    "variant_residue_names": [],
+    "author_numbering_diagnostic": {
+     "reference_index_minus_author_resid": {
+      "1": 264
+     },
+     "note": "reported for inspection only; author numbers are never used to place residues"
+    }
+   },
+   "roles": {
+    "beta3_Lys": {
+     "reference_index": 483,
+     "reference_aa": "K",
+     "resid": 482,
+     "icode": "",
+     "resname": "LYS",
+     "status": "observed"
+    },
+    "alphaC_Glu": {
+     "reference_index": 501,
+     "reference_aa": "E",
+     "resid": 500,
+     "icode": "",
+     "resname": "GLU",
+     "status": "observed"
+    },
+    "alphaC_Glu_plus4": {
+     "reference_index": 505,
+     "reference_aa": "L",
+     "resid": 504,
+     "icode": "",
+     "resname": "LEU",
+     "status": "observed"
+    },
+    "XHRD": {
+     "reference_index": 573,
+     "reference_aa": "I",
+     "resid": 572,
+     "icode": "",
+     "resname": "ILE",
+     "status": "observed"
+    },
+    "XDFG_minus1": {
+     "reference_index": 592,
+     "reference_aa": "I",
+     "resid": 591,
+     "icode": "",
+     "resname": "ILE",
+     "status": "observed"
+    },
+    "XDFG": {
+     "reference_index": 593,
+     "reference_aa": "G",
+     "resid": 592,
+     "icode": "",
+     "resname": "GLY",
+     "status": "observed"
+    },
+    "DFG_Asp": {
+     "reference_index": 594,
+     "reference_aa": "D",
+     "resid": 593,
+     "icode": "",
+     "resname": "ASP",
+     "status": "observed"
+    },
+    "DFG_Phe": {
+     "reference_index": 595,
+     "reference_aa": "F",
+     "resid": 594,
+     "icode": "",
+     "resname": "PHE",
+     "status": "observed"
+    },
+    "DFG_Gly": {
+     "reference_index": 596,
+     "reference_aa": "G",
+     "resid": 595,
+     "icode": "",
+     "resname": "GLY",
+     "status": "observed"
+    },
+    "DFGxxX": {
+     "reference_index": 599,
+     "reference_aa": "T",
+     "resid": 598,
+     "icode": "",
+     "resname": "THR",
+     "status": "observed"
+    }
+   },
+   "pass": true
+  },
+  {
+   "case": "structure_author",
+   "pdb": "1UWH",
+   "chain": "B",
+   "uniprot": "P15056",
+   "anchors": {
+    "beta3_Lys": 482,
+    "alphaC_Glu": 500,
+    "DFG_Asp": 593,
+    "HRD_H": 573
+   },
+   "numbering": {
+    "scheme": "structure_author",
+    "reference_minus_label": null,
+    "description": ""
+   },
+   "expected_accepted": true,
+   "accepted": true,
+   "M1_decision": true,
+   "M2_reference_positions": true,
+   "M3_structure_residues": true,
+   "M4_descriptors": {
+    "pass": true,
+    "mismatches": [],
+    "nan": []
+   },
+   "problems": [],
+   "alignment": {
+    "aligned_pairs": 264,
+    "identity": 0.9962121212121212,
+    "reference_span": [
+     448,
+     723
+    ],
+    "mutations": [
+     {
+      "resid": 521,
+      "icode": "",
+      "resname": "ALA",
+      "reference_index": 522,
+      "reference_aa": "K",
+      "observed_aa": "A"
+     }
+    ],
+    "insertions": [],
+    "unaligned_terminal": [],
+    "unobserved_reference_ranges": [
+     [
+      601,
+      612
+     ]
+    ],
+    "absent_between_bonded_residues": [],
+    "chain_breaks_before": [
+     {
+      "resid": 612,
+      "icode": "",
+      "resname": "LEU"
+     }
+    ],
+    "bonding_unknown": 0,
+    "insertion_code_residues": [],
+    "variant_residue_names": [],
+    "author_numbering_diagnostic": {
+     "reference_index_minus_author_resid": {
+      "1": 264
+     },
+     "note": "reported for inspection only; author numbers are never used to place residues"
+    }
+   },
+   "roles": {
+    "beta3_Lys": {
+     "reference_index": 483,
+     "reference_aa": "K",
+     "resid": 482,
+     "icode": "",
+     "resname": "LYS",
+     "status": "observed"
+    },
+    "alphaC_Glu": {
+     "reference_index": 501,
+     "reference_aa": "E",
+     "resid": 500,
+     "icode": "",
+     "resname": "GLU",
+     "status": "observed"
+    },
+    "alphaC_Glu_plus4": {
+     "reference_index": 505,
+     "reference_aa": "L",
+     "resid": 504,
+     "icode": "",
+     "resname": "LEU",
+     "status": "observed"
+    },
+    "XHRD": {
+     "reference_index": 573,
+     "reference_aa": "I",
+     "resid": 572,
+     "icode": "",
+     "resname": "ILE",
+     "status": "observed"
+    },
+    "XDFG_minus1": {
+     "reference_index": 592,
+     "reference_aa": "I",
+     "resid": 591,
+     "icode": "",
+     "resname": "ILE",
+     "status": "observed"
+    },
+    "XDFG": {
+     "reference_index": 593,
+     "reference_aa": "G",
+     "resid": 592,
+     "icode": "",
+     "resname": "GLY",
+     "status": "observed"
+    },
+    "DFG_Asp": {
+     "reference_index": 594,
+     "reference_aa": "D",
+     "resid": 593,
+     "icode": "",
+     "resname": "ASP",
+     "status": "observed"
+    },
+    "DFG_Phe": {
+     "reference_index": 595,
+     "reference_aa": "F",
+     "resid": 594,
+     "icode": "",
+     "resname": "PHE",
+     "status": "observed"
+    },
+    "DFG_Gly": {
+     "reference_index": 596,
+     "reference_aa": "G",
+     "resid": 595,
+     "icode": "",
+     "resname": "GLY",
+     "status": "observed"
+    },
+    "DFGxxX": {
+     "reference_index": 599,
+     "reference_aa": "T",
+     "resid": 598,
+     "icode": "",
+     "resname": "THR",
+     "status": "observed"
+    }
+   },
+   "pass": true
+  }
+ ],
+ "resources": {
+  "cpu_s": 24.701877,
+  "wall_s": 23.50011444091797,
+  "download_bytes": 0
+ }
+}
