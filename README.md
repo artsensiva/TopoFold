@@ -157,6 +157,17 @@ The development programme, evidence levels (A–E) and the current queue are in
 - **ABL** (preferred biological route): the trajectories, their permissions and processed HDX uptake are not yet
   obtained; the owner actions are listed in
   [`benchmarks/audit/abl_access/ACCESS_STATUS_2026-10-23.md`](benchmarks/audit/abl_access/ACCESS_STATUS_2026-10-23.md).
+  - An evaluation protocol is drafted but not frozen:
+    [`docs/ABL_WT_M472I_PREREGISTRATION_DRAFT.md`](docs/ABL_WT_M472I_PREREGISTRATION_DRAFT.md).
+  - The paper describes no apo M472I simulation, while its HDX comparison is apo; the trajectory request draft now asks
+    about this.
+- **Kinase descriptors** (KIN-DESC-1, four public Abl crystal chains, representation capability only):
+  - side-chain-aware descriptors reproduce the stated DFG and A-loop labels;
+  - Cα κ/τ separates the A-loop contrast in many windows, but DFG only at a few four-point windows
+    ([`benchmarks/audit/kinase_descriptors/`](benchmarks/audit/kinase_descriptors/README.md)).
+- **Mpro dataset search** (metadata only): one conditionally suitable public set, the Folding@home COVID Moonshot
+  dynamics (CC0). Its endpoints are ligand sites and IC50 values, not conformational measurements
+  ([`docs/MPRO_DATASET_SEARCH_2026-10-24.md`](docs/MPRO_DATASET_SEARCH_2026-10-24.md)).
 
 ## What TopoFold does not (yet) do
 
