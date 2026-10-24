@@ -33,7 +33,12 @@ raw_data/
 
 # Local agents & scratch
 .agents/
-.claude/
+# Claude Code: keep local settings and other local skills untracked; track only the two project skills
+.claude/*
+!.claude/skills/
+.claude/skills/*
+!.claude/skills/scientific-audit/
+!.claude/skills/dataset-intake/
 screenshots/
 SomeHistory.md
 

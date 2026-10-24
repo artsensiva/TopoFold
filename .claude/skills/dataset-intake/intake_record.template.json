@@ -1,0 +1,28 @@
+{
+ "schema": "topofold.dataset-intake/1",
+ "dataset": {"name": null, "slug": null, "type": null, "description": null},
+ "source": {"primary_reference": null, "doi_or_accession": [], "url": null, "version_or_release": null, "accessed_utc": null},
+ "licence": {"data_licence_as_stated": null, "licence_url": null, "quoted_text": null, "paper_licence": null},
+ "permissions": {
+  "internal_evaluation": {"status": "unknown", "evidence": null},
+  "publication_of_derived_results": {"status": "unknown", "evidence": null},
+  "redistribution_of_derived_files": {"status": "unknown", "evidence": null},
+  "later_commercial_use": {"status": "unknown", "evidence": null}
+ },
+ "size_and_download": {"total_bytes": null, "files_listed": null, "downloaded": [], "approval_required": null,
+                       "approval_obtained": null, "budget_note": null},
+ "raw_inventory": {"location": null, "git_ignored": null, "files": [{"path": null, "bytes": null, "sha256": null, "source_checksum_match": null}]},
+ "independence": {"prior_topofold_use": null, "overlap_with_other_datasets": null, "labels_from_topofold_output": null,
+                  "equal_information_constraints": null},
+ "endpoint": {"measurement": null, "provider": null, "processed_values_available": null, "replicates": null,
+              "significance_rule": null, "conformational": null, "condition_mismatches_with_simulation": []},
+ "replicates": {"conditions": [], "runs_per_condition": {}, "run_lengths": null, "frame_interval": null,
+                "run_independence": null, "temporal_dependence_notes": null, "incomplete_runs": null},
+ "mapping": {"reference_numbering": null, "method": null, "offsets": {}, "mismatches": [], "chain_rule": null,
+             "atoms_available": null, "atoms_needed": null},
+ "missing_data_and_exclusions": {"unobserved": null, "exclusion_rules": [], "counts": {}},
+ "decision": {"value": null, "allowed_values": ["go", "conditional-go", "no-go"], "reasons": [], "open_conditions": [],
+              "decided_utc": null},
+ "sent_externally": "nothing",
+ "notes": []
+}
