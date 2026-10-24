@@ -1,0 +1,57 @@
+{
+ "id": "KIN-DESC-1 provenance addendum",
+ "created_utc": "2026-10-24T14:42:47.895212+00:00",
+ "reason": "scientific-audit 2026-10-24 found no output-file hash manifest and no software versions in the frozen record; this addendum adds them without modifying any frozen file",
+ "frozen_files_unchanged": {
+  "spec": {
+   "path": "benchmarks/audit/kinase_descriptors/run_spec.json",
+   "sha256": "d004ed036784ef3ccd21bcff3e28dd2f313ecaa7da45321b6ebc15efb21edf23",
+   "matches_freeze": true
+  },
+  "code": {
+   "benchmarks/audit/kinase_descriptors/run_kinase.py": {
+    "sha256": "b8a220cff9c8b91dba7b25d396b7ef26d8e9963c2e62809cbde502d9ac0b59a1",
+    "matches_freeze": true
+   },
+   "python/topofold_inputs/features.py": {
+    "sha256": "9138358ce5040a8dc1e2ff5692e6d3aa77e5334bfb840cc3e8620ca46598271e",
+    "matches_freeze": true
+   }
+  }
+ },
+ "outputs_sha256": {
+  "KIN-DESC-1_freeze.json": "52308c4a8af3c4877d21354487907b6f325fd323658b6a6c49eb8c16e4161b75",
+  "KIN-DESC-1_results.json": "8e89c32b20b2c2d68ca8bd1e1b1d31509bb527379aba2055dd104db461ad5342",
+  "KIN-DESC-1_summary.csv": "d63c912f6ef8b2f19260fcf96329e10df38cf08ac1eb9228c1af1416c32df855"
+ },
+ "outputs_written_utc": "2026-10-24T14:11:42.418536+00:00",
+ "software_recorded_after_run": {
+  "python": "3.14.4",
+  "numpy": "2.5.3",
+  "interpreter": ".venv (project virtual environment)",
+  "topofold_core": {
+   "version": "0.8.3",
+   "function": "compute_invariants",
+   "wrapper": {
+    "module": "topofold",
+    "path": "/home/artem/TopoFold/.venv/lib/python3.14/site-packages/topofold/__init__.py",
+    "sha256": "49780093095f27c89bdf234be15e1f5a9bac957d5a9dbf5ae0f93c856ee1590d"
+   },
+   "native_extension": {
+    "module": "topofold.topofold",
+    "path": "/home/artem/TopoFold/.venv/lib/python3.14/site-packages/topofold/topofold.cpython-314-x86_64-linux-gnu.so",
+    "sha256": "d90e7ed4f1d8036a3735f387c6fe6aa5a81c7b615da1d0094ce054cf0c13cfa8",
+    "status": "resolved",
+    "loader": "ExtensionFileLoader"
+   }
+  },
+  "core_native_extension_mtime_utc": "2026-10-22T22:23:05.972528+00:00",
+  "numpy_package_mtime_utc": "2026-10-02T23:05:03.652545+00:00",
+  "note": "Versions were read after the run. The native extension and the NumPy package directory have modification times before the outputs were written, consistent with the same environment; this is supporting evidence, not proof.",
+  "core_native_extension_predates_outputs": true,
+  "numpy_predates_outputs": true
+ },
+ "git": {
+  "run_commit": "e5f6bc8"
+ }
+}

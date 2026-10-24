@@ -1,4 +1,4 @@
-# DRAFT — not sent. For the project owner to review, edit and send if appropriate.
+# Request text (draft). Status 2026-10-24: the owner has sent this request. Not to be resent. Kept as the record of what was asked.
 
 **To:** the corresponding author for the HDX-MS work in Ayaz et al. 2023 (Engen laboratory). *Owner to confirm the
 correct contact.*

@@ -152,8 +152,9 @@ The development programme, evidence levels (A–E) and the current queue are in
     causes, the residue correspondence, provenance and a 3D Cα view.
   - It re-checks every output and input hash on each update and computes nothing new.
   - It does not need the compiled core.
-- **Owner actions pending:** nominate an outside computational scientist for the pilot; send the ABL trajectory
-  request; send the processed-HDX request (drafts in `docs/`).
+- **ABL data requests:** the owner sent the trajectory request and the processed-HDX request (texts in `docs/`).
+  Replies are pending, and whether apo M472I trajectories exist remains unknown until D. E. Shaw Research replies. An
+  independent human trial of the tools remains a future milestone (owner nominates a tester).
 - **ABL** (preferred biological route): the trajectories, their permissions and processed HDX uptake are not yet
   obtained; the owner actions are listed in
   [`benchmarks/audit/abl_access/ACCESS_STATUS_2026-10-23.md`](benchmarks/audit/abl_access/ACCESS_STATUS_2026-10-23.md).

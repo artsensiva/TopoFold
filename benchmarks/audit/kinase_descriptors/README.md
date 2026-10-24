@@ -8,6 +8,10 @@ value was computed.
 .venv/bin/python benchmarks/audit/kinase_descriptors/run_kinase.py run   # needs data_pdb/ (git-ignored; SHA-256 in run_spec.json)
 ```
 
+**Audit and provenance addendum (2026-10-24):** `AUDIT_2026-10-24.md` and
+`results/KIN-DESC-1_provenance_addendum_2026-10-24.json`. They record output hashes and software versions; no frozen
+file was changed.
+
 ## Design
 
 - **Chains:**

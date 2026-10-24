@@ -1,4 +1,4 @@
-# DRAFT — not sent. For the project owner to review, edit and send if appropriate.
+# Request text (draft). Status 2026-10-24: the owner has sent this request. Not to be resent. Kept as the record of what was asked.
 
 *Revised 2026-10-24: the requested sets now reflect the Methods text, which describes no apo M472I simulations (`docs/ABL_WT_M472I_PREREGISTRATION_DRAFT.md` §0).*
 

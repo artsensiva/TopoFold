@@ -14,6 +14,9 @@ scoring was done.
 
 ## To unblock (owner actions)
 
+*Update 2026-10-24: the owner has sent both requests. Replies are pending, and whether apo M472I trajectories exist is
+unknown until D. E. Shaw Research replies.*
+
 1. Send the D. E. Shaw Research request (run inventory and permissions).
 2. Ask the HDX authors (Engen laboratory, co-authors of the paper) for processed peptide-level uptake for apo WT and
    M472I with replicate values, or confirm a processing route for the PRIDE raw files.
