@@ -141,9 +141,17 @@ The development programme, evidence levels (A–E) and the current queue are in
 - **Two-structure comparison:** `python -m topofold_inputs.structpair SPEC.json --out DIR` compares two experimental
   structures (one chain each, explicit residue correspondence). It reports per-window κ/τ, distance baselines, local
   RMSD, exclusions with causes, a figure and a hashed manifest. It reproduces both KRAS studies exactly; guide for
-  outside users in [`docs/STRUCTPAIR_USER_GUIDE.md`](docs/STRUCTPAIR_USER_GUIDE.md). No independent user has run it yet.
-  Results can be browsed locally with the read-only viewer "TopoFold Structural Comparison"
-  (`streamlit run apps/structpair_viewer/app.py --server.address localhost`; isolated install in the guide, §2).
+  outside users in [`docs/STRUCTPAIR_USER_GUIDE.md`](docs/STRUCTPAIR_USER_GUIDE.md).
+  - **Trials:** one external AI technical trial and one bounded AI confirmation have been completed
+    ([`docs/pilot/PILOT_LOG.md`](docs/pilot/PILOT_LOG.md), entries 4 and 5). No independent human trial has been
+    completed.
+- **Results viewer "TopoFold Structural Comparison"** (`apps/structpair_viewer/`, Streamlit; local and read-only):
+  `streamlit run apps/structpair_viewer/app.py --server.address localhost -- --results DIR`. The isolated install is in
+  the guide, §2.
+  - It shows per-metric sequence plots, a filterable window table linked to a focus window, exclusions with their
+    causes, the residue correspondence, provenance and a 3D Cα view.
+  - It re-checks every output and input hash on each update and computes nothing new.
+  - It does not need the compiled core.
 - **Owner actions pending:** nominate an outside computational scientist for the pilot; send the ABL trajectory
   request; send the processed-HDX request (drafts in `docs/`).
 - **ABL** (preferred biological route): the trajectories, their permissions and processed HDX uptake are not yet

@@ -1,0 +1,13 @@
+{
+  "purpose": "local evidence capture only; not TopoFold install",
+  "command": [
+    "python3",
+    "-B",
+    "/home/artem/Documents/Codex/2026-10-24/act-as-an-independent-computational-software/outputs/topofold-ai-tester-1-trial/confirmation-049a47f/evidence/save_browser_evidence.py"
+  ],
+  "cwd": "/home/artem/Documents/Codex/2026-10-24/act-as-an-independent-computational-software/outputs/topofold-ai-tester-1-trial/confirmation-049a47f",
+  "pid": 592073,
+  "utc": "2026-10-24T08:35:41.896209+00:00",
+  "http_200": true,
+  "exit_code": null
+}

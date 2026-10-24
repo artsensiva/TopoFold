@@ -1,0 +1,18 @@
+{
+  "software_commands": "Install, build, fetch, kras2, added kras1 and viewer dependency commands all exited0. Both viewer launches reached HTTP200. No application traceback observed in captured logs.",
+  "tester_or_environment_errors": [
+    {
+      "operation": "Read-only sandbox cat/rg/git probes before install",
+      "exit_code": 0,
+      "stderr": "Failed to create stream fd: Operation not permitted (three times per affected call)",
+      "handling": "Contents/status were returned; approved-access baseline and final Git checks were clean."
+    },
+    {
+      "operation": "await tab.click(697) on canvas row58 accessibility node",
+      "error": "Node does not have a layout object",
+      "handling": "Used visible checkbox coordinates scaled from screenshot to CSS viewport; verified selected58 via screenshot and accessibility output."
+    }
+  ],
+  "restart_exit_codes": "Original detached services were absent after reboot; their exit codes unknown. Resumed services stopped by SIGTERM and observed absent; detached exit codes unknown.",
+  "assistance": "No subagents or external assistance used for this bounded confirmation; prior trial evidence-saving utility reused as tester instrumentation only."
+}

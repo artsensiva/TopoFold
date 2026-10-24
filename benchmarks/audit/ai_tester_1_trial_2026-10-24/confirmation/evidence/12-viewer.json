@@ -1,0 +1,24 @@
+{
+  "guide_command": "streamlit run apps/structpair_viewer/app.py --server.address localhost -- --results ~/structpair_out",
+  "executed_argv": [
+    "bash",
+    "-c",
+    "source ../topofold-env/bin/activate && exec streamlit run apps/structpair_viewer/app.py --server.address localhost -- --results /home/artem/Documents/Codex/2026-10-24/act-as-an-independent-computational-software/outputs/topofold-ai-tester-1-trial/confirmation-049a47f/results"
+  ],
+  "cwd": "/home/artem/Documents/Codex/2026-10-24/act-as-an-independent-computational-software/outputs/topofold-ai-tester-1-trial/confirmation-049a47f/checkout",
+  "environment_overrides": {
+    "XDG_CACHE_HOME": "/home/artem/Documents/Codex/2026-10-24/act-as-an-independent-computational-software/outputs/topofold-ai-tester-1-trial/confirmation-049a47f/cache",
+    "MPLCONFIGDIR": "/home/artem/Documents/Codex/2026-10-24/act-as-an-independent-computational-software/outputs/topofold-ai-tester-1-trial/confirmation-049a47f/cache/matplotlib",
+    "TMPDIR": "/home/artem/Documents/Codex/2026-10-24/act-as-an-independent-computational-software/outputs/topofold-ai-tester-1-trial/confirmation-049a47f/tmp",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "STREAMLIT_SERVER_HEADLESS": "true",
+    "STREAMLIT_BROWSER_GATHER_USAGE_STATS": "false",
+    "CARGO_HOME": "/home/artem/Documents/Codex/2026-10-24/act-as-an-independent-computational-software/outputs/topofold-ai-tester-1-trial/confirmation-049a47f/cargo",
+    "CARGO_TARGET_DIR": "/home/artem/Documents/Codex/2026-10-24/act-as-an-independent-computational-software/outputs/topofold-ai-tester-1-trial/confirmation-049a47f/target"
+  },
+  "started_utc": "2026-10-24T08:34:58.950116+00:00",
+  "pid": 591198,
+  "http_200": true,
+  "startup_error_if_any": null,
+  "exit_code": null
+}

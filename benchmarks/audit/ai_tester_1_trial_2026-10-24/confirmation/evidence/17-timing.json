@@ -1,0 +1,13 @@
+{
+  "start_utc": "2026-10-24T08:28:16.408947+00:00",
+  "last_pre_interruption_screenshot_utc": "2026-10-24T08:37:52.309395+00:00",
+  "last_pre_interruption_step": "Position sort verified; table scrolling in progress. Exact timestamp unavailable.",
+  "resume_check_utc": "2026-10-24T12:22:03.987640+00:00",
+  "services_stopped_utc": "2026-10-24T12:25:54.388389+00:00",
+  "elapsed_seconds": 14257.979442,
+  "resumed_active_phase_seconds": 230.400749,
+  "active_total_estimate_minutes": 14,
+  "active_total_exact_seconds": null,
+  "active_estimate_basis": "Approximately10minutes initial execution/viewer interaction plus3minutes50seconds resumed checks and shutdown. Exact interruption onset not available. Excludes final report writing.",
+  "interruption": "User reports usage limit and computer restart. Old service PIDs absent, browser tabs empty. Reused the completed fresh checkout/environment/results; only viewer and evidence saver restarted. Last verified UI state restored using comparison and focus selectors, default all filter and position sort; then completed switch checks."
+}

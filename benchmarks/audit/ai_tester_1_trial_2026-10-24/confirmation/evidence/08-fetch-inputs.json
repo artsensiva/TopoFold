@@ -1,0 +1,26 @@
+{
+  "guide_command": "python benchmarks/audit/structpair_demo/fetch_inputs.py",
+  "executed_argv": [
+    "bash",
+    "-c",
+    "source ../topofold-env/bin/activate && python benchmarks/audit/structpair_demo/fetch_inputs.py"
+  ],
+  "cwd": "/home/artem/Documents/Codex/2026-10-24/act-as-an-independent-computational-software/outputs/topofold-ai-tester-1-trial/confirmation-049a47f/checkout",
+  "environment_overrides": {
+    "CARGO_HOME": "/home/artem/Documents/Codex/2026-10-24/act-as-an-independent-computational-software/outputs/topofold-ai-tester-1-trial/confirmation-049a47f/cargo",
+    "CARGO_TARGET_DIR": "/home/artem/Documents/Codex/2026-10-24/act-as-an-independent-computational-software/outputs/topofold-ai-tester-1-trial/confirmation-049a47f/target",
+    "PIP_CACHE_DIR": "/home/artem/Documents/Codex/2026-10-24/act-as-an-independent-computational-software/outputs/topofold-ai-tester-1-trial/confirmation-049a47f/cache/pip",
+    "XDG_CACHE_HOME": "/home/artem/Documents/Codex/2026-10-24/act-as-an-independent-computational-software/outputs/topofold-ai-tester-1-trial/confirmation-049a47f/cache",
+    "MPLCONFIGDIR": "/home/artem/Documents/Codex/2026-10-24/act-as-an-independent-computational-software/outputs/topofold-ai-tester-1-trial/confirmation-049a47f/cache/matplotlib",
+    "TMPDIR": "/home/artem/Documents/Codex/2026-10-24/act-as-an-independent-computational-software/outputs/topofold-ai-tester-1-trial/confirmation-049a47f/tmp",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "PIP_DISABLE_PIP_VERSION_CHECK": "1"
+  },
+  "start_utc": "2026-10-24T08:33:03.615340+00:00",
+  "exit_code": 0,
+  "end_utc": "2026-10-24T08:33:08.540668+00:00",
+  "wall_seconds": 4.9253252553753555,
+  "cpu_user_seconds": 0.123277,
+  "cpu_system_seconds": 0.026609999999999995,
+  "peak_rss_kib": 27188
+}

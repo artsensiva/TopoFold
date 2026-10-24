@@ -1,0 +1,26 @@
+{
+  "guide_command": "ADDED for requested switch: PYTHONPATH=python python -m topofold_inputs.structpair benchmarks/audit/structpair_demo/specs/kras1_9O0N_vs_9O0O.json --out /home/artem/Documents/Codex/2026-10-24/act-as-an-independent-computational-software/outputs/topofold-ai-tester-1-trial/confirmation-049a47f/results/kras1",
+  "executed_argv": [
+    "bash",
+    "-c",
+    "source ../topofold-env/bin/activate && PYTHONPATH=python python -m topofold_inputs.structpair benchmarks/audit/structpair_demo/specs/kras1_9O0N_vs_9O0O.json --out /home/artem/Documents/Codex/2026-10-24/act-as-an-independent-computational-software/outputs/topofold-ai-tester-1-trial/confirmation-049a47f/results/kras1"
+  ],
+  "cwd": "/home/artem/Documents/Codex/2026-10-24/act-as-an-independent-computational-software/outputs/topofold-ai-tester-1-trial/confirmation-049a47f/checkout",
+  "environment_overrides": {
+    "CARGO_HOME": "/home/artem/Documents/Codex/2026-10-24/act-as-an-independent-computational-software/outputs/topofold-ai-tester-1-trial/confirmation-049a47f/cargo",
+    "CARGO_TARGET_DIR": "/home/artem/Documents/Codex/2026-10-24/act-as-an-independent-computational-software/outputs/topofold-ai-tester-1-trial/confirmation-049a47f/target",
+    "PIP_CACHE_DIR": "/home/artem/Documents/Codex/2026-10-24/act-as-an-independent-computational-software/outputs/topofold-ai-tester-1-trial/confirmation-049a47f/cache/pip",
+    "XDG_CACHE_HOME": "/home/artem/Documents/Codex/2026-10-24/act-as-an-independent-computational-software/outputs/topofold-ai-tester-1-trial/confirmation-049a47f/cache",
+    "MPLCONFIGDIR": "/home/artem/Documents/Codex/2026-10-24/act-as-an-independent-computational-software/outputs/topofold-ai-tester-1-trial/confirmation-049a47f/cache/matplotlib",
+    "TMPDIR": "/home/artem/Documents/Codex/2026-10-24/act-as-an-independent-computational-software/outputs/topofold-ai-tester-1-trial/confirmation-049a47f/tmp",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "PIP_DISABLE_PIP_VERSION_CHECK": "1"
+  },
+  "start_utc": "2026-10-24T08:33:30.319375+00:00",
+  "exit_code": 0,
+  "end_utc": "2026-10-24T08:33:36.421079+00:00",
+  "wall_seconds": 6.101699802093208,
+  "cpu_user_seconds": 13.951066,
+  "cpu_system_seconds": 0.5719909999999999,
+  "peak_rss_kib": 105640
+}

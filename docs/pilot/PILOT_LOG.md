@@ -141,3 +141,34 @@ Human consent fields (feedback form items 15 and 16) do not apply. Archived evid
 
 **Next:** a short confirmation run by the tester of the selection behaviour and the setup text, against the fix
 commit.
+
+## Entry 5 — AI TESTER 1: bounded confirmation of commit 049a47f (2026-10-24)
+
+**A bounded external AI confirmation, not human validation, a human usability assessment or biological validation.**
+- **Tester:** the same as entry 4 (model family as reported GPT-6; identifier unknown; Codex desktop, version unknown).
+- **Commit tested:** `049a47f196e39ec46cc8e2c9d0bd63f03600df71` (it includes the fix `f96c3a2`).
+- **Environment:** a fresh checkout and an isolated sibling environment on the same Linux machine.
+- No parallel agent and no human or developer assistance.
+- **Evidence:** `benchmarks/audit/ai_tester_1_trial_2026-10-24/confirmation/`. The tester's manifest verifies 47 of 47
+  files, and the original `REPORT.md` is kept byte-for-byte.
+
+| Item | Outcome |
+|---|---|
+| Setup instructions (guide §2) | **Sufficient in the tested Linux environment** (Python 3.14.4, Rust 1.98.1). No missing or extra package, version change or `--adapter-python` was needed. The commit checkout, trial-local paths and launch environment settings were applied and recorded (`evidence/COMMANDS.md`) |
+| Computation | **Succeeded.** kras2 exited 0 in 7.0 s with the expected stdout; the added kras1 run exited 0 in 6.1 s. All 4 core outputs of each run are byte-identical to the shipped references |
+| Persistent selection mismatch | **Not observed after the fix.** After selecting 58 and switching to "all", row 33 was unchecked |
+| Settled selection states | **Synchronized at every requested step:** sidebar, details and checked row agree, or no row is marked when the focus is filtered out or off-screen. The tester scrolled the virtualised table to inspect rows |
+| Transient states during comparison switches | **Qualified, unresolved observation, low severity.** Immediately after each comparison switch, accessibility snapshots briefly paired the new sidebar focus with the old details and checked row (84/58/58 entering kras1; 58/84/84 returning). Settled snapshots and screenshots were synchronized. The evidence cannot separate a visible transient from accessibility-cache lag or Streamlit's display of the previous state during a rerun |
+| Continuous time cap | **Not met:** a usage interruption and a computer restart came between the position-sort check and the comparison switches. Elapsed time 3 h 57 min 38 s; active work about 14 minutes, exact value unknown |
+
+- **Not concluded:** an unconditional "the table never mismatches" result.
+- **Reopen the transient observation only if either:**
+  - a mismatch remains after the Streamlit rerun has settled; or
+  - a human visibly observes a persistent wrong selection.
+- No application code was changed in response.
+- **Tester-tooling events, not TopoFold defects** (`evidence/18-errors-and-limitations.json`):
+  - one canvas accessibility click failed ("no layout object"); clicking by coordinates worked;
+  - sandbox stream-fd warnings appeared, with exit 0;
+  - the pre-interruption step records were reconstructed from tool outputs and screenshots.
+- **Status:** the AI trial is closed, and viewer work stops here. An independent human trial remains a future
+  product-usability milestone.

@@ -1,0 +1,505 @@
+{
+ "top": {
+  "d_kappa": [
+   {
+    "position": 105,
+    "window_A": "A:105..A:107",
+    "value": 0.528497289737981,
+    "altloc": true,
+    "mismatch": false
+   },
+   {
+    "position": 28,
+    "window_A": "A:28..A:30",
+    "value": 0.4684320851741022,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 31,
+    "window_A": "A:31..A:33",
+    "value": 0.42218977616487474,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 64,
+    "window_A": "A:64..A:66",
+    "value": 0.395344183985221,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 30,
+    "window_A": "A:30..A:32",
+    "value": 0.3590891868333248,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 103,
+    "window_A": "A:103..A:105",
+    "value": 0.3468227078467667,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 63,
+    "window_A": "A:63..A:65",
+    "value": 0.32130218291020385,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 36,
+    "window_A": "A:36..A:38",
+    "value": 0.30231327795029306,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 35,
+    "window_A": "A:35..A:37",
+    "value": 0.2847890176621617,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 37,
+    "window_A": "A:37..A:39",
+    "value": 0.21570122387299218,
+    "altloc": false,
+    "mismatch": false
+   }
+  ],
+  "d_i_i2": [
+   {
+    "position": 28,
+    "window_A": "A:28..A:30",
+    "value": 0.959170653418469,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 105,
+    "window_A": "A:105..A:107",
+    "value": 0.8656543322037731,
+    "altloc": true,
+    "mismatch": false
+   },
+   {
+    "position": 103,
+    "window_A": "A:103..A:105",
+    "value": 0.7411539448475901,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 36,
+    "window_A": "A:36..A:38",
+    "value": 0.7034214906143674,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 63,
+    "window_A": "A:63..A:65",
+    "value": 0.6825286755932192,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 31,
+    "window_A": "A:31..A:33",
+    "value": 0.6555893089732825,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 64,
+    "window_A": "A:64..A:66",
+    "value": 0.6333820398556531,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 30,
+    "window_A": "A:30..A:32",
+    "value": 0.607778203921689,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 35,
+    "window_A": "A:35..A:37",
+    "value": 0.5287909100153545,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 34,
+    "window_A": "A:34..A:36",
+    "value": 0.521578147555017,
+    "altloc": false,
+    "mismatch": false
+   }
+  ],
+  "rmsd3": [
+   {
+    "position": 105,
+    "window_A": "A:105..A:107",
+    "value": 0.5532185527371106,
+    "altloc": true,
+    "mismatch": false
+   },
+   {
+    "position": 28,
+    "window_A": "A:28..A:30",
+    "value": 0.5271808199859598,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 31,
+    "window_A": "A:31..A:33",
+    "value": 0.43542907217297505,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 64,
+    "window_A": "A:64..A:66",
+    "value": 0.40981616684701677,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 103,
+    "window_A": "A:103..A:105",
+    "value": 0.3990550039175892,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 30,
+    "window_A": "A:30..A:32",
+    "value": 0.3801677823676901,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 63,
+    "window_A": "A:63..A:65",
+    "value": 0.36488653570625984,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 36,
+    "window_A": "A:36..A:38",
+    "value": 0.3577265238140498,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 35,
+    "window_A": "A:35..A:37",
+    "value": 0.3110948461375857,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 34,
+    "window_A": "A:34..A:36",
+    "value": 0.2528865924718722,
+    "altloc": false,
+    "mismatch": false
+   }
+  ],
+  "d_tau": [
+   {
+    "position": 36,
+    "window_A": "A:36..A:39",
+    "value": 0.8984833390924554,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 28,
+    "window_A": "A:28..A:31",
+    "value": 0.8938602599810728,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 31,
+    "window_A": "A:31..A:34",
+    "value": 0.8692710555876103,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 107,
+    "window_A": "A:107..A:110",
+    "value": 0.7204463425617198,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 59,
+    "window_A": "A:59..A:62",
+    "value": 0.6954308348344724,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 37,
+    "window_A": "A:37..A:40",
+    "value": 0.6542785966437599,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 32,
+    "window_A": "A:32..A:35",
+    "value": 0.5545557526419205,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 26,
+    "window_A": "A:26..A:29",
+    "value": 0.546636917993732,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 30,
+    "window_A": "A:30..A:33",
+    "value": 0.5244187136336171,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 34,
+    "window_A": "A:34..A:37",
+    "value": 0.5212664393867914,
+    "altloc": false,
+    "mismatch": false
+   }
+  ],
+  "d_i_i3": [
+   {
+    "position": 102,
+    "window_A": "A:102..A:105",
+    "value": 1.9150779370729216,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 27,
+    "window_A": "A:27..A:30",
+    "value": 0.9601455175823368,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 103,
+    "window_A": "A:103..A:106",
+    "value": 0.9381167575598361,
+    "altloc": true,
+    "mismatch": false
+   },
+   {
+    "position": 30,
+    "window_A": "A:30..A:33",
+    "value": 0.8669117882246571,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 26,
+    "window_A": "A:26..A:29",
+    "value": 0.8209822206358677,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 63,
+    "window_A": "A:63..A:66",
+    "value": 0.7829387714427565,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 60,
+    "window_A": "A:60..A:63",
+    "value": 0.7454528568074306,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 32,
+    "window_A": "A:32..A:35",
+    "value": 0.7027724092454672,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 29,
+    "window_A": "A:29..A:32",
+    "value": 0.6375549779773522,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 62,
+    "window_A": "A:62..A:65",
+    "value": 0.6131432836304569,
+    "altloc": false,
+    "mismatch": false
+   }
+  ],
+  "rmsd4": [
+   {
+    "position": 28,
+    "window_A": "A:28..A:31",
+    "value": 0.8876183245240092,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 102,
+    "window_A": "A:102..A:105",
+    "value": 0.7636361353775281,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 35,
+    "window_A": "A:35..A:38",
+    "value": 0.7119047030956104,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 107,
+    "window_A": "A:107..A:110",
+    "value": 0.6659507576220715,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 105,
+    "window_A": "A:105..A:108",
+    "value": 0.5974947393378182,
+    "altloc": true,
+    "mismatch": false
+   },
+   {
+    "position": 30,
+    "window_A": "A:30..A:33",
+    "value": 0.5902214324523077,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 36,
+    "window_A": "A:36..A:39",
+    "value": 0.5878620974632677,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 103,
+    "window_A": "A:103..A:106",
+    "value": 0.574239700561283,
+    "altloc": true,
+    "mismatch": false
+   },
+   {
+    "position": 32,
+    "window_A": "A:32..A:35",
+    "value": 0.5644283664960705,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 27,
+    "window_A": "A:27..A:30",
+    "value": 0.5347056734573187,
+    "altloc": false,
+    "mismatch": false
+   }
+  ]
+ },
+ "agreement": {
+  "d_kappa~d_i_i2": {
+   "spearman": 0.908226482413049,
+   "n_windows": 166
+  },
+  "d_kappa~rmsd3": {
+   "spearman": 0.9731175108709197,
+   "n_windows": 166
+  },
+  "d_i_i2~rmsd3": {
+   "spearman": 0.9500206596664283,
+   "n_windows": 166
+  },
+  "d_tau~d_i_i3": {
+   "spearman": 0.4781102235994978,
+   "n_windows": 165
+  },
+  "d_tau~rmsd4": {
+   "spearman": 0.7864638153500921,
+   "n_windows": 165
+  },
+  "d_i_i3~rmsd4": {
+   "spearman": 0.7531669916918228,
+   "n_windows": 165
+  }
+ },
+ "n_windows": {
+  "d_kappa": 166,
+  "d_i_i2": 166,
+  "rmsd3": 166,
+  "d_tau": 165,
+  "d_i_i3": 165,
+  "rmsd4": 165
+ },
+ "global": {
+  "rmsd_qcp_angstrom": 0.717657940290446,
+  "n_ca": 168,
+  "rmsd_numpy_kabsch_angstrom": 0.7176579402905567
+ },
+ "altloc_sensitivity": {
+  "policy": "highest_occupancy",
+  "status": "computed",
+  "max_abs_change": {
+   "d_kappa": 0.02340694511641983,
+   "d_i_i2": 0.07732366782322941,
+   "rmsd3": 0.033657775343406554,
+   "d_tau": 0.04502659218697147,
+   "d_i_i3": 0.09747313313500161,
+   "rmsd4": 0.03640231465107115
+  },
+  "global_rmsd_angstrom": 0.7180166847754502
+ },
+ "metric_definitions": {
+  "d_kappa": "|\u03ba_B \u2212 \u03ba_A|, three-residue window (i\u22121, i, i+1), TopoFold core",
+  "d_i_i2": "|d(i\u22121,i+1)_B \u2212 d(i\u22121,i+1)_A|, same three-residue window (distance baseline)",
+  "rmsd3": "proper-rotation C\u03b1 RMSD of the three-residue window after optimal superposition (MDAnalysis QCP)",
+  "d_tau": "circular |wrap(\u03c4_B \u2212 \u03c4_A)|, four-residue window (i\u22121 .. i+2), hinge i\u2192i+1, TopoFold core",
+  "d_i_i3": "|d(i\u22121,i+2)_B \u2212 d(i\u22121,i+2)_A|, same four-residue window (distance baseline)",
+  "rmsd4": "proper-rotation C\u03b1 RMSD of the four-residue window after optimal superposition (MDAnalysis QCP)"
+ },
+ "units": {
+  "d_kappa": "rad",
+  "d_i_i2": "angstrom",
+  "rmsd3": "angstrom",
+  "d_tau": "rad",
+  "d_i_i3": "angstrom",
+  "rmsd4": "angstrom"
+ },
+ "n_exclusion_rows": 0
+}

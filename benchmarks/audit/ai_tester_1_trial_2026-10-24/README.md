@@ -44,3 +44,30 @@ These stay in the tester's trial directory:
 
 The owner's chat transcript is `docs/REPORT-ChatGPT-Independent-tester-24-10-2026-chat.md` (SHA-256
 `01bb4c50…ba1d7`, 276 KB with embedded images). It is kept untracked and unchanged, and was consulted only selectively.
+
+## Confirmation of commit 049a47f (`confirmation/`)
+
+Bounded AI confirmation of the selection fix and the setup text. Pilot log entry 5.
+
+| Path | Content |
+|---|---|
+| `confirmation/REPORT.md` | The tester's confirmation report, unchanged. The owner's formatted copy, `docs/REPORT-ChatGPT-Independent-tester-24-10-2026_2.md`, differs only in table-separator formatting and 7 appended image links to absolute local paths (its words are otherwise identical); it is kept untracked and unchanged. Use the relative links in the archived copy |
+| `confirmation/run.py`, `confirmation/evidence/` | Commands (`COMMANDS.md`), per-command JSON and logs, step outcomes (`16-step-outcomes.json`), timing (`17-timing.json`), errors and limitations, final checks, the tester's manifest (`evidence-sha256.json`), and 7 screenshots with accessibility records (`evidence/browser/`) |
+| `confirmation/results/kras1/`, `confirmation/results/kras2/` | Outputs without `work/` |
+
+**Verification on receipt:**
+- the tester's manifest: 47 of 47 entries match;
+- 63 of 63 archived copies are identical to the originals;
+- each result directory matches its own `manifest.json` (6 of 6 files each), and its 4 core outputs are byte-identical
+  to `benchmarks/audit/structpair_demo/results/`;
+- all 34 relative links in the archived reports and in this README resolve.
+
+**Not archived:** they remain in the confirmation directory,
+`…/topofold-ai-tester-1-trial/confirmation-049a47f/`:
+- `topofold-env/` (829 MB);
+- `target/` (195 MB);
+- `cache/` (213 MB);
+- `checkout/` (106 MB);
+- `cargo/` (52 MB);
+- `tmp/`;
+- `results/*/work/`.

@@ -20,8 +20,9 @@ All of these use identical coordinates and residue coverage. It also reports:
   structures cannot support such claims.
 
 Status: v0.1.0. It has been verified against two recorded KRAS studies
-(`benchmarks/audit/structpair_demo/README.md`). **No independent user has run it yet.** Your trial is that test; please
-use `docs/pilot/FEEDBACK_FORM.md`.
+(`benchmarks/audit/structpair_demo/README.md`). One external AI technical trial (checkpoint `6ce7b49`) and one bounded
+AI confirmation (`049a47f`) have been completed (`docs/pilot/PILOT_LOG.md`, entries 4 and 5). **No independent human
+trial has been completed.** If you are trying it, please use `docs/pilot/FEEDBACK_FORM.md`.
 
 ## 1. What a clean checkout does not contain
 
@@ -164,12 +165,16 @@ streamlit run apps/structpair_viewer/app.py --server.address localhost -- --resu
 
 - `--results` takes one output directory or a folder containing several. Without it, the viewer opens the two KRAS
   demonstrations in `benchmarks/audit/structpair_demo/results/`.
+- **Page updates:** each control change reruns the page once. While a rerun is in progress, Streamlit may briefly
+  show elements from the previous state (greyed out). Read the selection, details and plots after the update has
+  finished.
 - `--server.address localhost` keeps the page on your own machine. Nothing is uploaded, and no external script is
   loaded.
 - **What it shows:**
   - one plot per metric, each with its own axis and unit;
   - the window table, which can be filtered, sorted and selected. Selecting a row moves the focus window, and the
-    table always marks the focus row, or no row when a filter hides it. The focus is kept per comparison;
+    table always marks the focus row, or no row when a filter hides it. The focus is kept per comparison. The table
+    shows only the rows in view, so scroll to see a marked row that is off-screen;
   - the exclusions, each with its recorded cause and an explanation of that cause type;
   - the residue correspondence, keeping chain IDs and insertion codes exactly as in the files;
   - provenance, with every output re-checked against its manifest hash;

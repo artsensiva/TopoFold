@@ -1,0 +1,84 @@
+{
+  "source_note": "Pre-interruption records reconstructed from this conversation and retained screenshots; the browser REPL array was lost on reboot. Resumed compact accessibility records were directly saved. None visible does not establish absence of offscreen selection in a virtualized table.",
+  "steps": [
+    {
+      "step": "Load kras2",
+      "sidebar": 79,
+      "details": 79,
+      "checked_row": "None visible; focus outside table viewport",
+      "phase": "before interruption",
+      "evidence": "browser/01-load-kras2.jpg; conversation accessibility output"
+    },
+    {
+      "step": "Sort d_kappa descending",
+      "sidebar": 79,
+      "details": 79,
+      "checked_row": "None visible; focus outside table viewport",
+      "phase": "before interruption",
+      "evidence": "conversation accessibility output and screenshot"
+    },
+    {
+      "step": "Filter without values",
+      "sidebar": 79,
+      "details": 79,
+      "checked_row": "None; focus filtered out; explanatory message shown",
+      "phase": "before interruption",
+      "evidence": "browser/02-without-values.jpg; conversation accessibility output"
+    },
+    {
+      "step": "Select position58",
+      "sidebar": 58,
+      "details": 58,
+      "checked_row": 58,
+      "phase": "before interruption",
+      "evidence": "browser/03-selected-58.jpg; conversation accessibility output"
+    },
+    {
+      "step": "Switch to all",
+      "sidebar": 58,
+      "details": 58,
+      "checked_row": "None visible; selected position outside first displayed rows; position33 visibly unchecked",
+      "phase": "before interruption",
+      "evidence": "browser/04-all-after-58.jpg; conversation accessibility output"
+    },
+    {
+      "step": "Sort by position",
+      "sidebar": 58,
+      "details": 58,
+      "checked_row": "None visible before interruption; row58 confirmed checked after restoring state and scrolling",
+      "phase": "before interruption and resumed",
+      "evidence": "browser/05-position-sort-resumed.jpg; browser/resume-browser-records.json"
+    },
+    {
+      "step": "Switch to kras1 (settled)",
+      "sidebar": 84,
+      "details": 84,
+      "checked_row": 84,
+      "phase": "resumed",
+      "evidence": "browser/06-kras1-focus-84.jpg; browser/resume-browser-records.json"
+    },
+    {
+      "step": "Switch back to kras2 (settled)",
+      "sidebar": 58,
+      "details": 58,
+      "checked_row": 58,
+      "phase": "resumed",
+      "evidence": "browser/07-return-kras2-focus-58.jpg; browser/resume-browser-records.json"
+    }
+  ],
+  "transient_accessibility_observations": [
+    {
+      "switch": "kras2 to kras1",
+      "sidebar": 84,
+      "details": 58,
+      "selected_row": 58
+    },
+    {
+      "switch": "kras1 to kras2",
+      "sidebar": 58,
+      "details": 84,
+      "selected_row": 84
+    }
+  ],
+  "qualification": "Immediate accessibility snapshots during rerender retained old details and selected row. Subsequent screenshot/reset and settled snapshots synchronized. Cannot establish whether this was a visible transient, accessibility-cache lag, or both. No persistent mismatched visual checkbox observed; strict never guarantee not confirmed."
+}

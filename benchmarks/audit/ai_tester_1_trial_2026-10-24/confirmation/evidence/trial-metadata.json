@@ -1,0 +1,16 @@
+{
+  "utc": "2026-10-24T08:30:18.872094+00:00",
+  "full_commit": "049a47f196e39ec46cc8e2c9d0bd63f03600df71",
+  "tester": "AI tester 1",
+  "model_family": "GPT-6",
+  "exact_model_identifier": "unknown",
+  "application": "Codex desktop",
+  "setup_as_written_deviations": [
+    "Fresh checkout of default remote followed by detached fixed checkpoint instead of branch-clone alone.",
+    "~/structpair_out relocated to trial/results due prior trial-only write authorization.",
+    "Cargo target/cache, pip and temporary files redirected into trial for isolation.",
+    "Additional kras1 invocation needed to populate second comparison for requested switch."
+  ],
+  "initial_status": "clean",
+  "doc_sha256": "ca4420accd72e024bdc69a1c39a80569dc759f234128186788fcd3abe2d7278c"
+}

@@ -1,0 +1,20 @@
+[
+  {
+    "pid": 20984,
+    "observed_command": "/home/artem/Documents/Codex/2026-10-24/act-as-an-independent-computational-software/outputs/topofold-ai-tester-1-trial/confirmation-049a47f/topofold-env/bin/python3 /home/artem/Documents/Codex/2026-10-24/act-as-an-independent-computational-software/outputs/topofold-ai-tester-1-trial/confirmation-049a47f/topofold-env/bin/streamlit run apps/structpair_viewer/app.py --server.address localhost -- --results /home/artem/Documents/Codex/2026-10-24/act-as-an-independent-computational-software/outputs/topofold-ai-tester-1-trial/confirmation-049a47f/results ",
+    "signal": "SIGTERM",
+    "checked_utc": "2026-10-24T12:25:54.287702+00:00",
+    "process_absent": true,
+    "exit_code": null,
+    "exit_code_note": "Detached service; original shell exit status unavailable."
+  },
+  {
+    "pid": 20988,
+    "observed_command": "python3 -B /home/artem/Documents/Codex/2026-10-24/act-as-an-independent-computational-software/outputs/topofold-ai-tester-1-trial/confirmation-049a47f/evidence/save_browser_evidence.py ",
+    "signal": "SIGTERM",
+    "checked_utc": "2026-10-24T12:25:54.388389+00:00",
+    "process_absent": true,
+    "exit_code": null,
+    "exit_code_note": "Detached service; original shell exit status unavailable."
+  }
+]
