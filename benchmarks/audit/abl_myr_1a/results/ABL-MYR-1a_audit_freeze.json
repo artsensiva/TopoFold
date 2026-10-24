@@ -1,0 +1,26 @@
+{
+  "id": "ABL-MYR-1a-INIT-AUDIT",
+  "frozen_utc": "2026-10-24T21:18:00.416505+00:00",
+  "spec_sha256": "37be59e248f90c3b872189bfbad944a771db1886cc1ceb2aeac1b1a3f6464d96",
+  "audit_code": {
+    "path": "benchmarks/audit/abl_myr_1a/run_init_audit.py",
+    "sha256": "2d8b47028ad36ccb39bc1429365d025538c3eadd0a313d1c10e33acffc35e664"
+  },
+  "test": {
+    "tests/test_abl_myr_1a_audit.py": "ad73a073376582be558bdf6427982bbadb117636f54b0551181ab07210a3adba"
+  },
+  "frozen_runner_library_sha256": {
+    "benchmarks/audit/abl_myr_1/run_abl_myr.py": "419981810da0e105b6295f94b1b522f0168f8f69407f6d02293a85bf64dc9e6c"
+  },
+  "original_artifacts_sha256": {
+    "benchmarks/audit/abl_myr_1/run_spec.json": "f8825840ee6812268b1f1ee587affff0559e9ccb9a7da2b24b3a7bddcfd95e98",
+    "benchmarks/audit/abl_myr_1/run_abl_myr.py": "419981810da0e105b6295f94b1b522f0168f8f69407f6d02293a85bf64dc9e6c",
+    "benchmarks/audit/abl_myr_1/g1_member_audit.py": "632620397a7fb32f2b9cd9026e756420813f7c7fb73aa02c49f6164e8727d01e",
+    "benchmarks/audit/abl_myr_1/results/ABL-MYR-1_freeze.json": "3066d9fe0dcf78f36b30fc06760ec4c19c3d09f43bad106afbfef24591d8b025",
+    "benchmarks/audit/abl_myr_1/results/ABL-MYR-1_code_freeze.json": "159cfdee9086776df066c0ccadfaf763b362947cd7c16b618702572cb83270d1",
+    "benchmarks/audit/abl_myr_1/results/ABL-MYR-1_blocked.json": "929af481470987a103e0648ccb4f1ccb8a7fa1c8c9039598bfe7097020aa275d",
+    "benchmarks/audit/abl_myr_1/results/ABL-MYR-1_g1_member_audit.json": "bdf785e1ff47af1327e576ecda8506243e522207b32ee974dc51d0ba3f97a9cd"
+  },
+  "study_members_extracted_before_freeze": [],
+  "contents_viewed_before_freeze": "none of Set1 or Set2 (only zip member names and the dataset README)"
+}

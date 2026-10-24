@@ -1,0 +1,81 @@
+{
+ "id": "ABL-MYR-1a-INIT-AUDIT",
+ "kind": "post-hoc amendment, step 1 of 2: a bounded initialization audit of the published Set1 and Set2 starting files. No trajectory is opened, no descriptor computed, no condition difference scored",
+ "post_hoc": true,
+ "date": "2026-10-24",
+ "relation_to_original": "ABL-MYR-1 (run_spec.json, its freeze record, the runner and its code freeze, the blocked G1 record and the member audit) is preserved unchanged. This amendment is NOT the original frozen test. Every result obtained under it is labelled amended or exploratory",
+ "acknowledgement": "The published model archives contain no Set2/system.gro (results/ABL-MYR-1_g1_member_audit.json; the dataset README tree agrees). The original specification required it, and the original run stopped at G1. This amendment does not substitute system_em.gro for system.gro in any original rule: system_em.gro is a post-minimization structure and may differ between conditions. It is audited as what it is",
+ "defined_before_viewing": "This file, the audit code and the audit tests are hash-frozen before any member of the model archives is extracted. Before freezing, only archive member names (zip directory listings) and the dataset README were seen; no member content of Set1 or Set2 was read",
+ "inputs": {
+  "archives": ["kinase_kinked_Myr.zip", "kinase_kinked_noMyr.zip"],
+  "archive_hashes": "the sizes and SHA-256 values of ABL-MYR-1/run_spec.json are re-verified first",
+  "members_read": {
+   "Set1": ["system.gro", "system_em.gro", "topol.top", "production_md.mdp", "<rep>/md.tpr for 11..20"],
+   "Set2": ["system_em.gro", "topol.top", "production_md.mdp", "<rep>/md.tpr for 21..30"]
+  },
+  "not_read": ["PCA.zip and every XTC", "nvt.tpr, npt.tpr, nvt.mdp, npt.mdp, system_box.gro, system_solv.gro, system_solv_ions.gro", "every other archive"],
+  "extraction_dir": "benchmarks/audit/abl_myr_1/data_dryad/extracted_audit/ (git-ignored); members are matched with the frozen runner's resolver (exactly one match) and extracted with its traversal-safe extractor"
+ },
+ "budget": {"download_bytes_max": 0, "extracted_bytes_max": 1000000000, "cpu_seconds_max": 600},
+ "constants": {"identical_nm": 0.001, "small_rmsd_nm": 0.05,
+               "note": "identical_nm equals the frozen G4 coordinate tolerance; small_rmsd_nm is a declared category boundary, not a statistic"},
+ "what_each_file_can_and_cannot_establish": {
+  "Set1/system.gro": {
+   "can": "starting protein coordinates (all protein atoms, nm, three decimals) before solvation and minimization; comparing the two conditions tests the frozen G4 coordinate rule (identity within 0.001 nm)",
+   "cannot": "that every replicate started from these coordinates (replicates start later, from equilibration), the velocities, or the state of the solvent"},
+  "system_em.gro (Set1 and Set2)": {
+   "can": "protein coordinates after energy minimization, i.e. the structure that enters equilibration. Identity between two conditions is direct evidence of identical post-minimization protein coordinates. Identity of a Set2 file with the same-condition Set1 file is direct evidence that the Set2 structure is a copy of the Set1 structure",
+   "cannot": "the pre-minimization start of Set2 (it is not published), or that a non-identical pair started differently: minimization of systems that differ by the presence of Myr is expected to move protein atoms differently even from identical starts. A difference is therefore not evidence of different starts, and small differences cannot establish identical starts"},
+  "production_md.mdp (Set1 and Set2)": {
+   "can": "the simulation parameters (integrator, thermostat, ref_t, step, output settings) and the stated initialization method (gen_vel, gen_seed, continuation); identity of the normalized text between conditions (frozen rule: comments and whitespace removed, ordered lines identical)",
+   "cannot": "starting coordinates, the velocities or seeds actually used for any replicate, or that a file shipped with the archive is the file that was run"},
+  "topol.top (Set1 and Set2)": {
+   "can": "molecule composition and included parameter files; the frozen rule (every line not mentioning MYR or GLYM identical, including water and ion counts)",
+   "cannot": "any coordinate, and whether differences outside the Myr lines (for example water counts) matter physically"},
+  "<rep>/md.tpr (all 40 runs)": {
+   "can": "technical readability with MDAnalysis (the only reader available; GROMACS is not installed). If readable: atom counts, protein atom names, residue names, masses and charges, and the non-protein molecule composition of each production run input; whether the protein parameters match between conditions and across replicates",
+   "cannot": "coordinates or velocities (MDAnalysis reads the topology of a tpr, not its coordinates; if positions are nevertheless available this is recorded but not used, because production inputs hold post-equilibration coordinates and would not establish the minimization input), the seed, or the pre-equilibration start. A run input that cannot be read is recorded as unreadable and does not stop the audit"}
+ },
+ "measures": {
+  "protein_atoms": "all atoms of residues named as standard amino acids or CHARMM protonation variants (the frozen runner's AMINO set), hydrogens included, in file order",
+  "coordinate_comparison": "two files are compared only if their sequences of (residue name, atom name) are identical; otherwise 'sequence_mismatch'. No superposition: coordinates are compared in the frame of the files. Reported: protein atom count, max |dx| over all coordinates, RMSD, max atom displacement, count of atoms whose displacement exceeds 0.001 nm. Values are rounded to 1e-9 nm",
+  "coordinate_categories": {"identical": "max |dx| <= 0.001 nm", "differs_small": "not identical and RMSD <= 0.05 nm", "differs_large": "RMSD > 0.05 nm", "sequence_mismatch": "atom sequences differ; no comparison"},
+  "parameter_comparison": "frozen runner rules: production_md.mdp identical after normalization; topol.top identical after removing every line mentioning MYR or GLYM",
+  "tpr_probe": "per md.tpr: readable (bool), error text if not, atom count, SHA-256 of the protein atom list (resname, name, charge rounded to 1e-6, mass rounded to 1e-4), counts of non-protein residue names, positions_available (bool)"
+ },
+ "questions_and_reporting_categories": {
+  "Q1_set1_pre_minimization": "Set1 system.gro, Myr vs noMyr: coordinate category",
+  "Q2_set2_post_minimization": "Set2 system_em.gro, Myr vs noMyr: coordinate category",
+  "Q3_set1_post_minimization_calibration": "Set1 system_em.gro, Myr vs noMyr: coordinate category and size. Descriptive calibration of how far minimization separates conditions whose starts are identical (when Q1 is identical); it does not enter the verdict",
+  "Q4_cross_set_post_minimization": "system_em.gro Set1 vs Set2, per condition (Myr, noMyr): coordinate category",
+  "Q5_parameters_mdp": "production_md.mdp Myr vs noMyr per set: identical or differs (differing lines listed); Set1 vs Set2 key differences listed; initialization keys recorded per set",
+  "Q6_topology": "topol.top Myr vs noMyr per set: identical_after_myr_removal or differs (differing lines listed)",
+  "Q7_run_inputs": "md.tpr probe summary per set and condition: number readable, distinct protein digests, positions_available",
+  "Q8_replicate_initialization": "what each production_md.mdp states (gen_vel, gen_seed, continuation); stated, not verified"
+ },
+ "derived": {
+  "set1_original_checks_pass": "Q1 identical AND Set1 production_md.mdp identical AND Set1 topol.top identical_after_myr_removal (the three components of the frozen G4 for Set1)",
+  "set2_parameters_pass": "Set2 production_md.mdp identical AND Set2 topol.top identical_after_myr_removal",
+  "set2_start_direct_evidence": "Q2 is identical, OR (Q4 is identical for both conditions AND Q1 is identical). Meaning: the Set2 post-minimization protein coordinates are identical between conditions, or are copies of the Set1 structures whose pre-minimization identity between conditions is verified in Q1. It establishes the starting structure of equilibration, not the unpublished pre-minimization Set2 start"
+ },
+ "verdict_rules_ordered": [
+  {"step": 1, "verdict": "audit_incomplete", "rule": "a stop condition below occurred; nothing further is done"},
+  {"step": 2, "verdict": "V4_set1_comparability_failed", "rule": "set1_original_checks_pass is false. No comparison of any kind is run"},
+  {"step": 3, "verdict": "V1_set2_start_established_direct", "rule": "set2_start_direct_evidence AND set2_parameters_pass. A two-set amended comparison may be specified and frozen before any scoring, with the Set2 coordinate file for G4 being system_em.gro; its report must state that the Set2 start is established at the post-minimization stage only"},
+  {"step": 4, "verdict": "V3_set2_not_comparable", "rule": "Q2 is differs_large or sequence_mismatch (and set2_start_direct_evidence is false). Set2 is excluded; a separately labelled exploratory Set1-only comparison may be specified and frozen before scoring"},
+  {"step": 5, "verdict": "V2_set2_start_not_established", "rule": "every remaining case (including direct evidence present but Set2 parameters differing, or Q2 differs_small without Q4). Set2 is excluded; a separately labelled exploratory Set1-only comparison may be specified and frozen before scoring"}
+ ],
+ "consequences_fixed_in_advance": {
+  "V1": "two-set amended comparison under a separately frozen amended specification; the frozen verdict labels may be used with the stated limitation",
+  "V2_and_V3": "no two-set result: the words 'independently reproduced' and the frozen verdict 'TopoFold adds reproduced residues' are not used for any outcome. Only an exploratory Set1-only comparison with its own restricted labels, gates, baselines and resource limits, frozen before scoring",
+  "V4_and_incomplete": "stop; report the exact cause"
+ },
+ "stop_conditions": {
+  "S1": "an archive size or SHA-256 differs from ABL-MYR-1/run_spec.json",
+  "S2": "a member of the amended list above is missing or matches more than once",
+  "S3": "a .gro, .mdp or .top file cannot be parsed (an unreadable md.tpr is NOT a stop)",
+  "S4": "the extracted size or CPU budget is exceeded"
+ },
+ "outputs": ["results/ABL-MYR-1a_audit_results.json (machine-readable; every number in the report is read from it)", "results/ABL-MYR-1a_audit_report.md (generated from the JSON)"],
+ "not_in_scope": ["trajectories", "kinase descriptors", "any condition difference", "Ayaz WT/M472I, HDX, drug response or biological function"]
+}
