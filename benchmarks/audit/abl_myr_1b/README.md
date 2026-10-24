@@ -7,13 +7,17 @@ about Ayaz WT/M472I, HDX, drug response or biological function, and no causal My
 
 ## Clarification (2026-10-25) of the amendment-a1 outcome
 
-The a1 K1 outcome means that **production-start comparability was not established, because MDAnalysis did not expose the
-stored simulation box** (the run-input headers declare one) and GROMACS was not available to read it independently. It is
-**not** evidence that the systems are physically incomparable. Its label `not_comparable` is the frozen name for "criteria
-not met". The a1 statement "potential confounds: none found" referred only to the items examined (parameters, thermostat
-settings, coupling groups, composition); it does not mean that all possible confounds were ruled out. The a1 files are
-unchanged. Also, the a1 loader labelled MDAnalysis's run-input coordinates as Å, while the reader returns nm; no a1 result
-used them numerically, and a2 compares both readers in nm.
+The a1 K1 outcome means that **production-start comparability was unverified, because MDAnalysis did not expose the stored
+simulation box** (the run-input headers declare one) and GROMACS was not available to read it independently. It does **not**
+demonstrate that the production starts differ, and it does not demonstrate that they match. Its label `not_comparable` is the
+frozen name for "criteria not met". For the parameters, thermostat settings, coupling groups and composition that were
+inspected, the differences detected between conditions are those expected from the presence of Myr (group names, the MYRP
+molecule, 11 more waters), and **no unexpected difference was detected**. That is not proof that no confound exists: only the
+listed items were inspected. Wording in frozen files that reads more strongly (for example "potential_confound: []" in the
+generated reports, which means that no item matched the predeclared rules) is read with this qualification; see
+[`CLARIFICATIONS_2026-10-25.md`](CLARIFICATIONS_2026-10-25.md). The a1 files are unchanged. Also, the a1 loader labelled
+MDAnalysis's run-input coordinates as Å, while the reader returns nm; no a1 result used them numerically, and a2 compares both
+readers in nm.
 
 ## Status
 
@@ -47,8 +51,8 @@ used them numerically, and a2 compares both readers in nm.
   could therefore be applied, and the Cα RMSD to `system_em.gro` was not computed for any run. The atom-order validation
   did pass for 40 of 40 runs (full-system atom names identical to the text-parsed `system_em.gro`).
 - GROMACS is not installed, so `gmx dump`/`gmx check` could not provide the independent reading.
-- **Not done:** a second amendment of the validation path after this failure. The task excluded repeated changes after a
-  failed criterion; a1 corrected a parser defect before any criterion was evaluated.
+- **History:** at that point no further amendment of the validation path was made; a1 had corrected a parser defect before
+  any criterion was evaluated. The owner then authorised one bounded amendment, a2 (below).
 
 ## Amendment a2: what was measured
 
@@ -78,9 +82,9 @@ used them numerically, and a2 compares both readers in nm.
 | R1 usable production-start coordinates | **Not established** (K1). Positions are present but unvalidated |
 | R2 production-start geometry; within- vs between-condition variation | **Not computed**: there are no validated whole Cα traces, so no pairs (all pair counts are 0). The reported "distinct starts = 10" is an artefact of zero pairs |
 | R3 tc-grps content | **Verified from `index.ndx` against the tpr atom order**, both sets: solute group = 280 protein residues + ATP + MG (+ MYRP in Myr); solvent group = SOL + NA + CL; the two groups partition the system |
-| R4 thermostat and coupling | **Comparable**: the only differences between conditions in `nvt.mdp`, `npt.mdp` and `production_md.mdp` are group names that add MYRP. ref_t 300 K for both groups everywhere. NVT: V-rescale, tau_t 0.5 ps, `gen_vel = yes`, `gen_seed = -1`, position restraints (`define = -DPOSRES`). NPT: V-rescale, Berendsen barostat, restraints. Production: V-rescale (Set1) or Nosé–Hoover (Set2), tau_t 1.0 ps, Parrinello–Rahman, `continuation = yes` |
-| R5 composition | **Inherent differences only**: MYRP present only with Myr; SOL 29949 vs 29938 (11 waters, 0.037 %); NA 100, CL 87, ATP 1, MG 1 in both; net charge 4e-06 e in both |
-| R6 classification | inherent to the Myr model: the group names, MYRP, the 11 waters; potential confounds: **none found** in parameters, groups or composition; production-start geometry: not separable from Myr presence during equilibration (and not measured here) |
+| R4 thermostat and coupling | **No unexpected difference detected** in the inspected settings: the only differences between conditions in `nvt.mdp`, `npt.mdp` and `production_md.mdp` are group names that add MYRP. ref_t 300 K for both groups everywhere. NVT: V-rescale, tau_t 0.5 ps, `gen_vel = yes`, `gen_seed = -1`, position restraints (`define = -DPOSRES`). NPT: V-rescale, Berendsen barostat, restraints. Production: V-rescale (Set1) or Nosé–Hoover (Set2), tau_t 1.0 ps, Parrinello–Rahman, `continuation = yes` |
+| R5 composition | **Only differences expected from the Myr model detected**: MYRP present only with Myr; SOL 29949 vs 29938 (11 waters, 0.037 %); NA 100, CL 87, ATP 1, MG 1 in both; net charge 4e-06 e in both |
+| R6 classification | expected from the Myr model: the group names, MYRP, the 11 waters; **no unexpected difference detected** in the inspected parameters, groups and composition (not proof that no confound exists); production-start geometry: not separable from Myr presence during equilibration (and not measured here) |
 | K5 replicates not copies | Passed **only through the velocity route**: 10 distinct velocity sets per set and condition, read by the same unvalidated reader. Consistent with `gen_vel = yes`, `gen_seed = -1` in each replicate's NVT step; not independently verified |
 
 **What the evidence supports about shared starts:**
@@ -89,7 +93,7 @@ used them numerically, and a2 compares both readers in nm.
 - **From this check:**
   - the replicates were equilibrated with the same, comparable thermostat and restraint settings, with random initial
     velocities stated;
-  - the coupling groups and composition differ only in ways inherent to the Myr model.
+  - the inspected coupling groups and composition show no unexpected difference (the differences found follow from the presence of Myr); this is not proof of no confound.
 - **Not supported yet:** what the validated production-start coordinates are, and how much they vary within and between
   conditions.
 
