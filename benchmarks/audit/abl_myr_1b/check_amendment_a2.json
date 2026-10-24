@@ -1,0 +1,72 @@
+{
+ "id": "ABL-MYR-1b-CHECK-a2",
+ "date": "2026-10-25",
+ "post_hoc": true,
+ "kind": "second dated amendment of the ABL-MYR-1b run-input comparability check: independent reading of the stored box, positions and velocities of the 40 production md.tpr with GROMACS. One bounded attempt",
+ "a1_outcome_stated_precisely": "The a1 K1 outcome means that production-start comparability was not established, because MDAnalysis did not expose the stored simulation box (the run-input headers declare one) and GROMACS was not available to read it independently. It is not evidence that the systems are physically incomparable, and the check did not rule out all possible confounds. Its label 'not_comparable' is the frozen name for 'criteria not met'",
+ "preserved_unchanged": [
+  "ABL-MYR-1 (blocked at G1)",
+  "ABL-MYR-1a (V4)",
+  "ABL-MYR-1b check_spec.json, run_comp_check.py, its freeze record, attempt 1 and amendment a1 with their results"
+ ],
+ "single_attempt": "This is the only further attempt. If GROMACS cannot be run, or any criterion fails, the ABL-MYR-1 route stops and the exact blocker is reported. No further workaround amendment will be written for this check",
+ "what_changes": "Only how the stored box, positions and velocities of each md.tpr are read and cross-checked: GROMACS 'gmx dump' output (box, x, v, header flags) is parsed and compared with the earlier reader; the box is also read with MDAnalysis's own tpr routine extract_box_info. The record fed to the frozen validations carries the GROMACS box, positions and velocities",
+ "what_does_not_change": "All questions, rules, constants, criteria K1-K5, thresholds, stop conditions S1-S4 and budgets of check_spec.json; the a1 index-group handling; the frozen check module is imported byte-identical. Topology (names, bonds, residue names) still comes from the MDAnalysis tpr reader",
+ "tool": {
+  "gromacs": "2024.5 conda-forge nompi (CPU, mixed precision), isolated user-space install",
+  "acquisition_record": "results/ABL-MYR-1b_gromacs_acquisition.json (installer, source, hashes, commands, resources)",
+  "located_by": "environment variable TOPOFOLD_GMX (path of the gmx launcher); its version, package record and executable SHA-256 are written into the a2 results",
+  "known_limit": "gmx 2024.5 is newer than the GROMACS 2020.1 that wrote the run inputs (tpx version 119); old run-input versions are read by the newer reader, and failure on any file is a K1 failure"
+ },
+ "reader_agreement_added_to_K1": {
+  "definition": "validation (d), required for all 40 runs in addition to (a), (b) and (c)",
+  "tolerances": {
+   "positions_nm": 0.001,
+   "velocities_nm_per_ps": 0.001,
+   "box_nm": 0.0001
+  },
+  "why_these_tolerances": "gmx dump prints six significant digits (about 5e-5 nm absolute at 10 nm); MDAnalysis reads float32 values. 0.001 nm (0.01 \u00c5) equals the precision of the .gro files used elsewhere in this audit; velocities use the same numerical tolerance in nm/ps; the box is a handful of numbers printed with six digits",
+  "checks": [
+   "gmx dump exit code 0",
+   "atom count equal to the run-input header, to the length of the x block and to the earlier reader",
+   "header flags bBox, bX present (bV recorded)",
+   "gmx box is lower-triangular with positive diagonal",
+   "max |x_gmx - x_MDAnalysis| <= 0.001 nm",
+   "if velocities exist in either reader: present in both and max |v_gmx - v_MDAnalysis| <= 0.001 nm/ps",
+   "gmx box equals the box read by MDAnalysis extract_box_info within 0.0001 nm (a comparison; unavailability of the second reading is recorded, not a failure)"
+  ],
+  "failure": "a run with any failed check is recorded as unreadable with the cause, which fails K1",
+  "units_note": "Both readers are compared in nm and nm/ps. MDAnalysis's TPRReader returns run-input coordinates in nm numerically (its units attribute states nm and nm/ps); the frozen a1 loader labelled them \u00c5. No a1 result depends on this: K1 failed on the missing box before any coordinate was used, and K5 only compares velocity sets for distinctness. The a2 record handed to the frozen validations uses the GROMACS values converted to \u00c5 (nm * 10)"
+ },
+ "periodic_boundary_handling": "C\u03b1 traces are made whole by sequential minimum image with the GROMACS box (triclinic supported); heavy-atom traces are unwrapped by bonded fragments with that box; superposition by NumPy Kabsch. Unchanged from the frozen check",
+ "descriptive_additions_not_criteria": [
+  "from each md.tpr dump: integrator, dt, nsteps, tcoupl, ref-t, tau-t, nrdf, pcoupl, tau-p, ref-p, constraints, continuation, ld-seed, refcoord-scaling, molecule blocks with counts, box vectors and volume",
+  "per set and condition: whether these are identical across the 10 runs, and the Myr vs noMyr differences",
+  "R2 production-start C\u03b1 and heavy-atom RMSD after superposition: within each condition, between conditions, and Set1 vs Set2, reported separately"
+ ],
+ "stop_conditions_added": {
+  "S5": "GROMACS is not available or cannot be run (no executable, version unreadable): the route stops; nothing else is computed"
+ },
+ "budget": {
+  "download_bytes_max": 0,
+  "extracted_bytes_max": 1000000000,
+  "cpu_seconds_max": 1800,
+  "note": "cpu includes the gmx dump child processes (RUSAGE_CHILDREN); acquisition budget and observed use are in the acquisition record"
+ },
+ "outcome_language": {
+  "comparable_for_1b": "K1-K5 criteria passed under the stated rules. It does not mean the systems are identical, that the production starts are equal, or that no confound exists; the measured differences are reported and bound the interpretation",
+  "not_comparable": "one or more criteria were not met. It is not a finding that the systems are physically incomparable. The ABL-MYR-1 route then stops"
+ },
+ "if_passed": "A separate, explicitly post-hoc ABL-MYR-1b trajectory-comparison protocol is drafted and hash-frozen. Trajectories are not opened or scored before an independent scientific review",
+ "extraction_dir": "benchmarks/audit/abl_myr_1/data_dryad/extracted_1b_a2/ (git-ignored)",
+ "outputs": [
+  "results/ABL-MYR-1b_check_a2_results.json",
+  "results/ABL-MYR-1b_check_a2_report.md (generated from the JSON)",
+  "results/ABL-MYR-1b_production_start_ca_a2.npz"
+ ],
+ "not_seen_before_this_freeze": "No study run-input content was read with GROMACS. Seen earlier (a1): MDAnalysis topology, positions and velocities of the 40 run inputs were loaded, the group, mdp and composition comparisons were made, and the header flags were read. Not seen: any GROMACS-read box, coordinate or velocity of a study file, or any value of the production-start geometry",
+ "synthetic_test_findings_before_freeze": [
+  "on a SYNTHETIC GROMACS 2024.5 water box (6957 atoms, triclinic box, generated velocities), MDAnalysis parses the run input, reads positions and velocities equal to gmx dump within 2.4e-7 nm and 5e-6 nm/ps when both are taken in nm, and returns no box; extract_box_info returns the box equal to gmx dump within 1.7e-7 nm",
+  "the MDAnalysis TPRReader coordinates are in nm numerically (see units_note)"
+ ]
+}

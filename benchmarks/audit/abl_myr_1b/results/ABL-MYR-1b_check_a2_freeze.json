@@ -1,0 +1,42 @@
+{
+  "id": "ABL-MYR-1b-CHECK-a2",
+  "frozen_utc": "2026-10-24T22:12:26.302462+00:00",
+  "amendment_sha256": "4bb77da2738ad5908a2e2e20497f7a76edd3757733c42f4550d96030908998f7",
+  "code": {
+    "path": "benchmarks/audit/abl_myr_1b/run_comp_check_a2.py",
+    "sha256": "0d89610c1f8defdee9665a88845cdbf63734761d3e88acab907905897021c692"
+  },
+  "test": {
+    "tests/test_abl_myr_1b_check_a2.py": "51f82b173191589986bc54815def5b2deb1b3977ada709061217b1c8f5d9454b"
+  },
+  "acquisition_record_sha256": "2361bc8e102e61b0c9b35c2fc35d4648f7b849d766271874734fe00190342893",
+  "gromacs_at_freeze": {
+    "version": "2024.5-conda_forge",
+    "precision": "mixed",
+    "mpi": "thread_mpi",
+    "launcher_sha256": "4580028d090a9c396c50d8c6a5b7cc97948d0c2aafb7d85b3dd8f82cee94020c",
+    "executable_sha256": "8eb638ba4e0510ad15b421db112b502691a861a1959f8d64ef268e0af2f23d37",
+    "package": {
+      "name": "gromacs",
+      "version": "2024.5",
+      "build": "nompi_h5f56185_100",
+      "channel": "conda-forge",
+      "sha256": "bb09d9339a2a7705a8d9f90ee6d6ff3a486361b5c1df116c8b2c39481ab60c3b",
+      "url": "https://conda.anaconda.org/conda-forge/linux-64/gromacs-2024.5-nompi_h5f56185_100.conda"
+    }
+  },
+  "frozen_check": {
+    "spec_sha256": "cbfe491bee722fa55d784f8977e3fe37647d2fff01e37a5be9d229d6552c4efd",
+    "code_sha256": "a69c8a8e08f7cead8f99a4a1e3128b77ed105f7d02a8f6f731e7736893627492"
+  },
+  "a1_records_sha256": {
+    "benchmarks/audit/abl_myr_1b/check_amendment_a1.json": "89251fb2f61e26d7d01fef4f617cb1fee96ea2785d7e4580438b07d8e509e060",
+    "benchmarks/audit/abl_myr_1b/run_comp_check_a1.py": "ffab0d5bb7ad24167471934f1c962050c0e3074fb3c47a77e3a507233ceb1032",
+    "benchmarks/audit/abl_myr_1b/results/ABL-MYR-1b_check_a1_freeze.json": "97dabf22310873f3adb0798681ff5a82e3533b0a371cf3c29e553f7c80360ede",
+    "benchmarks/audit/abl_myr_1b/results/ABL-MYR-1b_check_a1_results.json": "26f4170b586fce57e394654efa2009988b6399c3555f76b76cdb14f77b33e1cf",
+    "benchmarks/audit/abl_myr_1b/results/ABL-MYR-1b_check_a1_report.md": "525fb7fa0d85dda8e6f5eb625ecc4ea636437f63d11ed5c031a28ceabaebffa2",
+    "benchmarks/audit/abl_myr_1b/results/ABL-MYR-1b_production_start_ca_a1.npz": "8739c76e681f900923b900c9df0ef75cf421d39cabb54650c4b9ad19b6a76d85",
+    "benchmarks/audit/abl_myr_1b/results/ABL-MYR-1b_tpr_header_diagnostic.json": "2880ff5ca370de22a2eab134ee310b32e8ca76fe7975b8ed3abad5612a303bcd"
+  },
+  "extracted_before_freeze": []
+}

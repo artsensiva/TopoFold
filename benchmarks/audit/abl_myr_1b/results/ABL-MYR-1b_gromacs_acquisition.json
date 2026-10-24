@@ -1,0 +1,179 @@
+{
+ "purpose": "how the GROMACS used by ABL-MYR-1b check amendment a2 was obtained (isolated user-space install; no sudo, nothing system-wide)",
+ "date": "2026-10-25",
+ "install_location": "outside the repository (a directory under the user's home); referenced at run time through the environment variable TOPOFOLD_GMX",
+ "installer": {
+  "name": "micromamba",
+  "version": "2.9.0",
+  "release_tag": "2.9.0-0",
+  "url": "https://github.com/mamba-org/micromamba-releases/releases/download/2.9.0-0/micromamba-linux-64",
+  "sha256": "366cd9cd8be14df1ab8ed50352a82111082a36686b2d389fdb79a92c3fafb3e3",
+  "sha256_source": "the release asset digest published by the GitHub API; the downloaded file matched it"
+ },
+ "commands": [
+  "curl -sL -o micromamba <url above>",
+  "sha256sum micromamba   # compared with the published digest",
+  "MAMBA_ROOT_PREFIX=<tools>/root ./micromamba create -y -p <tools>/env -c conda-forge --override-channels \"gromacs=2024.5=nompi*\""
+ ],
+ "channel": "conda-forge (community channel, --override-channels)",
+ "pinned": "gromacs=2024.5, nompi build (CPU, mixed precision, thread-MPI)",
+ "why_this_version": "conda-forge offers no 2020-series GROMACS; the run inputs are tpx version 119 (GROMACS 2020.1); gmx 2024.5 reads older run-input versions, which the a2 run itself tests on all 40 files",
+ "installed": {
+  "gromacs_package": {
+   "name": "gromacs",
+   "version": "2024.5",
+   "build": "nompi_h5f56185_100",
+   "channel": "conda-forge",
+   "size": 32433223,
+   "sha256": "bb09d9339a2a7705a8d9f90ee6d6ff3a486361b5c1df116c8b2c39481ab60c3b",
+   "url": "https://conda.anaconda.org/conda-forge/linux-64/gromacs-2024.5-nompi_h5f56185_100.conda"
+  },
+  "packages": 18,
+  "download_bytes_total": 80262130,
+  "launcher_gmx_sha256": "4580028d090a9c396c50d8c6a5b7cc97948d0c2aafb7d85b3dd8f82cee94020c",
+  "executable_gmx_AVX2_256_sha256": "8eb638ba4e0510ad15b421db112b502691a861a1959f8d64ef268e0af2f23d37",
+  "version_string": "2024.5-conda_forge"
+ },
+ "packages": [
+  {
+   "name": "_openmp_mutex",
+   "version": "4.5",
+   "build": "20_gnu",
+   "size": 28948,
+   "sha256": "1dd3fffd892081df9726d7eb7e0dea6198962ba775bd88842135a4ddb4deb3c9"
+  },
+  {
+   "name": "fftw",
+   "version": "3.3.11",
+   "build": "nompi_h3b011a4_100",
+   "size": 2195198,
+   "sha256": "6fd5d681fba20adaca771f138ac52dbf0a52e0dc2ac31b9ce7406068d102a9a7"
+  },
+  {
+   "name": "gromacs",
+   "version": "2024.5",
+   "build": "nompi_h5f56185_100",
+   "size": 32433223,
+   "sha256": "bb09d9339a2a7705a8d9f90ee6d6ff3a486361b5c1df116c8b2c39481ab60c3b"
+  },
+  {
+   "name": "icu",
+   "version": "75.1",
+   "build": "he02047a_0",
+   "size": 12129203,
+   "sha256": "71e750d509f5fa3421087ba88ef9a7b9be11c53174af3aa4d06aff4c18b38e8e"
+  },
+  {
+   "name": "libgcc",
+   "version": "16.2.0",
+   "build": "ha9f2e26_7",
+   "size": 1058444,
+   "sha256": "e031634c3a928f9594eba868bc46ef5230d6571a364a0c63215b06c4563bfcea"
+  },
+  {
+   "name": "libgcc-ng",
+   "version": "16.2.0",
+   "build": "h69a702a_7",
+   "size": 28616,
+   "sha256": "03b54d7008de080a17cc2174b0e4acd6d06e1c981b2eb19846f46d8f59966034"
+  },
+  {
+   "name": "libgfortran",
+   "version": "16.2.0",
+   "build": "h69a702a_7",
+   "size": 28571,
+   "sha256": "9682ae4dd11487e10b904b3cb3ab6379cad25233d45fdfdf90d54349df244494"
+  },
+  {
+   "name": "libgfortran5",
+   "version": "16.2.0",
+   "build": "h6b99dfc_7",
+   "size": 2528180,
+   "sha256": "04dbab12c925b92977bb835dd2f5eda413607afa79f95a554e5a04b07a380322"
+  },
+  {
+   "name": "libgomp",
+   "version": "16.2.0",
+   "build": "he0feb66_7",
+   "size": 640566,
+   "sha256": "92a0bb350c7be6a4eedcb4e111c60aefd176018e6b1c009a6e025dbe9bbcd758"
+  },
+  {
+   "name": "libhwloc",
+   "version": "2.11.2",
+   "build": "default_h3d81e11_1002",
+   "size": 2425708,
+   "sha256": "2823a704e1d08891db0f3a5ab415a2b7e391a18f1e16d27531ef6a69ec2d36b9"
+  },
+  {
+   "name": "libiconv",
+   "version": "1.18",
+   "build": "h0cb94f2_3",
+   "size": 789471,
+   "sha256": "f943117edb9cd4d9c61cc972eee5a34291dc55ea7a6e9e38da104995841cbcb6"
+  },
+  {
+   "name": "liblzma",
+   "version": "5.8.3",
+   "build": "hb03c661_1",
+   "size": 112995,
+   "sha256": "9787df8c22a59c9a70d3e5a10db9ad663485e75e9ccc3f09bd092cb7b95e0dab"
+  },
+  {
+   "name": "libstdcxx",
+   "version": "16.2.0",
+   "build": "h934c35e_7",
+   "size": 6615436,
+   "sha256": "fa7018298629fc429971fffd6ecba3d27a7b02e4e890d6a93ea01ffebe8cb745"
+  },
+  {
+   "name": "libstdcxx-ng",
+   "version": "16.2.0",
+   "build": "hdf11a46_7",
+   "size": 28665,
+   "sha256": "337f481db36cc357884f05f404ccd1b3a7e0fc1ee48ec5c884e4281d213bc863"
+  },
+  {
+   "name": "libxml2",
+   "version": "2.13.9",
+   "build": "h04c0eec_0",
+   "size": 697033,
+   "sha256": "5d12e993894cb8e9f209e2e6bef9c90fa2b7a339a1f2ab133014b71db81f5d88"
+  },
+  {
+   "name": "libzlib",
+   "version": "1.3.2",
+   "build": "h25fd6f3_3",
+   "size": 63713,
+   "sha256": "eb8a0db0aa570124f7d2a93d7c7f596e3390df5e047818d873baad32985fc736"
+  },
+  {
+   "name": "ocl-icd",
+   "version": "2.3.4",
+   "build": "hb03c661_1",
+   "size": 109598,
+   "sha256": "75f3bf733523a338f73d6c276c4a26634877cd970edb558f2769d9fa52b100a9"
+  },
+  {
+   "name": "opencl-headers",
+   "version": "2025.06.13",
+   "build": "hecca717_0",
+   "size": 55754,
+   "sha256": "8de2f0cd8a659b01abf86e7fbb8cea4f28ada62fd288429a2bbc040db1b98dd0"
+  }
+ ],
+ "resources": {
+  "cpu_user_s": 2.22,
+  "cpu_system_s": 1.05,
+  "peak_rss_kb": 138696,
+  "disk_bytes_env": 204061106,
+  "disk_bytes_root_cache": 271749902,
+  "budget": {
+   "download_bytes_max": 1000000000,
+   "disk_bytes_max": 3000000000,
+   "wall_s_max": 1800
+  },
+  "wall_clock_m_ss": "0:13.61"
+ },
+ "check_before_study_content": "gmx --version, and a SYNTHETIC water box (gmx editconf/solvate/grompp/dump generated from GROMACS's own spc216.gro) used to learn the dump format. No study run input was read with GROMACS before the a2 freeze"
+}
