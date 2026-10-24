@@ -1,0 +1,4 @@
+# Optional dependencies of the topofold_inputs adapters (not dependencies of the topofold core wheel).
+# Version as used in the implementer's checks; a tested pin, not a compatibility range.
+MDAnalysis==2.10.0
+numpy

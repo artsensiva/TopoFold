@@ -5,6 +5,7 @@ reference checks against independently computed recorded values and against the 
 """
 
 import json
+import os
 import math
 import sys
 from pathlib import Path
@@ -18,7 +19,11 @@ from topofold_inputs.kinase_geometry import DESCRIPTOR_ATOMS  # noqa: E402
 
 # --- extraction (MDAnalysis needed) ----------------------------------------------------------------------------------
 
-mda = pytest.importorskip("MDAnalysis")
+# With TOPOFOLD_REQUIRE_MDANALYSIS_TESTS=1 (the CI adapter job) a missing MDAnalysis fails instead of skipping.
+if os.environ.get("TOPOFOLD_REQUIRE_MDANALYSIS_TESTS") == "1":
+    import MDAnalysis as mda
+else:
+    mda = pytest.importorskip("MDAnalysis")
 from topofold_inputs.atom_adapter import KINASE_DESCRIPTOR_ROLES, extract_atoms, role_request  # noqa: E402
 from topofold_inputs.ca_adapter import AdapterError, ResidueSpec, extract_ca, load_universe  # noqa: E402
 from topofold_inputs.kinase_geometry import kinase_descriptors  # noqa: E402
@@ -158,3 +163,31 @@ def test_calpha_identical_to_ca_adapter_on_public_structure(policy):
     at = extract_atoms(u, "at", [(s, ["CA"]) for s in corr], on_missing="reject", altloc=policy)
     assert np.array_equal(ca.coordinates, at.coordinates)
     assert [d["resid"] for d in ca.report["altloc_decisions"]] == [d["resid"] for d in at.report["altloc_decisions"]]
+
+
+FIXTURE = ROOT / "tests/fixtures/SYNTHETIC_kinase_like_altloc.pdb"   # committed SYNTHETIC fixture (runs in CI)
+
+
+@pytest.mark.parametrize("policy", ["blank_then_A", "highest_occupancy"])
+def test_calpha_identical_to_ca_adapter_on_committed_fixture(policy):
+    """Same check as the public-structure test, on a committed SYNTHETIC fixture with whole-residue altlocs (SER 4),
+    side-chain-only altlocs (PHE 9) and an insertion code (6A)."""
+    u = load_universe(FIXTURE)
+    corr = [ResidueSpec("A", r, ic) for r, ic in [(1, ""), (2, ""), (3, ""), (4, ""), (5, ""), (6, ""), (6, "A"), (7, ""),
+                                                  (8, ""), (9, ""), (10, ""), (11, ""), (12, "")]]
+    ca = extract_ca(u, "ca", correspondence=corr, on_missing="reject", altloc=policy)
+    at = extract_atoms(u, "at", [(s, ["CA"]) for s in corr], on_missing="reject", altloc=policy)
+    assert np.array_equal(ca.coordinates, at.coordinates)
+    want = "A" if policy == "blank_then_A" else "B"
+    assert [d["used"] for d in at.report["altloc_decisions"]] == [want] == [d["used"] for d in ca.report["altloc_decisions"]]
+
+
+def test_committed_fixture_side_chain_altloc_and_missing_cb():
+    u = load_universe(FIXTURE)
+    t = extract_atoms(u, "x", [(ResidueSpec("A", 9), ["CA", "CB", "CG", "CZ"]), (ResidueSpec("A", 7), ["CA", "CB"])],
+                      altloc="highest_occupancy")
+    alts = {(a["resid"], a["name"]): a["altloc"] for a in t.atoms}
+    assert alts[(9, "CA")] == "" and {alts[(9, n)] for n in ("CB", "CG", "CZ")} == {"A"}   # 0.70 > 0.30, one conformer
+    assert {(a["resid"], a["name"]): a["status"] for a in t.atoms}[(7, "CB")] == "atom_not_found"   # GLY has no CB
+    with pytest.raises(AdapterError, match="altloc policy is 'reject'"):
+        extract_atoms(u, "x", [(ResidueSpec("A", 9), ["CB"])], altloc="reject")

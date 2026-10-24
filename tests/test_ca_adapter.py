@@ -7,6 +7,7 @@ environment that has it, e.g.:
 
 import hashlib
 import json
+import os
 import random
 import sys
 from pathlib import Path
@@ -14,7 +15,11 @@ from pathlib import Path
 import numpy as np
 import pytest
 
-mda = pytest.importorskip("MDAnalysis")
+# With TOPOFOLD_REQUIRE_MDANALYSIS_TESTS=1 (the CI adapter job) a missing MDAnalysis fails instead of skipping.
+if os.environ.get("TOPOFOLD_REQUIRE_MDANALYSIS_TESTS") == "1":
+    import MDAnalysis as mda
+else:
+    mda = pytest.importorskip("MDAnalysis")
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "python"))
 
 from topofold_inputs import AdapterError, ResidueSpec, extract_ca, load_universe  # noqa: E402

@@ -84,6 +84,34 @@ jobs:
           TOPOFOLD_REQUIRE_VIEWER_TESTS: '1'
         run: python -m pytest tests/test_structpair_viewer.py -v -rs
 
+  adapters:
+    name: Adapter tests with MDAnalysis (Python 3.14)
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python 3.14
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.14'
+
+      - name: Install adapter dependencies (not core dependencies)
+        run: python -m pip install --upgrade pip pytest -r python/topofold_inputs/requirements-adapter.txt
+
+      - name: Run adapter and atom-extraction tests (missing MDAnalysis fails instead of skipping)
+        env:
+          TOPOFOLD_REQUIRE_MDANALYSIS_TESTS: '1'
+        run: >-
+          python -m pytest tests/test_ca_adapter.py tests/test_atom_adapter.py tests/test_kinase_geometry.py
+          -v -rs --junitxml=adapter-tests.xml
+
+      - name: Only tests needing git-ignored public structures may skip
+        run: >-
+          python tests/check_junit_skips.py adapter-tests.xml
+          test_abl_descriptors_match_independent_kin_desc_1_values
+          test_calpha_identical_to_ca_adapter_on_public_structure
+
   audit-reproductions:
     name: Audit reproduction scripts
     runs-on: ubuntu-latest
