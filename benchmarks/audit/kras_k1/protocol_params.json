@@ -1,0 +1,78 @@
+{
+ "id": "KRAS-K1",
+ "version": "1",
+ "status": "FROZEN at step S0 (2026-10-25), before any crystal endpoint was computed; no MD coordinate has been read or scored; the parameters are design choices fixed before any data were read, not calibrated values",
+ "system": {"mutant": "G12D", "numbering": "UniProt P01116-2 (KRAS4B), residues 4-164, topology resid = reference index", "conditions": ["GDP", "GTP"]},
+ "window_ns": [300, 2000],
+ "halves_ns": [[300, 1150], [1150, 2000]],
+ "interval_ns": 1,
+ "interval_tolerance_ns": 0.01,
+ "min_retained_runs": {"GDP": 4, "GTP": 8},
+ "endpoint": {
+  "evidence_class": "external static structural proxy, already exposed during KRAS-STRUCT-2 development; not held out, not prospective, not independent validation, not functional ground truth",
+  "structures": {"GDP": {"pdb": "5US4", "chains": ["A", "B"]}, "GNP": {"pdb": "5USJ", "chains": ["A", "B", "C", "D", "E", "F"]}},
+  "inputs": {"spec": "benchmarks/audit/kras_struct_g12d/run_spec.json", "files": {"5US4": "benchmarks/audit/kras_struct_g12d/data_pdb/5US4.pdb", "5USJ": "benchmarks/audit/kras_struct_g12d/data_pdb/5USJ.pdb"},
+             "identity_checks": "file SHA-256 equals the value recorded in the spec; ATOM records only; no alternate locations and no insertion codes; Asp at residue 12 in all 8 chains; residue names equal the MD topology sequence (recorded in feasibility_metadata.json) at every scored residue except residue 12"},
+  "atoms": "CA",
+  "scored_residues": {"md_topology_range": [4, 164], "observed": "Calpha present in all 8 chains", "frozen_struct2_set_check": "observed set within 1-166 must equal 1-59 and 68-166 (158 residues)", "expected_n_scored": 153},
+  "pair_fit": {"method": "Kabsch, proper rotation (det +1), float64, on all scored Calpha of the two chains of the pair",
+               "trim": "displace every scored residue after the first fit; drop the floor(trim_fraction x n) most displaced (ties: lower residue number dropped first); refit once on the rest; displacements are those of every scored residue under the refit",
+               "trim_fraction": 0.2},
+  "between_state": "mean over the 12 GDP x GNP chain pairs of the pair displacement (each pair fitted separately)",
+  "within_state": "maximum over the 16 same-entry chain pairs (1 in 5US4, 15 in 5USJ) of the pair displacement at that residue",
+  "positive_rule": "between_state >= max(min_displacement_A, within_state_factor x within_state) at that residue",
+  "min_displacement_A": 1.0,
+  "within_state_factor": 2.0,
+  "boundary": "the comparison is inclusive; values within 1e-9 A of the threshold count as meeting it and are listed in the record as boundary residues",
+  "segments": {"merge_rule": "two positives belong to one segment if residue_number(next) - residue_number(previous) - 1 <= merge_gap", "merge_gap": 2, "segment_length": "number of endpoint-positive residues in the segment"},
+  "gate": {"meaning": "determines only whether the proxy contains a sufficiently distributed comparison target; it does not show that the endpoint can discriminate methods",
+           "min_positive": 8, "max_positive_fraction": 0.25, "max_positive_rule": "floor(max_positive_fraction x n_scored)", "min_segments": 2, "min_segment_length": 3, "inclusive": true},
+  "sensitivity_reported_only": [
+   {"name": "primary_pair_only", "definition": "between_state taken from the single pair 5US4 chain A x 5USJ chain A; the same within_state values and the same positive rule"},
+   {"name": "median_over_pairs", "definition": "between_state taken as the median instead of the mean over the 12 pairs; the same within_state values and the same positive rule"}
+  ],
+  "sensitivity_note": "reported with |E|, segments and Jaccard with E; they never change E, the gate or the decision"
+ },
+ "methods": {
+  "topofold": ["kappa", "tau"],
+  "calpha_baselines": ["d_i_i2", "d_i_i3", "rmsf"],
+  "stronger_information_comparator": ["phi_psi_js"],
+  "matched_pairs": {"kappa": "d_i_i2", "tau": "d_i_i3"}
+ },
+ "scoring": {
+  "per_residue_score": "maximum over the windows covering the residue of E = median cross-condition run-pair distance minus the larger within-condition median (no thresholds, no robust-in-both-sets filter)",
+  "metric": "precision_at_k",
+  "k": "|E| (number of endpoint-positive residues)",
+  "ranking_tie_break": "score descending, then residue number ascending, identical for every method",
+  "undefined_scores": "residues without a finite score are ranked last and are never flagged; if a method has fewer than k finite scores it flags all of them and the shortfall counts as misses (the denominator stays k)",
+  "exact_residue_matching": true
+ },
+ "channel_selection": {
+  "T_star_candidates": ["kappa", "tau"],
+  "B_star_candidates": ["d_i_i2", "d_i_i3", "rmsf"],
+  "selected": "once, from the primary analysis (all retained runs, full window 300-2000 ns), as the candidate with the highest precision at k",
+  "tie_break": "the order of the candidate list above",
+  "fixed_in_sensitivity": "T* and B* stay fixed for every balanced-subset, time-half and leave-one-run-out calculation; no winning channel is reselected inside a sensitivity analysis"
+ },
+ "decision": {
+  "order": ["C1", "C2", "C3", "C4"],
+  "precision_is_exact_fraction": "m / k with m the number of flagged residues in E; comparisons use integer arithmetic",
+  "delta": "3/20 (0.15)",
+  "delta_value": 0.15,
+  "correspondence_min_precision": 0.5,
+  "redundancy_jaccard_threshold": 0.8,
+  "gap_ge_delta": "20 * (m_T - m_B) >= 3 * k",
+  "correspondence": "2 * m >= k",
+  "C1": "none of the five decision channels (kappa, tau, d_i_i2, d_i_i3, rmsf) has 2 * m >= k in the primary analysis; the phi/psi comparator is never part of a decision",
+  "C2": "not C1, and at least one of: the primary gap is below delta; the Jaccard condition fails; the segment condition fails",
+  "C3": "not C1, not C2, and the gap is at least delta in every one of: the primary analysis; at least 90 % of the balanced subsets; both predefined time halves; every leave-one-run-out recomputation",
+  "C4": "not C1, not C2, and C3 not met",
+  "balanced_subsets": {"definition": "all subsets of n_GDP retained GTP runs against all retained GDP runs, where n_GDP is the number of retained GDP runs", "count_when_all_retained": 252,
+                       "min_fraction": 0.9, "min_count_rule": "ceil(0.9 * N) with N the number of subsets", "min_count_when_N_252": 227},
+  "leave_one_run_out": "every retained run is left out once (15 recomputations when all runs are retained)",
+  "jaccard_condition": {"evaluated_in": "the primary analysis only", "sets": "the top-k flagged sets of T* and of the baseline matched to T* (kappa to d_i_i2, tau to d_i_i3), not restricted to E", "fails_when": "5 * |intersection| >= 4 * |union|"},
+  "segment_condition": {"evaluated_in": "the primary analysis only", "X": "residues of E that T* flags and B* does not flag", "holds_when": "X lies in at least 2 distinct segments of E (merge rule of the endpoint)"},
+  "reading_of_C3": "justifies only a separately frozen, genuinely prospective evaluation on another system; it is not evidence of functional or clinical validity"
+ },
+ "budget": {"download_mb_max": 100, "storage_gb_max": 1, "cpu_minutes_max": 20, "wall_hours_max": 1, "figures_cpu_s_max": 60, "figures_mb_max": 5}
+}

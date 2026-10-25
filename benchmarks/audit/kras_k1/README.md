@@ -1,19 +1,24 @@
-# KRAS K1 (proposed; DRAFT; not frozen)
+# KRAS K1 (protocol v1 frozen 2026-10-25; crystal endpoint step S1 only)
 
-The study design is in [`PROTOCOL_DRAFT.md`](PROTOCOL_DRAFT.md). Nothing was scored, no MD coordinate was read and no
-trajectory was downloaded; the endpoint has not been computed.
+The study design is in [`PROTOCOL.md`](PROTOCOL.md) (frozen at S0 by `results/KRAS-K1_freeze.json`). No MD trajectory has
+been downloaded, opened or scored. The 5US4/5USJ crystal contrast is an external, already-exposed static structural proxy,
+not held out and not functional ground truth.
 
 | File | Content |
 |---|---|
-| `PROTOCOL_DRAFT.md` | Question, evidence checks, design, ordered decision rule, stop conditions, budget, interpretation limits |
-| `protocol_params_DRAFT.json` | Design parameters (single source for the protocol and the schematic); not calibrated |
-| `check_k1_provenance.py` | Parses S1 Table of Pantsar et al. 2018, compares it with the Zenodo file names, reads XTC header fields (no coordinates) of the 15 G12D files and the residue labels of the authors' PyInteraph files |
-| `results/k1_provenance_checks.json` | Generated record of those checks |
-| `plot_design_schematic.py` | Draws the design schematic into `docs/figures/kras_k1/` from the parameter file and the records |
+| `PROTOCOL.md` | Question, evidence checks, design, ordered decision rule C1–C4, stop conditions, budget, interpretation limits |
+| `protocol_params.json` | Frozen design parameters (single source for the protocol, the endpoint code and the schematic); not calibrated |
+| `k1_endpoint.py` | Frozen step S1: `freeze` (hashes, input identities) and `run` (the crystal-only endpoint, once; refuses a changed file or an existing record) |
+| `check_k1_provenance.py`, `results/k1_provenance_checks.json` | S0 evidence: S1 Table of Pantsar et al. 2018 against the Zenodo names, XTC header fields of the 15 G12D files, PyInteraph labels |
+| `plot_design_schematic.py` | Draws the design schematic into `docs/figures/kras_k1/` |
+| `results/KRAS-K1_freeze.json` | Hashes of the protocol, parameters, endpoint code, tests and inputs, recorded before the endpoint was computed |
+| `results/KRAS-K1_endpoint.json`, `results/KRAS-K1_endpoint_report.md`, `figures/` | The endpoint record, its short report and its figure (generated after the freeze commit) |
 
 ```bash
-python3 -I benchmarks/audit/kras_k1/check_k1_provenance.py --fetch-dir <new empty directory outside the repo>   # needs pdftotext
+.venv/bin/python benchmarks/audit/kras_k1/k1_endpoint.py freeze      # once, before the endpoint
+.venv/bin/python benchmarks/audit/kras_k1/k1_endpoint.py run         # once
 PYTHONPATH=python .venv/bin/python benchmarks/audit/kras_k1/plot_design_schematic.py
+python3 -I benchmarks/audit/kras_k1/check_k1_provenance.py --fetch-dir <new empty directory outside the repo>   # needs pdftotext
 ```
 
 Sources and terms: Zenodo record 10.5281/zenodo.1346073 (CC BY 4.0); Pantsar et al., PLoS Comput Biol 14:e1006458,

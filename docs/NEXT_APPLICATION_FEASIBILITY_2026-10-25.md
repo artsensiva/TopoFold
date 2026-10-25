@@ -3,7 +3,7 @@
 > **Status update (2026-10-25, later, D68):** the owner directed KRAS K1 as the proposed next oncology-focused study; the
 > recommendation of M1 below is kept as the original assessment, and M1 remains available. The Mpro wording was corrected
 > (see Corrections at the end). The K1 protocol draft is
-> [`benchmarks/audit/kras_k1/PROTOCOL_DRAFT.md`](../benchmarks/audit/kras_k1/PROTOCOL_DRAFT.md).
+> [`benchmarks/audit/kras_k1/PROTOCOL.md`](../benchmarks/audit/kras_k1/PROTOCOL.md).
 
 **Scope.** This is a bounded, metadata-only comparison of candidate datasets for the next application after ABL-MYR-1b.
 - No method was scored.
@@ -98,3 +98,7 @@ M2–M4 are kept in the record. They are not recommended now, for the reasons in
   construction." Both overstated what ligand presence implies for N/Cα/C geometry.
 - **Recommendation status (D68):** the recommendation of M1 above is superseded as the next study by K1 (the owner-directed
   priority of 2026-10-25); M1 remains available and unchanged in its other respects.
+- **Addendum 2026-10-25 (D69), K1 endpoint wording:** the K1 row above lists the 5US4/5USJ contrast as an "independent
+  endpoint". It is external to the MD authors, but it is not held out: the developers already analysed the pair with
+  TopoFold descriptors in KRAS-STRUCT-2. It is an external static structural proxy, not prospective or independent
+  validation and not functional ground truth.

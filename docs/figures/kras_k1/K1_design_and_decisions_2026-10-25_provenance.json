@@ -1,21 +1,21 @@
 {
  "id": "KRAS-K1-design-schematic",
  "date": "2026-10-25",
- "kind": "schematic of a proposed design (no measured result is plotted)",
- "caption_file": "K1_design_and_decisions_DRAFT_2026-10-25_caption.md",
+ "kind": "schematic of the frozen design (no measured result is plotted)",
+ "caption_file": "K1_design_and_decisions_2026-10-25_caption.md",
  "inputs_sha256": {
-  "benchmarks/audit/kras_k1/protocol_params_DRAFT.json": "4499b7eb9e8d517a3a4726b2c0695f32e288a3a863f78839ceaccd5f7f911b7b",
+  "benchmarks/audit/kras_k1/protocol_params.json": "a1b6576fa1ae54b0f6dd9d3e5f3dcedd34f09e356f910792dc7506cfd30284fb",
   "benchmarks/audit/kras_k1/results/k1_provenance_checks.json": "bb384535a0df3e86b0480a55eb260ec40c8484d6a36663784be06248db725172",
   "benchmarks/audit/next_app_feasibility/results/feasibility_metadata.json": "2ac9713e95d6663604c4e98412cebf7ce25b1ff71fcc9dd81de51e1814982f47"
  },
  "generator": {
   "path": "benchmarks/audit/kras_k1/plot_design_schematic.py",
-  "sha256": "5af12cfc88f397353abc6f3fa8177dc4bb390d46118fb1e36ab32a0a0e82832d"
+  "sha256": "b0d9fadbf312c95f10ebb767f80094c061468c8b6d58bd3958407c0100c64cdb"
  },
  "output": {
-  "path": "docs/figures/kras_k1/K1_design_and_decisions_DRAFT_2026-10-25.png",
-  "bytes": 266410,
-  "sha256": "82030c981e9c295925d150b9478200d29a5925d5edf55ee291446b04d591e703"
+  "path": "docs/figures/kras_k1/K1_design_and_decisions_2026-10-25.png",
+  "bytes": 271405,
+  "sha256": "79a6c1d4ddaf6fd680277e928dab1c6a06f10129c4db99cd30648ccaf31057bb"
  },
  "software": {
   "python": "3.14.4",
@@ -34,13 +34,13 @@
   "min_gdp": 4,
   "min_gtp": 8,
   "pos_min": 8,
-  "pos_max_pct": 25,
+  "pos_max": 38,
   "segs": 2,
+  "seglen": 3,
   "chains": 8,
   "delta": 0.15,
   "corr": 0.5,
-  "bal_pct": 90,
   "jac": 0.8,
-  "mm": 1.0
+  "bal_pct": 90
  }
 }

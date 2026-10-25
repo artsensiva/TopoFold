@@ -1,0 +1,43 @@
+{
+ "id": "KRAS-K1-S0-freeze",
+ "frozen_utc": "2026-10-25T03:39:28.799765+00:00",
+ "protocol": {
+  "path": "benchmarks/audit/kras_k1/PROTOCOL.md",
+  "sha256": "6bb17ade8a906fa440cc48c6cadf8353c6ce43776779a2e911ebc47ae3817686"
+ },
+ "params": {
+  "path": "benchmarks/audit/kras_k1/protocol_params.json",
+  "sha256": "a1b6576fa1ae54b0f6dd9d3e5f3dcedd34f09e356f910792dc7506cfd30284fb"
+ },
+ "endpoint_code": {
+  "path": "benchmarks/audit/kras_k1/k1_endpoint.py",
+  "sha256": "7051dc351d6b1b9602bcd0d7bfd1fba32473d75bb5e9f403751cdf9ff65959ab"
+ },
+ "tests_sha256": {
+  "tests/test_kras_k1_endpoint.py": "25560189d6bd7987778f7ba5063ae31f984b6a792cd8ba8e30f4b94f85628899",
+  "tests/test_kras_k1_protocol.py": "cb5094bbed529803f46b8e7639ac9ec01ed91014467bdc348802af87415c59e7"
+ },
+ "evidence_sha256": {
+  "benchmarks/audit/kras_k1/results/k1_provenance_checks.json": "bb384535a0df3e86b0480a55eb260ec40c8484d6a36663784be06248db725172",
+  "benchmarks/audit/next_app_feasibility/results/feasibility_metadata.json": "2ac9713e95d6663604c4e98412cebf7ce25b1ff71fcc9dd81de51e1814982f47",
+  "benchmarks/audit/kras_struct_g12d/run_spec.json": "bf37ef26fed0db28e5a32b17a248cf7b120fbb59682e2a049f5e5b30981e78e3"
+ },
+ "inputs": {
+  "5US4": {
+   "path": "benchmarks/audit/kras_struct_g12d/data_pdb/5US4.pdb",
+   "sha256": "a1d0c9105887a5b64deacf92d17ab5e62a2cdb1d3913f48b8203e9c84f36d22d",
+   "spec_sha256": "a1d0c9105887a5b64deacf92d17ab5e62a2cdb1d3913f48b8203e9c84f36d22d",
+   "matches_spec": true,
+   "bytes": 528282
+  },
+  "5USJ": {
+   "path": "benchmarks/audit/kras_struct_g12d/data_pdb/5USJ.pdb",
+   "sha256": "dab6b79531b0c046050958b914e380d8ba613b8e995522acb5ea323f974dbefe",
+   "spec_sha256": "dab6b79531b0c046050958b914e380d8ba613b8e995522acb5ea323f974dbefe",
+   "matches_spec": true,
+   "bytes": 829926
+  }
+ },
+ "state": "frozen before any crystal endpoint was computed; no MD trajectory downloaded, opened or scored",
+ "endpoint_record_exists": false
+}
