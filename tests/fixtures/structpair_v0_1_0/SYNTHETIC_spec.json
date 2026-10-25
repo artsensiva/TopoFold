@@ -1,0 +1,21 @@
+{
+ "name": "SYNTHETIC pair",
+ "correspondence": {
+  "same_numbering": "1-14"
+ },
+ "structures": {
+  "A": {
+   "label": "SYNTHETIC A",
+   "file": "SYNTHETIC_A.pdb",
+   "chain": "A"
+  },
+  "B": {
+   "label": "SYNTHETIC B",
+   "file": "SYNTHETIC_B.pdb",
+   "chain": "B"
+  }
+ },
+ "on_missing": "exclude",
+ "resname_mismatch": "flag",
+ "top_n": 5
+}

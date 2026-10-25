@@ -18,6 +18,10 @@ import numpy as np
 import pandas as pd
 
 SCHEMA = "topofold_inputs.structpair/1"
+SCHEMAS = (SCHEMA, "topofold_inputs.structpair/2")   # /2 adds the optional within-entry crystal-copy variation; /1 results stay valid
+VARIATION_NUMERIC = ("primary", "between_min", "between_median", "between_mean", "between_max", "withinA_min", "withinA_max",
+                     "withinB_min", "withinB_max", "within_max", "advisory_statistic", "advisory_threshold")
+VARIATION_COUNTS = ("between_n", "withinA_n", "withinB_n", "position")
 REQUIRED = ("manifest.json", "summary.json", "windows.csv", "residues.csv", "exclusions.csv")
 # essential scientific outputs: each must have a valid SHA-256 entry in manifest["outputs_sha256"] and match it.
 # Optional outputs (report.md, figure.png) are verified when listed; listed-but-absent ones are noted, not fatal.
@@ -72,6 +76,9 @@ class StructpairResult:
     report_md: str | None = None
     figure: Path | None = None
     notes: list[str] = field(default_factory=list)
+    variation: pd.DataFrame | None = None        # chain_variation.csv (long format), schema /2 runs with several chains
+    chains: pd.DataFrame | None = None           # chains.csv
+    variation_figure: Path | None = None
 
     @property
     def name(self) -> str:
@@ -98,8 +105,8 @@ def load_result(path: str | Path) -> StructpairResult:
         summary = json.loads((p / "summary.json").read_text())
     except json.JSONDecodeError as e:
         raise ResultError(f"{p}: unreadable JSON ({e})") from e
-    if manifest.get("schema") != SCHEMA:
-        raise ResultError(f"{p}: manifest schema {manifest.get('schema')!r}, expected {SCHEMA!r}")
+    if manifest.get("schema") not in SCHEMAS:
+        raise ResultError(f"{p}: manifest schema {manifest.get('schema')!r}, expected one of {list(SCHEMAS)!r}")
     # integrity: essential outputs need a valid hash entry; every recorded output must match its hash
     recorded = manifest.get("outputs_sha256")
     if not isinstance(recorded, dict):
@@ -138,9 +145,26 @@ def load_result(path: str | Path) -> StructpairResult:
     notes = []
     if absent:
         notes.append(f"Optional outputs listed in the manifest but absent: {', '.join(absent)}")
+    variation = chains = None
+    if (p / "chain_variation.csv").is_file():
+        variation = read("chain_variation.csv")
+        for c in VARIATION_NUMERIC:
+            variation[c] = pd.to_numeric(variation[c].replace("", np.nan), errors="raise").astype(float)
+        for c in VARIATION_COUNTS:
+            variation[c] = variation[c].astype(int)
+        for c in ("withinA_n", "withinB_n"):
+            variation[c] = variation[c].astype(int)
+        for c in ("separated", "at_boundary"):
+            variation[c] = variation[c].map({"True": True, "False": False, "": None}).astype(object)
+        if (p / "chains.csv").is_file():
+            chains = read("chains.csv")
+    elif (summary.get("within_entry_variation") or {}).get("status") in ("available", "partial"):
+        notes.append("The summary reports within-entry variation but chain_variation.csv is absent.")
     return StructpairResult(path=p, manifest=manifest, summary=summary, windows=w, residues=r, exclusions=x,
                             integrity=checked, report_md=(p / "report.md").read_text() if (p / "report.md").is_file() else None,
-                            figure=(p / "figure.png") if (p / "figure.png").is_file() else None, notes=notes)
+                            figure=(p / "figure.png") if (p / "figure.png").is_file() else None, notes=notes,
+                            variation=variation, chains=chains,
+                            variation_figure=(p / "chain_variation.png") if (p / "chain_variation.png").is_file() else None)
 
 
 def discover(root: str | Path) -> dict[str, Path]:

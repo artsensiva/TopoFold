@@ -127,7 +127,9 @@ S = res.summary
 with st.container(horizontal=True):
     for k in "AB":
         inp = res.manifest["inputs"][k]
-        st.metric(f"Structure {k}", inp["label"], f"chain {inp['chain']} · altloc {inp['altloc_policy']}",
+        chs = inp.get("chains") or [inp["chain"]]
+        chain_text = f"chain {inp['chain']}" if len(chs) == 1 else f"chains {', '.join(chs)} (primary {inp['chain']})"
+        st.metric(f"Structure {k}", inp["label"], f"{chain_text} · altloc {inp['altloc_policy']}",
                   delta_color="off", delta_arrow="off", border=True)
     g = S["global"]
     st.metric("Global Cα RMSD (context only)", f"{g['rmsd_qcp_angstrom']:.3f} Å", f"{g['n_ca']} Cα, MDAnalysis QCP",
@@ -227,8 +229,14 @@ with right:
                                    for mk, v in vals.items()))
 
 # --- tables ----------------------------------------------------------------------------------------------------------
-t_win, t_exc, t_res, t_prov, t_rep = st.tabs(["Windows", "Exclusions", "Residue correspondence", "Provenance",
-                                             "Report"])
+VAR = S.get("within_entry_variation")
+if VAR and VAR.get("status") in ("available", "partial"):
+    st.warning(f"Within-entry crystal-copy variation ({VAR['status']}, see its tab; exclusions and provenance are unchanged): "
+               + VAR["statement"])
+elif VAR:
+    st.caption("Within-entry crystal-copy variation: unavailable (one chain per entry).")
+t_win, t_var, t_exc, t_res, t_prov, t_rep = st.tabs(["Windows", "Crystal-copy variation", "Exclusions",
+                                                     "Residue correspondence", "Provenance", "Report"])
 with t_win:
     with st.container(horizontal=True):
         show = st.segmented_control("Rows", ["all", "with values", "without values", "altloc in window",
@@ -256,6 +264,25 @@ with t_win:
         st.caption(f"The focus window (position {focus}) is not among the displayed rows, so no row is marked.")
     st.dataframe(w, hide_index=True, column_config=numcfg, on_select=functools.partial(focus_from_table, tkey, shown),
                  selection_mode="single-row", selection_default=tsel, key=tkey)
+with t_var:
+    if res.variation is None:
+        st.info("Not available for this result: " + ((VAR or {}).get("reason") or "no chain_variation.csv was written")
+                + ". Name every chain of an entry in `structures.X.chains` (with `primary_chain`) to obtain it.")
+    else:
+        st.warning(VAR["statement"] if VAR else "Descriptive only.")
+        adv = VAR["parameters"]["advisory"]
+        st.markdown(f"Chains A {VAR['chains']['A']}, B {VAR['chains']['B']}; pairs {VAR['n_pairs']}. Advisory flag: the between-entry "
+                    f"**{adv['statistic']}** is at least max(floor, {adv['within_factor']:g} × the within-entry maximum); it is "
+                    "empty (not false) where it cannot be assessed. Empty cells are unavailable values, never zero; the counts "
+                    "(`*_n`) say how many chain pairs contributed.")
+        chan = st.selectbox("Channel", list(res.variation["channel"].unique()), key="var_channel")
+        d = res.variation[res.variation["channel"] == chan]
+        st.dataframe(d.drop(columns=["unit"]), hide_index=True, key="var_table")
+        if res.variation_figure:
+            st.image(str(res.variation_figure), caption="chain_variation.png as written by structpair (displacement channel)")
+        if res.chains is not None:
+            st.markdown("**Chains taking part** (missing residues and alternate-location decisions per chain):")
+            st.dataframe(res.chains, hide_index=True, key="var_chains")
 with t_exc:
     if not len(res.exclusions):
         st.success("No window inside the mapped range was excluded.")
@@ -281,7 +308,7 @@ with t_prov:
               "QCP": f"{m['software']['qcp']['function']} (MDAnalysis {m['software']['qcp']['MDAnalysis']})",
               "Policies": ", ".join(f"{k}={v}" for k, v in m["policies"].items())}, border="horizontal")
     st.dataframe(pd.DataFrame([{"structure": k, "label": v["label"], "file": Path(v["path"]).name, "chain": v["chain"],
-                                "altloc policy": v["altloc_policy"], "SHA-256": v["sha256"],
+                                "chains": ", ".join(v.get("chains") or [v["chain"]]), "altloc policy": v["altloc_policy"], "SHA-256": v["sha256"],
                                 "core native extension SHA-256": (v.get("core", {}).get("native_extension") or {}).get("sha256"),
                                 "MDAnalysis": v.get("adapter_software", {}).get("MDAnalysis")}
                                for k, v in m["inputs"].items()]), hide_index=True, key="prov_inputs")

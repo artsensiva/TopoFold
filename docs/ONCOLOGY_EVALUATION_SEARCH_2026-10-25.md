@@ -105,3 +105,12 @@ because it extends a public command.
   term for an internal evaluation; the contents of the 3,386 B DynamX export; the Rascore label-data terms; whether the
   Ayaz Source Data file holds processed uptake (the article page requires a login redirect, which was not followed).
 - **Nothing was sent externally.** No raw HDX file, trajectory or coordinate was downloaded.
+
+## Addendum (2026-10-25, later; D73, D74)
+
+- **HDX lead checked:** the 3,386-byte DynamX export holds peptide identities and residue ranges only (no state, exchange time,
+  uptake or replicate); the article's Source Data has no HDX sheet and Supplementary Fig. 4B is an image. The processed uptake
+  that candidate A needs is not obtainable from the public files
+  ([inventory](ABL_HDX_PUBLIC_DATA_INVENTORY_2026-10-25.md)). Candidate A stays "not passed: access unresolved".
+- **Recommended product task carried out:** structpair 0.2.0 with explicitly named multiple chains
+  ([specification](STRUCTPAIR_CHAINS_SPEC_2026-10-25.md)); implementation consistency verified, not biological validity.

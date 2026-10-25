@@ -405,3 +405,52 @@ def test_selection_follows_focus_through_filter_sort_and_comparison_switch():
     assert check()[0] == 58                               # kras2's focus is restored
     at.selectbox(key="result_choice").set_value("kras1").run()
     assert check()[0] == 30
+
+
+# --- within-entry crystal-copy variation (structpair 0.2.0, schema /2) -------------------------------------------------------
+
+CHAINS_DEMO = ROOT / "benchmarks/audit/structpair_chains_demo/results"
+
+
+def test_schema_2_variation_loads_with_hashes_missing_values_and_no_zero_fill():
+    res = R.load_result(CHAINS_DEMO / "k1_regression")
+    assert res.manifest["schema"] == "topofold_inputs.structpair/2" and R.SCHEMA in R.SCHEMAS
+    assert res.variation is not None and res.chains is not None and len(res.chains) == 8
+    v = res.variation
+    assert len(v) == 153 * 7 and set(v["channel"]) == {"disp", "d_kappa", "d_i_i2", "rmsd3", "d_tau", "d_i_i3", "rmsd4"}
+    assert False not in res.integrity.values()                                       # nothing differs from the manifest
+    assert res.integrity["chain_variation.csv"] is True and res.integrity["chains.csv"] is True       # new files are hash-checked
+    assert res.integrity["figure.png"] is None and any("figure.png" in n for n in res.notes)         # listed, not committed: a note
+    raw = list(csv.DictReader(open(CHAINS_DEMO / "k1_regression/chain_variation.csv")))
+    d = v[v["channel"] == "disp"].reset_index(drop=True)
+    rd = [r for r in raw if r["channel"] == "disp"]
+    assert [float(r["between_median"]) for r in rd] == list(d["between_median"])
+    w = v[v["channel"] == "rmsd3"]
+    empty_raw = sum(1 for r in raw if r["channel"] == "rmsd3" and r["between_median"] == "")
+    assert int(w["between_median"].isna().sum()) == empty_raw and empty_raw > 0                  # empty cells stay missing
+    assert int((d["separated"] == True).sum()) == 8                                              # noqa: E712  the recorded K1 set
+
+
+def test_a_modified_variation_file_is_refused(tmp_path):
+    bad = tmp_path / "bad"
+    shutil.copytree(CHAINS_DEMO / "k1_regression", bad)
+    (bad / "chain_variation.csv").write_text((bad / "chain_variation.csv").read_text().replace("disp", "dsp", 1))
+    with pytest.raises(R.ResultError, match="differ from the manifest hashes"):
+        R.load_result(bad)
+
+
+def test_app_states_the_copy_variation_limits_and_keeps_exclusions_and_provenance():
+    at = _app(CHAINS_DEMO)
+    assert not at.exception
+    warn = " ".join(w.value for w in at.warning)
+    assert "not independent experimental replicates" in warn and "not a calibrated noise floor" in warn
+    assert [t.label for t in at.tabs] == ["Windows", "Crystal-copy variation", "Exclusions", "Residue correspondence", "Provenance",
+                                           "Report"]
+    prov = _df(at, "chains")
+    assert set(prov["chains"]) == {"A, B", "A, B, C, D, E, F"} and set(prov["chain"]) == {"A"}
+    var = _df(at, "between_median")
+    assert set(var["channel"]) == {"disp"} and len(var) == 153                      # the first channel of the selector
+    at.selectbox(key="var_channel").set_value("rmsd3").run()
+    assert not at.exception and set(_df(at, "between_median")["channel"]) == {"rmsd3"}
+    older = _app(DEMO)                                                              # schema /1 results: no banner, no variation tab content
+    assert not older.exception and "crystal-copy" not in " ".join(w.value for w in older.warning).lower()

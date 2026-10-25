@@ -1,0 +1,7 @@
+{"name": "Regression of the recorded K1 crystal calculation: 5US4 A,B vs 5USJ A-F, residues 4-59 and 68-164, K1 settings",
+ "structures": {"A": {"label": "5US4 GDP", "file": "../../kras_struct_g12d/data_pdb/5US4.pdb", "chains": ["A", "B"], "primary_chain": "A", "altloc": "reject"},
+                "B": {"label": "5USJ GMPPNP", "file": "../../kras_struct_g12d/data_pdb/5USJ.pdb", "chains": ["A", "B", "C", "D", "E", "F"], "primary_chain": "A", "altloc": "reject"}},
+ "correspondence": {"same_numbering": "4-59,68-164"},
+ "on_missing": "reject", "resname_mismatch": "reject",
+ "chain_variation": {"displacement_trim_fraction": 0.2,
+                     "advisory": {"statistic": "mean", "within_factor": 2.0, "min_difference": {"disp": 1.0}}}}

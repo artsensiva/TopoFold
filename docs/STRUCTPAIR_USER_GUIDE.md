@@ -1,7 +1,7 @@
 # Comparing two experimental structures with `topofold_inputs.structpair` — guide for outside users
 
-**What it does.** It compares two single-model structures, one chain from each, residue by residue on a correspondence
-that you state. For every 3- and 4-residue window it reports:
+**What it does.** It compares two single-model structures, one primary chain from each (and, if you name them, several
+chains per entry: §3a), residue by residue on a correspondence that you state. For every 3- and 4-residue window it reports:
 - Cα curvature κ and torsion τ for each structure (from the TopoFold core), and their differences;
 - the Cα–Cα distances spanning the same windows, as equal-information baselines;
 - the proper-rotation local Cα RMSD of the same windows (MDAnalysis QCP).
@@ -19,8 +19,9 @@ All of these use identical coordinates and residue coverage. It also reports:
 - It makes no claim about ensembles, populations, kinetics, functional state or treatment response. Two static
   structures cannot support such claims.
 
-Status: v0.1.0. It has been verified against two recorded KRAS studies
-(`benchmarks/audit/structpair_demo/README.md`). One external AI technical trial (checkpoint `6ce7b49`) and one bounded
+Status: v0.2.0. Version 0.1.0 was verified against two recorded KRAS studies
+(`benchmarks/audit/structpair_demo/README.md`); version 0.2.0 adds explicitly named multiple chains and keeps every
+single-chain output unchanged (`benchmarks/audit/structpair_chains_demo/README.md`). One external AI technical trial (checkpoint `6ce7b49`) and one bounded
 AI confirmation (`049a47f`) have been completed (`docs/pilot/PILOT_LOG.md`, entries 4 and 5). **No independent human
 trial has been completed.** If you are trying it, please use `docs/pilot/FEEDBACK_FORM.md`.
 
@@ -121,6 +122,42 @@ streamlit run apps/structpair_viewer/app.py --server.address localhost -- --resu
 - **Residue names:** `resname_mismatch: "reject"` stops on any difference. `"flag"` allows it (for a point mutant,
   for example) and marks every affected window.
 
+## 3a. Several chains per entry: within-entry crystal-copy variation (v0.2.0)
+
+> **Read this first.** Chains in one crystal are **not independent experimental replicates**, and crystal packing can affect
+> each of them. The within-entry crystal-copy variation is a **descriptive range** of differences among the chains you
+> selected. It is **not** a calibrated noise floor, **not** a statistical uncertainty, **not** a nucleotide or ligand effect and
+> **not** an HDX replicate estimate. The advisory flag below is descriptive too: not a gate, not an adequacy verdict, not a
+> significance claim.
+
+Name every chain, and one primary chain, per entry (no chain is chosen for you):
+
+```json
+"structures": {"A": {"label": "5US4", "file": "5US4.pdb", "chains": ["A", "B"], "primary_chain": "A"},
+               "B": {"label": "5USJ", "file": "5USJ.pdb", "chains": ["A", "B", "C", "D", "E", "F"], "primary_chain": "A"}},
+"correspondence": {"same_numbering": "1-59,68-166"},
+"chain_variation": {"displacement_trim_fraction": 0.2,
+                    "advisory": {"statistic": "min", "within_factor": 1.0, "min_difference": {}}}
+```
+
+- **The correspondence applies identically to every chain of an entry** (same author numbers and insertion codes). The
+  missing-residue, alternate-location and residue-name rules apply per chain; chains of one entry must agree in residue
+  name (or set `resname_mismatch: "flag"`).
+- **The legacy tables are the primary pair** (primary chain of A against primary chain of B). They are identical to a
+  run with only those two chains. With one chain per entry nothing changes, and the report says that within-entry
+  variation is unavailable.
+- **New files:** `chain_variation.csv` (long format, one row per position and channel), `chains.csv` (every chain with its
+  missing residues and altloc decisions) and `chain_variation.png`. The summary, the manifest (schema `…/2`) and the report
+  carry the same statement; the viewer shows it on a tab and in a banner, next to the unchanged exclusion and provenance views.
+- **Channels:** the six existing window metrics, computed for every chain pair, and `disp`, the Cα displacement after a trimmed fit
+  (the K1 calculation). Per position and channel you get the between-entry values over all A × B pairings (count, min,
+  median, mean, max) and, per entry, the minimum and maximum over the pairs inside that entry.
+- **Missing values:** a pair contributes only where both chains have the data; the counts (`*_n`) say how many pairs did. An
+  empty cell is unavailable, never zero.
+- **Advisory flag `separated`:** the between-entry statistic (default `min`) is at least max(floor, `within_factor` × the
+  within-entry maximum), inclusive within 1e-9. It is empty, never false, where no cross pairing or no within-entry pair is
+  defined. `at_boundary` marks equality. The full rules are in `docs/STRUCTPAIR_CHAINS_SPEC_2026-10-25.md`.
+
 ## 4. Resource use (measured on the implementer's 6-core Linux machine)
 
 - **Per run:** about 10.6 CPU-s and 5.7 s wall for two ~160-residue chains when no second altloc policy is needed.
@@ -128,6 +165,9 @@ streamlit run apps/structpair_viewer/app.py --server.address localhost -- --resu
   These were measured in the internal smoke test; most of the time is interpreter and MDAnalysis start-up.
 - **Disk:** about 0.6–0.9 MB per output directory, most of it in `work/` intermediates.
 - **Memory:** small, well under 1 GB.
+- **Several chains (v0.2.0):** the KRAS example with 2 + 6 chains (28 chain pairs, 158 positions, 7 channels) took about
+  33.7 CPU-s and 20 s wall and wrote 0.75 MB without `work/` (1.7 MB with it). Time grows with the number of chains (one
+  adapter run each) and chain pairs.
 
 ## 5. Reading the outputs
 
@@ -137,6 +177,8 @@ streamlit run apps/structpair_viewer/app.py --server.address localhost -- --resu
   - `residues.csv`: the mapping, residue status and altloc used.
   - `exclusions.csv`: one row per excluded window, structure and cause.
   - `manifest.json`: the hashes of inputs and outputs and the software versions.
+  - With several chains (§3a): `chain_variation.csv`, `chains.csv`, `chain_variation.png`. Read the statement at the top of
+    the report section before using them.
 - **What a large value means:** the two coordinate sets differ locally there. Before reading biology into it, check:
   1. **Coordinate quality:** resolution, B-factors, altlocs (marked `*`), and incomplete or missing residues nearby.
   2. **Crystal context:** different space groups, packing contacts and crystallization conditions (pH, additives)

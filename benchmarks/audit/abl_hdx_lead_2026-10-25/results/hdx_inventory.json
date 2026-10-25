@@ -1,0 +1,282 @@
+{
+ "id": "ABL-HDX-LEAD-INVENTORY-2026-10-25",
+ "inspected_utc": "2026-10-25T08:47:54.167559+00:00",
+ "scope": "data inventory of small public files; no raw mass-spectrometry file or trajectory fetched; no analysis of any endpoint",
+ "provider_record": {
+  "project": "PXD034008",
+  "licence": "Creative Commons Public Domain (CC0)",
+  "submission_type": "PARTIAL",
+  "publication_date": "2023-04-07",
+  "file_record": {
+   "fileName": "REI_ABL_KB_dynamX_export_18May22.csv",
+   "category": "SEARCH",
+   "fileSizeBytes": 3386,
+   "checksum_sha1": "6e3fe1eea1881ebbd96dad4d704e0ab426b938cb",
+   "total_downloads_at_check": 133
+  },
+  "download_url": "https://ftp.pride.ebi.ac.uk/pride/data/archive/2023/04/PXD034008/REI_ABL_KB_dynamX_export_18May22.csv",
+  "size_matches": true,
+  "sha1_matches": true
+ },
+ "csv": {
+  "file": "REI_ABL_KB_dynamX_export_18May22.csv",
+  "bytes": 3386,
+  "sha1": "6e3fe1eea1881ebbd96dad4d704e0ab426b938cb",
+  "sha256": "2fd6b624a52fd5261c838f85a9c637f29b94e098297beb37f58c76b71705ca4a",
+  "inspection": {
+   "header": [
+    "Sequence",
+    "Start",
+    "End",
+    "MHP",
+    "MaxUptake",
+    "RT"
+   ],
+   "preamble_rows": [
+    ",,,,,"
+   ],
+   "n_peptides": 80,
+   "unique_sequence_range": 80,
+   "unique_sequences": 80,
+   "file_numbering": {
+    "first_start": 10,
+    "last_end": 284,
+    "covered_residues": 252,
+    "span_residues": 275
+   },
+   "length_equals_end_minus_start_plus_1": 80,
+   "reference_check": {
+    "reference": "UniProt P00519 (benchmarks/audit/abl_prereg/reference/UniProt_P00519.fasta)",
+    "residue_344_in_reference": "A",
+    "residue_472_in_reference": "M",
+    "matched_in_wild_type": 76,
+    "matched_only_in_a_variant": {
+     "A344V": 2,
+     "M472I": 2
+    },
+    "unmatched": 0,
+    "offsets_seen": [
+     228
+    ],
+    "variant_peptides": [
+     [
+      "YMVTQISSAM",
+      114,
+      123,
+      "A344V"
+     ],
+     [
+      "MVTQISSA",
+      115,
+      122,
+      "A344V"
+     ],
+     [
+      "LIRACWQWNPSDRPSF",
+      243,
+      258,
+      "M472I"
+     ],
+     [
+      "IRACWQWNPSDRPSF",
+      244,
+      258,
+      "M472I"
+     ]
+    ]
+   },
+   "mhp_is_monoisotopic_MH_plus": {
+    "max_abs_difference_Da": 7.900000036897836e-05,
+    "rows_within_0.001": 80
+   },
+   "maxuptake_equals_len_minus_1_minus_prolines": 80,
+   "RT_min_max": [
+    2.585667,
+    7.185564
+   ],
+   "file_shape": {
+    "n_lines": 82,
+    "line_ending": "CRLF",
+    "trailing_newline": true,
+    "first_line": ",,,,,",
+    "header_line": "Sequence,Start,End,MHP,MaxUptake,RT",
+    "first_data_row": "ERTDITM,10,16,865.4084,6,4.493726",
+    "last_data_row": "VEKELGK,278,284,802.4669,6,2.585667"
+   }
+  },
+  "fields_present": {
+   "Sequence": true,
+   "Start": true,
+   "End": true,
+   "MHP": true,
+   "MaxUptake": true,
+   "RT": true
+  },
+  "fields_absent": [
+   "protein state or condition label (WT, A344V, M472I)",
+   "exchange time",
+   "deuterium uptake value",
+   "replicate identifier or replicate count",
+   "uptake error or standard deviation",
+   "undeuterated control labels",
+   "charge state",
+   "any per-peptide value that differs between states"
+  ]
+ },
+ "fields_stated_only_in_the_paper": {
+  "states": "WT, A344V and M472I Abl kinase domain (Ayaz et al. 2023 Methods)",
+  "exchange times": "0.167, 1, 10, 60 and 240 minutes (Supplementary Table 1)",
+  "replicates": "2 technical per state (Supplementary Table 1)",
+  "repeatability": "±0.12 relative Da (Supplementary Table 1)",
+  "meaningful difference": "> 0.5 Da, no statistical test (Supplementary Table 1)",
+  "uptake": "relative, not corrected for back-exchange (Methods)",
+  "peptide counts": "59, 66 and 73 identified; 76, 74 and 76 followed (Supplementary Table 1)"
+ },
+ "source_data_workbook": {
+  "url": "https://static-content.springer.com/esm/art%3A10.1038%2Fs41467-023-36956-5/MediaObjects/41467_2023_36956_MOESM6_ESM.xlsx",
+  "bytes": 4488501,
+  "sha1": "5e19ecf3ba9f0e457ee9ec9c6a9ddd080250c8f7",
+  "sha256": "1b32799ca6b46dc22e3f540eb67cc5cce7583ce2c17a8db1c117651a885365c8",
+  "n_sheets": 8,
+  "sheets": [
+   {
+    "name": "Figure4B-kinetics",
+    "dimension": "A1:P16",
+    "header_strings": [
+     "Imatinib kinetics",
+     "Imatinib (μM)",
+     "WT",
+     "N",
+     "M343T",
+     "N",
+     "M472I",
+     "N"
+    ]
+   },
+   {
+    "name": "Figure4B-dasatinib",
+    "dimension": "A1:EL2003",
+    "header_strings": [
+     "WT, 2.5 DAS",
+     "WT, 5 DAS",
+     "WT, 10 DAS",
+     "WT, 20 DAS",
+     "E509D, 2.5 DAS",
+     "E509D, 5 DAS",
+     "E509D, 10 DAS",
+     "I502M, 2.5 DAS"
+    ]
+   },
+   {
+    "name": "Figure4B-imatinib",
+    "dimension": "A1:FT5003",
+    "header_strings": [
+     "E509D, 3.125 IMAT",
+     "E509D, 6.25 IMAT",
+     "E509D, 12.5 IMAT",
+     "E509D, 25 IMAT",
+     "E509D, 50 IMAT",
+     "E509D, 75 IMAT",
+     "E509D, 100 IMAT",
+     "E509D, 3.125 IMAT"
+    ]
+   },
+   {
+    "name": "Figure4C-FoldX",
+    "dimension": "A1:AT62",
+    "header_strings": [
+     "PDB file analysed: batch",
+     "Output type: BuildModel",
+     "Pdb",
+     "SD",
+     "total_energy",
+     "Backbone H-bond",
+     "Sidechain H-bond",
+     "VanderWaals"
+    ]
+   },
+   {
+    "name": "Figure4F-Tm",
+    "dimension": "A1:D10",
+    "header_strings": [
+     "RAW VALUES",
+     "E509D",
+     "A344V"
+    ]
+   },
+   {
+    "name": "Figure4G-cellular IC50",
+    "dimension": "A1:U16",
+    "header_strings": [
+     "Imatinib",
+     "WT",
+     "T315I"
+    ]
+   },
+   {
+    "name": "Figure5A-Tm",
+    "dimension": "A1:G7",
+    "header_strings": [
+     "Abl KD WT",
+     "Abl KD WT",
+     "Abl KD WT",
+     "Abl KD M472I",
+     "Abl KD M472I",
+     "Abl KD M472I",
+     "dasatinib + GNF-2",
+     "imatinib + GNF-2"
+    ]
+   },
+   {
+    "name": "FigureS4D-biochemical IC50",
+    "dimension": "A1:E6",
+    "header_strings": [
+     "WT",
+     "M343T",
+     "M351T",
+     "M472I",
+     "F486S"
+    ]
+   }
+  ],
+  "sheets_with_hdx_terms": [],
+  "note": "structure only; sheets are binding kinetics, FoldX, melting temperatures and IC50 values"
+ },
+ "supplementary_information_pdf": {
+  "url": "https://static-content.springer.com/esm/art%3A10.1038%2Fs41467-023-36956-5/MediaObjects/41467_2023_36956_MOESM1_ESM.pdf",
+  "bytes": 1468412,
+  "sha1": "0e1de49214a3e5d22bb008ae0d4d3976954291a9",
+  "sha256": "fb602254308b7c78d1cb65050e4c3ba860944eed8c6f57c90ee0377a72aa9135",
+  "supplementary_table_1": {
+   "time_course_min": "0.167, 1, 10, 60, 240",
+   "controls": [
+    "5 undeuterated",
+    "3 undeuterated",
+    "4 undeuterated"
+   ],
+   "identified": [
+    "59",
+    "66",
+    "73"
+   ],
+   "followed": [
+    "76",
+    "74",
+    "76"
+   ],
+   "coverage": [
+    "87%",
+    "87%",
+    "88.5%"
+   ],
+   "replicates": "2 technical per state",
+   "repeatability": "±0.12 relative Da",
+   "meaningful": ">0.5 Da"
+  },
+  "supp_fig_4B_caption_found": true,
+  "raster_images_in_pdf": 10,
+  "text_layer_lines_that_look_like_peptide_rows": 0,
+  "no_statistical_tests_statement": true
+ },
+ "local_copies": "outside the repository (--fetch-dir); not committed"
+}

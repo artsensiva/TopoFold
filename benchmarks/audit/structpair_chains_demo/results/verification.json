@@ -1,0 +1,143 @@
+{
+ "id": "STRUCTPAIR-CHAINS-VERIFY-1",
+ "date": "2026-10-25",
+ "scope": "implementation consistency, not biological validity",
+ "structpair_version": "0.2.0",
+ "legacy_single_chain": {
+  "kras1": {
+   "csv_byte_identical": {
+    "windows.csv": true,
+    "residues.csv": true,
+    "exclusions.csv": true
+   },
+   "summary_numeric_equal": {
+    "top": true,
+    "agreement": true,
+    "n_windows": true,
+    "global": true,
+    "altloc_sensitivity": true,
+    "n_exclusion_rows": true
+   },
+   "within_entry_variation": "unavailable",
+   "wall_s": 6.19,
+   "cpu_s": 14.85,
+   "output_bytes_total": 869923,
+   "output_bytes_without_work": 445348
+  },
+  "kras2": {
+   "csv_byte_identical": {
+    "windows.csv": true,
+    "residues.csv": true,
+    "exclusions.csv": true
+   },
+   "summary_numeric_equal": {
+    "top": true,
+    "agreement": true,
+    "n_windows": true,
+    "global": true,
+    "altloc_sensitivity": true,
+    "n_exclusion_rows": true
+   },
+   "within_entry_variation": "unavailable",
+   "wall_s": 5.61,
+   "cpu_s": 10.24,
+   "output_bytes_total": 603075,
+   "output_bytes_without_work": 403026
+  },
+  "explicit_exclude": {
+   "csv_byte_identical": {
+    "windows.csv": true,
+    "residues.csv": true,
+    "exclusions.csv": true
+   },
+   "summary_numeric_equal": {
+    "top": true,
+    "agreement": true,
+    "n_windows": true,
+    "global": true,
+    "altloc_sensitivity": true,
+    "n_exclusion_rows": true
+   },
+   "within_entry_variation": "unavailable",
+   "wall_s": 5.71,
+   "cpu_s": 10.56,
+   "output_bytes_total": 628434,
+   "output_bytes_without_work": 418571
+  },
+  "mismatch_flag": {
+   "csv_byte_identical": {
+    "windows.csv": true,
+    "residues.csv": true,
+    "exclusions.csv": true
+   },
+   "summary_numeric_equal": {
+    "top": true,
+    "agreement": true,
+    "n_windows": true,
+    "global": true,
+    "altloc_sensitivity": true,
+    "n_exclusion_rows": true
+   },
+   "within_entry_variation": "unavailable",
+   "wall_s": 4.19,
+   "cpu_s": 8.88,
+   "output_bytes_total": 632460,
+   "output_bytes_without_work": 421578
+  },
+  "all_identical": true
+ },
+ "struct2_chain_aggregates": {
+  "cells_compared": 4740,
+  "mismatches": 0,
+  "first_mismatches": [],
+  "max_abs_difference": 0.0,
+  "pair_counts_seen": {
+   "0/0/0": 30,
+   "12/1/15": 918
+  },
+  "tolerance": 1e-09,
+  "wall_s": 19.87,
+  "cpu_s": 33.69,
+  "output_bytes_total": 1720683,
+  "output_bytes_without_work": 750943
+ },
+ "k1_regression": {
+  "positions": 153,
+  "cells_compared": 1224,
+  "mismatches": 0,
+  "first_mismatches": [],
+  "max_abs_difference": 6.646016505573726e-06,
+  "flagged_equals_recorded_E": true,
+  "flagged": [
+   31,
+   32,
+   33,
+   35,
+   36,
+   37,
+   59,
+   74
+  ],
+  "recorded_E": [
+   31,
+   32,
+   33,
+   35,
+   36,
+   37,
+   59,
+   74
+  ],
+  "tolerance_A": 0.0001,
+  "tolerance_reason": "the frozen K1 code reads the PDB text in float64; the adapter holds float32 positions",
+  "coordinate_check": {
+   "max_abs_coordinate_difference_A": 3.784179682497779e-06,
+   "adapter_value_precision": "float32 (MDAnalysis positions), exported as float64"
+  },
+  "note": "implementation consistency with the frozen K1 calculation, not biological validity",
+  "wall_s": 20.08,
+  "cpu_s": 33.74,
+  "output_bytes_total": 1701725,
+  "output_bytes_without_work": 759040
+ }
+}

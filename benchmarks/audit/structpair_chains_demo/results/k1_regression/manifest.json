@@ -1,0 +1,823 @@
+{
+ "schema": "topofold_inputs.structpair/2",
+ "name": "Regression of the recorded K1 crystal calculation: 5US4 A,B vs 5USJ A-F, residues 4-59 and 68-164, K1 settings",
+ "statement": "Two static structures: the values are direct geometric differences between these coordinate sets. They can reflect crystal form and packing, crystallization conditions, resolution, refinement, alternate conformations and coordinate error as well as any biological difference. No ensemble, population, kinetic, functional-state or treatment-response claim follows. Agreement or disagreement between metrics does not show that one representation is better. Crystal copies of one entry are not independent replicates.",
+ "command": "python -m topofold_inputs.structpair /home/artem/TopoFold/benchmarks/audit/structpair_chains_demo/specs/k1_exact_chains_and_settings.json --out /tmp/structpair_chains_tcs2d0uj/k1_regression",
+ "spec": {
+  "path": "/home/artem/TopoFold/benchmarks/audit/structpair_chains_demo/specs/k1_exact_chains_and_settings.json",
+  "sha256": "3bbcee9aa76ee34b899b79060d706e5ae2151e0eb96968eb6464ba33526f93c5"
+ },
+ "inputs": {
+  "A": {
+   "label": "5US4 GDP",
+   "path": "/home/artem/TopoFold/benchmarks/audit/kras_struct_g12d/data_pdb/5US4.pdb",
+   "sha256": "a1d0c9105887a5b64deacf92d17ab5e62a2cdb1d3913f48b8203e9c84f36d22d",
+   "chain": "A",
+   "chains": [
+    "A",
+    "B"
+   ],
+   "altloc_policy": "reject",
+   "adapter_json_sha256": "f280c7a805a0f4d71f11126d9229932925d4b51c99a50c1fcd88d021add7b606",
+   "features_json_sha256": "3f554cbaa451ba09e8fc4c9335dae92f78897492a92e7e0863480d1f89ea17a8",
+   "source_files": [
+    {
+     "role": "topology",
+     "path": "/home/artem/TopoFold/benchmarks/audit/kras_struct_g12d/data_pdb/5US4.pdb",
+     "bytes": 528282,
+     "sha256": "a1d0c9105887a5b64deacf92d17ab5e62a2cdb1d3913f48b8203e9c84f36d22d"
+    }
+   ],
+   "adapter": {
+    "name": "topofold_inputs.ca_adapter",
+    "version": "0.1.0",
+    "source_sha256": "0dfd026fae6e549b5fedc151e3c0f2636db83069c295c5a138d129979052bb67"
+   },
+   "adapter_software": {
+    "python": "3.14.4",
+    "numpy": "2.5.3",
+    "MDAnalysis": "2.10.0"
+   },
+   "core": {
+    "version": "0.8.3",
+    "function": "compute_invariants",
+    "wrapper": {
+     "module": "topofold",
+     "path": "/home/artem/TopoFold/.venv/lib/python3.14/site-packages/topofold/__init__.py",
+     "sha256": "49780093095f27c89bdf234be15e1f5a9bac957d5a9dbf5ae0f93c856ee1590d"
+    },
+    "native_extension": {
+     "module": "topofold.topofold",
+     "path": "/home/artem/TopoFold/.venv/lib/python3.14/site-packages/topofold/topofold.cpython-314-x86_64-linux-gnu.so",
+     "sha256": "d90e7ed4f1d8036a3735f387c6fe6aa5a81c7b615da1d0094ce054cf0c13cfa8",
+     "status": "resolved",
+     "loader": "ExtensionFileLoader"
+    }
+   },
+   "features": {
+    "version": "0.1.1",
+    "source_sha256": "9138358ce5040a8dc1e2ff5692e6d3aa77e5334bfb840cc3e8620ca46598271e"
+   },
+   "units": {
+    "coordinates": "angstrom",
+    "time": null,
+    "source_length_unit": "Angstrom",
+    "source_time_unit": null,
+    "reader_convert_units": true,
+    "basis": "source unit Angstrom; no conversion needed"
+   },
+   "frame_identity": "single_frame"
+  },
+  "B": {
+   "label": "5USJ GMPPNP",
+   "path": "/home/artem/TopoFold/benchmarks/audit/kras_struct_g12d/data_pdb/5USJ.pdb",
+   "sha256": "dab6b79531b0c046050958b914e380d8ba613b8e995522acb5ea323f974dbefe",
+   "chain": "A",
+   "chains": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F"
+   ],
+   "altloc_policy": "reject",
+   "adapter_json_sha256": "6f9893df0bc0614d1628e53a5a2d31d290078605ed3f4289af6ac5aa39b61b18",
+   "features_json_sha256": "e970f133aed0cf762d20b4857a8f7fe699364229836cf228dd541ee83d601879",
+   "source_files": [
+    {
+     "role": "topology",
+     "path": "/home/artem/TopoFold/benchmarks/audit/kras_struct_g12d/data_pdb/5USJ.pdb",
+     "bytes": 829926,
+     "sha256": "dab6b79531b0c046050958b914e380d8ba613b8e995522acb5ea323f974dbefe"
+    }
+   ],
+   "adapter": {
+    "name": "topofold_inputs.ca_adapter",
+    "version": "0.1.0",
+    "source_sha256": "0dfd026fae6e549b5fedc151e3c0f2636db83069c295c5a138d129979052bb67"
+   },
+   "adapter_software": {
+    "python": "3.14.4",
+    "numpy": "2.5.3",
+    "MDAnalysis": "2.10.0"
+   },
+   "core": {
+    "version": "0.8.3",
+    "function": "compute_invariants",
+    "wrapper": {
+     "module": "topofold",
+     "path": "/home/artem/TopoFold/.venv/lib/python3.14/site-packages/topofold/__init__.py",
+     "sha256": "49780093095f27c89bdf234be15e1f5a9bac957d5a9dbf5ae0f93c856ee1590d"
+    },
+    "native_extension": {
+     "module": "topofold.topofold",
+     "path": "/home/artem/TopoFold/.venv/lib/python3.14/site-packages/topofold/topofold.cpython-314-x86_64-linux-gnu.so",
+     "sha256": "d90e7ed4f1d8036a3735f387c6fe6aa5a81c7b615da1d0094ce054cf0c13cfa8",
+     "status": "resolved",
+     "loader": "ExtensionFileLoader"
+    }
+   },
+   "features": {
+    "version": "0.1.1",
+    "source_sha256": "9138358ce5040a8dc1e2ff5692e6d3aa77e5334bfb840cc3e8620ca46598271e"
+   },
+   "units": {
+    "coordinates": "angstrom",
+    "time": null,
+    "source_length_unit": "Angstrom",
+    "source_time_unit": null,
+    "reader_convert_units": true,
+    "basis": "source unit Angstrom; no conversion needed"
+   },
+   "frame_identity": "single_frame"
+  }
+ },
+ "correspondence": {
+  "form": "same_numbering",
+  "n_positions": 153,
+  "pairs": [
+   [
+    "4",
+    "4"
+   ],
+   [
+    "5",
+    "5"
+   ],
+   [
+    "6",
+    "6"
+   ],
+   [
+    "7",
+    "7"
+   ],
+   [
+    "8",
+    "8"
+   ],
+   [
+    "9",
+    "9"
+   ],
+   [
+    "10",
+    "10"
+   ],
+   [
+    "11",
+    "11"
+   ],
+   [
+    "12",
+    "12"
+   ],
+   [
+    "13",
+    "13"
+   ],
+   [
+    "14",
+    "14"
+   ],
+   [
+    "15",
+    "15"
+   ],
+   [
+    "16",
+    "16"
+   ],
+   [
+    "17",
+    "17"
+   ],
+   [
+    "18",
+    "18"
+   ],
+   [
+    "19",
+    "19"
+   ],
+   [
+    "20",
+    "20"
+   ],
+   [
+    "21",
+    "21"
+   ],
+   [
+    "22",
+    "22"
+   ],
+   [
+    "23",
+    "23"
+   ],
+   [
+    "24",
+    "24"
+   ],
+   [
+    "25",
+    "25"
+   ],
+   [
+    "26",
+    "26"
+   ],
+   [
+    "27",
+    "27"
+   ],
+   [
+    "28",
+    "28"
+   ],
+   [
+    "29",
+    "29"
+   ],
+   [
+    "30",
+    "30"
+   ],
+   [
+    "31",
+    "31"
+   ],
+   [
+    "32",
+    "32"
+   ],
+   [
+    "33",
+    "33"
+   ],
+   [
+    "34",
+    "34"
+   ],
+   [
+    "35",
+    "35"
+   ],
+   [
+    "36",
+    "36"
+   ],
+   [
+    "37",
+    "37"
+   ],
+   [
+    "38",
+    "38"
+   ],
+   [
+    "39",
+    "39"
+   ],
+   [
+    "40",
+    "40"
+   ],
+   [
+    "41",
+    "41"
+   ],
+   [
+    "42",
+    "42"
+   ],
+   [
+    "43",
+    "43"
+   ],
+   [
+    "44",
+    "44"
+   ],
+   [
+    "45",
+    "45"
+   ],
+   [
+    "46",
+    "46"
+   ],
+   [
+    "47",
+    "47"
+   ],
+   [
+    "48",
+    "48"
+   ],
+   [
+    "49",
+    "49"
+   ],
+   [
+    "50",
+    "50"
+   ],
+   [
+    "51",
+    "51"
+   ],
+   [
+    "52",
+    "52"
+   ],
+   [
+    "53",
+    "53"
+   ],
+   [
+    "54",
+    "54"
+   ],
+   [
+    "55",
+    "55"
+   ],
+   [
+    "56",
+    "56"
+   ],
+   [
+    "57",
+    "57"
+   ],
+   [
+    "58",
+    "58"
+   ],
+   [
+    "59",
+    "59"
+   ],
+   [
+    "68",
+    "68"
+   ],
+   [
+    "69",
+    "69"
+   ],
+   [
+    "70",
+    "70"
+   ],
+   [
+    "71",
+    "71"
+   ],
+   [
+    "72",
+    "72"
+   ],
+   [
+    "73",
+    "73"
+   ],
+   [
+    "74",
+    "74"
+   ],
+   [
+    "75",
+    "75"
+   ],
+   [
+    "76",
+    "76"
+   ],
+   [
+    "77",
+    "77"
+   ],
+   [
+    "78",
+    "78"
+   ],
+   [
+    "79",
+    "79"
+   ],
+   [
+    "80",
+    "80"
+   ],
+   [
+    "81",
+    "81"
+   ],
+   [
+    "82",
+    "82"
+   ],
+   [
+    "83",
+    "83"
+   ],
+   [
+    "84",
+    "84"
+   ],
+   [
+    "85",
+    "85"
+   ],
+   [
+    "86",
+    "86"
+   ],
+   [
+    "87",
+    "87"
+   ],
+   [
+    "88",
+    "88"
+   ],
+   [
+    "89",
+    "89"
+   ],
+   [
+    "90",
+    "90"
+   ],
+   [
+    "91",
+    "91"
+   ],
+   [
+    "92",
+    "92"
+   ],
+   [
+    "93",
+    "93"
+   ],
+   [
+    "94",
+    "94"
+   ],
+   [
+    "95",
+    "95"
+   ],
+   [
+    "96",
+    "96"
+   ],
+   [
+    "97",
+    "97"
+   ],
+   [
+    "98",
+    "98"
+   ],
+   [
+    "99",
+    "99"
+   ],
+   [
+    "100",
+    "100"
+   ],
+   [
+    "101",
+    "101"
+   ],
+   [
+    "102",
+    "102"
+   ],
+   [
+    "103",
+    "103"
+   ],
+   [
+    "104",
+    "104"
+   ],
+   [
+    "105",
+    "105"
+   ],
+   [
+    "106",
+    "106"
+   ],
+   [
+    "107",
+    "107"
+   ],
+   [
+    "108",
+    "108"
+   ],
+   [
+    "109",
+    "109"
+   ],
+   [
+    "110",
+    "110"
+   ],
+   [
+    "111",
+    "111"
+   ],
+   [
+    "112",
+    "112"
+   ],
+   [
+    "113",
+    "113"
+   ],
+   [
+    "114",
+    "114"
+   ],
+   [
+    "115",
+    "115"
+   ],
+   [
+    "116",
+    "116"
+   ],
+   [
+    "117",
+    "117"
+   ],
+   [
+    "118",
+    "118"
+   ],
+   [
+    "119",
+    "119"
+   ],
+   [
+    "120",
+    "120"
+   ],
+   [
+    "121",
+    "121"
+   ],
+   [
+    "122",
+    "122"
+   ],
+   [
+    "123",
+    "123"
+   ],
+   [
+    "124",
+    "124"
+   ],
+   [
+    "125",
+    "125"
+   ],
+   [
+    "126",
+    "126"
+   ],
+   [
+    "127",
+    "127"
+   ],
+   [
+    "128",
+    "128"
+   ],
+   [
+    "129",
+    "129"
+   ],
+   [
+    "130",
+    "130"
+   ],
+   [
+    "131",
+    "131"
+   ],
+   [
+    "132",
+    "132"
+   ],
+   [
+    "133",
+    "133"
+   ],
+   [
+    "134",
+    "134"
+   ],
+   [
+    "135",
+    "135"
+   ],
+   [
+    "136",
+    "136"
+   ],
+   [
+    "137",
+    "137"
+   ],
+   [
+    "138",
+    "138"
+   ],
+   [
+    "139",
+    "139"
+   ],
+   [
+    "140",
+    "140"
+   ],
+   [
+    "141",
+    "141"
+   ],
+   [
+    "142",
+    "142"
+   ],
+   [
+    "143",
+    "143"
+   ],
+   [
+    "144",
+    "144"
+   ],
+   [
+    "145",
+    "145"
+   ],
+   [
+    "146",
+    "146"
+   ],
+   [
+    "147",
+    "147"
+   ],
+   [
+    "148",
+    "148"
+   ],
+   [
+    "149",
+    "149"
+   ],
+   [
+    "150",
+    "150"
+   ],
+   [
+    "151",
+    "151"
+   ],
+   [
+    "152",
+    "152"
+   ],
+   [
+    "153",
+    "153"
+   ],
+   [
+    "154",
+    "154"
+   ],
+   [
+    "155",
+    "155"
+   ],
+   [
+    "156",
+    "156"
+   ],
+   [
+    "157",
+    "157"
+   ],
+   [
+    "158",
+    "158"
+   ],
+   [
+    "159",
+    "159"
+   ],
+   [
+    "160",
+    "160"
+   ],
+   [
+    "161",
+    "161"
+   ],
+   [
+    "162",
+    "162"
+   ],
+   [
+    "163",
+    "163"
+   ],
+   [
+    "164",
+    "164"
+   ]
+  ]
+ },
+ "policies": {
+  "on_missing": "reject",
+  "resname_mismatch": "reject",
+  "altloc_sensitivity": null,
+  "chain_variation": {
+   "displacement_trim_fraction": 0.2,
+   "advisory": {
+    "statistic": "mean",
+    "within_factor": 2.0,
+    "min_difference": {
+     "disp": 1.0
+    }
+   }
+  }
+ },
+ "within_entry_variation": {
+  "status": "available",
+  "statement": "Chains in one crystal are not independent experimental replicates, and crystal packing can affect each of them. The within-entry crystal-copy variation is a descriptive range of differences among the chains the user selected. It is not a calibrated noise floor, not a statistical uncertainty, not a nucleotide or ligand effect and not an HDX replicate estimate. The advisory flag is descriptive too: it is not a gate, not an adequacy verdict and not a significance claim.",
+  "figure": "written",
+  "n_pairs": {
+   "cross": 12,
+   "withinA": 1,
+   "withinB": 15
+  }
+ },
+ "breaks": {
+  "A": [
+   {
+    "after_index": 55,
+    "reasons": [
+     "numbering_discontinuity"
+    ]
+   }
+  ],
+  "B": [
+   {
+    "after_index": 55,
+    "reasons": [
+     "numbering_discontinuity"
+    ]
+   }
+  ]
+ },
+ "software": {
+  "structpair_version": "0.2.0",
+  "module_sha256": "fe82d0e22b28d7d08ae1021b03304be6b1c9e2dd8067ebe9ed8dca92d61a89d2",
+  "qcp_module_sha256": "7d906156e474e63d98cacea8e3040d5fcf5fd6f6a4263059dc58a79cde7b8954",
+  "python": "3.14.4",
+  "numpy": "2.5.3",
+  "qcp": {
+   "MDAnalysis": "2.10.0",
+   "numpy": "2.5.3",
+   "function": "MDAnalysis.analysis.rms.rmsd(center=True, superposition=True)"
+  },
+  "adapter_interpreter": "/home/artem/TopoFold/benchmarks/audit/wpd_local_retrieval/build/venv/bin/python"
+ },
+ "figure": "written",
+ "created_utc": "2026-10-25T08:44:28.574772+00:00",
+ "outputs_sha256": {
+  "windows.csv": "76fab24ed9065d6692a0d8e0a0c7673960f992c3264122b07532775f81160c8f",
+  "residues.csv": "3d4f86a1b76ffb7410d25aaf95d78597b3e196c7ee33077f51dc9b7939d37b25",
+  "exclusions.csv": "598c942cf7b4c3746691e0295f8744a8094dd808d7c7b12564d865901ec69933",
+  "summary.json": "4aeb4d22bcf849c30cfc0eaf0bf00592e89acc3198adcdb5e5a7d81d0f8d0da1",
+  "figure.png": "e1af02fe5e2c16618a231d0fc65b9190ec2746226b578b1946b3fe24c45e5481",
+  "chain_variation.csv": "0384fb6ca734af676e74d0448e9d1f018e8f21c978514fba8238d47fcf6a2ac5",
+  "chains.csv": "e788b3be9bc9b454aa3fe496b29460ef5552102695a2d701991f6fccd416bcfc",
+  "chain_variation.png": "826f4fe5a44f73da3c73463c961b5b06d593b3b3b4035af3fbc5322b925e09af",
+  "report.md": "9d16e4f535a7ea8b577dfca35b79d5a260cee64d208553b6376bd38cd824523a"
+ }
+}

@@ -1,0 +1,15 @@
+position,A_residue,A_resname,A_status,A_altloc_used,B_residue,B_resname,B_status,B_altloc_used,resname_mismatch
+0,A:1,ALA,present,,B:1,ALA,present,,False
+1,A:2,ALA,present,,B:2,ALA,present,,False
+2,A:3,ALA,present,,B:3,GLY,present,,True
+3,A:4,ALA,present,,B:4,ALA,present,,False
+4,A:5,ALA,present,,B:5,ALA,present,,False
+5,A:6,ALA,present,,B:6,,residue_not_found,,False
+6,A:7,ALA,present,,B:7,ALA,present,,False
+7,A:8,ALA,present,,B:8,ALA,present,,False
+8,A:9,ALA,present,,B:9,ALA,present,,False
+9,A:10,ALA,present,,B:10,ALA,present,,False
+10,A:11,ALA,present,,B:11,ALA,present,,False
+11,A:12,ALA,present,,B:12,ALA,present,,False
+12,A:13,ALA,present,,B:13,ALA,present,,False
+13,A:14,ALA,present,,B:14,ALA,present,,False

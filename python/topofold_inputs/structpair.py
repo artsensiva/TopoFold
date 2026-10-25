@@ -5,7 +5,7 @@
 SPEC.json (relative paths are resolved against the directory of SPEC.json):
     {"name": "...",
      "structures": {"A": {"label": "...", "file": "a.pdb", "chain": "A", "altloc": "blank_then_A"},
-                    "B": {"label": "...", "file": "b.pdb", "chain": "A", "altloc": "reject"}},
+                    "B": {"label": "...", "file": "b.pdb", "chains": ["A", "B"], "primary_chain": "A", "altloc": "reject"}},
      "correspondence": {"same_numbering": "1-59,68-166"}            # identical author numbering in both chains, or
      "correspondence": {"pairs": [[1, 1], [2, 2], [3, "3A"], ...]},  # explicit A-residue -> B-residue pairs
      "on_missing": "reject",            # or "exclude": absent residues are kept as missing rows and their windows excluded
@@ -13,8 +13,9 @@ SPEC.json (relative paths are resolved against the directory of SPEC.json):
      "altloc_sensitivity": "highest_occupancy",   # optional second altloc policy, applied to both structures
      "top_n": 10}
 
-Nothing is chosen for the user: one chain per structure, named in the spec; the correspondence is never inferred (no
-sequence alignment, no chain ranking). Each structure is read by the existing Cα adapter (MDAnalysis), κ/τ come from the
+Nothing is chosen for the user: every chain is named in the spec, with one primary chain per structure ("chain", or
+"chains" plus "primary_chain" for within-entry crystal-copy variation, see docs/STRUCTPAIR_CHAINS_SPEC_2026-10-25.md); the
+correspondence is never inferred (no sequence alignment, no chain ranking). Each structure is read by the existing Cα adapter (MDAnalysis), κ/τ come from the
 TopoFold core via ``features``, window Cα distances from ``compare.window_distances``, local and global RMSD from
 MDAnalysis QCP (``qcp_rmsd``), and exclusion causes from ``ensemble.exclusion_causes``. Outputs are descriptive only:
 no p-values, populations, kinetics or functional states can be derived from two static structures.
@@ -37,10 +38,12 @@ from typing import Any
 
 import numpy as np
 
+from . import chain_variation as cv
 from .compare import spearman, window_distances
 from .ensemble import _run, _sha256, exclusion_causes
 
-STRUCTPAIR_VERSION = "0.1.0"
+STRUCTPAIR_VERSION = "0.2.0"
+SCHEMA = "topofold_inputs.structpair/2"
 METRICS = ("d_kappa", "d_i_i2", "rmsd3", "d_tau", "d_i_i3", "rmsd4")
 FOUR = ("d_tau", "d_i_i3", "rmsd4")
 UNITS = {"d_kappa": "rad", "d_tau": "rad", "d_i_i2": "angstrom", "d_i_i3": "angstrom", "rmsd3": "angstrom",
@@ -63,6 +66,7 @@ LIMITS = ("Two static structures: the values are direct geometric differences be
           "conformations and coordinate error as well as any biological difference. No ensemble, population, kinetic, "
           "functional-state or treatment-response claim follows. Agreement or disagreement between metrics does not show "
           "that one representation is better. Crystal copies of one entry are not independent replicates.")
+COPY_NOTE = cv.STATEMENT
 
 
 class SpecError(ValueError):
@@ -101,9 +105,30 @@ def load_spec(path: Path) -> dict:
     if set(spec.get("structures", {})) != {"A", "B"}:
         raise SpecError("spec.structures must contain exactly 'A' and 'B'")
     for key, s in spec["structures"].items():
-        for f in ("file", "chain"):
-            if not s.get(f):
-                raise SpecError(f"structures.{key}.{f} is required (no default chain is chosen)")
+        if not s.get("file"):
+            raise SpecError(f"structures.{key}.file is required")
+        if "chains" in s:
+            if s.get("chain"):
+                raise SpecError(f"structures.{key}: give either chain or chains, not both")
+            ch = s["chains"]
+            if not isinstance(ch, list) or not ch or not all(isinstance(c, str) and c.strip() for c in ch):
+                raise SpecError(f"structures.{key}.chains must be a non-empty list of chain names")
+            if len(set(ch)) != len(ch):
+                raise SpecError(f"structures.{key}.chains repeats a chain")
+            prim = s.get("primary_chain")
+            if prim is None and len(ch) == 1:
+                prim = ch[0]
+            if prim not in ch:
+                raise SpecError(f"structures.{key}.primary_chain is required with more than one chain and must be one of "
+                                f"chains (no primary chain is chosen for the user)")
+            s["chain"], s["chains"] = prim, list(ch)
+        else:
+            if not s.get("chain"):
+                raise SpecError(f"structures.{key}.chain is required (no default chain is chosen); or name every chain in "
+                                f"structures.{key}.chains with primary_chain")
+            if "primary_chain" in s:
+                raise SpecError(f"structures.{key}.primary_chain needs structures.{key}.chains")
+            s["chains"] = [s["chain"]]
         s.setdefault("label", key)
         s.setdefault("altloc", "reject")
         if s["altloc"] not in ALTLOC_POLICIES:
@@ -131,6 +156,10 @@ def load_spec(path: Path) -> dict:
     spec.setdefault("resname_mismatch", "reject")
     spec.setdefault("altloc_sensitivity", None)
     spec.setdefault("top_n", 10)
+    try:
+        spec["_variation"] = cv.parse_params(spec.get("chain_variation"))
+    except cv.VariationError as e:
+        raise SpecError(str(e)) from None
     if spec["on_missing"] not in ("reject", "exclude"):
         raise SpecError("on_missing must be 'reject' or 'exclude'")
     if spec["resname_mismatch"] not in ("reject", "flag"):
@@ -142,15 +171,17 @@ def load_spec(path: Path) -> dict:
 
 # --- extraction (existing components) --------------------------------------------------------------------------------
 
-def extract(spec: dict, key: str, altloc: str, work: Path, adapter_python: str, tag: str) -> dict:
+def extract(spec: dict, key: str, altloc: str, work: Path, adapter_python: str, tag: str, chain: str | None = None) -> dict:
     from .features import export_features, features_from_export
 
     s = spec["structures"][key]
     side = 0 if key == "A" else 1
-    corr = work / f"{tag}_{key}_correspondence.json"
-    corr.write_text(json.dumps([{"chain": s["chain"], "resid": p[side][0], "icode": p[side][1], "label": f"pos{k}"}
+    chain = chain or s["chain"]
+    suffix = "" if chain == s["chain"] else f"_{chain}"
+    corr = work / f"{tag}_{key}{suffix}_correspondence.json"
+    corr.write_text(json.dumps([{"chain": chain, "resid": p[side][0], "icode": p[side][1], "label": f"pos{k}"}
                                 for k, p in enumerate(spec["_pairs"])]))
-    run_id = f"{tag}_{key}"
+    run_id = f"{tag}_{key}{suffix}"
     on_missing = "reject" if spec["on_missing"] == "reject" else "mark"
     _run(["-m", "topofold_inputs", s["path"], "--run-id", run_id, "--out", str(work), "--correspondence", str(corr),
           "--on-missing", on_missing, "--altloc", altloc], adapter_python)
@@ -177,10 +208,7 @@ def extract(spec: dict, key: str, altloc: str, work: Path, adapter_python: str, 
 
 def kabsch_rmsd(P: np.ndarray, Q: np.ndarray) -> float:
     """Independent numpy check of the QCP global value: SVD fit with determinant correction (proper rotation)."""
-    cP, cQ = P.mean(0), Q.mean(0)
-    U, _, Vt = np.linalg.svd((P - cP).T @ (Q - cQ))
-    d = np.sign(np.linalg.det(Vt.T @ U.T))
-    R = Vt.T @ np.diag([1.0, 1.0, d]) @ U.T
+    R, cP, cQ = cv.kabsch_frame(P, Q)
     return float(np.sqrt(np.mean(np.sum(((P - cP) @ R.T + cQ - Q) ** 2, axis=1))))
 
 
@@ -218,6 +246,62 @@ def compare(spec: dict, altloc: dict[str, str], work: Path, adapter_python: str,
     return {"A": a, "B": b, "qcp": rm, "metrics": window_metrics(a, b, rm),
             "global": {"rmsd_qcp_angstrom": rm["global"], "n_ca": rm["n_global"],
                        "rmsd_numpy_kabsch_angstrom": kabsch_rmsd(a["coords"][ok], b["coords"][ok]) if ok.sum() >= 3 else None}}
+
+
+# --- within-entry crystal-copy variation (docs/STRUCTPAIR_CHAINS_SPEC_2026-10-25.md) ------------------------------------
+
+def compute_variation(spec: dict, c: dict, work: Path, adapter_python: str, res_rows: list[dict], wrows: list[dict]) -> dict:
+    """Every named chain of each entry is read with the existing adapter and compared pairwise: the cross pairings A x B and
+    the pairs inside each entry. The primary pair reuses the legacy values."""
+    S = spec["structures"]
+    chains = {k: S[k]["chains"] for k in "AB"}
+    prim = {k: S[k]["chain"] for k in "AB"}
+    per = {}
+    for k in "AB":
+        for ch in chains[k]:
+            per[(k, ch)] = c[k] if ch == prim[k] else extract(spec, k, S[k]["altloc"], work, adapter_python, "chain", chain=ch)
+    for (k, ch), d in per.items():
+        ref = per[(k, prim[k])]
+        diff = [i for i, (x, y) in enumerate(zip(ref["residues"], d["residues"]))
+                if x["status"] == "present" and y["status"] == "present" and x["resname"] != y["resname"]]
+        if diff and spec["resname_mismatch"] == "reject":
+            raise SpecError(f"structure {k}: chain {ch} differs from chain {prim[k]} in residue name at "
+                            + ", ".join(f"{_rl(ref['residues'][i])} {ref['residues'][i]['resname']} vs {ch} "
+                                        f"{d['residues'][i]['resname']}" for i in diff[:5])
+                            + "; chains of one entry must agree, or set resname_mismatch to 'flag'")
+    keys = cv.pair_keys(chains["A"], chains["B"])
+    ent = lambda kind: "A" if kind in ("cross", "withinA") else "B"  # noqa: E731
+    sides = lambda key: ((("A", key[1]), ("B", key[2])) if key[0] == "cross"  # noqa: E731
+                         else ((ent(key[0]), key[1]), (ent(key[0]), key[2])))
+    todo = [k for group in keys.values() for k in group if not (k[0] == "cross" and k[1:] == (prim["A"], prim["B"]))]
+    qcp = {("cross", prim["A"], prim["B"]): c["qcp"]}
+    if todo:
+        pairs = [{"id": "|".join(k), "a": str(per[sides(k)[0]]["npz"]), "b": str(per[sides(k)[1]]["npz"])} for k in todo]
+        (work / "chain_pairs.json").write_text(json.dumps({"pairs": pairs}))
+        _run(["-m", "topofold_inputs.qcp_rmsd", "--batch", str(work / "chain_pairs.json"), str(work / "chain_pairs_qcp.json")],
+             adapter_python)
+        got = json.loads((work / "chain_pairs_qcp.json").read_text())["results"]
+        qcp.update({k: got["|".join(k)] for k in todo})
+    trim = spec["_variation"]["displacement_trim_fraction"]
+    pair_values = {}
+    for group in keys.values():
+        for k in group:
+            x, y = per[sides(k)[0]], per[sides(k)[1]]
+            m = window_metrics(x, y, qcp[k])
+            d = cv.pair_displacement(x["coords"], y["coords"], trim)
+            pair_values[k] = {**{ch: m[ch] for ch in METRICS}, "disp": [None if not math.isfinite(v) else float(v) for v in d]}
+    labels = [(r["A_residue"], r["B_residue"]) for r in res_rows]
+    windows = [(w["window3_A"], w["window4_A"]) for w in wrows]
+    rows = cv.variation_rows(pair_values, len(res_rows), labels, windows, chains["A"], chains["B"], (prim["A"], prim["B"]),
+                             spec["_variation"])
+    block = cv.summarize(rows, chains["A"], chains["B"], (prim["A"], prim["B"]), spec["_variation"])
+    inventory = []
+    for (k, ch), d in per.items():
+        miss = [_rl(r) for r in d["residues"] if r["status"] != "present"]
+        inventory.append({"entry": k, "chain": ch, "primary": ch == prim[k], "n_positions": len(d["residues"]),
+                          "n_present": len(d["residues"]) - len(miss), "n_missing": len(miss), "missing": ";".join(miss),
+                          "n_altloc_resolved": len(d["altloc_decisions"]), "n_breaks": len(d["breaks"])})
+    return {"rows": rows, "block": block, "chains_rows": inventory, "n_pairs": {k: len(v) for k, v in keys.items()}}
 
 
 # --- tables ------------------------------------------------------------------------------------------------------------
@@ -405,15 +489,18 @@ def figure(c: dict, wrows: list[dict], res_rows: list[dict], spec: dict, path: P
     return "written"
 
 
-def report(spec: dict, summary: dict, manifest: dict, exclusions: list[dict], res_rows: list[dict]) -> str:
+def report(spec: dict, summary: dict, manifest: dict, exclusions: list[dict], res_rows: list[dict],
+           var_rows: list[dict] | None = None) -> str:
     S = spec["structures"]
     g = summary["global"]
     L = [f"# Two-structure comparison: {spec.get('name') or 'unnamed'}", "",
          f"**Descriptive, static.** {LIMITS}", "",
          "## Inputs", "", "| | Label | File (SHA-256, first 12) | Chain | Altloc policy |", "|---|---|---|---|---|"]
     for k in "AB":
+        shown = S[k]["chain"] if len(S[k]["chains"]) == 1 else f"{S[k]['chain']} (primary of {', '.join(S[k]['chains'])})"
         L.append(f"| {k} | {S[k]['label']} | `{Path(S[k]['path']).name}` ({manifest['inputs'][k]['sha256'][:12]}) | "
-                 f"{S[k]['chain']} | {S[k]['altloc']} |")
+                 f"{shown} | {S[k]['altloc']} |")
+    L += [""] + cv.report_lines(summary["within_entry_variation"], var_rows or [], spec["top_n"])
     n_present = sum(r["A_status"] == "present" and r["B_status"] == "present" for r in res_rows)
     mism = [r for r in res_rows if r["resname_mismatch"]]
     alts = [r for r in res_rows if r["A_altloc_used"] or r["B_altloc_used"]]
@@ -510,19 +597,33 @@ def run(spec_path: Path, out: Path, adapter_python: str) -> dict:
     summary["metric_definitions"] = DESCRIPTION
     summary["units"] = {k: UNITS[k] for k in METRICS}
     summary["n_exclusion_rows"] = len(excl)
+    var = None
+    var_fig = None
+    if any(len(spec["structures"][k]["chains"]) > 1 for k in "AB"):
+        var = compute_variation(spec, c, work, adapter_python, res_rows, wrows)
+        summary["within_entry_variation"] = var["block"]
+        _write_csv(out / "chain_variation.csv", var["rows"])
+        _write_csv(out / "chains.csv", var["chains_rows"])
+        var_fig = cv.figure(var["rows"], out / "chain_variation.png")
+    else:
+        summary["within_entry_variation"] = cv.unavailable_block()
     (out / "summary.json").write_text(json.dumps(summary, indent=1) + "\n")
-    outputs = ["windows.csv", "residues.csv", "exclusions.csv", "summary.json"] + (["figure.png"] if fig_status == "written" else [])
+    outputs = (["windows.csv", "residues.csv", "exclusions.csv", "summary.json"] + (["figure.png"] if fig_status == "written" else [])
+               + (["chain_variation.csv", "chains.csv"] if var else []) + (["chain_variation.png"] if var_fig == "written" else []))
     manifest = {
-        "schema": "topofold_inputs.structpair/1", "name": spec.get("name"), "statement": LIMITS,
+        "schema": SCHEMA, "name": spec.get("name"), "statement": LIMITS,
         "command": " ".join([Path(sys.executable).name, "-m", "topofold_inputs.structpair", *sys.argv[1:]]),
         "spec": {"path": str(spec_path), "sha256": _sha256(spec_path)},
         "inputs": {k: {"label": spec["structures"][k]["label"], "path": spec["structures"][k]["path"],
                        "sha256": _sha256(spec["structures"][k]["path"]), "chain": spec["structures"][k]["chain"],
-                       "altloc_policy": spec["structures"][k]["altloc"], **c[k]["provenance"]} for k in "AB"},
+                       "chains": spec["structures"][k]["chains"], "altloc_policy": spec["structures"][k]["altloc"],
+                       **c[k]["provenance"]} for k in "AB"},
         "correspondence": {"form": next(iter(spec["correspondence"])), "n_positions": len(res_rows),
                            "pairs": [[f"{a[0]}{a[1]}", f"{b[0]}{b[1]}"] for a, b in spec["_pairs"]]},
         "policies": {"on_missing": spec["on_missing"], "resname_mismatch": spec["resname_mismatch"],
-                     "altloc_sensitivity": spec["altloc_sensitivity"]},
+                     "altloc_sensitivity": spec["altloc_sensitivity"], "chain_variation": spec["_variation"]},
+        "within_entry_variation": {"status": summary["within_entry_variation"]["status"],
+                                   "statement": cv.STATEMENT, "figure": var_fig, "n_pairs": var["n_pairs"] if var else None},
         "breaks": {k: c[k]["breaks"] for k in "AB"},
         "software": {"structpair_version": STRUCTPAIR_VERSION, "module_sha256": _sha256(__file__),
                      "qcp_module_sha256": _sha256(Path(__file__).with_name("qcp_rmsd.py")),
@@ -532,10 +633,11 @@ def run(spec_path: Path, out: Path, adapter_python: str) -> dict:
         "created_utc": dt.datetime.now(dt.timezone.utc).isoformat(),
     }
     manifest["outputs_sha256"] = {p: _sha256(out / p) for p in outputs}
-    (out / "report.md").write_text(report(spec, summary, manifest, excl, res_rows))
+    (out / "report.md").write_text(report(spec, summary, manifest, excl, res_rows, var["rows"] if var else None))
     manifest["outputs_sha256"]["report.md"] = _sha256(out / "report.md")
     (out / "manifest.json").write_text(json.dumps(manifest, indent=1) + "\n")
-    return {"summary": summary, "manifest": manifest, "windows": wrows, "residues": res_rows, "exclusions": excl}
+    return {"summary": summary, "manifest": manifest, "windows": wrows, "residues": res_rows, "exclusions": excl,
+            "variation": var}
 
 
 def main(argv=None) -> int:
@@ -560,7 +662,8 @@ def main(argv=None) -> int:
         return 2
     g = r["summary"]["global"]
     print(f"{len(r['residues'])} positions; global Cα RMSD {g['rmsd_qcp_angstrom']:.3f} Å over {g['n_ca']} Cα; "
-          f"{len(r['exclusions'])} exclusion rows; wrote {a.out}/report.md")
+          f"{len(r['exclusions'])} exclusion rows; within-entry variation: {r['summary']['within_entry_variation']['status']}; "
+          f"wrote {a.out}/report.md")
     return 0
 
 

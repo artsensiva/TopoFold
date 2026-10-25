@@ -1,0 +1,8 @@
+window_size,position,structure,window_A,cause,location,source,detail
+3,4,B,A:4..A:6,missing_CA,B:5→B:6,adapter break record,break between adjacent output residues 4 and 5
+3,5,B,A:5..A:7,missing_coordinates,B:6,adapter residue status,residue status residue_not_found
+3,6,B,A:6..A:8,missing_CA,B:6→B:7,adapter break record,break between adjacent output residues 5 and 6
+4,3,B,A:3..A:6,missing_coordinates,B:6,adapter residue status,residue status residue_not_found
+4,4,B,A:4..A:7,missing_coordinates,B:6,adapter residue status,residue status residue_not_found
+4,5,B,A:5..A:8,missing_coordinates,B:6,adapter residue status,residue status residue_not_found
+4,6,B,A:6..A:9,missing_coordinates,B:6,adapter residue status,residue status residue_not_found
