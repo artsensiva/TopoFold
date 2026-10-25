@@ -42,8 +42,8 @@ from . import chain_variation as cv
 from .compare import spearman, window_distances
 from .ensemble import _run, _sha256, exclusion_causes
 
-STRUCTPAIR_VERSION = "0.2.0"
-SCHEMA = "topofold_inputs.structpair/2"
+STRUCTPAIR_VERSION = "0.3.0"
+SCHEMA = "topofold_inputs.structpair/3"   # /2: 0.2.0 (advisory/1 semantics); /1: 0.1.0. Older records keep their meaning
 METRICS = ("d_kappa", "d_i_i2", "rmsd3", "d_tau", "d_i_i3", "rmsd4")
 FOUR = ("d_tau", "d_i_i3", "rmsd4")
 UNITS = {"d_kappa": "rad", "d_tau": "rad", "d_i_i2": "angstrom", "d_i_i3": "angstrom", "rmsd3": "angstrom",
@@ -622,7 +622,7 @@ def run(spec_path: Path, out: Path, adapter_python: str) -> dict:
                            "pairs": [[f"{a[0]}{a[1]}", f"{b[0]}{b[1]}"] for a, b in spec["_pairs"]]},
         "policies": {"on_missing": spec["on_missing"], "resname_mismatch": spec["resname_mismatch"],
                      "altloc_sensitivity": spec["altloc_sensitivity"], "chain_variation": spec["_variation"]},
-        "within_entry_variation": {"status": summary["within_entry_variation"]["status"],
+        "within_entry_variation": {"status": summary["within_entry_variation"]["status"], "advisory_semantics": cv.SEMANTICS,
                                    "statement": cv.STATEMENT, "figure": var_fig, "n_pairs": var["n_pairs"] if var else None},
         "breaks": {k: c[k]["breaks"] for k in "AB"},
         "software": {"structpair_version": STRUCTPAIR_VERSION, "module_sha256": _sha256(__file__),

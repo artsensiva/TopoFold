@@ -18,7 +18,9 @@ import numpy as np
 import pandas as pd
 
 SCHEMA = "topofold_inputs.structpair/1"
-SCHEMAS = (SCHEMA, "topofold_inputs.structpair/2")   # /2 adds the optional within-entry crystal-copy variation; /1 results stay valid
+SCHEMAS = (SCHEMA, "topofold_inputs.structpair/2", "topofold_inputs.structpair/3")
+# /2 adds the optional within-entry crystal-copy variation (advisory/1: column `separated`, default floor 0); /3 changes the advisory
+# output (advisory/2: column `advisory_flag`, assessed only with a configured minimum difference). Every version stays readable.
 VARIATION_NUMERIC = ("primary", "between_min", "between_median", "between_mean", "between_max", "withinA_min", "withinA_max",
                      "withinB_min", "withinB_max", "within_max", "advisory_statistic", "advisory_threshold")
 VARIATION_COUNTS = ("between_n", "withinA_n", "withinB_n", "position")
@@ -79,6 +81,17 @@ class StructpairResult:
     variation: pd.DataFrame | None = None        # chain_variation.csv (long format), schema /2 runs with several chains
     chains: pd.DataFrame | None = None           # chains.csv
     variation_figure: Path | None = None
+
+    @property
+    def advisory_semantics(self) -> str | None:
+        """'advisory/1' (schema /2 records, column `separated`), 'advisory/2' (schema /3, column `advisory_flag`) or None."""
+        if self.variation is None:
+            return None
+        return "advisory/2" if "advisory_flag" in self.variation.columns else "advisory/1"
+
+    @property
+    def flag_column(self) -> str | None:
+        return None if self.variation is None else ("advisory_flag" if "advisory_flag" in self.variation.columns else "separated")
 
     @property
     def name(self) -> str:
@@ -154,8 +167,9 @@ def load_result(path: str | Path) -> StructpairResult:
             variation[c] = variation[c].astype(int)
         for c in ("withinA_n", "withinB_n"):
             variation[c] = variation[c].astype(int)
-        for c in ("separated", "at_boundary"):
-            variation[c] = variation[c].map({"True": True, "False": False, "": None}).astype(object)
+        for c in ("separated", "at_boundary", "advisory_flag", "advisory_at_boundary"):
+            if c in variation.columns:
+                variation[c] = variation[c].map({"True": True, "False": False, "": None}).astype(object)
         if (p / "chains.csv").is_file():
             chains = read("chains.csv")
     elif (summary.get("within_entry_variation") or {}).get("status") in ("available", "partial"):

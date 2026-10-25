@@ -77,7 +77,7 @@ labels time as INFERRED (the files have no timestamps) and records hashes.
   break records, residue status or feature reason codes, with location, affected frames and source frame indices.
   "Provenance insufficient" is reported instead of a guess.
 
-**Two-structure comparison** (`structpair.py`, v0.2.0; `chain_variation.py`):
+**Two-structure comparison** (`structpair.py`, v0.3.0; `chain_variation.py`):
 `python -m topofold_inputs.structpair SPEC.json --out NEW_DIR [--adapter-python PATH]`.
 - **Input:** two single-model structures, one primary chain each (named in the spec; optionally every chain of an entry is
   named in `chains` with a `primary_chain`), and an explicit residue correspondence: identical numbering over stated
@@ -94,6 +94,7 @@ labels time as INFERRED (the files have no timestamps) and records hashes.
   writes `chain_variation.csv`, `chains.csv` and `chain_variation.png`: the between-entry differences over the chain
   pairings and the descriptive within-entry crystal-copy variation. Chains in one crystal are not independent replicates;
   the variation is not a calibrated noise floor, statistical uncertainty, nucleotide effect or HDX replicate estimate.
+  A flag is assessed only for a channel whose positive minimum difference you configure (an advisory rule; schema /3).
   With one chain per entry the three legacy tables are unchanged from v0.1.0 and the summary reports the variation as
   unavailable.
 - **Scope:** static and descriptive only. Verified against KRAS-STRUCT-1/-2 in `benchmarks/audit/structpair_demo/` and, for several chains, against the frozen

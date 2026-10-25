@@ -1,0 +1,30 @@
+{
+ "name": "Descriptive demonstration: 1OPJ chains A,B vs 1OPK chain A (mouse Abl1, different inhibitor, construct, engineered D363N, crystal form)",
+ "structures": {
+  "A": {
+   "label": "1OPJ (imatinib; kinase domain)",
+   "file": "../../kinase_descriptors/data_pdb/1OPJ.pdb",
+   "chains": [
+    "A",
+    "B"
+   ],
+   "primary_chain": "A",
+   "altloc": "reject"
+  },
+  "B": {
+   "label": "1OPK (PD166326; SH3-SH2-kinase)",
+   "file": "../../kinase_descriptors/data_pdb/1OPK.pdb",
+   "chains": [
+    "A"
+   ],
+   "primary_chain": "A",
+   "altloc": "reject"
+  }
+ },
+ "correspondence": {
+  "same_numbering": "248-529"
+ },
+ "on_missing": "reject",
+ "resname_mismatch": "flag",
+ "top_n": 8
+}

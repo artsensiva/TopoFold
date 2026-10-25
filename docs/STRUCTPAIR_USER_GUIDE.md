@@ -19,9 +19,9 @@ All of these use identical coordinates and residue coverage. It also reports:
 - It makes no claim about ensembles, populations, kinetics, functional state or treatment response. Two static
   structures cannot support such claims.
 
-Status: v0.2.0. Version 0.1.0 was verified against two recorded KRAS studies
-(`benchmarks/audit/structpair_demo/README.md`); version 0.2.0 adds explicitly named multiple chains and keeps every
-single-chain output unchanged (`benchmarks/audit/structpair_chains_demo/README.md`). One external AI technical trial (checkpoint `6ce7b49`) and one bounded
+Status: v0.3.0. Version 0.1.0 was verified against two recorded KRAS studies
+(`benchmarks/audit/structpair_demo/README.md`); version 0.2.0 added explicitly named multiple chains and 0.3.0 corrected their advisory output (schema /3); every
+single-chain output is unchanged (`benchmarks/audit/structpair_chains_demo/README.md`). One external AI technical trial (checkpoint `6ce7b49`) and one bounded
 AI confirmation (`049a47f`) have been completed (`docs/pilot/PILOT_LOG.md`, entries 4 and 5). **No independent human
 trial has been completed.** If you are trying it, please use `docs/pilot/FEEDBACK_FORM.md`.
 
@@ -122,13 +122,13 @@ streamlit run apps/structpair_viewer/app.py --server.address localhost -- --resu
 - **Residue names:** `resname_mismatch: "reject"` stops on any difference. `"flag"` allows it (for a point mutant,
   for example) and marks every affected window.
 
-## 3a. Several chains per entry: within-entry crystal-copy variation (v0.2.0)
+## 3a. Several chains per entry: within-entry crystal-copy variation (v0.2.0; advisory output corrected in v0.3.0)
 
 > **Read this first.** Chains in one crystal are **not independent experimental replicates**, and crystal packing can affect
 > each of them. The within-entry crystal-copy variation is a **descriptive range** of differences among the chains you
 > selected. It is **not** a calibrated noise floor, **not** a statistical uncertainty, **not** a nucleotide or ligand effect and
-> **not** an HDX replicate estimate. The advisory flag below is descriptive too: not a gate, not an adequacy verdict, not a
-> significance claim.
+> **not** an HDX replicate estimate. An advisory flag exists only if you configure one (below), and it is an advisory rule: not a gate,
+> not an adequacy verdict, not significance and not biological separation.
 
 Name every chain, and one primary chain, per entry (no chain is chosen for you):
 
@@ -137,7 +137,7 @@ Name every chain, and one primary chain, per entry (no chain is chosen for you):
                "B": {"label": "5USJ", "file": "5USJ.pdb", "chains": ["A", "B", "C", "D", "E", "F"], "primary_chain": "A"}},
 "correspondence": {"same_numbering": "1-59,68-166"},
 "chain_variation": {"displacement_trim_fraction": 0.2,
-                    "advisory": {"statistic": "min", "within_factor": 1.0, "min_difference": {}}}
+                    "advisory": {"statistic": "min", "within_factor": 1.0, "min_difference": {}}}   // the defaults: numbers only, no flag
 ```
 
 - **The correspondence applies identically to every chain of an entry** (same author numbers and insertion codes). The
@@ -154,9 +154,15 @@ Name every chain, and one primary chain, per entry (no chain is chosen for you):
   median, mean, max) and, per entry, the minimum and maximum over the pairs inside that entry.
 - **Missing values:** a pair contributes only where both chains have the data; the counts (`*_n`) say how many pairs did. An
   empty cell is unavailable, never zero.
-- **Advisory flag `separated`:** the between-entry statistic (default `min`) is at least max(floor, `within_factor` × the
-  within-entry maximum), inclusive within 1e-9. It is empty, never false, where no cross pairing or no within-entry pair is
-  defined. `at_boundary` marks equality. The full rules are in `docs/STRUCTPAIR_CHAINS_SPEC_2026-10-25.md`.
+- **Advisory rule (optional).** By default you get the numbers and **no flag**: it stays unassessed until you set a finite, positive
+  `min_difference` for a channel, in that channel's unit (for example `{"disp": 1.0}` for 1 Å). Then `advisory_flag` is true where
+  the between-entry statistic (default `min`) is at least max(`min_difference`, `within_factor` × the within-entry maximum). **Equality
+  meets the rule**; a value a hair below does not; `advisory_at_boundary` marks values within 1e-9 of the threshold so you can see when a
+  flag hinges on rounding. It is empty, never false, where it cannot be assessed (no minimum difference configured, no cross pairing,
+  no within-entry pair). All numbers must be finite, and a minimum difference must exceed 1e-9. It is not significance and not
+  biological separation. Older results (schema /2, version 0.2.0) used a default minimum difference of 0 and their column was
+  called `separated`: they can show it true for identical chains, and the viewer labels them as historical. The full rules are in
+  `docs/STRUCTPAIR_CHAINS_SPEC_2026-10-25.md` (amendment 2).
 
 ## 4. Resource use (measured on the implementer's 6-core Linux machine)
 

@@ -106,18 +106,21 @@ def test_parse_params_defaults_and_refusals():
             cv.parse_params(bad)
 
 
-def test_advisory_rule_is_inclusive_at_the_boundary_and_never_false_when_not_assessable():
-    p = cv.parse_params(None)["advisory"]
-    eq = cv.advisory(1.0, 1.0, 4, "both", "disp", p)
-    assert eq["separated"] is True and eq["at_boundary"] is True            # tie: equal values count as separated
-    assert cv.advisory(1.0 - 1e-6, 1.0, 4, "both", "disp", p)["separated"] is False
-    assert cv.advisory(1.0 - 1e-12, 1.0, 4, "both", "disp", p)["separated"] is True       # within 1e-9
+def test_advisory_rule_equality_meets_it_without_tolerance_widening_and_is_never_false_when_not_assessable():
+    p = cv.parse_params({"advisory": {"min_difference": {"disp": 1.0}}})["advisory"]
+    eq = cv.advisory(1.0, 0.5, 4, "both", "disp", p)
+    assert eq["flag"] is True and eq["at_boundary"] is True                 # equality at a positive boundary meets the rule
+    assert cv.advisory(1.0 - 1e-6, 0.5, 4, "both", "disp", p)["flag"] is False
+    hair = cv.advisory(1.0 - 1e-12, 0.5, 4, "both", "disp", p)
+    assert hair["flag"] is False and hair["at_boundary"] is True            # no tolerance widening; the boundary is marked
     k1 = cv.parse_params({"advisory": {"statistic": "mean", "within_factor": 2.0, "min_difference": {"disp": 1.0}}})["advisory"]
-    assert cv.advisory(1.5, 0.2, 12, "both", "disp", k1)["separated"] is True            # floor 1.0 governs (2 x 0.2 < 1.0)
+    assert cv.advisory(1.5, 0.2, 12, "both", "disp", k1)["flag"] is True              # the floor governs (2 x 0.2 < 1.0)
     assert cv.advisory(1.5, 0.9, 12, "both", "disp", k1)["threshold"] == pytest.approx(1.8)
     na = cv.advisory(5.0, None, 4, "none", "disp", p)
-    assert na["separated"] is None and "within-entry" in na["reason"]
-    assert cv.advisory(None, 1.0, 0, "both", "disp", p)["separated"] is None
+    assert na["flag"] is None and "within-entry" in na["reason"]
+    assert cv.advisory(None, 1.0, 0, "both", "disp", p)["flag"] is None
+    off = cv.advisory(5.0, 1.0, 4, "both", "rmsd3", p)                                  # a channel without a configured minimum difference
+    assert off["flag"] is None and "minimum difference" in off["reason"]
 
 
 def _pv(chains_a, chains_b, n, fn):
@@ -141,23 +144,30 @@ def test_variation_rows_counts_scope_primary_and_missing_pairs():
     assert (r0["withinA_n"], r0["withinB_n"], r0["within_scope"], r0["within_max"]) == (1, 3, "both", 2.0)
     r1 = [r for r in rows if r["position"] == 1 and r["channel"] == "disp"][0]
     assert r1["between_n"] == 4 and r1["withinB_n"] == 1 and r1["withinB_max"] == 2.0     # only the A-B pair of entry B remains
-    assert r0["separated"] is True and r0["at_boundary"] is False
+    assert r0["advisory_flag"] is None and "minimum difference" in r0["advisory_not_assessed_reason"]     # default: numbers only
+    on = cv.variation_rows(_pv(ca, cb, n, fn), n, [(f"A:{i}", f"B:{i}") for i in range(n)], [("w3", "w4")] * n, ca, cb, ("A", "A"),
+                           cv.parse_params({"advisory": {"min_difference": {"disp": 1.0}}}))
+    o0 = [r for r in on if r["position"] == 0 and r["channel"] == "disp"][0]
+    assert o0["advisory_flag"] is True and o0["advisory_at_boundary"] is False                           # 5.0 >= max(1.0, 1.0 x 2.0)
     w = [r for r in rows if r["position"] == 0 and r["channel"] == "rmsd4"][0]
     assert w["window_A"] == "w4" and [r for r in rows if r["channel"] == "disp"][0]["window_A"] == "A:0"
 
 
 def test_variation_rows_one_entry_without_within_pairs_is_scoped_not_false():
     ca, cb, n = ["A", "B"], ["A"], 2
+    on = cv.parse_params({"advisory": {"min_difference": {c: 0.5 for c in cv.CHANNELS}}})
     rows = cv.variation_rows(_pv(ca, cb, n, lambda k, ch, i: 3.0 if k[0] == "cross" else 1.0), n, [("a", "b")] * n, [("w", "w")] * n,
-                             ca, cb, ("A", "A"), cv.parse_params(None))
+                             ca, cb, ("A", "A"), on)
     r = rows[0]
-    assert r["within_scope"] == "A_only" and r["withinB_n"] == 0 and r["withinB_max"] is None and r["separated"] is True
+    assert r["within_scope"] == "A_only" and r["withinB_n"] == 0 and r["withinB_max"] is None and r["advisory_flag"] is True
     only_b = cv.variation_rows(_pv(["A"], ["A", "B"], n, lambda k, ch, i: 3.0 if k[0] == "cross" else 1.0), n, [("a", "b")] * n,
                                [("w", "w")] * n, ["A"], ["A", "B"], ("A", "A"), cv.parse_params(None))
     assert only_b[0]["within_scope"] == "B_only"
     none = cv.variation_rows(_pv(["A"], ["A"], n, lambda k, ch, i: 3.0), n, [("a", "b")] * n, [("w", "w")] * n, ["A"], ["A"], ("A", "A"),
                              cv.parse_params(None))
-    assert none[0]["within_scope"] == "none" and none[0]["separated"] is None and none[0]["not_assessed_reason"]
+    assert none[0]["within_scope"] == "none" and none[0]["advisory_flag"] is None and none[0]["advisory_not_assessed_reason"]
+    none_on = cv.variation_rows(_pv(["A"], ["A"], n, lambda k, ch, i: 3.0), n, [("a", "b")] * n, [("w", "w")] * n, ["A"], ["A"], ("A", "A"), on)
+    assert none_on[0]["advisory_flag"] is None and "within-entry" in none_on[0]["advisory_not_assessed_reason"]
 
 
 def test_summarize_status_and_block_text():
@@ -165,7 +175,14 @@ def test_summarize_status_and_block_text():
                              [("w", "w")] * 2, ["A", "B"], ["A", "B"], ("A", "A"), cv.parse_params(None))
     b = cv.summarize(rows, ["A", "B"], ["A", "B"], ("A", "A"), cv.parse_params(None))
     assert b["status"] == "available" and b["n_pairs"] == {"cross": 4, "withinA": 1, "withinB": 1}
-    assert b["channels"]["disp"]["separated"] == 2 and "not independent experimental replicates" in b["statement"]
+    d = b["channels"]["disp"]
+    assert (d["advisory_configured"], d["advisory_flag_true"], d["advisory_not_assessed"]) == (False, 0, 2)      # default: no flag assessed
+    assert "not independent experimental replicates" in b["statement"] and b["advisory_semantics"] == "advisory/2"
+    on_params = cv.parse_params({"advisory": {"min_difference": {"disp": 0.5}}})
+    rows_on = cv.variation_rows(_pv(["A", "B"], ["A", "B"], 2, lambda k, ch, i: 1.0 if k[0] != "cross" else 2.0), 2, [("a", "b")] * 2,
+                                [("w", "w")] * 2, ["A", "B"], ["A", "B"], ("A", "A"), on_params)
+    d_on = cv.summarize(rows_on, ["A", "B"], ["A", "B"], ("A", "A"), on_params)["channels"]["disp"]
+    assert (d_on["advisory_configured"], d_on["advisory_flag_true"], d_on["advisory_not_assessed"]) == (True, 2, 0)
     assert "not a calibrated noise floor" in b["statement"] and "HDX replicate" in b["statement"]
     assert cv.summarize(rows, ["A", "B"], ["A"], ("A", "A"), cv.parse_params(None))["status"] == "partial"
     assert cv.unavailable_block()["status"] == "unavailable" and cv.unavailable_block()["reason"] == "one chain per entry"
@@ -265,7 +282,7 @@ def test_single_chain_outputs_are_byte_identical_to_version_0_1_0(tmp_path):
     assert all(new[k] == old[k] for k in old)                                  # every legacy number unchanged
     assert new["within_entry_variation"] == cv.unavailable_block()
     man = json.loads((tmp_path / "out/manifest.json").read_text())
-    assert man["schema"] == "topofold_inputs.structpair/2" and man["software"]["structpair_version"] == "0.2.0"
+    assert man["schema"] == "topofold_inputs.structpair/3" and man["software"]["structpair_version"] == "0.3.0"
     assert man["within_entry_variation"]["status"] == "unavailable"
     assert not (tmp_path / "out/chain_variation.csv").exists() and not (tmp_path / "out/chains.csv").exists()
     assert "Unavailable: one chain per entry" in (tmp_path / "out/report.md").read_text()
@@ -288,7 +305,9 @@ def test_multi_chain_end_to_end_synthetic(tmp_path):
     assert (disp[1]["between_n"], disp[1]["withinA_n"], disp[1]["withinB_n"]) == ("6", "1", "3")
     # the injected 2.0 A shift of residues 8-10 appears in every cross pairing; the rest agrees within noise
     for r_ in (8, 9, 10):
-        assert float(disp[r_]["between_min"]) > 1.8 and float(disp[r_]["between_max"]) < 2.2 and disp[r_]["separated"] == "True"
+        assert float(disp[r_]["between_min"]) > 1.8 and float(disp[r_]["between_max"]) < 2.2
+        assert disp[r_]["advisory_flag"] == ""                         # default: numbers only, the flag is not assessed
+        assert "minimum difference" in disp[r_]["advisory_not_assessed_reason"]
     assert max(float(disp[r_]["between_max"]) for r_ in (1, 2, 4, 5, 13, 14, 15, 16)) < 0.4
     assert max(float(x["within_max"]) for x in disp.values()) < 0.4                           # copies differ by noise only
     # chain C lacks residue 3: its pairings are undefined there, the other pairs keep their values and the counts say so
@@ -302,7 +321,9 @@ def test_multi_chain_end_to_end_synthetic(tmp_path):
         assert float(prim[i]["primary"]) == pytest.approx(float(win[i]["rmsd3_angstrom"]), abs=1e-6)
     summ = json.loads((tmp_path / "out/summary.json").read_text())["within_entry_variation"]
     assert summ["status"] == "available" and summ["n_pairs"] == {"cross": 6, "withinA": 1, "withinB": 3}
-    assert summ["channels"]["disp"]["separated"] >= 3 and "not independent experimental replicates" in summ["statement"]
+    dsum = summ["channels"]["disp"]
+    assert (dsum["advisory_configured"], dsum["advisory_flag_true"]) == (False, 0) and dsum["advisory_not_assessed"] > 0
+    assert "not independent experimental replicates" in summ["statement"] and summ["advisory_semantics"] == "advisory/2"
     rep = (tmp_path / "out/report.md").read_text()
     assert rep.index("## Within-entry crystal-copy variation") < rep.index("## Mapping") and "## Exclusions" in rep
     man = json.loads((tmp_path / "out/manifest.json").read_text())
@@ -343,5 +364,5 @@ def test_k1_style_advisory_setting_flags_only_the_displaced_residues(tmp_path):
     r = _run_cli(tmp_path / "spec.json", tmp_path / "out", py)
     assert r.returncode == 0, r.stderr
     rows = [x for x in csv.DictReader(open(tmp_path / "out/chain_variation.csv")) if x["channel"] == "disp"]
-    flagged = sorted(int(x["A_residue"].split(":")[1]) for x in rows if x["separated"] == "True")
+    flagged = sorted(int(x["A_residue"].split(":")[1]) for x in rows if x["advisory_flag"] == "True")
     assert flagged == [8, 9, 10]

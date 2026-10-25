@@ -111,3 +111,25 @@ and `floor` = `min_difference[channel]` (default 0):
   tolerance was set: the frozen K1 code parses the PDB text in float64, while the adapter holds float32 positions
   (differing from the text parse by at most 3.8e-6 Å over the 8 chains; the K1 displacement values differ by at most
   6.6e-6 Å). No rule of sections 3–6 changed.
+
+- **2026-10-25, amendment 2: advisory output semantics `advisory/2` (schema /3, structpair 0.3.0).** Sections 4 and 5 are unchanged;
+  sections 1, 6 and 7 are amended as follows. Evidence for the change: `benchmarks/audit/structpair_advisory_correction_2026-10-25/`.
+  - *Why.* In 0.2.0 the default minimum difference was 0 and the comparison was widened by 1e-9, so a zero between-entry value against
+    a zero within-entry value (identical chains) was reported as `separated`, as was any difference below 1e-9; NaN and infinity were
+    accepted as `within_factor` and as minimum differences. In the committed K1 regression record of 0.2.0 the flag was true at 78
+    position-channel cells, 70 of them on channels for which no minimum difference had been configured.
+  - *Rule.* The numeric between-entry and within-entry values are always reported. The flag is **assessed only for a channel with a
+    configured minimum difference `m`**, a finite number above the numerical tolerance 1e-9 in that channel's unit. Then
+    flag = `S >= max(m, within_factor × within_max)`, an exact float64 comparison (`S` the chosen between-entry statistic).
+    **Equality at the positive boundary meets the rule** (the threshold is a declared "at least"); a value a hair below does not;
+    `advisory_at_boundary` is true when |S − threshold| is within 1e-9, so a result that hinges on rounding is visible. It is left
+    empty (never false) with a stated reason when no minimum difference is configured, when no cross pairing is defined, or when
+    no within-entry pair is defined. It can never be true for values within the tolerance of zero, because the threshold exceeds it.
+  - *Parsing.* Every number must be finite: `displacement_trim_fraction` in [0, 0.5), `within_factor` ≥ 0, each minimum difference
+    above 1e-9 (NaN, infinity and non-positive values are refused with the key named).
+  - *Names and versions.* The columns are `advisory_flag`, `advisory_at_boundary` and `advisory_not_assessed_reason` (were `separated`,
+    `at_boundary`, `not_assessed_reason`); the summary counts are `advisory_configured`, `advisory_flag_true`, `advisory_flag_false`,
+    `advisory_not_assessed`, `advisory_at_boundary`; the summary and manifest carry `advisory_semantics: advisory/2`; manifest schema
+    `…/3`. Reports and figures call the result an advisory rule, never significance and never biological separation.
+  - *Historical records.* Records of schema /2 keep the meaning `advisory/1` and are not rewritten; the viewer reads both and labels
+    the historical one. Numeric columns are unchanged between the versions (verified on STRUCT-2 and K1).

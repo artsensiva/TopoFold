@@ -1,0 +1,578 @@
+{
+ "id": "STRUCTPAIR-ABL-DEMO-2026-10-25",
+ "kin_desc_1_note": "KIN-DESC-1's run_spec lists construct differences against UniProt P00519 (human ABL1); the deposited records of 1OPJ and 1OPK name P00520 (Mus musculus). KIN-DESC-1 is frozen and was not reopened; mouse-human differences in the kinase domain were not assessed here.",
+ "date": "2026-10-25",
+ "structpair_version": "0.3.0",
+ "schema": "topofold_inputs.structpair/3",
+ "kind": "descriptive demonstration; not an experiment; no difference is attributable to imatinib, nucleotide state, mutation or resistance",
+ "spec": {
+  "name": "Descriptive demonstration: 1OPJ chains A,B vs 1OPK chain A (mouse Abl1, different inhibitor, construct, engineered D363N, crystal form)",
+  "structures": {
+   "A": {
+    "label": "1OPJ (imatinib; kinase domain)",
+    "file": "../../kinase_descriptors/data_pdb/1OPJ.pdb",
+    "chains": [
+     "A",
+     "B"
+    ],
+    "primary_chain": "A",
+    "altloc": "reject"
+   },
+   "B": {
+    "label": "1OPK (PD166326; SH3-SH2-kinase)",
+    "file": "../../kinase_descriptors/data_pdb/1OPK.pdb",
+    "chains": [
+     "A"
+    ],
+    "primary_chain": "A",
+    "altloc": "reject"
+   }
+  },
+  "correspondence": {
+   "same_numbering": "248-529"
+  },
+  "on_missing": "reject",
+  "resname_mismatch": "flag",
+  "top_n": 8
+ },
+ "inputs": {
+  "A": {
+   "pdb": "1OPJ",
+   "path": "benchmarks/audit/kinase_descriptors/data_pdb/1OPJ.pdb",
+   "sha256": "6d3444a1f081b1e3b5079babd515d4e848586ec7055647fad9d294b9ee8fb7fb",
+   "sha256_equals_kin_desc_1_record": true,
+   "chains_selected": [
+    "A",
+    "B"
+   ],
+   "primary_chain": "A",
+   "header": {
+    "title": "STRUCTURAL BASIS FOR THE AUTO-INHIBITION OF C-ABL TYROSINE KINASE",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.75,
+    "molecule": "PROTO-ONCOGENE TYROSINE-PROTEIN KINASE ABL1",
+    "fragment": "KINASE DOMAIN",
+    "chains_declared": "A, B",
+    "engineered": "YES",
+    "mutation_flag": null,
+    "organism": "MUS MUSCULUS",
+    "taxid": "10090",
+    "gene": "ABL1",
+    "expression_system": "SPODOPTERA FRUGIPERDA",
+    "dbref": [
+     {
+      "chain": "A",
+      "pdb_range": [
+       248,
+       534
+      ],
+      "db": "UNP",
+      "accession": "P00520",
+      "db_id": "ABL1_MOUSE",
+      "db_range": [
+       229,
+       515
+      ]
+     },
+     {
+      "chain": "B",
+      "pdb_range": [
+       248,
+       534
+      ],
+      "db": "UNP",
+      "accession": "P00520",
+      "db_id": "ABL1_MOUSE",
+      "db_range": [
+       229,
+       515
+      ]
+     }
+    ],
+    "seqadv": [
+     {
+      "resname": "GLY",
+      "chain": "A",
+      "resid": 242,
+      "uniprot_resname": "",
+      "uniprot_resid": "",
+      "comment": "CLONING ARTIFACT"
+     },
+     {
+      "resname": "ALA",
+      "chain": "A",
+      "resid": 243,
+      "uniprot_resname": "",
+      "uniprot_resid": "",
+      "comment": "CLONING ARTIFACT"
+     },
+     {
+      "resname": "MET",
+      "chain": "A",
+      "resid": 244,
+      "uniprot_resname": "",
+      "uniprot_resid": "",
+      "comment": "CLONING ARTIFACT"
+     },
+     {
+      "resname": "ASP",
+      "chain": "A",
+      "resid": 245,
+      "uniprot_resname": "",
+      "uniprot_resid": "",
+      "comment": "CLONING ARTIFACT"
+     },
+     {
+      "resname": "PRO",
+      "chain": "A",
+      "resid": 246,
+      "uniprot_resname": "",
+      "uniprot_resid": "",
+      "comment": "CLONING ARTIFACT"
+     },
+     {
+      "resname": "SER",
+      "chain": "A",
+      "resid": 247,
+      "uniprot_resname": "",
+      "uniprot_resid": "",
+      "comment": "CLONING ARTIFACT"
+     },
+     {
+      "resname": "GLY",
+      "chain": "B",
+      "resid": 242,
+      "uniprot_resname": "",
+      "uniprot_resid": "",
+      "comment": "CLONING ARTIFACT"
+     },
+     {
+      "resname": "ALA",
+      "chain": "B",
+      "resid": 243,
+      "uniprot_resname": "",
+      "uniprot_resid": "",
+      "comment": "CLONING ARTIFACT"
+     },
+     {
+      "resname": "MET",
+      "chain": "B",
+      "resid": 244,
+      "uniprot_resname": "",
+      "uniprot_resid": "",
+      "comment": "CLONING ARTIFACT"
+     },
+     {
+      "resname": "ASP",
+      "chain": "B",
+      "resid": 245,
+      "uniprot_resname": "",
+      "uniprot_resid": "",
+      "comment": "CLONING ARTIFACT"
+     },
+     {
+      "resname": "PRO",
+      "chain": "B",
+      "resid": 246,
+      "uniprot_resname": "",
+      "uniprot_resid": "",
+      "comment": "CLONING ARTIFACT"
+     },
+     {
+      "resname": "SER",
+      "chain": "B",
+      "resid": 247,
+      "uniprot_resname": "",
+      "uniprot_resid": "",
+      "comment": "CLONING ARTIFACT"
+     }
+    ],
+    "het": [
+     {
+      "name": "CL",
+      "chain": "A",
+      "number": 5
+     },
+     {
+      "name": "MYR",
+      "chain": "A",
+      "number": 1
+     },
+     {
+      "name": "STI",
+      "chain": "A",
+      "number": 3
+     },
+     {
+      "name": "CL",
+      "chain": "B",
+      "number": 6
+     },
+     {
+      "name": "MYR",
+      "chain": "B",
+      "number": 2
+     },
+     {
+      "name": "STI",
+      "chain": "B",
+      "number": 4
+     }
+    ],
+    "hetnam": {
+     "CL": "CHLORIDE ION",
+     "MYR": "MYRISTIC ACID",
+     "STI": "4-(4-METHYL-PIPERAZIN-1-YLMETHYL)-N-[4-METHYL-3-(4- PYRIDIN-3-YL-PYRIMIDIN-2-YLAMINO)-PHENYL]-BENZAMIDE"
+    },
+    "hetsyn": {
+     "STI": "STI-571; IMATINIB"
+    },
+    "space_group": "P 1",
+    "cell": [
+     "41.844",
+     "63.507",
+     "64.051",
+     "67.91",
+     "79.76",
+     "84.88"
+    ],
+    "remark_465_missing": {
+     "A": [
+      242,
+      530,
+      531,
+      532,
+      533,
+      534
+     ],
+     "B": [
+      242,
+      243,
+      532,
+      533,
+      534
+     ]
+    },
+    "doi": "10.1016/S0092-8674(03)00194-6"
+   },
+   "rcsb": {
+    "title": "Structural basis for the auto-inhibition of c-Abl tyrosine kinase",
+    "resolution_A": 1.75,
+    "space_group": "P 1",
+    "nonpolymer_comp_ids": [
+     "CL",
+     "MYR",
+     "STI"
+    ],
+    "nonpolymer_instances": 6,
+    "organism": [
+     "Mus musculus"
+    ],
+    "uniprot": [
+     "P00520"
+    ],
+    "mutation_count": 0,
+    "chains": [
+     "A",
+     "B"
+    ]
+   }
+  },
+  "B": {
+   "pdb": "1OPK",
+   "path": "benchmarks/audit/kinase_descriptors/data_pdb/1OPK.pdb",
+   "sha256": "867ed2b25b80e0e2ba52f731e48df25fb8e982b052b89440a123d567c4384974",
+   "sha256_equals_kin_desc_1_record": true,
+   "chains_selected": [
+    "A"
+   ],
+   "primary_chain": "A",
+   "header": {
+    "title": "STRUCTURAL BASIS FOR THE AUTO-INHIBITION OF C-ABL TYROSINE KINASE",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.8,
+    "molecule": "PROTO-ONCOGENE TYROSINE-PROTEIN KINASE ABL1",
+    "fragment": "SH3-SH2-KINASE DOMAIN",
+    "chains_declared": "A",
+    "engineered": "YES",
+    "mutation_flag": "YES",
+    "organism": "MUS MUSCULUS",
+    "taxid": "10090",
+    "gene": "ABL1",
+    "expression_system": "SPODOPTERA FRUGIPERDA",
+    "dbref": [
+     {
+      "chain": "A",
+      "pdb_range": [
+       46,
+       534
+      ],
+      "db": "UNP",
+      "accession": "P00520",
+      "db_id": "ABL1_MOUSE",
+      "db_range": [
+       27,
+       515
+      ]
+     }
+    ],
+    "seqadv": [
+     {
+      "resname": "GLY",
+      "chain": "A",
+      "resid": 40,
+      "uniprot_resname": "",
+      "uniprot_resid": "",
+      "comment": "CLONING ARTIFACT"
+     },
+     {
+      "resname": "ALA",
+      "chain": "A",
+      "resid": 41,
+      "uniprot_resname": "",
+      "uniprot_resid": "",
+      "comment": "CLONING ARTIFACT"
+     },
+     {
+      "resname": "MET",
+      "chain": "A",
+      "resid": 42,
+      "uniprot_resname": "",
+      "uniprot_resid": "",
+      "comment": "CLONING ARTIFACT"
+     },
+     {
+      "resname": "ASP",
+      "chain": "A",
+      "resid": 43,
+      "uniprot_resname": "",
+      "uniprot_resid": "",
+      "comment": "CLONING ARTIFACT"
+     },
+     {
+      "resname": "PRO",
+      "chain": "A",
+      "resid": 44,
+      "uniprot_resname": "",
+      "uniprot_resid": "",
+      "comment": "CLONING ARTIFACT"
+     },
+     {
+      "resname": "SER",
+      "chain": "A",
+      "resid": 45,
+      "uniprot_resname": "",
+      "uniprot_resid": "",
+      "comment": "CLONING ARTIFACT"
+     },
+     {
+      "resname": "ASN",
+      "chain": "A",
+      "resid": 382,
+      "uniprot_resname": "ASP",
+      "uniprot_resid": "363",
+      "comment": "ENGINEERED MUTATION"
+     }
+    ],
+    "het": [
+     {
+      "name": "MYR",
+      "chain": "A",
+      "number": 1
+     },
+     {
+      "name": "P16",
+      "chain": "A",
+      "number": 2
+     },
+     {
+      "name": "GOL",
+      "chain": "A",
+      "number": 3
+     }
+    ],
+    "hetnam": {
+     "MYR": "MYRISTIC ACID",
+     "P16": "6-(2,6-DICHLOROPHENYL)-2-{[3-(HYDROXYMETHYL) PHENYL]AMINO}-8-METHYLPYRIDO[2,3-D]PYRIMIDIN-7(8H)-ONE",
+     "GOL": "GLYCEROL"
+    },
+    "hetsyn": {
+     "P16": "PD166326",
+     "GOL": "GLYCERIN; PROPANE-1,2,3-TRIOL"
+    },
+    "space_group": "C 2 2 21",
+    "cell": [
+     "118.328",
+     "123.943",
+     "74.798",
+     "90.00",
+     "90.00",
+     "90.00"
+    ],
+    "remark_465_missing": {
+     "A": [
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      64,
+      65,
+      66,
+      67,
+      68,
+      69,
+      70,
+      71,
+      72,
+      73,
+      74,
+      75,
+      76,
+      77,
+      78,
+      79,
+      80,
+      81,
+      82,
+      532,
+      533,
+      534
+     ]
+    },
+    "doi": "10.1016/S0092-8674(03)00194-6"
+   },
+   "rcsb": {
+    "title": "Structural basis for the auto-inhibition of c-Abl tyrosine kinase",
+    "resolution_A": 1.8,
+    "space_group": "C 2 2 21",
+    "nonpolymer_comp_ids": [
+     "GOL",
+     "MYR",
+     "P16"
+    ],
+    "nonpolymer_instances": 3,
+    "organism": [
+     "Mus musculus"
+    ],
+    "uniprot": [
+     "P00520"
+    ],
+    "mutation_count": 1,
+    "chains": [
+     "A"
+    ]
+   }
+  }
+ },
+ "input_checks": {
+  "remark_465_consistent_with_coordinates": true,
+  "no_altloc_or_icode_at_mapped_calpha": true,
+  "residue_name_differences": {
+   "382": {
+    "1OPJ:A": "ASP",
+    "1OPJ:B": "ASP",
+    "1OPK:A": "ASN"
+   }
+  },
+  "differences_all_documented_as_engineered_in_SEQADV": true,
+  "same_species_and_gene": true,
+  "same_uniprot_accession_in_DBREF": {
+   "1OPJ": [
+    "P00520"
+   ],
+   "1OPK": [
+    "P00520"
+   ]
+  },
+  "same_numbering_offset_to_database": true,
+  "rcsb_agrees_with_local_records": {
+   "1OPJ": {
+    "space_group": true,
+    "resolution": true,
+    "ligands": true,
+    "organism": true,
+    "ligand_instances": true,
+    "uniprot": true,
+    "engineered_mutation_count": true,
+    "chains": true
+   },
+   "1OPK": {
+    "space_group": true,
+    "resolution": true,
+    "ligands": true,
+    "organism": true,
+    "ligand_instances": true,
+    "uniprot": true,
+    "engineered_mutation_count": true,
+    "chains": true
+   }
+  }
+ },
+ "result_summary": {
+  "positions_mapped": 282,
+  "mapped_ranges": "248-529",
+  "within_entry_status": "partial",
+  "n_pairs": {
+   "cross": 2,
+   "withinA": 1,
+   "withinB": 0
+  },
+  "pair_counts_per_position": [
+   [
+    "2",
+    "1",
+    "0"
+   ]
+  ],
+  "disp_between_median_over_positions": {
+   "median": 0.46163750000000003,
+   "max": 33.0539
+  },
+  "disp_withinA_max_over_positions": 5.25657,
+  "positions_with_between_median_above_5A": "248-251,297,401-415",
+  "positions_with_withinA_max_above_2A": "248-251,293-295",
+  "entry_B_within_cells_empty_not_zero": true,
+  "entry_B_positions_with_within_value": 0,
+  "advisory_configured_channels": [],
+  "advisory_flags_true": 0,
+  "advisory_flags_assessed": 0
+ },
+ "resources": {
+  "wall_s": 7.45,
+  "cpu_s": 14.77,
+  "output_bytes_total": 1608775,
+  "output_bytes_without_work": 1084707
+ },
+ "outputs_sha256": {
+  "chain_variation.csv": "8f722768d5a5df9c8c173af6a7ac83e3d876fa989482008804ff703fec51b316",
+  "chain_variation.png": "01afd7e13862f5b703cc06afa5dbc721f1f87cce41626c90e6a8d6c4e3a01dcf",
+  "chain_variation_caption.md": "d192fac98fd24ab5293b768f6dc1a1be0041bafb805c57f34613e7ecc85055ec",
+  "chains.csv": "1dfc8097c9e33dbeb5186c71abb64424e6f45a196f37390e6f366480230b1c0e",
+  "exclusions.csv": "ebbc2e0d54829e2568d3dbbdb515fdc5d8956e7855cda1689d9cc11655035047",
+  "manifest.json": "28558fcd8bc69276b061b36c9ec5bb7c0fdc6523bb3be629a574eb01b7c3c9e0",
+  "report.md": "de50c17f4463afa54d18e428aa536f8cf2f03750cfd0d934b98d2a9321a00912",
+  "residues.csv": "c866f910238fe04e900e3234b2b9e79e2431b97a3aa264306e24f47561dc3af4",
+  "summary.json": "1e3b3c927ed103c43cd7b031c22f81b5b09131a087a62f64379594884bffd91c",
+  "windows.csv": "1001dd1722f41bfa3b0d36d096aab46d3f5acabfd5f7e52b5dc7ed25dcf54315"
+ }
+}

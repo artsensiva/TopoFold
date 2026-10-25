@@ -1,0 +1,4 @@
+entry,chain,primary,n_positions,n_present,n_missing,missing,n_altloc_resolved,n_breaks
+A,A,True,282,282,0,,0,0
+A,B,False,282,282,0,,0,0
+B,A,True,282,282,0,,0,0

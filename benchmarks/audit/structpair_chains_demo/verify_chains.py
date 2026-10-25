@@ -1,4 +1,4 @@
-"""Engineering verification of structpair 0.2.0 (multiple chains) on the existing KRAS inputs and records.
+"""Engineering verification of structpair 0.3.0 (multiple chains, corrected advisory output) on the existing KRAS inputs and records.
 
     .venv/bin/python benchmarks/audit/structpair_chains_demo/verify_chains.py [--adapter-python PATH]
 
@@ -10,7 +10,9 @@ git-ignored local copies of the KRAS-STRUCT-1/-2 structures. Checks:
       pairings and the within-entry maximum over 16 copy pairs equal the frozen KRAS-STRUCT-2_table.csv;
   V3  the exact K1 chains, residues and settings: displacement mean, median, primary pair, within-entry maxima, threshold and the
       flagged set equal the frozen KRAS-K1_endpoint.json.
-Writes results/verification.json and the compact K1-regression outputs with a caption generated from the record.
+V3 also applies the frozen K1 gate function to the flagged set and checks that its (failed) gate result equals the recorded one.
+Writes results/v0_3_0/verification.json and the compact K1-regression outputs with a caption generated from the record. The
+records of version 0.2.0 (schema /2, results/verification.json and results/k1_regression/) are historical and are not rewritten.
 """
 
 from __future__ import annotations
@@ -32,7 +34,7 @@ ROOT = HERE.parents[2]
 DEMO = ROOT / "benchmarks/audit/structpair_demo"
 STRUCT2 = ROOT / "benchmarks/audit/kras_struct_g12d/results/KRAS-STRUCT-2_table.csv"
 K1 = ROOT / "benchmarks/audit/kras_k1/results/KRAS-K1_endpoint.json"
-OUT = HERE / "results"
+OUT = HERE / "results" / "v0_3_0"      # 0.2.0 records stay in results/ (historical, schema /2)
 METRICS = ("d_kappa", "d_i_i2", "rmsd3", "d_tau", "d_i_i3", "rmsd4")
 LEGACY = {"kras1": "kras1_9O0N_vs_9O0O.json", "kras2": "kras2_5US4A_vs_5USJA.json",
           "explicit_exclude": "kras2_5US4A_vs_5USJA_explicit_exclude.json", "mismatch_flag": "demo_9O0NA_vs_5US4B_mismatch_flag.json"}
@@ -140,10 +142,16 @@ def v3(adapter: str, tmp: Path) -> dict:
                 mism.append((rid, ncol))
             maxd = max(maxd, abs(a - b))
         cells += 1
-        if (r["separated"] == "True") != rec["positive"][i]:
-            mism.append((rid, "separated"))
-    flagged = sorted(rid for (rid, ch), r in rows.items() if ch == "disp" and r["separated"] == "True")
-    recorded = json.loads(K1.read_text())["E"]
+        if (r["advisory_flag"] == "True") != rec["positive"][i]:
+            mism.append((rid, "advisory_flag"))
+    flagged = sorted(rid for (rid, ch), r in rows.items() if ch == "disp" and r["advisory_flag"] == "True")
+    k1rec = json.loads(K1.read_text())
+    recorded = k1rec["E"]
+    boundary = sorted(rid for (rid, ch), r in rows.items() if ch == "disp" and r["advisory_at_boundary"] == "True")
+    sys.path.insert(0, str(ROOT / "benchmarks/audit/kras_k1"))
+    import k1_endpoint as K
+    params = json.loads((ROOT / "benchmarks/audit/kras_k1/protocol_params.json").read_text())["endpoint"]
+    gate = K.gate(flagged, len(rec["resid"]), params["gate"], params["segments"]["merge_gap"])      # the frozen K1 gate, read-only use
     keep = ("chain_variation.csv", "chains.csv", "chain_variation.png", "windows.csv", "residues.csv", "exclusions.csv", "report.md",
             "manifest.json", "summary.json")
     dest = OUT / "k1_regression"
@@ -154,6 +162,9 @@ def v3(adapter: str, tmp: Path) -> dict:
         shutil.copy(o / f, dest / f)
     return {"positions": len(rec["resid"]), "cells_compared": cells, "mismatches": len(mism), "first_mismatches": mism[:5],
             "max_abs_difference": maxd, "flagged_equals_recorded_E": flagged == recorded, "flagged": flagged, "recorded_E": recorded,
+            "positions_at_boundary": boundary,
+            "k1_gate_unchanged": {"gate_equals_recorded": gate == k1rec["gate"], "passes": gate["passes"],
+                                  "segment_lengths": [x["length"] for x in gate["segments"]], "recorded_decision": k1rec["decision"]},
             "tolerance_A": TOL_K1, "tolerance_reason": "the frozen K1 code reads the PDB text in float64; the adapter holds float32 positions",
             "coordinate_check": coords,
             "note": "implementation consistency with the frozen K1 calculation, not biological validity", **rt}
@@ -161,7 +172,7 @@ def v3(adapter: str, tmp: Path) -> dict:
 
 def caption(rec: dict) -> str:
     k = rec["k1_regression"]
-    return f"""# Figure: within-entry crystal-copy variation, K1 regression run (structpair 0.2.0)
+    return f"""# Figure: within-entry crystal-copy variation, K1 regression run (structpair 0.3.0)
 
 ![chain variation](chain_variation.png)
 
@@ -170,8 +181,8 @@ that it reproduces that calculation.
 
 **What it shows.** Per residue (4–59 and 68–164), the Cα displacement between 5US4 (GDP) and 5USJ (GMPPNP) after a trimmed
 fit: the min–max band and the median over the 12 chain pairings, and the maximum over the within-entry chain pairs of each
-entry (dashed). Marks at the foot are the residues flagged by the advisory rule with the K1 settings (mean ≥ max(1 Å, 2 × the
-within-entry maximum)). They are {len(k['flagged'])} residues ({', '.join(map(str, k['flagged']))}); the recorded K1 endpoint set is
+entry (dashed). Marks at the top are the residues for which the advisory rule, configured with the K1 settings (minimum difference 1 Å on the
+displacement; the between-entry mean at least max(1 Å, 2 × the within-entry maximum)), is met. They are {len(k['flagged'])} residues ({', '.join(map(str, k['flagged']))}); the recorded K1 endpoint set is
 {'identical' if k['flagged_equals_recorded_E'] else 'DIFFERENT'}. Across {k['cells_compared']} compared values the largest absolute
 difference from the K1 record is {k['max_abs_difference']:.1e} Å (declared tolerance {k['tolerance_A']:g} Å: the adapter holds
 float32 positions, which differ from a float64 parse of the PDB text by up to {k['coordinate_check']['max_abs_coordinate_difference_A']:.1e} Å).
@@ -179,7 +190,8 @@ float32 positions, which differ from a float64 parse of the PDB text by up to {k
 **Main limitation.** Chains in one crystal are not independent experimental replicates, and crystal packing can affect each of
 them. The dashed lines are descriptive ranges among the selected chains, not a calibrated noise floor, a statistical
 uncertainty, a nucleotide effect or an HDX replicate estimate. Agreement with the K1 record shows implementation
-consistency, not biological validity, and the K1 gate result (K1_ENDPOINT_INADEQUATE) is unchanged.
+consistency, not biological validity. The marks are an advisory rule the user configured, not significance and not biological
+separation. The frozen K1 gate applied to the marked set gives its recorded result ({'identical' if k['k1_gate_unchanged']['gate_equals_recorded'] else 'DIFFERENT'}; {'passes' if k['k1_gate_unchanged']['passes'] else 'fails'}, K1_ENDPOINT_INADEQUATE unchanged).
 
 **Source data.** `chain_variation.csv` and `manifest.json` in this directory (inputs 5US4 and 5USJ, SHA-256 in the manifest);
 `benchmarks/audit/kras_k1/results/KRAS-K1_endpoint.json`.
@@ -196,7 +208,7 @@ def main(argv=None) -> int:
     with tempfile.TemporaryDirectory(prefix="structpair_chains_") as t:
         tmp = Path(t)
         rec = {"id": "STRUCTPAIR-CHAINS-VERIFY-1", "date": "2026-10-25", "scope": "implementation consistency, not biological validity",
-               "structpair_version": "0.2.0", "legacy_single_chain": v1(a.adapter_python, tmp), "struct2_chain_aggregates": v2(a.adapter_python, tmp),
+               "structpair_version": "0.3.0", "legacy_single_chain": v1(a.adapter_python, tmp), "struct2_chain_aggregates": v2(a.adapter_python, tmp),
                "k1_regression": v3(a.adapter_python, tmp)}
     OUT.mkdir(exist_ok=True)
     (OUT / "k1_regression/chain_variation_caption.md").write_text(caption(rec))
@@ -204,9 +216,10 @@ def main(argv=None) -> int:
     s2, k1 = rec["struct2_chain_aggregates"], rec["k1_regression"]
     print(json.dumps({"legacy_all_identical": rec["legacy_single_chain"]["all_identical"],
                       "struct2": {k: s2[k] for k in ("cells_compared", "mismatches", "max_abs_difference", "wall_s", "cpu_s")},
-                      "k1": {k: k1[k] for k in ("cells_compared", "mismatches", "max_abs_difference", "flagged_equals_recorded_E", "wall_s", "cpu_s",
+                      "k1": {k: k1[k] for k in ("cells_compared", "mismatches", "max_abs_difference", "flagged_equals_recorded_E", "k1_gate_unchanged", "wall_s", "cpu_s",
                                                 "output_bytes_total", "output_bytes_without_work")}}, indent=1))
-    ok = rec["legacy_single_chain"]["all_identical"] and s2["mismatches"] == 0 and k1["mismatches"] == 0 and k1["flagged_equals_recorded_E"]
+    ok = (rec["legacy_single_chain"]["all_identical"] and s2["mismatches"] == 0 and k1["mismatches"] == 0 and k1["flagged_equals_recorded_E"]
+          and k1["k1_gate_unchanged"]["gate_equals_recorded"] and not k1["k1_gate_unchanged"]["passes"])
     return 0 if ok else 1
 
 

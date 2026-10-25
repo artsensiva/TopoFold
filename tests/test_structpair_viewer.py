@@ -454,3 +454,56 @@ def test_app_states_the_copy_variation_limits_and_keeps_exclusions_and_provenanc
     assert not at.exception and set(_df(at, "between_median")["channel"]) == {"rmsd3"}
     older = _app(DEMO)                                                              # schema /1 results: no banner, no variation tab content
     assert not older.exception and "crystal-copy" not in " ".join(w.value for w in older.warning).lower()
+
+
+# --- schema /3 (advisory/2) next to the historical schema /2 (advisory/1) ----------------------------------------------------
+
+V3_K1 = CHAINS_DEMO / "v0_3_0/k1_regression"
+ABL_RUN = ROOT / "benchmarks/audit/structpair_abl_demo_2026-10-25/results/run"
+
+
+def test_both_advisory_semantics_load_with_their_own_meaning():
+    old = R.load_result(CHAINS_DEMO / "k1_regression")
+    new = R.load_result(V3_K1)
+    assert (old.manifest["schema"], old.advisory_semantics, old.flag_column) == ("topofold_inputs.structpair/2", "advisory/1", "separated")
+    assert (new.manifest["schema"], new.advisory_semantics, new.flag_column) == ("topofold_inputs.structpair/3", "advisory/2", "advisory_flag")
+    od, nd = old.variation[old.variation["channel"] == "disp"], new.variation[new.variation["channel"] == "disp"]
+    assert int((od["separated"] == True).sum()) == int((nd["advisory_flag"] == True).sum()) == 8                         # noqa: E712
+    # the historical record also flagged window channels that had no floor (default 0); the corrected record does not
+    assert int((old.variation["separated"] == True).sum()) == 78 and int((new.variation["advisory_flag"] == True).sum()) == 8   # noqa: E712
+    d = new.variation[new.variation["channel"] == "disp"]
+    assert int((d["advisory_flag"].isna()).sum()) == 0                                       # a floor is configured for the displacement channel
+    other = new.variation[new.variation["channel"] != "disp"]
+    assert other["advisory_flag"].isna().all()                                               # the unconfigured channels are not assessed
+    assert new.variation["advisory_at_boundary"].dropna().isin([True, False]).all()
+
+
+def test_abl_demo_loads_with_missing_within_entry_values_and_no_flags():
+    res = R.load_result(ABL_RUN)
+    assert res.advisory_semantics == "advisory/2" and res.summary["within_entry_variation"]["status"] == "partial"
+    v = res.variation
+    assert v["withinB_n"].eq(0).all() and v["withinB_max"].isna().all() and v["withinB_min"].isna().all()    # missing, never zero
+    assert v["advisory_flag"].isna().all() and len(res.chains) == 3
+    assert res.integrity["chain_variation.csv"] is True
+
+
+def test_app_shows_each_semantics_and_keeps_the_missing_values_visible(tmp_path):
+    at = _app(CHAINS_DEMO)                                                                    # the historical /2 record
+    assert not at.exception
+    text = " ".join(m.value for m in at.info) + " " + " ".join(m.value for m in at.markdown)
+    assert "historical meaning" in text and "separated" in text
+    at = _app(V3_K1.parent)                                                                   # the /3 K1 record
+    assert not at.exception
+    md = " ".join(m.value for m in at.markdown)
+    assert "Advisory rule (not significance, not biological separation)" in md and "equality meets the rule" in md
+    assert "historical meaning" not in " ".join(m.value for m in at.info)
+    abl = tmp_path / "abl"
+    abl.mkdir()
+    shutil.copytree(ABL_RUN, abl / "run")
+    at = _app(abl)                                                                            # no rule configured
+    assert not at.exception
+    md = " ".join(m.value for m in at.markdown)
+    assert "No advisory rule is configured, so no flag is assessed" in md
+    assert "not a calibrated noise floor" in " ".join(w.value for w in at.warning)
+    var = _df(at, "between_median")
+    assert var["withinB_max"].isna().all() and var["withinB_n"].eq(0).all()

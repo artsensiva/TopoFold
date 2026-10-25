@@ -1,0 +1,100 @@
+{
+ "id": "STRUCTPAIR-ADVISORY-REGRESSION-2026-10-25",
+ "test_file": "tests/test_structpair_advisory.py",
+ "before": {
+  "passed": [
+   "test_identical_chains_with_a_configured_floor_are_flagged_false_not_true",
+   "test_nan_and_infinity_are_rejected_at_parsing[block0]",
+   "test_nan_and_infinity_are_rejected_at_parsing[block1]",
+   "test_nan_and_infinity_are_rejected_at_parsing[block2]",
+   "test_nan_and_infinity_are_rejected_at_parsing[block5]",
+   "test_nan_and_infinity_are_rejected_at_parsing[block8]"
+  ],
+  "failed": [
+   "test_a_minimum_difference_must_be_positive_and_above_the_numerical_tolerance",
+   "test_default_reports_the_numbers_but_leaves_the_flag_unassessed",
+   "test_differences_indistinguishable_from_zero_do_not_become_a_finding[1e-12]",
+   "test_differences_indistinguishable_from_zero_do_not_become_a_finding[5e-10]",
+   "test_differences_indistinguishable_from_zero_do_not_become_a_finding[9.99e-10]",
+   "test_end_to_end_identical_chains_in_both_entries_are_never_described_as_separated",
+   "test_equality_at_a_positive_boundary_counts_and_a_hairline_below_does_not",
+   "test_identical_chains_with_all_values_zero_are_never_flagged_by_default",
+   "test_nan_and_infinity_are_rejected_at_parsing[block3]",
+   "test_nan_and_infinity_are_rejected_at_parsing[block4]",
+   "test_nan_and_infinity_are_rejected_at_parsing[block6]",
+   "test_nan_and_infinity_are_rejected_at_parsing[block7]",
+   "test_non_finite_values_are_rejected_when_a_spec_file_is_loaded"
+  ],
+  "other": [],
+  "exit_code": 1,
+  "code": {
+   "commit": "7d927edcefce97947ed780b6d32d34fe0fbac6e5",
+   "structpair_version": "0.2.0"
+  }
+ },
+ "after": {
+  "passed": [
+   "test_a_minimum_difference_must_be_positive_and_above_the_numerical_tolerance",
+   "test_default_reports_the_numbers_but_leaves_the_flag_unassessed",
+   "test_differences_indistinguishable_from_zero_do_not_become_a_finding[1e-12]",
+   "test_differences_indistinguishable_from_zero_do_not_become_a_finding[5e-10]",
+   "test_differences_indistinguishable_from_zero_do_not_become_a_finding[9.99e-10]",
+   "test_end_to_end_identical_chains_in_both_entries_are_never_described_as_separated",
+   "test_equality_at_a_positive_boundary_counts_and_a_hairline_below_does_not",
+   "test_identical_chains_with_a_configured_floor_are_flagged_false_not_true",
+   "test_identical_chains_with_all_values_zero_are_never_flagged_by_default",
+   "test_nan_and_infinity_are_rejected_at_parsing[block0]",
+   "test_nan_and_infinity_are_rejected_at_parsing[block1]",
+   "test_nan_and_infinity_are_rejected_at_parsing[block2]",
+   "test_nan_and_infinity_are_rejected_at_parsing[block3]",
+   "test_nan_and_infinity_are_rejected_at_parsing[block4]",
+   "test_nan_and_infinity_are_rejected_at_parsing[block5]",
+   "test_nan_and_infinity_are_rejected_at_parsing[block6]",
+   "test_nan_and_infinity_are_rejected_at_parsing[block7]",
+   "test_nan_and_infinity_are_rejected_at_parsing[block8]",
+   "test_non_finite_values_are_rejected_when_a_spec_file_is_loaded"
+  ],
+  "failed": [],
+  "other": [],
+  "exit_code": 0,
+  "code": {
+   "base_commit": "7d927edcefce97947ed780b6d32d34fe0fbac6e5",
+   "working_tree": "uncommitted corrected code",
+   "structpair_version": "0.3.0"
+  }
+ },
+ "failed_before_and_passing_after": [
+  "test_a_minimum_difference_must_be_positive_and_above_the_numerical_tolerance",
+  "test_default_reports_the_numbers_but_leaves_the_flag_unassessed",
+  "test_differences_indistinguishable_from_zero_do_not_become_a_finding[1e-12]",
+  "test_differences_indistinguishable_from_zero_do_not_become_a_finding[5e-10]",
+  "test_differences_indistinguishable_from_zero_do_not_become_a_finding[9.99e-10]",
+  "test_end_to_end_identical_chains_in_both_entries_are_never_described_as_separated",
+  "test_equality_at_a_positive_boundary_counts_and_a_hairline_below_does_not",
+  "test_identical_chains_with_all_values_zero_are_never_flagged_by_default",
+  "test_nan_and_infinity_are_rejected_at_parsing[block3]",
+  "test_nan_and_infinity_are_rejected_at_parsing[block4]",
+  "test_nan_and_infinity_are_rejected_at_parsing[block6]",
+  "test_nan_and_infinity_are_rejected_at_parsing[block7]",
+  "test_non_finite_values_are_rejected_when_a_spec_file_is_loaded"
+ ],
+ "passing_before_and_after": [
+  "test_identical_chains_with_a_configured_floor_are_flagged_false_not_true",
+  "test_nan_and_infinity_are_rejected_at_parsing[block0]",
+  "test_nan_and_infinity_are_rejected_at_parsing[block1]",
+  "test_nan_and_infinity_are_rejected_at_parsing[block2]",
+  "test_nan_and_infinity_are_rejected_at_parsing[block5]",
+  "test_nan_and_infinity_are_rejected_at_parsing[block8]"
+ ],
+ "still_failing_after": [],
+ "counts": {
+  "before": {
+   "passed": 6,
+   "failed": 13
+  },
+  "after": {
+   "passed": 19,
+   "failed": 0
+  }
+ }
+}

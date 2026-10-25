@@ -271,10 +271,24 @@ with t_var:
     else:
         st.warning(VAR["statement"] if VAR else "Descriptive only.")
         adv = VAR["parameters"]["advisory"]
-        st.markdown(f"Chains A {VAR['chains']['A']}, B {VAR['chains']['B']}; pairs {VAR['n_pairs']}. Advisory flag: the between-entry "
-                    f"**{adv['statistic']}** is at least max(floor, {adv['within_factor']:g} × the within-entry maximum); it is "
-                    "empty (not false) where it cannot be assessed. Empty cells are unavailable values, never zero; the counts "
-                    "(`*_n`) say how many chain pairs contributed.")
+        if res.advisory_semantics == "advisory/1":
+            st.info("Record of schema /2 (structpair 0.2.0), read with its historical meaning: the flag column `separated` used a "
+                    "default minimum difference of 0 and a tolerance-widened comparison, so it can be true where every value is zero. "
+                    "Read it only where a minimum difference was set explicitly; results of schema /3 use the advisory rule below.")
+            st.markdown(f"Chains A {VAR['chains']['A']}, B {VAR['chains']['B']}; pairs {VAR['n_pairs']}. Recorded flag rule: the between-entry "
+                        f"**{adv['statistic']}** at least max(floor, {adv['within_factor']:g} × the within-entry maximum), floors "
+                        f"{adv['min_difference'] or 'none (0)'}. Empty cells are unavailable values, never zero; `*_n` counts the chain pairs.")
+        else:
+            floors = adv["min_difference"]
+            rule = ("**No advisory rule is configured, so no flag is assessed**; the numeric values are shown. Set "
+                    "`chain_variation.advisory.min_difference` to a finite positive number for a channel to obtain a flag for it."
+                    if not floors else
+                    "Advisory rule (not significance, not biological separation), configured for "
+                    + ", ".join(f"{c} (≥ {v:g})" for c, v in floors.items())
+                    + f": the between-entry **{adv['statistic']}** is at least max(minimum difference, {adv['within_factor']:g} × the "
+                    "within-entry maximum); equality meets the rule; `advisory_at_boundary` marks values within 1e-9 of the threshold.")
+            st.markdown(f"Chains A {VAR['chains']['A']}, B {VAR['chains']['B']}; pairs {VAR['n_pairs']}. {rule} Empty cells are "
+                        "unavailable values, never zero; the counts (`*_n`) say how many chain pairs contributed.")
         chan = st.selectbox("Channel", list(res.variation["channel"].unique()), key="var_channel")
         d = res.variation[res.variation["channel"] == chan]
         st.dataframe(d.drop(columns=["unit"]), hide_index=True, key="var_table")

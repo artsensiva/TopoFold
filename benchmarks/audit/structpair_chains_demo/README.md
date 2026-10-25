@@ -1,6 +1,6 @@
 # STRUCTPAIR-CHAINS-VERIFY-1: multiple chains per entry, checked against earlier KRAS records
 
-`python -m topofold_inputs.structpair` v0.2.0 accepts several explicitly named chains per entry and reports within-entry
+`python -m topofold_inputs.structpair` v0.2.0 (output corrected in v0.3.0, see below) accepts several explicitly named chains per entry and reports within-entry
 crystal-copy variation (specification: `docs/STRUCTPAIR_CHAINS_SPEC_2026-10-25.md`; guide: `docs/STRUCTPAIR_USER_GUIDE.md` §3a).
 
 > **Chains in one crystal are not independent experimental replicates**, and crystal packing can affect each of them. The
@@ -37,3 +37,13 @@ and 20.1 s; each wrote about 0.75 MB without `work/` and 1.7 MB with it. The fou
 ![within-entry crystal-copy variation, K1 regression run](results/k1_regression/chain_variation.png)
 
 Nothing was sent externally; no outside human trial is claimed.
+
+## Update 2026-10-25: advisory output corrected in v0.3.0 (schema /3)
+
+The records in `results/` (`verification.json`, `k1_regression/`) were produced by 0.2.0 (schema /2, advisory/1) and are kept unchanged as
+historical records. In them the `separated` column was true at 78 position-channel cells of the K1 regression, 70 of them on channels with no
+configured floor. Version 0.3.0 reports the numbers and assesses the advisory flag only for a channel with a configured positive minimum
+difference (see `docs/STRUCTPAIR_CHAINS_SPEC_2026-10-25.md`, amendment 2). `results/v0_3_0/` repeats the checks with 0.3.0: legacy demonstrations
+4 of 4 byte-identical, STRUCT-2 4,740 values with 0 mismatches, K1 1,224 values with 0 mismatches at the declared 1e-4 Å tolerance,
+flagged set equal to the recorded K1 set (8 displacement cells, K1's explicit 1 Å floor), K1 gate result unchanged. Evidence for the
+correction: `../structpair_advisory_correction_2026-10-25/`.
