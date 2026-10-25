@@ -207,7 +207,8 @@
   "open_conditions": [
    "owner decision whether the post-hoc ABL-MYR-1b record suffices or a further (for example human) review is wanted before citation"
   ],
-  "decided_utc": "2026-10-24"
+  "decided_utc": "2026-10-24",
+  "open_conditions_status_2026-10-25": "the owner decided the post-hoc ABL-MYR-1b record is final for its protocol (D66); a further review or analysis would be a new, separately frozen study"
  },
  "sent_externally": "nothing",
  "notes": [
@@ -217,6 +218,14 @@
   "2026-10-24 (D59): the ABL-MYR-1a start-file audit found Set1 start coordinates identical between conditions and Set2 structures identical to Set1's, but mdp index-group names (MYRP) and the water count differ between Myr and noMyr, so the original G4 identity rules fail for any Myr vs noMyr pair (verdict V4). Decision (conditional-go) unchanged.",
   "2026-10-24 (D60, wording corrected 2026-10-25 in D63): ABL-MYR-1b run-input check: for the inspected tc groups, thermostat settings and composition, the differences detected between conditions are those expected from the presence of Myr and no unexpected difference was detected (not proof of no confound); production-start comparability was unverified because the md.tpr box was not exposed by MDAnalysis and GROMACS was not installed (K1). Decision (conditional-go) unchanged.",
   "2026-10-25 (D61): clarification: the ABL-MYR-1b a1 K1 outcome meant production-start comparability was not established (box not exposed by the reader), not that the systems are incomparable. Amendment a2 read the 40 production run inputs independently with GROMACS 2024.5 and passed K1-K5 (criteria passed; not proof of no confound). A post-hoc ABL-MYR-1b protocol is frozen for independent review; no trajectory opened. Decision (conditional-go) unchanged.",
-  "2026-10-25 (D65): ABL-MYR-1b comparison executed once after an independent AI review and a dated amendment (wrapper frozen before PCA.zip was opened): all gates passed; outcome 'baselines cover TopoFold (post-hoc, descriptive)'; no TopoFold-only residue; alphaI (518-531) not represented in the topology. Descriptive evidence only; not evidence about Ayaz WT/M472I, HDX or biology."
- ]
+  "2026-10-25 (D65): ABL-MYR-1b comparison executed once after an independent AI review and a dated amendment (wrapper frozen before PCA.zip was opened): all gates passed; outcome 'baselines cover TopoFold (post-hoc, descriptive)'; no TopoFold-only residue; alphaI (518-531) not represented in the topology. Descriptive evidence only; not evidence about Ayaz WT/M472I, HDX or biology.",
+  "2026-10-25 (D66): ABL-MYR-1b closed by the owner as final for its protocol; provenance inventory (full SHA-256 of the 3 archives, 107 extracted members, committed lineage files and local intermediates; environment; recovery steps; gaps incl. no independent backup) in benchmarks/audit/abl_myr_1b/CLOSEOUT_2026-10-25.md. Decision (conditional-go) unchanged."
+ ],
+ "status_update_2026-10-25": {
+  "note": "added at the ABL-MYR-1b closeout; the intake-time fields above are kept as recorded on 2026-10-24",
+  "local_archives": "the owner downloaded archives in a browser; the per-file presence, sizes and SHA-256 (equal to the Dryad source digests) are in benchmarks/audit/abl_myr_1b/results/ABL-MYR-1b_closeout_inventory.json",
+  "access_condition": "met (browser download by the owner)",
+  "independent_backup_verified": false,
+  "abl_myr_1b": "closed; result final for its protocol (D66)"
+ }
 }

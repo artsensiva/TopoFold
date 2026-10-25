@@ -5,6 +5,9 @@ computed.** All three required archives are present and verified, but both model
 `Set2/system.gro`, as published (details below). Descriptive real-MD evidence only once run, never biological
 validation.
 
+Later (kept separate from this original run): the post-hoc ABL-MYR-1a audit and ABL-MYR-1b check and comparison
+(`../abl_myr_1a/`, `../abl_myr_1b/`); ABL-MYR-1b is closed (2026-10-25, D66).
+
 ## Original run (2026-10-24T20:59:43Z, frozen runner, unmodified)
 
 | Gate | Result |

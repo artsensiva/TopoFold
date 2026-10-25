@@ -176,6 +176,8 @@ The development programme, evidence levels (A–E) and the current queue are in
     review), amended and run once (D65): all gates passed and, by the frozen descriptive rule, the equal-information Cα baselines
     cover every residue TopoFold flags (no TopoFold-only residue); the αI helix is not represented, so no αI or Myr-pocket claim
     is made. It addresses a separate myristoyl/allostery question and is not evidence about Ayaz WT/M472I, HDX or biology.
+    Closed 2026-10-25 as final for this protocol, with a provenance inventory and recovery steps (D66,
+    [`CLOSEOUT_2026-10-25.md`](benchmarks/audit/abl_myr_1b/CLOSEOUT_2026-10-25.md)).
 - **Kinase descriptors** (KIN-DESC-1, four public Abl crystal chains, representation capability only):
   - side-chain-aware descriptors reproduce the stated DFG and A-loop labels;
   - Cα κ/τ separates the A-loop contrast in many windows, but DFG only at a few four-point windows

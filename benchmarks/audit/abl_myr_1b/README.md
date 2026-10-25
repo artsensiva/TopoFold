@@ -1,7 +1,11 @@
 # ABL-MYR-1b: post-hoc comparability check, trajectory-comparison protocol, and its bounded comparison
 
-**Post-hoc engineering check of run inputs and parameter files. No trajectory was opened, no descriptor computed, no
-condition difference in dynamics scored.** ABL-MYR-1 (stopped at G1) and ABL-MYR-1a (verdict V4) are preserved unchanged and
+**Closed 2026-10-25: the comparison result is final for this protocol** (no rerun, no threshold change, no frozen file
+edited; provenance inventory and recovery steps in [`CLOSEOUT_2026-10-25.md`](CLOSEOUT_2026-10-25.md), D66).
+
+**Two parts.** The comparability check (attempt 1, a1, a2) read run inputs and parameter files only: no trajectory was opened
+and no dynamics scored in it. The post-hoc trajectory comparison was then run once (section "ABL-MYR-1b comparison"); it is
+descriptive evidence on simulated ensembles. ABL-MYR-1 (stopped at G1) and ABL-MYR-1a (verdict V4) are preserved unchanged and
 remain valid; their files are hash-recorded in the freeze records here and verified at every run. Nothing here is evidence
 about Ayaz WT/M472I, HDX, drug response or biological function, and no causal Myr claim is made.
 
@@ -139,8 +143,9 @@ shown in the report. The production-start Cα RMSD diagnostic is not a calibrate
 
 ## Owner decisions
 
-1. **Review the results and decide whether the post-hoc ABL-MYR-1b record is sufficient** or whether any further step (for
-   example a human scientific review) is wanted before the result is cited anywhere.
+1. **Decided 2026-10-25 by the owner: the result is final for this protocol** and is preserved as a negative outcome for
+   TopoFold-specific signal (D66). Any later human review or new analysis is a separate, newly frozen study that does not
+   replace this record.
 2. **No further amendment is open.** The wrapper did not need a workaround; no gate failed.
 3. The separate Ayaz M472I route (DESRES follow-up, HDX request) is unaffected by this study and remains pending.
 
@@ -160,3 +165,6 @@ python3 benchmarks/audit/abl_myr_1b/summarize_results_1b.py                     
 
 Resources of the check: attempt 1, 2.7 CPU-s; a1, 90.6 CPU-s; a2, 162.6 CPU-s; each extracted 177 MB; GROMACS acquisition about 80 MB
 and 14 s, no sudo. The comparison used about 16.5 CPU-min and 293 MB; extractions are in the git-ignored `data_dryad/extracted*/`.
+
+Closeout inventory (hashes only; nothing rerun): `PYTHONPATH=python .venv/bin/python benchmarks/audit/abl_myr_1b/closeout_inventory.py --copy-dir ~/Downloads`,
+then `sha256sum -c benchmarks/audit/abl_myr_1b/results/ABL-MYR-1b_closeout_SHA256SUMS.txt`.
