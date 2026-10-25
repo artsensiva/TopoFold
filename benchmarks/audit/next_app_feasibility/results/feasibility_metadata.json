@@ -1,0 +1,2533 @@
+{
+ "id": "NEXT-APP-FEASIBILITY-1",
+ "collected_utc": "2026-10-25T02:32:26.382492+00:00",
+ "scope": "metadata only; one 38 kB topology file for the residue mapping and 184 bytes (two frame headers) of each of 4 trajectories; no trajectory downloaded, nothing scored",
+ "kras_pantsar_zenodo": {
+  "doi": "10.5281/zenodo.1346073",
+  "concept_doi": "10.5281/zenodo.1346072",
+  "title": "Assessment of mutation probabilities of KRAS G12 missense mutants and their long-time scale dynamics by atomistic molecular simulations and Markov state modeling: Datasets.",
+  "publication_date": "2018-08-16",
+  "license": "cc-by-4.0",
+  "access_right": "open",
+  "files": [
+   {
+    "key": "300_2000RMSF_GTP_systems_RAW_AVG_SE.xlsx",
+    "bytes": 267268,
+    "checksum": "md5:ad47eda472500197b9b24be897c93a1b"
+   },
+   {
+    "key": "300_2000rmsf_GDP_systems_RAW_AVG_SE.xlsx",
+    "bytes": 253331,
+    "checksum": "md5:d10989399014d5ffd4954b7ac4523ce8"
+   },
+   {
+    "key": "GDP_G12A_1.xtc",
+    "bytes": 3934812,
+    "checksum": "md5:9a62dacb72659853dc1aeaeefc646bb3"
+   },
+   {
+    "key": "GDP_G12A_2.xtc",
+    "bytes": 3934788,
+    "checksum": "md5:4cc4280b583712cb28f184774f708665"
+   },
+   {
+    "key": "GDP_G12A_3.xtc",
+    "bytes": 3932960,
+    "checksum": "md5:61e5dd389cf9a7edf6cf2bd54de31388"
+   },
+   {
+    "key": "GDP_G12A_4.xtc",
+    "bytes": 3933472,
+    "checksum": "md5:e875164db373ecc03a65c784bbae00f6"
+   },
+   {
+    "key": "GDP_G12A_5.xtc",
+    "bytes": 3934288,
+    "checksum": "md5:faaeb3a789f2b72e1c225196ca200b52"
+   },
+   {
+    "key": "GDP_G12C_1.xtc",
+    "bytes": 3935228,
+    "checksum": "md5:f5664512d3dd91c1de9e61f308e590c3"
+   },
+   {
+    "key": "GDP_G12C_2.xtc",
+    "bytes": 3933072,
+    "checksum": "md5:f65523f2ac6302935e15bc5e0423c56a"
+   },
+   {
+    "key": "GDP_G12C_3.xtc",
+    "bytes": 3930752,
+    "checksum": "md5:5ae1b081e35fdb1e0210daffb180a516"
+   },
+   {
+    "key": "GDP_G12C_4.xtc",
+    "bytes": 3934872,
+    "checksum": "md5:0b5cf122fbe9e708ae804f24e361e3a1"
+   },
+   {
+    "key": "GDP_G12C_5.xtc",
+    "bytes": 3934524,
+    "checksum": "md5:43d296512c25b2cd02a1b3cbbe4803cb"
+   },
+   {
+    "key": "GDP_G12D_1.xtc",
+    "bytes": 3932960,
+    "checksum": "md5:d21a8956a4a59814e7b11eb79c692cce"
+   },
+   {
+    "key": "GDP_G12D_2.xtc",
+    "bytes": 3933404,
+    "checksum": "md5:7d0f4b2857ba014133be19e11881744e"
+   },
+   {
+    "key": "GDP_G12D_3.xtc",
+    "bytes": 3933568,
+    "checksum": "md5:eacc5513511d91c4d6e2495c55df563d"
+   },
+   {
+    "key": "GDP_G12D_4.xtc",
+    "bytes": 3935284,
+    "checksum": "md5:d3c58f092173de21e8c2ae3032218b01"
+   },
+   {
+    "key": "GDP_G12D_5.xtc",
+    "bytes": 3933040,
+    "checksum": "md5:a6042e2f1b607c7c34f0358ee2fbe690"
+   },
+   {
+    "key": "GDP_G12R_1.xtc",
+    "bytes": 3935356,
+    "checksum": "md5:09b8cf52a0acca9e1457786117ce5eb8"
+   },
+   {
+    "key": "GDP_G12R_2.xtc",
+    "bytes": 3933216,
+    "checksum": "md5:2d0769a5b0f0579aa28870d523cc65d8"
+   },
+   {
+    "key": "GDP_G12R_3.xtc",
+    "bytes": 3934028,
+    "checksum": "md5:8c179c0c5278731d8b5c42c96095c9c4"
+   },
+   {
+    "key": "GDP_G12R_4.xtc",
+    "bytes": 3933340,
+    "checksum": "md5:928c9ae51d6e38a5c36cadadb3af1bec"
+   },
+   {
+    "key": "GDP_G12R_5.xtc",
+    "bytes": 3933808,
+    "checksum": "md5:cda0f2d8870fd73bfcf50f7ec118b5ae"
+   },
+   {
+    "key": "GDP_G12S_1.xtc",
+    "bytes": 3933864,
+    "checksum": "md5:874512eb75fbe2466e857c2cf13d09dd"
+   },
+   {
+    "key": "GDP_G12S_2.xtc",
+    "bytes": 3934288,
+    "checksum": "md5:88aa4de58df68f110955c7db35b91610"
+   },
+   {
+    "key": "GDP_G12S_3.xtc",
+    "bytes": 3934752,
+    "checksum": "md5:97b26755e409541b13fa4838a2463c9d"
+   },
+   {
+    "key": "GDP_G12S_4.xtc",
+    "bytes": 3932908,
+    "checksum": "md5:d44adfecc9f8d24cc9d1e5bb5e4c2187"
+   },
+   {
+    "key": "GDP_G12S_5.xtc",
+    "bytes": 3933640,
+    "checksum": "md5:e803b8f880a417bafadc363d69fc4e29"
+   },
+   {
+    "key": "GDP_G12V_1.xtc",
+    "bytes": 3933292,
+    "checksum": "md5:b557f752d7682747721de4e5e3df688c"
+   },
+   {
+    "key": "GDP_G12V_2.xtc",
+    "bytes": 3934204,
+    "checksum": "md5:8ece4472fe6927b4a66b177b8e98a2c4"
+   },
+   {
+    "key": "GDP_G12V_3.xtc",
+    "bytes": 3932456,
+    "checksum": "md5:d36e08fbe6e4ef590d4f9fc46863e5f3"
+   },
+   {
+    "key": "GDP_G12V_4.xtc",
+    "bytes": 3933896,
+    "checksum": "md5:09b36e338d3296e5a211c4e7f05ca0f4"
+   },
+   {
+    "key": "GDP_G12V_5.xtc",
+    "bytes": 3933456,
+    "checksum": "md5:0e6bce8e43678e85983109b4ef0729b5"
+   },
+   {
+    "key": "GDP_WT_1.xtc",
+    "bytes": 3936256,
+    "checksum": "md5:a21d6bc572a59a7b1f53512343e4342b"
+   },
+   {
+    "key": "GDP_WT_2.xtc",
+    "bytes": 3933212,
+    "checksum": "md5:fbb3a6e212af866e89ba2cab4eda8e30"
+   },
+   {
+    "key": "GDP_WT_3.xtc",
+    "bytes": 3933560,
+    "checksum": "md5:ec2d71f52d6e87342deb1c96ff8ddbef"
+   },
+   {
+    "key": "GDP_WT_4.xtc",
+    "bytes": 3933608,
+    "checksum": "md5:7d7251f875f1ccd04ea8a93b07b76d50"
+   },
+   {
+    "key": "GDP_WT_5.xtc",
+    "bytes": 3933308,
+    "checksum": "md5:b6b46750aab0fbbae057d51d34dd4e94"
+   },
+   {
+    "key": "GTP_G12A_1.xtc",
+    "bytes": 3934140,
+    "checksum": "md5:ab3c34b93b56e5c5af8aba18d38c0b73"
+   },
+   {
+    "key": "GTP_G12A_2.xtc",
+    "bytes": 3934560,
+    "checksum": "md5:829f4200a03c155000aa5e4a9ebc6eea"
+   },
+   {
+    "key": "GTP_G12A_3.xtc",
+    "bytes": 3934216,
+    "checksum": "md5:57bf404a406d3624da18cd6db9dce1ff"
+   },
+   {
+    "key": "GTP_G12A_4.xtc",
+    "bytes": 3932800,
+    "checksum": "md5:e4c2550640d65869848815da22e16f10"
+   },
+   {
+    "key": "GTP_G12A_5.xtc",
+    "bytes": 3935112,
+    "checksum": "md5:a917f35483e188b41e9340db3fc3b6e8"
+   },
+   {
+    "key": "GTP_G12C_1.xtc",
+    "bytes": 3935900,
+    "checksum": "md5:9224bc61a8ecc5a23db71f25b2fe82d2"
+   },
+   {
+    "key": "GTP_G12C_2.xtc",
+    "bytes": 3934924,
+    "checksum": "md5:8134f57307b0b9ae6b3015922b226ea8"
+   },
+   {
+    "key": "GTP_G12C_3.xtc",
+    "bytes": 3934120,
+    "checksum": "md5:917f4ca535c03a28cb6c2022f1eaf90e"
+   },
+   {
+    "key": "GTP_G12C_4.xtc",
+    "bytes": 3935204,
+    "checksum": "md5:35818941646e0069ed20364a8c69ec33"
+   },
+   {
+    "key": "GTP_G12C_5.xtc",
+    "bytes": 3932440,
+    "checksum": "md5:ee634780fa2099f4fc3592302d5a7200"
+   },
+   {
+    "key": "GTP_G12D_1.xtc",
+    "bytes": 4553152,
+    "checksum": "md5:0a68f705eeef605b0de432a2c7b4bf68"
+   },
+   {
+    "key": "GTP_G12D_10.xtc",
+    "bytes": 3935488,
+    "checksum": "md5:5c63289ef88c3288d30ec2c3079c5ba7"
+   },
+   {
+    "key": "GTP_G12D_2.xtc",
+    "bytes": 3935324,
+    "checksum": "md5:f25de24f49f2058ce6a0c4e60baf15d1"
+   },
+   {
+    "key": "GTP_G12D_3.xtc",
+    "bytes": 3935308,
+    "checksum": "md5:cc655ccc3ebe5170a1c73ab6ec30d6c2"
+   },
+   {
+    "key": "GTP_G12D_4.xtc",
+    "bytes": 3934660,
+    "checksum": "md5:539e5f536e20ef13e89f4ae315ae8608"
+   },
+   {
+    "key": "GTP_G12D_5.xtc",
+    "bytes": 3935508,
+    "checksum": "md5:9b33f9dc7ca6a5ce6106175dd15096dc"
+   },
+   {
+    "key": "GTP_G12D_6.xtc",
+    "bytes": 3933488,
+    "checksum": "md5:84a1ae42e2ff59cccdcf3f246227b1d7"
+   },
+   {
+    "key": "GTP_G12D_7.xtc",
+    "bytes": 3932456,
+    "checksum": "md5:977f531d53228038268f22c3be3e6884"
+   },
+   {
+    "key": "GTP_G12D_8.xtc",
+    "bytes": 3933908,
+    "checksum": "md5:2f94ae356ee1620b81733c9a7ae0c29c"
+   },
+   {
+    "key": "GTP_G12D_9.xtc",
+    "bytes": 3934652,
+    "checksum": "md5:16d6fe35dd8e38155257ba1e035ff821"
+   },
+   {
+    "key": "GTP_G12R_1.xtc",
+    "bytes": 3934372,
+    "checksum": "md5:304888e741f923e7dd12b575dcf6ef22"
+   },
+   {
+    "key": "GTP_G12R_2.xtc",
+    "bytes": 3933856,
+    "checksum": "md5:a24361774560f2133babf671bd96e20e"
+   },
+   {
+    "key": "GTP_G12R_3.xtc",
+    "bytes": 3933620,
+    "checksum": "md5:b5bd1248e19561879eb29787963f1e03"
+   },
+   {
+    "key": "GTP_G12R_4.xtc",
+    "bytes": 3934616,
+    "checksum": "md5:dc85296736980ec995b7995203492142"
+   },
+   {
+    "key": "GTP_G12R_5.xtc",
+    "bytes": 3933260,
+    "checksum": "md5:f8c69d9d4d761dd32047775d9b96936b"
+   },
+   {
+    "key": "GTP_G12S_1.xtc",
+    "bytes": 3933404,
+    "checksum": "md5:00de56dd6b1f2ff9712cc6ecd056cf17"
+   },
+   {
+    "key": "GTP_G12S_2.xtc",
+    "bytes": 3933472,
+    "checksum": "md5:d643263558095348ceb307dcdf9ccaaf"
+   },
+   {
+    "key": "GTP_G12S_3.xtc",
+    "bytes": 3934792,
+    "checksum": "md5:33cc4b739cba4c80cbbc10e58c15d9bd"
+   },
+   {
+    "key": "GTP_G12S_4.xtc",
+    "bytes": 3934452,
+    "checksum": "md5:c51d117a42343f535ddbf3142b8a4ce8"
+   },
+   {
+    "key": "GTP_G12S_5.xtc",
+    "bytes": 3935176,
+    "checksum": "md5:280d65dedda95616c99cd6b01a9a5867"
+   },
+   {
+    "key": "GTP_G12V_1.xtc",
+    "bytes": 3932884,
+    "checksum": "md5:17d3a3055de949bbf1b500f075cff03e"
+   },
+   {
+    "key": "GTP_G12V_10.xtc",
+    "bytes": 3932636,
+    "checksum": "md5:490709d44a2788f355610df49ee03c87"
+   },
+   {
+    "key": "GTP_G12V_2.xtc",
+    "bytes": 3934820,
+    "checksum": "md5:a8bf99267092dafe88dd5a1130e0c845"
+   },
+   {
+    "key": "GTP_G12V_3.xtc",
+    "bytes": 3934092,
+    "checksum": "md5:18ae7174abb6f050506da0323de65d03"
+   },
+   {
+    "key": "GTP_G12V_4.xtc",
+    "bytes": 3934660,
+    "checksum": "md5:db7862c790edc6aec3dff182397e1ec2"
+   },
+   {
+    "key": "GTP_G12V_5.xtc",
+    "bytes": 3935412,
+    "checksum": "md5:dbe25968dff5fafe7fa64449c1a21eaf"
+   },
+   {
+    "key": "GTP_G12V_6.xtc",
+    "bytes": 3936552,
+    "checksum": "md5:c0475525b3136dc22caf90c51edffafa"
+   },
+   {
+    "key": "GTP_G12V_7.xtc",
+    "bytes": 3934036,
+    "checksum": "md5:558f07a33330a747a145b6ddff43808c"
+   },
+   {
+    "key": "GTP_G12V_8.xtc",
+    "bytes": 3933584,
+    "checksum": "md5:99f6b717566642e9f316032dc724bb14"
+   },
+   {
+    "key": "GTP_G12V_9.xtc",
+    "bytes": 3935648,
+    "checksum": "md5:c6c9fd163a2519cbc6b628655cfe9639"
+   },
+   {
+    "key": "GTP_WT_1.xtc",
+    "bytes": 3933608,
+    "checksum": "md5:6879b3e96d455a0bf4481211b9b84b44"
+   },
+   {
+    "key": "GTP_WT_10.xtc",
+    "bytes": 3934192,
+    "checksum": "md5:43fbc9753f139d9c7ef495e82b86094e"
+   },
+   {
+    "key": "GTP_WT_2.xtc",
+    "bytes": 3934884,
+    "checksum": "md5:f237a4667e50808272b9cf0615946059"
+   },
+   {
+    "key": "GTP_WT_3.xtc",
+    "bytes": 3932828,
+    "checksum": "md5:4a8270819eb2963cdadecc163fab1c87"
+   },
+   {
+    "key": "GTP_WT_4.xtc",
+    "bytes": 3934456,
+    "checksum": "md5:e0c561b12adda6376aca0685a1b1c621"
+   },
+   {
+    "key": "GTP_WT_5.xtc",
+    "bytes": 3935888,
+    "checksum": "md5:f0fbd973835fbcff9ecb83785e6337aa"
+   },
+   {
+    "key": "GTP_WT_6.xtc",
+    "bytes": 3935216,
+    "checksum": "md5:188069d33aae5cf557f0c511c8e56e56"
+   },
+   {
+    "key": "GTP_WT_7.xtc",
+    "bytes": 3934740,
+    "checksum": "md5:839103cc01cda086b35c895db6c00b28"
+   },
+   {
+    "key": "GTP_WT_8.xtc",
+    "bytes": 3935564,
+    "checksum": "md5:f992edf5df0dc03f47cff7a359d017b1"
+   },
+   {
+    "key": "GTP_WT_9.xtc",
+    "bytes": 3934184,
+    "checksum": "md5:52a9dc1329a43f7246f6e4591b8c73e2"
+   },
+   {
+    "key": "KRAS_G12X_mut_COSMICv79.xlsx",
+    "bytes": 14765,
+    "checksum": "md5:1d59a82717cf79ad1432d0161a5a00de"
+   },
+   {
+    "key": "PyInteraph_data.zip",
+    "bytes": 123404,
+    "checksum": "md5:cebc7e4078411a550ef069b6bb7b5c95"
+   },
+   {
+    "key": "backbone_4-164.gro",
+    "bytes": 33386,
+    "checksum": "md5:c81b97f48515c06afc106a1331cf62a8"
+   },
+   {
+    "key": "backbone_4-164.pdb",
+    "bytes": 38321,
+    "checksum": "md5:b458df422a4dbefb1dd3f1bd3effd883"
+   },
+   {
+    "key": "backbone_4-164.tpr",
+    "bytes": 282568,
+    "checksum": "md5:163c238c06b2ca8addb55522b7b18e58"
+   }
+  ],
+  "n_files": 92,
+  "total_bytes": 336034779,
+  "replicas_per_system": {
+   "GDP_G12A": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "GDP_G12C": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "GDP_G12D": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "GDP_G12R": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "GDP_G12S": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "GDP_G12V": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "GDP_WT": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "GTP_G12A": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "GTP_G12C": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "GTP_G12D": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "GTP_G12R": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "GTP_G12S": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "GTP_G12V": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "GTP_WT": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+   ]
+  }
+ },
+ "uniprot_kras": {
+  "P01116-1 (isoform 2A)": {
+   "length": 189,
+   "sha256": "1d5a9ab11f64cb886d8ffa08a153c412b2d190fcf70e5690cd4b4c7efcdee53a"
+  },
+  "P01116-2 (isoform 2B)": {
+   "length": 188,
+   "sha256": "9a0ed04ef46e15865a90f9dd0808d7d12c94746c66b0f41228aa2e62516ccbca"
+  },
+  "first_difference_1based": 151
+ },
+ "kras_topology_check": {
+  "atoms": 483,
+  "atom_names": [
+   "C",
+   "CA",
+   "N"
+  ],
+  "file": "backbone_4-164.pdb",
+  "bytes": 38321,
+  "sha256": "bceb7a75f3e6481d24569dc1d310973b89e80863f0de5150ee8173a1008c07ab",
+  "md5": "b458df422a4dbefb1dd3f1bd3effd883",
+  "md5_matches_zenodo": true,
+  "residues": 161,
+  "sequence": "YKLVVVGAAGVGKSALTIQLIQNHFVDEYDPTIEDSYRKQVVIDGETCLLDILDTAGQEEYSAMRDQYMRTGEGFLCVFAINNTKSFEDIHHYREQIKRVKDSEDVPMVLVGNKCDLPSRTVDTKQAQDLARSYGIPFIETSAKTRQGVDDAFYTLVREIR",
+  "map_P01116-1": {
+   "n": 161,
+   "first": 4,
+   "last": 164,
+   "mismatches": [
+    {
+     "resid": 12,
+     "topology": "A",
+     "reference": "G"
+    },
+    {
+     "resid": 151,
+     "topology": "G",
+     "reference": "R"
+    },
+    {
+     "resid": 153,
+     "topology": "D",
+     "reference": "E"
+    }
+   ]
+  },
+  "map_P01116-2": {
+   "n": 161,
+   "first": 4,
+   "last": 164,
+   "mismatches": [
+    {
+     "resid": 12,
+     "topology": "A",
+     "reference": "G"
+    }
+   ]
+  },
+  "local_copy": "outside the repository (--fetch-dir); not committed"
+ },
+ "kras_xtc_probe": {
+  "GDP_WT_1.xtc": {
+   "natoms": 483,
+   "first_time_ps": 0.0,
+   "frame_interval_ps": 1000.0,
+   "bytes_read": 184,
+   "estimated_frames_from_size": 2008,
+   "estimate_note": "file size / first-frame size; not a frame count"
+  },
+  "GTP_WT_1.xtc": {
+   "natoms": 483,
+   "first_time_ps": 0.0,
+   "frame_interval_ps": 1000.0,
+   "bytes_read": 184,
+   "estimated_frames_from_size": 2007,
+   "estimate_note": "file size / first-frame size; not a frame count"
+  },
+  "GDP_G12D_1.xtc": {
+   "natoms": 483,
+   "first_time_ps": 0.0,
+   "frame_interval_ps": 1000.0,
+   "bytes_read": 184,
+   "estimated_frames_from_size": 2007,
+   "estimate_note": "file size / first-frame size; not a frame count"
+  },
+  "GTP_G12D_1.xtc": {
+   "natoms": 483,
+   "first_time_ps": 0.0,
+   "frame_interval_ps": 1000.0,
+   "bytes_read": 184,
+   "estimated_frames_from_size": 2323,
+   "estimate_note": "file size / first-frame size; not a frame count"
+  }
+ },
+ "uniprot_mpro": [
+  {
+   "description": "3C-like proteinase nsp5",
+   "start": 3264,
+   "end": 3569
+  }
+ ],
+ "endpoint_entries": {
+  "7MHF": {
+   "role": "Mpro 100 K multiconformer",
+   "title": "Crystal Structure of SARS-CoV-2 Main Protease (Mpro) at 100 K",
+   "method": "X-RAY DIFFRACTION",
+   "resolution_A": 1.55,
+   "models": 1,
+   "nonpolymer_entities": 2,
+   "released": "2021-05-12"
+  },
+  "7MHG": {
+   "role": "Mpro 240 K multiconformer",
+   "title": "Crystal Structure of SARS-CoV-2 Main Protease (Mpro) at 240 K",
+   "method": "X-RAY DIFFRACTION",
+   "resolution_A": 1.5302,
+   "models": 1,
+   "nonpolymer_entities": 2,
+   "released": "2021-05-12"
+  },
+  "7MHH": {
+   "role": "Mpro 277 K multiconformer",
+   "title": "Crystal Structure of SARS-CoV-2 Main Protease (Mpro) at 277 K",
+   "method": "X-RAY DIFFRACTION",
+   "resolution_A": 2.1908,
+   "models": 1,
+   "nonpolymer_entities": 2,
+   "released": "2021-05-12"
+  },
+  "7MHI": {
+   "role": "Mpro 298 K multiconformer",
+   "title": "Crystal Structure of SARS-CoV-2 Main Protease (Mpro) at 298 K",
+   "method": "X-RAY DIFFRACTION",
+   "resolution_A": 1.88,
+   "models": 1,
+   "nonpolymer_entities": 2,
+   "released": "2021-05-12"
+  },
+  "7MHJ": {
+   "role": "Mpro 298 K high humidity multiconformer",
+   "title": "Crystal Structure of SARS-CoV-2 Main Protease (Mpro) at 298 K and High Humidity",
+   "method": "X-RAY DIFFRACTION",
+   "resolution_A": 2.0005,
+   "models": 1,
+   "nonpolymer_entities": 1,
+   "released": "2021-05-12"
+  },
+  "7MHK": {
+   "role": "Mpro 310 K multiconformer",
+   "title": "Crystal Structure of Apo/Unliganded SARS-CoV-2 Main Protease (Mpro) at 310 K",
+   "method": "X-RAY DIFFRACTION",
+   "resolution_A": 1.9601,
+   "models": 1,
+   "nonpolymer_entities": 2,
+   "released": "2021-05-12"
+  },
+  "7MHL": {
+   "role": "Mpro 100 K ensemble",
+   "title": "Ensemble refinement structure of SARS-CoV-2 main protease (Mpro) at 100 K",
+   "method": "X-RAY DIFFRACTION",
+   "resolution_A": 1.55,
+   "models": 54,
+   "nonpolymer_entities": 2,
+   "released": "2021-05-12"
+  },
+  "7MHM": {
+   "role": "Mpro 240 K ensemble",
+   "title": "Ensemble refinement structure of SARS-CoV-2 main protease (Mpro) at 240 K",
+   "method": "X-RAY DIFFRACTION",
+   "resolution_A": 1.5302,
+   "models": 43,
+   "nonpolymer_entities": 2,
+   "released": "2021-05-12"
+  },
+  "7MHN": {
+   "role": "Mpro 277 K ensemble",
+   "title": "Ensemble refinement structure of SARS-CoV-2 main protease (Mpro) at 277 K",
+   "method": "X-RAY DIFFRACTION",
+   "resolution_A": 2.1908,
+   "models": 45,
+   "nonpolymer_entities": 2,
+   "released": "2021-05-12"
+  },
+  "7MHO": {
+   "role": "Mpro 298 K ensemble",
+   "title": "Ensemble refinement structure of SARS-CoV-2 main protease (Mpro) at 298 K",
+   "method": "X-RAY DIFFRACTION",
+   "resolution_A": 1.88,
+   "models": 75,
+   "nonpolymer_entities": 2,
+   "released": "2021-05-12"
+  },
+  "7MHP": {
+   "role": "Mpro 298 K high humidity ensemble",
+   "title": "Ensemble refinement structure of SARS-CoV-2 main protease (Mpro) at 298 K at high humidity",
+   "method": "X-RAY DIFFRACTION",
+   "resolution_A": 2.0005,
+   "models": 28,
+   "nonpolymer_entities": 1,
+   "released": "2021-05-12"
+  },
+  "7MHQ": {
+   "role": "Mpro 310 K ensemble",
+   "title": "Ensemble refinement structure of SARS-CoV-2 main protease (Mpro) at 310 K",
+   "method": "X-RAY DIFFRACTION",
+   "resolution_A": 1.9601,
+   "models": 36,
+   "nonpolymer_entities": 2,
+   "released": "2021-05-12"
+  },
+  "9PYS": {
+   "role": "monomeric Mpro NMR RDC, helical domain",
+   "title": "NMR RDC refinement of the helical domain of the SARS-CoV-2 monomeric Main Protease (MPROH41Q,10-306)",
+   "method": "SOLUTION NMR",
+   "resolution_A": null,
+   "models": 10,
+   "nonpolymer_entities": 0,
+   "released": "2025-09-17"
+  },
+  "9PYT": {
+   "role": "monomeric Mpro NMR RDC, catalytic domain",
+   "title": "NMR RDC refinement of the catalytic domain of the SARS-CoV-2 monomeric Main Protease (MPROH41Q,10-306)",
+   "method": "SOLUTION NMR",
+   "resolution_A": null,
+   "models": 10,
+   "nonpolymer_entities": 0,
+   "released": "2025-09-17"
+  },
+  "4OBE": {
+   "role": "KRAS GDP, start of the Pantsar et al. MD",
+   "title": "Crystal Structure of GDP-bound Human KRas",
+   "method": "X-RAY DIFFRACTION",
+   "resolution_A": 1.24,
+   "models": 1,
+   "nonpolymer_entities": 2,
+   "released": "2014-06-04"
+  },
+  "5US4": {
+   "role": "KRAS G12D GDP (KRAS-STRUCT-2)",
+   "title": "Crystal structure of human KRAS G12D mutant in complex with GDP",
+   "method": "X-RAY DIFFRACTION",
+   "resolution_A": 1.83,
+   "models": 1,
+   "nonpolymer_entities": 3,
+   "released": "2017-03-22"
+  },
+  "5USJ": {
+   "role": "KRAS G12D GMPPNP (KRAS-STRUCT-2)",
+   "title": "Crystal Structure of human KRAS G12D mutant in complex with GDPNP",
+   "method": "X-RAY DIFFRACTION",
+   "resolution_A": 1.94,
+   "models": 1,
+   "nonpolymer_entities": 2,
+   "released": "2017-03-22"
+  }
+ },
+ "moonshot_pdb_entries": {
+  "runs": 354,
+  "runs_with_pdb_entry": 129,
+  "unique_pdb_entries": 120,
+  "xray_entries": 120,
+  "entries_with_nonpolymer": 120,
+  "by_site": {
+   "Aminopyridine-like": {
+    "runs": 131,
+    "with_pdb_entry": 12
+   },
+   "XChem Screen - xtal contact": {
+    "runs": 21,
+    "with_pdb_entry": 21
+   },
+   "Chloroacetamide": {
+    "runs": 69,
+    "with_pdb_entry": 49
+   },
+   "XChem screen - dimer interface": {
+    "runs": 3,
+    "with_pdb_entry": 3
+   },
+   "Moonshot - active site": {
+    "runs": 9,
+    "with_pdb_entry": 1
+   },
+   "XChem Screen - active site": {
+    "runs": 20,
+    "with_pdb_entry": 20
+   },
+   "Ugi": {
+    "runs": 12,
+    "with_pdb_entry": 11
+   },
+   "Isoquinoline": {
+    "runs": 26,
+    "with_pdb_entry": 1
+   },
+   "Isatin": {
+    "runs": 6,
+    "with_pdb_entry": 0
+   },
+   "XChem screen - surface": {
+    "runs": 6,
+    "with_pdb_entry": 6
+   },
+   "Quinolone": {
+    "runs": 15,
+    "with_pdb_entry": 0
+   },
+   "XChem Screen - Covalent hits": {
+    "runs": 4,
+    "with_pdb_entry": 4
+   },
+   "Moonshot - other": {
+    "runs": 5,
+    "with_pdb_entry": 1
+   },
+   "Benzotriazole": {
+    "runs": 20,
+    "with_pdb_entry": 0
+   },
+   "Moonshot - Active site": {
+    "runs": 1,
+    "with_pdb_entry": 0
+   },
+   "Immature Form": {
+    "runs": 6,
+    "with_pdb_entry": 0
+   }
+  },
+  "entries": {
+   "5R7Y": {
+    "title": "PanDDA analysis group deposition -- Crystal Structure of COVID-19 main protease in complex with Z45617795",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.65,
+    "models": 1,
+    "nonpolymer_entities": 3,
+    "released": "2020-03-11"
+   },
+   "5R7Z": {
+    "title": "PanDDA analysis group deposition -- Crystal Structure of SARS-CoV-2 main protease in complex with Z1220452176",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.59,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-03-11"
+   },
+   "5R80": {
+    "title": "PanDDA analysis group deposition -- Crystal Structure of SARS-CoV-2 main protease in complex with Z18197050",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.93,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-03-11"
+   },
+   "5R81": {
+    "title": "PanDDA analysis group deposition -- Crystal Structure of COVID-19 main protease in complex with Z1367324110",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.95,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-03-11"
+   },
+   "5R82": {
+    "title": "PanDDA analysis group deposition -- Crystal Structure of COVID-19 main protease in complex with Z219104216",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.31,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-03-11"
+   },
+   "5R83": {
+    "title": "PanDDA analysis group deposition -- Crystal Structure of SARS-CoV-2 main protease in complex with Z44592329",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.58,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-03-11"
+   },
+   "5R84": {
+    "title": "PanDDA analysis group deposition -- Crystal Structure of COVID-19 main protease in complex with Z31792168",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.83,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-03-11"
+   },
+   "5RE4": {
+    "title": "PanDDA analysis group deposition -- Crystal Structure of SARS-CoV-2 main protease in complex with Z1129283193",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.88,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-03-25"
+   },
+   "5RE5": {
+    "title": "PanDDA analysis group deposition -- Crystal Structure of SARS-CoV-2 main protease in complex with Z33545544",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 2.07,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-03-25"
+   },
+   "5RE6": {
+    "title": "PanDDA analysis group deposition -- Crystal Structure of SARS-CoV-2 main protease in complex with Z54571979",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.87,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-03-25"
+   },
+   "5RE7": {
+    "title": "PanDDA analysis group deposition -- Crystal Structure of SARS-CoV-2 main protease in complex with Z30932204",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.79,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-03-25"
+   },
+   "5RE8": {
+    "title": "PanDDA analysis group deposition -- Crystal Structure of SARS-CoV-2 main protease in complex with Z2737076969",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.81,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-03-25"
+   },
+   "5RE9": {
+    "title": "PanDDA analysis group deposition -- Crystal Structure of SARS-CoV-2 main protease in complex with Z2856434836",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.72,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-03-25"
+   },
+   "5REA": {
+    "title": "PanDDA analysis group deposition -- Crystal Structure of SARS-CoV-2 main protease in complex with Z31432226",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.63,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-03-25"
+   },
+   "5REB": {
+    "title": "PanDDA analysis group deposition -- Crystal Structure of SARS-CoV-2 main protease in complex with Z2856434899",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.68,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-03-25"
+   },
+   "5REC": {
+    "title": "PanDDA analysis group deposition -- Crystal Structure of SARS-CoV-2 main protease in complex with Z1587220559",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.73,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-03-25"
+   },
+   "5RED": {
+    "title": "PanDDA analysis group deposition -- Crystal Structure of SARS-CoV-2 main protease in complex with Z2856434865",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.47,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-03-25"
+   },
+   "5REE": {
+    "title": "PanDDA analysis group deposition -- Crystal Structure of SARS-CoV-2 main protease in complex with Z2217052426",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.77,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-03-25"
+   },
+   "5REF": {
+    "title": "PanDDA analysis group deposition -- Crystal Structure of SARS-CoV-2 main protease in complex with Z24758179",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.61,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-03-25"
+   },
+   "5REG": {
+    "title": "PanDDA analysis group deposition -- Crystal Structure of SARS-CoV-2 main protease in complex with Z1545313172",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.67,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-03-25"
+   },
+   "5REH": {
+    "title": "PanDDA analysis group deposition -- Crystal Structure of SARS-CoV-2 main protease in complex with Z111507846",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.8,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-03-25"
+   },
+   "5REI": {
+    "title": "PanDDA analysis group deposition -- Crystal Structure of SARS-CoV-2 main protease in complex with Z2856434856",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.82,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-03-25"
+   },
+   "5REJ": {
+    "title": "PanDDA analysis group deposition -- Crystal Structure of SARS-CoV-2 main protease in complex with PCM-0102241",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.72,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-03-25"
+   },
+   "5REK": {
+    "title": "PanDDA analysis group deposition -- Crystal Structure of SARS-CoV-2 main protease in complex with PCM-0102327",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.74,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-03-25"
+   },
+   "5REL": {
+    "title": "PanDDA analysis group deposition -- Crystal Structure of SARS-CoV-2 main protease in complex with PCM-0102340",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.62,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-03-25"
+   },
+   "5REM": {
+    "title": "PanDDA analysis group deposition -- Crystal Structure of SARS-CoV-2 main protease in complex with PCM-0103016",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.96,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-03-25"
+   },
+   "5REN": {
+    "title": "PanDDA analysis group deposition -- Crystal Structure of SARS-CoV-2 main protease in complex with PCM-0102425",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 2.15,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-03-25"
+   },
+   "5REO": {
+    "title": "PanDDA analysis group deposition -- Crystal Structure of SARS-CoV-2 main protease in complex with PCM-0102578",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.88,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-03-25"
+   },
+   "5REP": {
+    "title": "PanDDA analysis group deposition -- Crystal Structure of SARS-CoV-2 main protease in complex with PCM-0102201",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.81,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-03-25"
+   },
+   "5RER": {
+    "title": "PanDDA analysis group deposition -- Crystal Structure of SARS-CoV-2 main protease in complex with PCM-0102615",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.88,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-03-25"
+   },
+   "5RES": {
+    "title": "PanDDA analysis group deposition -- Crystal Structure of SARS-CoV-2 main protease in complex with PCM-0102281",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.65,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-03-25"
+   },
+   "5RET": {
+    "title": "PanDDA analysis group deposition -- Crystal Structure of SARS-CoV-2 main protease in complex with PCM-0102269",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.68,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-03-25"
+   },
+   "5REU": {
+    "title": "PanDDA analysis group deposition -- Crystal Structure of SARS-CoV-2 main protease in complex with PCM-0102395",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.69,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-03-25"
+   },
+   "5REV": {
+    "title": "PanDDA analysis group deposition -- Crystal Structure of SARS-CoV-2 main protease in complex with PCM-0103072",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.6,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-03-25"
+   },
+   "5REW": {
+    "title": "PanDDA analysis group deposition -- Crystal Structure of SARS-CoV-2 main protease in complex with PCM-0102275",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.55,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-03-25"
+   },
+   "5REX": {
+    "title": "PanDDA analysis group deposition -- Crystal Structure of SARS-CoV-2 main protease in complex with PCM-0102287",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 2.07,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-03-25"
+   },
+   "5REY": {
+    "title": "PanDDA analysis group deposition -- Crystal Structure of SARS-CoV-2 main protease in complex with PCM-0102911",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.96,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-03-25"
+   },
+   "5REZ": {
+    "title": "PanDDA analysis group deposition -- Crystal Structure of SARS-CoV-2 main protease in complex with POB0129",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.79,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-03-25"
+   },
+   "5RF0": {
+    "title": "PanDDA analysis group deposition -- Crystal Structure of SARS-CoV-2 main protease in complex with POB0073",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.65,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-03-25"
+   },
+   "5RF1": {
+    "title": "PanDDA analysis group deposition -- Crystal Structure of SARS-CoV-2 main protease in complex with NCL-00023830",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.73,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-03-25"
+   },
+   "5RF2": {
+    "title": "PanDDA analysis group deposition -- Crystal Structure of SARS-CoV-2 main protease in complex with Z1741969146",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.53,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-03-25"
+   },
+   "5RF3": {
+    "title": "PanDDA analysis group deposition -- Crystal Structure of SARS-CoV-2 main protease in complex with Z1741970824",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.5,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-03-25"
+   },
+   "5RF4": {
+    "title": "PanDDA analysis group deposition -- Crystal Structure of SARS-CoV-2 main protease in complex with Z1741982125",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.61,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-03-25"
+   },
+   "5RF5": {
+    "title": "PanDDA analysis group deposition -- Crystal Structure of SARS-CoV-2 main protease in complex with Z3241250482",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.74,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-03-25"
+   },
+   "5RF6": {
+    "title": "PanDDA analysis group deposition -- Crystal Structure of SARS-CoV-2 main protease in complex with Z1348371854",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.45,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-03-25"
+   },
+   "5RF7": {
+    "title": "PanDDA analysis group deposition -- Crystal Structure of SARS-CoV-2 main protease in complex with Z316425948_minor",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.54,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-03-25"
+   },
+   "5RF8": {
+    "title": "PanDDA analysis group deposition -- Crystal Structure of SARS-CoV-2 main protease in complex with Z271004858",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.44,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-03-25"
+   },
+   "5RF9": {
+    "title": "PanDDA analysis group deposition -- Crystal Structure of SARS-CoV-2 main protease in complex with Z217038356",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.43,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-03-25"
+   },
+   "5RFA": {
+    "title": "PanDDA analysis group deposition -- Crystal Structure of SARS-CoV-2 main protease in complex with Z2643472210",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.52,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-03-25"
+   },
+   "5RFB": {
+    "title": "PanDDA analysis group deposition -- Crystal Structure of SARS-CoV-2 main protease in complex with Z1271660837",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.48,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-03-25"
+   },
+   "5RFC": {
+    "title": "PanDDA analysis group deposition -- Crystal Structure of SARS-CoV-2 main protease in complex with Z979145504",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.4,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-03-25"
+   },
+   "5RFD": {
+    "title": "PanDDA analysis group deposition -- Crystal Structure of SARS-CoV-2 main protease in complex with Z126932614",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.41,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-03-25"
+   },
+   "5RFE": {
+    "title": "PanDDA analysis group deposition -- Crystal Structure of SARS-CoV-2 main protease in complex with Z509756472",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.46,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-03-25"
+   },
+   "5RFF": {
+    "title": "PanDDA analysis group deposition -- Crystal Structure of SARS-CoV-2 main protease in complex with PCM-0102704",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.78,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-03-25"
+   },
+   "5RFG": {
+    "title": "PanDDA analysis group deposition -- Crystal Structure of SARS-CoV-2 main protease in complex with PCM-0102372",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 2.32,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-03-25"
+   },
+   "5RFH": {
+    "title": "PanDDA analysis group deposition -- Crystal Structure of SARS-CoV-2 main protease in complex with PCM-0102277",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.58,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-03-25"
+   },
+   "5RFI": {
+    "title": "PanDDA analysis group deposition -- Crystal Structure of SARS-CoV-2 main protease in complex with PCM-0102353",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.69,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-03-25"
+   },
+   "5RFJ": {
+    "title": "PanDDA analysis group deposition -- Crystal Structure of SARS-CoV-2 main protease in complex with PCM-0103067",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.8,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-03-25"
+   },
+   "5RFK": {
+    "title": "PanDDA analysis group deposition -- Crystal Structure of SARS-CoV-2 main protease in complex with PCM-0102575",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.75,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-03-25"
+   },
+   "5RFL": {
+    "title": "PanDDA analysis group deposition -- Crystal Structure of SARS-CoV-2 main protease in complex with PCM-0102389",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.64,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-03-25"
+   },
+   "5RFM": {
+    "title": "PanDDA analysis group deposition -- Crystal Structure of SARS-CoV-2 main protease in complex with PCM-0102539",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 2.06,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-03-25"
+   },
+   "5RFN": {
+    "title": "PanDDA analysis group deposition -- Crystal Structure of SARS-CoV-2 main protease in complex with PCM-0102868",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.8,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-03-25"
+   },
+   "5RFO": {
+    "title": "PanDDA analysis group deposition -- Crystal Structure of SARS-CoV-2 main protease in complex with PCM-0102972",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.83,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-03-25"
+   },
+   "5RFP": {
+    "title": "PanDDA analysis group deposition -- Crystal Structure of SARS-CoV-2 main protease in complex with PCM-0102190",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 2.03,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-03-25"
+   },
+   "5RFQ": {
+    "title": "PanDDA analysis group deposition -- Crystal Structure of SARS-CoV-2 main protease in complex with PCM-0102179",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.76,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-03-25"
+   },
+   "5RFR": {
+    "title": "PanDDA analysis group deposition -- Crystal Structure of SARS-CoV-2 main protease in complex with PCM-0102169",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.71,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-03-25"
+   },
+   "5RFS": {
+    "title": "PanDDA analysis group deposition -- Crystal Structure of SARS-CoV-2 main protease in complex with PCM-0102739",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.7,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-03-25"
+   },
+   "5RFT": {
+    "title": "PanDDA analysis group deposition -- Crystal Structure of SARS-CoV-2 main protease in complex with PCM-0102432",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.58,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-03-25"
+   },
+   "5RFU": {
+    "title": "PanDDA analysis group deposition -- Crystal Structure of SARS-CoV-2 main protease in complex with PCM-0102121",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.53,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-03-25"
+   },
+   "5RFV": {
+    "title": "PanDDA analysis group deposition -- Crystal Structure of SARS-CoV-2 main protease in complex with PCM-0102306",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.48,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-03-25"
+   },
+   "5RFW": {
+    "title": "PanDDA analysis group deposition -- Crystal Structure of SARS-CoV-2 main protease in complex with PCM-0102243",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.43,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-03-25"
+   },
+   "5RFX": {
+    "title": "PanDDA analysis group deposition -- Crystal Structure of SARS-CoV-2 main protease in complex with PCM-0102254",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.55,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-03-25"
+   },
+   "5RFY": {
+    "title": "PanDDA analysis group deposition -- Crystal Structure of SARS-CoV-2 main protease in complex with PCM-0102974",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.9,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-03-25"
+   },
+   "5RFZ": {
+    "title": "PanDDA analysis group deposition -- Crystal Structure of SARS-CoV-2 main protease in complex with PCM-0102274",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.68,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-03-25"
+   },
+   "5RG0": {
+    "title": "PanDDA analysis group deposition -- Crystal Structure of SARS-CoV-2 main protease in complex with PCM-0102535",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.72,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-03-25"
+   },
+   "5RG1": {
+    "title": "PanDDA analysis group deposition SARS-CoV-2 main protease fragment screen -- Crystal Structure of SARS-CoV-2 main protease in complex with NCL-00024905",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.65,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-04-15"
+   },
+   "5RG2": {
+    "title": "PanDDA analysis group deposition SARS-CoV-2 main protease fragment screen -- Crystal Structure of SARS-CoV-2 main protease in complex with NCL-00025058",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.63,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-04-15"
+   },
+   "5RG3": {
+    "title": "PanDDA analysis group deposition SARS-CoV-2 main protease fragment screen -- Crystal Structure of SARS-CoV-2 main protease in complex with NCL-00025412",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.58,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-04-15"
+   },
+   "5RGG": {
+    "title": "PanDDA analysis group deposition SARS-CoV-2 main protease fragment screen -- Crystal Structure of SARS-CoV-2 main protease in complex with Z2856434890 (Mpro-x0165)",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 2.26,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-04-15"
+   },
+   "5RGH": {
+    "title": "PanDDA analysis group deposition SARS-CoV-2 main protease fragment screen -- Crystal Structure of SARS-CoV-2 main protease in complex with Z1619978933 (Mpro-x0395)",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.7,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-04-15"
+   },
+   "5RGI": {
+    "title": "PanDDA analysis group deposition SARS-CoV-2 main protease fragment screen -- Crystal Structure of SARS-CoV-2 main protease in complex with Z369936976 (Mpro-x0397)",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.57,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-04-15"
+   },
+   "5RGJ": {
+    "title": "PanDDA analysis group deposition SARS-CoV-2 main protease fragment screen -- Crystal Structure of SARS-CoV-2 main protease in complex with Z1401276297 (Mpro-x0425)",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.34,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-04-15"
+   },
+   "5RGK": {
+    "title": "PanDDA analysis group deposition SARS-CoV-2 main protease fragment screen -- Crystal Structure of SARS-CoV-2 main protease in complex with Z1310876699 (Mpro-x0426)",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.43,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-04-15"
+   },
+   "5RGL": {
+    "title": "PanDDA analysis group deposition SARS-CoV-2 main protease fragment screen -- Crystal Structure of SARS-CoV-2 main protease in complex with PCM-0102962 (Mpro-x0705)",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.76,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-04-15"
+   },
+   "5RGM": {
+    "title": "PanDDA analysis group deposition SARS-CoV-2 main protease fragment screen -- Crystal Structure of SARS-CoV-2 main protease in complex with PCM-0102142 (Mpro-x0708)",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 2.04,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-04-15"
+   },
+   "5RGN": {
+    "title": "PanDDA analysis group deposition SARS-CoV-2 main protease fragment screen -- Crystal Structure of SARS-CoV-2 main protease in complex with PCM-0102759 (Mpro-x0731)",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.86,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-04-15"
+   },
+   "5RGO": {
+    "title": "PanDDA analysis group deposition SARS-CoV-2 main protease fragment screen -- Crystal Structure of SARS-CoV-2 main protease in complex with PCM-0102248 (Mpro-x0736)",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.74,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-04-15"
+   },
+   "5RGP": {
+    "title": "PanDDA analysis group deposition SARS-CoV-2 main protease fragment screen -- Crystal Structure of SARS-CoV-2 main protease in complex with PCM-0102628 (Mpro-x0771)",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 2.07,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-04-15"
+   },
+   "5RGQ": {
+    "title": "PanDDA analysis group deposition SARS-CoV-2 main protease fragment screen -- Crystal Structure of SARS-CoV-2 main protease in complex with Z1849009686 (Mpro-x1086)",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 2.15,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-04-15"
+   },
+   "5RGR": {
+    "title": "PanDDA analysis group deposition SARS-CoV-2 main protease fragment screen -- Crystal Structure of SARS-CoV-2 main protease in complex with Z328695024 (Mpro-x1101)",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.41,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-04-15"
+   },
+   "5RGS": {
+    "title": "PanDDA analysis group deposition SARS-CoV-2 main protease fragment screen -- Crystal Structure of SARS-CoV-2 main protease in complex with Z1259086950 (Mpro-x1163)",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.72,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-04-15"
+   },
+   "5RGT": {
+    "title": "PanDDA analysis group deposition SARS-CoV-2 main protease fragment screen -- Crystal Structure of SARS-CoV-2 main protease in complex with Z4439011607 (Mpro-x2540)",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 2.22,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-05-27"
+   },
+   "5RGU": {
+    "title": "PanDDA analysis group deposition SARS-CoV-2 main protease fragment screen -- Crystal Structure of SARS-CoV-2 main protease in complex with Z4444622180 (Mpro-x2562)",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 2.108,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-05-27"
+   },
+   "5RGV": {
+    "title": "PanDDA analysis group deposition SARS-CoV-2 main protease fragment screen -- Crystal Structure of SARS-CoV-2 main protease in complex with Z4444622066 (Mpro-x2563)",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.82,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-05-27"
+   },
+   "5RGW": {
+    "title": "PanDDA analysis group deposition SARS-CoV-2 main protease fragment screen -- Crystal Structure of SARS-CoV-2 main protease in complex with Z4444621910 (Mpro-x2569)",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.43,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-05-27"
+   },
+   "5RGX": {
+    "title": "PanDDA analysis group deposition SARS-CoV-2 main protease fragment screen -- Crystal Structure of SARS-CoV-2 main protease in complex with Z1344037997 (Mpro-x2572)",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.69,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-05-27"
+   },
+   "5RGY": {
+    "title": "PanDDA analysis group deposition SARS-CoV-2 main protease fragment screen -- Crystal Structure of SARS-CoV-2 main protease in complex with Z1535580916 (Mpro-x2581)",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.976,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-05-27"
+   },
+   "5RGZ": {
+    "title": "PanDDA analysis group deposition SARS-CoV-2 main protease fragment screen -- Crystal Structure of SARS-CoV-2 main protease in complex with Z1343543528 (Mpro-x2600)",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.52,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-05-27"
+   },
+   "5RH0": {
+    "title": "PanDDA analysis group deposition SARS-CoV-2 main protease fragment screen -- Crystal Structure of SARS-CoV-2 main protease in complex with Z1286870272 (Mpro-x2608)",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.916,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-05-27"
+   },
+   "5RH1": {
+    "title": "PanDDA analysis group deposition SARS-CoV-2 main protease fragment screen -- Crystal Structure of SARS-CoV-2 main protease in complex with Z2010253653 (Mpro-x2643)",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.96,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-05-27"
+   },
+   "5RH2": {
+    "title": "PanDDA analysis group deposition SARS-CoV-2 main protease fragment screen -- Crystal Structure of SARS-CoV-2 main protease in complex with Z1129289650 (Mpro-x2646)",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.827,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-05-27"
+   },
+   "5RH3": {
+    "title": "PanDDA analysis group deposition SARS-CoV-2 main protease fragment screen -- Crystal Structure of SARS-CoV-2 main protease in complex with Z1264525706 (Mpro-x2649)",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.69,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-05-27"
+   },
+   "5RH4": {
+    "title": "PanDDA analysis group deposition SARS-CoV-2 main protease fragment screen -- Crystal Structure of SARS-CoV-2 main protease in complex with Z1530425063 (Mpro-x2659)",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.34,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-05-27"
+   },
+   "5RH5": {
+    "title": "PanDDA analysis group deposition SARS-CoV-2 main protease fragment screen -- Crystal Structure of SARS-CoV-2 main protease in complex with Z4439011520 (Mpro-x2694)",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.72,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-05-27"
+   },
+   "5RH6": {
+    "title": "PanDDA analysis group deposition SARS-CoV-2 main protease fragment screen -- Crystal Structure of SARS-CoV-2 main protease in complex with Z4439011588 (Mpro-x2703)",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.6,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-05-27"
+   },
+   "5RH7": {
+    "title": "PanDDA analysis group deposition SARS-CoV-2 main protease fragment screen -- Crystal Structure of SARS-CoV-2 main protease in complex with Z4439011584 (Mpro-x2705)",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.71,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-05-27"
+   },
+   "5RH8": {
+    "title": "PanDDA analysis group deposition SARS-CoV-2 main protease fragment screen -- Crystal Structure of SARS-CoV-2 main protease in complex with Z4444621965 (Mpro-x2764)",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.81,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-05-27"
+   },
+   "5RH9": {
+    "title": "PanDDA analysis group deposition SARS-CoV-2 main protease fragment screen -- Crystal Structure of SARS-CoV-2 main protease in complex with Z4438424255 (Mpro-x2776)",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.91,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-05-27"
+   },
+   "5RHA": {
+    "title": "PanDDA analysis group deposition SARS-CoV-2 main protease fragment screen -- Crystal Structure of SARS-CoV-2 main protease in complex with Z147647874 (Mpro-x2779)",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.51,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-05-27"
+   },
+   "5RHB": {
+    "title": "PanDDA analysis group deposition SARS-CoV-2 main protease fragment screen -- Crystal Structure of SARS-CoV-2 main protease in complex with Cov_HetLib030 (Mpro-x2097)",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.43,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-06-10"
+   },
+   "5RHC": {
+    "title": "PanDDA analysis group deposition SARS-CoV-2 main protease fragment screen -- Crystal Structure of SARS-CoV-2 main protease in complex with Cov_HetLib053 (Mpro-x2119)",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.58,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-06-10"
+   },
+   "5RHD": {
+    "title": "PanDDA analysis group deposition SARS-CoV-2 main protease fragment screen -- Crystal Structure of SARS-CoV-2 main protease in complex with SF013 (Mpro-x2193)",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.57,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-06-10"
+   },
+   "5RHE": {
+    "title": "PanDDA analysis group deposition SARS-CoV-2 main protease fragment screen -- Crystal Structure of SARS-CoV-2 main protease in complex with PG-COV-42 (Mpro-x2052)",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.56,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-06-10"
+   },
+   "5RHF": {
+    "title": "PanDDA analysis group deposition SARS-CoV-2 main protease fragment screen -- Crystal Structure of SARS-CoV-2 main protease in complex with PG-COV-34 (Mpro-x2754)",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.76,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-06-10"
+   },
+   "5RL0": {
+    "title": "PanDDA analysis group deposition of computational designs of SARS-CoV-2 main protease covalent inhibitors -- Crystal Structure of SARS-CoV-2 main protease in complex with LON-WEI-adc59df6-2 (Mpro-x3110)",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.69,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-12-02"
+   },
+   "5RL1": {
+    "title": "PanDDA analysis group deposition of computational designs of SARS-CoV-2 main protease covalent inhibitors -- Crystal Structure of SARS-CoV-2 main protease in complex with LON-WEI-adc59df6-27 (Mpro-x3113)",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.65,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-12-02"
+   },
+   "5RL2": {
+    "title": "PanDDA analysis group deposition of computational designs of SARS-CoV-2 main protease covalent inhibitors -- Crystal Structure of SARS-CoV-2 main protease in complex with LON-WEI-adc59df6-26 (Mpro-x3115)",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.48,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-12-02"
+   },
+   "5RL3": {
+    "title": "PanDDA analysis group deposition of computational designs of SARS-CoV-2 main protease covalent inhibitors -- Crystal Structure of SARS-CoV-2 main protease in complex with LON-WEI-adc59df6-39 (Mpro-x3117)",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.51,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-12-02"
+   },
+   "5RL4": {
+    "title": "PanDDA analysis group deposition of computational designs of SARS-CoV-2 main protease covalent inhibitors -- Crystal Structure of SARS-CoV-2 main protease in complex with LON-WEI-adc59df6-3 (Mpro-x3124)",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.53,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-12-02"
+   },
+   "5RL5": {
+    "title": "PanDDA analysis group deposition of computational designs of SARS-CoV-2 main protease covalent inhibitors -- Crystal Structure of SARS-CoV-2 main protease in complex with LON-WEI-adc59df6-30 (Mpro-x3359)",
+    "method": "X-RAY DIFFRACTION",
+    "resolution_A": 1.58,
+    "models": 1,
+    "nonpolymer_entities": 2,
+    "released": "2020-12-02"
+   }
+  }
+ },
+ "moonshot_subsets": {
+  "median_file_bytes": {
+   "13430": 44744005,
+   "13432": 45129693
+  },
+  "subsets": {
+   "XChem Screen - active site": {
+    "runs": 20,
+    "bytes_total": 10872072576,
+    "runs_with_3_full_length_clones_each": 18,
+    "bytes_3_full_length_clones_per_arm": 4914501271,
+    "per_run": {
+     "RUN9": {
+      "pdb_entry": "5RE9",
+      "13430": {
+       "clones": 8,
+       "full_length": 6,
+       "bytes": 307688559,
+       "bytes_3_largest": 137238530
+      },
+      "13432": {
+       "clones": 8,
+       "full_length": 5,
+       "bytes": 304024723,
+       "bytes_3_largest": 138980393
+      }
+     },
+     "RUN13": {
+      "pdb_entry": "5RGK",
+      "13430": {
+       "clones": 8,
+       "full_length": 5,
+       "bytes": 288870221,
+       "bytes_3_largest": 134419365
+      },
+      "13432": {
+       "clones": 8,
+       "full_length": 5,
+       "bytes": 270534411,
+       "bytes_3_largest": 138175282
+      }
+     },
+     "RUN22": {
+      "pdb_entry": "5R7Z",
+      "13430": {
+       "clones": 8,
+       "full_length": 6,
+       "bytes": 307769857,
+       "bytes_3_largest": 133328711
+      },
+      "13432": {
+       "clones": 8,
+       "full_length": 5,
+       "bytes": 271284743,
+       "bytes_3_largest": 137231017
+      }
+     },
+     "RUN49": {
+      "pdb_entry": "5R81",
+      "13430": {
+       "clones": 8,
+       "full_length": 6,
+       "bytes": 292775349,
+       "bytes_3_largest": 134168031
+      },
+      "13432": {
+       "clones": 8,
+       "full_length": 6,
+       "bytes": 304159496,
+       "bytes_3_largest": 137711253
+      }
+     },
+     "RUN111": {
+      "pdb_entry": "5R7Y",
+      "13430": {
+       "clones": 8,
+       "full_length": 4,
+       "bytes": 285968946,
+       "bytes_3_largest": 136864761
+      },
+      "13432": {
+       "clones": 8,
+       "full_length": 6,
+       "bytes": 289077162,
+       "bytes_3_largest": 137893250
+      }
+     },
+     "RUN115": {
+      "pdb_entry": "5R82",
+      "13430": {
+       "clones": 8,
+       "full_length": 6,
+       "bytes": 319492602,
+       "bytes_3_largest": 136860249
+      },
+      "13432": {
+       "clones": 8,
+       "full_length": 7,
+       "bytes": 333497778,
+       "bytes_3_largest": 135250303
+      }
+     },
+     "RUN120": {
+      "pdb_entry": "5R80",
+      "13430": {
+       "clones": 8,
+       "full_length": 5,
+       "bytes": 287661017,
+       "bytes_3_largest": 136801855
+      },
+      "13432": {
+       "clones": 8,
+       "full_length": 7,
+       "bytes": 327083218,
+       "bytes_3_largest": 138142660
+      }
+     },
+     "RUN131": {
+      "pdb_entry": "5RF6",
+      "13430": {
+       "clones": 9,
+       "full_length": 5,
+       "bytes": 286129240,
+       "bytes_3_largest": 134231517
+      },
+      "13432": {
+       "clones": 8,
+       "full_length": 6,
+       "bytes": 332880948,
+       "bytes_3_largest": 137559086
+      }
+     },
+     "RUN145": {
+      "pdb_entry": "5REZ",
+      "13430": {
+       "clones": 0,
+       "full_length": 0,
+       "bytes": 0,
+       "bytes_3_largest": 0
+      },
+      "13432": {
+       "clones": 0,
+       "full_length": 0,
+       "bytes": 0,
+       "bytes_3_largest": 0
+      }
+     },
+     "RUN174": {
+      "pdb_entry": "5RFE",
+      "13430": {
+       "clones": 9,
+       "full_length": 6,
+       "bytes": 313895364,
+       "bytes_3_largest": 136674211
+      },
+      "13432": {
+       "clones": 8,
+       "full_length": 6,
+       "bytes": 298064010,
+       "bytes_3_largest": 135789531
+      }
+     },
+     "RUN183": {
+      "pdb_entry": "5RF2",
+      "13430": {
+       "clones": 0,
+       "full_length": 0,
+       "bytes": 0,
+       "bytes_3_largest": 0
+      },
+      "13432": {
+       "clones": 0,
+       "full_length": 0,
+       "bytes": 0,
+       "bytes_3_largest": 0
+      }
+     },
+     "RUN185": {
+      "pdb_entry": "5RHD",
+      "13430": {
+       "clones": 9,
+       "full_length": 6,
+       "bytes": 300629411,
+       "bytes_3_largest": 134343106
+      },
+      "13432": {
+       "clones": 8,
+       "full_length": 5,
+       "bytes": 270432189,
+       "bytes_3_largest": 138584125
+      }
+     },
+     "RUN187": {
+      "pdb_entry": "5RF3",
+      "13430": {
+       "clones": 9,
+       "full_length": 6,
+       "bytes": 305270785,
+       "bytes_3_largest": 134462221
+      },
+      "13432": {
+       "clones": 8,
+       "full_length": 6,
+       "bytes": 289400156,
+       "bytes_3_largest": 134222971
+      }
+     },
+     "RUN223": {
+      "pdb_entry": "5RF7",
+      "13430": {
+       "clones": 9,
+       "full_length": 6,
+       "bytes": 316682776,
+       "bytes_3_largest": 136281601
+      },
+      "13432": {
+       "clones": 9,
+       "full_length": 6,
+       "bytes": 298397030,
+       "bytes_3_largest": 138310574
+      }
+     },
+     "RUN225": {
+      "pdb_entry": "5RF1",
+      "13430": {
+       "clones": 9,
+       "full_length": 6,
+       "bytes": 294407225,
+       "bytes_3_largest": 134356399
+      },
+      "13432": {
+       "clones": 9,
+       "full_length": 5,
+       "bytes": 303545440,
+       "bytes_3_largest": 137720791
+      }
+     },
+     "RUN236": {
+      "pdb_entry": "5RG1",
+      "13430": {
+       "clones": 9,
+       "full_length": 6,
+       "bytes": 308880232,
+       "bytes_3_largest": 134452410
+      },
+      "13432": {
+       "clones": 9,
+       "full_length": 5,
+       "bytes": 304459234,
+       "bytes_3_largest": 137723824
+      }
+     },
+     "RUN254": {
+      "pdb_entry": "5RGH",
+      "13430": {
+       "clones": 9,
+       "full_length": 6,
+       "bytes": 309053891,
+       "bytes_3_largest": 136542523
+      },
+      "13432": {
+       "clones": 9,
+       "full_length": 6,
+       "bytes": 321310947,
+       "bytes_3_largest": 138298049
+      }
+     },
+     "RUN257": {
+      "pdb_entry": "5REB",
+      "13430": {
+       "clones": 9,
+       "full_length": 6,
+       "bytes": 307456860,
+       "bytes_3_largest": 137152771
+      },
+      "13432": {
+       "clones": 9,
+       "full_length": 5,
+       "bytes": 306774542,
+       "bytes_3_largest": 137971926
+      }
+     },
+     "RUN273": {
+      "pdb_entry": "5REH",
+      "13430": {
+       "clones": 9,
+       "full_length": 5,
+       "bytes": 285106496,
+       "bytes_3_largest": 135071128
+      },
+      "13432": {
+       "clones": 9,
+       "full_length": 7,
+       "bytes": 337746949,
+       "bytes_3_largest": 137899417
+      }
+     },
+     "RUN303": {
+      "pdb_entry": "5RGI",
+      "13430": {
+       "clones": 9,
+       "full_length": 5,
+       "bytes": 293966584,
+       "bytes_3_largest": 136256612
+      },
+      "13432": {
+       "clones": 9,
+       "full_length": 6,
+       "bytes": 297694185,
+       "bytes_3_largest": 137530818
+      }
+     }
+    }
+   },
+   "XChem Screen - xtal contact": {
+    "runs": 21,
+    "bytes_total": 8293490292,
+    "runs_with_3_full_length_clones_each": 14,
+    "bytes_3_full_length_clones_per_arm": 3821136259,
+    "per_run": {
+     "RUN2": {
+      "pdb_entry": "5RF4",
+      "13430": {
+       "clones": 8,
+       "full_length": 5,
+       "bytes": 267084847,
+       "bytes_3_largest": 136946340
+      },
+      "13432": {
+       "clones": 8,
+       "full_length": 5,
+       "bytes": 257240320,
+       "bytes_3_largest": 135118502
+      }
+     },
+     "RUN4": {
+      "pdb_entry": "5RGR",
+      "13430": {
+       "clones": 0,
+       "full_length": 0,
+       "bytes": 0,
+       "bytes_3_largest": 0
+      },
+      "13432": {
+       "clones": 0,
+       "full_length": 0,
+       "bytes": 0,
+       "bytes_3_largest": 0
+      }
+     },
+     "RUN17": {
+      "pdb_entry": "5RFC",
+      "13430": {
+       "clones": 0,
+       "full_length": 0,
+       "bytes": 0,
+       "bytes_3_largest": 0
+      },
+      "13432": {
+       "clones": 0,
+       "full_length": 0,
+       "bytes": 0,
+       "bytes_3_largest": 0
+      }
+     },
+     "RUN18": {
+      "pdb_entry": "5RF9",
+      "13430": {
+       "clones": 8,
+       "full_length": 6,
+       "bytes": 297620764,
+       "bytes_3_largest": 134738433
+      },
+      "13432": {
+       "clones": 8,
+       "full_length": 5,
+       "bytes": 309928277,
+       "bytes_3_largest": 137430036
+      }
+     },
+     "RUN30": {
+      "pdb_entry": "5RF8",
+      "13430": {
+       "clones": 0,
+       "full_length": 0,
+       "bytes": 0,
+       "bytes_3_largest": 0
+      },
+      "13432": {
+       "clones": 0,
+       "full_length": 0,
+       "bytes": 0,
+       "bytes_3_largest": 0
+      }
+     },
+     "RUN43": {
+      "pdb_entry": "5RFC",
+      "13430": {
+       "clones": 0,
+       "full_length": 0,
+       "bytes": 0,
+       "bytes_3_largest": 0
+      },
+      "13432": {
+       "clones": 0,
+       "full_length": 0,
+       "bytes": 0,
+       "bytes_3_largest": 0
+      }
+     },
+     "RUN79": {
+      "pdb_entry": "5RE8",
+      "13430": {
+       "clones": 8,
+       "full_length": 6,
+       "bytes": 300561305,
+       "bytes_3_largest": 136948321
+      },
+      "13432": {
+       "clones": 8,
+       "full_length": 5,
+       "bytes": 276873157,
+       "bytes_3_largest": 134683775
+      }
+     },
+     "RUN81": {
+      "pdb_entry": "5REA",
+      "13430": {
+       "clones": 8,
+       "full_length": 6,
+       "bytes": 296976933,
+       "bytes_3_largest": 136982094
+      },
+      "13432": {
+       "clones": 8,
+       "full_length": 5,
+       "bytes": 286099290,
+       "bytes_3_largest": 137800097
+      }
+     },
+     "RUN82": {
+      "pdb_entry": "5REF",
+      "13430": {
+       "clones": 8,
+       "full_length": 5,
+       "bytes": 309578463,
+       "bytes_3_largest": 137295340
+      },
+      "13432": {
+       "clones": 8,
+       "full_length": 5,
+       "bytes": 315156393,
+       "bytes_3_largest": 138215265
+      }
+     },
+     "RUN85": {
+      "pdb_entry": "5RGR",
+      "13430": {
+       "clones": 8,
+       "full_length": 5,
+       "bytes": 288741959,
+       "bytes_3_largest": 136900255
+      },
+      "13432": {
+       "clones": 8,
+       "full_length": 6,
+       "bytes": 296395204,
+       "bytes_3_largest": 135417017
+      }
+     },
+     "RUN87": {
+      "pdb_entry": "5RFD",
+      "13430": {
+       "clones": 8,
+       "full_length": 5,
+       "bytes": 300350643,
+       "bytes_3_largest": 137241330
+      },
+      "13432": {
+       "clones": 8,
+       "full_length": 5,
+       "bytes": 260274813,
+       "bytes_3_largest": 137632356
+      }
+     },
+     "RUN101": {
+      "pdb_entry": "5RFC",
+      "13430": {
+       "clones": 0,
+       "full_length": 0,
+       "bytes": 0,
+       "bytes_3_largest": 0
+      },
+      "13432": {
+       "clones": 0,
+       "full_length": 0,
+       "bytes": 0,
+       "bytes_3_largest": 0
+      }
+     },
+     "RUN134": {
+      "pdb_entry": "5REG",
+      "13430": {
+       "clones": 9,
+       "full_length": 6,
+       "bytes": 316687746,
+       "bytes_3_largest": 136718097
+      },
+      "13432": {
+       "clones": 8,
+       "full_length": 6,
+       "bytes": 294998501,
+       "bytes_3_largest": 138109848
+      }
+     },
+     "RUN194": {
+      "pdb_entry": "5RE7",
+      "13430": {
+       "clones": 9,
+       "full_length": 6,
+       "bytes": 306961017,
+       "bytes_3_largest": 137609964
+      },
+      "13432": {
+       "clones": 8,
+       "full_length": 6,
+       "bytes": 292257571,
+       "bytes_3_largest": 134745818
+      }
+     },
+     "RUN200": {
+      "pdb_entry": "5RFB",
+      "13430": {
+       "clones": 9,
+       "full_length": 6,
+       "bytes": 320447711,
+       "bytes_3_largest": 137135695
+      },
+      "13432": {
+       "clones": 9,
+       "full_length": 6,
+       "bytes": 293039653,
+       "bytes_3_largest": 134955157
+      }
+     },
+     "RUN217": {
+      "pdb_entry": "5RE5",
+      "13430": {
+       "clones": 9,
+       "full_length": 5,
+       "bytes": 281281091,
+       "bytes_3_largest": 135327171
+      },
+      "13432": {
+       "clones": 9,
+       "full_length": 5,
+       "bytes": 290489131,
+       "bytes_3_largest": 136330756
+      }
+     },
+     "RUN231": {
+      "pdb_entry": "5RE6",
+      "13430": {
+       "clones": 9,
+       "full_length": 5,
+       "bytes": 298378376,
+       "bytes_3_largest": 137026017
+      },
+      "13432": {
+       "clones": 9,
+       "full_length": 6,
+       "bytes": 295937922,
+       "bytes_3_largest": 138459229
+      }
+     },
+     "RUN233": {
+      "pdb_entry": "5RGG",
+      "13430": {
+       "clones": 9,
+       "full_length": 5,
+       "bytes": 266417220,
+       "bytes_3_largest": 134616405
+      },
+      "13432": {
+       "clones": 9,
+       "full_length": 6,
+       "bytes": 325456469,
+       "bytes_3_largest": 135456268
+      }
+     },
+     "RUN256": {
+      "pdb_entry": "5RF8",
+      "13430": {
+       "clones": 0,
+       "full_length": 0,
+       "bytes": 0,
+       "bytes_3_largest": 0
+      },
+      "13432": {
+       "clones": 0,
+       "full_length": 0,
+       "bytes": 0,
+       "bytes_3_largest": 0
+      }
+     },
+     "RUN277": {
+      "pdb_entry": "5RFC",
+      "13430": {
+       "clones": 0,
+       "full_length": 0,
+       "bytes": 0,
+       "bytes_3_largest": 0
+      },
+      "13432": {
+       "clones": 0,
+       "full_length": 0,
+       "bytes": 0,
+       "bytes_3_largest": 0
+      }
+     },
+     "RUN306": {
+      "pdb_entry": "5RGS",
+      "13430": {
+       "clones": 9,
+       "full_length": 6,
+       "bytes": 319149231,
+       "bytes_3_largest": 134290196
+      },
+      "13432": {
+       "clones": 9,
+       "full_length": 6,
+       "bytes": 329106285,
+       "bytes_3_largest": 137006477
+      }
+     }
+    }
+   }
+  }
+ },
+ "kras_subsets": {
+  "G12D GDP + GTP + topology files": {
+   "files": 18,
+   "bytes": 59986475
+  },
+  "WT GDP + GTP + topology files": {
+   "files": 18,
+   "bytes": 59369779
+  }
+ }
+}
