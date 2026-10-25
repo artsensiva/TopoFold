@@ -102,3 +102,4 @@ M2–M4 are kept in the record. They are not recommended now, for the reasons in
   endpoint". It is external to the MD authors, but it is not held out: the developers already analysed the pair with
   TopoFold descriptors in KRAS-STRUCT-2. It is an external static structural proxy, not prospective or independent
   validation and not functional ground truth.
+- **Addendum 2026-10-25 (D70), K1 outcome:** the frozen K1 crystal endpoint gate failed (K1_ENDPOINT_INADEQUATE); K1 is closed and no MD was downloaded. M1 remains available. See `benchmarks/audit/kras_k1/results/KRAS-K1_endpoint_report.md`.

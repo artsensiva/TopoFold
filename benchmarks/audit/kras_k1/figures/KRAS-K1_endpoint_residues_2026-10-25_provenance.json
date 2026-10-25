@@ -1,0 +1,25 @@
+{
+ "id": "KRAS-K1-endpoint-figure",
+ "date": "2026-10-25",
+ "kind": "measured (two crystal structures); no MD coordinate",
+ "inputs_sha256": {
+  "results/KRAS-K1_endpoint.json": "245407ffaf8e82ea3721c20a54c39d0eea905c1fb0548b7ebf666a400875976c",
+  "protocol_params.json": "a1b6576fa1ae54b0f6dd9d3e5f3dcedd34f09e356f910792dc7506cfd30284fb"
+ },
+ "generator": {
+  "path": "plot_k1_endpoint.py",
+  "sha256": "8016765e16d91701d78c0bbe7ee5c95ed89b381949e741f6f6f1600ff7a87d91"
+ },
+ "output": {
+  "path": "figures/KRAS-K1_endpoint_residues_2026-10-25.png",
+  "bytes": 169643,
+  "sha256": "b5a71d5a72452d6f9df15dc2e366cfe47d1fd5df04a1b8c7352551ce22beaac4"
+ },
+ "caption": "figures/KRAS-K1_endpoint_residues_2026-10-25_caption.md",
+ "report": "results/KRAS-K1_endpoint_report.md",
+ "software": {
+  "python": "3.14.4",
+  "matplotlib": "3.11.2"
+ },
+ "reproduce": "PYTHONPATH=python .venv/bin/python benchmarks/audit/kras_k1/plot_k1_endpoint.py"
+}

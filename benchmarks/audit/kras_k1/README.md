@@ -1,7 +1,8 @@
-# KRAS K1 (protocol v1 frozen 2026-10-25; crystal endpoint step S1 only)
+# KRAS K1 (protocol v1 frozen 2026-10-25; CLOSED: K1_ENDPOINT_INADEQUATE)
 
-The study design is in [`PROTOCOL.md`](PROTOCOL.md) (frozen at S0 by `results/KRAS-K1_freeze.json`). No MD trajectory has
-been downloaded, opened or scored. The 5US4/5USJ crystal contrast is an external, already-exposed static structural proxy,
+The study design is in [`PROTOCOL.md`](PROTOCOL.md) (frozen at S0 by `results/KRAS-K1_freeze.json`). The frozen crystal
+endpoint was computed once and its adequacy gate failed, so **K1 is closed** ([report](results/KRAS-K1_endpoint_report.md),
+[figure](figures/KRAS-K1_endpoint_residues_2026-10-25.png)). No MD trajectory has been downloaded, opened or scored. The 5US4/5USJ crystal contrast is an external, already-exposed static structural proxy,
 not held out and not functional ground truth.
 
 | File | Content |
@@ -12,12 +13,16 @@ not held out and not functional ground truth.
 | `check_k1_provenance.py`, `results/k1_provenance_checks.json` | S0 evidence: S1 Table of Pantsar et al. 2018 against the Zenodo names, XTC header fields of the 15 G12D files, PyInteraph labels |
 | `plot_design_schematic.py` | Draws the design schematic into `docs/figures/kras_k1/` |
 | `results/KRAS-K1_freeze.json` | Hashes of the protocol, parameters, endpoint code, tests and inputs, recorded before the endpoint was computed |
-| `results/KRAS-K1_endpoint.json`, `results/KRAS-K1_endpoint_report.md`, `figures/` | The endpoint record, its short report and its figure (generated after the freeze commit) |
+| `results/KRAS-K1_endpoint.json` | The endpoint record (computed once, after the freeze commit) |
+| `verify_k1_endpoint.py`, `results/KRAS-K1_endpoint_verification.json` | Independent re-computation (Horn quaternion superposition, own PDB reader); agrees to 5e-14 Å with an identical E |
+| `plot_k1_endpoint.py`, `figures/`, `results/KRAS-K1_endpoint_report.md` | Figure, caption, provenance and the short report, all generated from the record |
 
 ```bash
 .venv/bin/python benchmarks/audit/kras_k1/k1_endpoint.py freeze      # once, before the endpoint
 .venv/bin/python benchmarks/audit/kras_k1/k1_endpoint.py run         # once
 PYTHONPATH=python .venv/bin/python benchmarks/audit/kras_k1/plot_design_schematic.py
+.venv/bin/python benchmarks/audit/kras_k1/verify_k1_endpoint.py     # independent check (needs the local, git-ignored crystal files)
+PYTHONPATH=python .venv/bin/python benchmarks/audit/kras_k1/plot_k1_endpoint.py
 python3 -I benchmarks/audit/kras_k1/check_k1_provenance.py --fetch-dir <new empty directory outside the repo>   # needs pdftotext
 ```
 

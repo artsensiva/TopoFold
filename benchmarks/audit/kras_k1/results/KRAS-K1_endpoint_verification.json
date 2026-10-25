@@ -1,0 +1,39 @@
+{
+ "id": "KRAS-K1-S1-endpoint-verification",
+ "method": "Horn quaternion superposition and an independent PDB reader",
+ "n_pairs": [
+  12,
+  16
+ ],
+ "max_abs_difference_A": {
+  "b_mean": 5.828670879282072e-15,
+  "w_max": 2.5979218776228663e-14,
+  "threshold": 5.1958437552457326e-14
+ },
+ "E_independent": [
+  31,
+  32,
+  33,
+  35,
+  36,
+  37,
+  59,
+  74
+ ],
+ "E_recorded": [
+  31,
+  32,
+  33,
+  35,
+  36,
+  37,
+  59,
+  74
+ ],
+ "E_equal": true,
+ "tolerance_A": 1e-06,
+ "agrees": true,
+ "md_opened": false,
+ "numpy": "2.5.3",
+ "python": "3.14.4"
+}
