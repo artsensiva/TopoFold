@@ -1,0 +1,41 @@
+{
+ "id": "ABL-MYR-1b-SUPPLEMENT-residue-coverage",
+ "date": "2026-10-25",
+ "kind": "measured results (recorded sets); schematic elements: the ±2 band and the span marks only",
+ "caption_file": "figures/ABL-MYR-1b_residue_coverage_SUPPLEMENT_2026-10-25_caption.md",
+ "inputs_sha256": {
+  "results/ABL-MYR-1b_results.json": "f24fd37c9fe46a63cbd22718c851f12a7be8d8068263f362de46e090336ce7ac",
+  "results/ABL-MYR-1b_residue_summary.json": "1dc47c27d6ce12c8eadac4e3276c0566fabb369588b897e2ddc3502ff3c34d71"
+ },
+ "generator": {
+  "path": "plot_residue_coverage_supplement.py",
+  "sha256": "7c2a7f264553e8f2a916e42f8cebd4e1584fb0c7ff8ab2f27b35cd27ce35d457"
+ },
+ "output": {
+  "path": "figures/ABL-MYR-1b_residue_coverage_SUPPLEMENT_2026-10-25.png",
+  "bytes": 159609,
+  "sha256": "ae257e62119e85c15d109e5788ba62f5cc2f6b90ddafad8017b424377643f7b5"
+ },
+ "software": {
+  "python": "3.14.4",
+  "matplotlib": "3.11.2"
+ },
+ "reproduce": "PYTHONPATH=python .venv/bin/python benchmarks/audit/abl_myr_1b/plot_residue_coverage_supplement.py",
+ "plotted_counts": {
+  "R_T": 34,
+  "R_B": 40,
+  "R_phi_psi": 15,
+  "T_outside_N2_R_B": 0,
+  "B_outside_N2_R_T": 1
+ },
+ "checks": [
+  "results.json indices map to resid 254-504 contiguously",
+  "R_T, R_B, R_phi_psi equal between results.json (via indices) and the residue summary",
+  "the frozen ±2 definition applied to the recorded sets reproduces both recorded outside sets",
+  "alphaI 518-531 recorded as not represented"
+ ],
+ "outcome_label_recorded": "baselines cover TopoFold (post-hoc, descriptive)",
+ "decision_rule_step_recorded": 4,
+ "not_modified": "no frozen specification, report, measurement or result file is written by this generator",
+ "storage_note": "hashes and the ~/Downloads copy of the archives are not an independent backup (same device); the gap recorded in CLOSEOUT_2026-10-25.md is unchanged"
+}

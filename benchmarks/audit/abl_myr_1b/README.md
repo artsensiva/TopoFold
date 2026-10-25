@@ -141,6 +141,21 @@ not independent replication. Backbone frames every 2 ns support a geometry descr
 shown in the report. The production-start Cα RMSD diagnostic is not a calibrated control for E. One modelled kinase domain
 (residues 254–504), one force field. The comparability criteria passed, which does not rule out unexamined confounds.
 
+## Supplementary visualization (2026-10-25)
+
+![ABL-MYR-1b residue coverage](figures/ABL-MYR-1b_residue_coverage_SUPPLEMENT_2026-10-25.png)
+
+One residue-level view of the closed result: TopoFold coverage, Cα-baseline coverage and the frozen ±2-residue rule, with
+the represented span (254–504) and the unavailable αI region marked. **No TopoFold-only residue survived the rule**;
+the evidence is descriptive, post-hoc and simulation-based. Caption, source data, hashes and the reproduction command:
+[`figures/…_caption.md`](figures/ABL-MYR-1b_residue_coverage_SUPPLEMENT_2026-10-25_caption.md) and
+[`figures/…_provenance.json`](figures/ABL-MYR-1b_residue_coverage_SUPPLEMENT_2026-10-25_provenance.json). It only reads the
+recorded results (generator: `plot_residue_coverage_supplement.py`); no frozen file was changed and nothing was rerun. The
+backup gap of the closeout is unchanged: the hashes and the `~/Downloads` copy are not an independent backup, and no data
+were uploaded anywhere. The closeout inventory and checksum list were regenerated (hashes only, nothing else
+rerun) when this supplement was added, so that they match the files in Git; the earlier version is in Git history
+(commit 35c699f).
+
 ## Owner decisions
 
 1. **Decided 2026-10-25 by the owner: the result is final for this protocol** and is preserved as a negative outcome for

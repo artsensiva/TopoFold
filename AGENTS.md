@@ -32,6 +32,23 @@ TopoFold is a research prototype under scientific re-validation. Versions ≤ 0.
   in repository artifacts. Name each check with its actual counts (never "all checks passed"), and keep measured
   results separate from explanations or hypotheses.
 
+## Visual reports
+- A substantive report includes a useful visual that explains the workflow, the evidence, a limitation or a decision. A
+  clear table is acceptable when a figure would add nothing. Normally one or two compact figures per substantive task.
+- **Location.** Scientific figures go in the study's `figures/` directory. General workflow or prior-art illustrations go
+  in `docs/figures/<topic>/`.
+- **Caption (every visual).** A brief caption stating its purpose, what it shows and its main limitation, with its source
+  data or external reference.
+- **Scientific figures** are generated from recorded machine-readable results (`results/*.json`, rule 3). Keep the
+  generating source and a reproduction command. Never transcribe a scientific value into a chart by hand.
+- **Evidence classes.** Label measured results, schematics, proposed capabilities and external examples separately. For
+  external material record the source, the relevant version and the reuse terms; where reuse rights are unclear, link
+  to the reference or draw an original, attributed schematic.
+- **Budget.** Use the existing plotting tools; add no dependency, paid image generation or animation. Default budget per
+  task: 60 CPU-seconds of rendering and 5 MB of committed visual output. State and justify any exception.
+- The report format is unchanged. Link to the detailed artifacts instead of expanding the chat response or repeating
+  history.
+
 ## Model selection for the Codex reviewer
 - Codex works with the model selected by the user. Do not require a model choice for routine messages.
 - Recommend a different model only when the task would materially benefit from it, explaining why before the user starts that task. Codex cannot switch its own primary model; the user makes that selection.

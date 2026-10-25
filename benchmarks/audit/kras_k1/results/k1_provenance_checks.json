@@ -1,0 +1,766 @@
+{
+ "id": "KRAS-K1-PROVENANCE-CHECKS",
+ "checked_utc": "2026-10-25T03:13:17.816495+00:00",
+ "scope": "metadata and XTC header fields only; no coordinate decoded or scored",
+ "s1_table": {
+  "source": "doi:10.1371/journal.pcbi.1006458.s016 (CC BY 4.0 article; supplementary PDF)",
+  "url": "https://journals.plos.org/ploscompbiol/article/file?type=supplementary&id=10.1371/journal.pcbi.1006458.s016",
+  "sha256": "2a047d8c441a8c77189034e16c1b5c29efb1d0136a5ca3748bd4e5db8bdb0376",
+  "bytes": 24151,
+  "systems": {
+   "GDP_G12A": {
+    "replicas": 5,
+    "atoms": 32741,
+    "K+": 35,
+    "Cl-": 28
+   },
+   "GTP_G12A": {
+    "replicas": 5,
+    "atoms": 32743,
+    "K+": 36,
+    "Cl-": 28
+   },
+   "GDP_G12C": {
+    "replicas": 5,
+    "atoms": 32739,
+    "K+": 35,
+    "Cl-": 28
+   },
+   "GTP_G12C": {
+    "replicas": 5,
+    "atoms": 32741,
+    "K+": 36,
+    "Cl-": 28
+   },
+   "GDP_G12D": {
+    "replicas": 5,
+    "atoms": 32741,
+    "K+": 36,
+    "Cl-": 28
+   },
+   "GTP_G12D": {
+    "replicas": 10,
+    "atoms": 32743,
+    "K+": 37,
+    "Cl-": 28
+   },
+   "GDP_G12R": {
+    "replicas": 5,
+    "atoms": 32754,
+    "K+": 34,
+    "Cl-": 28
+   },
+   "GTP_G12R": {
+    "replicas": 5,
+    "atoms": 32756,
+    "K+": 35,
+    "Cl-": 28
+   },
+   "GDP_G12S": {
+    "replicas": 5,
+    "atoms": 32742,
+    "K+": 35,
+    "Cl-": 28
+   },
+   "GTP_G12S": {
+    "replicas": 5,
+    "atoms": 32744,
+    "K+": 36,
+    "Cl-": 28
+   },
+   "GDP_G12V": {
+    "replicas": 5,
+    "atoms": 32753,
+    "K+": 35,
+    "Cl-": 28
+   },
+   "GTP_G12V": {
+    "replicas": 10,
+    "atoms": 32755,
+    "K+": 36,
+    "Cl-": 28
+   },
+   "GDP_WT": {
+    "replicas": 5,
+    "atoms": 32741,
+    "K+": 35,
+    "Cl-": 28
+   },
+   "GTP_WT": {
+    "replicas": 10,
+    "atoms": 32740,
+    "K+": 36,
+    "Cl-": 28
+   }
+  },
+  "total_replicas": 85,
+  "replica_start_note": "footnote: an equilibrated system was simulated at 350 K with restraints (K-Ras, crystal waters, Mg, ligand); every 50 ps one frame was picked as the initial structure of each replica"
+ },
+ "replica_counts": {
+  "compared": 14,
+  "equal": 14,
+  "detail": {
+   "GDP_G12A": {
+    "s1_table": 5,
+    "zenodo_files": 5,
+    "equal": true
+   },
+   "GTP_G12A": {
+    "s1_table": 5,
+    "zenodo_files": 5,
+    "equal": true
+   },
+   "GDP_G12C": {
+    "s1_table": 5,
+    "zenodo_files": 5,
+    "equal": true
+   },
+   "GTP_G12C": {
+    "s1_table": 5,
+    "zenodo_files": 5,
+    "equal": true
+   },
+   "GDP_G12D": {
+    "s1_table": 5,
+    "zenodo_files": 5,
+    "equal": true
+   },
+   "GTP_G12D": {
+    "s1_table": 10,
+    "zenodo_files": 10,
+    "equal": true
+   },
+   "GDP_G12R": {
+    "s1_table": 5,
+    "zenodo_files": 5,
+    "equal": true
+   },
+   "GTP_G12R": {
+    "s1_table": 5,
+    "zenodo_files": 5,
+    "equal": true
+   },
+   "GDP_G12S": {
+    "s1_table": 5,
+    "zenodo_files": 5,
+    "equal": true
+   },
+   "GTP_G12S": {
+    "s1_table": 5,
+    "zenodo_files": 5,
+    "equal": true
+   },
+   "GDP_G12V": {
+    "s1_table": 5,
+    "zenodo_files": 5,
+    "equal": true
+   },
+   "GTP_G12V": {
+    "s1_table": 10,
+    "zenodo_files": 10,
+    "equal": true
+   },
+   "GDP_WT": {
+    "s1_table": 5,
+    "zenodo_files": 5,
+    "equal": true
+   },
+   "GTP_WT": {
+    "s1_table": 10,
+    "zenodo_files": 10,
+    "equal": true
+   }
+  },
+  "zenodo_trajectory_files": 85
+ },
+ "pyinteraph_label_identity": {
+  "source": "Zenodo PyInteraph_data.zip (authors' analysis of the same replicas; labels only)",
+  "md5": "md5:cebc7e4078411a550ef069b6bb7b5c95",
+  "systems": {
+   "GDP_G12A": {
+    "residue_12_names": {},
+    "nucleotide_or_mg_labels": {}
+   },
+   "GDP_G12C": {
+    "residue_12_names": {},
+    "nucleotide_or_mg_labels": {}
+   },
+   "GDP_G12D": {
+    "residue_12_names": {
+     "ASP": 3
+    },
+    "nucleotide_or_mg_labels": {}
+   },
+   "GDP_G12R": {
+    "residue_12_names": {
+     "ARG": 7
+    },
+    "nucleotide_or_mg_labels": {}
+   },
+   "GDP_G12S": {
+    "residue_12_names": {},
+    "nucleotide_or_mg_labels": {}
+   },
+   "GDP_G12V": {
+    "residue_12_names": {
+     "VAL": 49
+    },
+    "nucleotide_or_mg_labels": {}
+   },
+   "GDP_WT": {
+    "residue_12_names": {},
+    "nucleotide_or_mg_labels": {}
+   },
+   "GTP_G12A": {
+    "residue_12_names": {},
+    "nucleotide_or_mg_labels": {}
+   },
+   "GTP_G12C": {
+    "residue_12_names": {},
+    "nucleotide_or_mg_labels": {}
+   },
+   "GTP_G12D": {
+    "residue_12_names": {
+     "ASP": 3
+    },
+    "nucleotide_or_mg_labels": {}
+   },
+   "GTP_G12R": {
+    "residue_12_names": {
+     "ARG": 5
+    },
+    "nucleotide_or_mg_labels": {}
+   },
+   "GTP_G12S": {
+    "residue_12_names": {},
+    "nucleotide_or_mg_labels": {}
+   },
+   "GTP_G12V": {
+    "residue_12_names": {
+     "VAL": 51
+    },
+    "nucleotide_or_mg_labels": {}
+   },
+   "GTP_WT": {
+    "residue_12_names": {},
+    "nucleotide_or_mg_labels": {}
+   }
+  }
+ },
+ "g12d_trajectories": {
+  "GDP_G12D_1.xtc": {
+   "bytes": 3932960,
+   "natoms": 483,
+   "first_time_ps": 0.0,
+   "interval_ps": 1000.0,
+   "box_first_frame_nm": [
+    7.005000114440918,
+    6.849999904632568,
+    6.843999862670898
+   ],
+   "off_diagonal_box_nm": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "bytes_read": 16568,
+   "last_frame": {
+    "time_ps": 2000000.0,
+    "step": 1000000000,
+    "natoms": 483
+   },
+   "implied_frames": 2001
+  },
+  "GDP_G12D_2.xtc": {
+   "bytes": 3933404,
+   "natoms": 483,
+   "first_time_ps": 0.0,
+   "interval_ps": 1000.0,
+   "box_first_frame_nm": [
+    7.092870235443115,
+    6.935929775238037,
+    6.929850101470947
+   ],
+   "off_diagonal_box_nm": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "bytes_read": 16568,
+   "last_frame": {
+    "time_ps": 2000000.0,
+    "step": 1000000000,
+    "natoms": 483
+   },
+   "implied_frames": 2001
+  },
+  "GDP_G12D_3.xtc": {
+   "bytes": 3933568,
+   "natoms": 483,
+   "first_time_ps": 0.0,
+   "interval_ps": 1000.0,
+   "box_first_frame_nm": [
+    7.109139919281006,
+    6.951839923858643,
+    6.9457502365112305
+   ],
+   "off_diagonal_box_nm": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "bytes_read": 16568,
+   "last_frame": {
+    "time_ps": 2000000.0,
+    "step": 1000000000,
+    "natoms": 483
+   },
+   "implied_frames": 2001
+  },
+  "GDP_G12D_4.xtc": {
+   "bytes": 3935284,
+   "natoms": 483,
+   "first_time_ps": 0.0,
+   "interval_ps": 1000.0,
+   "box_first_frame_nm": [
+    7.1050801277160645,
+    6.947859764099121,
+    6.941780090332031
+   ],
+   "off_diagonal_box_nm": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "bytes_read": 16568,
+   "last_frame": {
+    "time_ps": 2000000.0,
+    "step": 1000000000,
+    "natoms": 483
+   },
+   "implied_frames": 2001
+  },
+  "GDP_G12D_5.xtc": {
+   "bytes": 3933040,
+   "natoms": 483,
+   "first_time_ps": 0.0,
+   "interval_ps": 1000.0,
+   "box_first_frame_nm": [
+    7.110720157623291,
+    6.953380107879639,
+    6.947289943695068
+   ],
+   "off_diagonal_box_nm": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "bytes_read": 16568,
+   "last_frame": {
+    "time_ps": 2000000.0,
+    "step": 1000000000,
+    "natoms": 483
+   },
+   "implied_frames": 2001
+  },
+  "GTP_G12D_1.xtc": {
+   "bytes": 4553152,
+   "natoms": 483,
+   "first_time_ps": 0.0,
+   "interval_ps": 1000.0,
+   "box_first_frame_nm": [
+    7.0252299308776855,
+    6.869790077209473,
+    6.863770008087158
+   ],
+   "off_diagonal_box_nm": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "bytes_read": 16568,
+   "last_frame": {
+    "time_ps": 2315000.0,
+    "step": 1157500000,
+    "natoms": 483
+   },
+   "implied_frames": 2316
+  },
+  "GTP_G12D_10.xtc": {
+   "bytes": 3935488,
+   "natoms": 483,
+   "first_time_ps": 0.0,
+   "interval_ps": 1000.0,
+   "box_first_frame_nm": [
+    7.013299942016602,
+    6.858109951019287,
+    6.852099895477295
+   ],
+   "off_diagonal_box_nm": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "bytes_read": 16568,
+   "last_frame": {
+    "time_ps": 2000000.0,
+    "step": 1000000000,
+    "natoms": 483
+   },
+   "implied_frames": 2001
+  },
+  "GTP_G12D_2.xtc": {
+   "bytes": 3935324,
+   "natoms": 483,
+   "first_time_ps": 0.0,
+   "interval_ps": 1000.0,
+   "box_first_frame_nm": [
+    7.01777982711792,
+    6.862490177154541,
+    6.856480121612549
+   ],
+   "off_diagonal_box_nm": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "bytes_read": 16568,
+   "last_frame": {
+    "time_ps": 2000000.0,
+    "step": 1000000000,
+    "natoms": 483
+   },
+   "implied_frames": 2001
+  },
+  "GTP_G12D_3.xtc": {
+   "bytes": 3935308,
+   "natoms": 483,
+   "first_time_ps": 0.0,
+   "interval_ps": 1000.0,
+   "box_first_frame_nm": [
+    7.030360221862793,
+    6.874800205230713,
+    6.868770122528076
+   ],
+   "off_diagonal_box_nm": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "bytes_read": 16568,
+   "last_frame": {
+    "time_ps": 2000000.0,
+    "step": 1000000000,
+    "natoms": 483
+   },
+   "implied_frames": 2001
+  },
+  "GTP_G12D_4.xtc": {
+   "bytes": 3934660,
+   "natoms": 483,
+   "first_time_ps": 0.0,
+   "interval_ps": 1000.0,
+   "box_first_frame_nm": [
+    7.011769771575928,
+    6.856619834899902,
+    6.850619792938232
+   ],
+   "off_diagonal_box_nm": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "bytes_read": 16568,
+   "last_frame": {
+    "time_ps": 2000000.0,
+    "step": 1000000000,
+    "natoms": 483
+   },
+   "implied_frames": 2001
+  },
+  "GTP_G12D_5.xtc": {
+   "bytes": 3935508,
+   "natoms": 483,
+   "first_time_ps": 0.0,
+   "interval_ps": 1000.0,
+   "box_first_frame_nm": [
+    7.01894998550415,
+    6.863639831542969,
+    6.857629776000977
+   ],
+   "off_diagonal_box_nm": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "bytes_read": 16568,
+   "last_frame": {
+    "time_ps": 2000000.0,
+    "step": 1000000000,
+    "natoms": 483
+   },
+   "implied_frames": 2001
+  },
+  "GTP_G12D_6.xtc": {
+   "bytes": 3933488,
+   "natoms": 483,
+   "first_time_ps": 0.0,
+   "interval_ps": 1000.0,
+   "box_first_frame_nm": [
+    7.024040222167969,
+    6.868619918823242,
+    6.86260986328125
+   ],
+   "off_diagonal_box_nm": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "bytes_read": 16568,
+   "last_frame": {
+    "time_ps": 2000000.0,
+    "step": 1000000000,
+    "natoms": 483
+   },
+   "implied_frames": 2001
+  },
+  "GTP_G12D_7.xtc": {
+   "bytes": 3932456,
+   "natoms": 483,
+   "first_time_ps": 0.0,
+   "interval_ps": 1000.0,
+   "box_first_frame_nm": [
+    7.008739948272705,
+    6.8536601066589355,
+    6.847660064697266
+   ],
+   "off_diagonal_box_nm": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "bytes_read": 16568,
+   "last_frame": {
+    "time_ps": 2000000.0,
+    "step": 1000000000,
+    "natoms": 483
+   },
+   "implied_frames": 2001
+  },
+  "GTP_G12D_8.xtc": {
+   "bytes": 3933908,
+   "natoms": 483,
+   "first_time_ps": 0.0,
+   "interval_ps": 1000.0,
+   "box_first_frame_nm": [
+    7.020480155944824,
+    6.8651299476623535,
+    6.859119892120361
+   ],
+   "off_diagonal_box_nm": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "bytes_read": 16568,
+   "last_frame": {
+    "time_ps": 2000000.0,
+    "step": 1000000000,
+    "natoms": 483
+   },
+   "implied_frames": 2001
+  },
+  "GTP_G12D_9.xtc": {
+   "bytes": 3934652,
+   "natoms": 483,
+   "first_time_ps": 0.0,
+   "interval_ps": 1000.0,
+   "box_first_frame_nm": [
+    7.013820171356201,
+    6.858610153198242,
+    6.852610111236572
+   ],
+   "off_diagonal_box_nm": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "bytes_read": 16568,
+   "last_frame": {
+    "time_ps": 2000000.0,
+    "step": 1000000000,
+    "natoms": 483
+   },
+   "implied_frames": 2001
+  }
+ },
+ "g12d_summary": {
+  "files": 15,
+  "natoms": [
+   483
+  ],
+  "first_time_ps": [
+   0.0
+  ],
+  "interval_ps": [
+   1000.0
+  ],
+  "last_time_ps": {
+   "GDP_G12D_1.xtc": 2000000.0,
+   "GDP_G12D_2.xtc": 2000000.0,
+   "GDP_G12D_3.xtc": 2000000.0,
+   "GDP_G12D_4.xtc": 2000000.0,
+   "GDP_G12D_5.xtc": 2000000.0,
+   "GTP_G12D_1.xtc": 2315000.0,
+   "GTP_G12D_10.xtc": 2000000.0,
+   "GTP_G12D_2.xtc": 2000000.0,
+   "GTP_G12D_3.xtc": 2000000.0,
+   "GTP_G12D_4.xtc": 2000000.0,
+   "GTP_G12D_5.xtc": 2000000.0,
+   "GTP_G12D_6.xtc": 2000000.0,
+   "GTP_G12D_7.xtc": 2000000.0,
+   "GTP_G12D_8.xtc": 2000000.0,
+   "GTP_G12D_9.xtc": 2000000.0
+  },
+  "implied_frames": {
+   "GDP_G12D_1.xtc": 2001,
+   "GDP_G12D_2.xtc": 2001,
+   "GDP_G12D_3.xtc": 2001,
+   "GDP_G12D_4.xtc": 2001,
+   "GDP_G12D_5.xtc": 2001,
+   "GTP_G12D_1.xtc": 2316,
+   "GTP_G12D_10.xtc": 2001,
+   "GTP_G12D_2.xtc": 2001,
+   "GTP_G12D_3.xtc": 2001,
+   "GTP_G12D_4.xtc": 2001,
+   "GTP_G12D_5.xtc": 2001,
+   "GTP_G12D_6.xtc": 2001,
+   "GTP_G12D_7.xtc": 2001,
+   "GTP_G12D_8.xtc": 2001,
+   "GTP_G12D_9.xtc": 2001
+  },
+  "box_first_frame_nm": {
+   "GDP_G12D_1.xtc": [
+    7.005000114440918,
+    6.849999904632568,
+    6.843999862670898
+   ],
+   "GDP_G12D_2.xtc": [
+    7.092870235443115,
+    6.935929775238037,
+    6.929850101470947
+   ],
+   "GDP_G12D_3.xtc": [
+    7.109139919281006,
+    6.951839923858643,
+    6.9457502365112305
+   ],
+   "GDP_G12D_4.xtc": [
+    7.1050801277160645,
+    6.947859764099121,
+    6.941780090332031
+   ],
+   "GDP_G12D_5.xtc": [
+    7.110720157623291,
+    6.953380107879639,
+    6.947289943695068
+   ],
+   "GTP_G12D_1.xtc": [
+    7.0252299308776855,
+    6.869790077209473,
+    6.863770008087158
+   ],
+   "GTP_G12D_10.xtc": [
+    7.013299942016602,
+    6.858109951019287,
+    6.852099895477295
+   ],
+   "GTP_G12D_2.xtc": [
+    7.01777982711792,
+    6.862490177154541,
+    6.856480121612549
+   ],
+   "GTP_G12D_3.xtc": [
+    7.030360221862793,
+    6.874800205230713,
+    6.868770122528076
+   ],
+   "GTP_G12D_4.xtc": [
+    7.011769771575928,
+    6.856619834899902,
+    6.850619792938232
+   ],
+   "GTP_G12D_5.xtc": [
+    7.01894998550415,
+    6.863639831542969,
+    6.857629776000977
+   ],
+   "GTP_G12D_6.xtc": [
+    7.024040222167969,
+    6.868619918823242,
+    6.86260986328125
+   ],
+   "GTP_G12D_7.xtc": [
+    7.008739948272705,
+    6.8536601066589355,
+    6.847660064697266
+   ],
+   "GTP_G12D_8.xtc": [
+    7.020480155944824,
+    6.8651299476623535,
+    6.859119892120361
+   ],
+   "GTP_G12D_9.xtc": [
+    7.013820171356201,
+    6.858610153198242,
+    6.852610111236572
+   ]
+  },
+  "bytes_read_total": 248520
+ }
+}

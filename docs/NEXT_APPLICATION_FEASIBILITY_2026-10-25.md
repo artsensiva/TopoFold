@@ -1,11 +1,16 @@
 # Next application: feasibility assessment (2026-10-25, metadata only)
 
+> **Status update (2026-10-25, later, D68):** the owner directed KRAS K1 as the proposed next oncology-focused study; the
+> recommendation of M1 below is kept as the original assessment, and M1 remains available. The Mpro wording was corrected
+> (see Corrections at the end). The K1 protocol draft is
+> [`benchmarks/audit/kras_k1/PROTOCOL_DRAFT.md`](../benchmarks/audit/kras_k1/PROTOCOL_DRAFT.md).
+
 **Scope.** This is a bounded, metadata-only comparison of candidate datasets for the next application after ABL-MYR-1b.
 - No method was scored.
 - No evaluation protocol was drafted or frozen.
 - No dataset was downloaded.
 
-**Data read**, all public, unauthenticated and anonymous:
+**Data read**, all public and fetched anonymously (no login):
 - API metadata from Zenodo, RCSB, UniProt and the AWS S3 listing.
 - One 38 kB topology file (`backbone_4-164.pdb`, whose MD5 matches Zenodo's).
 - Two XTC frame headers (92 B each, so 184 B per trajectory) from each of 4 KRAS trajectories, read with HTTP range
@@ -29,7 +34,7 @@ because the task gave it priority. The KRAS candidate is the oncology one.
 
 | ID | Data (access) | Trajectories as verified | Residue mapping (verified by exact sequence match) | Independent endpoint | Main confounds | Smallest decisive test (size) |
 |---|---|---|---|---|---|---|
-| **M1** | Folding@home COVID Moonshot: projects 13430 (apo monomer, His41(0)) and 13432 (holo monomer, His41(0)). CC0 (AWS Open Data registry; D49). | mdtraj HDF5: `coordinates` in nm, all-atom solute with H, 1000 frames, time 2 ns to 1001 ns at 1 ns intervals (RUN9 clone 0, apo and holo). Holo includes the ligand residue `MOL`. | resSeq 1–304 = UniProt P0DTD1 nsp5 1–304, offset 0, 0 mismatches. Residues 305–306 are absent. | Fragment poses in independent X-ray structures, the PanDDA group depositions. 20 RUNs labelled 'XChem Screen - active site' have a PDB entry. 120 of 120 unique PDB entries are X-ray with a non-polymer entity. | **Location by construction:** the ligand is physically present in holo, so differences near it are expected; ligand atoms must be withheld from every method. **Ligand residence:** fragment residence over 1 µs is unknown. **Starts:** apo runs start from the holo coordinates (paired, same start). **Clone lengths** are unequal. **Weak binders:** many fragments bind weakly. **Reader:** no HDF5 reader in the adapter yet (h5py is present in the MDAnalysis environment). | 18 active-site RUNs that have ≥ 3 full-length clones in each arm: about 4.91 GB. An optional crystal-contact control (14 RUNs): about 3.82 GB. |
+| **M1** | Folding@home COVID Moonshot: projects 13430 (apo monomer, His41(0)) and 13432 (holo monomer, His41(0)). CC0 (AWS Open Data registry; D49). | mdtraj HDF5: `coordinates` in nm, all-atom solute with H, 1000 frames, time 2 ns to 1001 ns at 1 ns intervals (RUN9 clone 0, apo and holo). Holo includes the ligand residue `MOL`. | resSeq 1–304 = UniProt P0DTD1 nsp5 1–304, offset 0, 0 mismatches. Residues 305–306 are absent. | Fragment poses in independent X-ray structures, the PanDDA group depositions. 20 RUNs labelled 'XChem Screen - active site' have a PDB entry. 120 of 120 unique PDB entries are X-ray with a non-polymer entity. | **Construction link (corrected, D68):** the contact residues come from the same crystal structures that start both arms; ligand atoms must be withheld from every method, and a backbone response is not guaranteed by ligand presence. **Ligand residence:** fragment residence over 1 µs is unknown. **Starts:** apo runs start from the holo coordinates (paired, same start). **Clone lengths** are unequal. **Weak binders:** many fragments bind weakly. **Reader:** no HDF5 reader in the adapter yet (h5py is present in the MDAnalysis environment). | 18 active-site RUNs that have ≥ 3 full-length clones in each arm: about 4.91 GB. An optional crystal-contact control (14 RUNs): about 3.82 GB. |
 | M2 | The same F@h apo runs. The endpoint is multi-temperature Mpro crystallography (Ebrahim et al., IUCrJ 9:682–694 (2022), doi:10.1107/S2052252522007497; PDB 7MHF–7MHK multiconformer and 7MHL–7MHQ ensemble models, all 12 verified at RCSB). | As M1 | As M1 | Per-residue heterogeneity from deposited multiconformer and ensemble models | **One condition only:** no contrast design. **Strong baseline:** the endpoint is a flexibility measure that favours RMSF. **Crystal vs MD:** temperature and lattice differ (100–310 K crystal vs MD). **Starts:** the MD starts are holo crystal structures. | Not decisive for added value beyond RMSF |
 | M3 | F@h apo monomer (13430) vs apo dimer (13434). The endpoint is NMR RDC refinement of monomeric Mpro (Smith et al., ACS Phys Chem Au 6:81–94 (2026, online 2025), doi:10.1021/acsphyschemau.5c00081; PDB 9PYS and 9PYT, 10 models each, verified). | As M1 | As M1 | RDC-refined domain structures | **Construct:** the endpoint construct is Mpro H41Q, residues 10–306 (N-terminal deletion), while the MD is full length. **Start:** the MD monomer starts from a dimer-crystal chain. **Time:** 1 µs. **Not checked:** the BMRB deposition. | Not decisive now |
 | M4 | HDX-MS of Mpro with nirmatrelvir and other inhibitors (Liu et al., eLife reviewed preprint 109956). Source data are stated to be in a supplementary .xlsx (not opened). Licence not verified. | **No matching public replicated MD found** in this search | — | Peptide-level HDX | MD would have to be generated | Blocked |
@@ -62,8 +67,9 @@ equal-information baselines? It does not test activity, binding affinity or conf
 **Limits of the verification:**
 - Only RUN9 clone 0 was probed, in each arm. Clone completeness for the other RUNs is a size heuristic.
 - Ligand residence in the holo clones is unknown.
-- Because the ligand is present in the holo runs, the endpoint is expected to be detectable by construction. The test is
-  therefore about relative localization, not about discovering a site.
+- The contact endpoint is linked to the simulation construction (both arms start from the holo crystal structure), and
+  ligand presence does not guarantee a detectable backbone response (corrected 2026-10-25, D68; see Corrections below).
+  The test is therefore about relative localization against a construction-linked proxy, not about discovering a site.
 
 **Best alternative: K1, the KRAS G12D GDP vs GTP comparison.** It is cheaper (60 MB), uses the existing XTC route, is
 oncology-relevant, and has a conformational endpoint. Its main risk is that a GDP-started GTP ensemble may not relax
@@ -83,3 +89,12 @@ M2–M4 are kept in the record. They are not recommended now, for the reasons in
    - gates, including ligand residence for M1 and per-system residue-12 identity for K1;
    - the endpoint rule;
    - baselines, metrics, stop rules and budget.
+
+## Corrections (dated; the original assessment is kept above in its corrected form and listed here)
+
+- **Correction 2026-10-25 (D68): the crystal contacts are not independent of the simulation construction, because the apo runs are started from the same holo crystal structures with the ligand removed, so the contact residues are defined on the coordinates that seed both arms. Ligand presence in the holo runs does not guarantee a detectable backbone response (weak or transient binding, a response in side chains, water or protonation rather than N/Cα/C geometry, 1 µs clones). A result is read as agreement or disagreement of backbone-level contrast with a construction-linked structural proxy, not as discovery of a site.**
+- **Original wording (2026-10-25, D67):** "Location by construction: the ligand is physically present in holo, so differences
+  near it are expected" and "Because the ligand is present in the holo runs, the endpoint is expected to be detectable by
+  construction." Both overstated what ligand presence implies for N/Cα/C geometry.
+- **Recommendation status (D68):** the recommendation of M1 above is superseded as the next study by K1 (the owner-directed
+  priority of 2026-10-25); M1 remains available and unchanged in its other respects.

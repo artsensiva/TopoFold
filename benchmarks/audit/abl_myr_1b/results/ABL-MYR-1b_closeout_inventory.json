@@ -1,6 +1,6 @@
 {
  "id": "ABL-MYR-1b-CLOSEOUT",
- "generated_utc": "2026-10-25T02:09:19.608847+00:00",
+ "generated_utc": "2026-10-25T03:20:43.187887+00:00",
  "scope": "provenance inventory only; no comparison, threshold or frozen file was rerun or changed",
  "source": {
   "dataset_doi": "10.5061/dryad.9cnp5hqnx",
@@ -1164,8 +1164,8 @@
  },
  "wrapper_lineage_problems": [],
  "committed": {
-  "files": 72,
-  "bytes": 1812876,
+  "files": 77,
+  "bytes": 1992041,
   "entries": [
    {
     "path": "benchmarks/audit/abl_myr_1/README.md",
@@ -1261,7 +1261,7 @@
     "path": "benchmarks/audit/abl_myr_1b/CLOSEOUT_2026-10-25.md",
     "bytes": 9696,
     "sha256": "975dae6f0da1c6b9e99aa7d8ec0755ccc2c0a58fcdd9cf123245588ae8655544",
-    "tracked_at_inventory": false
+    "tracked_at_inventory": true
    },
    {
     "path": "benchmarks/audit/abl_myr_1b/PROTOCOL_1B.md",
@@ -1271,8 +1271,8 @@
    },
    {
     "path": "benchmarks/audit/abl_myr_1b/README.md",
-    "bytes": 17342,
-    "sha256": "f873c6af7b9fa22c638bb654839a7194927502e176b740a0636f376706b939d1",
+    "bytes": 18559,
+    "sha256": "741e41939970d1594f9246706cb47e9edae84b98eb4ddff2f84254ce815ee5c0",
     "tracked_at_inventory": true
    },
    {
@@ -1303,6 +1303,24 @@
     "path": "benchmarks/audit/abl_myr_1b/closeout_inventory.py",
     "bytes": 20666,
     "sha256": "66a0b80db4ae479b3932932fd53fff2ac0361cb5f221ff51f49af37f43635788",
+    "tracked_at_inventory": true
+   },
+   {
+    "path": "benchmarks/audit/abl_myr_1b/figures/ABL-MYR-1b_residue_coverage_SUPPLEMENT_2026-10-25.png",
+    "bytes": 159609,
+    "sha256": "ae257e62119e85c15d109e5788ba62f5cc2f6b90ddafad8017b424377643f7b5",
+    "tracked_at_inventory": false
+   },
+   {
+    "path": "benchmarks/audit/abl_myr_1b/figures/ABL-MYR-1b_residue_coverage_SUPPLEMENT_2026-10-25_caption.md",
+    "bytes": 2782,
+    "sha256": "dae4b8026c2b532f5dbdfd7cf5606dc1e695bb8599c86a45dcdbb5e74b9aed10",
+    "tracked_at_inventory": false
+   },
+   {
+    "path": "benchmarks/audit/abl_myr_1b/figures/ABL-MYR-1b_residue_coverage_SUPPLEMENT_2026-10-25_provenance.json",
+    "bytes": 1851,
+    "sha256": "b41b6205b2ae0190ec7fe8369f60e6a94d0d3424d78b6fb943d9cc09326fa3a6",
     "tracked_at_inventory": false
    },
    {
@@ -1310,6 +1328,12 @@
     "bytes": 2110,
     "sha256": "e485d85e8e898470f8ee505e0c3774f3e8305db694b4789615887402611d58e8",
     "tracked_at_inventory": true
+   },
+   {
+    "path": "benchmarks/audit/abl_myr_1b/plot_residue_coverage_supplement.py",
+    "bytes": 10390,
+    "sha256": "7c2a7f264553e8f2a916e42f8cebd4e1584fb0c7ff8ab2f27b35cd27ce35d457",
+    "tracked_at_inventory": false
    },
    {
     "path": "benchmarks/audit/abl_myr_1b/protocol_1b.json",
@@ -1555,6 +1579,12 @@
     "path": "tests/test_abl_myr_1b_closeout.py",
     "bytes": 5045,
     "sha256": "0e64ffae46ba79d4f98ee33f0dc82c1ba5376813f763fc8ef4d40c02799bd23f",
+    "tracked_at_inventory": true
+   },
+   {
+    "path": "tests/test_abl_myr_1b_figure.py",
+    "bytes": 3316,
+    "sha256": "691fe43077862d6a735eb996a0a73130210ccbd9c8c2d211d0165102643291f8",
     "tracked_at_inventory": false
    },
    {
@@ -4923,7 +4953,7 @@
  "environment": {
   "os": "Linux-7.0.0-38-generic-x86_64-with-glibc2.43",
   "machine": "x86_64",
-  "git_head_at_inventory": "e7c8ac83e2f467351a55df933b123d11635380fd",
+  "git_head_at_inventory": "94c5da2dd2544057cadf5da2c8dae503885fc92e",
   "core_python": {
    "present": true,
    "path": ".venv/bin/python",
