@@ -177,7 +177,7 @@ library only; no viewer needed):
 PYTHONPATH=python python -m topofold_inputs.structpair_verify ~/structpair_out/kras2 [--json check.json]
 ```
 
-It prints `ok`, `mismatch` or `missing` for each file and the counts (for the KRAS example, 9 of 9: 6 outputs, 2 inputs, 1 spec),
+It prints `ok`, `mismatch` or `missing` for each file and the counts (9 files for the KRAS example: 6 outputs, 2 inputs, 1 spec),
 and exits 0 only if every listed file is present and matches. A file moved since the run (an input or the spec) shows as `missing`:
 that is a failure of the check, not a pass. `manifest.json` does not hash itself, so editing the manifest together with a file is not
 detected; keep a copy of the manifest's own hash if that matters. The viewer performs the same output check on every page update
