@@ -1,0 +1,218 @@
+{
+ "id": "ONCOLOGY-SEARCH-2026-10-25-sources",
+ "retrieved_utc": "2026-10-25T04:09:13.965952+00:00",
+ "scope": "API metadata and short article excerpts only; no trajectory, raw mass-spectrometry file or coordinate fetched",
+ "crossref": {
+  "ayaz_2023": {
+   "doi": "10.1038/s41467-023-36956-5",
+   "title": "Structural mechanism of a drug-binding process involving a large conformational change of the protein target",
+   "journal": "Nature Communications",
+   "volume": "14",
+   "pages_or_article": "1885",
+   "first_authors": [
+    "Ayaz",
+    "Lyczek",
+    "Paung"
+   ],
+   "year": 2023,
+   "licence_urls": [
+    "https://creativecommons.org/licenses/by/4.0",
+    "https://creativecommons.org/licenses/by/4.0"
+   ]
+  },
+  "pantsar_2018": {
+   "doi": "10.1371/journal.pcbi.1006458",
+   "title": "Assessment of mutation probabilities of KRAS G12 missense mutants and their long-timescale dynamics by atomistic molecular simulations and Markov state modeling",
+   "journal": "PLOS Computational Biology",
+   "volume": "14",
+   "pages_or_article": "e1006458",
+   "first_authors": [
+    "Pantsar",
+    "Rissanen",
+    "Dauch"
+   ],
+   "year": 2018,
+   "licence_urls": [
+    "http://creativecommons.org/licenses/by/4.0/"
+   ]
+  },
+  "hunter_2015": {
+   "doi": "10.1158/1541-7786.MCR-15-0203",
+   "title": "Biochemical and Structural Analysis of Common Cancer-Associated KRAS Mutations",
+   "journal": "Molecular Cancer Research",
+   "volume": "13",
+   "pages_or_article": "1325-1335",
+   "first_authors": [
+    "Hunter",
+    "Manandhar",
+    "Carrasco"
+   ],
+   "year": 2015,
+   "licence_urls": []
+  },
+  "rennella_2025": {
+   "doi": "10.1039/d4cb00233d",
+   "title": "Dynamic conformational equilibria in the active states of KRAS and NRAS",
+   "journal": "RSC Chemical Biology",
+   "volume": "6",
+   "pages_or_article": "106-118",
+   "first_authors": [
+    "Rennella",
+    "Henry",
+    "Dickson"
+   ],
+   "year": 2025,
+   "licence_urls": [
+    "http://creativecommons.org/licenses/by-nc/3.0/"
+   ]
+  },
+  "parker_2022": {
+   "doi": "10.1158/0008-5472.CAN-22-0804",
+   "title": "Delineating the RAS Conformational Landscape",
+   "journal": "Cancer Research",
+   "volume": "82",
+   "pages_or_article": "2485-2498",
+   "first_authors": [
+    "Parker",
+    "Meyer",
+    "Golemis"
+   ],
+   "year": 2022,
+   "licence_urls": [
+    "https://creativecommons.org/licenses/by-nc-nd/4.0/"
+   ]
+  }
+ },
+ "articles": {
+  "ayaz_2023": {
+   "pmcid": "PMC10076256",
+   "xml_sha256": "3ec66657432cb363b56237b5e2a8bf03ad1f54870d654cbf3214738ee2e00287",
+   "xml_bytes": 164485
+  },
+  "pantsar_2018": {
+   "pmcid": "PMC6147662",
+   "xml_sha256": "f0ad06632873b331485ab98c1d26d8cea7a17aa1bf2e715b3923af7b294d8a48",
+   "xml_bytes": 187683
+  },
+  "rennella_2025": {
+   "pmcid": "PMC11629925",
+   "xml_sha256": "8c4242106c24bd193d83be4f29662a9d014494ee7634ab1c7b2ba34055e2d2c6",
+   "xml_bytes": 134085
+  }
+ },
+ "statements": {
+  "ayaz_data_availability": "Data availability Due to the large size of the molecular dynamics trajectories described in this work, they are available for non-commercial use through contacting trajectories@deshawresearch.com. The raw HDX-MS data generated in this study have been deposited in the ProteomeXchange Consortium via the PRIDE partner repository with the dataset identifier PXD034008 . The PDB data used in this study are available under the following IDs: 1OPJ , 1OPK , 2F4J , 3K5V , 2GQG , and 1IEP . Source data are provided with this paper. Competing interests The authors declare no competing interests. References 1. Buch I Giorgino T De Fabritiis G Complete rec",
+  "ayaz_hdx_method": "Hydrogen exchange was performed as previously described 23 . A 50 pmol/µL stock solution of Abl kinase (WT, A344V, or M472I) was prepared in 20 mM Tris (pH 8.0), 150 mM NaCl, 1 mM DTT, and 5% glycerol in H 2 O. Deuterium exchange was initiated by dilution of each protein with 15-fold D 2 O buffer (pD 8.0) at room temperature. At each deuterium exchange time point, from 10 s to 4 h, an aliquot from the exchange reaction was removed and labeling was quenched by adjusting the pH to 2.5 with an equal volume of quench buffer (150 mM potassium phosphate in H 2 O). Quenched samples were immediately injected into the LC/MS system for mass analysis. Each sample was analyzed as previously described 23",
+  "ayaz_hdx_duplicate_and_relative": "Deuterium levels were not corrected for back-exchange and are thus reported as relative 64 . All experiments were performed in duplicate. The error of measuring the mass of each peptide averaged ±0.12 Da in this experimental setup. The HDX-MS data were processed using PLGS 3.0 and DynamX 3.0 (Waters Corp., USA). Additional exper",
+  "ayaz_hdx_result": "The results confirmed that M472I increases HDX in the C-lobe of the kinase in the apo form (Fig. 4E ), confirming a higher conformational instability for the mutant. Specifically, higher HDX of the M472I mutant was seen in part of the αH helix and the connected αG-αH linker (Leu452–Glu470), the αE helix and the catalytic loop (Tyr353–Leu370), and at the αEF helix C-terminal to the A-loop (Ile402–Ser410). The latter two regions are distal to M472I, suggesting a non-local effect of the mutation. Interestingly, these regions with increased HDX are spatially",
+  "ayaz_2f4j_simulations": "Simulations starting from the DFG-in/AL-open conformation The systems for the simulations starting from the DFG-in/AL-open conformation were prepared based on the crystal structure of the active conformation of Abl kinase (PDB ID: 2F4J) 42 . Three systems were prepared: (1) WT, (2) M472I, and (3) F486S Abl kinase. The systems were solvated in cubic simulation boxes with periodic boundary conditions (~80 Å per side, containing ~65,000 atoms total). Three independent 20-µs simulations were run for each system. The si",
+  "pantsar_hunter_sentences": "An interesting discrepancy among KRAS G12X mutants is observed in their intrinsic GTPase activity [ 8 ]. The G12A mutation exhibits the most hindered intrinsic hydrolysis (~1% compared to the wild-type), whereas the G12C mutation displays the least hindered activity (~72%). All G12X mutants, however, show insensitivity to GAPs that accelerate hydrolysis [ 8 ]. Importantly, not only RAS G12X mutants exhibit a discrepancy in GTP hydrolysis, but they also give rise to differences in the preferred signaling pathway (in",
+  "pantsar_hunter_raf": "impaired hydrolysis. Similarly with HRAS, KRAS G12X mutants exhibit reduced affinity to Raf compared to wild-type [ 8 ]. The G12D, G12R, and G12V mutants display highly reduced affinity to Raf, while the affinity of G12A is only moderately reduced. Interestingly, the affinity of the G12C mutant is similar to that of wild-type. To bind RAS, the effector proteins use a ubiquitin (UB)-like fold: a RAS-binding domain (RBD) or a RAS-association domain (RA) [ 11 , 12 ]. While KRAS ",
+  "pantsar_replica_variation": "n (RMSF) analysis, which revealed major fluctuations in the protein in these regions ( S3 and S4 Figs). Nevertheless, there were no evident differences between the different systems, as generally the individual replicas displayed variation as much as the different systems. Only with GDP, the G12A and the G12S display a different RMSF profile in the switch-I region. The bound ligands GDP and GTP affect KRAS dynamics To gain better insight into the protein d",
+  "rennella_data_availability": "Data availability The data supporting this article have been included as part of the ESI. † All HDX methods used and data generated or analyzed for this study are included in this manuscript and its ESI. † HDX MS source data have been deposited to the ProteomeXchange Consortium via the PRIDE 75 partner repository with dataset identifier PXD054924. References Simanshu D. K. Nissley D. V. McCormick F. Cell. 2017;170:17–33. doi: 10.1016/j.cell.2017.06.009. Prior I. A. Hood F. E.",
+  "rennella_trajectory_statement": "Trajectory frames were written every 10 ps. Distance, RMSD and hydrogen bond analyses were performed on the resulting trajectories using CPPTRAJ 54 an"
+ },
+ "pride": {
+  "PXD034008": {
+   "accession": "PXD034008",
+   "title": "Structural mechanism of a drug-binding process involving a large conformational change of the protein target",
+   "publication_date": "2023-04-07",
+   "submitter": "John R. Engen (Northeastern University)",
+   "instruments": [
+    "Synapt MS"
+   ],
+   "files_listed": 44,
+   "files_by_category": {
+    "RAW": 43,
+    "SEARCH": 1
+   },
+   "non_raw_files": [
+    [
+     "REI_ABL_KB_dynamX_export_18May22.csv",
+     3386
+    ]
+   ],
+   "raw_files_per_protein": {
+    "A344V": 13,
+    "M472I": 14,
+    "WT": 12
+   },
+   "labels_per_protein": {
+    "A344V": [
+     "10min",
+     "10min",
+     "10sec",
+     "10sec",
+     "1min",
+     "1min",
+     "4h",
+     "4h",
+     "60min",
+     "60min",
+     "ctrl",
+     "ctrl1",
+     "ctrl2"
+    ],
+    "M472I": [
+     "10min",
+     "10min",
+     "10sec",
+     "10sec",
+     "1min",
+     "1min",
+     "4h",
+     "4h",
+     "60min",
+     "60min",
+     "ctrl",
+     "ctrl",
+     "ctrl1",
+     "ctrl2"
+    ],
+    "WT": [
+     "10min",
+     "10min",
+     "10min",
+     "10sec",
+     "10sec",
+     "1min",
+     "1min",
+     "4h",
+     "4h",
+     "60min",
+     "60min",
+     "ctrl"
+    ]
+   },
+   "total_bytes": 12369088401
+  },
+  "PXD054924": {
+   "accession": "PXD054924",
+   "title": "Dynamic conformational equilibria in the active states of KRas and NRas",
+   "publication_date": "2025-05-07",
+   "submitter": "Thomas Wales (Northeastern University)",
+   "instruments": [
+    "Synapt MS"
+   ]
+  }
+ },
+ "hunter_2015_europepmc": {
+  "pmid": "26037647",
+  "pmcid": null,
+  "isOpenAccess": "N",
+  "note": "no open-access full text in Europe PMC: the per-mutant values were not verified against the primary text"
+ },
+ "rascore_project_evidence": {
+  "file": "benchmarks/audit/c1_feasibility/results/c1_sources.json",
+  "sha256": "9f88240b65fd9c9bfecc9b492dd8136a9edea483ce9840b39ebdd3f932f6c0d1",
+  "retrieved_utc": "2026-10-13T16:46:57.767335+00:00",
+  "entries": [
+   "Parker et al. 2022 Cancer Res 82:2485, doi:10.1158/0008-5472.CAN-22-0804; article licence CC BY-NC-ND 4.0 (permissions element)",
+   "wwPDB usage policy: PDB archive data files under CC0 1.0",
+   "Rascore live database landing page (JavaScript Streamlit app; no terms visible in static HTML)",
+   "mitch-parker/rascore @ 8f77dc201cf9b1eb838d8e0d4d15bc0397dc3769 (2024-03-19), GitHub API licence Apache-2.0",
+   "mitch-parker/rascore @ 8f77dc201cf9b1eb838d8e0d4d15bc0397dc3769 (2024-03-19), GitHub API licence Apache-2.0",
+   "mitch-parker/rascore @ 8f77dc201cf9b1eb838d8e0d4d15bc0397dc3769 (2024-03-19), GitHub API licence Apache-2.0"
+  ]
+ }
+}

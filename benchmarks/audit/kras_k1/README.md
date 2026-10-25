@@ -2,7 +2,7 @@
 
 The study design is in [`PROTOCOL.md`](PROTOCOL.md) (frozen at S0 by `results/KRAS-K1_freeze.json`). The frozen crystal
 endpoint was computed once and its adequacy gate failed, so **K1 is closed** ([report](results/KRAS-K1_endpoint_report.md),
-[figure](figures/KRAS-K1_endpoint_residues_2026-10-25.png)). No MD trajectory has been downloaded, opened or scored. The 5US4/5USJ crystal contrast is an external, already-exposed static structural proxy,
+[figure](figures/KRAS-K1_endpoint_residues_2026-10-25.png)). No MD trajectory has been downloaded, opened or scored, and no method was tested: the study stopped at the crystal endpoint. The 5US4/5USJ crystal contrast is an external, already-exposed static structural proxy,
 not held out and not functional ground truth.
 
 | File | Content |

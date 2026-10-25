@@ -27,3 +27,14 @@ not have been done. The original files are unchanged in Git history.
 after the closeout are recorded as dated addenda like this one, not by rewriting the ledger or the files it lists. The
 backup gap of the closeout is unchanged: the hashes and the `~/Downloads` copy are not an independent backup, and nothing
 was uploaded.
+
+## Status wording (added 2026-10-25, later; D71)
+
+- **ABL-MYR-1b** produced a *descriptive* result: under the frozen rule, the specified equal-information Cα baselines
+  covered the residues TopoFold flagged (post-hoc, simulation-based, one modelled kinase domain).
+- **KRAS K1** stopped at an inadequate crystal endpoint before any method was tested.
+- These are not "two negative method results". Where the closeout material says "negative outcome" or "negative for
+  TopoFold-specific signal" (`CLOSEOUT_2026-10-25.md`, the status `README.md`, decision-log entry D66), it is historical
+  wording of the closeout and is read as this descriptive outcome with its stated limits. Those files are in the closeout
+  ledger and are not rewritten; the frozen K1 protocol, section 7, contains a conditional sentence about a possible
+  later outcome C2 that did not occur, and is likewise unchanged.
