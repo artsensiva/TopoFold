@@ -1,0 +1,23 @@
+1001dd1722f41bfa3b0d36d096aab46d3f5acabfd5f7e52b5dc7ed25dcf54315  outputs/abl_1OPJ_AB_vs_1OPK_A/windows.csv
+1001dd1722f41bfa3b0d36d096aab46d3f5acabfd5f7e52b5dc7ed25dcf54315  tamper/abl_tampered/windows.csv
+output windows.csv: OK
+output residues.csv: OK
+output exclusions.csv: OK
+output summary.json: OK
+output figure.png: OK
+output chain_variation.csv: OK
+output chains.csv: OK
+output chain_variation.png: OK
+output report.md: OK
+outputs: 9 match, 0 mismatch
+attempt 2: change rmsd3 at position 161 (A:409) 0.581117 -> 0.981117 in the COPY only
+163c163
+< 161,A:409,A:409,GLY,GLY,A:408..A:410,A:408..A:411,False,False,False,False,0.933708,1.44272,6.78703,5.70046,0.509008,1.08658,0.581117,-0.853613,1.70179,7.29486,8.34399,2.55541,1.04913,1.44782
+---
+> 161,A:409,A:409,GLY,GLY,A:408..A:410,A:408..A:411,False,False,False,False,0.933708,1.44272,6.78703,5.70046,0.509008,1.08658,0.981117,-0.853613,1.70179,7.29486,8.34399,2.55541,1.04913,1.44782
+1001dd1722f41bfa3b0d36d096aab46d3f5acabfd5f7e52b5dc7ed25dcf54315  outputs/abl_1OPJ_AB_vs_1OPK_A/windows.csv
+f4dd12c787f3be7be64170c18c07e8796e4ef547a35653ff095e09d9027e0187  tamper/abl_tampered/windows.csv
+output windows.csv: MISMATCH (got f4dd12c787f3be7be64170c18c07e8796e4ef547a35653ff095e09d9027e0187)
+outputs: 8 match, 1 mismatch
+original:
+outputs: 9 match, 0 mismatch

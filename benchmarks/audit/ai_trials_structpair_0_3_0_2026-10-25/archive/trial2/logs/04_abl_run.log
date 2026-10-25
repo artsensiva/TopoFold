@@ -1,0 +1,7 @@
++ PYTHONPATH=python python -m topofold_inputs.structpair ../specs/abl_1OPJ_AB_vs_1OPK_A.json --out ../outputs/abl_1OPJ_AB_vs_1OPK_A
+282 positions; global Cα RMSD 5.121 Å over 282 Cα; 0 exclusion rows; within-entry variation: partial; wrote ../outputs/abl_1OPJ_AB_vs_1OPK_A/report.md
+
+real	0m6.730s
+user	0m14.537s
+sys	0m0.486s
+exit=0

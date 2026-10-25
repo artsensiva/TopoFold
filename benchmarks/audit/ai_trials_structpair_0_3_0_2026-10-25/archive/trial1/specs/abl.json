@@ -1,0 +1,38 @@
+{
+  "name": "Independent Abl comparison: 1OPJ A,B versus 1OPK A",
+  "structures": {
+    "A": {
+      "label": "1OPJ",
+      "file": "../inputs/1OPJ.pdb",
+      "chains": [
+        "A",
+        "B"
+      ],
+      "primary_chain": "A",
+      "altloc": "blank_then_A"
+    },
+    "B": {
+      "label": "1OPK",
+      "file": "../inputs/1OPK.pdb",
+      "chains": [
+        "A"
+      ],
+      "primary_chain": "A",
+      "altloc": "blank_then_A"
+    }
+  },
+  "correspondence": {
+    "same_numbering": "248-534"
+  },
+  "on_missing": "exclude",
+  "resname_mismatch": "flag",
+  "altloc_sensitivity": "highest_occupancy",
+  "chain_variation": {
+    "displacement_trim_fraction": 0.2,
+    "advisory": {
+      "statistic": "min",
+      "within_factor": 1.0,
+      "min_difference": {}
+    }
+  }
+}

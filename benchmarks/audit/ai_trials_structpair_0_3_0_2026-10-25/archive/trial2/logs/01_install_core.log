@@ -1,0 +1,48 @@
+++ python3 -m venv ../topofold-env
+++ source ../topofold-env/bin/activate
++++ deactivate nondestructive
++++ '[' -n '' ']'
++++ '[' -n '' ']'
++++ hash -r
++++ '[' -n '' ']'
++++ unset VIRTUAL_ENV
++++ unset VIRTUAL_ENV_PROMPT
++++ '[' '!' nondestructive = nondestructive ']'
++++ case "$(uname)" in
+++++ uname
++++ export VIRTUAL_ENV=/home/artem/.config/Claude/scratch-workspaces/e9fd6719-de25-4a0b-8f80-7ee2955de949/78f8b148-a578-47e6-b26f-1b088f117afe/scratch-2026-10-25-04801e/trial/topofold-env
++++ VIRTUAL_ENV=/home/artem/.config/Claude/scratch-workspaces/e9fd6719-de25-4a0b-8f80-7ee2955de949/78f8b148-a578-47e6-b26f-1b088f117afe/scratch-2026-10-25-04801e/trial/topofold-env
++++ _OLD_VIRTUAL_PATH=/home/artem/.local/bin:/home/artem/.npm-global/bin:/home/artem/.local/bin:/home/artem/.cargo/bin:/home/artem/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin
++++ PATH=/home/artem/.config/Claude/scratch-workspaces/e9fd6719-de25-4a0b-8f80-7ee2955de949/78f8b148-a578-47e6-b26f-1b088f117afe/scratch-2026-10-25-04801e/trial/topofold-env/bin:/home/artem/.local/bin:/home/artem/.npm-global/bin:/home/artem/.local/bin:/home/artem/.cargo/bin:/home/artem/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin
++++ export PATH
++++ VIRTUAL_ENV_PROMPT=topofold-env
++++ export VIRTUAL_ENV_PROMPT
++++ '[' -n '' ']'
++++ '[' -z '' ']'
++++ _OLD_VIRTUAL_PS1=
++++ PS1='(topofold-env) '
++++ export PS1
++++ hash -r
+++ tail -5
+++ pip list
+Package Version
+------- -------
+pip     25.1.1
+++ tail -2
+++ pip install maturin
+Installing collected packages: maturin
+Successfully installed maturin-1.15.0
+++ tail -8
+++ maturin develop --release
+   Compiling topofold-core v0.8.3 (/home/artem/.config/Claude/scratch-workspaces/e9fd6719-de25-4a0b-8f80-7ee2955de949/78f8b148-a578-47e6-b26f-1b088f117afe/scratch-2026-10-25-04801e/trial/clone/crates/topofold-core)
+   Compiling topofold-index v0.8.3 (/home/artem/.config/Claude/scratch-workspaces/e9fd6719-de25-4a0b-8f80-7ee2955de949/78f8b148-a578-47e6-b26f-1b088f117afe/scratch-2026-10-25-04801e/trial/clone/crates/topofold-index)
+   Compiling topofold-io v0.8.3 (/home/artem/.config/Claude/scratch-workspaces/e9fd6719-de25-4a0b-8f80-7ee2955de949/78f8b148-a578-47e6-b26f-1b088f117afe/scratch-2026-10-25-04801e/trial/clone/crates/topofold-io)
+   Compiling topofold-python v0.8.3 (/home/artem/.config/Claude/scratch-workspaces/e9fd6719-de25-4a0b-8f80-7ee2955de949/78f8b148-a578-47e6-b26f-1b088f117afe/scratch-2026-10-25-04801e/trial/clone/crates/topofold-python)
+    Finished `release` profile [optimized] target(s) in 31.34s
+📦 Built wheel for CPython 3.14 to /tmp/.tmpVKweLT/topofold-0.8.3-cp314-cp314-linux_x86_64.whl
+✏️ Setting installed package as editable
+🛠 Installed topofold-0.8.3
+
+real	0m39.248s
+user	1m14.649s
+sys	0m6.020s

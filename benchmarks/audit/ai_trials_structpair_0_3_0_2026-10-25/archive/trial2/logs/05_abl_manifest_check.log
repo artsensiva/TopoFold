@@ -1,0 +1,47 @@
+output windows.csv: OK
+output residues.csv: OK
+output exclusions.csv: OK
+output summary.json: OK
+output figure.png: OK
+output chain_variation.csv: OK
+output chains.csv: OK
+output chain_variation.png: OK
+output report.md: OK
+{
+ "A": {
+  "label": "1OPJ",
+  "path": "/home/artem/.config/Claude/scratch-workspaces/e9fd6719-de25-4a0b-8f80-7ee2955de949/78f8b148-a578-47e6-b26f-1b088f117afe/scratch-2026-10-25-04801e/trial/inputs/1OPJ.pdb",
+  "sha256": "6d3444a1f081b1e3b5079babd515d4e848586ec7055647fad9d294b9ee8fb7fb",
+  "chain": "A",
+  "chains": [
+   "A",
+   "B"
+  ],
+  "altloc_policy": "blank_then_A",
+  "adapter_json_sha256": "8781361223493b4a70be13c1651f5be839a7a8e73d63ea62abcfe3b92ed95f58",
+  "features_json_sha256": "a557c0494f96036ecded96e6943482ad5f5b95bda2bf0bf7b2070787e0aab0f4",
+  "source_files": [
+   {
+    "role": "topology",
+    "path": "/home/artem/.config/Claude/scratch-workspaces/e9fd6719-de25-4a0b-8f80-7ee2955de949/78f8b148-a578-47e6-b26f-1b088f117afe/scratch-2026-10-25-04801e/trial/inputs/1OPJ.pdb",
+    "bytes": 455463,
+    "sha256": "6d3444a1f081b1e3b5079babd515d4e848586ec7055647fad9d294b9ee8fb7fb"
+   }
+  ],
+  "adapter": {
+   "name": "topofold_inputs.ca_adapter",
+   "version": "0.1.0",
+   "source_sha256": "0dfd026fae6e549b5fedc151e3c0f2636db83069c295c5a138d129979052bb67"
+  },
+  "adapter_software": {
+   "python": "3.14.4",
+   "numpy": "2.5.4",
+   "MDAnalysis": "2.10.0"
+  },
+  "core": {
+   "version": "0.8.3",
+   "function": "compute_invariants",
+   "wrapper": {
+    "module": "topofold",
+    "path": "/home/artem/.config/Claude/scratch-workspaces/e9fd6719-de25-4a0b-8f80-7ee2955de949/78f8b148-a578-47e6-b26f-1b088f117afe/scratch-2026-10-25-04801e/trial/topofold-env/lib/python3.14/site-packages/top
+outputs: 9 match, 0 mismatch

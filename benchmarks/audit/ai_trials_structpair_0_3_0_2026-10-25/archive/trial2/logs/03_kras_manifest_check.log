@@ -1,0 +1,56 @@
+output windows.csv: OK
+output residues.csv: OK
+output exclusions.csv: OK
+output summary.json: OK
+output figure.png: OK
+output report.md: OK
+{
+ "A": {
+  "label": "5US4 A GDP",
+  "path": "/home/artem/.config/Claude/scratch-workspaces/e9fd6719-de25-4a0b-8f80-7ee2955de949/78f8b148-a578-47e6-b26f-1b088f117afe/scratch-2026-10-25-04801e/trial/clone/benchmarks/audit/kras_struct_g12d/data_pdb/5US4.pdb",
+  "sha256": "a1d0c9105887a5b64deacf92d17ab5e62a2cdb1d3913f48b8203e9c84f36d22d",
+  "chain": "A",
+  "chains": [
+   "A"
+  ],
+  "altloc_policy": "reject",
+  "adapter_json_sha256": "87b347f89b48cf41663fcdefff5499f850cc533b3df964c225b64fb5490ad07a",
+  "features_json_sha256": "81691f3de88e71dea5477b08794dadc3c76fc347db7671858d1f07619ec5bc8b",
+  "source_files": [
+   {
+    "role": "topology",
+    "path": "/home/artem/.config/Claude/scratch-workspaces/e9fd6719-de25-4a0b-8f80-7ee2955de949/78f8b148-a578-47e6-b26f-1b088f117afe/scratch-2026-10-25-04801e/trial/clone/benchmarks/audit/kras_struct_g12d/data_pdb/5US4.pdb",
+    "bytes": 528282,
+    "sha256": "a1d0c9105887a5b64deacf92d17ab5e62a2cdb1d3913f48b8203e9c84f36d22d"
+   }
+  ],
+  "adapter": {
+   "name": "topofold_inputs.ca_adapter",
+   "version": "0.1.0",
+   "source_sha256": "0dfd026fae6e549b5fedc151e3c0f2636db83069c295c5a138d129979052bb67"
+  },
+  "adapter_software": {
+   "python": "3.14.4",
+   "numpy": "2.5.4",
+   "MDAnalysis": "2.10.0"
+  },
+  "core": {
+   "version": "0.8.3",
+   "function": "compute_invariants",
+   "wrapper": {
+    "module": "topofold",
+    "path": "/home/artem/.config/Claude/scratch-workspaces/e9fd6719-de25-4a0b-8f80-7ee2955de949/78f8b148-a578-47e6-b26f-1b088f117afe/s
+outputs: 6 match, 0 mismatch
+windows.csv identical to shipped reference
+residues.csv identical to shipped reference
+exclusions.csv identical to shipped reference
+outputs/kras2/summary.json clone/benchmarks/audit/structpair_demo/results/kras2/summary.json differ: byte 10102, line 495
+495,500c495
+<  "n_exclusion_rows": 10,
+<  "within_entry_variation": {
+<   "status": "unavailable",
+<   "reason": "one chain per entry",
+<   "statement": "Chains in one crystal are not independent experimental replicates, and crystal packing can affect each of them. The within-entry crystal-copy variation is a descriptive range of differences among the chains the user selected. It is not a calibrated noise floor, not a statistical uncertainty, not a nucleotide or ligand effect and not an HDX replicate estimate. An advisory flag appears only for a channel whose minimum difference the user configured; it is an advisory rule, not a gate, not an adequacy verdict, not significance and not biological separation."
+<  }
+---
+>  "n_exclusion_rows": 10

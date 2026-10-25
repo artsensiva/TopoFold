@@ -1,0 +1,193 @@
+{
+  "kras2": {
+    "schema": "topofold_inputs.structpair/3",
+    "software": {
+      "structpair_version": "0.3.0",
+      "module_sha256": "2efe885d1e89f97d873436099b56071b0a49610f031cc0c03f6f0e44beebf54e",
+      "qcp_module_sha256": "7d906156e474e63d98cacea8e3040d5fcf5fd6f6a4263059dc58a79cde7b8954",
+      "python": "3.14.4",
+      "numpy": "2.5.4",
+      "qcp": {
+        "MDAnalysis": "2.10.0",
+        "numpy": "2.5.4",
+        "function": "MDAnalysis.analysis.rms.rmsd(center=True, superposition=True)"
+      },
+      "adapter_interpreter": "/home/artem/Documents/Codex/2026-10-25/files-pasted-by-the-user-you/outputs/topofold-independent-trial/env/bin/python"
+    },
+    "checks": [
+      {
+        "kind": "output",
+        "path": "windows.csv",
+        "expected": "e992e191bbbdac71b8baee3295657ad3bf7c8b487f40182093e7916ceec4f4fe",
+        "actual": "e992e191bbbdac71b8baee3295657ad3bf7c8b487f40182093e7916ceec4f4fe",
+        "pass": true
+      },
+      {
+        "kind": "output",
+        "path": "residues.csv",
+        "expected": "9876a5d20bd33b996a21326d9c1db6baf95d2bd08307223295bb63e13b085d83",
+        "actual": "9876a5d20bd33b996a21326d9c1db6baf95d2bd08307223295bb63e13b085d83",
+        "pass": true
+      },
+      {
+        "kind": "output",
+        "path": "exclusions.csv",
+        "expected": "91e4d0ea753b4ad8c33c3fc5e6dc5098ba8b07f26ca57b5d8c89872598425b75",
+        "actual": "91e4d0ea753b4ad8c33c3fc5e6dc5098ba8b07f26ca57b5d8c89872598425b75",
+        "pass": true
+      },
+      {
+        "kind": "output",
+        "path": "summary.json",
+        "expected": "02455603db4d9205f1217037c780a5e83d62486b25c519d04d18756cb6599543",
+        "actual": "02455603db4d9205f1217037c780a5e83d62486b25c519d04d18756cb6599543",
+        "pass": true
+      },
+      {
+        "kind": "output",
+        "path": "figure.png",
+        "expected": "1efdd60381fc53fd03e62876a492fc9757421e9b383712bc2e762ecf53a66481",
+        "actual": "1efdd60381fc53fd03e62876a492fc9757421e9b383712bc2e762ecf53a66481",
+        "pass": true
+      },
+      {
+        "kind": "output",
+        "path": "report.md",
+        "expected": "c8c9046d73ebc7fe561f35d15f321aa25de7d500f977125f07dd4a359d20c2fa",
+        "actual": "c8c9046d73ebc7fe561f35d15f321aa25de7d500f977125f07dd4a359d20c2fa",
+        "pass": true
+      },
+      {
+        "kind": "input",
+        "label": "A",
+        "path": "/home/artem/Documents/Codex/2026-10-25/files-pasted-by-the-user-you/outputs/topofold-independent-trial/kras_struct_g12d/data_pdb/5US4.pdb",
+        "expected": "a1d0c9105887a5b64deacf92d17ab5e62a2cdb1d3913f48b8203e9c84f36d22d",
+        "actual": "a1d0c9105887a5b64deacf92d17ab5e62a2cdb1d3913f48b8203e9c84f36d22d",
+        "pass": true
+      },
+      {
+        "kind": "input",
+        "label": "B",
+        "path": "/home/artem/Documents/Codex/2026-10-25/files-pasted-by-the-user-you/outputs/topofold-independent-trial/kras_struct_g12d/data_pdb/5USJ.pdb",
+        "expected": "dab6b79531b0c046050958b914e380d8ba613b8e995522acb5ea323f974dbefe",
+        "actual": "dab6b79531b0c046050958b914e380d8ba613b8e995522acb5ea323f974dbefe",
+        "pass": true
+      },
+      {
+        "kind": "spec",
+        "path": "/home/artem/Documents/Codex/2026-10-25/files-pasted-by-the-user-you/outputs/topofold-independent-trial/smoke-assets/specs/kras2_5US4A_vs_5USJA.json",
+        "expected": "4489dfc485d62738806d232baa41c4ed51c3a21bd3dd64fd3512752a8b9a17c9",
+        "actual": "4489dfc485d62738806d232baa41c4ed51c3a21bd3dd64fd3512752a8b9a17c9",
+        "pass": true
+      }
+    ],
+    "passed": 9,
+    "total": 9
+  },
+  "abl": {
+    "schema": "topofold_inputs.structpair/3",
+    "software": {
+      "structpair_version": "0.3.0",
+      "module_sha256": "2efe885d1e89f97d873436099b56071b0a49610f031cc0c03f6f0e44beebf54e",
+      "qcp_module_sha256": "7d906156e474e63d98cacea8e3040d5fcf5fd6f6a4263059dc58a79cde7b8954",
+      "python": "3.14.4",
+      "numpy": "2.5.4",
+      "qcp": {
+        "MDAnalysis": "2.10.0",
+        "numpy": "2.5.4",
+        "function": "MDAnalysis.analysis.rms.rmsd(center=True, superposition=True)"
+      },
+      "adapter_interpreter": "/home/artem/Documents/Codex/2026-10-25/files-pasted-by-the-user-you/outputs/topofold-independent-trial/env/bin/python"
+    },
+    "checks": [
+      {
+        "kind": "output",
+        "path": "windows.csv",
+        "expected": "92a4289610fc7d902498fc7f46eb8dae05e6c901d93585ad8c4412635c964d56",
+        "actual": "92a4289610fc7d902498fc7f46eb8dae05e6c901d93585ad8c4412635c964d56",
+        "pass": true
+      },
+      {
+        "kind": "output",
+        "path": "residues.csv",
+        "expected": "f707261dc3a045efe7926caa7591490fcf95cbfed8dbd813d06fd68daa02aaa3",
+        "actual": "f707261dc3a045efe7926caa7591490fcf95cbfed8dbd813d06fd68daa02aaa3",
+        "pass": true
+      },
+      {
+        "kind": "output",
+        "path": "exclusions.csv",
+        "expected": "a5647c46b7d082a17af8d24cb3a8b1a7ad694d6e5e7ecc547df6739961e62284",
+        "actual": "a5647c46b7d082a17af8d24cb3a8b1a7ad694d6e5e7ecc547df6739961e62284",
+        "pass": true
+      },
+      {
+        "kind": "output",
+        "path": "summary.json",
+        "expected": "c93e57aaddf45980d90af6b8475f7f434109404d60982eab4236e76e0139377f",
+        "actual": "c93e57aaddf45980d90af6b8475f7f434109404d60982eab4236e76e0139377f",
+        "pass": true
+      },
+      {
+        "kind": "output",
+        "path": "figure.png",
+        "expected": "312d46d74d215da7d762a4c86a2395eaeddfe7132ad2781d8d5a040edd5a1351",
+        "actual": "312d46d74d215da7d762a4c86a2395eaeddfe7132ad2781d8d5a040edd5a1351",
+        "pass": true
+      },
+      {
+        "kind": "output",
+        "path": "chain_variation.csv",
+        "expected": "403a3a48450b33b1f17fe79d11bb37d407229435630f6d8b5c5d92fbf01516da",
+        "actual": "403a3a48450b33b1f17fe79d11bb37d407229435630f6d8b5c5d92fbf01516da",
+        "pass": true
+      },
+      {
+        "kind": "output",
+        "path": "chains.csv",
+        "expected": "e378b0afc1a49f737e223113ea05dd8caa8eaa889f9d37d3dc58b0b27942ed4b",
+        "actual": "e378b0afc1a49f737e223113ea05dd8caa8eaa889f9d37d3dc58b0b27942ed4b",
+        "pass": true
+      },
+      {
+        "kind": "output",
+        "path": "chain_variation.png",
+        "expected": "3ef581c99a917a8db32e9d160b826150f29afddfdaa9332c798c2b7a868478da",
+        "actual": "3ef581c99a917a8db32e9d160b826150f29afddfdaa9332c798c2b7a868478da",
+        "pass": true
+      },
+      {
+        "kind": "output",
+        "path": "report.md",
+        "expected": "70131a639abf4f92b6aa71126367b343d235c7e13cd0648203b760b892afe85a",
+        "actual": "70131a639abf4f92b6aa71126367b343d235c7e13cd0648203b760b892afe85a",
+        "pass": true
+      },
+      {
+        "kind": "input",
+        "label": "A",
+        "path": "/home/artem/Documents/Codex/2026-10-25/files-pasted-by-the-user-you/outputs/topofold-independent-trial/inputs/1OPJ.pdb",
+        "expected": "6d3444a1f081b1e3b5079babd515d4e848586ec7055647fad9d294b9ee8fb7fb",
+        "actual": "6d3444a1f081b1e3b5079babd515d4e848586ec7055647fad9d294b9ee8fb7fb",
+        "pass": true
+      },
+      {
+        "kind": "input",
+        "label": "B",
+        "path": "/home/artem/Documents/Codex/2026-10-25/files-pasted-by-the-user-you/outputs/topofold-independent-trial/inputs/1OPK.pdb",
+        "expected": "867ed2b25b80e0e2ba52f731e48df25fb8e982b052b89440a123d567c4384974",
+        "actual": "867ed2b25b80e0e2ba52f731e48df25fb8e982b052b89440a123d567c4384974",
+        "pass": true
+      },
+      {
+        "kind": "spec",
+        "path": "/home/artem/Documents/Codex/2026-10-25/files-pasted-by-the-user-you/outputs/topofold-independent-trial/specs/abl.json",
+        "expected": "ee7c5a9febc70b54f5bb4be26704bada657b261bbc484cf7011ec0ac923ec322",
+        "actual": "ee7c5a9febc70b54f5bb4be26704bada657b261bbc484cf7011ec0ac923ec322",
+        "pass": true
+      }
+    ],
+    "passed": 12,
+    "total": 12
+  }
+}

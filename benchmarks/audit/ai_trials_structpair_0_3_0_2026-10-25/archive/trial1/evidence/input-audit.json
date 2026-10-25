@@ -1,0 +1,134 @@
+{
+  "1OPJ": {
+    "records": [
+      "COMPND    MOL_ID: 1;",
+      "COMPND   2 MOLECULE: PROTO-ONCOGENE TYROSINE-PROTEIN KINASE ABL1;",
+      "COMPND   3 CHAIN: A, B;",
+      "COMPND   4 FRAGMENT: KINASE DOMAIN;",
+      "COMPND   5 SYNONYM: P150, C-ABL;",
+      "COMPND   6 EC: 2.7.1.112;",
+      "COMPND   7 ENGINEERED: YES",
+      "REMARK   2",
+      "REMARK   2 RESOLUTION.    1.75 ANGSTROMS.",
+      "REMARK 280",
+      "REMARK 280 CRYSTAL",
+      "REMARK 280 SOLVENT CONTENT, VS   (%): 44.06",
+      "REMARK 280 MATTHEWS COEFFICIENT, VM (ANGSTROMS**3/DA): 2.22",
+      "REMARK 280",
+      "REMARK 280 CRYSTALLIZATION CONDITIONS: 22% PEG 4000, 100 MM MES PH 5.6, 200",
+      "REMARK 280  MM MAGNESIUM CHLORIDE, VAPOR DIFFUSION, HANGING DROP,",
+      "REMARK 280  TEMPERATURE 277K",
+      "DBREF  1OPJ A  248   534  UNP    P00520   ABL1_MOUSE     229    515",
+      "DBREF  1OPJ B  248   534  UNP    P00520   ABL1_MOUSE     229    515",
+      "SEQADV 1OPJ GLY A  242  UNP  P00520              CLONING ARTIFACT",
+      "SEQADV 1OPJ ALA A  243  UNP  P00520              CLONING ARTIFACT",
+      "SEQADV 1OPJ MET A  244  UNP  P00520              CLONING ARTIFACT",
+      "SEQADV 1OPJ ASP A  245  UNP  P00520              CLONING ARTIFACT",
+      "SEQADV 1OPJ PRO A  246  UNP  P00520              CLONING ARTIFACT",
+      "SEQADV 1OPJ SER A  247  UNP  P00520              CLONING ARTIFACT",
+      "SEQADV 1OPJ GLY B  242  UNP  P00520              CLONING ARTIFACT",
+      "SEQADV 1OPJ ALA B  243  UNP  P00520              CLONING ARTIFACT",
+      "SEQADV 1OPJ MET B  244  UNP  P00520              CLONING ARTIFACT",
+      "SEQADV 1OPJ ASP B  245  UNP  P00520              CLONING ARTIFACT",
+      "SEQADV 1OPJ PRO B  246  UNP  P00520              CLONING ARTIFACT",
+      "SEQADV 1OPJ SER B  247  UNP  P00520              CLONING ARTIFACT",
+      "HETNAM      CL CHLORIDE ION",
+      "HETNAM     MYR MYRISTIC ACID",
+      "HETNAM     STI 4-(4-METHYL-PIPERAZIN-1-YLMETHYL)-N-[4-METHYL-3-(4-",
+      "HETNAM   2 STI  PYRIDIN-3-YL-PYRIMIDIN-2-YLAMINO)-PHENYL]-BENZAMIDE",
+      "CRYST1   41.844   63.507   64.051  67.91  79.76  84.88 P 1           2"
+    ]
+  },
+  "1OPJA": {
+    "seqres_count": 293,
+    "ca_positions": 287,
+    "range": [
+      243,
+      529
+    ],
+    "missing_in_248_534": [
+      530,
+      531,
+      532,
+      533,
+      534
+    ],
+    "altlocs": {},
+    "coordinate_seqres_disagreements": [],
+    "insertions": []
+  },
+  "1OPJB": {
+    "seqres_count": 293,
+    "ca_positions": 288,
+    "range": [
+      244,
+      531
+    ],
+    "missing_in_248_534": [
+      532,
+      533,
+      534
+    ],
+    "altlocs": {},
+    "coordinate_seqres_disagreements": [],
+    "insertions": []
+  },
+  "1OPK": {
+    "records": [
+      "COMPND    MOL_ID: 1;",
+      "COMPND   2 MOLECULE: PROTO-ONCOGENE TYROSINE-PROTEIN KINASE ABL1;",
+      "COMPND   3 CHAIN: A;",
+      "COMPND   4 FRAGMENT: SH3-SH2-KINASE DOMAIN;",
+      "COMPND   5 SYNONYM: P150, C-ABL;",
+      "COMPND   6 EC: 2.7.1.112;",
+      "COMPND   7 ENGINEERED: YES;",
+      "COMPND   8 MUTATION: YES",
+      "REMARK   2",
+      "REMARK   2 RESOLUTION.    1.80 ANGSTROMS.",
+      "REMARK 280",
+      "REMARK 280 CRYSTAL",
+      "REMARK 280 SOLVENT CONTENT, VS   (%): 50.22",
+      "REMARK 280 MATTHEWS COEFFICIENT, VM (ANGSTROMS**3/DA): 2.49",
+      "REMARK 280",
+      "REMARK 280 CRYSTALLIZATION CONDITIONS: 20% PEG 3350, 200 MM POTASSIUM",
+      "REMARK 280  NITRATE, PH 7.0, VAPOR DIFFUSION, HANGING DROP, TEMPERATURE 293K",
+      "DBREF  1OPK A   46   534  UNP    P00520   ABL1_MOUSE      27    515",
+      "SEQADV 1OPK GLY A   40  UNP  P00520              CLONING ARTIFACT",
+      "SEQADV 1OPK ALA A   41  UNP  P00520              CLONING ARTIFACT",
+      "SEQADV 1OPK MET A   42  UNP  P00520              CLONING ARTIFACT",
+      "SEQADV 1OPK ASP A   43  UNP  P00520              CLONING ARTIFACT",
+      "SEQADV 1OPK PRO A   44  UNP  P00520              CLONING ARTIFACT",
+      "SEQADV 1OPK SER A   45  UNP  P00520              CLONING ARTIFACT",
+      "SEQADV 1OPK ASN A  382  UNP  P00520    ASP   363 ENGINEERED MUTATION",
+      "HETNAM     MYR MYRISTIC ACID",
+      "HETNAM     P16 6-(2,6-DICHLOROPHENYL)-2-{[3-(HYDROXYMETHYL)",
+      "HETNAM   2 P16  PHENYL]AMINO}-8-METHYLPYRIDO[2,3-D]PYRIMIDIN-7(8H)-ONE",
+      "HETNAM     GOL GLYCEROL",
+      "CRYST1  118.328  123.943   74.798  90.00  90.00  90.00 C 2 2 21      8"
+    ]
+  },
+  "1OPKA": {
+    "seqres_count": 495,
+    "ca_positions": 449,
+    "range": [
+      83,
+      531
+    ],
+    "missing_in_248_534": [
+      532,
+      533,
+      534
+    ],
+    "altlocs": {},
+    "coordinate_seqres_disagreements": [],
+    "insertions": []
+  },
+  "sequence_differences": [
+    {
+      "residue": 382,
+      "1OPJA": "ASP",
+      "1OPJB": "ASP",
+      "1OPKA": "ASN"
+    }
+  ]
+}

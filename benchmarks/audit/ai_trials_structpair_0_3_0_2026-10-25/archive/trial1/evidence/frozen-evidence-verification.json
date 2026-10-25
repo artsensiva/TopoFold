@@ -1,0 +1,26 @@
+[
+  {
+    "file": "specs/abl.json",
+    "expected": "ee7c5a9febc70b54f5bb4be26704bada657b261bbc484cf7011ec0ac923ec322",
+    "actual": "ee7c5a9febc70b54f5bb4be26704bada657b261bbc484cf7011ec0ac923ec322",
+    "pass": true
+  },
+  {
+    "file": "evidence/preregistration.md",
+    "expected": "ea5de9ccad1d31ff9c6f01380132a8d35f2e54e12b47478e17e96b05c91fc557",
+    "actual": "ea5de9ccad1d31ff9c6f01380132a8d35f2e54e12b47478e17e96b05c91fc557",
+    "pass": true
+  },
+  {
+    "file": "evidence/pre-run-correspondence.csv",
+    "expected": "e4ecb1bac6e083f1673fb1271696ad4b269a50dfa4f991f3091dcd3d9d85db49",
+    "actual": "e4ecb1bac6e083f1673fb1271696ad4b269a50dfa4f991f3091dcd3d9d85db49",
+    "pass": true
+  },
+  {
+    "file": "evidence/independent-interpretation.md",
+    "expected": "5d29eef5f7c4551aa1ec137891a0752b485ad30ff728338ce241893b2922b5e4",
+    "actual": "5d29eef5f7c4551aa1ec137891a0752b485ad30ff728338ce241893b2922b5e4",
+    "pass": true
+  }
+]

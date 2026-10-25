@@ -1,0 +1,22 @@
+{
+  "utc": "2026-10-25T16:27:18.570190+00:00",
+  "source": "outputs/topofold-independent-trial/results/abl",
+  "copy": "outputs/topofold-independent-trial/integrity/abl-tampered",
+  "file": "windows.csv",
+  "changes": [
+    {
+      "csv_line": 3,
+      "column": "d_tau_rad",
+      "old": "0.755071",
+      "new": "0.855071"
+    }
+  ],
+  "original_sha256": "92a4289610fc7d902498fc7f46eb8dae05e6c901d93585ad8c4412635c964d56",
+  "changed_sha256": "b040ec05143e87ffc98234a46b2850a9f5df317a0195eed1da45847e5b836a3d",
+  "manifest_unchanged": true,
+  "other_files_unchanged": true,
+  "attempt_errors": [
+    "ValueError: d_tau not in list; copied directory created but no value changed; corrected name to d_tau_rad",
+    "IsADirectoryError on work directory while recording hashes after successful one-cell mutation; corrected verification to recursive files only; did not mutate again"
+  ]
+}

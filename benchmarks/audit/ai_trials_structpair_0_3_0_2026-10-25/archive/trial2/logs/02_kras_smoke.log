@@ -1,0 +1,15 @@
+++ tail -1
+++ pip install MDAnalysis==2.10.0 matplotlib==3.11.2
+Successfully installed GridDataFormats-1.2.0 MDAnalysis-2.10.0 cloudpickle-3.1.2 contourpy-1.4.0 cycler-0.12.1 filelock-4.2.4 fonttools-4.67.0 joblib-1.6.0 kiwisolver-1.5.1 matplotlib-3.11.2 mda-xdrlib-0.2.0 mmtf-python-1.1.3 mrcfile-1.5.4 msgpack-1.2.3 packaging-26.3 pillow-13.0.0 pyparsing-3.3.3 python-dateutil-3.0.0 scipy-1.18.1 six-1.17.0 threadpoolctl-3.7.0 tqdm-4.70.1 tzdata-2026.5
+++ python benchmarks/audit/structpair_demo/fetch_inputs.py
+9O0N.pdb: ok  /home/artem/.config/Claude/scratch-workspaces/e9fd6719-de25-4a0b-8f80-7ee2955de949/78f8b148-a578-47e6-b26f-1b088f117afe/scratch-2026-10-25-04801e/trial/clone/benchmarks/audit/kras_struct_cmp/data_pdb/9O0N.pdb
+9O0O.pdb: ok  /home/artem/.config/Claude/scratch-workspaces/e9fd6719-de25-4a0b-8f80-7ee2955de949/78f8b148-a578-47e6-b26f-1b088f117afe/scratch-2026-10-25-04801e/trial/clone/benchmarks/audit/kras_struct_cmp/data_pdb/9O0O.pdb
+5US4.pdb: ok  /home/artem/.config/Claude/scratch-workspaces/e9fd6719-de25-4a0b-8f80-7ee2955de949/78f8b148-a578-47e6-b26f-1b088f117afe/scratch-2026-10-25-04801e/trial/clone/benchmarks/audit/kras_struct_g12d/data_pdb/5US4.pdb
+5USJ.pdb: ok  /home/artem/.config/Claude/scratch-workspaces/e9fd6719-de25-4a0b-8f80-7ee2955de949/78f8b148-a578-47e6-b26f-1b088f117afe/scratch-2026-10-25-04801e/trial/clone/benchmarks/audit/kras_struct_g12d/data_pdb/5USJ.pdb
+++ PYTHONPATH=python
+++ python -m topofold_inputs.structpair benchmarks/audit/structpair_demo/specs/kras2_5US4A_vs_5USJA.json --out ../outputs/kras2
+158 positions; global Cα RMSD 0.974 Å over 158 Cα; 10 exclusion rows; within-entry variation: unavailable; wrote ../outputs/kras2/report.md
+
+real	0m5.368s
+user	0m10.401s
+sys	0m0.321s

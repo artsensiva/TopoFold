@@ -172,3 +172,27 @@ commit.
   - the pre-interruption step records were reconstructed from tool outputs and screenshots.
 - **Status:** the AI trial is closed, and viewer work stops here. An independent human trial remains a future
   product-usability milestone.
+
+## Entry 6 — AI TRIALS 3 and 4: two independent AI technical trials of structpair 0.3.0 at commit 19b5268 (2026-10-25)
+
+**Independent AI technical trials, not human validation, not a human usability assessment and not biological validation.** Human consent fields do not apply.
+Archive and evidence matrix: `benchmarks/audit/ai_trials_structpair_0_3_0_2026-10-25/` (hash inventory of 115 and 80 original files; the original reports and screenshots are unchanged in place).
+
+- **Trial 3 (called Trial 1 in the archive):** GPT-6 family in Codex desktop (variant not exposed). Abl range 248–534 (287 positions), `on_missing=exclude`, no advisory minimum.
+- **Trial 4 (Trial 2 in the archive):** Claude Opus 5.5, Claude desktop app. Abl range 248–529 (282 positions), `on_missing=reject`, advisory minimum 1 Å on `disp`.
+  The different ranges were declared by each tester before its run; the 282/287 outputs are not a numerical disagreement.
+- **Tested commit:** `19b5268180d533efedcbdef846e7b3f24250a767`. No project developer assistance in either trial.
+
+| Area | Trial 3 | Trial 4 |
+|---|---|---|
+| Installation | completed following documentation | completed following documentation |
+| Command execution | completed using a self-devised workaround (downloader relocated) | completed following documentation (own manifest checker) |
+| Viewer interaction | completed using a self-devised workaround; no persistent defect found | completed using a self-devised workaround (port); one defect reproduced; 3D not tested (no WebGL) |
+| Interpretation | completed following documentation | completed |
+| Integrity test | altered copy refused, file named | altered copy refused, file named |
+
+**Review outcome (this entry).** F1 (sidebar focus after a Results-folder change and back) **reproduced** on 19b5268 in a real browser (3 of 3 runs) and **fixed**
+(`benchmarks/audit/structpair_viewer_folder_switch_2026-10-25/`); a change to another valid folder was not affected. F2–F5 (guide stdout, byte-identical statement,
+schema wording, manifest check) fixed; F6–F7 documented; F8–F12 open and F13–F14 unreconciled or unchanged (see the archive README table). The 3D highlight was checked visually in a
+WebGL-capable headless Chrome. **Not concluded:** that the viewer has no other defect, or anything about human users.
+**Status:** the next outside trial should be a human trial of the fixed viewer and tool; it is not started.

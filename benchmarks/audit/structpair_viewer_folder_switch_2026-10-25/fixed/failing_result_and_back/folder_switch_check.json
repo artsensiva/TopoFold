@@ -1,0 +1,152 @@
+{
+ "url": "http://localhost:8533",
+ "folders": [
+  "/tmp/claude-1000/-home-artem-TopoFold/e90ac19d-5c3f-4830-b0f4-96539559c30e/scratchpad/repro2/outputs",
+  "/tmp/claude-1000/-home-artem-TopoFold/e90ac19d-5c3f-4830-b0f4-96539559c30e/scratchpad/repro2/tamper"
+ ],
+ "focus_set": "39",
+ "steps": [
+  {
+   "step": 1,
+   "action": "select comparison kras2",
+   "focus": "79 \u00b7 A A:88 \u2194 B A:88",
+   "details": "Focus window at position 79 (3 residues)",
+   "selected_positions": [
+    "79"
+   ],
+   "plot_marker": {
+    "chart_rule_x": [
+     [
+      333
+     ],
+     [
+      333
+     ]
+    ],
+    "plotly_focus_traces": [
+     [
+      "focus window in A",
+      [
+       "A:87",
+       "A:88",
+       "A:89"
+      ]
+     ],
+     [
+      "focus window in B",
+      [
+       "A:87",
+       "A:88",
+       "A:89"
+      ]
+     ]
+    ]
+   },
+   "comparison": "kras2 \u2014 KRAS-STRUCT-2 primary pair: 5US4 chain A (GDP) vs 5USJ chain A (GMPPNP), KRAS G12D",
+   "folder": "/tmp/claude-1000/-home-artem-TopoFold/e90ac19d-5c3f-4830-b0f4-96539559c30e/scratchpad/repro2/outputs",
+   "error_banner": "Not available for this result: no chain_variation.csv was written. Name every chain of an entry in structures.X.chains (with primary_chain) to obtain it."
+  },
+  {
+   "step": 2,
+   "action": "select focus 39",
+   "focus": "39 \u00b7 A A:40 \u2194 B A:40",
+   "details": "Focus window at position 39 (3 residues)",
+   "selected_positions": [
+    "39"
+   ],
+   "plot_marker": {
+    "chart_rule_x": [
+     [
+      196
+     ],
+     [
+      196
+     ]
+    ],
+    "plotly_focus_traces": [
+     [
+      "focus window in A",
+      [
+       "A:39",
+       "A:40",
+       "A:41"
+      ]
+     ],
+     [
+      "focus window in B",
+      [
+       "A:39",
+       "A:40",
+       "A:41"
+      ]
+     ]
+    ]
+   },
+   "comparison": "kras2 \u2014 KRAS-STRUCT-2 primary pair: 5US4 chain A (GDP) vs 5USJ chain A (GMPPNP), KRAS G12D",
+   "folder": "/tmp/claude-1000/-home-artem-TopoFold/e90ac19d-5c3f-4830-b0f4-96539559c30e/scratchpad/repro2/outputs",
+   "error_banner": "Not available for this result: no chain_variation.csv was written. Name every chain of an entry in structures.X.chains (with primary_chain) to obtain it."
+  },
+  {
+   "step": 3,
+   "action": "results folder -> B",
+   "focus": null,
+   "details": null,
+   "selected_positions": null,
+   "plot_marker": {
+    "chart_rule_x": [],
+    "plotly_focus_traces": null
+   },
+   "comparison": "abl_tampered \u2014 Descriptive demonstration: 1OPJ chains A,B vs 1OPK chain A (mouse Abl1, different inhibitor, construct, engineered D363N, crystal form)",
+   "folder": "/tmp/claude-1000/-home-artem-TopoFold/e90ac19d-5c3f-4830-b0f4-96539559c30e/scratchpad/repro2/tamper",
+   "error_banner": "This result cannot be displayed: /tmp/claude-1000/-home-artem-TopoFold/e90ac19d-5c3f-4830-b0f4-96539559c30e/scratchpad/repro2/tamper/abl_tampered: files differ from the manifest hashes: windows.csv, figure.png"
+  },
+  {
+   "step": 4,
+   "action": "results folder -> A (back)",
+   "focus": "39 \u00b7 A A:40 \u2194 B A:40",
+   "details": "Focus window at position 39 (3 residues)",
+   "selected_positions": [
+    "39"
+   ],
+   "plot_marker": {
+    "chart_rule_x": [
+     [
+      196
+     ],
+     [
+      196
+     ]
+    ],
+    "plotly_focus_traces": [
+     [
+      "focus window in A",
+      [
+       "A:39",
+       "A:40",
+       "A:41"
+      ]
+     ],
+     [
+      "focus window in B",
+      [
+       "A:39",
+       "A:40",
+       "A:41"
+      ]
+     ]
+    ]
+   },
+   "comparison": "kras2 \u2014 KRAS-STRUCT-2 primary pair: 5US4 chain A (GDP) vs 5USJ chain A (GMPPNP), KRAS G12D",
+   "folder": "/tmp/claude-1000/-home-artem-TopoFold/e90ac19d-5c3f-4830-b0f4-96539559c30e/scratchpad/repro2/outputs",
+   "error_banner": "Not available for this result: no chain_variation.csv was written. Name every chain of an entry in structures.X.chains (with primary_chain) to obtain it."
+  }
+ ],
+ "agree_after_return": {
+  "sidebar_is_remembered_focus": true,
+  "details_agree": true,
+  "table_row_agrees": true,
+  "chart_rule_unchanged_from_step_2": true,
+  "3d_markers_unchanged_from_step_2": true
+ },
+ "all_agree": true
+}

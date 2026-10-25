@@ -65,10 +65,14 @@ pip install streamlit==1.64.0 pandas==3.0.6 altair==6.3.0 plotly==7.1.0   # same
 streamlit run apps/structpair_viewer/app.py --server.address localhost -- --results ~/structpair_out
 ```
 
-- **Expected stdout of step 4:** `158 positions; global Cα RMSD 0.974 Å over 158 Cα; 10 exclusion rows; wrote …/report.md`.
+- **Expected stdout of step 4 (version 0.3.0):** `158 positions; global Cα RMSD 0.974 Å over 158 Cα; 10 exclusion rows; within-entry variation: unavailable; wrote …/report.md`.
+  The `within-entry variation` clause is new since 0.2.0 (it is `unavailable` with one chain per entry).
   The 10 rows are 5 windows that span the 59→68 numbering gap, each listed once per structure.
-- **Reference outputs:** `benchmarks/audit/structpair_demo/results/kras2/`. In the trial, the three CSV files and
-  `summary.json` were byte-identical to them.
+- **Reference outputs:** `benchmarks/audit/structpair_demo/results/kras2/`. The three CSV files (`windows.csv`, `residues.csv`,
+  `exclusions.csv`) are byte-identical to them. `summary.json` has the same content plus one added block,
+  `within_entry_variation` (version 0.2.0 and later; the earlier 0.1.0 trial found it byte-identical). Check your own run with §3b.
+- **`fetch_inputs.py` writes into the clone** (git-ignored `data_pdb/` folders next to each demonstration); it has no output-directory
+  option. To keep downloads elsewhere, run a copy of it from another directory.
 - `--out` must be a new or empty directory, so each run keeps its own record.
 - `PYTHONPATH=python` makes the `topofold_inputs` package importable. It is not installed as a package.
 - **Versions** (an exact record, not a compatibility range):
@@ -147,7 +151,7 @@ Name every chain, and one primary chain, per entry (no chain is chosen for you):
   run with only those two chains. With one chain per entry nothing changes, and the report says that within-entry
   variation is unavailable.
 - **New files:** `chain_variation.csv` (long format, one row per position and channel), `chains.csv` (every chain with its
-  missing residues and altloc decisions) and `chain_variation.png`. The summary, the manifest (schema `…/2`) and the report
+  missing residues and altloc decisions) and `chain_variation.png`. The summary, the manifest (schema `…/3` since version 0.3.0; `…/2` for 0.2.0 results) and the report
   carry the same statement; the viewer shows it on a tab and in a banner, next to the unchanged exclusion and provenance views.
 - **Channels:** the six existing window metrics, computed for every chain pair, and `disp`, the Cα displacement after a trimmed fit
   (the K1 calculation). Per position and channel you get the between-entry values over all A × B pairings (count, min,
@@ -163,6 +167,21 @@ Name every chain, and one primary chain, per entry (no chain is chosen for you):
   biological separation. Older results (schema /2, version 0.2.0) used a default minimum difference of 0 and their column was
   called `separated`: they can show it true for identical chains, and the viewer labels them as historical. The full rules are in
   `docs/STRUCTPAIR_CHAINS_SPEC_2026-10-25.md` (amendment 2).
+
+## 3b. Checking a result against its manifest
+
+`manifest.json` records the SHA-256 of every output file, of both input structures and of the spec. To re-check them (standard
+library only; no viewer needed):
+
+```bash
+PYTHONPATH=python python -m topofold_inputs.structpair_verify ~/structpair_out/kras2 [--json check.json]
+```
+
+It prints `ok`, `mismatch` or `missing` for each file and the counts (for the KRAS example, 9 of 9: 6 outputs, 2 inputs, 1 spec),
+and exits 0 only if every listed file is present and matches. A file moved since the run (an input or the spec) shows as `missing`:
+that is a failure of the check, not a pass. `manifest.json` does not hash itself, so editing the manifest together with a file is not
+detected; keep a copy of the manifest's own hash if that matters. The viewer performs the same output check on every page update
+(§6).
 
 ## 4. Resource use (measured on the implementer's 6-core Linux machine)
 
@@ -216,6 +235,13 @@ streamlit run apps/structpair_viewer/app.py --server.address localhost -- --resu
 - **Page updates:** each control change reruns the page once. While a rerun is in progress, Streamlit may briefly
   show elements from the previous state (greyed out). Read the selection, details and plots after the update has
   finished.
+- **Port busy:** if port 8501 is taken ("Port 8501 is not available"), add `--server.port 8517` (any free port) and open that address.
+- **3D view needs WebGL.** Browsers or panes without WebGL (some embedded browsers, remote desktops, software-rendering
+  setups) show "WebGL is not supported" or an empty 3D panel. Nothing is wrong with the result: the plots, the window table and
+  the details panel show the same focus window. Open the page in a desktop browser with WebGL enabled to see the 3D view.
+- **Changing the Results folder** shows the first comparison of the new folder and keeps the focus remembered for each comparison.
+  If a result fails its manifest check the page says so and stops; returning to a valid folder restores the remembered focus
+  (fixed after the trial of 2026-10-25, D77; at commit 19b5268 the sidebar could show position 0 while the details kept the old window).
 - `--server.address localhost` keeps the page on your own machine. Nothing is uploaded, and no external script is
   loaded.
 - **What it shows:**

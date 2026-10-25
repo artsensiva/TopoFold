@@ -1,0 +1,11 @@
+{
+  "start_utc": "2026-10-25T09:54:32+00:00",
+  "resume_utc": "2026-10-25T16:17:43+00:00",
+  "report_generated_utc": "2026-10-25T16:31:32.555489+00:00",
+  "elapsed_wall_hours": 6.616820969166667,
+  "first_session_active_minutes_estimate": 14,
+  "first_session_timing_uncertainty": "Exact stop was not logged; last saved pre-interruption evidence was 10:06:55 UTC, with a blocked capture near 10:08 UTC. Approximately 13\u201315 minutes; do not treat as stopwatch precision.",
+  "resumed_session_minutes_to_report": 13.825924816666666,
+  "total_active_minutes_estimate": 27.825924816666664,
+  "interruption_excluded": true
+}

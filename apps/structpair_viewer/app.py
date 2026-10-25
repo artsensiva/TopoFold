@@ -80,12 +80,16 @@ st.caption("Local, read-only viewer for two-structure comparisons made with `pyt
            "Static and descriptive: direct geometric differences between two coordinate sets.")
 
 # --- choose a result -------------------------------------------------------------------------------------------------
+# True only if the previous run drew the focus widget. A run that stopped earlier (no result found, or one that failed its
+# manifest check) drops the widget from the browser while its value survives on the server, so the next run must push it again.
+focus_widget_was_drawn = st.session_state.pop("_focus_drawn", False)
 if "results_root" not in st.session_state:
     st.session_state.results_root = str(cli_results_dir())
 with st.sidebar:
     st.header("Results")
     root_text = st.text_input("Results folder", key="results_root",
-                              help="One structpair output directory, or a folder containing several.")
+                              help="One structpair output directory, or a folder containing several. After a change the first comparison "
+                                   "of the new folder is shown; the focus of each comparison is remembered.")
     found = discover(root_text)
     if not found:
         st.error(f"No structpair results (manifest.json) found in `{root_text}`.")
@@ -117,10 +121,14 @@ with st.sidebar:
             remembered[previous] = st.session_state.focus
         st.session_state.focus = remembered.get(str(path), positions[len(positions) // 2])
         st.session_state["_focus_result"] = str(path)
+    elif not focus_widget_was_drawn:
+        st.session_state.focus = remembered.get(str(path), positions[len(positions) // 2])
     if st.session_state.get("focus") not in positions:
         st.session_state.focus = positions[len(positions) // 2]
     focus = st.selectbox("Focus window (position · residue in A ↔ in B)", positions, key="focus",
                          format_func=lambda p: lab[p])
+    remembered[str(path)] = focus
+    st.session_state["_focus_drawn"] = True
 
 st.subheader(res.name)
 S = res.summary
@@ -173,7 +181,8 @@ with left:
 
 with right:
     st.markdown("**Molecular view** — Cα traces; A superposed on B for display only (all residues present in both). "
-                f"Orange: residues of the focus window ({size or 3} residues).")
+                f"Orange: residues of the focus window ({size or 3} residues). The 3D view needs WebGL in the browser; if it stays "
+                "empty, the plots, the focus table and the details below show the same window.")
     coords, cstatus = structure_coords(res)
     if set(coords) != {"A", "B"}:
         st.warning("Molecular view unavailable. " + " · ".join(f"{k}: {m}" for k, m in cstatus.items()))

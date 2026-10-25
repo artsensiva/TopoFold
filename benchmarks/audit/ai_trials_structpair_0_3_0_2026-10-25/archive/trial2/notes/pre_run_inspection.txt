@@ -1,0 +1,18 @@
+inputs/1OPJ.pdb A: 287 CA, ranges 243-529, inscodes []
+   altloc CA: {}
+inputs/1OPJ.pdb B: 288 CA, ranges 244-531, inscodes []
+   altloc CA: {}
+inputs/1OPK.pdb A: 449 CA, ranges 83-531, inscodes []
+   altloc CA: {}
+common CA positions: 286 244-529
+resname differs at (244, '') {'1OPJA': 'MET', '1OPJB': 'MET', '1OPKA': 'ILE'}
+resname differs at (245, '') {'1OPJA': 'ASP', '1OPJB': 'ASP', '1OPKA': 'TYR'}
+resname differs at (246, '') {'1OPJA': 'PRO', '1OPJB': 'PRO', '1OPKA': 'GLY'}
+resname differs at (247, '') {'1OPJA': 'SER', '1OPJB': 'SER', '1OPKA': 'VAL'}
+resname differs at (382, '') {'1OPJA': 'ASP', '1OPJB': 'ASP', '1OPKA': 'ASN'}
+1OPJ altloc atoms (ATOM records, by chain:resid:altloc):
+
+0
+1OPK altloc atoms (ATOM records, by chain:resid:altloc):
+
+0
