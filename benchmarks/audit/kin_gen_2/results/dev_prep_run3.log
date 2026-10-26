@@ -1,0 +1,42 @@
+ABL1 41 -> 14
+CDK2 40 -> 0
+MAPK14 41 -> 13
+AURKA 40 -> 36
+BRAF 36 -> 19
+PRKACA 39 -> 34
+{
+ "n_dev": 116,
+ "groups": {
+  "out": 23,
+  "in": 79,
+  "inter": 14
+ },
+ "gates": {
+  "G6": true,
+  "G5": true,
+  "G1": true,
+  "G2": true,
+  "G4": true,
+  "G3": true,
+  "G8": true
+ },
+ "k": {
+  "T": 3,
+  "B1": 5,
+  "B2": 1,
+  "B3": 1
+ },
+ "baseline": "B2",
+ "loko_ba": {
+  "T": 0.975,
+  "B1": 0.872,
+  "B2": 0.881,
+  "B3": 0.801
+ },
+ "cost": {
+  "download_bytes": 0,
+  "files": 0,
+  "wall_seconds": 86.78849124908447,
+  "cpu_seconds": 75.429498
+ }
+}

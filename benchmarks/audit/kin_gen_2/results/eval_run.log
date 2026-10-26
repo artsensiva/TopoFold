@@ -1,0 +1,36 @@
+JAK2 30 -> 13
+CHEK1 30 -> 16
+MAPK1 30 -> 28
+MET 30 -> 20
+SYK 30 -> 26
+IRAK4 30 -> 20
+PLK1 30 -> 0
+FGFR1 30 -> 10
+{
+ "processed": [
+  "JAK2",
+  "CHEK1",
+  "MAPK1",
+  "MET",
+  "SYK",
+  "IRAK4",
+  "PLK1",
+  "FGFR1"
+ ],
+ "eligibility": {
+  "n_scored": 133,
+  "n_out": 8,
+  "n_in": 125,
+  "n_inter_excluded_from_scoring": 0,
+  "kinases_with_out": 2,
+  "kinases_with_5_in": 7,
+  "insufficient": true
+ },
+ "outcome": "insufficient evidence",
+ "ba_w": {
+  "T": 0.964,
+  "B1": 0.979,
+  "B2": 0.958,
+  "B3": 0.993
+ }
+}
