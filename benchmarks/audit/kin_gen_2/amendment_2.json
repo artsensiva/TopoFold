@@ -1,0 +1,9 @@
+{
+ "id": "KIN-GEN-2 amendment 2",
+ "date": "2026-10-26",
+ "G5": {
+  "rule": "each testable out-control (1IEP, 1KV2, 1UWH) assigned out; at least two testable; a control excluded by the eligibility rules is 'not testable'; and at least 90 % of the PRKACA development entries assigned in"
+ },
+ "reason": "1KV2 is excluded by the window rule (chain break); 1FIN is absent because CDK2 yields no unique alphaC Glu (almost all entries are alphaC-out)",
+ "unchanged": "everything else"
+}

@@ -38,4 +38,12 @@ Evaluation: ≤ 100 MB of scientific downloads (cap 90 MB in the stopping rule) 
 A negative or insufficient-evidence outcome completes the work package. Earlier studies are not reopened.
 
 ## Amendments
-(none)
+
+- **Amendment 1 (2026-10-26), made during development, after the first development preparation run and before any evaluation structure was selected, downloaded or scored** (`amendment_1.json`; protocol.json is unchanged and stays hashed by freeze 1).
+  The first run (log kept as `results/dev_prep_run1.log`) failed gate G5 and G2 and excluded MAPK14, AURKA and CDK2 for anchor reasons: UniProt active-site annotations are not reliable across kinases (MAPK14's lists the DFG Asp, with ILD in the reference at the HRD position; AURKA has two ATP-binding Lys),
+  and the CDK2 contact rule fails because almost all CDK2 entries are αC-out. Changes: (1) G2 allows 1e-9 for the float64 representations and 1e-4 for T (the core receives float32); (2) anchors: the β3 Lys is the unique ATP-binding-site Lys at UniProt kinase-domain start + 20 to + 40, HRD and DFG are unique motif hits in windows
+  measured from the β3 Lys (+70 to +125 and +95 to +140), the UniProt active site is no longer used; the windows come from the development kinases' spacing and are applied unchanged to evaluation kinases; (3) controls: out = 1IEP, 1KV2, 1UWH; in = at least 90 % of the PRKACA development entries. Nothing about evaluation kinases, scoring, metric or outcomes changes.
+- **Amendment 2 (2026-10-26), same stage (second development preparation run, before any evaluation structure was selected, downloaded or scored)** (`amendment_2.json`). After amendment 1 the preparation gave 116 development entries from five kinases (CDK2 yielded none: almost all its entries are αC-out, so the contact rule finds no unique αC Glu;
+  its 1FIN control is therefore absent) and gate G5 failed only because the control 1KV2 (p38) is excluded by the window rule (a chain break in its DFG region). Change: a control that fails the eligibility rules is reported as "not testable" and does not fail G5; G5 passes if every testable out-control (1IEP, 1KV2, 1UWH) is assigned out, at least two are testable, and at least 90 % of the PRKACA development entries are assigned in.
+  Nothing about evaluation kinases, scoring, metric or outcomes changes. Run-1 and run-2 development records are kept (`results/dev_model_run1.json`, `results/dev_prep_run1.log`).
+

@@ -1,0 +1,21 @@
+{
+ "id": "KIN-GEN-2 amendment 1",
+ "date": "2026-10-26",
+ "made": "during development, after the first development preparation run and before any evaluation structure was selected, downloaded or scored",
+ "reason": {
+  "G2": "the TopoFold core receives float32 coordinates, so the rigid-motion invariance of the T representation is limited to about 5e-6, not 1e-6 (observed 4.6e-6); the float64 representations keep a tight limit",
+  "anchors": "UniProt active-site annotations are not reliable across kinases (MAPK14 lists residue 168, the DFG Asp, with reference ILD there; AURKA has two ATP-binding Lys); the first run excluded MAPK14, AURKA and CDK2 for anchor reasons",
+  "controls": "MAPK14 and CDK2 were excluded by the anchor rules, so the controls 1KV2 and 1FIN could not be tested; the cyclin-bound CDK2 control cannot be replaced from CDK2 entries"
+ },
+ "G2": {"float64_representations_B1_B2_B3_max": 1e-9, "T_max_float32_core": 1e-4},
+ "anchors": {
+  "domain_and_beta3_Lys": "UniProt 'Protein kinase' domains; a domain qualifies if it holds exactly one UniProt ATP-binding-site Lys at domain start + 20 to + 40 (the six development kinases have it at + 26 to + 29); exactly one qualifying domain is needed",
+  "HRD_H": "MotifWindow(beta3 Lys + 70, beta3 Lys + 125): exactly one HRD or YRD (development spacing 86 to 98)",
+  "DFG_Asp": "MotifWindow(beta3 Lys + 95, beta3 Lys + 140): exactly one DFG (development spacing 110 to 120)",
+  "alphaC_Glu": "unchanged (contact rule)",
+  "UniProt_active_site": "no longer used"
+ },
+ "controls": {"out": ["1IEP", "1KV2", "1UWH"], "in": "every PRKACA development entry; at least 90 % of them must be assigned in",
+              "basis": "published structures: an imatinib-Abl complex, a BIRB-796-p38 complex and a sorafenib-BRAF complex (type II inhibitors) for out; PKA catalytic-subunit structures are in the DFG-in state; sanity gate only"},
+ "unchanged": "evaluation kinase list and ranking, stopping rule, representations, scoring procedure, metric, outcomes and the other gates"
+}
