@@ -1,0 +1,67 @@
+{
+ "id": "STRUCTPAIR-ALTLOC-TIE-REPAIR-2026-10-26",
+ "test_file": "tests/test_structpair_altloc_ties.py",
+ "before": {
+  "passed": [
+   "test_a_tie_in_the_primary_policy_still_fails_explicitly",
+   "test_an_unrelated_failure_in_the_optional_calculation_is_not_swallowed",
+   "test_no_alternate_locations_is_not_applicable",
+   "test_unique_highest_occupancy_alternate_is_computed"
+  ],
+  "failed": [
+   "test_a_tie_in_the_optional_policy_keeps_the_primary_comparison_and_reports_unavailable",
+   "test_adapter_marks_only_tie_errors_in_the_error_file",
+   "test_report_and_viewer_distinguish_unavailable_from_zero",
+   "test_ties_in_both_structures_and_several_residues_are_all_listed_including_unmapped_ones"
+  ],
+  "other": [],
+  "exit_code": 1,
+  "code": {
+   "commit": "a155ada3a5879e9ff86bbc6a9765056b4dc8804e",
+   "structpair_version": "0.3.0"
+  }
+ },
+ "after": {
+  "passed": [
+   "test_a_tie_in_the_optional_policy_keeps_the_primary_comparison_and_reports_unavailable",
+   "test_a_tie_in_the_primary_policy_still_fails_explicitly",
+   "test_adapter_marks_only_tie_errors_in_the_error_file",
+   "test_an_unrelated_failure_in_the_optional_calculation_is_not_swallowed",
+   "test_no_alternate_locations_is_not_applicable",
+   "test_report_and_viewer_distinguish_unavailable_from_zero",
+   "test_ties_in_both_structures_and_several_residues_are_all_listed_including_unmapped_ones",
+   "test_unique_highest_occupancy_alternate_is_computed"
+  ],
+  "failed": [],
+  "other": [],
+  "exit_code": 0,
+  "code": {
+   "base_commit": "a155ada3a5879e9ff86bbc6a9765056b4dc8804e",
+   "working_tree": "uncommitted repaired code",
+   "structpair_version": "0.3.1"
+  }
+ },
+ "failed_before_and_passing_after": [
+  "test_a_tie_in_the_optional_policy_keeps_the_primary_comparison_and_reports_unavailable",
+  "test_adapter_marks_only_tie_errors_in_the_error_file",
+  "test_report_and_viewer_distinguish_unavailable_from_zero",
+  "test_ties_in_both_structures_and_several_residues_are_all_listed_including_unmapped_ones"
+ ],
+ "passing_before_and_after": [
+  "test_a_tie_in_the_primary_policy_still_fails_explicitly",
+  "test_an_unrelated_failure_in_the_optional_calculation_is_not_swallowed",
+  "test_no_alternate_locations_is_not_applicable",
+  "test_unique_highest_occupancy_alternate_is_computed"
+ ],
+ "still_failing_after": [],
+ "counts": {
+  "before": {
+   "passed": 4,
+   "failed": 4
+  },
+  "after": {
+   "passed": 8,
+   "failed": 0
+  }
+ }
+}

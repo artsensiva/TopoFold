@@ -42,7 +42,7 @@ from . import chain_variation as cv
 from .compare import spearman, window_distances
 from .ensemble import _run, _sha256, exclusion_causes
 
-STRUCTPAIR_VERSION = "0.3.0"
+STRUCTPAIR_VERSION = "0.3.1"   # 0.3.1: an occupancy tie in the OPTIONAL altloc sensitivity is reported as unavailable, not fatal
 SCHEMA = "topofold_inputs.structpair/3"   # /2: 0.2.0 (advisory/1 semantics); /1: 0.1.0. Older records keep their meaning
 METRICS = ("d_kappa", "d_i_i2", "rmsd3", "d_tau", "d_i_i3", "rmsd4")
 FOUR = ("d_tau", "d_i_i3", "rmsd4")
@@ -171,6 +171,16 @@ def load_spec(path: Path) -> dict:
 
 # --- extraction (existing components) --------------------------------------------------------------------------------
 
+class AltlocTieRefusal(RuntimeError):
+    """The adapter refused a structure because alternate locations are tied on occupancy under `highest_occupancy`.
+
+    `ties` is the adapter's structured record (every tied residue), read from its error file, not parsed from text."""
+
+    def __init__(self, message: str, ties: list):
+        super().__init__(message)
+        self.ties = ties
+
+
 def extract(spec: dict, key: str, altloc: str, work: Path, adapter_python: str, tag: str, chain: str | None = None) -> dict:
     from .features import export_features, features_from_export
 
@@ -183,8 +193,21 @@ def extract(spec: dict, key: str, altloc: str, work: Path, adapter_python: str, 
                                 for k, p in enumerate(spec["_pairs"])]))
     run_id = f"{tag}_{key}{suffix}"
     on_missing = "reject" if spec["on_missing"] == "reject" else "mark"
-    _run(["-m", "topofold_inputs", s["path"], "--run-id", run_id, "--out", str(work), "--correspondence", str(corr),
-          "--on-missing", on_missing, "--altloc", altloc], adapter_python)
+    err = work / f"{run_id}_error.json"
+    err.unlink(missing_ok=True)
+    try:
+        _run(["-m", "topofold_inputs", s["path"], "--run-id", run_id, "--out", str(work), "--correspondence", str(corr),
+              "--on-missing", on_missing, "--altloc", altloc, "--error-json", str(err)], adapter_python)
+    except RuntimeError as e:
+        rec = None
+        if err.is_file():
+            try:
+                rec = json.loads(err.read_text())
+            except ValueError:
+                rec = None
+        if isinstance(rec, dict) and rec.get("kind") == "altloc_tie" and isinstance(rec.get("ties"), list) and rec["ties"]:
+            raise AltlocTieRefusal(str(e), rec["ties"]) from e
+        raise
     npz, js = work / f"{run_id}.npz", work / f"{run_id}.json"
     feats, rep = features_from_export(npz, js)
     export_features(feats, npz, js, work, run_id)
@@ -236,9 +259,9 @@ def window_metrics(a: dict, b: dict, rm: dict) -> dict:
     return m
 
 
-def compare(spec: dict, altloc: dict[str, str], work: Path, adapter_python: str, tag: str) -> dict:
-    a = extract(spec, "A", altloc["A"], work, adapter_python, tag)
-    b = extract(spec, "B", altloc["B"], work, adapter_python, tag)
+def compare(spec: dict, altloc: dict[str, str], work: Path, adapter_python: str, tag: str, extracted: dict | None = None) -> dict:
+    a = (extracted or {}).get("A") or extract(spec, "A", altloc["A"], work, adapter_python, tag)
+    b = (extracted or {}).get("B") or extract(spec, "B", altloc["B"], work, adapter_python, tag)
     out = work / f"{tag}_qcp.json"
     _run(["-m", "topofold_inputs.qcp_rmsd", str(a["npz"]), str(b["npz"]), str(out)], adapter_python)
     rm = json.loads(out.read_text())
@@ -545,6 +568,13 @@ def report(spec: dict, summary: dict, manifest: dict, exclusions: list[dict], re
     L += ["", "## Alternate-conformation sensitivity", ""]
     if sens is None:
         L.append("Not requested.")
+    elif sens.get("available") is False:
+        L.append(f"**UNAVAILABLE, not zero.** The requested sensitivity (policy `{sens['policy']}`) was not computed: {sens['reason']} "
+                 f"{sens['why_not_partial']} No value is reported.")
+        L += ["", "| Structure | Residue | In the correspondence | Alternate locations | Occupancies |", "|---|---|---|---|---|"]
+        for t in sens["ties"]:
+            L.append(f"| {t['structure']} | {t['chain']}:{t['resid']}{t['icode']} | {'yes' if t['in_correspondence'] else 'no'} | "
+                     f"{', '.join(a or '(blank)' for a in t['altlocs'])} | {', '.join(str(o) for o in t['occupancies'])} |")
     elif "max_abs_change" not in sens:
         L.append(sens["status"])
     else:
@@ -558,6 +588,17 @@ def report(spec: dict, summary: dict, manifest: dict, exclusions: list[dict], re
 
 
 # --- main ----------------------------------------------------------------------------------------------------------------
+
+def unavailable_sensitivity(policy: str, ties: list) -> dict:
+    """The requested optional sensitivity could not be computed. No number is reported (in particular no zero)."""
+    return {"policy": policy, "status": "unavailable: alternate locations tied on occupancy", "available": False, "values_reported": False,
+            "reason": f"the `{policy}` policy cannot choose between alternate locations of equal occupancy at {len(ties)} residue(s); "
+                      "the primary comparison (primary altloc policy) is complete and unaffected.",
+            "why_not_partial": "A partial sensitivity would need a new rule for the tied residues (choose one or skip it), which changes the windows "
+                               "around them and the global fit, so the whole optional sensitivity is unavailable. This does not mean the "
+                               "structures are insensitive to the alternate-location choice.",
+            "ties": ties}
+
 
 def run(spec_path: Path, out: Path, adapter_python: str) -> dict:
     spec = load_spec(spec_path)
@@ -582,7 +623,16 @@ def run(spec_path: Path, out: Path, adapter_python: str) -> dict:
             summary["altloc_sensitivity"] = {"policy": pol, "status": "not applicable: no alternate locations at the "
                                                                       "mapped Cα atoms"}
         else:
-            c2 = compare(spec, {"A": pol, "B": pol}, work, adapter_python, "altloc_sens")
+            ex, ties = {}, []
+            for k in "AB":          # both structures are examined, so ties in A and in B are all reported
+                try:
+                    ex[k] = extract(spec, k, pol, work, adapter_python, "altloc_sens")
+                except AltlocTieRefusal as e:
+                    ties += [{"structure": k, **t} for t in e.ties]
+            if ties:
+                summary["altloc_sensitivity"] = unavailable_sensitivity(pol, ties)
+        if summary["altloc_sensitivity"] is None:
+            c2 = compare(spec, {"A": pol, "B": pol}, work, adapter_python, "altloc_sens", extracted=ex)
             summary["altloc_sensitivity"] = {
                 "policy": pol, "status": "computed",
                 "max_abs_change": {k: max((abs(c2["metrics"][k][i] - c["metrics"][k][i]) for i in range(len(res_rows))
@@ -621,7 +671,10 @@ def run(spec_path: Path, out: Path, adapter_python: str) -> dict:
         "correspondence": {"form": next(iter(spec["correspondence"])), "n_positions": len(res_rows),
                            "pairs": [[f"{a[0]}{a[1]}", f"{b[0]}{b[1]}"] for a, b in spec["_pairs"]]},
         "policies": {"on_missing": spec["on_missing"], "resname_mismatch": spec["resname_mismatch"],
-                     "altloc_sensitivity": spec["altloc_sensitivity"], "chain_variation": spec["_variation"]},
+                     "altloc_sensitivity": spec["altloc_sensitivity"],
+                     "altloc_sensitivity_outcome": ("not requested" if summary["altloc_sensitivity"] is None
+                                                    else summary["altloc_sensitivity"]["status"]),
+                     "chain_variation": spec["_variation"]},
         "within_entry_variation": {"status": summary["within_entry_variation"]["status"], "advisory_semantics": cv.SEMANTICS,
                                    "statement": cv.STATEMENT, "figure": var_fig, "n_pairs": var["n_pairs"] if var else None},
         "breaks": {k: c[k]["breaks"] for k in "AB"},

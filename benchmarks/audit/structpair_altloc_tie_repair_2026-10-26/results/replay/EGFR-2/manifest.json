@@ -1,0 +1,1318 @@
+{
+ "schema": "topofold_inputs.structpair/3",
+ "name": "KIN-PAIR-1 EGFR-2: 5UG9 vs 5HG8 (EGFR)",
+ "statement": "Two static structures: the values are direct geometric differences between these coordinate sets. They can reflect crystal form and packing, crystallization conditions, resolution, refinement, alternate conformations and coordinate error as well as any biological difference. No ensemble, population, kinetic, functional-state or treatment-response claim follows. Agreement or disagreement between metrics does not show that one representation is better. Crystal copies of one entry are not independent replicates.",
+ "command": "python -m topofold_inputs.structpair /home/artem/TopoFold/benchmarks/audit/kin_pair_1/work/EGFR-2/spec.json --out /home/artem/TopoFold/benchmarks/audit/structpair_altloc_tie_repair_2026-10-26/work/replay_EGFR-2",
+ "spec": {
+  "path": "/home/artem/TopoFold/benchmarks/audit/kin_pair_1/work/EGFR-2/spec.json",
+  "sha256": "6ad90314ee4367cec23f3cf0451e853d20f12785db23553ae0d40cef93c7ea6d"
+ },
+ "inputs": {
+  "A": {
+   "label": "5UG9 chain A",
+   "path": "/home/artem/TopoFold/benchmarks/audit/kin_pair_1/data_pdb/5UG9.pdb",
+   "sha256": "24013b98bdebcef070c3c4834e726014467f4a7839fd316793fb76a647c3b41f",
+   "chain": "A",
+   "chains": [
+    "A"
+   ],
+   "altloc_policy": "blank_then_A",
+   "adapter_json_sha256": "6d3e67b4536f962bc3e59041eac289cae6a4b4eb0452f35c13178f4be688938d",
+   "features_json_sha256": "aaea7408ef7a13b248996be4b7ec565806daf2703fc59c828a5a623508e0cb97",
+   "source_files": [
+    {
+     "role": "topology",
+     "path": "/home/artem/TopoFold/benchmarks/audit/kin_pair_1/data_pdb/5UG9.pdb",
+     "bytes": 261225,
+     "sha256": "24013b98bdebcef070c3c4834e726014467f4a7839fd316793fb76a647c3b41f"
+    }
+   ],
+   "adapter": {
+    "name": "topofold_inputs.ca_adapter",
+    "version": "0.1.0",
+    "source_sha256": "fe6ac3b28bce3c2cb0b6d1b2eab34712b6de77cf66aa31ea8beeb27ddd8d13df"
+   },
+   "adapter_software": {
+    "python": "3.14.4",
+    "numpy": "2.5.3",
+    "MDAnalysis": "2.10.0"
+   },
+   "core": {
+    "version": "0.8.3",
+    "function": "compute_invariants",
+    "wrapper": {
+     "module": "topofold",
+     "path": "/home/artem/TopoFold/.venv/lib/python3.14/site-packages/topofold/__init__.py",
+     "sha256": "49780093095f27c89bdf234be15e1f5a9bac957d5a9dbf5ae0f93c856ee1590d"
+    },
+    "native_extension": {
+     "module": "topofold.topofold",
+     "path": "/home/artem/TopoFold/.venv/lib/python3.14/site-packages/topofold/topofold.cpython-314-x86_64-linux-gnu.so",
+     "sha256": "d90e7ed4f1d8036a3735f387c6fe6aa5a81c7b615da1d0094ce054cf0c13cfa8",
+     "status": "resolved",
+     "loader": "ExtensionFileLoader"
+    }
+   },
+   "features": {
+    "version": "0.1.1",
+    "source_sha256": "9138358ce5040a8dc1e2ff5692e6d3aa77e5334bfb840cc3e8620ca46598271e"
+   },
+   "units": {
+    "coordinates": "angstrom",
+    "time": null,
+    "source_length_unit": "Angstrom",
+    "source_time_unit": null,
+    "reader_convert_units": true,
+    "basis": "source unit Angstrom; no conversion needed"
+   },
+   "frame_identity": "single_frame"
+  },
+  "B": {
+   "label": "5HG8 chain A",
+   "path": "/home/artem/TopoFold/benchmarks/audit/kin_pair_1/data_pdb/5HG8.pdb",
+   "sha256": "8556a280ab40d2bf93fce6c5b0cbc40ac4d1fe2d3bbf84328a449dd634bd079b",
+   "chain": "A",
+   "chains": [
+    "A"
+   ],
+   "altloc_policy": "blank_then_A",
+   "adapter_json_sha256": "be4ac7316e86c474de0a44f36f794d61f3a1723f058c295689984d569eec89d8",
+   "features_json_sha256": "1c46c5b522db01eaff4a6d16d4e557cecfc90ecc690b2c140c629abd1397a6c4",
+   "source_files": [
+    {
+     "role": "topology",
+     "path": "/home/artem/TopoFold/benchmarks/audit/kin_pair_1/data_pdb/5HG8.pdb",
+     "bytes": 260820,
+     "sha256": "8556a280ab40d2bf93fce6c5b0cbc40ac4d1fe2d3bbf84328a449dd634bd079b"
+    }
+   ],
+   "adapter": {
+    "name": "topofold_inputs.ca_adapter",
+    "version": "0.1.0",
+    "source_sha256": "fe6ac3b28bce3c2cb0b6d1b2eab34712b6de77cf66aa31ea8beeb27ddd8d13df"
+   },
+   "adapter_software": {
+    "python": "3.14.4",
+    "numpy": "2.5.3",
+    "MDAnalysis": "2.10.0"
+   },
+   "core": {
+    "version": "0.8.3",
+    "function": "compute_invariants",
+    "wrapper": {
+     "module": "topofold",
+     "path": "/home/artem/TopoFold/.venv/lib/python3.14/site-packages/topofold/__init__.py",
+     "sha256": "49780093095f27c89bdf234be15e1f5a9bac957d5a9dbf5ae0f93c856ee1590d"
+    },
+    "native_extension": {
+     "module": "topofold.topofold",
+     "path": "/home/artem/TopoFold/.venv/lib/python3.14/site-packages/topofold/topofold.cpython-314-x86_64-linux-gnu.so",
+     "sha256": "d90e7ed4f1d8036a3735f387c6fe6aa5a81c7b615da1d0094ce054cf0c13cfa8",
+     "status": "resolved",
+     "loader": "ExtensionFileLoader"
+    }
+   },
+   "features": {
+    "version": "0.1.1",
+    "source_sha256": "9138358ce5040a8dc1e2ff5692e6d3aa77e5334bfb840cc3e8620ca46598271e"
+   },
+   "units": {
+    "coordinates": "angstrom",
+    "time": null,
+    "source_length_unit": "Angstrom",
+    "source_time_unit": null,
+    "reader_convert_units": true,
+    "basis": "source unit Angstrom; no conversion needed"
+   },
+   "frame_identity": "single_frame"
+  }
+ },
+ "correspondence": {
+  "form": "pairs",
+  "n_positions": 280,
+  "pairs": [
+   [
+    "702",
+    "702"
+   ],
+   [
+    "703",
+    "703"
+   ],
+   [
+    "704",
+    "704"
+   ],
+   [
+    "705",
+    "705"
+   ],
+   [
+    "706",
+    "706"
+   ],
+   [
+    "707",
+    "707"
+   ],
+   [
+    "708",
+    "708"
+   ],
+   [
+    "709",
+    "709"
+   ],
+   [
+    "710",
+    "710"
+   ],
+   [
+    "711",
+    "711"
+   ],
+   [
+    "712",
+    "712"
+   ],
+   [
+    "713",
+    "713"
+   ],
+   [
+    "714",
+    "714"
+   ],
+   [
+    "715",
+    "715"
+   ],
+   [
+    "716",
+    "716"
+   ],
+   [
+    "717",
+    "717"
+   ],
+   [
+    "718",
+    "718"
+   ],
+   [
+    "719",
+    "719"
+   ],
+   [
+    "720",
+    "720"
+   ],
+   [
+    "721",
+    "721"
+   ],
+   [
+    "722",
+    "722"
+   ],
+   [
+    "723",
+    "723"
+   ],
+   [
+    "724",
+    "724"
+   ],
+   [
+    "725",
+    "725"
+   ],
+   [
+    "726",
+    "726"
+   ],
+   [
+    "727",
+    "727"
+   ],
+   [
+    "728",
+    "728"
+   ],
+   [
+    "729",
+    "729"
+   ],
+   [
+    "730",
+    "730"
+   ],
+   [
+    "731",
+    "731"
+   ],
+   [
+    "732",
+    "732"
+   ],
+   [
+    "733",
+    "733"
+   ],
+   [
+    "734",
+    "734"
+   ],
+   [
+    "735",
+    "735"
+   ],
+   [
+    "736",
+    "736"
+   ],
+   [
+    "737",
+    "737"
+   ],
+   [
+    "738",
+    "738"
+   ],
+   [
+    "739",
+    "739"
+   ],
+   [
+    "740",
+    "740"
+   ],
+   [
+    "741",
+    "741"
+   ],
+   [
+    "742",
+    "742"
+   ],
+   [
+    "743",
+    "743"
+   ],
+   [
+    "744",
+    "744"
+   ],
+   [
+    "745",
+    "745"
+   ],
+   [
+    "746",
+    "746"
+   ],
+   [
+    "747",
+    "747"
+   ],
+   [
+    "748",
+    "748"
+   ],
+   [
+    "753",
+    "753"
+   ],
+   [
+    "754",
+    "754"
+   ],
+   [
+    "755",
+    "755"
+   ],
+   [
+    "756",
+    "756"
+   ],
+   [
+    "757",
+    "757"
+   ],
+   [
+    "758",
+    "758"
+   ],
+   [
+    "759",
+    "759"
+   ],
+   [
+    "760",
+    "760"
+   ],
+   [
+    "761",
+    "761"
+   ],
+   [
+    "762",
+    "762"
+   ],
+   [
+    "763",
+    "763"
+   ],
+   [
+    "764",
+    "764"
+   ],
+   [
+    "765",
+    "765"
+   ],
+   [
+    "766",
+    "766"
+   ],
+   [
+    "767",
+    "767"
+   ],
+   [
+    "768",
+    "768"
+   ],
+   [
+    "769",
+    "769"
+   ],
+   [
+    "770",
+    "770"
+   ],
+   [
+    "771",
+    "771"
+   ],
+   [
+    "772",
+    "772"
+   ],
+   [
+    "773",
+    "773"
+   ],
+   [
+    "774",
+    "774"
+   ],
+   [
+    "775",
+    "775"
+   ],
+   [
+    "776",
+    "776"
+   ],
+   [
+    "777",
+    "777"
+   ],
+   [
+    "778",
+    "778"
+   ],
+   [
+    "779",
+    "779"
+   ],
+   [
+    "780",
+    "780"
+   ],
+   [
+    "781",
+    "781"
+   ],
+   [
+    "782",
+    "782"
+   ],
+   [
+    "783",
+    "783"
+   ],
+   [
+    "784",
+    "784"
+   ],
+   [
+    "785",
+    "785"
+   ],
+   [
+    "786",
+    "786"
+   ],
+   [
+    "787",
+    "787"
+   ],
+   [
+    "788",
+    "788"
+   ],
+   [
+    "789",
+    "789"
+   ],
+   [
+    "790",
+    "790"
+   ],
+   [
+    "791",
+    "791"
+   ],
+   [
+    "792",
+    "792"
+   ],
+   [
+    "793",
+    "793"
+   ],
+   [
+    "794",
+    "794"
+   ],
+   [
+    "795",
+    "795"
+   ],
+   [
+    "796",
+    "796"
+   ],
+   [
+    "797",
+    "797"
+   ],
+   [
+    "798",
+    "798"
+   ],
+   [
+    "799",
+    "799"
+   ],
+   [
+    "800",
+    "800"
+   ],
+   [
+    "801",
+    "801"
+   ],
+   [
+    "802",
+    "802"
+   ],
+   [
+    "803",
+    "803"
+   ],
+   [
+    "804",
+    "804"
+   ],
+   [
+    "805",
+    "805"
+   ],
+   [
+    "806",
+    "806"
+   ],
+   [
+    "807",
+    "807"
+   ],
+   [
+    "808",
+    "808"
+   ],
+   [
+    "809",
+    "809"
+   ],
+   [
+    "810",
+    "810"
+   ],
+   [
+    "811",
+    "811"
+   ],
+   [
+    "812",
+    "812"
+   ],
+   [
+    "813",
+    "813"
+   ],
+   [
+    "814",
+    "814"
+   ],
+   [
+    "815",
+    "815"
+   ],
+   [
+    "816",
+    "816"
+   ],
+   [
+    "817",
+    "817"
+   ],
+   [
+    "818",
+    "818"
+   ],
+   [
+    "819",
+    "819"
+   ],
+   [
+    "820",
+    "820"
+   ],
+   [
+    "821",
+    "821"
+   ],
+   [
+    "822",
+    "822"
+   ],
+   [
+    "823",
+    "823"
+   ],
+   [
+    "824",
+    "824"
+   ],
+   [
+    "825",
+    "825"
+   ],
+   [
+    "826",
+    "826"
+   ],
+   [
+    "827",
+    "827"
+   ],
+   [
+    "828",
+    "828"
+   ],
+   [
+    "829",
+    "829"
+   ],
+   [
+    "830",
+    "830"
+   ],
+   [
+    "831",
+    "831"
+   ],
+   [
+    "832",
+    "832"
+   ],
+   [
+    "833",
+    "833"
+   ],
+   [
+    "834",
+    "834"
+   ],
+   [
+    "835",
+    "835"
+   ],
+   [
+    "836",
+    "836"
+   ],
+   [
+    "837",
+    "837"
+   ],
+   [
+    "838",
+    "838"
+   ],
+   [
+    "839",
+    "839"
+   ],
+   [
+    "840",
+    "840"
+   ],
+   [
+    "841",
+    "841"
+   ],
+   [
+    "842",
+    "842"
+   ],
+   [
+    "843",
+    "843"
+   ],
+   [
+    "844",
+    "844"
+   ],
+   [
+    "845",
+    "845"
+   ],
+   [
+    "846",
+    "846"
+   ],
+   [
+    "847",
+    "847"
+   ],
+   [
+    "848",
+    "848"
+   ],
+   [
+    "849",
+    "849"
+   ],
+   [
+    "850",
+    "850"
+   ],
+   [
+    "851",
+    "851"
+   ],
+   [
+    "852",
+    "852"
+   ],
+   [
+    "853",
+    "853"
+   ],
+   [
+    "854",
+    "854"
+   ],
+   [
+    "855",
+    "855"
+   ],
+   [
+    "856",
+    "856"
+   ],
+   [
+    "857",
+    "857"
+   ],
+   [
+    "858",
+    "858"
+   ],
+   [
+    "859",
+    "859"
+   ],
+   [
+    "860",
+    "860"
+   ],
+   [
+    "861",
+    "861"
+   ],
+   [
+    "862",
+    "862"
+   ],
+   [
+    "863",
+    "863"
+   ],
+   [
+    "864",
+    "864"
+   ],
+   [
+    "865",
+    "865"
+   ],
+   [
+    "866",
+    "866"
+   ],
+   [
+    "867",
+    "867"
+   ],
+   [
+    "868",
+    "868"
+   ],
+   [
+    "869",
+    "869"
+   ],
+   [
+    "870",
+    "870"
+   ],
+   [
+    "871",
+    "871"
+   ],
+   [
+    "872",
+    "872"
+   ],
+   [
+    "873",
+    "873"
+   ],
+   [
+    "874",
+    "874"
+   ],
+   [
+    "875",
+    "875"
+   ],
+   [
+    "876",
+    "876"
+   ],
+   [
+    "877",
+    "877"
+   ],
+   [
+    "878",
+    "878"
+   ],
+   [
+    "879",
+    "879"
+   ],
+   [
+    "880",
+    "880"
+   ],
+   [
+    "881",
+    "881"
+   ],
+   [
+    "882",
+    "882"
+   ],
+   [
+    "883",
+    "883"
+   ],
+   [
+    "884",
+    "884"
+   ],
+   [
+    "885",
+    "885"
+   ],
+   [
+    "886",
+    "886"
+   ],
+   [
+    "887",
+    "887"
+   ],
+   [
+    "888",
+    "888"
+   ],
+   [
+    "889",
+    "889"
+   ],
+   [
+    "890",
+    "890"
+   ],
+   [
+    "891",
+    "891"
+   ],
+   [
+    "892",
+    "892"
+   ],
+   [
+    "893",
+    "893"
+   ],
+   [
+    "894",
+    "894"
+   ],
+   [
+    "895",
+    "895"
+   ],
+   [
+    "896",
+    "896"
+   ],
+   [
+    "897",
+    "897"
+   ],
+   [
+    "898",
+    "898"
+   ],
+   [
+    "899",
+    "899"
+   ],
+   [
+    "900",
+    "900"
+   ],
+   [
+    "901",
+    "901"
+   ],
+   [
+    "902",
+    "902"
+   ],
+   [
+    "903",
+    "903"
+   ],
+   [
+    "904",
+    "904"
+   ],
+   [
+    "905",
+    "905"
+   ],
+   [
+    "906",
+    "906"
+   ],
+   [
+    "907",
+    "907"
+   ],
+   [
+    "908",
+    "908"
+   ],
+   [
+    "909",
+    "909"
+   ],
+   [
+    "910",
+    "910"
+   ],
+   [
+    "911",
+    "911"
+   ],
+   [
+    "912",
+    "912"
+   ],
+   [
+    "913",
+    "913"
+   ],
+   [
+    "914",
+    "914"
+   ],
+   [
+    "915",
+    "915"
+   ],
+   [
+    "916",
+    "916"
+   ],
+   [
+    "917",
+    "917"
+   ],
+   [
+    "918",
+    "918"
+   ],
+   [
+    "919",
+    "919"
+   ],
+   [
+    "920",
+    "920"
+   ],
+   [
+    "921",
+    "921"
+   ],
+   [
+    "922",
+    "922"
+   ],
+   [
+    "923",
+    "923"
+   ],
+   [
+    "924",
+    "924"
+   ],
+   [
+    "925",
+    "925"
+   ],
+   [
+    "926",
+    "926"
+   ],
+   [
+    "927",
+    "927"
+   ],
+   [
+    "928",
+    "928"
+   ],
+   [
+    "929",
+    "929"
+   ],
+   [
+    "930",
+    "930"
+   ],
+   [
+    "931",
+    "931"
+   ],
+   [
+    "932",
+    "932"
+   ],
+   [
+    "933",
+    "933"
+   ],
+   [
+    "934",
+    "934"
+   ],
+   [
+    "935",
+    "935"
+   ],
+   [
+    "936",
+    "936"
+   ],
+   [
+    "937",
+    "937"
+   ],
+   [
+    "938",
+    "938"
+   ],
+   [
+    "939",
+    "939"
+   ],
+   [
+    "940",
+    "940"
+   ],
+   [
+    "941",
+    "941"
+   ],
+   [
+    "942",
+    "942"
+   ],
+   [
+    "943",
+    "943"
+   ],
+   [
+    "944",
+    "944"
+   ],
+   [
+    "945",
+    "945"
+   ],
+   [
+    "946",
+    "946"
+   ],
+   [
+    "947",
+    "947"
+   ],
+   [
+    "948",
+    "948"
+   ],
+   [
+    "949",
+    "949"
+   ],
+   [
+    "950",
+    "950"
+   ],
+   [
+    "951",
+    "951"
+   ],
+   [
+    "952",
+    "952"
+   ],
+   [
+    "953",
+    "953"
+   ],
+   [
+    "954",
+    "954"
+   ],
+   [
+    "955",
+    "955"
+   ],
+   [
+    "956",
+    "956"
+   ],
+   [
+    "957",
+    "957"
+   ],
+   [
+    "958",
+    "958"
+   ],
+   [
+    "959",
+    "959"
+   ],
+   [
+    "960",
+    "960"
+   ],
+   [
+    "961",
+    "961"
+   ],
+   [
+    "962",
+    "962"
+   ],
+   [
+    "963",
+    "963"
+   ],
+   [
+    "964",
+    "964"
+   ],
+   [
+    "965",
+    "965"
+   ],
+   [
+    "966",
+    "966"
+   ],
+   [
+    "967",
+    "967"
+   ],
+   [
+    "968",
+    "968"
+   ],
+   [
+    "969",
+    "969"
+   ],
+   [
+    "970",
+    "970"
+   ],
+   [
+    "971",
+    "971"
+   ],
+   [
+    "972",
+    "972"
+   ],
+   [
+    "973",
+    "973"
+   ],
+   [
+    "974",
+    "974"
+   ],
+   [
+    "975",
+    "975"
+   ],
+   [
+    "976",
+    "976"
+   ],
+   [
+    "977",
+    "977"
+   ],
+   [
+    "978",
+    "978"
+   ],
+   [
+    "979",
+    "979"
+   ],
+   [
+    "980",
+    "980"
+   ],
+   [
+    "981",
+    "981"
+   ],
+   [
+    "982",
+    "982"
+   ],
+   [
+    "983",
+    "983"
+   ],
+   [
+    "984",
+    "984"
+   ],
+   [
+    "985",
+    "985"
+   ]
+  ]
+ },
+ "policies": {
+  "on_missing": "exclude",
+  "resname_mismatch": "flag",
+  "altloc_sensitivity": "highest_occupancy",
+  "altloc_sensitivity_outcome": "unavailable: alternate locations tied on occupancy",
+  "chain_variation": {
+   "displacement_trim_fraction": 0.2,
+   "advisory": {
+    "statistic": "min",
+    "within_factor": 1.0,
+    "min_difference": {}
+   }
+  }
+ },
+ "within_entry_variation": {
+  "status": "unavailable",
+  "advisory_semantics": "advisory/2",
+  "statement": "Chains in one crystal are not independent experimental replicates, and crystal packing can affect each of them. The within-entry crystal-copy variation is a descriptive range of differences among the chains the user selected. It is not a calibrated noise floor, not a statistical uncertainty, not a nucleotide or ligand effect and not an HDX replicate estimate. An advisory flag appears only for a channel whose minimum difference the user configured; it is an advisory rule, not a gate, not an adequacy verdict, not significance and not biological separation.",
+  "figure": null,
+  "n_pairs": null
+ },
+ "breaks": {
+  "A": [
+   {
+    "after_index": 46,
+    "reasons": [
+     "numbering_discontinuity"
+    ]
+   }
+  ],
+  "B": [
+   {
+    "after_index": 46,
+    "reasons": [
+     "numbering_discontinuity"
+    ]
+   }
+  ]
+ },
+ "software": {
+  "structpair_version": "0.3.1",
+  "module_sha256": "6b10bf78323b872b10add3a0ad71033aa72aa1c1a2173b9fd448dcc577e1a2e0",
+  "qcp_module_sha256": "7d906156e474e63d98cacea8e3040d5fcf5fd6f6a4263059dc58a79cde7b8954",
+  "python": "3.14.4",
+  "numpy": "2.5.3",
+  "qcp": {
+   "MDAnalysis": "2.10.0",
+   "numpy": "2.5.3",
+   "function": "MDAnalysis.analysis.rms.rmsd(center=True, superposition=True)"
+  },
+  "adapter_interpreter": "/home/artem/TopoFold/benchmarks/audit/wpd_local_retrieval/build/venv/bin/python"
+ },
+ "figure": "written",
+ "created_utc": "2026-10-26T13:43:28.309971+00:00",
+ "outputs_sha256": {
+  "windows.csv": "3ab956ddb0cccfe802765c27e45147678d2394560e0ba4b1f3415593e9183179",
+  "residues.csv": "bbf4e1b6589e198c202093f29381859ec9ae9800042941474ed6ddbcc21c620b",
+  "exclusions.csv": "30f40ad29c30ac4c0f611dcf59322c43995c6bcddde009fea86940e3c3995856",
+  "summary.json": "63fd2c02a8b3e290bc7c5e4e090548789d45891a825c41660e16985710d155cd",
+  "figure.png": "8424bb0b7092e5f4c53e95abfc7847a088a3cfecbd3e9c5d2a81c9fea2694dad",
+  "report.md": "822e59b366d42340986741206d853fe258f020d615a95668209f6330b3b06d99"
+ }
+}

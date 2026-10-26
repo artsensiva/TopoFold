@@ -4,7 +4,7 @@ import argparse
 import json
 import sys
 
-from .ca_adapter import ALTLOC_POLICIES, PBC_POLICIES, AdapterError, extract_ca, load_universe
+from .ca_adapter import ALTLOC_POLICIES, PBC_POLICIES, AdapterError, AltlocTieError, extract_ca, load_universe
 
 
 def main(argv=None) -> int:
@@ -23,6 +23,8 @@ def main(argv=None) -> int:
     ap.add_argument("--start", type=int, default=None, help="first source frame (slice start)")
     ap.add_argument("--stop", type=int, default=None, help="slice stop (exclusive)")
     ap.add_argument("--step", type=int, default=None, help="slice step")
+    ap.add_argument("--error-json", default=None,
+                    help="if the altloc policy meets alternate locations tied on occupancy, also write them here (JSON, kind altloc_tie)")
     args = ap.parse_args(argv)
 
     corr = None
@@ -34,6 +36,12 @@ def main(argv=None) -> int:
         res = extract_ca(u, args.run_id, selection=args.selection, correspondence=corr, on_missing=args.on_missing,
                          chain_attribute=args.chain_attribute, altloc=args.altloc, pbc=args.pbc,
                          max_ca_ca_angstrom=args.max_ca_ca, start=args.start, stop=args.stop, step=args.step)
+    except AltlocTieError as exc:
+        print(f"rejected: {exc}", file=sys.stderr)
+        if args.error_json:
+            with open(args.error_json, "w") as fh:
+                json.dump({"kind": "altloc_tie", "policy": args.altloc, "message": str(exc), "ties": exc.ties}, fh, indent=1)
+        return 2
     except AdapterError as exc:
         print(f"rejected: {exc}", file=sys.stderr)
         return 2

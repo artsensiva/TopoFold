@@ -54,6 +54,18 @@ class AdapterError(ValueError):
     """Raised for inputs the adapter refuses to convert (ambiguity, non-finite values, unsupported policy)."""
 
 
+class AltlocTieError(AdapterError):
+    """The ``highest_occupancy`` altloc policy met alternate locations tied on occupancy.
+
+    ``ties`` lists every tied residue of the structure (chain, resid, icode, altlocs, occupancies, policy,
+    in_correspondence); the message is that of the first one, so existing handling of AdapterError is unchanged. A caller that
+    asked for this policy only as an optional sensitivity can tell this refusal from every other one."""
+
+    def __init__(self, message: str, ties: list):
+        super().__init__(message)
+        self.ties = ties
+
+
 @dataclass(frozen=True)
 class ResidueSpec:
     """One requested residue: (chain, resid, icode) in the source structure and the caller's label for it."""
@@ -231,7 +243,10 @@ def extract_ca(
                 f"{seen_keys[key]} and {int(res.ix)}); chain identity or insertion codes may have been lost by the "
                 f"format. Use a topology that preserves them, or a different chain_attribute.")
         seen_keys[key] = int(res.ix)
-        ca_atom, decision = _choose_ca(atoms.select_atoms("name CA"), key, altloc)
+        try:
+            ca_atom, decision = _choose_ca(atoms.select_atoms("name CA"), key, altloc)
+        except AltlocTieError as first:
+            raise _all_ties(sel, chain_src, altloc, correspondence, first) from None
         if decision is not None:
             altloc_decisions.append(decision)
         topo_res.append({"key": key, "residue_ix": int(res.ix), "resname": str(res.resname),
@@ -403,6 +418,28 @@ def _chain_of(atoms, chain_src: str) -> str:
     return vals.pop()
 
 
+def _all_ties(sel, chain_src: str, policy: str, correspondence, first: "AltlocTieError") -> "AltlocTieError":
+    """Every tied residue of the selection (only ties are collected; any other problem met while scanning is left to the
+    caller's normal error path), flagged by whether it lies in the correspondence."""
+    wanted = None
+    if correspondence is not None:
+        wanted = {(s if isinstance(s, ResidueSpec) else ResidueSpec.from_mapping(s)).key for s in correspondence}
+    ties = []
+    for res in sel.residues:
+        atoms = res.atoms & sel
+        try:
+            chain = _chain_of(atoms, chain_src)
+            _choose_ca(atoms.select_atoms("name CA"), (chain, int(res.resid), str(getattr(res, "icode", "") or "")), policy)
+        except AltlocTieError as e:
+            for t in e.ties:
+                ties.append({**t, "in_correspondence": True if wanted is None else (t["chain"], t["resid"], t["icode"]) in wanted})
+        except AdapterError:
+            continue
+    ties = ties or [{**t, "in_correspondence": True} for t in first.ties]
+    msg = str(first) + (f" (and {len(ties) - 1} more residue(s) with tied alternate locations)" if len(ties) > 1 else "")
+    return AltlocTieError(msg, ties)
+
+
 def _choose_ca(cas, key, policy: str):
     if cas.n_atoms == 0:
         return None, None
@@ -425,7 +462,9 @@ def _choose_ca(cas, key, policy: str):
     occ = np.array([float(a.occupancy) for a in cas])
     best = np.flatnonzero(occ == occ.max())
     if best.size != 1:
-        raise AdapterError(f"residue {key}: altlocs {alts} tie on occupancy {occ.max()}")
+        raise AltlocTieError(f"residue {key}: altlocs {alts} tie on occupancy {occ.max()}",
+                             [{"chain": key[0], "resid": key[1], "icode": key[2], "altlocs": alts,
+                               "occupancies": [round(float(o), 4) for o in occ], "policy": policy}])
     decision["used"] = alts[int(best[0])]
     decision["occupancies"] = occ.tolist()
     return cas[int(best[0])], decision

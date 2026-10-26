@@ -1,0 +1,683 @@
+{
+ "top": {
+  "d_kappa": [
+   {
+    "position": 167,
+    "window_A": "A:872..A:874",
+    "value": 0.4707033928926194,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 168,
+    "window_A": "A:873..A:875",
+    "value": 0.4219818123918725,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 36,
+    "window_A": "A:737..A:739",
+    "value": 0.18910013697485062,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 12,
+    "window_A": "A:713..A:715",
+    "value": 0.1654551836451046,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 34,
+    "window_A": "A:735..A:737",
+    "value": 0.1315995311758975,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 147,
+    "window_A": "A:852..A:854",
+    "value": 0.1094111979541339,
+    "altloc": true,
+    "mismatch": false
+   },
+   {
+    "position": 2,
+    "window_A": "A:703..A:705",
+    "value": 0.10474380041857767,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 9,
+    "window_A": "A:710..A:712",
+    "value": 0.10210822295279964,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 230,
+    "window_A": "A:935..A:937",
+    "value": 0.1004053117675392,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 234,
+    "window_A": "A:939..A:941",
+    "value": 0.09919341256113046,
+    "altloc": false,
+    "mismatch": false
+   }
+  ],
+  "d_i_i2": [
+   {
+    "position": 167,
+    "window_A": "A:872..A:874",
+    "value": 0.9489512980689252,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 278,
+    "window_A": "A:983..A:985",
+    "value": 0.7869839916858696,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 168,
+    "window_A": "A:873..A:875",
+    "value": 0.6190300802377262,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 12,
+    "window_A": "A:713..A:715",
+    "value": 0.36189512849754113,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 36,
+    "window_A": "A:737..A:739",
+    "value": 0.33868916058040455,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 34,
+    "window_A": "A:735..A:737",
+    "value": 0.31068963717904197,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 9,
+    "window_A": "A:710..A:712",
+    "value": 0.2428170181664342,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 2,
+    "window_A": "A:703..A:705",
+    "value": 0.22170963156419354,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 234,
+    "window_A": "A:939..A:941",
+    "value": 0.22014270106359657,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 230,
+    "window_A": "A:935..A:937",
+    "value": 0.21994470361883955,
+    "altloc": false,
+    "mismatch": false
+   }
+  ],
+  "rmsd3": [
+   {
+    "position": 167,
+    "window_A": "A:872..A:874",
+    "value": 0.5253995399565107,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 278,
+    "window_A": "A:983..A:985",
+    "value": 0.46038058877103816,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 168,
+    "window_A": "A:873..A:875",
+    "value": 0.42942869523842303,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 36,
+    "window_A": "A:737..A:739",
+    "value": 0.20396981778336537,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 12,
+    "window_A": "A:713..A:715",
+    "value": 0.19107135224038613,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 34,
+    "window_A": "A:735..A:737",
+    "value": 0.1569219720152877,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 9,
+    "window_A": "A:710..A:712",
+    "value": 0.1221750840959421,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 147,
+    "window_A": "A:852..A:854",
+    "value": 0.11992847850937804,
+    "altloc": true,
+    "mismatch": false
+   },
+   {
+    "position": 2,
+    "window_A": "A:703..A:705",
+    "value": 0.11947795247618796,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 230,
+    "window_A": "A:935..A:937",
+    "value": 0.11649118695241667,
+    "altloc": false,
+    "mismatch": false
+   }
+  ],
+  "d_tau": [
+   {
+    "position": 168,
+    "window_A": "A:873..A:876",
+    "value": 1.0627206758021521,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 167,
+    "window_A": "A:872..A:875",
+    "value": 0.8578785782696694,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 169,
+    "window_A": "A:874..A:877",
+    "value": 0.5307395210692607,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 170,
+    "window_A": "A:875..A:878",
+    "value": 0.37829325599894226,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 161,
+    "window_A": "A:866..A:869",
+    "value": 0.3641394090189086,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 48,
+    "window_A": "A:753..A:756",
+    "value": 0.3490070857715526,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 162,
+    "window_A": "A:867..A:870",
+    "value": 0.34746834138111105,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 165,
+    "window_A": "A:870..A:873",
+    "value": 0.29046268711179124,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 166,
+    "window_A": "A:871..A:874",
+    "value": 0.24233464077051403,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 1,
+    "window_A": "A:702..A:705",
+    "value": 0.23128851717249477,
+    "altloc": false,
+    "mismatch": false
+   }
+  ],
+  "d_i_i3": [
+   {
+    "position": 166,
+    "window_A": "A:871..A:874",
+    "value": 1.6938711265044475,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 277,
+    "window_A": "A:982..A:985",
+    "value": 0.8306937418440619,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 167,
+    "window_A": "A:872..A:875",
+    "value": 0.7337035951170545,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 56,
+    "window_A": "A:761..A:764",
+    "value": 0.4943792577114259,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 9,
+    "window_A": "A:710..A:713",
+    "value": 0.4794961540774736,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 101,
+    "window_A": "A:806..A:809",
+    "value": 0.3974970374352331,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 161,
+    "window_A": "A:866..A:869",
+    "value": 0.3900785320707474,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 207,
+    "window_A": "A:912..A:915",
+    "value": 0.3788004728723493,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 44,
+    "window_A": "A:745..A:748",
+    "value": 0.32466835487340084,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 36,
+    "window_A": "A:737..A:740",
+    "value": 0.3177876945295104,
+    "altloc": false,
+    "mismatch": false
+   }
+  ],
+  "rmsd4": [
+   {
+    "position": 166,
+    "window_A": "A:871..A:874",
+    "value": 0.7196889097972882,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 167,
+    "window_A": "A:872..A:875",
+    "value": 0.6340602786114304,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 168,
+    "window_A": "A:873..A:876",
+    "value": 0.5968237482916996,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 277,
+    "window_A": "A:982..A:985",
+    "value": 0.42671790355662353,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 169,
+    "window_A": "A:874..A:877",
+    "value": 0.38212714317771795,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 170,
+    "window_A": "A:875..A:878",
+    "value": 0.25691355236416835,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 48,
+    "window_A": "A:753..A:756",
+    "value": 0.25627616366548917,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 161,
+    "window_A": "A:866..A:869",
+    "value": 0.22195064931002995,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 162,
+    "window_A": "A:867..A:870",
+    "value": 0.21440332244815036,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 12,
+    "window_A": "A:713..A:716",
+    "value": 0.20496161600947477,
+    "altloc": false,
+    "mismatch": false
+   }
+  ]
+ },
+ "agreement": {
+  "d_kappa~d_i_i2": {
+   "spearman": 0.943805025613219,
+   "n_windows": 276
+  },
+  "d_kappa~rmsd3": {
+   "spearman": 0.9887513020647536,
+   "n_windows": 276
+  },
+  "d_i_i2~rmsd3": {
+   "spearman": 0.9696802271657082,
+   "n_windows": 276
+  },
+  "d_tau~d_i_i3": {
+   "spearman": 0.4056460327993175,
+   "n_windows": 274
+  },
+  "d_tau~rmsd4": {
+   "spearman": 0.7781371912758774,
+   "n_windows": 274
+  },
+  "d_i_i3~rmsd4": {
+   "spearman": 0.6767133596330677,
+   "n_windows": 274
+  }
+ },
+ "n_windows": {
+  "d_kappa": 276,
+  "d_i_i2": 276,
+  "rmsd3": 276,
+  "d_tau": 274,
+  "d_i_i3": 274,
+  "rmsd4": 274
+ },
+ "global": {
+  "rmsd_qcp_angstrom": 0.5896045382586004,
+  "n_ca": 280,
+  "rmsd_numpy_kabsch_angstrom": 0.5896045382585067
+ },
+ "altloc_sensitivity": {
+  "policy": "highest_occupancy",
+  "status": "unavailable: alternate locations tied on occupancy",
+  "available": false,
+  "values_reported": false,
+  "reason": "the `highest_occupancy` policy cannot choose between alternate locations of equal occupancy at 11 residue(s); the primary comparison (primary altloc policy) is complete and unaffected.",
+  "why_not_partial": "A partial sensitivity would need a new rule for the tied residues (choose one or skip it), which changes the windows around them and the global fit, so the whole optional sensitivity is unavailable. This does not mean the structures are insensitive to the alternate-location choice.",
+  "ties": [
+   {
+    "structure": "A",
+    "chain": "A",
+    "resid": 790,
+    "icode": "",
+    "altlocs": [
+     "A",
+     "B"
+    ],
+    "occupancies": [
+     0.5,
+     0.5
+    ],
+    "policy": "highest_occupancy",
+    "in_correspondence": true
+   },
+   {
+    "structure": "A",
+    "chain": "A",
+    "resid": 804,
+    "icode": "",
+    "altlocs": [
+     "A",
+     "B"
+    ],
+    "occupancies": [
+     0.5,
+     0.5
+    ],
+    "policy": "highest_occupancy",
+    "in_correspondence": true
+   },
+   {
+    "structure": "A",
+    "chain": "A",
+    "resid": 881,
+    "icode": "",
+    "altlocs": [
+     "A",
+     "B"
+    ],
+    "occupancies": [
+     0.5,
+     0.5
+    ],
+    "policy": "highest_occupancy",
+    "in_correspondence": true
+   },
+   {
+    "structure": "A",
+    "chain": "A",
+    "resid": 925,
+    "icode": "",
+    "altlocs": [
+     "A",
+     "B"
+    ],
+    "occupancies": [
+     0.5,
+     0.5
+    ],
+    "policy": "highest_occupancy",
+    "in_correspondence": true
+   },
+   {
+    "structure": "A",
+    "chain": "A",
+    "resid": 953,
+    "icode": "",
+    "altlocs": [
+     "A",
+     "B"
+    ],
+    "occupancies": [
+     0.5,
+     0.5
+    ],
+    "policy": "highest_occupancy",
+    "in_correspondence": true
+   },
+   {
+    "structure": "B",
+    "chain": "A",
+    "resid": 766,
+    "icode": "",
+    "altlocs": [
+     "A",
+     "B"
+    ],
+    "occupancies": [
+     0.5,
+     0.5
+    ],
+    "policy": "highest_occupancy",
+    "in_correspondence": true
+   },
+   {
+    "structure": "B",
+    "chain": "A",
+    "resid": 790,
+    "icode": "",
+    "altlocs": [
+     "A",
+     "B"
+    ],
+    "occupancies": [
+     0.5,
+     0.5
+    ],
+    "policy": "highest_occupancy",
+    "in_correspondence": true
+   },
+   {
+    "structure": "B",
+    "chain": "A",
+    "resid": 802,
+    "icode": "",
+    "altlocs": [
+     "A",
+     "B"
+    ],
+    "occupancies": [
+     0.5,
+     0.5
+    ],
+    "policy": "highest_occupancy",
+    "in_correspondence": true
+   },
+   {
+    "structure": "B",
+    "chain": "A",
+    "resid": 834,
+    "icode": "",
+    "altlocs": [
+     "A",
+     "B"
+    ],
+    "occupancies": [
+     0.5,
+     0.5
+    ],
+    "policy": "highest_occupancy",
+    "in_correspondence": true
+   },
+   {
+    "structure": "B",
+    "chain": "A",
+    "resid": 854,
+    "icode": "",
+    "altlocs": [
+     "A",
+     "B"
+    ],
+    "occupancies": [
+     0.5,
+     0.5
+    ],
+    "policy": "highest_occupancy",
+    "in_correspondence": true
+   },
+   {
+    "structure": "B",
+    "chain": "A",
+    "resid": 952,
+    "icode": "",
+    "altlocs": [
+     "A",
+     "B"
+    ],
+    "occupancies": [
+     0.5,
+     0.5
+    ],
+    "policy": "highest_occupancy",
+    "in_correspondence": true
+   }
+  ]
+ },
+ "metric_definitions": {
+  "d_kappa": "|\u03ba_B \u2212 \u03ba_A|, three-residue window (i\u22121, i, i+1), TopoFold core",
+  "d_i_i2": "|d(i\u22121,i+1)_B \u2212 d(i\u22121,i+1)_A|, same three-residue window (distance baseline)",
+  "rmsd3": "proper-rotation C\u03b1 RMSD of the three-residue window after optimal superposition (MDAnalysis QCP)",
+  "d_tau": "circular |wrap(\u03c4_B \u2212 \u03c4_A)|, four-residue window (i\u22121 .. i+2), hinge i\u2192i+1, TopoFold core",
+  "d_i_i3": "|d(i\u22121,i+2)_B \u2212 d(i\u22121,i+2)_A|, same four-residue window (distance baseline)",
+  "rmsd4": "proper-rotation C\u03b1 RMSD of the four-residue window after optimal superposition (MDAnalysis QCP)"
+ },
+ "units": {
+  "d_kappa": "rad",
+  "d_i_i2": "angstrom",
+  "rmsd3": "angstrom",
+  "d_tau": "rad",
+  "d_i_i3": "angstrom",
+  "rmsd4": "angstrom"
+ },
+ "n_exclusion_rows": 10,
+ "within_entry_variation": {
+  "status": "unavailable",
+  "reason": "one chain per entry",
+  "statement": "Chains in one crystal are not independent experimental replicates, and crystal packing can affect each of them. The within-entry crystal-copy variation is a descriptive range of differences among the chains the user selected. It is not a calibrated noise floor, not a statistical uncertainty, not a nucleotide or ligand effect and not an HDX replicate estimate. An advisory flag appears only for a channel whose minimum difference the user configured; it is an advisory rule, not a gate, not an adequacy verdict, not significance and not biological separation."
+ }
+}

@@ -244,6 +244,13 @@ if VAR and VAR.get("status") in ("available", "partial"):
                + VAR["statement"])
 elif VAR:
     st.caption("Within-entry crystal-copy variation: unavailable (one chain per entry).")
+ALT = S.get("altloc_sensitivity")
+if isinstance(ALT, dict) and ALT.get("available") is False:
+    st.warning("**The requested alternate-conformation sensitivity is UNAVAILABLE (not zero).** " + ALT["reason"] + " " + ALT["why_not_partial"]
+               + " Tied residues: " + "; ".join(f"{t['structure']} {t['chain']}:{t['resid']}{t['icode']} (altlocs "
+                                                 f"{', '.join(a or 'blank' for a in t['altlocs'])}, occupancies "
+                                                 f"{', '.join(str(o) for o in t['occupancies'])}"
+                                                 f"{'' if t['in_correspondence'] else ', outside the correspondence'})" for t in ALT["ties"]) + ".")
 t_win, t_var, t_exc, t_res, t_prov, t_rep = st.tabs(["Windows", "Crystal-copy variation", "Exclusions",
                                                      "Residue correspondence", "Provenance", "Report"])
 with t_win:

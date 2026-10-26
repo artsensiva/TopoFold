@@ -282,7 +282,7 @@ def test_single_chain_outputs_are_byte_identical_to_version_0_1_0(tmp_path):
     assert all(new[k] == old[k] for k in old)                                  # every legacy number unchanged
     assert new["within_entry_variation"] == cv.unavailable_block()
     man = json.loads((tmp_path / "out/manifest.json").read_text())
-    assert man["schema"] == "topofold_inputs.structpair/3" and man["software"]["structpair_version"] == "0.3.0"
+    assert man["schema"] == "topofold_inputs.structpair/3" and man["software"]["structpair_version"] == sp.STRUCTPAIR_VERSION == "0.3.1"
     assert man["within_entry_variation"]["status"] == "unavailable"
     assert not (tmp_path / "out/chain_variation.csv").exists() and not (tmp_path / "out/chains.csv").exists()
     assert "Unavailable: one chain per entry" in (tmp_path / "out/report.md").read_text()

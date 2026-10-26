@@ -1,0 +1,72 @@
+{
+ "id": "BTK2-PRECISION-DIAGNOSIS-2026-10-26",
+ "tolerance": 0.0001,
+ "target": "KIN-PAIR-1 supplement BTK-2, R7 max deviation 0.0001000000000015433",
+ "btk2": {
+  "serialized": {
+   "n_values_compared": 3612,
+   "max_serialized_deviation": 0.0001000000000015433,
+   "location": {
+    "position": 19,
+    "column": "d3_B_angstrom",
+    "base_text": "10.284",
+    "moved_text": "10.2839"
+   },
+   "exact_decimal_difference_of_the_two_strings": "0.0001",
+   "float_difference_repr": "0.0001000000000015433",
+   "float_difference_minus_tolerance": 1.5432940298973352e-15,
+   "n_values_over_tolerance": 1,
+   "n_values_at_one_csv_quantum_or_more": 3,
+   "csv_quantum_at_this_magnitude_6_significant_figures": 0.0001
+  },
+  "preformat_at_the_same_value": {
+   "metric": "d3_B",
+   "position": 19,
+   "base_preformat": 10.283958278114804,
+   "moved_preformat": 10.283949800914348,
+   "preformat_difference": 8.47720045626943e-06,
+   "base_formatted": "10.284",
+   "moved_formatted": "10.2839"
+  },
+  "preformat_max_deviation_any_metric": 1.686719670068726e-05,
+  "preformat_max_deviation_by_metric": {
+   "d_kappa": 6.164267988273409e-06,
+   "d_i_i2": 1.686719670068726e-05,
+   "rmsd3": 6.487206809135254e-06,
+   "d_tau": 9.25728182810115e-06,
+   "d_i_i3": 1.2943446355606625e-05,
+   "rmsd4": 5.045264775183078e-06,
+   "kappa_A": 9.260081581530244e-07,
+   "kappa_B": 6.177249229022408e-06,
+   "tau_A": 1.0563056966894635e-06,
+   "tau_B": 9.29214887390728e-06,
+   "d2_A": 3.286536211177804e-06,
+   "d2_B": 1.5073415579713867e-05,
+   "d3_A": 2.8546228172388055e-06,
+   "d3_B": 1.5314094016005697e-05
+  },
+  "float32_coordinate_storage": {
+   "base": {
+    "max_abs_coordinate_angstrom": 145.89199829101562,
+    "float32_spacing_at_that_magnitude_angstrom": 1.52587890625e-05
+   },
+   "moved": {
+    "max_abs_coordinate_angstrom": 185.89199829101562,
+    "float32_spacing_at_that_magnitude_angstrom": 1.52587890625e-05
+   }
+  },
+  "independent_float64_from_text_max_deviation": 2.4868995751603507e-14
+ },
+ "synthetic_control": {
+  "max_preformat_deviation": 8.017389266257169e-06,
+  "max_serialized_deviation": 1.0000000000509601e-05,
+  "location": [
+   "d3_A",
+   "5.17391",
+   "5.1739",
+   1.4974128745848247e-06
+  ],
+  "serialized_exceeds_1e-4": false,
+  "serialized_minus_tolerance": -8.99999999994904e-05
+ }
+}

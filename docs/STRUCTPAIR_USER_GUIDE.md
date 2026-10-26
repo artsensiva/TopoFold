@@ -124,9 +124,17 @@ streamlit run apps/structpair_viewer/app.py --server.address localhost -- --resu
   - `"exclude"` keeps it as a missing row, and every window touching it is excluded with the cause named.
 - **Alternate locations:** set a policy per structure. `reject` stops if any mapped Cα has an altloc. Set
   `altloc_sensitivity` to report how much each metric changes under a second policy.
-  **Known limitation (KNOWN_ISSUES m13):** `highest_occupancy` stops the whole run if a mapped Cα has alternate locations with equal
-  occupancy (for example A and B at 0.5). In 4 of the 6 pairs of KIN-PAIR-1 it did. If you meet "tie on occupancy", remove
-  `altloc_sensitivity` from the spec (the primary policy is unaffected) or choose `blank_then_A` and compare by hand.
+  **Ties (since version 0.3.1; KNOWN_ISSUES m13, repaired):**
+  - If the optional `altloc_sensitivity: highest_occupancy` meets alternate locations of equal occupancy (for example A and B at 0.5),
+    the primary comparison is still completed and written, unchanged, and the sensitivity is reported as **unavailable, not zero**: in
+    `summary.json` (`status` "unavailable…", `available: false`, no numbers), in the report, in the viewer (a warning) and in
+    `manifest.json` (`policies.altloc_sensitivity_outcome`). The tied residues are listed with structure, chain, residue, insertion code,
+    whether they are in your correspondence, the alternate locations and their occupancies. There is no partial value (a partial value
+    would need a rule for the tied residues and would change the windows around them and the global fit). "Unavailable" does not mean
+    the structures are insensitive to the altloc choice; resolve the ties (or pick the location yourself) and compare by hand.
+  - A tie under the **primary** `altloc: highest_occupancy` is still an explicit refusal (exit 2, no outputs). Every other error stops
+    the run as before.
+  - Results written by versions 0.3.0 and earlier never contain this record (they stopped instead).
 - **Residue names:** `resname_mismatch: "reject"` stops on any difference. `"flag"` allows it (for a point mutant,
   for example) and marks every affected window.
 

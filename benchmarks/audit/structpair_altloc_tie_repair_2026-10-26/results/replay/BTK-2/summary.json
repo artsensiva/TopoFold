@@ -1,0 +1,1003 @@
+{
+ "top": {
+  "d_kappa": [
+   {
+    "position": 19,
+    "window_A": "A:414..A:416",
+    "value": 0.29020944248198965,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 71,
+    "window_A": "A:466..A:468",
+    "value": 0.26116378352462133,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 16,
+    "window_A": "A:408..A:410",
+    "value": 0.1276563200207691,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 37,
+    "window_A": "A:432..A:434",
+    "value": 0.11727189047129039,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 72,
+    "window_A": "A:467..A:469",
+    "value": 0.10818145960847148,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 15,
+    "window_A": "A:407..A:409",
+    "value": 0.0898816732442298,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 34,
+    "window_A": "A:429..A:431",
+    "value": 0.08634501851236953,
+    "altloc": true,
+    "mismatch": false
+   },
+   {
+    "position": 73,
+    "window_A": "A:468..A:470",
+    "value": 0.07944980446952554,
+    "altloc": true,
+    "mismatch": false
+   },
+   {
+    "position": 35,
+    "window_A": "A:430..A:432",
+    "value": 0.07248503609767742,
+    "altloc": true,
+    "mismatch": false
+   },
+   {
+    "position": 56,
+    "window_A": "A:451..A:453",
+    "value": 0.06699936529976735,
+    "altloc": true,
+    "mismatch": false
+   }
+  ],
+  "d_i_i2": [
+   {
+    "position": 19,
+    "window_A": "A:414..A:416",
+    "value": 0.46388548283095243,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 71,
+    "window_A": "A:466..A:468",
+    "value": 0.27040949114828816,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 15,
+    "window_A": "A:407..A:409",
+    "value": 0.19689522512625945,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 37,
+    "window_A": "A:432..A:434",
+    "value": 0.1855823717929379,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 16,
+    "window_A": "A:408..A:410",
+    "value": 0.18401271999007385,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 73,
+    "window_A": "A:468..A:470",
+    "value": 0.16864674581223404,
+    "altloc": true,
+    "mismatch": false
+   },
+   {
+    "position": 70,
+    "window_A": "A:465..A:467",
+    "value": 0.16544337833849188,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 68,
+    "window_A": "A:463..A:465",
+    "value": 0.16440269299614663,
+    "altloc": true,
+    "mismatch": false
+   },
+   {
+    "position": 35,
+    "window_A": "A:430..A:432",
+    "value": 0.15767804896590754,
+    "altloc": true,
+    "mismatch": false
+   },
+   {
+    "position": 34,
+    "window_A": "A:429..A:431",
+    "value": 0.15683995493908487,
+    "altloc": true,
+    "mismatch": false
+   }
+  ],
+  "rmsd3": [
+   {
+    "position": 19,
+    "window_A": "A:414..A:416",
+    "value": 0.30250072693204677,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 71,
+    "window_A": "A:466..A:468",
+    "value": 0.2503115372433745,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 16,
+    "window_A": "A:408..A:410",
+    "value": 0.12949876230640783,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 37,
+    "window_A": "A:432..A:434",
+    "value": 0.12332525267295429,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 15,
+    "window_A": "A:407..A:409",
+    "value": 0.10438145469075848,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 72,
+    "window_A": "A:467..A:469",
+    "value": 0.0984790747680356,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 34,
+    "window_A": "A:429..A:431",
+    "value": 0.09425647956189474,
+    "altloc": true,
+    "mismatch": false
+   },
+   {
+    "position": 35,
+    "window_A": "A:430..A:432",
+    "value": 0.0837035123903941,
+    "altloc": true,
+    "mismatch": false
+   },
+   {
+    "position": 73,
+    "window_A": "A:468..A:470",
+    "value": 0.08330054991199168,
+    "altloc": true,
+    "mismatch": false
+   },
+   {
+    "position": 68,
+    "window_A": "A:463..A:465",
+    "value": 0.08023760481339169,
+    "altloc": true,
+    "mismatch": false
+   }
+  ],
+  "d_tau": [
+   {
+    "position": 1,
+    "window_A": "A:393..A:396",
+    "value": 0.34610545458839714,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 15,
+    "window_A": "A:407..A:410",
+    "value": 0.2900691217842055,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 36,
+    "window_A": "A:431..A:434",
+    "value": 0.27180558550227163,
+    "altloc": true,
+    "mismatch": false
+   },
+   {
+    "position": 84,
+    "window_A": "A:479..A:482",
+    "value": 0.24821658928616264,
+    "altloc": true,
+    "mismatch": false
+   },
+   {
+    "position": 71,
+    "window_A": "A:466..A:469",
+    "value": 0.24220844588407853,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 37,
+    "window_A": "A:432..A:435",
+    "value": 0.2201823451966003,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 72,
+    "window_A": "A:467..A:470",
+    "value": 0.20176346458484573,
+    "altloc": true,
+    "mismatch": false
+   },
+   {
+    "position": 85,
+    "window_A": "A:480..A:483",
+    "value": 0.15449363827698637,
+    "altloc": true,
+    "mismatch": false
+   },
+   {
+    "position": 35,
+    "window_A": "A:430..A:433",
+    "value": 0.14131342131826363,
+    "altloc": true,
+    "mismatch": false
+   },
+   {
+    "position": 83,
+    "window_A": "A:478..A:481",
+    "value": 0.13170278483142228,
+    "altloc": true,
+    "mismatch": false
+   }
+  ],
+  "d_i_i3": [
+   {
+    "position": 1,
+    "window_A": "A:393..A:396",
+    "value": 0.5612894797475505,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 70,
+    "window_A": "A:465..A:468",
+    "value": 0.4131256961760652,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 36,
+    "window_A": "A:431..A:434",
+    "value": 0.34965677113672555,
+    "altloc": true,
+    "mismatch": false
+   },
+   {
+    "position": 38,
+    "window_A": "A:433..A:436",
+    "value": 0.3193277449369143,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 159,
+    "window_A": "A:554..A:557",
+    "value": 0.27178833064763896,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 86,
+    "window_A": "A:481..A:484",
+    "value": 0.2628820309733033,
+    "altloc": true,
+    "mismatch": false
+   },
+   {
+    "position": 72,
+    "window_A": "A:467..A:470",
+    "value": 0.2577834849946816,
+    "altloc": true,
+    "mismatch": false
+   },
+   {
+    "position": 19,
+    "window_A": "A:414..A:417",
+    "value": 0.2573629151452401,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 151,
+    "window_A": "A:546..A:549",
+    "value": 0.2436527116756757,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 153,
+    "window_A": "A:548..A:551",
+    "value": 0.22697019926953566,
+    "altloc": false,
+    "mismatch": false
+   }
+  ],
+  "rmsd4": [
+   {
+    "position": 19,
+    "window_A": "A:414..A:417",
+    "value": 0.3525467465252806,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 1,
+    "window_A": "A:393..A:396",
+    "value": 0.33371994960721846,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 36,
+    "window_A": "A:431..A:434",
+    "value": 0.2871559232782038,
+    "altloc": true,
+    "mismatch": false
+   },
+   {
+    "position": 70,
+    "window_A": "A:465..A:468",
+    "value": 0.24419218423333017,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 71,
+    "window_A": "A:466..A:469",
+    "value": 0.2214864412059266,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 15,
+    "window_A": "A:407..A:410",
+    "value": 0.1823107203713244,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 37,
+    "window_A": "A:432..A:435",
+    "value": 0.16607820924017994,
+    "altloc": false,
+    "mismatch": false
+   },
+   {
+    "position": 35,
+    "window_A": "A:430..A:433",
+    "value": 0.1660634411111257,
+    "altloc": true,
+    "mismatch": false
+   },
+   {
+    "position": 72,
+    "window_A": "A:467..A:470",
+    "value": 0.15912524288849653,
+    "altloc": true,
+    "mismatch": false
+   },
+   {
+    "position": 34,
+    "window_A": "A:429..A:432",
+    "value": 0.14142193494307587,
+    "altloc": true,
+    "mismatch": false
+   }
+  ]
+ },
+ "agreement": {
+  "d_kappa~d_i_i2": {
+   "spearman": 0.726259661143382,
+   "n_windows": 259
+  },
+  "d_kappa~rmsd3": {
+   "spearman": 0.8896022268115291,
+   "n_windows": 259
+  },
+  "d_i_i2~rmsd3": {
+   "spearman": 0.8592605383303058,
+   "n_windows": 259
+  },
+  "d_tau~d_i_i3": {
+   "spearman": 0.3898834098724097,
+   "n_windows": 257
+  },
+  "d_tau~rmsd4": {
+   "spearman": 0.7659388856212107,
+   "n_windows": 257
+  },
+  "d_i_i3~rmsd4": {
+   "spearman": 0.6587313930865984,
+   "n_windows": 257
+  }
+ },
+ "n_windows": {
+  "d_kappa": 259,
+  "d_i_i2": 259,
+  "rmsd3": 259,
+  "d_tau": 257,
+  "d_i_i3": 257,
+  "rmsd4": 257
+ },
+ "global": {
+  "rmsd_qcp_angstrom": 0.27470859900059125,
+  "n_ca": 263,
+  "rmsd_numpy_kabsch_angstrom": 0.2747085990007435
+ },
+ "altloc_sensitivity": {
+  "policy": "highest_occupancy",
+  "status": "unavailable: alternate locations tied on occupancy",
+  "available": false,
+  "values_reported": false,
+  "reason": "the `highest_occupancy` policy cannot choose between alternate locations of equal occupancy at 31 residue(s); the primary comparison (primary altloc policy) is complete and unaffected.",
+  "why_not_partial": "A partial sensitivity would need a new rule for the tied residues (choose one or skip it), which changes the windows around them and the global fit, so the whole optional sensitivity is unavailable. This does not mean the structures are insensitive to the alternate-location choice.",
+  "ties": [
+   {
+    "structure": "A",
+    "chain": "A",
+    "resid": 400,
+    "icode": "",
+    "altlocs": [
+     "A",
+     "B"
+    ],
+    "occupancies": [
+     0.5,
+     0.5
+    ],
+    "policy": "highest_occupancy",
+    "in_correspondence": true
+   },
+   {
+    "structure": "A",
+    "chain": "A",
+    "resid": 431,
+    "icode": "",
+    "altlocs": [
+     "A",
+     "B"
+    ],
+    "occupancies": [
+     0.5,
+     0.5
+    ],
+    "policy": "highest_occupancy",
+    "in_correspondence": true
+   },
+   {
+    "structure": "A",
+    "chain": "A",
+    "resid": 437,
+    "icode": "",
+    "altlocs": [
+     "A",
+     "B"
+    ],
+    "occupancies": [
+     0.5,
+     0.5
+    ],
+    "policy": "highest_occupancy",
+    "in_correspondence": true
+   },
+   {
+    "structure": "A",
+    "chain": "A",
+    "resid": 453,
+    "icode": "",
+    "altlocs": [
+     "A",
+     "B"
+    ],
+    "occupancies": [
+     0.5,
+     0.5
+    ],
+    "policy": "highest_occupancy",
+    "in_correspondence": true
+   },
+   {
+    "structure": "A",
+    "chain": "A",
+    "resid": 455,
+    "icode": "",
+    "altlocs": [
+     "A",
+     "B"
+    ],
+    "occupancies": [
+     0.5,
+     0.5
+    ],
+    "policy": "highest_occupancy",
+    "in_correspondence": true
+   },
+   {
+    "structure": "A",
+    "chain": "A",
+    "resid": 459,
+    "icode": "",
+    "altlocs": [
+     "A",
+     "B"
+    ],
+    "occupancies": [
+     0.5,
+     0.5
+    ],
+    "policy": "highest_occupancy",
+    "in_correspondence": true
+   },
+   {
+    "structure": "A",
+    "chain": "A",
+    "resid": 460,
+    "icode": "",
+    "altlocs": [
+     "A",
+     "B"
+    ],
+    "occupancies": [
+     0.5,
+     0.5
+    ],
+    "policy": "highest_occupancy",
+    "in_correspondence": true
+   },
+   {
+    "structure": "A",
+    "chain": "A",
+    "resid": 463,
+    "icode": "",
+    "altlocs": [
+     "A",
+     "B"
+    ],
+    "occupancies": [
+     0.5,
+     0.5
+    ],
+    "policy": "highest_occupancy",
+    "in_correspondence": true
+   },
+   {
+    "structure": "A",
+    "chain": "A",
+    "resid": 470,
+    "icode": "",
+    "altlocs": [
+     "A",
+     "B"
+    ],
+    "occupancies": [
+     0.5,
+     0.5
+    ],
+    "policy": "highest_occupancy",
+    "in_correspondence": true
+   },
+   {
+    "structure": "A",
+    "chain": "A",
+    "resid": 484,
+    "icode": "",
+    "altlocs": [
+     "A",
+     "B"
+    ],
+    "occupancies": [
+     0.5,
+     0.5
+    ],
+    "policy": "highest_occupancy",
+    "in_correspondence": true
+   },
+   {
+    "structure": "A",
+    "chain": "A",
+    "resid": 488,
+    "icode": "",
+    "altlocs": [
+     "A",
+     "B"
+    ],
+    "occupancies": [
+     0.5,
+     0.5
+    ],
+    "policy": "highest_occupancy",
+    "in_correspondence": true
+   },
+   {
+    "structure": "A",
+    "chain": "A",
+    "resid": 492,
+    "icode": "",
+    "altlocs": [
+     "A",
+     "B"
+    ],
+    "occupancies": [
+     0.5,
+     0.5
+    ],
+    "policy": "highest_occupancy",
+    "in_correspondence": true
+   },
+   {
+    "structure": "A",
+    "chain": "A",
+    "resid": 496,
+    "icode": "",
+    "altlocs": [
+     "A",
+     "B"
+    ],
+    "occupancies": [
+     0.5,
+     0.5
+    ],
+    "policy": "highest_occupancy",
+    "in_correspondence": true
+   },
+   {
+    "structure": "A",
+    "chain": "A",
+    "resid": 500,
+    "icode": "",
+    "altlocs": [
+     "A",
+     "B"
+    ],
+    "occupancies": [
+     0.5,
+     0.5
+    ],
+    "policy": "highest_occupancy",
+    "in_correspondence": true
+   },
+   {
+    "structure": "A",
+    "chain": "A",
+    "resid": 510,
+    "icode": "",
+    "altlocs": [
+     "A",
+     "B"
+    ],
+    "occupancies": [
+     0.5,
+     0.5
+    ],
+    "policy": "highest_occupancy",
+    "in_correspondence": true
+   },
+   {
+    "structure": "A",
+    "chain": "A",
+    "resid": 513,
+    "icode": "",
+    "altlocs": [
+     "A",
+     "B"
+    ],
+    "occupancies": [
+     0.5,
+     0.5
+    ],
+    "policy": "highest_occupancy",
+    "in_correspondence": true
+   },
+   {
+    "structure": "A",
+    "chain": "A",
+    "resid": 516,
+    "icode": "",
+    "altlocs": [
+     "A",
+     "B"
+    ],
+    "occupancies": [
+     0.5,
+     0.5
+    ],
+    "policy": "highest_occupancy",
+    "in_correspondence": true
+   },
+   {
+    "structure": "A",
+    "chain": "A",
+    "resid": 571,
+    "icode": "",
+    "altlocs": [
+     "A",
+     "B"
+    ],
+    "occupancies": [
+     0.5,
+     0.5
+    ],
+    "policy": "highest_occupancy",
+    "in_correspondence": true
+   },
+   {
+    "structure": "A",
+    "chain": "A",
+    "resid": 586,
+    "icode": "",
+    "altlocs": [
+     "A",
+     "B"
+    ],
+    "occupancies": [
+     0.5,
+     0.5
+    ],
+    "policy": "highest_occupancy",
+    "in_correspondence": true
+   },
+   {
+    "structure": "A",
+    "chain": "A",
+    "resid": 595,
+    "icode": "",
+    "altlocs": [
+     "A",
+     "B"
+    ],
+    "occupancies": [
+     0.5,
+     0.5
+    ],
+    "policy": "highest_occupancy",
+    "in_correspondence": true
+   },
+   {
+    "structure": "A",
+    "chain": "A",
+    "resid": 596,
+    "icode": "",
+    "altlocs": [
+     "A",
+     "B"
+    ],
+    "occupancies": [
+     0.5,
+     0.5
+    ],
+    "policy": "highest_occupancy",
+    "in_correspondence": true
+   },
+   {
+    "structure": "A",
+    "chain": "A",
+    "resid": 600,
+    "icode": "",
+    "altlocs": [
+     "A",
+     "B"
+    ],
+    "occupancies": [
+     0.5,
+     0.5
+    ],
+    "policy": "highest_occupancy",
+    "in_correspondence": true
+   },
+   {
+    "structure": "A",
+    "chain": "A",
+    "resid": 604,
+    "icode": "",
+    "altlocs": [
+     "A",
+     "B"
+    ],
+    "occupancies": [
+     0.5,
+     0.5
+    ],
+    "policy": "highest_occupancy",
+    "in_correspondence": true
+   },
+   {
+    "structure": "A",
+    "chain": "A",
+    "resid": 608,
+    "icode": "",
+    "altlocs": [
+     "A",
+     "B"
+    ],
+    "occupancies": [
+     0.5,
+     0.5
+    ],
+    "policy": "highest_occupancy",
+    "in_correspondence": true
+   },
+   {
+    "structure": "A",
+    "chain": "A",
+    "resid": 624,
+    "icode": "",
+    "altlocs": [
+     "A",
+     "B"
+    ],
+    "occupancies": [
+     0.5,
+     0.5
+    ],
+    "policy": "highest_occupancy",
+    "in_correspondence": true
+   },
+   {
+    "structure": "A",
+    "chain": "A",
+    "resid": 635,
+    "icode": "",
+    "altlocs": [
+     "A",
+     "B"
+    ],
+    "occupancies": [
+     0.5,
+     0.5
+    ],
+    "policy": "highest_occupancy",
+    "in_correspondence": true
+   },
+   {
+    "structure": "A",
+    "chain": "A",
+    "resid": 639,
+    "icode": "",
+    "altlocs": [
+     "A",
+     "B"
+    ],
+    "occupancies": [
+     0.5,
+     0.5
+    ],
+    "policy": "highest_occupancy",
+    "in_correspondence": true
+   },
+   {
+    "structure": "A",
+    "chain": "A",
+    "resid": 640,
+    "icode": "",
+    "altlocs": [
+     "A",
+     "B"
+    ],
+    "occupancies": [
+     0.5,
+     0.5
+    ],
+    "policy": "highest_occupancy",
+    "in_correspondence": true
+   },
+   {
+    "structure": "A",
+    "chain": "A",
+    "resid": 649,
+    "icode": "",
+    "altlocs": [
+     "A",
+     "B"
+    ],
+    "occupancies": [
+     0.5,
+     0.5
+    ],
+    "policy": "highest_occupancy",
+    "in_correspondence": true
+   },
+   {
+    "structure": "A",
+    "chain": "A",
+    "resid": 655,
+    "icode": "",
+    "altlocs": [
+     "A",
+     "B"
+    ],
+    "occupancies": [
+     0.5,
+     0.5
+    ],
+    "policy": "highest_occupancy",
+    "in_correspondence": true
+   },
+   {
+    "structure": "A",
+    "chain": "A",
+    "resid": 658,
+    "icode": "",
+    "altlocs": [
+     "A",
+     "B"
+    ],
+    "occupancies": [
+     0.5,
+     0.5
+    ],
+    "policy": "highest_occupancy",
+    "in_correspondence": true
+   }
+  ]
+ },
+ "metric_definitions": {
+  "d_kappa": "|\u03ba_B \u2212 \u03ba_A|, three-residue window (i\u22121, i, i+1), TopoFold core",
+  "d_i_i2": "|d(i\u22121,i+1)_B \u2212 d(i\u22121,i+1)_A|, same three-residue window (distance baseline)",
+  "rmsd3": "proper-rotation C\u03b1 RMSD of the three-residue window after optimal superposition (MDAnalysis QCP)",
+  "d_tau": "circular |wrap(\u03c4_B \u2212 \u03c4_A)|, four-residue window (i\u22121 .. i+2), hinge i\u2192i+1, TopoFold core",
+  "d_i_i3": "|d(i\u22121,i+2)_B \u2212 d(i\u22121,i+2)_A|, same four-residue window (distance baseline)",
+  "rmsd4": "proper-rotation C\u03b1 RMSD of the four-residue window after optimal superposition (MDAnalysis QCP)"
+ },
+ "units": {
+  "d_kappa": "rad",
+  "d_i_i2": "angstrom",
+  "rmsd3": "angstrom",
+  "d_tau": "rad",
+  "d_i_i3": "angstrom",
+  "rmsd4": "angstrom"
+ },
+ "n_exclusion_rows": 10,
+ "within_entry_variation": {
+  "status": "unavailable",
+  "reason": "one chain per entry",
+  "statement": "Chains in one crystal are not independent experimental replicates, and crystal packing can affect each of them. The within-entry crystal-copy variation is a descriptive range of differences among the chains the user selected. It is not a calibrated noise floor, not a statistical uncertainty, not a nucleotide or ligand effect and not an HDX replicate estimate. An advisory flag appears only for a channel whose minimum difference the user configured; it is an advisory rule, not a gate, not an adequacy verdict, not significance and not biological separation."
+ }
+}

@@ -475,7 +475,10 @@ alternatives.
 computer (owner-reported only; pilot log entry 8). No human-researcher participation is needed for the active work package. Active scientific evaluation: **KIN-PAIR-1**
 (`benchmarks/audit/kin_pair_1/`, structpair on previously unused human kinases; executed, result in D81: frozen-rule outcome IMPLEMENTATION FAILURE caused by the optional altloc-sensitivity
 refusal, supplement mostly passing). Scope supported by the panel: workflow numbers agree with independent references on 6 pairs of 3 kinases (EGFR, PIM1, BTK), not generality, novelty, biology or time savings.
-Most consequential remaining limitation: the tie refusal (KNOWN_ISSUES m13). **One next development task:** make the altloc sensitivity non-fatal on ties (m13). Other tracks below stay
+Most consequential limitation found: the tie refusal (KNOWN_ISSUES m13), **repaired in structpair 0.3.1 (D82)**: the optional altloc sensitivity is now reported as unavailable, not zero, and the
+primary comparison is kept (evidence: `benchmarks/audit/structpair_altloc_tie_repair_2026-10-26/`; KIN-PAIR-1's frozen outcome is unchanged). Most consequential remaining limitation: the
+6-significant-figure CSV output limits independent verification of values of 10 Å or more to about 1e-4 (m13b). **One next development task:** an opt-in full-precision numeric record, so that
+verification need not use a tolerance at the CSV resolution. Other tracks below stay
 as they are with their activation conditions; none is activated by this phase.
 
 **Application paths: next actions (2026-10-23).** Each path waits on its own dependency; at most one runs as the

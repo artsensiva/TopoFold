@@ -1,0 +1,1469 @@
+{
+ "id": "KIN-PAIR-1-REPLAY-REPAIRED-STRUCTPAIR-2026-10-26",
+ "note": "engineering regression of the repair; the frozen KIN-PAIR-1 outcome is unchanged",
+ "pairs": [
+  {
+   "pair_id": "EGFR-1",
+   "frozen_primary_outcome": "IMPLEMENTATION_FAILURE",
+   "original_stderr": "input error: rejected: residue ('A', 707, ''): altlocs ['A', 'B'] tie on occupancy 0.5",
+   "primary_execution": {
+    "returncode": 0,
+    "stdout": "269 positions; global C\u03b1 RMSD 0.606 \u00c5 over 269 C\u03b1; 10 exclusion rows; within-entry variation: unavailable; wrote /home/artem/TopoFold/benchmarks/audit/structpair_altloc_tie_repair_2026-10-26/work/replay_EGFR-1/report.md",
+    "stderr": ""
+   },
+   "reference_outputs": "benchmarks/audit/kin_pair_1/results/pairs_supplement/EGFR-1",
+   "primary_outputs_byte_identical_to_reference": {
+    "windows.csv": true,
+    "residues.csv": true,
+    "exclusions.csv": true
+   },
+   "summary_equal_except_altloc_sensitivity": true,
+   "optional_sensitivity": {
+    "status": "unavailable: alternate locations tied on occupancy",
+    "available": false,
+    "n_ties": 32,
+    "ties_in_correspondence": 32,
+    "structures_with_ties": [
+     "A",
+     "B"
+    ],
+    "values_reported": false,
+    "max_abs_change": null,
+    "ties": [
+     {
+      "structure": "A",
+      "chain": "A",
+      "resid": 707,
+      "icode": "",
+      "altlocs": [
+       "A",
+       "B"
+      ],
+      "occupancies": [
+       0.5,
+       0.5
+      ],
+      "policy": "highest_occupancy",
+      "in_correspondence": true
+     },
+     {
+      "structure": "A",
+      "chain": "A",
+      "resid": 713,
+      "icode": "",
+      "altlocs": [
+       "A",
+       "B"
+      ],
+      "occupancies": [
+       0.5,
+       0.5
+      ],
+      "policy": "highest_occupancy",
+      "in_correspondence": true
+     },
+     {
+      "structure": "A",
+      "chain": "A",
+      "resid": 730,
+      "icode": "",
+      "altlocs": [
+       "A",
+       "B"
+      ],
+      "occupancies": [
+       0.5,
+       0.5
+      ],
+      "policy": "highest_occupancy",
+      "in_correspondence": true
+     },
+     {
+      "structure": "A",
+      "chain": "A",
+      "resid": 745,
+      "icode": "",
+      "altlocs": [
+       "A",
+       "B"
+      ],
+      "occupancies": [
+       0.5,
+       0.5
+      ],
+      "policy": "highest_occupancy",
+      "in_correspondence": true
+     },
+     {
+      "structure": "A",
+      "chain": "A",
+      "resid": 775,
+      "icode": "",
+      "altlocs": [
+       "A",
+       "B"
+      ],
+      "occupancies": [
+       0.5,
+       0.5
+      ],
+      "policy": "highest_occupancy",
+      "in_correspondence": true
+     },
+     {
+      "structure": "A",
+      "chain": "A",
+      "resid": 806,
+      "icode": "",
+      "altlocs": [
+       "A",
+       "B"
+      ],
+      "occupancies": [
+       0.5,
+       0.5
+      ],
+      "policy": "highest_occupancy",
+      "in_correspondence": true
+     },
+     {
+      "structure": "A",
+      "chain": "A",
+      "resid": 812,
+      "icode": "",
+      "altlocs": [
+       "A",
+       "B"
+      ],
+      "occupancies": [
+       0.5,
+       0.5
+      ],
+      "policy": "highest_occupancy",
+      "in_correspondence": true
+     },
+     {
+      "structure": "A",
+      "chain": "A",
+      "resid": 816,
+      "icode": "",
+      "altlocs": [
+       "A",
+       "B"
+      ],
+      "occupancies": [
+       0.5,
+       0.5
+      ],
+      "policy": "highest_occupancy",
+      "in_correspondence": true
+     },
+     {
+      "structure": "A",
+      "chain": "A",
+      "resid": 832,
+      "icode": "",
+      "altlocs": [
+       "A",
+       "B"
+      ],
+      "occupancies": [
+       0.5,
+       0.5
+      ],
+      "policy": "highest_occupancy",
+      "in_correspondence": true
+     },
+     {
+      "structure": "A",
+      "chain": "A",
+      "resid": 836,
+      "icode": "",
+      "altlocs": [
+       "A",
+       "B"
+      ],
+      "occupancies": [
+       0.5,
+       0.5
+      ],
+      "policy": "highest_occupancy",
+      "in_correspondence": true
+     },
+     {
+      "structure": "A",
+      "chain": "A",
+      "resid": 841,
+      "icode": "",
+      "altlocs": [
+       "A",
+       "B"
+      ],
+      "occupancies": [
+       0.5,
+       0.5
+      ],
+      "policy": "highest_occupancy",
+      "in_correspondence": true
+     },
+     {
+      "structure": "A",
+      "chain": "A",
+      "resid": 853,
+      "icode": "",
+      "altlocs": [
+       "A",
+       "B"
+      ],
+      "occupancies": [
+       0.5,
+       0.5
+      ],
+      "policy": "highest_occupancy",
+      "in_correspondence": true
+     },
+     {
+      "structure": "A",
+      "chain": "A",
+      "resid": 925,
+      "icode": "",
+      "altlocs": [
+       "A",
+       "B"
+      ],
+      "occupancies": [
+       0.5,
+       0.5
+      ],
+      "policy": "highest_occupancy",
+      "in_correspondence": true
+     },
+     {
+      "structure": "A",
+      "chain": "A",
+      "resid": 953,
+      "icode": "",
+      "altlocs": [
+       "A",
+       "B"
+      ],
+      "occupancies": [
+       0.5,
+       0.5
+      ],
+      "policy": "highest_occupancy",
+      "in_correspondence": true
+     },
+     {
+      "structure": "A",
+      "chain": "A",
+      "resid": 957,
+      "icode": "",
+      "altlocs": [
+       "A",
+       "B"
+      ],
+      "occupancies": [
+       0.5,
+       0.5
+      ],
+      "policy": "highest_occupancy",
+      "in_correspondence": true
+     },
+     {
+      "structure": "A",
+      "chain": "A",
+      "resid": 960,
+      "icode": "",
+      "altlocs": [
+       "A",
+       "B"
+      ],
+      "occupancies": [
+       0.5,
+       0.5
+      ],
+      "policy": "highest_occupancy",
+      "in_correspondence": true
+     },
+     {
+      "structure": "A",
+      "chain": "A",
+      "resid": 962,
+      "icode": "",
+      "altlocs": [
+       "A",
+       "B"
+      ],
+      "occupancies": [
+       0.5,
+       0.5
+      ],
+      "policy": "highest_occupancy",
+      "in_correspondence": true
+     },
+     {
+      "structure": "A",
+      "chain": "A",
+      "resid": 963,
+      "icode": "",
+      "altlocs": [
+       "A",
+       "B"
+      ],
+      "occupancies": [
+       0.5,
+       0.5
+      ],
+      "policy": "highest_occupancy",
+      "in_correspondence": true
+     },
+     {
+      "structure": "A",
+      "chain": "A",
+      "resid": 967,
+      "icode": "",
+      "altlocs": [
+       "A",
+       "B"
+      ],
+      "occupancies": [
+       0.5,
+       0.5
+      ],
+      "policy": "highest_occupancy",
+      "in_correspondence": true
+     },
+     {
+      "structure": "A",
+      "chain": "A",
+      "resid": 971,
+      "icode": "",
+      "altlocs": [
+       "A",
+       "B"
+      ],
+      "occupancies": [
+       0.5,
+       0.5
+      ],
+      "policy": "highest_occupancy",
+      "in_correspondence": true
+     },
+     {
+      "structure": "A",
+      "chain": "A",
+      "resid": 973,
+      "icode": "",
+      "altlocs": [
+       "A",
+       "B"
+      ],
+      "occupancies": [
+       0.5,
+       0.5
+      ],
+      "policy": "highest_occupancy",
+      "in_correspondence": true
+     },
+     {
+      "structure": "A",
+      "chain": "A",
+      "resid": 974,
+      "icode": "",
+      "altlocs": [
+       "A",
+       "B"
+      ],
+      "occupancies": [
+       0.5,
+       0.5
+      ],
+      "policy": "highest_occupancy",
+      "in_correspondence": true
+     },
+     {
+      "structure": "A",
+      "chain": "A",
+      "resid": 977,
+      "icode": "",
+      "altlocs": [
+       "A",
+       "B"
+      ],
+      "occupancies": [
+       0.5,
+       0.5
+      ],
+      "policy": "highest_occupancy",
+      "in_correspondence": true
+     },
+     {
+      "structure": "B",
+      "chain": "A",
+      "resid": 762,
+      "icode": "",
+      "altlocs": [
+       "A",
+       "B"
+      ],
+      "occupancies": [
+       0.5,
+       0.5
+      ],
+      "policy": "highest_occupancy",
+      "in_correspondence": true
+     },
+     {
+      "structure": "B",
+      "chain": "A",
+      "resid": 785,
+      "icode": "",
+      "altlocs": [
+       "A",
+       "B"
+      ],
+      "occupancies": [
+       0.5,
+       0.5
+      ],
+      "policy": "highest_occupancy",
+      "in_correspondence": true
+     },
+     {
+      "structure": "B",
+      "chain": "A",
+      "resid": 804,
+      "icode": "",
+      "altlocs": [
+       "A",
+       "B"
+      ],
+      "occupancies": [
+       0.5,
+       0.5
+      ],
+      "policy": "highest_occupancy",
+      "in_correspondence": true
+     },
+     {
+      "structure": "B",
+      "chain": "A",
+      "resid": 816,
+      "icode": "",
+      "altlocs": [
+       "A",
+       "B"
+      ],
+      "occupancies": [
+       0.5,
+       0.5
+      ],
+      "policy": "highest_occupancy",
+      "in_correspondence": true
+     },
+     {
+      "structure": "B",
+      "chain": "A",
+      "resid": 908,
+      "icode": "",
+      "altlocs": [
+       "A",
+       "B"
+      ],
+      "occupancies": [
+       0.5,
+       0.5
+      ],
+      "policy": "highest_occupancy",
+      "in_correspondence": true
+     },
+     {
+      "structure": "B",
+      "chain": "A",
+      "resid": 939,
+      "icode": "",
+      "altlocs": [
+       "A",
+       "B"
+      ],
+      "occupancies": [
+       0.5,
+       0.5
+      ],
+      "policy": "highest_occupancy",
+      "in_correspondence": true
+     },
+     {
+      "structure": "B",
+      "chain": "A",
+      "resid": 945,
+      "icode": "",
+      "altlocs": [
+       "A",
+       "B"
+      ],
+      "occupancies": [
+       0.5,
+       0.5
+      ],
+      "policy": "highest_occupancy",
+      "in_correspondence": true
+     },
+     {
+      "structure": "B",
+      "chain": "A",
+      "resid": 953,
+      "icode": "",
+      "altlocs": [
+       "A",
+       "B"
+      ],
+      "occupancies": [
+       0.5,
+       0.5
+      ],
+      "policy": "highest_occupancy",
+      "in_correspondence": true
+     },
+     {
+      "structure": "B",
+      "chain": "A",
+      "resid": 957,
+      "icode": "",
+      "altlocs": [
+       "A",
+       "B"
+      ],
+      "occupancies": [
+       0.5,
+       0.5
+      ],
+      "policy": "highest_occupancy",
+      "in_correspondence": true
+     }
+    ]
+   },
+   "structpair_version": "0.3.1",
+   "manifest_altloc_sensitivity_outcome": "unavailable: alternate locations tied on occupancy",
+   "manifest_hashes_verified": true
+  },
+  {
+   "pair_id": "EGFR-2",
+   "frozen_primary_outcome": "IMPLEMENTATION_FAILURE",
+   "original_stderr": "input error: rejected: residue ('A', 790, ''): altlocs ['A', 'B'] tie on occupancy 0.5",
+   "primary_execution": {
+    "returncode": 0,
+    "stdout": "280 positions; global C\u03b1 RMSD 0.590 \u00c5 over 280 C\u03b1; 10 exclusion rows; within-entry variation: unavailable; wrote /home/artem/TopoFold/benchmarks/audit/structpair_altloc_tie_repair_2026-10-26/work/replay_EGFR-2/report.md",
+    "stderr": ""
+   },
+   "reference_outputs": "benchmarks/audit/kin_pair_1/results/pairs_supplement/EGFR-2",
+   "primary_outputs_byte_identical_to_reference": {
+    "windows.csv": true,
+    "residues.csv": true,
+    "exclusions.csv": true
+   },
+   "summary_equal_except_altloc_sensitivity": true,
+   "optional_sensitivity": {
+    "status": "unavailable: alternate locations tied on occupancy",
+    "available": false,
+    "n_ties": 11,
+    "ties_in_correspondence": 11,
+    "structures_with_ties": [
+     "A",
+     "B"
+    ],
+    "values_reported": false,
+    "max_abs_change": null,
+    "ties": [
+     {
+      "structure": "A",
+      "chain": "A",
+      "resid": 790,
+      "icode": "",
+      "altlocs": [
+       "A",
+       "B"
+      ],
+      "occupancies": [
+       0.5,
+       0.5
+      ],
+      "policy": "highest_occupancy",
+      "in_correspondence": true
+     },
+     {
+      "structure": "A",
+      "chain": "A",
+      "resid": 804,
+      "icode": "",
+      "altlocs": [
+       "A",
+       "B"
+      ],
+      "occupancies": [
+       0.5,
+       0.5
+      ],
+      "policy": "highest_occupancy",
+      "in_correspondence": true
+     },
+     {
+      "structure": "A",
+      "chain": "A",
+      "resid": 881,
+      "icode": "",
+      "altlocs": [
+       "A",
+       "B"
+      ],
+      "occupancies": [
+       0.5,
+       0.5
+      ],
+      "policy": "highest_occupancy",
+      "in_correspondence": true
+     },
+     {
+      "structure": "A",
+      "chain": "A",
+      "resid": 925,
+      "icode": "",
+      "altlocs": [
+       "A",
+       "B"
+      ],
+      "occupancies": [
+       0.5,
+       0.5
+      ],
+      "policy": "highest_occupancy",
+      "in_correspondence": true
+     },
+     {
+      "structure": "A",
+      "chain": "A",
+      "resid": 953,
+      "icode": "",
+      "altlocs": [
+       "A",
+       "B"
+      ],
+      "occupancies": [
+       0.5,
+       0.5
+      ],
+      "policy": "highest_occupancy",
+      "in_correspondence": true
+     },
+     {
+      "structure": "B",
+      "chain": "A",
+      "resid": 766,
+      "icode": "",
+      "altlocs": [
+       "A",
+       "B"
+      ],
+      "occupancies": [
+       0.5,
+       0.5
+      ],
+      "policy": "highest_occupancy",
+      "in_correspondence": true
+     },
+     {
+      "structure": "B",
+      "chain": "A",
+      "resid": 790,
+      "icode": "",
+      "altlocs": [
+       "A",
+       "B"
+      ],
+      "occupancies": [
+       0.5,
+       0.5
+      ],
+      "policy": "highest_occupancy",
+      "in_correspondence": true
+     },
+     {
+      "structure": "B",
+      "chain": "A",
+      "resid": 802,
+      "icode": "",
+      "altlocs": [
+       "A",
+       "B"
+      ],
+      "occupancies": [
+       0.5,
+       0.5
+      ],
+      "policy": "highest_occupancy",
+      "in_correspondence": true
+     },
+     {
+      "structure": "B",
+      "chain": "A",
+      "resid": 834,
+      "icode": "",
+      "altlocs": [
+       "A",
+       "B"
+      ],
+      "occupancies": [
+       0.5,
+       0.5
+      ],
+      "policy": "highest_occupancy",
+      "in_correspondence": true
+     },
+     {
+      "structure": "B",
+      "chain": "A",
+      "resid": 854,
+      "icode": "",
+      "altlocs": [
+       "A",
+       "B"
+      ],
+      "occupancies": [
+       0.5,
+       0.5
+      ],
+      "policy": "highest_occupancy",
+      "in_correspondence": true
+     },
+     {
+      "structure": "B",
+      "chain": "A",
+      "resid": 952,
+      "icode": "",
+      "altlocs": [
+       "A",
+       "B"
+      ],
+      "occupancies": [
+       0.5,
+       0.5
+      ],
+      "policy": "highest_occupancy",
+      "in_correspondence": true
+     }
+    ]
+   },
+   "structpair_version": "0.3.1",
+   "manifest_altloc_sensitivity_outcome": "unavailable: alternate locations tied on occupancy",
+   "manifest_hashes_verified": true
+  },
+  {
+   "pair_id": "PIM1-1",
+   "frozen_primary_outcome": "PASS",
+   "original_stderr": "",
+   "primary_execution": {
+    "returncode": 0,
+    "stdout": "266 positions; global C\u03b1 RMSD 0.556 \u00c5 over 266 C\u03b1; 20 exclusion rows; within-entry variation: unavailable; wrote /home/artem/TopoFold/benchmarks/audit/structpair_altloc_tie_repair_2026-10-26/work/replay_PIM1-1/report.md",
+    "stderr": ""
+   },
+   "reference_outputs": "benchmarks/audit/kin_pair_1/results/pairs/PIM1-1",
+   "primary_outputs_byte_identical_to_reference": {
+    "windows.csv": true,
+    "residues.csv": true,
+    "exclusions.csv": true
+   },
+   "summary_equal_except_altloc_sensitivity": true,
+   "optional_sensitivity": {
+    "status": "computed",
+    "available": true,
+    "n_ties": 0,
+    "ties_in_correspondence": 0,
+    "structures_with_ties": [],
+    "values_reported": true,
+    "max_abs_change": {
+     "d_kappa": 0.0,
+     "d_i_i2": 0.0,
+     "rmsd3": 0.0,
+     "d_tau": 0.0,
+     "d_i_i3": 0.0,
+     "rmsd4": 0.0
+    },
+    "ties": null
+   },
+   "sensitivity_equals_original_primary_run": true,
+   "structpair_version": "0.3.1",
+   "manifest_altloc_sensitivity_outcome": "computed",
+   "manifest_hashes_verified": true
+  },
+  {
+   "pair_id": "PIM1-2",
+   "frozen_primary_outcome": "PASS",
+   "original_stderr": "",
+   "primary_execution": {
+    "returncode": 0,
+    "stdout": "270 positions; global C\u03b1 RMSD 0.451 \u00c5 over 270 C\u03b1; 10 exclusion rows; within-entry variation: unavailable; wrote /home/artem/TopoFold/benchmarks/audit/structpair_altloc_tie_repair_2026-10-26/work/replay_PIM1-2/report.md",
+    "stderr": ""
+   },
+   "reference_outputs": "benchmarks/audit/kin_pair_1/results/pairs/PIM1-2",
+   "primary_outputs_byte_identical_to_reference": {
+    "windows.csv": true,
+    "residues.csv": true,
+    "exclusions.csv": true
+   },
+   "summary_equal_except_altloc_sensitivity": true,
+   "optional_sensitivity": {
+    "status": "not applicable: no alternate locations at the mapped C\u03b1 atoms",
+    "available": false,
+    "n_ties": 0,
+    "ties_in_correspondence": 0,
+    "structures_with_ties": [],
+    "values_reported": false,
+    "max_abs_change": null,
+    "ties": null
+   },
+   "sensitivity_equals_original_primary_run": true,
+   "structpair_version": "0.3.1",
+   "manifest_altloc_sensitivity_outcome": "not applicable: no alternate locations at the mapped C\u03b1 atoms",
+   "manifest_hashes_verified": true
+  },
+  {
+   "pair_id": "BTK-1",
+   "frozen_primary_outcome": "IMPLEMENTATION_FAILURE",
+   "original_stderr": "input error: rejected: residue ('A', 453, ''): altlocs ['A', 'B'] tie on occupancy 0.5",
+   "primary_execution": {
+    "returncode": 0,
+    "stdout": "263 positions; global C\u03b1 RMSD 0.706 \u00c5 over 263 C\u03b1; 0 exclusion rows; within-entry variation: unavailable; wrote /home/artem/TopoFold/benchmarks/audit/structpair_altloc_tie_repair_2026-10-26/work/replay_BTK-1/report.md",
+    "stderr": ""
+   },
+   "reference_outputs": "benchmarks/audit/kin_pair_1/results/pairs_supplement/BTK-1",
+   "primary_outputs_byte_identical_to_reference": {
+    "windows.csv": true,
+    "residues.csv": true,
+    "exclusions.csv": true
+   },
+   "summary_equal_except_altloc_sensitivity": true,
+   "optional_sensitivity": {
+    "status": "unavailable: alternate locations tied on occupancy",
+    "available": false,
+    "n_ties": 4,
+    "ties_in_correspondence": 4,
+    "structures_with_ties": [
+     "A"
+    ],
+    "values_reported": false,
+    "max_abs_change": null,
+    "ties": [
+     {
+      "structure": "A",
+      "chain": "A",
+      "resid": 453,
+      "icode": "",
+      "altlocs": [
+       "A",
+       "B"
+      ],
+      "occupancies": [
+       0.5,
+       0.5
+      ],
+      "policy": "highest_occupancy",
+      "in_correspondence": true
+     },
+     {
+      "structure": "A",
+      "chain": "A",
+      "resid": 484,
+      "icode": "",
+      "altlocs": [
+       "A",
+       "B"
+      ],
+      "occupancies": [
+       0.5,
+       0.5
+      ],
+      "policy": "highest_occupancy",
+      "in_correspondence": true
+     },
+     {
+      "structure": "A",
+      "chain": "A",
+      "resid": 571,
+      "icode": "",
+      "altlocs": [
+       "A",
+       "B"
+      ],
+      "occupancies": [
+       0.5,
+       0.5
+      ],
+      "policy": "highest_occupancy",
+      "in_correspondence": true
+     },
+     {
+      "structure": "A",
+      "chain": "A",
+      "resid": 596,
+      "icode": "",
+      "altlocs": [
+       "A",
+       "B"
+      ],
+      "occupancies": [
+       0.5,
+       0.5
+      ],
+      "policy": "highest_occupancy",
+      "in_correspondence": true
+     }
+    ]
+   },
+   "structpair_version": "0.3.1",
+   "manifest_altloc_sensitivity_outcome": "unavailable: alternate locations tied on occupancy",
+   "manifest_hashes_verified": true
+  },
+  {
+   "pair_id": "BTK-2",
+   "frozen_primary_outcome": "IMPLEMENTATION_FAILURE",
+   "original_stderr": "input error: rejected: residue ('A', 400, ''): altlocs ['A', 'B'] tie on occupancy 0.5",
+   "primary_execution": {
+    "returncode": 0,
+    "stdout": "263 positions; global C\u03b1 RMSD 0.275 \u00c5 over 263 C\u03b1; 10 exclusion rows; within-entry variation: unavailable; wrote /home/artem/TopoFold/benchmarks/audit/structpair_altloc_tie_repair_2026-10-26/work/replay_BTK-2/report.md",
+    "stderr": ""
+   },
+   "reference_outputs": "benchmarks/audit/kin_pair_1/results/pairs_supplement/BTK-2",
+   "primary_outputs_byte_identical_to_reference": {
+    "windows.csv": true,
+    "residues.csv": true,
+    "exclusions.csv": true
+   },
+   "summary_equal_except_altloc_sensitivity": true,
+   "optional_sensitivity": {
+    "status": "unavailable: alternate locations tied on occupancy",
+    "available": false,
+    "n_ties": 31,
+    "ties_in_correspondence": 31,
+    "structures_with_ties": [
+     "A"
+    ],
+    "values_reported": false,
+    "max_abs_change": null,
+    "ties": [
+     {
+      "structure": "A",
+      "chain": "A",
+      "resid": 400,
+      "icode": "",
+      "altlocs": [
+       "A",
+       "B"
+      ],
+      "occupancies": [
+       0.5,
+       0.5
+      ],
+      "policy": "highest_occupancy",
+      "in_correspondence": true
+     },
+     {
+      "structure": "A",
+      "chain": "A",
+      "resid": 431,
+      "icode": "",
+      "altlocs": [
+       "A",
+       "B"
+      ],
+      "occupancies": [
+       0.5,
+       0.5
+      ],
+      "policy": "highest_occupancy",
+      "in_correspondence": true
+     },
+     {
+      "structure": "A",
+      "chain": "A",
+      "resid": 437,
+      "icode": "",
+      "altlocs": [
+       "A",
+       "B"
+      ],
+      "occupancies": [
+       0.5,
+       0.5
+      ],
+      "policy": "highest_occupancy",
+      "in_correspondence": true
+     },
+     {
+      "structure": "A",
+      "chain": "A",
+      "resid": 453,
+      "icode": "",
+      "altlocs": [
+       "A",
+       "B"
+      ],
+      "occupancies": [
+       0.5,
+       0.5
+      ],
+      "policy": "highest_occupancy",
+      "in_correspondence": true
+     },
+     {
+      "structure": "A",
+      "chain": "A",
+      "resid": 455,
+      "icode": "",
+      "altlocs": [
+       "A",
+       "B"
+      ],
+      "occupancies": [
+       0.5,
+       0.5
+      ],
+      "policy": "highest_occupancy",
+      "in_correspondence": true
+     },
+     {
+      "structure": "A",
+      "chain": "A",
+      "resid": 459,
+      "icode": "",
+      "altlocs": [
+       "A",
+       "B"
+      ],
+      "occupancies": [
+       0.5,
+       0.5
+      ],
+      "policy": "highest_occupancy",
+      "in_correspondence": true
+     },
+     {
+      "structure": "A",
+      "chain": "A",
+      "resid": 460,
+      "icode": "",
+      "altlocs": [
+       "A",
+       "B"
+      ],
+      "occupancies": [
+       0.5,
+       0.5
+      ],
+      "policy": "highest_occupancy",
+      "in_correspondence": true
+     },
+     {
+      "structure": "A",
+      "chain": "A",
+      "resid": 463,
+      "icode": "",
+      "altlocs": [
+       "A",
+       "B"
+      ],
+      "occupancies": [
+       0.5,
+       0.5
+      ],
+      "policy": "highest_occupancy",
+      "in_correspondence": true
+     },
+     {
+      "structure": "A",
+      "chain": "A",
+      "resid": 470,
+      "icode": "",
+      "altlocs": [
+       "A",
+       "B"
+      ],
+      "occupancies": [
+       0.5,
+       0.5
+      ],
+      "policy": "highest_occupancy",
+      "in_correspondence": true
+     },
+     {
+      "structure": "A",
+      "chain": "A",
+      "resid": 484,
+      "icode": "",
+      "altlocs": [
+       "A",
+       "B"
+      ],
+      "occupancies": [
+       0.5,
+       0.5
+      ],
+      "policy": "highest_occupancy",
+      "in_correspondence": true
+     },
+     {
+      "structure": "A",
+      "chain": "A",
+      "resid": 488,
+      "icode": "",
+      "altlocs": [
+       "A",
+       "B"
+      ],
+      "occupancies": [
+       0.5,
+       0.5
+      ],
+      "policy": "highest_occupancy",
+      "in_correspondence": true
+     },
+     {
+      "structure": "A",
+      "chain": "A",
+      "resid": 492,
+      "icode": "",
+      "altlocs": [
+       "A",
+       "B"
+      ],
+      "occupancies": [
+       0.5,
+       0.5
+      ],
+      "policy": "highest_occupancy",
+      "in_correspondence": true
+     },
+     {
+      "structure": "A",
+      "chain": "A",
+      "resid": 496,
+      "icode": "",
+      "altlocs": [
+       "A",
+       "B"
+      ],
+      "occupancies": [
+       0.5,
+       0.5
+      ],
+      "policy": "highest_occupancy",
+      "in_correspondence": true
+     },
+     {
+      "structure": "A",
+      "chain": "A",
+      "resid": 500,
+      "icode": "",
+      "altlocs": [
+       "A",
+       "B"
+      ],
+      "occupancies": [
+       0.5,
+       0.5
+      ],
+      "policy": "highest_occupancy",
+      "in_correspondence": true
+     },
+     {
+      "structure": "A",
+      "chain": "A",
+      "resid": 510,
+      "icode": "",
+      "altlocs": [
+       "A",
+       "B"
+      ],
+      "occupancies": [
+       0.5,
+       0.5
+      ],
+      "policy": "highest_occupancy",
+      "in_correspondence": true
+     },
+     {
+      "structure": "A",
+      "chain": "A",
+      "resid": 513,
+      "icode": "",
+      "altlocs": [
+       "A",
+       "B"
+      ],
+      "occupancies": [
+       0.5,
+       0.5
+      ],
+      "policy": "highest_occupancy",
+      "in_correspondence": true
+     },
+     {
+      "structure": "A",
+      "chain": "A",
+      "resid": 516,
+      "icode": "",
+      "altlocs": [
+       "A",
+       "B"
+      ],
+      "occupancies": [
+       0.5,
+       0.5
+      ],
+      "policy": "highest_occupancy",
+      "in_correspondence": true
+     },
+     {
+      "structure": "A",
+      "chain": "A",
+      "resid": 571,
+      "icode": "",
+      "altlocs": [
+       "A",
+       "B"
+      ],
+      "occupancies": [
+       0.5,
+       0.5
+      ],
+      "policy": "highest_occupancy",
+      "in_correspondence": true
+     },
+     {
+      "structure": "A",
+      "chain": "A",
+      "resid": 586,
+      "icode": "",
+      "altlocs": [
+       "A",
+       "B"
+      ],
+      "occupancies": [
+       0.5,
+       0.5
+      ],
+      "policy": "highest_occupancy",
+      "in_correspondence": true
+     },
+     {
+      "structure": "A",
+      "chain": "A",
+      "resid": 595,
+      "icode": "",
+      "altlocs": [
+       "A",
+       "B"
+      ],
+      "occupancies": [
+       0.5,
+       0.5
+      ],
+      "policy": "highest_occupancy",
+      "in_correspondence": true
+     },
+     {
+      "structure": "A",
+      "chain": "A",
+      "resid": 596,
+      "icode": "",
+      "altlocs": [
+       "A",
+       "B"
+      ],
+      "occupancies": [
+       0.5,
+       0.5
+      ],
+      "policy": "highest_occupancy",
+      "in_correspondence": true
+     },
+     {
+      "structure": "A",
+      "chain": "A",
+      "resid": 600,
+      "icode": "",
+      "altlocs": [
+       "A",
+       "B"
+      ],
+      "occupancies": [
+       0.5,
+       0.5
+      ],
+      "policy": "highest_occupancy",
+      "in_correspondence": true
+     },
+     {
+      "structure": "A",
+      "chain": "A",
+      "resid": 604,
+      "icode": "",
+      "altlocs": [
+       "A",
+       "B"
+      ],
+      "occupancies": [
+       0.5,
+       0.5
+      ],
+      "policy": "highest_occupancy",
+      "in_correspondence": true
+     },
+     {
+      "structure": "A",
+      "chain": "A",
+      "resid": 608,
+      "icode": "",
+      "altlocs": [
+       "A",
+       "B"
+      ],
+      "occupancies": [
+       0.5,
+       0.5
+      ],
+      "policy": "highest_occupancy",
+      "in_correspondence": true
+     },
+     {
+      "structure": "A",
+      "chain": "A",
+      "resid": 624,
+      "icode": "",
+      "altlocs": [
+       "A",
+       "B"
+      ],
+      "occupancies": [
+       0.5,
+       0.5
+      ],
+      "policy": "highest_occupancy",
+      "in_correspondence": true
+     },
+     {
+      "structure": "A",
+      "chain": "A",
+      "resid": 635,
+      "icode": "",
+      "altlocs": [
+       "A",
+       "B"
+      ],
+      "occupancies": [
+       0.5,
+       0.5
+      ],
+      "policy": "highest_occupancy",
+      "in_correspondence": true
+     },
+     {
+      "structure": "A",
+      "chain": "A",
+      "resid": 639,
+      "icode": "",
+      "altlocs": [
+       "A",
+       "B"
+      ],
+      "occupancies": [
+       0.5,
+       0.5
+      ],
+      "policy": "highest_occupancy",
+      "in_correspondence": true
+     },
+     {
+      "structure": "A",
+      "chain": "A",
+      "resid": 640,
+      "icode": "",
+      "altlocs": [
+       "A",
+       "B"
+      ],
+      "occupancies": [
+       0.5,
+       0.5
+      ],
+      "policy": "highest_occupancy",
+      "in_correspondence": true
+     },
+     {
+      "structure": "A",
+      "chain": "A",
+      "resid": 649,
+      "icode": "",
+      "altlocs": [
+       "A",
+       "B"
+      ],
+      "occupancies": [
+       0.5,
+       0.5
+      ],
+      "policy": "highest_occupancy",
+      "in_correspondence": true
+     },
+     {
+      "structure": "A",
+      "chain": "A",
+      "resid": 655,
+      "icode": "",
+      "altlocs": [
+       "A",
+       "B"
+      ],
+      "occupancies": [
+       0.5,
+       0.5
+      ],
+      "policy": "highest_occupancy",
+      "in_correspondence": true
+     },
+     {
+      "structure": "A",
+      "chain": "A",
+      "resid": 658,
+      "icode": "",
+      "altlocs": [
+       "A",
+       "B"
+      ],
+      "occupancies": [
+       0.5,
+       0.5
+      ],
+      "policy": "highest_occupancy",
+      "in_correspondence": true
+     }
+    ]
+   },
+   "structpair_version": "0.3.1",
+   "manifest_altloc_sensitivity_outcome": "unavailable: alternate locations tied on occupancy",
+   "manifest_hashes_verified": true
+  }
+ ],
+ "counts": {
+  "pairs": 6,
+  "primary_execution_completed": 6,
+  "primary_execution_refused": 0,
+  "optional_sensitivity_computed": 1,
+  "optional_sensitivity_not_applicable": 1,
+  "optional_sensitivity_unavailable": 4
+ },
+ "resources": {
+  "children_cpu_seconds": 76.871726,
+  "wall_seconds": 35.08091068267822
+ }
+}
