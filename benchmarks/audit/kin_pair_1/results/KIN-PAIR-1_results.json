@@ -1,0 +1,2323 @@
+{
+ "study": "KIN-PAIR-1",
+ "protocol_version": "1.0",
+ "freeze_utc": "2026-10-26T10:49:21+00:00",
+ "run_utc": "2026-10-26T10:50:09+00:00",
+ "structpair_version": "0.3.0",
+ "pairs": [
+  {
+   "pair_id": "EGFR-1",
+   "gene": "EGFR",
+   "accession": "P00533",
+   "entries": {
+    "A": "8A27",
+    "B": "8A2D"
+   },
+   "meta": {
+    "A": {
+     "resolution": 1.07,
+     "release_date": "2022-10-19",
+     "space_group": "C 1 2 1",
+     "primary_ligand": "KY9",
+     "other_ligands": [],
+     "n_mutations_rcsb": 0,
+     "target_chains": [
+      "A"
+     ]
+    },
+    "B": {
+     "resolution": 1.11,
+     "release_date": "2022-10-19",
+     "space_group": "C 1 2 1",
+     "primary_ligand": "KXY",
+     "other_ligands": [],
+     "n_mutations_rcsb": 2,
+     "target_chains": [
+      "A"
+     ]
+    }
+   },
+   "checks": {
+    "R8_shifted_mapping": {
+     "A": {
+      "identity_true": 1.0,
+      "identity_shifted_by_1": 0.03717472118959108
+     },
+     "B": {
+      "identity_true": 0.9928825622775801,
+      "identity_shifted_by_1": 0.042704626334519574
+     },
+     "pass": true
+    },
+    "R1_mapping": {
+     "pass": true,
+     "identity": {
+      "A": 1.0,
+      "B": 0.9928825622775801
+     },
+     "dbref_disagreements": {
+      "A": 0,
+      "B": 0
+     }
+    }
+   },
+   "outcome": "IMPLEMENTATION_FAILURE",
+   "uniprot_fasta_sha256": "684e2da1f3ef05d0ce90d0aefe9125c6f7e9cdcfeac27ae72ed35243b64a73e8",
+   "uniprot_fasta_matches_selection_record": true,
+   "inputs": {
+    "A": {
+     "file": "data_pdb/8A27.pdb",
+     "sha256": "9fba519399f7ef4818ab3eeae0597300d09a740170f2d387b5d4e42ab9fa059d",
+     "matches_selection_record": true
+    },
+    "B": {
+     "file": "data_pdb/8A2D.pdb",
+     "sha256": "3fb105982609693f14d0b55e9baf525fc603fae988e9787cbd78d690e7d22c5c",
+     "matches_selection_record": true
+    }
+   },
+   "mapping": {
+    "A": {
+     "chain": "A",
+     "n_residues": 269,
+     "n_aligned": 269,
+     "n_unaligned": 0,
+     "identity": 1.0,
+     "coverage": 1.0,
+     "mismatches": [],
+     "dbref_segments": [
+      {
+       "seq_begin": 700,
+       "seq_end": 1022,
+       "db_begin": 700,
+       "db_end": 1022
+      }
+     ],
+     "n_checked_against_dbref": 269,
+     "n_dbref_disagreements": 0,
+     "alignment_score": 1344,
+     "author_minus_uniprot_offsets": [
+      0
+     ],
+     "modified_residues_not_read": [],
+     "altloc_ca_in_chain": 23
+    },
+    "B": {
+     "chain": "A",
+     "n_residues": 281,
+     "n_aligned": 281,
+     "n_unaligned": 0,
+     "identity": 0.9928825622775801,
+     "coverage": 1.0,
+     "mismatches": [
+      {
+       "resseq": 858,
+       "icode": "",
+       "observed": "ARG",
+       "uniprot": "L",
+       "uniprot_index": 858,
+       "seqadv": "ENGINEERED MUTATION"
+      },
+      {
+       "resseq": 948,
+       "icode": "",
+       "observed": "ARG",
+       "uniprot": "V",
+       "uniprot_index": 948,
+       "seqadv": "ENGINEERED MUTATION"
+      }
+     ],
+     "dbref_segments": [
+      {
+       "seq_begin": 700,
+       "seq_end": 1022,
+       "db_begin": 700,
+       "db_end": 1022
+      }
+     ],
+     "n_checked_against_dbref": 281,
+     "n_dbref_disagreements": 0,
+     "alignment_score": 1386,
+     "author_minus_uniprot_offsets": [
+      0
+     ],
+     "modified_residues_not_read": [],
+     "altloc_ca_in_chain": 9
+    }
+   },
+   "correspondence": {
+    "n_positions": 269,
+    "uniprot_span": [
+     701,
+     985
+    ],
+    "n_span_positions_not_shared": 16,
+    "span_positions_not_shared_by_reason": {
+     "A": {
+      "not in the deposited chain (unobserved or unaligned)": 16,
+      "present but not read by the adapter": 0
+     },
+     "B": {
+      "not in the deposited chain (unobserved or unaligned)": 10,
+      "present but not read by the adapter": 0
+     }
+    }
+   },
+   "chains": {
+    "A": {
+     "used": [
+      "A"
+     ],
+     "candidates": [
+      "A"
+     ],
+     "read_counts": {
+      "A": 269
+     },
+     "second_chain": null,
+     "second_chain_accepted": false,
+     "reason": "single chain in the entity"
+    },
+    "B": {
+     "used": [
+      "A"
+     ],
+     "candidates": [
+      "A"
+     ],
+     "read_counts": {
+      "A": 281
+     },
+     "second_chain": null,
+     "second_chain_accepted": false,
+     "reason": "single chain in the entity"
+    }
+   },
+   "structpair": {
+    "returncode": 2,
+    "stdout": "",
+    "cpu_seconds": 8.818660000000001,
+    "wall_seconds": 3.3704051971435547,
+    "stderr": "input error: rejected: residue ('A', 707, ''): altlocs ['A', 'B'] tie on occupancy 0.5"
+   },
+   "failure": "structpair failed on inputs that passed the mapping checks"
+  },
+  {
+   "pair_id": "EGFR-2",
+   "gene": "EGFR",
+   "accession": "P00533",
+   "entries": {
+    "A": "5UG9",
+    "B": "5HG8"
+   },
+   "meta": {
+    "A": {
+     "resolution": 1.33,
+     "release_date": "2017-03-22",
+     "space_group": "P 21 21 21",
+     "primary_ligand": "8AM",
+     "other_ligands": [],
+     "n_mutations_rcsb": 3,
+     "target_chains": [
+      "A"
+     ]
+    },
+    "B": {
+     "resolution": 1.42,
+     "release_date": "2016-02-03",
+     "space_group": "P 21 21 21",
+     "primary_ligand": "634",
+     "other_ligands": [],
+     "n_mutations_rcsb": 3,
+     "target_chains": [
+      "A"
+     ]
+    }
+   },
+   "checks": {
+    "R8_shifted_mapping": {
+     "A": {
+      "identity_true": 0.9892857142857143,
+      "identity_shifted_by_1": 0.04642857142857143
+     },
+     "B": {
+      "identity_true": 0.99,
+      "identity_shifted_by_1": 0.043333333333333335
+     },
+     "pass": true
+    },
+    "R1_mapping": {
+     "pass": true,
+     "identity": {
+      "A": 0.9892857142857143,
+      "B": 0.99
+     },
+     "dbref_disagreements": {
+      "A": 0,
+      "B": 0
+     }
+    }
+   },
+   "outcome": "IMPLEMENTATION_FAILURE",
+   "uniprot_fasta_sha256": "684e2da1f3ef05d0ce90d0aefe9125c6f7e9cdcfeac27ae72ed35243b64a73e8",
+   "uniprot_fasta_matches_selection_record": true,
+   "inputs": {
+    "A": {
+     "file": "data_pdb/5UG9.pdb",
+     "sha256": "24013b98bdebcef070c3c4834e726014467f4a7839fd316793fb76a647c3b41f",
+     "matches_selection_record": true
+    },
+    "B": {
+     "file": "data_pdb/5HG8.pdb",
+     "sha256": "8556a280ab40d2bf93fce6c5b0cbc40ac4d1fe2d3bbf84328a449dd634bd079b",
+     "matches_selection_record": true
+    }
+   },
+   "mapping": {
+    "A": {
+     "chain": "A",
+     "n_residues": 280,
+     "n_aligned": 280,
+     "n_unaligned": 0,
+     "identity": 0.9892857142857143,
+     "coverage": 1.0,
+     "mismatches": [
+      {
+       "resseq": 790,
+       "icode": "",
+       "observed": "MET",
+       "uniprot": "T",
+       "uniprot_index": 790,
+       "seqadv": "ENGINEERED MUTATION"
+      },
+      {
+       "resseq": 858,
+       "icode": "",
+       "observed": "ARG",
+       "uniprot": "L",
+       "uniprot_index": 858,
+       "seqadv": "ENGINEERED MUTATION"
+      },
+      {
+       "resseq": 948,
+       "icode": "",
+       "observed": "ARG",
+       "uniprot": "V",
+       "uniprot_index": 948,
+       "seqadv": "ENGINEERED MUTATION"
+      }
+     ],
+     "dbref_segments": [
+      {
+       "seq_begin": 695,
+       "seq_end": 1022,
+       "db_begin": 695,
+       "db_end": 1022
+      }
+     ],
+     "n_checked_against_dbref": 280,
+     "n_dbref_disagreements": 0,
+     "alignment_score": 1375,
+     "author_minus_uniprot_offsets": [
+      0
+     ],
+     "modified_residues_not_read": [],
+     "altloc_ca_in_chain": 6
+    },
+    "B": {
+     "chain": "A",
+     "n_residues": 300,
+     "n_aligned": 300,
+     "n_unaligned": 0,
+     "identity": 0.99,
+     "coverage": 1.0,
+     "mismatches": [
+      {
+       "resseq": 790,
+       "icode": "",
+       "observed": "MET",
+       "uniprot": "T",
+       "uniprot_index": 790,
+       "seqadv": "ENGINEERED MUTATION"
+      },
+      {
+       "resseq": 858,
+       "icode": "",
+       "observed": "ARG",
+       "uniprot": "L",
+       "uniprot_index": 858,
+       "seqadv": "ENGINEERED MUTATION"
+      },
+      {
+       "resseq": 948,
+       "icode": "",
+       "observed": "ARG",
+       "uniprot": "V",
+       "uniprot_index": 948,
+       "seqadv": "ENGINEERED MUTATION"
+      }
+     ],
+     "dbref_segments": [
+      {
+       "seq_begin": 695,
+       "seq_end": 1022,
+       "db_begin": 695,
+       "db_end": 1022
+      }
+     ],
+     "n_checked_against_dbref": 300,
+     "n_dbref_disagreements": 0,
+     "alignment_score": 1476,
+     "author_minus_uniprot_offsets": [
+      0
+     ],
+     "modified_residues_not_read": [],
+     "altloc_ca_in_chain": 6
+    }
+   },
+   "correspondence": {
+    "n_positions": 280,
+    "uniprot_span": [
+     702,
+     985
+    ],
+    "n_span_positions_not_shared": 4,
+    "span_positions_not_shared_by_reason": {
+     "A": {
+      "not in the deposited chain (unobserved or unaligned)": 4,
+      "present but not read by the adapter": 0
+     },
+     "B": {
+      "not in the deposited chain (unobserved or unaligned)": 0,
+      "present but not read by the adapter": 0
+     }
+    }
+   },
+   "chains": {
+    "A": {
+     "used": [
+      "A"
+     ],
+     "candidates": [
+      "A"
+     ],
+     "read_counts": {
+      "A": 280
+     },
+     "second_chain": null,
+     "second_chain_accepted": false,
+     "reason": "single chain in the entity"
+    },
+    "B": {
+     "used": [
+      "A"
+     ],
+     "candidates": [
+      "A"
+     ],
+     "read_counts": {
+      "A": 300
+     },
+     "second_chain": null,
+     "second_chain_accepted": false,
+     "reason": "single chain in the entity"
+    }
+   },
+   "structpair": {
+    "returncode": 2,
+    "stdout": "",
+    "cpu_seconds": 9.326972999999995,
+    "wall_seconds": 3.519064426422119,
+    "stderr": "input error: rejected: residue ('A', 790, ''): altlocs ['A', 'B'] tie on occupancy 0.5"
+   },
+   "failure": "structpair failed on inputs that passed the mapping checks"
+  },
+  {
+   "pair_id": "PIM1-1",
+   "gene": "PIM1",
+   "accession": "P11309",
+   "entries": {
+    "A": "8R0Q",
+    "B": "6NO9"
+   },
+   "meta": {
+    "A": {
+     "resolution": 1.7,
+     "release_date": "2024-11-13",
+     "space_group": "P 65",
+     "primary_ligand": "XGB",
+     "other_ligands": [],
+     "n_mutations_rcsb": 1,
+     "target_chains": [
+      "A"
+     ]
+    },
+    "B": {
+     "resolution": 1.712,
+     "release_date": "2019-02-27",
+     "space_group": "P 65",
+     "primary_ligand": "KUV",
+     "other_ligands": [],
+     "n_mutations_rcsb": 0,
+     "target_chains": [
+      "A"
+     ]
+    }
+   },
+   "checks": {
+    "R8_shifted_mapping": {
+     "A": {
+      "identity_true": 0.9962546816479401,
+      "identity_shifted_by_1": 0.0749063670411985
+     },
+     "B": {
+      "identity_true": 1.0,
+      "identity_shifted_by_1": 0.0695970695970696
+     },
+     "pass": true
+    },
+    "R1_mapping": {
+     "pass": true,
+     "identity": {
+      "A": 0.9962546816479401,
+      "B": 1.0
+     },
+     "dbref_disagreements": {
+      "A": 0,
+      "B": 0
+     }
+    },
+    "R2_window_set": {
+     "pass": true,
+     "n_positions": 266,
+     "n_valid3_independent": 260,
+     "n_valid4_independent": 257,
+     "validity_mismatch_positions": {}
+    },
+    "R3_kappa_tau_values": {
+     "pass": true,
+     "max_abs_deviation": {
+      "d_kappa": 6.636650723940846e-06,
+      "d_i_i2": 1.5693511383203795e-05,
+      "d_tau": 7.332790440680442e-06,
+      "d_i_i3": 1.6319771221504076e-05
+     },
+     "n_values": {
+      "d_kappa": 260,
+      "d_i_i2": 260,
+      "d_tau": 257,
+      "d_i_i3": 257
+     }
+    },
+    "R4_local_rmsd": {
+     "pass": true,
+     "max_abs_deviation": {
+      "rmsd3": 7.067620265067964e-06,
+      "rmsd4": 5.499348251978425e-06
+     },
+     "n_values": {
+      "rmsd3": 260,
+      "rmsd4": 257
+     }
+    },
+    "R5_global_rmsd": {
+     "pass": true,
+     "structpair": 0.5557267140137949,
+     "independent": 0.555726613594251,
+     "abs_deviation": 1.0041954390249686e-07,
+     "n_ca_structpair": 266,
+     "n_positions": 266
+    },
+    "R9_exclusions": {
+     "pass": true,
+     "n_rows": 20,
+     "n_excluded_windows_independent": {
+      "3": 4,
+      "4": 6
+     },
+     "n_excluded_windows_structpair": {
+      "3": 4,
+      "4": 6
+     },
+     "only_in_structpair": {
+      "3": [],
+      "4": []
+     },
+     "only_independent": {
+      "3": [],
+      "4": []
+     },
+     "rows_by_cause": {
+      "numbering_discontinuity": 20
+     }
+    },
+    "R6_displacement": {
+     "status": "not applicable: one chain per entry (structpair writes no displacement channel)"
+    },
+    "R7_rigid_motion": {
+     "pass": true,
+     "max_abs_deviation_window_columns": 9.999999999976694e-05,
+     "n_values": 3619,
+     "validity_pattern_differences": 0,
+     "global_rmsd_deviation": 9.021356384142365e-08,
+     "max_abs_deviation_displacement_channel": 0.0,
+     "rotations": "A: cyclic axis permutation, B: 90 degrees about z; translations (12.5,-7.25,3) and (-20,5,40)"
+    }
+   },
+   "outcome": "PASS",
+   "uniprot_fasta_sha256": "4de04d20da23a47f37bf552e96839afbe508c64f716308e266682bf5d482b68f",
+   "uniprot_fasta_matches_selection_record": true,
+   "inputs": {
+    "A": {
+     "file": "data_pdb/8R0Q.pdb",
+     "sha256": "6c9bd62287f5019101176443d4b7c9bdeb0a061069b119e80192d71bc5bd6439",
+     "matches_selection_record": true
+    },
+    "B": {
+     "file": "data_pdb/6NO9.pdb",
+     "sha256": "0115a741b19f26b880b5f938c6db7ff36b1bd7084e888ea8813c3db652a4baf3",
+     "matches_selection_record": true
+    }
+   },
+   "mapping": {
+    "A": {
+     "chain": "A",
+     "n_residues": 267,
+     "n_aligned": 267,
+     "n_unaligned": 0,
+     "identity": 0.9962546816479401,
+     "coverage": 1.0,
+     "mismatches": [
+      {
+       "resseq": 250,
+       "icode": "",
+       "observed": "GLY",
+       "uniprot": "R",
+       "uniprot_index": 250,
+       "seqadv": "ENGINEERED MUTATION"
+      }
+     ],
+     "dbref_segments": [
+      {
+       "seq_begin": 1,
+       "seq_end": 312,
+       "db_begin": 1,
+       "db_end": 312
+      }
+     ],
+     "n_checked_against_dbref": 267,
+     "n_dbref_disagreements": 0,
+     "alignment_score": 1326,
+     "author_minus_uniprot_offsets": [
+      0
+     ],
+     "modified_residues_not_read": [
+      "SEP"
+     ],
+     "altloc_ca_in_chain": 1
+    },
+    "B": {
+     "chain": "A",
+     "n_residues": 273,
+     "n_aligned": 273,
+     "n_unaligned": 0,
+     "identity": 1.0,
+     "coverage": 1.0,
+     "mismatches": [],
+     "dbref_segments": [
+      {
+       "seq_begin": 33,
+       "seq_end": 305,
+       "db_begin": 33,
+       "db_end": 305
+      }
+     ],
+     "n_checked_against_dbref": 273,
+     "n_dbref_disagreements": 0,
+     "alignment_score": 1365,
+     "author_minus_uniprot_offsets": [
+      0
+     ],
+     "modified_residues_not_read": [],
+     "altloc_ca_in_chain": 0
+    }
+   },
+   "correspondence": {
+    "n_positions": 266,
+    "uniprot_span": [
+     33,
+     305
+    ],
+    "n_span_positions_not_shared": 7,
+    "span_positions_not_shared_by_reason": {
+     "A": {
+      "not in the deposited chain (unobserved or unaligned)": 6,
+      "present but not read by the adapter": 1
+     },
+     "B": {
+      "not in the deposited chain (unobserved or unaligned)": 0,
+      "present but not read by the adapter": 0
+     }
+    }
+   },
+   "chains": {
+    "A": {
+     "used": [
+      "A"
+     ],
+     "candidates": [
+      "A"
+     ],
+     "read_counts": {
+      "A": 266
+     },
+     "second_chain": null,
+     "second_chain_accepted": false,
+     "reason": "single chain in the entity"
+    },
+    "B": {
+     "used": [
+      "A"
+     ],
+     "candidates": [
+      "A"
+     ],
+     "read_counts": {
+      "A": 273
+     },
+     "second_chain": null,
+     "second_chain_accepted": false,
+     "reason": "single chain in the entity"
+    }
+   },
+   "structpair": {
+    "returncode": 0,
+    "stdout": "266 positions; global C\u03b1 RMSD 0.556 \u00c5 over 266 C\u03b1; 20 exclusion rows; within-entry variation: unavailable; wrote /home/artem/TopoFold/benchmarks/audit/kin_pair_1/work/PIM1-1/out/report.md",
+    "cpu_seconds": 14.861032999999999,
+    "wall_seconds": 6.609926700592041
+   },
+   "classification": {
+    "3": {
+     "class": "redundant",
+     "overlap_O": 9,
+     "k": 10,
+     "n_valid": 260,
+     "spearman": {
+      "d_i_i2": 0.9213748041334248,
+      "rmsd3": 0.976475528199666
+     },
+     "top_geometry": [
+      1,
+      17,
+      18,
+      27,
+      58,
+      59,
+      60,
+      65,
+      66,
+      213
+     ],
+     "top_baselines": {
+      "d_i_i2": [
+       2,
+       17,
+       27,
+       28,
+       58,
+       59,
+       60,
+       61,
+       65,
+       213
+      ],
+      "rmsd3": [
+       1,
+       17,
+       18,
+       27,
+       28,
+       58,
+       59,
+       60,
+       65,
+       213
+      ]
+     }
+    },
+    "4": {
+     "class": "complementary",
+     "overlap_O": 6,
+     "k": 10,
+     "n_valid": 257,
+     "spearman": {
+      "d_i_i3": 0.4353537010225319,
+      "rmsd4": 0.7921490419419056
+     },
+     "top_geometry": [
+      11,
+      12,
+      13,
+      14,
+      17,
+      57,
+      66,
+      210,
+      211,
+      212
+     ],
+     "top_baselines": {
+      "d_i_i3": [
+       11,
+       13,
+       17,
+       27,
+       28,
+       57,
+       58,
+       60,
+       61,
+       210
+      ],
+      "rmsd4": [
+       1,
+       17,
+       26,
+       27,
+       57,
+       58,
+       59,
+       60,
+       210,
+       212
+      ]
+     }
+    }
+   },
+   "descriptive": {
+    "n_positions": 266,
+    "global_rmsd_all_positions": 0.555726613594251,
+    "displacement_trimmed_fit": {
+     "max": 4.121728217982717,
+     "median": 0.24634905815401353,
+     "argmax": {
+      "position": 15,
+      "A_B_residue": "A:48/A:48",
+      "uniprot_index": 48,
+      "value": 4.121728217982717
+     },
+     "max_all_position_fit": 4.052082059249723
+    },
+    "local_shape": {
+     "max_rmsd3": 0.8864353924751304,
+     "max_rmsd4": 0.8872795437725745,
+     "max_d_kappa": 0.8060088601876931,
+     "max_d_tau": 0.5820395432591008
+    },
+    "top_windows": {
+     "d_kappa": [
+      {
+       "position": 1,
+       "A_B_residue": "A:34/A:34",
+       "uniprot_index": 34,
+       "value": 0.3263029128376721
+      },
+      {
+       "position": 58,
+       "A_B_residue": "A:97/A:97",
+       "uniprot_index": 97,
+       "value": 0.35942969997955965
+      },
+      {
+       "position": 59,
+       "A_B_residue": "A:98/A:98",
+       "uniprot_index": 98,
+       "value": 0.8060088601876931
+      },
+      {
+       "position": 60,
+       "A_B_residue": "A:99/A:99",
+       "uniprot_index": 99,
+       "value": 0.3597077644740607
+      },
+      {
+       "position": 213,
+       "A_B_residue": "A:252/A:252",
+       "uniprot_index": 252,
+       "value": 0.2635024845091062
+      }
+     ],
+     "d_i_i2": [
+      {
+       "position": 27,
+       "A_B_residue": "A:60/A:60",
+       "uniprot_index": 60,
+       "value": 1.027284948933847
+      },
+      {
+       "position": 28,
+       "A_B_residue": "A:61/A:61",
+       "uniprot_index": 61,
+       "value": 0.6131645659688978
+      },
+      {
+       "position": 58,
+       "A_B_residue": "A:97/A:97",
+       "uniprot_index": 97,
+       "value": 0.8273439474696405
+      },
+      {
+       "position": 59,
+       "A_B_residue": "A:98/A:98",
+       "uniprot_index": 98,
+       "value": 1.5566709448402678
+      },
+      {
+       "position": 60,
+       "A_B_residue": "A:99/A:99",
+       "uniprot_index": 99,
+       "value": 0.8813213030404619
+      }
+     ],
+     "rmsd3": [
+      {
+       "position": 1,
+       "A_B_residue": "A:34/A:34",
+       "uniprot_index": 34,
+       "value": 0.44784215495933316
+      },
+      {
+       "position": 27,
+       "A_B_residue": "A:60/A:60",
+       "uniprot_index": 60,
+       "value": 0.5015427698013956
+      },
+      {
+       "position": 58,
+       "A_B_residue": "A:97/A:97",
+       "uniprot_index": 97,
+       "value": 0.4247088179706213
+      },
+      {
+       "position": 59,
+       "A_B_residue": "A:98/A:98",
+       "uniprot_index": 98,
+       "value": 0.8864353924751304
+      },
+      {
+       "position": 60,
+       "A_B_residue": "A:99/A:99",
+       "uniprot_index": 99,
+       "value": 0.4355890323260134
+      }
+     ],
+     "d_tau": [
+      {
+       "position": 12,
+       "A_B_residue": "A:45/A:45",
+       "uniprot_index": 45,
+       "value": 0.5820395432591008
+      },
+      {
+       "position": 17,
+       "A_B_residue": "A:50/A:50",
+       "uniprot_index": 50,
+       "value": 0.4494483179267399
+      },
+      {
+       "position": 57,
+       "A_B_residue": "A:96/A:96",
+       "uniprot_index": 96,
+       "value": 0.5604286823847158
+      },
+      {
+       "position": 210,
+       "A_B_residue": "A:249/A:249",
+       "uniprot_index": 249,
+       "value": 0.5694261562527482
+      },
+      {
+       "position": 212,
+       "A_B_residue": "A:251/A:251",
+       "uniprot_index": 251,
+       "value": 0.48200652529413324
+      }
+     ],
+     "d_i_i3": [
+      {
+       "position": 17,
+       "A_B_residue": "A:50/A:50",
+       "uniprot_index": 50,
+       "value": 1.3779906596531806
+      },
+      {
+       "position": 57,
+       "A_B_residue": "A:96/A:96",
+       "uniprot_index": 96,
+       "value": 1.4935332347280488
+      },
+      {
+       "position": 58,
+       "A_B_residue": "A:97/A:97",
+       "uniprot_index": 97,
+       "value": 1.6847645249623282
+      },
+      {
+       "position": 60,
+       "A_B_residue": "A:99/A:99",
+       "uniprot_index": 99,
+       "value": 0.8773120982174669
+      },
+      {
+       "position": 210,
+       "A_B_residue": "A:249/A:249",
+       "uniprot_index": 249,
+       "value": 1.6169518614280083
+      }
+     ],
+     "rmsd4": [
+      {
+       "position": 17,
+       "A_B_residue": "A:50/A:50",
+       "uniprot_index": 50,
+       "value": 0.6241584815604924
+      },
+      {
+       "position": 57,
+       "A_B_residue": "A:96/A:96",
+       "uniprot_index": 96,
+       "value": 0.747706253407343
+      },
+      {
+       "position": 58,
+       "A_B_residue": "A:97/A:97",
+       "uniprot_index": 97,
+       "value": 0.8872795437725745
+      },
+      {
+       "position": 59,
+       "A_B_residue": "A:98/A:98",
+       "uniprot_index": 98,
+       "value": 0.7875093352480114
+      },
+      {
+       "position": 210,
+       "A_B_residue": "A:249/A:249",
+       "uniprot_index": 249,
+       "value": 0.6742970155301254
+      }
+     ]
+    },
+    "spearman_displacement_vs_rmsd3": 0.44171522792212436,
+    "top_displacement_positions": [
+     {
+      "position": 14,
+      "A_B_residue": "A:47/A:47",
+      "uniprot_index": 47,
+      "value": 2.0974252274909126
+     },
+     {
+      "position": 15,
+      "A_B_residue": "A:48/A:48",
+      "uniprot_index": 48,
+      "value": 4.121728217982717
+     },
+     {
+      "position": 16,
+      "A_B_residue": "A:49/A:49",
+      "uniprot_index": 49,
+      "value": 3.4602039295075158
+     },
+     {
+      "position": 59,
+      "A_B_residue": "A:98/A:98",
+      "uniprot_index": 98,
+      "value": 1.7416002154192536
+     },
+     {
+      "position": 60,
+      "A_B_residue": "A:99/A:99",
+      "uniprot_index": 99,
+      "value": 1.8272653985533858
+     }
+    ]
+   },
+   "chain_sensitivity": {
+    "status": "not available: one chain per entry in both"
+   },
+   "altloc_sensitivity_structpair": {
+    "policy": "highest_occupancy",
+    "status": "computed",
+    "max_abs_change": {
+     "d_kappa": 0.0,
+     "d_i_i2": 0.0,
+     "rmsd3": 0.0,
+     "d_tau": 0.0,
+     "d_i_i3": 0.0,
+     "rmsd4": 0.0
+    },
+    "global_rmsd_angstrom": 0.5557267140137949
+   },
+   "exclusions_compact": [
+    {
+     "window_size": "3",
+     "position": "46",
+     "structure": "A",
+     "cause": "numbering_discontinuity",
+     "location": "A:79\u2192A:86"
+    },
+    {
+     "window_size": "3",
+     "position": "46",
+     "structure": "B",
+     "cause": "numbering_discontinuity",
+     "location": "A:79\u2192A:86"
+    },
+    {
+     "window_size": "3",
+     "position": "47",
+     "structure": "A",
+     "cause": "numbering_discontinuity",
+     "location": "A:79\u2192A:86"
+    },
+    {
+     "window_size": "3",
+     "position": "47",
+     "structure": "B",
+     "cause": "numbering_discontinuity",
+     "location": "A:79\u2192A:86"
+    },
+    {
+     "window_size": "3",
+     "position": "221",
+     "structure": "A",
+     "cause": "numbering_discontinuity",
+     "location": "A:260\u2192A:262"
+    },
+    {
+     "window_size": "3",
+     "position": "221",
+     "structure": "B",
+     "cause": "numbering_discontinuity",
+     "location": "A:260\u2192A:262"
+    },
+    {
+     "window_size": "3",
+     "position": "222",
+     "structure": "A",
+     "cause": "numbering_discontinuity",
+     "location": "A:260\u2192A:262"
+    },
+    {
+     "window_size": "3",
+     "position": "222",
+     "structure": "B",
+     "cause": "numbering_discontinuity",
+     "location": "A:260\u2192A:262"
+    },
+    {
+     "window_size": "4",
+     "position": "45",
+     "structure": "A",
+     "cause": "numbering_discontinuity",
+     "location": "A:79\u2192A:86"
+    },
+    {
+     "window_size": "4",
+     "position": "45",
+     "structure": "B",
+     "cause": "numbering_discontinuity",
+     "location": "A:79\u2192A:86"
+    },
+    {
+     "window_size": "4",
+     "position": "46",
+     "structure": "A",
+     "cause": "numbering_discontinuity",
+     "location": "A:79\u2192A:86"
+    },
+    {
+     "window_size": "4",
+     "position": "46",
+     "structure": "B",
+     "cause": "numbering_discontinuity",
+     "location": "A:79\u2192A:86"
+    },
+    {
+     "window_size": "4",
+     "position": "47",
+     "structure": "A",
+     "cause": "numbering_discontinuity",
+     "location": "A:79\u2192A:86"
+    },
+    {
+     "window_size": "4",
+     "position": "47",
+     "structure": "B",
+     "cause": "numbering_discontinuity",
+     "location": "A:79\u2192A:86"
+    },
+    {
+     "window_size": "4",
+     "position": "220",
+     "structure": "A",
+     "cause": "numbering_discontinuity",
+     "location": "A:260\u2192A:262"
+    },
+    {
+     "window_size": "4",
+     "position": "220",
+     "structure": "B",
+     "cause": "numbering_discontinuity",
+     "location": "A:260\u2192A:262"
+    },
+    {
+     "window_size": "4",
+     "position": "221",
+     "structure": "A",
+     "cause": "numbering_discontinuity",
+     "location": "A:260\u2192A:262"
+    },
+    {
+     "window_size": "4",
+     "position": "221",
+     "structure": "B",
+     "cause": "numbering_discontinuity",
+     "location": "A:260\u2192A:262"
+    },
+    {
+     "window_size": "4",
+     "position": "222",
+     "structure": "A",
+     "cause": "numbering_discontinuity",
+     "location": "A:260\u2192A:262"
+    },
+    {
+     "window_size": "4",
+     "position": "222",
+     "structure": "B",
+     "cause": "numbering_discontinuity",
+     "location": "A:260\u2192A:262"
+    }
+   ],
+   "compact_outputs": {
+    "exclusions.csv": "c664d07c4ee616a53d9b47d061f359fcd1743022352bc71a47777589e6f104ae",
+    "manifest.json": "64fda87cecab7b52f8cfd0cc8ebf847ffe08191c325f4bc55e91c4e8ccfdf652",
+    "report.md": "cbb9f53b3ab218f3161d99cb22e10ad29a02ea9dde719f9859bb7622f8d005ca",
+    "residues.csv": "913ed131582edb3173be8e43d934bd7c19a049e0b7352363e8306fb114b2e9f0",
+    "spec.json": "bf72340000af49cf23e8c30c0a53c20f898662633f7681312bf69582a8f03d5e",
+    "summary.json": "3a3af7d70938a4aa15539dc2cf908652bf0188dc64375e3015b427f8199460ab",
+    "windows.csv": "cde642f606868866fac1484c6344eee72ee1f5a3e6c71597554ed5ca9ac08693"
+   }
+  },
+  {
+   "pair_id": "PIM1-2",
+   "gene": "PIM1",
+   "accession": "P11309",
+   "entries": {
+    "A": "6VRV",
+    "B": "6L17"
+   },
+   "meta": {
+    "A": {
+     "resolution": 1.74,
+     "release_date": "2020-11-04",
+     "space_group": "P 65",
+     "primary_ligand": "WFY",
+     "other_ligands": [],
+     "n_mutations_rcsb": 0,
+     "target_chains": [
+      "A"
+     ]
+    },
+    "B": {
+     "resolution": 1.75,
+     "release_date": "2020-09-02",
+     "space_group": "P 65",
+     "primary_ligand": "E2X",
+     "other_ligands": [],
+     "n_mutations_rcsb": 0,
+     "target_chains": [
+      "A"
+     ]
+    }
+   },
+   "checks": {
+    "R8_shifted_mapping": {
+     "A": {
+      "identity_true": 1.0,
+      "identity_shifted_by_1": 0.07011070110701106
+     },
+     "B": {
+      "identity_true": 1.0,
+      "identity_shifted_by_1": 0.0695970695970696
+     },
+     "pass": true
+    },
+    "R1_mapping": {
+     "pass": true,
+     "identity": {
+      "A": 1.0,
+      "B": 1.0
+     },
+     "dbref_disagreements": {
+      "A": 0,
+      "B": 0
+     }
+    },
+    "R2_window_set": {
+     "pass": true,
+     "n_positions": 270,
+     "n_valid3_independent": 266,
+     "n_valid4_independent": 264,
+     "validity_mismatch_positions": {}
+    },
+    "R3_kappa_tau_values": {
+     "pass": true,
+     "max_abs_deviation": {
+      "d_kappa": 2.077796149566047e-06,
+      "d_i_i2": 5.353910304650711e-06,
+      "d_tau": 3.18170429015191e-06,
+      "d_i_i3": 6.0064068140089355e-06
+     },
+     "n_values": {
+      "d_kappa": 266,
+      "d_i_i2": 266,
+      "d_tau": 264,
+      "d_i_i3": 264
+     }
+    },
+    "R4_local_rmsd": {
+     "pass": true,
+     "max_abs_deviation": {
+      "rmsd3": 1.7904734184587268e-06,
+      "rmsd4": 5.27198173516652e-06
+     },
+     "n_values": {
+      "rmsd3": 266,
+      "rmsd4": 264
+     }
+    },
+    "R5_global_rmsd": {
+     "pass": true,
+     "structpair": 0.45085588637397855,
+     "independent": 0.45085578664638604,
+     "abs_deviation": 9.972759251741792e-08,
+     "n_ca_structpair": 270,
+     "n_positions": 270
+    },
+    "R9_exclusions": {
+     "pass": true,
+     "n_rows": 10,
+     "n_excluded_windows_independent": {
+      "3": 2,
+      "4": 3
+     },
+     "n_excluded_windows_structpair": {
+      "3": 2,
+      "4": 3
+     },
+     "only_in_structpair": {
+      "3": [],
+      "4": []
+     },
+     "only_independent": {
+      "3": [],
+      "4": []
+     },
+     "rows_by_cause": {
+      "numbering_discontinuity": 10
+     }
+    },
+    "R6_displacement": {
+     "status": "not applicable: one chain per entry (structpair writes no displacement channel)"
+    },
+    "R7_rigid_motion": {
+     "pass": true,
+     "max_abs_deviation_window_columns": 9.999999999976694e-05,
+     "n_values": 3710,
+     "validity_pattern_differences": 0,
+     "global_rmsd_deviation": 2.8355717551775683e-08,
+     "max_abs_deviation_displacement_channel": 0.0,
+     "rotations": "A: cyclic axis permutation, B: 90 degrees about z; translations (12.5,-7.25,3) and (-20,5,40)"
+    }
+   },
+   "outcome": "PASS",
+   "uniprot_fasta_sha256": "4de04d20da23a47f37bf552e96839afbe508c64f716308e266682bf5d482b68f",
+   "uniprot_fasta_matches_selection_record": true,
+   "inputs": {
+    "A": {
+     "file": "data_pdb/6VRV.pdb",
+     "sha256": "5fb4eae4ba1612131cb57cb3a991b8fa40b6d5cdac0ec41242112943313a2aa2",
+     "matches_selection_record": true
+    },
+    "B": {
+     "file": "data_pdb/6L17.pdb",
+     "sha256": "3ad04425727d5c09458314151efa52eea07bd1c52d7f3f5be3326bd8d7501da8",
+     "matches_selection_record": true
+    }
+   },
+   "mapping": {
+    "A": {
+     "chain": "A",
+     "n_residues": 271,
+     "n_aligned": 271,
+     "n_unaligned": 0,
+     "identity": 1.0,
+     "coverage": 1.0,
+     "mismatches": [],
+     "dbref_segments": [
+      {
+       "seq_begin": 33,
+       "seq_end": 306,
+       "db_begin": 33,
+       "db_end": 306
+      }
+     ],
+     "n_checked_against_dbref": 271,
+     "n_dbref_disagreements": 0,
+     "alignment_score": 1355,
+     "author_minus_uniprot_offsets": [
+      0
+     ],
+     "modified_residues_not_read": [],
+     "altloc_ca_in_chain": 0
+    },
+    "B": {
+     "chain": "A",
+     "n_residues": 273,
+     "n_aligned": 273,
+     "n_unaligned": 0,
+     "identity": 1.0,
+     "coverage": 1.0,
+     "mismatches": [],
+     "dbref_segments": [
+      {
+       "seq_begin": 29,
+       "seq_end": 313,
+       "db_begin": 29,
+       "db_end": 313
+      }
+     ],
+     "n_checked_against_dbref": 273,
+     "n_dbref_disagreements": 0,
+     "alignment_score": 1365,
+     "author_minus_uniprot_offsets": [
+      0
+     ],
+     "modified_residues_not_read": [
+      "SEP"
+     ],
+     "altloc_ca_in_chain": 0
+    }
+   },
+   "correspondence": {
+    "n_positions": 270,
+    "uniprot_span": [
+     35,
+     305
+    ],
+    "n_span_positions_not_shared": 1,
+    "span_positions_not_shared_by_reason": {
+     "A": {
+      "not in the deposited chain (unobserved or unaligned)": 0,
+      "present but not read by the adapter": 0
+     },
+     "B": {
+      "not in the deposited chain (unobserved or unaligned)": 0,
+      "present but not read by the adapter": 1
+     }
+    }
+   },
+   "chains": {
+    "A": {
+     "used": [
+      "A"
+     ],
+     "candidates": [
+      "A"
+     ],
+     "read_counts": {
+      "A": 271
+     },
+     "second_chain": null,
+     "second_chain_accepted": false,
+     "reason": "single chain in the entity"
+    },
+    "B": {
+     "used": [
+      "A"
+     ],
+     "candidates": [
+      "A"
+     ],
+     "read_counts": {
+      "A": 272
+     },
+     "second_chain": null,
+     "second_chain_accepted": false,
+     "reason": "single chain in the entity"
+    }
+   },
+   "structpair": {
+    "returncode": 0,
+    "stdout": "270 positions; global C\u03b1 RMSD 0.451 \u00c5 over 270 C\u03b1; 10 exclusion rows; within-entry variation: unavailable; wrote /home/artem/TopoFold/benchmarks/audit/kin_pair_1/work/PIM1-2/out/report.md",
+    "cpu_seconds": 9.007942999999997,
+    "wall_seconds": 4.148498296737671
+   },
+   "classification": {
+    "3": {
+     "class": "redundant",
+     "overlap_O": 10,
+     "k": 10,
+     "n_valid": 266,
+     "spearman": {
+      "d_i_i2": 0.4294602310312563,
+      "rmsd3": 0.7456609511907817
+     },
+     "top_geometry": [
+      16,
+      41,
+      47,
+      61,
+      62,
+      63,
+      64,
+      65,
+      66,
+      67
+     ],
+     "top_baselines": {
+      "d_i_i2": [
+       39,
+       41,
+       47,
+       61,
+       62,
+       63,
+       64,
+       65,
+       66,
+       67
+      ],
+      "rmsd3": [
+       16,
+       41,
+       47,
+       61,
+       62,
+       63,
+       64,
+       65,
+       66,
+       67
+      ]
+     }
+    },
+    "4": {
+     "class": "redundant",
+     "overlap_O": 9,
+     "k": 10,
+     "n_valid": 264,
+     "spearman": {
+      "d_i_i3": 0.334800331313711,
+      "rmsd4": 0.7341181381212947
+     },
+     "top_geometry": [
+      39,
+      40,
+      41,
+      61,
+      63,
+      64,
+      65,
+      66,
+      67,
+      267
+     ],
+     "top_baselines": {
+      "d_i_i3": [
+       38,
+       46,
+       61,
+       62,
+       64,
+       65,
+       66,
+       67,
+       102,
+       267
+      ],
+      "rmsd4": [
+       39,
+       41,
+       61,
+       62,
+       63,
+       64,
+       65,
+       66,
+       67,
+       267
+      ]
+     }
+    }
+   },
+   "descriptive": {
+    "n_positions": 270,
+    "global_rmsd_all_positions": 0.45085578664638604,
+    "displacement_trimmed_fit": {
+     "max": 3.2208917044070633,
+     "median": 0.1612059013821917,
+     "argmax": {
+      "position": 66,
+      "A_B_residue": "A:101/A:101",
+      "uniprot_index": 101,
+      "value": 3.2208917044070633
+     },
+     "max_all_position_fit": 3.1992418180552247
+    },
+    "local_shape": {
+     "max_rmsd3": 0.8043315899173361,
+     "max_rmsd4": 1.5608510737624184,
+     "max_d_kappa": 0.7484689600361731,
+     "max_d_tau": 3.0413387740846094
+    },
+    "top_windows": {
+     "d_kappa": [
+      {
+       "position": 41,
+       "A_B_residue": "A:76/A:76",
+       "uniprot_index": 76,
+       "value": 0.332506065936402
+      },
+      {
+       "position": 62,
+       "A_B_residue": "A:97/A:97",
+       "uniprot_index": 97,
+       "value": 0.432692902581463
+      },
+      {
+       "position": 63,
+       "A_B_residue": "A:98/A:98",
+       "uniprot_index": 98,
+       "value": 0.5697009033961318
+      },
+      {
+       "position": 64,
+       "A_B_residue": "A:99/A:99",
+       "uniprot_index": 99,
+       "value": 0.6220829132353654
+      },
+      {
+       "position": 66,
+       "A_B_residue": "A:101/A:101",
+       "uniprot_index": 101,
+       "value": 0.7484689600361731
+      }
+     ],
+     "d_i_i2": [
+      {
+       "position": 62,
+       "A_B_residue": "A:97/A:97",
+       "uniprot_index": 97,
+       "value": 0.8849313161361891
+      },
+      {
+       "position": 63,
+       "A_B_residue": "A:98/A:98",
+       "uniprot_index": 98,
+       "value": 0.8278357551387119
+      },
+      {
+       "position": 64,
+       "A_B_residue": "A:99/A:99",
+       "uniprot_index": 99,
+       "value": 1.4332553539103046
+      },
+      {
+       "position": 65,
+       "A_B_residue": "A:100/A:100",
+       "uniprot_index": 100,
+       "value": 0.6328387054603866
+      },
+      {
+       "position": 66,
+       "A_B_residue": "A:101/A:101",
+       "uniprot_index": 101,
+       "value": 1.3357816019904458
+      }
+     ],
+     "rmsd3": [
+      {
+       "position": 41,
+       "A_B_residue": "A:76/A:76",
+       "uniprot_index": 76,
+       "value": 0.3556726423888204
+      },
+      {
+       "position": 62,
+       "A_B_residue": "A:97/A:97",
+       "uniprot_index": 97,
+       "value": 0.4918321773830841
+      },
+      {
+       "position": 63,
+       "A_B_residue": "A:98/A:98",
+       "uniprot_index": 98,
+       "value": 0.5812154104887899
+      },
+      {
+       "position": 64,
+       "A_B_residue": "A:99/A:99",
+       "uniprot_index": 99,
+       "value": 0.7328521186943684
+      },
+      {
+       "position": 66,
+       "A_B_residue": "A:101/A:101",
+       "uniprot_index": 101,
+       "value": 0.8043315899173361
+      }
+     ],
+     "d_tau": [
+      {
+       "position": 64,
+       "A_B_residue": "A:99/A:99",
+       "uniprot_index": 99,
+       "value": 2.5609823531987135
+      },
+      {
+       "position": 65,
+       "A_B_residue": "A:100/A:100",
+       "uniprot_index": 100,
+       "value": 0.9842047743518958
+      },
+      {
+       "position": 66,
+       "A_B_residue": "A:101/A:101",
+       "uniprot_index": 101,
+       "value": 3.0413387740846094
+      },
+      {
+       "position": 67,
+       "A_B_residue": "A:102/A:102",
+       "uniprot_index": 102,
+       "value": 0.8277965180284548
+      },
+      {
+       "position": 267,
+       "A_B_residue": "A:303/A:303",
+       "uniprot_index": 303,
+       "value": 0.8495858612407244
+      }
+     ],
+     "d_i_i3": [
+      {
+       "position": 61,
+       "A_B_residue": "A:96/A:96",
+       "uniprot_index": 96,
+       "value": 1.5624109827486894
+      },
+      {
+       "position": 62,
+       "A_B_residue": "A:97/A:97",
+       "uniprot_index": 97,
+       "value": 1.4998659828651384
+      },
+      {
+       "position": 65,
+       "A_B_residue": "A:100/A:100",
+       "uniprot_index": 100,
+       "value": 1.1254620286822021
+      },
+      {
+       "position": 66,
+       "A_B_residue": "A:101/A:101",
+       "uniprot_index": 101,
+       "value": 0.9011454359257067
+      },
+      {
+       "position": 267,
+       "A_B_residue": "A:303/A:303",
+       "uniprot_index": 303,
+       "value": 1.1245598292789198
+      }
+     ],
+     "rmsd4": [
+      {
+       "position": 61,
+       "A_B_residue": "A:96/A:96",
+       "uniprot_index": 96,
+       "value": 0.9017704975950334
+      },
+      {
+       "position": 63,
+       "A_B_residue": "A:98/A:98",
+       "uniprot_index": 98,
+       "value": 0.7513556393915022
+      },
+      {
+       "position": 64,
+       "A_B_residue": "A:99/A:99",
+       "uniprot_index": 99,
+       "value": 1.4099647280182648
+      },
+      {
+       "position": 65,
+       "A_B_residue": "A:100/A:100",
+       "uniprot_index": 100,
+       "value": 1.0764167058191063
+      },
+      {
+       "position": 66,
+       "A_B_residue": "A:101/A:101",
+       "uniprot_index": 101,
+       "value": 1.5608510737624184
+      }
+     ]
+    },
+    "spearman_displacement_vs_rmsd3": 0.31096705086863863,
+    "top_displacement_positions": [
+     {
+      "position": 40,
+      "A_B_residue": "A:75/A:75",
+      "uniprot_index": 75,
+      "value": 1.980284277030956
+     },
+     {
+      "position": 63,
+      "A_B_residue": "A:98/A:98",
+      "uniprot_index": 98,
+      "value": 2.188361346206353
+     },
+     {
+      "position": 64,
+      "A_B_residue": "A:99/A:99",
+      "uniprot_index": 99,
+      "value": 2.338401965967278
+     },
+     {
+      "position": 66,
+      "A_B_residue": "A:101/A:101",
+      "uniprot_index": 101,
+      "value": 3.2208917044070633
+     },
+     {
+      "position": 269,
+      "A_B_residue": "A:305/A:305",
+      "uniprot_index": 305,
+      "value": 2.978797309217248
+     }
+    ]
+   },
+   "chain_sensitivity": {
+    "status": "not available: one chain per entry in both"
+   },
+   "altloc_sensitivity_structpair": {
+    "policy": "highest_occupancy",
+    "status": "not applicable: no alternate locations at the mapped C\u03b1 atoms"
+   },
+   "exclusions_compact": [
+    {
+     "window_size": "3",
+     "position": "225",
+     "structure": "A",
+     "cause": "numbering_discontinuity",
+     "location": "A:260\u2192A:262"
+    },
+    {
+     "window_size": "3",
+     "position": "225",
+     "structure": "B",
+     "cause": "numbering_discontinuity",
+     "location": "A:260\u2192A:262"
+    },
+    {
+     "window_size": "3",
+     "position": "226",
+     "structure": "A",
+     "cause": "numbering_discontinuity",
+     "location": "A:260\u2192A:262"
+    },
+    {
+     "window_size": "3",
+     "position": "226",
+     "structure": "B",
+     "cause": "numbering_discontinuity",
+     "location": "A:260\u2192A:262"
+    },
+    {
+     "window_size": "4",
+     "position": "224",
+     "structure": "A",
+     "cause": "numbering_discontinuity",
+     "location": "A:260\u2192A:262"
+    },
+    {
+     "window_size": "4",
+     "position": "224",
+     "structure": "B",
+     "cause": "numbering_discontinuity",
+     "location": "A:260\u2192A:262"
+    },
+    {
+     "window_size": "4",
+     "position": "225",
+     "structure": "A",
+     "cause": "numbering_discontinuity",
+     "location": "A:260\u2192A:262"
+    },
+    {
+     "window_size": "4",
+     "position": "225",
+     "structure": "B",
+     "cause": "numbering_discontinuity",
+     "location": "A:260\u2192A:262"
+    },
+    {
+     "window_size": "4",
+     "position": "226",
+     "structure": "A",
+     "cause": "numbering_discontinuity",
+     "location": "A:260\u2192A:262"
+    },
+    {
+     "window_size": "4",
+     "position": "226",
+     "structure": "B",
+     "cause": "numbering_discontinuity",
+     "location": "A:260\u2192A:262"
+    }
+   ],
+   "compact_outputs": {
+    "exclusions.csv": "f34f34c128925ef802283b037466e1308b25689f443a60067b9ec0f486e5a932",
+    "manifest.json": "4a0a9bcd4cd3ea9c45a728f45d8b988a18924ca85054adf6b9caef3e59eae3c3",
+    "report.md": "06deb2ae9929de1cd6ef5bd5405540bfed37c0f698716e9fd3cf7cf40bf610a7",
+    "residues.csv": "e7978b58af70d8d00069ede5027e1841b62bc521bea18070e6dc461bfd7b908d",
+    "spec.json": "4587f36b30ce250fc27e1936e8406ad46f6a3e9596bb6afbbac0c391b2a1294d",
+    "summary.json": "8b28f4d91bc60ed0742b8c8a34f7fe47f7cd5a996199751ccff3e610dbe68b7d",
+    "windows.csv": "19e12b08b3aec6de3116e5e57236d9d6194fa8d4bb26fcd091f72807d920b9b8"
+   }
+  },
+  {
+   "pair_id": "BTK-1",
+   "gene": "BTK",
+   "accession": "Q06187",
+   "entries": {
+    "A": "6E4F",
+    "B": "4RFZ"
+   },
+   "meta": {
+    "A": {
+     "resolution": 1.15,
+     "release_date": "2018-09-05",
+     "space_group": "P 21 21 2",
+     "primary_ligand": "HRA",
+     "other_ligands": [],
+     "n_mutations_rcsb": 0,
+     "target_chains": [
+      "A"
+     ]
+    },
+    "B": {
+     "resolution": 1.17,
+     "release_date": "2014-12-24",
+     "space_group": "P 21 21 2",
+     "primary_ligand": "3OV",
+     "other_ligands": [],
+     "n_mutations_rcsb": 4,
+     "target_chains": [
+      "A"
+     ]
+    }
+   },
+   "checks": {
+    "R8_shifted_mapping": {
+     "A": {
+      "identity_true": 1.0,
+      "identity_shifted_by_1": 0.05555555555555555
+     },
+     "B": {
+      "identity_true": 0.9847908745247148,
+      "identity_shifted_by_1": 0.057034220532319393
+     },
+     "pass": true
+    },
+    "R1_mapping": {
+     "pass": true,
+     "identity": {
+      "A": 1.0,
+      "B": 0.9847908745247148
+     },
+     "dbref_disagreements": {
+      "A": 0,
+      "B": 0
+     }
+    }
+   },
+   "outcome": "IMPLEMENTATION_FAILURE",
+   "uniprot_fasta_sha256": "73f9b8a424de891082750627efd196fa34d05038b0aa41f1c71328c8408b5b49",
+   "uniprot_fasta_matches_selection_record": true,
+   "inputs": {
+    "A": {
+     "file": "data_pdb/6E4F.pdb",
+     "sha256": "ad770d384948b833f374b0cb8863d2ce1ee4d2934b2561bf8525ffeb6fc516f2",
+     "matches_selection_record": true
+    },
+    "B": {
+     "file": "data_pdb/4RFZ.pdb",
+     "sha256": "bc8dc4307281f179b617b385685c9771e64055e266f1657ba5fcc9fc4f32d96e",
+     "matches_selection_record": true
+    }
+   },
+   "mapping": {
+    "A": {
+     "chain": "A",
+     "n_residues": 270,
+     "n_aligned": 270,
+     "n_unaligned": 0,
+     "identity": 1.0,
+     "coverage": 1.0,
+     "mismatches": [],
+     "dbref_segments": [
+      {
+       "seq_begin": 387,
+       "seq_end": 659,
+       "db_begin": 387,
+       "db_end": 659
+      }
+     ],
+     "n_checked_against_dbref": 270,
+     "n_dbref_disagreements": 0,
+     "alignment_score": 1350,
+     "author_minus_uniprot_offsets": [
+      0
+     ],
+     "modified_residues_not_read": [],
+     "altloc_ca_in_chain": 4
+    },
+    "B": {
+     "chain": "A",
+     "n_residues": 263,
+     "n_aligned": 263,
+     "n_unaligned": 0,
+     "identity": 0.9847908745247148,
+     "coverage": 1.0,
+     "mismatches": [
+      {
+       "resseq": 489,
+       "icode": "",
+       "observed": "ALA",
+       "uniprot": "M",
+       "uniprot_index": 489,
+       "seqadv": "ENGINEERED MUTATION"
+      },
+      {
+       "resseq": 492,
+       "icode": "",
+       "observed": "ALA",
+       "uniprot": "R",
+       "uniprot_index": 492,
+       "seqadv": "ENGINEERED MUTATION"
+      },
+      {
+       "resseq": 624,
+       "icode": "",
+       "observed": "ALA",
+       "uniprot": "E",
+       "uniprot_index": 624,
+       "seqadv": "ENGINEERED MUTATION"
+      },
+      {
+       "resseq": 625,
+       "icode": "",
+       "observed": "ALA",
+       "uniprot": "K",
+       "uniprot_index": 625,
+       "seqadv": "ENGINEERED MUTATION"
+      }
+     ],
+     "dbref_segments": [
+      {
+       "seq_begin": 378,
+       "seq_end": 659,
+       "db_begin": 378,
+       "db_end": 659
+      }
+     ],
+     "n_checked_against_dbref": 263,
+     "n_dbref_disagreements": 0,
+     "alignment_score": 1283,
+     "author_minus_uniprot_offsets": [
+      0
+     ],
+     "modified_residues_not_read": [],
+     "altloc_ca_in_chain": 0
+    }
+   },
+   "correspondence": {
+    "n_positions": 263,
+    "uniprot_span": [
+     396,
+     658
+    ],
+    "n_span_positions_not_shared": 0,
+    "span_positions_not_shared_by_reason": {
+     "A": {
+      "not in the deposited chain (unobserved or unaligned)": 0,
+      "present but not read by the adapter": 0
+     },
+     "B": {
+      "not in the deposited chain (unobserved or unaligned)": 0,
+      "present but not read by the adapter": 0
+     }
+    }
+   },
+   "chains": {
+    "A": {
+     "used": [
+      "A"
+     ],
+     "candidates": [
+      "A"
+     ],
+     "read_counts": {
+      "A": 270
+     },
+     "second_chain": null,
+     "second_chain_accepted": false,
+     "reason": "single chain in the entity"
+    },
+    "B": {
+     "used": [
+      "A"
+     ],
+     "candidates": [
+      "A"
+     ],
+     "read_counts": {
+      "A": 263
+     },
+     "second_chain": null,
+     "second_chain_accepted": false,
+     "reason": "single chain in the entity"
+    }
+   },
+   "structpair": {
+    "returncode": 2,
+    "stdout": "",
+    "cpu_seconds": 9.088871999999995,
+    "wall_seconds": 3.3641152381896973,
+    "stderr": "input error: rejected: residue ('A', 453, ''): altlocs ['A', 'B'] tie on occupancy 0.5"
+   },
+   "failure": "structpair failed on inputs that passed the mapping checks"
+  },
+  {
+   "pair_id": "BTK-2",
+   "gene": "BTK",
+   "accession": "Q06187",
+   "entries": {
+    "A": "7L5O",
+    "B": "6J6M"
+   },
+   "meta": {
+    "A": {
+     "resolution": 1.21,
+     "release_date": "2022-06-29",
+     "space_group": "P 21 21 2",
+     "primary_ligand": "R1L",
+     "other_ligands": [],
+     "n_mutations_rcsb": 0,
+     "target_chains": [
+      "A"
+     ]
+    },
+    "B": {
+     "resolution": 1.25,
+     "release_date": "2019-10-23",
+     "space_group": "P 2 21 21",
+     "primary_ligand": "BA0",
+     "other_ligands": [],
+     "n_mutations_rcsb": 0,
+     "target_chains": [
+      "A"
+     ]
+    }
+   },
+   "checks": {
+    "R8_shifted_mapping": {
+     "A": {
+      "identity_true": 1.0,
+      "identity_shifted_by_1": 0.056179775280898875
+     },
+     "B": {
+      "identity_true": 1.0,
+      "identity_shifted_by_1": 0.05639097744360902
+     },
+     "pass": true
+    },
+    "R1_mapping": {
+     "pass": true,
+     "identity": {
+      "A": 1.0,
+      "B": 1.0
+     },
+     "dbref_disagreements": {
+      "A": 0,
+      "B": 0
+     }
+    }
+   },
+   "outcome": "IMPLEMENTATION_FAILURE",
+   "uniprot_fasta_sha256": "73f9b8a424de891082750627efd196fa34d05038b0aa41f1c71328c8408b5b49",
+   "uniprot_fasta_matches_selection_record": true,
+   "inputs": {
+    "A": {
+     "file": "data_pdb/7L5O.pdb",
+     "sha256": "f3affba350c4540df597c626171a613ce743e84ef0288ea77fd6abb70fcca72c",
+     "matches_selection_record": true
+    },
+    "B": {
+     "file": "data_pdb/6J6M.pdb",
+     "sha256": "f8e8fe158f0973813679ed676ec23d899c4e067ba0fe97b7dea81bdb5b09f921",
+     "matches_selection_record": true
+    }
+   },
+   "mapping": {
+    "A": {
+     "chain": "A",
+     "n_residues": 267,
+     "n_aligned": 267,
+     "n_unaligned": 0,
+     "identity": 1.0,
+     "coverage": 1.0,
+     "mismatches": [],
+     "dbref_segments": [
+      {
+       "seq_begin": 389,
+       "seq_end": 659,
+       "db_begin": 389,
+       "db_end": 659
+      }
+     ],
+     "n_checked_against_dbref": 267,
+     "n_dbref_disagreements": 0,
+     "alignment_score": 1334,
+     "author_minus_uniprot_offsets": [
+      0
+     ],
+     "modified_residues_not_read": [],
+     "altloc_ca_in_chain": 34
+    },
+    "B": {
+     "chain": "A",
+     "n_residues": 267,
+     "n_aligned": 267,
+     "n_unaligned": 0,
+     "identity": 1.0,
+     "coverage": 1.0,
+     "mismatches": [],
+     "dbref_segments": [
+      {
+       "seq_begin": 393,
+       "seq_end": 659,
+       "db_begin": 393,
+       "db_end": 659
+      }
+     ],
+     "n_checked_against_dbref": 267,
+     "n_dbref_disagreements": 0,
+     "alignment_score": 1335,
+     "author_minus_uniprot_offsets": [
+      0
+     ],
+     "modified_residues_not_read": [],
+     "altloc_ca_in_chain": 0
+    }
+   },
+   "correspondence": {
+    "n_positions": 263,
+    "uniprot_span": [
+     393,
+     658
+    ],
+    "n_span_positions_not_shared": 3,
+    "span_positions_not_shared_by_reason": {
+     "A": {
+      "not in the deposited chain (unobserved or unaligned)": 3,
+      "present but not read by the adapter": 0
+     },
+     "B": {
+      "not in the deposited chain (unobserved or unaligned)": 0,
+      "present but not read by the adapter": 0
+     }
+    }
+   },
+   "chains": {
+    "A": {
+     "used": [
+      "A"
+     ],
+     "candidates": [
+      "A"
+     ],
+     "read_counts": {
+      "A": 267
+     },
+     "second_chain": null,
+     "second_chain_accepted": false,
+     "reason": "single chain in the entity"
+    },
+    "B": {
+     "used": [
+      "A"
+     ],
+     "candidates": [
+      "A"
+     ],
+     "read_counts": {
+      "A": 267
+     },
+     "second_chain": null,
+     "second_chain_accepted": false,
+     "reason": "single chain in the entity"
+    }
+   },
+   "structpair": {
+    "returncode": 2,
+    "stdout": "",
+    "cpu_seconds": 9.026357000000004,
+    "wall_seconds": 3.3950860500335693,
+    "stderr": "input error: rejected: residue ('A', 400, ''): altlocs ['A', 'B'] tie on occupancy 0.5"
+   },
+   "failure": "structpair failed on inputs that passed the mapping checks"
+  }
+ ],
+ "study_outcome": "IMPLEMENTATION FAILURE",
+ "counts": {
+  "pairs_selected": 6,
+  "pairs_executed": 6,
+  "pairs_pass": 2,
+  "input_or_mapping_failures": 0,
+  "implementation_failures": 4,
+  "targets": [
+   "BTK",
+   "EGFR",
+   "PIM1"
+  ]
+ },
+ "resources": {
+  "execution_cpu_seconds": 85.18331,
+  "execution_wall_seconds": 37.92103362083435,
+  "selection_files_downloaded": 20,
+  "selection_bytes_downloaded": 7455645,
+  "pdb_bytes_on_disk": 7455645,
+  "installation_cost": "not part of this study (existing environment)"
+ },
+ "software": {
+  "python": "3.14.4",
+  "numpy": "2.5.3",
+  "adapter_python": "/home/artem/TopoFold/benchmarks/audit/wpd_local_retrieval/build/venv/bin/python"
+ }
+}

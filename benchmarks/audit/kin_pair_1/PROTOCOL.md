@@ -154,3 +154,16 @@ changed after outcomes are seen, and the study is not repeated with different ru
   metadata, downloaded PDB files and sequence checks; no TopoFold score, window metric or plot had been computed. New freeze record:
   `results/KIN-PAIR-1_freeze_1a.json`.
 
+
+- **Amendment 2 (2026-10-26), made after the primary execution, labelled post-hoc.** The primary execution (frozen code and panel,
+  `results/KIN-PAIR-1_results.json`, log `results/run_study.log`) gave **IMPLEMENTATION FAILURE under the frozen rule** for 4 of 6 pairs
+  (EGFR-1, EGFR-2, BTK-1, BTK-2) and PASS for 2 (PIM1-1, PIM1-2). In the 4 failures structpair exited with its documented input error
+  ("altlocs ['A', 'B'] tie on occupancy 0.5") because the protocol asked for the optional `altloc_sensitivity: highest_occupancy`, which
+  refuses a tie and aborts the whole comparison, so none of R2 to R9 was evaluated for these pairs. **The frozen outcome is not changed**:
+  it is reported as it is, with this cause. To learn whether the numerical checks hold for these pairs, one supplementary analysis is run once,
+  uniformly for the 4 pairs: the same driver and the same spec without the optional `altloc_sensitivity` entry (the primary policy
+  `blank_then_A` is unchanged), plus an independent sensitivity computed outside structpair in which the alternate location B replaces
+  A at residues that have both (`supplement_altloc_ties.py`, results in `results/KIN-PAIR-1_supplement.json` and `results/pairs_supplement/`).
+  The supplement is post-hoc; it is reported separately from the frozen outcome, is not used to change the study outcome, and the 2 passing
+  pairs are not re-run. Observation recorded here for the record: the CSV outputs carry 6 significant figures, so numeric differences between
+  two runs of values of 10 Å or more are quantized at 1e-4; the invariance tolerance of 1e-4 equals that resolution (a pass is resolution-limited).

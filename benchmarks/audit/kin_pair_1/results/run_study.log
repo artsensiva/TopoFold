@@ -1,0 +1,13 @@
+pair EGFR-1 8A27 8A2D
+  -> IMPLEMENTATION_FAILURE
+pair EGFR-2 5UG9 5HG8
+  -> IMPLEMENTATION_FAILURE
+pair PIM1-1 8R0Q 6NO9
+  -> PASS
+pair PIM1-2 6VRV 6L17
+  -> PASS
+pair BTK-1 6E4F 4RFZ
+  -> IMPLEMENTATION_FAILURE
+pair BTK-2 7L5O 6J6M
+  -> IMPLEMENTATION_FAILURE
+outcome: IMPLEMENTATION FAILURE {'pairs_selected': 6, 'pairs_executed': 6, 'pairs_pass': 2, 'input_or_mapping_failures': 0, 'implementation_failures': 4, 'targets': ['BTK', 'EGFR', 'PIM1']}
