@@ -124,6 +124,9 @@ streamlit run apps/structpair_viewer/app.py --server.address localhost -- --resu
   - `"exclude"` keeps it as a missing row, and every window touching it is excluded with the cause named.
 - **Alternate locations:** set a policy per structure. `reject` stops if any mapped Cα has an altloc. Set
   `altloc_sensitivity` to report how much each metric changes under a second policy.
+  **Known limitation (KNOWN_ISSUES m13):** `highest_occupancy` stops the whole run if a mapped Cα has alternate locations with equal
+  occupancy (for example A and B at 0.5). In 4 of the 6 pairs of KIN-PAIR-1 it did. If you meet "tie on occupancy", remove
+  `altloc_sensitivity` from the spec (the primary policy is unaffected) or choose `blank_then_A` and compare by hand.
 - **Residue names:** `resname_mismatch: "reject"` stops on any difference. `"flag"` allows it (for a point mutant,
   for example) and marks every affected window.
 

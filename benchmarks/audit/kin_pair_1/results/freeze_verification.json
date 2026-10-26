@@ -1,0 +1,103 @@
+{
+ "note": "PROTOCOL.md differs from every freeze because dated amendments were appended (amendment 1 before freeze 1a, amendment 2 after the primary run); select_panel.py differs from freeze 1 by the amendment-1 fix; all frozen code and inputs used by the primary execution (freeze 2) are unchanged except PROTOCOL.md.",
+ "freezes": {
+  "1": {
+   "freeze_commit": "c904115",
+   "utc": "2026-10-26T10:39:09+00:00",
+   "files": {
+    "protocol.json": {
+     "matches_at_freeze_commit": true,
+     "unchanged_in_working_tree": true
+    },
+    "PROTOCOL.md": {
+     "matches_at_freeze_commit": true,
+     "unchanged_in_working_tree": false
+    },
+    "select_panel.py": {
+     "matches_at_freeze_commit": true,
+     "unchanged_in_working_tree": false
+    },
+    "kinpair.py": {
+     "matches_at_freeze_commit": true,
+     "unchanged_in_working_tree": true
+    },
+    "results/candidate_targets_verified.json": {
+     "matches_at_freeze_commit": true,
+     "unchanged_in_working_tree": true
+    },
+    "results/exposure_history.json": {
+     "matches_at_freeze_commit": true,
+     "unchanged_in_working_tree": true
+    }
+   }
+  },
+  "1a": {
+   "freeze_commit": "ae6e3f6",
+   "utc": "2026-10-26T10:41:14+00:00",
+   "files": {
+    "protocol.json": {
+     "matches_at_freeze_commit": true,
+     "unchanged_in_working_tree": true
+    },
+    "PROTOCOL.md": {
+     "matches_at_freeze_commit": true,
+     "unchanged_in_working_tree": false
+    },
+    "select_panel.py": {
+     "matches_at_freeze_commit": true,
+     "unchanged_in_working_tree": true
+    },
+    "kinpair.py": {
+     "matches_at_freeze_commit": true,
+     "unchanged_in_working_tree": true
+    },
+    "results/candidate_targets_verified.json": {
+     "matches_at_freeze_commit": true,
+     "unchanged_in_working_tree": true
+    },
+    "results/exposure_history.json": {
+     "matches_at_freeze_commit": true,
+     "unchanged_in_working_tree": true
+    }
+   }
+  },
+  "2": {
+   "freeze_commit": "994a0c4",
+   "utc": "2026-10-26T10:49:21+00:00",
+   "files": {
+    "protocol.json": {
+     "matches_at_freeze_commit": true,
+     "unchanged_in_working_tree": true
+    },
+    "PROTOCOL.md": {
+     "matches_at_freeze_commit": true,
+     "unchanged_in_working_tree": false
+    },
+    "kinpair.py": {
+     "matches_at_freeze_commit": true,
+     "unchanged_in_working_tree": true
+    },
+    "select_panel.py": {
+     "matches_at_freeze_commit": true,
+     "unchanged_in_working_tree": true
+    },
+    "run_study.py": {
+     "matches_at_freeze_commit": true,
+     "unchanged_in_working_tree": true
+    },
+    "results/KIN-PAIR-1_selection.json": {
+     "matches_at_freeze_commit": true,
+     "unchanged_in_working_tree": true
+    },
+    "results/KIN-PAIR-1_freeze_1.json": {
+     "matches_at_freeze_commit": true,
+     "unchanged_in_working_tree": true
+    },
+    "results/KIN-PAIR-1_freeze_1a.json": {
+     "matches_at_freeze_commit": true,
+     "unchanged_in_working_tree": true
+    }
+   }
+  }
+ }
+}

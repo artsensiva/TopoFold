@@ -471,6 +471,13 @@ alternatives.
 | Bounded engineering (parallel) | Done: **AL** MI fix (D16); **A** Cα pipeline (D21); descriptive group-comparison command `python -m topofold_inputs.ensemble` (D34), corrected to v0.2.0 (D36). Calibration phase closed (D33): inference reopens only under the recorded conditions. Next: practical user pilot of the descriptive tool (`docs/PILOT_HANDOFF_ENSEMBLE_TOOL.md`; internal walkthrough done, independent user run pending; D37); **B** named backbone and selected side-chain atoms done for the kinase descriptors (D51, `atom_adapter.py`, engineering only); robustness panel KIN-ROB-1 (D53): 7/9 chains pass, 1 with recorded exclusions, 1 spec numbering error caught and amended | — | Selected comparison or user need |
 | Biological route (parallel) | **ABL** preferred (D35): run inventory and permissions need the owner to send the D. E. Shaw Research request; processed HDX uptake was not found in the inspected resources and the authors' processing pipeline is unavailable locally (raw PRIDE data are public); requests to D. E. Shaw Research and the HDX authors sent by the owner; replies pending (pending external inputs, D78). Other routes resumable (C1, GPCRmd, mdCATH method work) | blocked (owner actions) | Data and permissions received |
 
+**Active phase (2026-10-26, D80): AI-only development.** The owner declared the human-involved testing phase complete and reported successful use on one tested
+computer (owner-reported only; pilot log entry 8). No human-researcher participation is needed for the active work package. Active scientific evaluation: **KIN-PAIR-1**
+(`benchmarks/audit/kin_pair_1/`, structpair on previously unused human kinases; executed, result in D81: frozen-rule outcome IMPLEMENTATION FAILURE caused by the optional altloc-sensitivity
+refusal, supplement mostly passing). Scope supported by the panel: workflow numbers agree with independent references on 6 pairs of 3 kinases (EGFR, PIM1, BTK), not generality, novelty, biology or time savings.
+Most consequential remaining limitation: the tie refusal (KNOWN_ISSUES m13). **One next development task:** make the altloc sensitivity non-fatal on ties (m13). Other tracks below stay
+as they are with their activation conditions; none is activated by this phase.
+
 **Application paths: next actions (2026-10-23).** Each path waits on its own dependency; at most one runs as the
 active scientific evaluation at a time.
 
@@ -482,4 +489,4 @@ active scientific evaluation at a time.
 | Allostery | None scheduled; MI estimator correction done (D16) | Perturbation data for causal claims; validated significance (closed, D33) | deferred |
 | IDP / α-synuclein | None scheduled | Real IDP ensembles with ensemble-averaged experiments; m4 | deferred |
 | RNA riboswitches | None scheduled | RNA χ descriptor (M4); RNA trajectories | deferred |
-| Outside-user trial | AI technical trial and confirmation closed (D45–D46); viewer work stopped. Human trial kept as a future product-usability milestone: send the invitation and feedback form; record it with the form's §0 (unaided vs assisted), with consent before publishing or identifying the tester | Owner nominates a computational scientist | deferred (future milestone; owner action) |
+| Outside-user trial | Human-involved phase declared complete by the owner (owner-reported successful use on one computer, D80; no record of commands, timings, assistance or consent); AI technical trials closed (D45–D46, D77). A fresh independent human trial, if wanted, activates only on the owner's nomination with the packet in `docs/pilot/` | Owner nominates a tester | owner-reported closure |
