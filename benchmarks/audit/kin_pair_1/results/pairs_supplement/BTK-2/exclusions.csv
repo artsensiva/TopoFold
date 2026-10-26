@@ -1,0 +1,11 @@
+window_size,position,structure,window_A,cause,location,source,detail
+3,17,A,A:409..A:414,numbering_discontinuity,A:410→A:414,adapter break record,break between adjacent output residues 17 and 18
+3,17,B,A:409..A:414,numbering_discontinuity,A:410→A:414,adapter break record,break between adjacent output residues 17 and 18
+3,18,A,A:410..A:415,numbering_discontinuity,A:410→A:414,adapter break record,break between adjacent output residues 17 and 18
+3,18,B,A:410..A:415,numbering_discontinuity,A:410→A:414,adapter break record,break between adjacent output residues 17 and 18
+4,16,A,A:408..A:414,numbering_discontinuity,A:410→A:414,adapter break record,break between adjacent output residues 17 and 18
+4,16,B,A:408..A:414,numbering_discontinuity,A:410→A:414,adapter break record,break between adjacent output residues 17 and 18
+4,17,A,A:409..A:415,numbering_discontinuity,A:410→A:414,adapter break record,break between adjacent output residues 17 and 18
+4,17,B,A:409..A:415,numbering_discontinuity,A:410→A:414,adapter break record,break between adjacent output residues 17 and 18
+4,18,A,A:410..A:416,numbering_discontinuity,A:410→A:414,adapter break record,break between adjacent output residues 17 and 18
+4,18,B,A:410..A:416,numbering_discontinuity,A:410→A:414,adapter break record,break between adjacent output residues 17 and 18

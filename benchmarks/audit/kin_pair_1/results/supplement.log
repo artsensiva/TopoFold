@@ -1,0 +1,9 @@
+pair EGFR-1
+  -> PASS
+pair EGFR-2
+  -> PASS
+pair BTK-1
+  -> PASS
+pair BTK-2
+  -> IMPLEMENTATION_FAILURE
+[('EGFR-1', 'PASS'), ('EGFR-2', 'PASS'), ('BTK-1', 'PASS'), ('BTK-2', 'IMPLEMENTATION_FAILURE')]
