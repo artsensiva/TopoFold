@@ -477,9 +477,7 @@ computer (owner-reported only; pilot log entry 8). No human-researcher participa
 refusal, supplement mostly passing). Scope supported by the panel: workflow numbers agree with independent references on 6 pairs of 3 kinases (EGFR, PIM1, BTK), not generality, novelty, biology or time savings.
 Most consequential limitation found: the tie refusal (KNOWN_ISSUES m13), **repaired in structpair 0.3.1 (D82)**: the optional altloc sensitivity is now reported as unavailable, not zero, and the
 primary comparison is kept (evidence: `benchmarks/audit/structpair_altloc_tie_repair_2026-10-26/`; KIN-PAIR-1's frozen outcome is unchanged). m13b is addressed in structpair 0.4.0 (D83): an opt-in `numeric_record.json` preserves the computed values before the six-figure CSV rounding (computational precision only; the float32
-coordinate step of the adapter remains). This closes the engineering work package. **Next application-level uncertainty (to investigate with the existing tools, no code change planned):**
-the adapter does not read phosphorylated residues (SEP, TPO, PTR), so they leave the correspondence; in 2 of the 6 KIN-PAIR-1 pairs this removed a mapped position. How often and where
-(for example in activation loops) this happens in kinase structures is unknown. Other tracks below stay
+coordinate step of the adapter remains). This closes the engineering work package. **Finding of the bounded inventory (D84, local KIN-PAIR-1 collection only):** the adapter omits observed phosphoserine (2 residues, 4 three-residue and 6 four-residue windows in two pairs; KNOWN_ISSUES m14). **One next development task (proposed, not started):** a narrowly scoped modified-residue support task with the acceptance tests in `benchmarks/audit/modified_residue_inventory_2026-10-26/REPORT.md`. Other tracks below stay
 as they are with their activation conditions; none is activated by this phase.
 
 **Application paths: next actions (2026-10-23).** Each path waits on its own dependency; at most one runs as the

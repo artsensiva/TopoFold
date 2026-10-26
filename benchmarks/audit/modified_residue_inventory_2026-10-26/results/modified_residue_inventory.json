@@ -1,0 +1,1168 @@
+{
+ "id": "MODIFIED-RESIDUE-INVENTORY-2026-10-26",
+ "scope": "the 12 original KIN-PAIR-1 input files (six pairs), selected chains only; frequencies apply to this local, selected collection and not to kinases generally",
+ "no_new_scores": "no window metric was computed; windows are counted from the study's recorded exclusion rows and from deposited-coordinate continuity",
+ "adapter": {
+  "python": "/home/artem/TopoFold/benchmarks/audit/wpd_local_retrieval/build/venv/bin/python",
+  "software": {
+   "python": "3.14.4",
+   "numpy": "2.5.3",
+   "MDAnalysis": "2.10.0"
+  },
+  "adapter": {
+   "name": "topofold_inputs.ca_adapter",
+   "version": "0.1.0",
+   "source_sha256": "fe6ac3b28bce3c2cb0b6d1b2eab34712b6de77cf66aa31ea8beeb27ddd8d13df"
+  },
+  "diagnostic": "installed adapter command run on each file with its `protein` selection, altloc blank_then_A, no correspondence"
+ },
+ "collection": {
+  "n_pair_slots": 12,
+  "n_files": 12,
+  "n_unique_sha256": 12,
+  "files": [
+   {
+    "input_id": "4RFZ",
+    "sha256": "bc8dc4307281f179b617b385685c9771e64055e266f1657ba5fcc9fc4f32d96e",
+    "verified_against_selection_record": true,
+    "selected_chain": "A",
+    "pairs": [
+     "BTK-1:B"
+    ],
+    "model_records_in_file": 0,
+    "polymer_residues_in_selected_chain": 263,
+    "residues_absent_from_adapter_output_in_selected_chain": 0,
+    "modres_records": 0
+   },
+   {
+    "input_id": "5HG8",
+    "sha256": "8556a280ab40d2bf93fce6c5b0cbc40ac4d1fe2d3bbf84328a449dd634bd079b",
+    "verified_against_selection_record": true,
+    "selected_chain": "A",
+    "pairs": [
+     "EGFR-2:B"
+    ],
+    "model_records_in_file": 0,
+    "polymer_residues_in_selected_chain": 300,
+    "residues_absent_from_adapter_output_in_selected_chain": 0,
+    "modres_records": 0
+   },
+   {
+    "input_id": "5UG9",
+    "sha256": "24013b98bdebcef070c3c4834e726014467f4a7839fd316793fb76a647c3b41f",
+    "verified_against_selection_record": true,
+    "selected_chain": "A",
+    "pairs": [
+     "EGFR-2:A"
+    ],
+    "model_records_in_file": 0,
+    "polymer_residues_in_selected_chain": 280,
+    "residues_absent_from_adapter_output_in_selected_chain": 0,
+    "modres_records": 0
+   },
+   {
+    "input_id": "6E4F",
+    "sha256": "ad770d384948b833f374b0cb8863d2ce1ee4d2934b2561bf8525ffeb6fc516f2",
+    "verified_against_selection_record": true,
+    "selected_chain": "A",
+    "pairs": [
+     "BTK-1:A"
+    ],
+    "model_records_in_file": 0,
+    "polymer_residues_in_selected_chain": 270,
+    "residues_absent_from_adapter_output_in_selected_chain": 0,
+    "modres_records": 0
+   },
+   {
+    "input_id": "6J6M",
+    "sha256": "f8e8fe158f0973813679ed676ec23d899c4e067ba0fe97b7dea81bdb5b09f921",
+    "verified_against_selection_record": true,
+    "selected_chain": "A",
+    "pairs": [
+     "BTK-2:B"
+    ],
+    "model_records_in_file": 0,
+    "polymer_residues_in_selected_chain": 267,
+    "residues_absent_from_adapter_output_in_selected_chain": 0,
+    "modres_records": 0
+   },
+   {
+    "input_id": "6L17",
+    "sha256": "3ad04425727d5c09458314151efa52eea07bd1c52d7f3f5be3326bd8d7501da8",
+    "verified_against_selection_record": true,
+    "selected_chain": "A",
+    "pairs": [
+     "PIM1-2:B"
+    ],
+    "model_records_in_file": 0,
+    "polymer_residues_in_selected_chain": 273,
+    "residues_absent_from_adapter_output_in_selected_chain": 1,
+    "modres_records": 1
+   },
+   {
+    "input_id": "6NO9",
+    "sha256": "0115a741b19f26b880b5f938c6db7ff36b1bd7084e888ea8813c3db652a4baf3",
+    "verified_against_selection_record": true,
+    "selected_chain": "A",
+    "pairs": [
+     "PIM1-1:B"
+    ],
+    "model_records_in_file": 0,
+    "polymer_residues_in_selected_chain": 273,
+    "residues_absent_from_adapter_output_in_selected_chain": 0,
+    "modres_records": 0
+   },
+   {
+    "input_id": "6VRV",
+    "sha256": "5fb4eae4ba1612131cb57cb3a991b8fa40b6d5cdac0ec41242112943313a2aa2",
+    "verified_against_selection_record": true,
+    "selected_chain": "A",
+    "pairs": [
+     "PIM1-2:A"
+    ],
+    "model_records_in_file": 0,
+    "polymer_residues_in_selected_chain": 271,
+    "residues_absent_from_adapter_output_in_selected_chain": 0,
+    "modres_records": 0
+   },
+   {
+    "input_id": "7L5O",
+    "sha256": "f3affba350c4540df597c626171a613ce743e84ef0288ea77fd6abb70fcca72c",
+    "verified_against_selection_record": true,
+    "selected_chain": "A",
+    "pairs": [
+     "BTK-2:A"
+    ],
+    "model_records_in_file": 0,
+    "polymer_residues_in_selected_chain": 267,
+    "residues_absent_from_adapter_output_in_selected_chain": 0,
+    "modres_records": 0
+   },
+   {
+    "input_id": "8A27",
+    "sha256": "9fba519399f7ef4818ab3eeae0597300d09a740170f2d387b5d4e42ab9fa059d",
+    "verified_against_selection_record": true,
+    "selected_chain": "A",
+    "pairs": [
+     "EGFR-1:A"
+    ],
+    "model_records_in_file": 0,
+    "polymer_residues_in_selected_chain": 269,
+    "residues_absent_from_adapter_output_in_selected_chain": 0,
+    "modres_records": 0
+   },
+   {
+    "input_id": "8A2D",
+    "sha256": "3fb105982609693f14d0b55e9baf525fc603fae988e9787cbd78d690e7d22c5c",
+    "verified_against_selection_record": true,
+    "selected_chain": "A",
+    "pairs": [
+     "EGFR-1:B"
+    ],
+    "model_records_in_file": 0,
+    "polymer_residues_in_selected_chain": 281,
+    "residues_absent_from_adapter_output_in_selected_chain": 0,
+    "modres_records": 0
+   },
+   {
+    "input_id": "8R0Q",
+    "sha256": "6c9bd62287f5019101176443d4b7c9bdeb0a061069b119e80192d71bc5bd6439",
+    "verified_against_selection_record": true,
+    "selected_chain": "A",
+    "pairs": [
+     "PIM1-1:A"
+    ],
+    "model_records_in_file": 0,
+    "polymer_residues_in_selected_chain": 267,
+    "residues_absent_from_adapter_output_in_selected_chain": 1,
+    "modres_records": 1
+   }
+  ],
+  "n_polymer_residue_records_in_selected_chains": 3281
+ },
+ "relevant_residues": [
+  {
+   "input_id": "6L17",
+   "sha256": "3ad04425727d5c09458314151efa52eea07bd1c52d7f3f5be3326bd8d7501da8",
+   "model": 1,
+   "model_records_in_file": 0,
+   "chain": "A",
+   "resseq": 261,
+   "icode": "",
+   "resname": "SEP",
+   "record_type": "HETATM",
+   "modres": {
+    "resname": "SEP",
+    "parent": "SER",
+    "comment": "MODIFIED RESIDUE"
+   },
+   "modres_annotated": true,
+   "chem_comp": {
+    "name": "PHOSPHOSERINE",
+    "type": "L-peptide linking",
+    "parent": [
+     "SER"
+    ]
+   },
+   "parent_documented": "SER",
+   "atoms_observed": {
+    "N": true,
+    "CA": true,
+    "C": true,
+    "O": true
+   },
+   "altloc_labels": [],
+   "neighbour_backbone": {
+    "previous_residue_C_observed": true,
+    "next_residue_N_observed": true,
+    "C_prev_to_N_angstrom": 1.2361120499372256,
+    "C_to_N_next_angstrom": 1.3278004368127003
+   },
+   "polymer_member": true,
+   "adapter_included": false,
+   "adapter_status": null,
+   "adapter_resname_seen": null,
+   "uniprot_index": 261,
+   "study_inclusion": [
+    {
+     "pair_id": "PIM1-2",
+     "side": "B",
+     "in_correspondence": false,
+     "uniprot_index": null
+    }
+   ],
+   "category": 2,
+   "category_label": "observed residue excluded by the parser",
+   "reason": "observed in the coordinate records; the installed adapter's `protein` selection does not contain this residue name, so it is absent from the adapter output",
+   "in_remark_465": false,
+   "phosphorylated_by_documented_component": true,
+   "region": "unverified: no verified kinase role mapping exists for this target; deposited number and reference index are reported instead"
+  },
+  {
+   "input_id": "8R0Q",
+   "sha256": "6c9bd62287f5019101176443d4b7c9bdeb0a061069b119e80192d71bc5bd6439",
+   "model": 1,
+   "model_records_in_file": 0,
+   "chain": "A",
+   "resseq": 261,
+   "icode": "",
+   "resname": "SEP",
+   "record_type": "HETATM",
+   "modres": {
+    "resname": "SEP",
+    "parent": "SER",
+    "comment": "MODIFIED RESIDUE"
+   },
+   "modres_annotated": true,
+   "chem_comp": {
+    "name": "PHOSPHOSERINE",
+    "type": "L-peptide linking",
+    "parent": [
+     "SER"
+    ]
+   },
+   "parent_documented": "SER",
+   "atoms_observed": {
+    "N": true,
+    "CA": true,
+    "C": true,
+    "O": true
+   },
+   "altloc_labels": [],
+   "neighbour_backbone": {
+    "previous_residue_C_observed": true,
+    "next_residue_N_observed": true,
+    "C_prev_to_N_angstrom": 1.3248637665812955,
+    "C_to_N_next_angstrom": 1.3301920913913325
+   },
+   "polymer_member": true,
+   "adapter_included": false,
+   "adapter_status": null,
+   "adapter_resname_seen": null,
+   "uniprot_index": 261,
+   "study_inclusion": [
+    {
+     "pair_id": "PIM1-1",
+     "side": "A",
+     "in_correspondence": false,
+     "uniprot_index": null
+    }
+   ],
+   "category": 2,
+   "category_label": "observed residue excluded by the parser",
+   "reason": "observed in the coordinate records; the installed adapter's `protein` selection does not contain this residue name, so it is absent from the adapter output",
+   "in_remark_465": false,
+   "phosphorylated_by_documented_component": true,
+   "region": "unverified: no verified kinase role mapping exists for this target; deposited number and reference index are reported instead"
+  }
+ ],
+ "annotated_without_coordinates": [],
+ "other_chains_in_the_same_files": {
+  "4RFZ": [],
+  "5HG8": [],
+  "5UG9": [],
+  "6E4F": [],
+  "6J6M": [],
+  "6L17": [],
+  "6NO9": [],
+  "6VRV": [],
+  "7L5O": [],
+  "8A27": [],
+  "8A2D": [],
+  "8R0Q": []
+ },
+ "counts": {
+  "relevant_residues_by_category": {
+   "2": 2
+  },
+  "n_relevant_residues": 2,
+  "n_observed_unread_by_adapter": 2,
+  "n_with_modres": 2,
+  "n_without_modres_annotation": 0,
+  "names": [
+   "SEP"
+  ],
+  "phosphorylated_by_documented_component": [
+   [
+    "6L17",
+    "SEP",
+    261
+   ],
+   [
+    "8R0Q",
+    "SEP",
+    261
+   ]
+  ],
+  "windows_touching_gaps_with_observed_unread_modified_residue": {
+   "3": 4,
+   "4": 6
+  },
+  "windows_in_gaps_made_only_of_observed_modified_residues": {
+   "3": 4,
+   "4": 6
+  },
+  "windows_with_values_total": {
+   "3": 1587,
+   "4": 1575
+  },
+  "windows_excluded_by_study_output_total": {
+   "3": 12,
+   "4": 18
+  }
+ },
+ "pairs": [
+  {
+   "pair_id": "EGFR-1",
+   "entries": [
+    "8A27",
+    "8A2D"
+   ],
+   "n_positions": 269,
+   "windows_with_values": {
+    "3": 265,
+    "4": 263
+   },
+   "windows_excluded_by_study_output": {
+    "3": 2,
+    "4": 3
+   },
+   "windows_in_gap_links_recomputed": {
+    "3": 2,
+    "4": 3
+   },
+   "gap_links_match_study_exclusions": true,
+   "windows_touching_a_gap_with_an_observed_unread_modified_residue": {
+    "3": 0,
+    "4": 0,
+    "positions3": [],
+    "positions4": []
+   },
+   "windows_in_gaps_made_only_of_observed_modified_residues": {
+    "3": 0,
+    "4": 0,
+    "positions3": [],
+    "positions4": []
+   },
+   "n_gaps": 1,
+   "gaps": [
+    {
+     "between_positions": [
+      158,
+      159
+     ],
+     "between_uniprot_indices": [
+      859,
+      876
+     ],
+     "between_deposited_A": [
+      "A:859",
+      "A:876"
+     ],
+     "between_deposited_B": [
+      "A:859",
+      "A:876"
+     ],
+     "skipped": [
+      {
+       "uniprot_index": 860,
+       "A": {
+        "state": "no residue aligned to this reference index in the deposited chain",
+        "remark_465": null
+       },
+       "B": {
+        "state": "no residue aligned to this reference index in the deposited chain",
+        "remark_465": null
+       }
+      },
+      {
+       "uniprot_index": 861,
+       "A": {
+        "state": "no residue aligned to this reference index in the deposited chain",
+        "remark_465": null
+       },
+       "B": {
+        "state": "no residue aligned to this reference index in the deposited chain",
+        "remark_465": null
+       }
+      },
+      {
+       "uniprot_index": 862,
+       "A": {
+        "state": "no residue aligned to this reference index in the deposited chain",
+        "remark_465": null
+       },
+       "B": {
+        "state": "no residue aligned to this reference index in the deposited chain",
+        "remark_465": null
+       }
+      },
+      {
+       "uniprot_index": 863,
+       "A": {
+        "state": "no residue aligned to this reference index in the deposited chain",
+        "remark_465": null
+       },
+       "B": {
+        "state": "no residue aligned to this reference index in the deposited chain",
+        "remark_465": null
+       }
+      },
+      {
+       "uniprot_index": 864,
+       "A": {
+        "state": "no residue aligned to this reference index in the deposited chain",
+        "remark_465": null
+       },
+       "B": {
+        "state": "no residue aligned to this reference index in the deposited chain",
+        "remark_465": null
+       }
+      },
+      {
+       "uniprot_index": 865,
+       "A": {
+        "state": "no residue aligned to this reference index in the deposited chain",
+        "remark_465": null
+       },
+       "B": {
+        "deposited": "A:865",
+        "resname": "GLU",
+        "state": "observed and read by the adapter in this chain"
+       }
+      },
+      {
+       "uniprot_index": 866,
+       "A": {
+        "state": "no residue aligned to this reference index in the deposited chain",
+        "remark_465": null
+       },
+       "B": {
+        "deposited": "A:866",
+        "resname": "GLU",
+        "state": "observed and read by the adapter in this chain"
+       }
+      },
+      {
+       "uniprot_index": 867,
+       "A": {
+        "state": "no residue aligned to this reference index in the deposited chain",
+        "remark_465": null
+       },
+       "B": {
+        "deposited": "A:867",
+        "resname": "LYS",
+        "state": "observed and read by the adapter in this chain"
+       }
+      },
+      {
+       "uniprot_index": 868,
+       "A": {
+        "state": "no residue aligned to this reference index in the deposited chain",
+        "remark_465": null
+       },
+       "B": {
+        "deposited": "A:868",
+        "resname": "GLU",
+        "state": "observed and read by the adapter in this chain"
+       }
+      },
+      {
+       "uniprot_index": 869,
+       "A": {
+        "state": "no residue aligned to this reference index in the deposited chain",
+        "remark_465": null
+       },
+       "B": {
+        "deposited": "A:869",
+        "resname": "TYR",
+        "state": "observed and read by the adapter in this chain"
+       }
+      },
+      {
+       "uniprot_index": 870,
+       "A": {
+        "state": "no residue aligned to this reference index in the deposited chain",
+        "remark_465": null
+       },
+       "B": {
+        "deposited": "A:870",
+        "resname": "HIS",
+        "state": "observed and read by the adapter in this chain"
+       }
+      },
+      {
+       "uniprot_index": 871,
+       "A": {
+        "state": "no residue aligned to this reference index in the deposited chain",
+        "remark_465": null
+       },
+       "B": {
+        "state": "no residue aligned to this reference index in the deposited chain",
+        "remark_465": null
+       }
+      },
+      {
+       "uniprot_index": 872,
+       "A": {
+        "state": "no residue aligned to this reference index in the deposited chain",
+        "remark_465": null
+       },
+       "B": {
+        "state": "no residue aligned to this reference index in the deposited chain",
+        "remark_465": null
+       }
+      },
+      {
+       "uniprot_index": 873,
+       "A": {
+        "state": "no residue aligned to this reference index in the deposited chain",
+        "remark_465": null
+       },
+       "B": {
+        "state": "no residue aligned to this reference index in the deposited chain",
+        "remark_465": null
+       }
+      },
+      {
+       "uniprot_index": 874,
+       "A": {
+        "state": "no residue aligned to this reference index in the deposited chain",
+        "remark_465": null
+       },
+       "B": {
+        "state": "no residue aligned to this reference index in the deposited chain",
+        "remark_465": null
+       }
+      },
+      {
+       "uniprot_index": 875,
+       "A": {
+        "state": "no residue aligned to this reference index in the deposited chain",
+        "remark_465": null
+       },
+       "B": {
+        "state": "no residue aligned to this reference index in the deposited chain",
+        "remark_465": null
+       }
+      }
+     ],
+     "contains_observed_unread_modified_residue": false,
+     "all_skipped_residues_observed_in_both_chains": false,
+     "gap_consists_only_of_observed_modified_residues": false,
+     "windows3_centres": [
+      158,
+      159
+     ],
+     "windows4_indices": [
+      157,
+      158,
+      159
+     ]
+    }
+   ],
+   "study_outputs": "benchmarks/audit/kin_pair_1/results/pairs_supplement/EGFR-1"
+  },
+  {
+   "pair_id": "EGFR-2",
+   "entries": [
+    "5UG9",
+    "5HG8"
+   ],
+   "n_positions": 280,
+   "windows_with_values": {
+    "3": 276,
+    "4": 274
+   },
+   "windows_excluded_by_study_output": {
+    "3": 2,
+    "4": 3
+   },
+   "windows_in_gap_links_recomputed": {
+    "3": 2,
+    "4": 3
+   },
+   "gap_links_match_study_exclusions": true,
+   "windows_touching_a_gap_with_an_observed_unread_modified_residue": {
+    "3": 0,
+    "4": 0,
+    "positions3": [],
+    "positions4": []
+   },
+   "windows_in_gaps_made_only_of_observed_modified_residues": {
+    "3": 0,
+    "4": 0,
+    "positions3": [],
+    "positions4": []
+   },
+   "n_gaps": 1,
+   "gaps": [
+    {
+     "between_positions": [
+      46,
+      47
+     ],
+     "between_uniprot_indices": [
+      748,
+      753
+     ],
+     "between_deposited_A": [
+      "A:748",
+      "A:753"
+     ],
+     "between_deposited_B": [
+      "A:748",
+      "A:753"
+     ],
+     "skipped": [
+      {
+       "uniprot_index": 749,
+       "A": {
+        "state": "no residue aligned to this reference index in the deposited chain",
+        "remark_465": null
+       },
+       "B": {
+        "deposited": "A:749",
+        "resname": "GLU",
+        "state": "observed and read by the adapter in this chain"
+       }
+      },
+      {
+       "uniprot_index": 750,
+       "A": {
+        "state": "no residue aligned to this reference index in the deposited chain",
+        "remark_465": null
+       },
+       "B": {
+        "deposited": "A:750",
+        "resname": "ALA",
+        "state": "observed and read by the adapter in this chain"
+       }
+      },
+      {
+       "uniprot_index": 751,
+       "A": {
+        "state": "no residue aligned to this reference index in the deposited chain",
+        "remark_465": null
+       },
+       "B": {
+        "deposited": "A:751",
+        "resname": "THR",
+        "state": "observed and read by the adapter in this chain"
+       }
+      },
+      {
+       "uniprot_index": 752,
+       "A": {
+        "state": "no residue aligned to this reference index in the deposited chain",
+        "remark_465": null
+       },
+       "B": {
+        "deposited": "A:752",
+        "resname": "SER",
+        "state": "observed and read by the adapter in this chain"
+       }
+      }
+     ],
+     "contains_observed_unread_modified_residue": false,
+     "all_skipped_residues_observed_in_both_chains": false,
+     "gap_consists_only_of_observed_modified_residues": false,
+     "windows3_centres": [
+      46,
+      47
+     ],
+     "windows4_indices": [
+      45,
+      46,
+      47
+     ]
+    }
+   ],
+   "study_outputs": "benchmarks/audit/kin_pair_1/results/pairs_supplement/EGFR-2"
+  },
+  {
+   "pair_id": "PIM1-1",
+   "entries": [
+    "8R0Q",
+    "6NO9"
+   ],
+   "n_positions": 266,
+   "windows_with_values": {
+    "3": 260,
+    "4": 257
+   },
+   "windows_excluded_by_study_output": {
+    "3": 4,
+    "4": 6
+   },
+   "windows_in_gap_links_recomputed": {
+    "3": 4,
+    "4": 6
+   },
+   "gap_links_match_study_exclusions": true,
+   "windows_touching_a_gap_with_an_observed_unread_modified_residue": {
+    "3": 2,
+    "4": 3,
+    "positions3": [
+     221,
+     222
+    ],
+    "positions4": [
+     220,
+     221,
+     222
+    ]
+   },
+   "windows_in_gaps_made_only_of_observed_modified_residues": {
+    "3": 2,
+    "4": 3,
+    "positions3": [
+     221,
+     222
+    ],
+    "positions4": [
+     220,
+     221,
+     222
+    ]
+   },
+   "n_gaps": 2,
+   "gaps": [
+    {
+     "between_positions": [
+      46,
+      47
+     ],
+     "between_uniprot_indices": [
+      79,
+      86
+     ],
+     "between_deposited_A": [
+      "A:79",
+      "A:86"
+     ],
+     "between_deposited_B": [
+      "A:79",
+      "A:86"
+     ],
+     "skipped": [
+      {
+       "uniprot_index": 80,
+       "A": {
+        "state": "no residue aligned to this reference index in the deposited chain",
+        "remark_465": null
+       },
+       "B": {
+        "deposited": "A:80",
+        "resname": "LEU",
+        "state": "observed and read by the adapter in this chain"
+       }
+      },
+      {
+       "uniprot_index": 81,
+       "A": {
+        "state": "no residue aligned to this reference index in the deposited chain",
+        "remark_465": null
+       },
+       "B": {
+        "deposited": "A:81",
+        "resname": "PRO",
+        "state": "observed and read by the adapter in this chain"
+       }
+      },
+      {
+       "uniprot_index": 82,
+       "A": {
+        "state": "no residue aligned to this reference index in the deposited chain",
+        "remark_465": null
+       },
+       "B": {
+        "deposited": "A:82",
+        "resname": "ASN",
+        "state": "observed and read by the adapter in this chain"
+       }
+      },
+      {
+       "uniprot_index": 83,
+       "A": {
+        "state": "no residue aligned to this reference index in the deposited chain",
+        "remark_465": null
+       },
+       "B": {
+        "deposited": "A:83",
+        "resname": "GLY",
+        "state": "observed and read by the adapter in this chain"
+       }
+      },
+      {
+       "uniprot_index": 84,
+       "A": {
+        "state": "no residue aligned to this reference index in the deposited chain",
+        "remark_465": null
+       },
+       "B": {
+        "deposited": "A:84",
+        "resname": "THR",
+        "state": "observed and read by the adapter in this chain"
+       }
+      },
+      {
+       "uniprot_index": 85,
+       "A": {
+        "state": "no residue aligned to this reference index in the deposited chain",
+        "remark_465": null
+       },
+       "B": {
+        "deposited": "A:85",
+        "resname": "ARG",
+        "state": "observed and read by the adapter in this chain"
+       }
+      }
+     ],
+     "contains_observed_unread_modified_residue": false,
+     "all_skipped_residues_observed_in_both_chains": false,
+     "gap_consists_only_of_observed_modified_residues": false,
+     "windows3_centres": [
+      46,
+      47
+     ],
+     "windows4_indices": [
+      45,
+      46,
+      47
+     ]
+    },
+    {
+     "between_positions": [
+      221,
+      222
+     ],
+     "between_uniprot_indices": [
+      260,
+      262
+     ],
+     "between_deposited_A": [
+      "A:260",
+      "A:262"
+     ],
+     "between_deposited_B": [
+      "A:260",
+      "A:262"
+     ],
+     "skipped": [
+      {
+       "uniprot_index": 261,
+       "A": {
+        "deposited": "A:261",
+        "resname": "SEP",
+        "state": "observed, not read by the adapter (non-standard residue name)",
+        "modified": true
+       },
+       "B": {
+        "deposited": "A:261",
+        "resname": "SER",
+        "state": "observed and read by the adapter in this chain"
+       }
+      }
+     ],
+     "contains_observed_unread_modified_residue": true,
+     "all_skipped_residues_observed_in_both_chains": true,
+     "gap_consists_only_of_observed_modified_residues": true,
+     "windows3_centres": [
+      221,
+      222
+     ],
+     "windows4_indices": [
+      220,
+      221,
+      222
+     ]
+    }
+   ],
+   "study_outputs": "benchmarks/audit/kin_pair_1/results/pairs/PIM1-1"
+  },
+  {
+   "pair_id": "PIM1-2",
+   "entries": [
+    "6VRV",
+    "6L17"
+   ],
+   "n_positions": 270,
+   "windows_with_values": {
+    "3": 266,
+    "4": 264
+   },
+   "windows_excluded_by_study_output": {
+    "3": 2,
+    "4": 3
+   },
+   "windows_in_gap_links_recomputed": {
+    "3": 2,
+    "4": 3
+   },
+   "gap_links_match_study_exclusions": true,
+   "windows_touching_a_gap_with_an_observed_unread_modified_residue": {
+    "3": 2,
+    "4": 3,
+    "positions3": [
+     225,
+     226
+    ],
+    "positions4": [
+     224,
+     225,
+     226
+    ]
+   },
+   "windows_in_gaps_made_only_of_observed_modified_residues": {
+    "3": 2,
+    "4": 3,
+    "positions3": [
+     225,
+     226
+    ],
+    "positions4": [
+     224,
+     225,
+     226
+    ]
+   },
+   "n_gaps": 1,
+   "gaps": [
+    {
+     "between_positions": [
+      225,
+      226
+     ],
+     "between_uniprot_indices": [
+      260,
+      262
+     ],
+     "between_deposited_A": [
+      "A:260",
+      "A:262"
+     ],
+     "between_deposited_B": [
+      "A:260",
+      "A:262"
+     ],
+     "skipped": [
+      {
+       "uniprot_index": 261,
+       "A": {
+        "deposited": "A:261",
+        "resname": "SER",
+        "state": "observed and read by the adapter in this chain"
+       },
+       "B": {
+        "deposited": "A:261",
+        "resname": "SEP",
+        "state": "observed, not read by the adapter (non-standard residue name)",
+        "modified": true
+       }
+      }
+     ],
+     "contains_observed_unread_modified_residue": true,
+     "all_skipped_residues_observed_in_both_chains": true,
+     "gap_consists_only_of_observed_modified_residues": true,
+     "windows3_centres": [
+      225,
+      226
+     ],
+     "windows4_indices": [
+      224,
+      225,
+      226
+     ]
+    }
+   ],
+   "study_outputs": "benchmarks/audit/kin_pair_1/results/pairs/PIM1-2"
+  },
+  {
+   "pair_id": "BTK-1",
+   "entries": [
+    "6E4F",
+    "4RFZ"
+   ],
+   "n_positions": 263,
+   "windows_with_values": {
+    "3": 261,
+    "4": 260
+   },
+   "windows_excluded_by_study_output": {
+    "3": 0,
+    "4": 0
+   },
+   "windows_in_gap_links_recomputed": {
+    "3": 0,
+    "4": 0
+   },
+   "gap_links_match_study_exclusions": true,
+   "windows_touching_a_gap_with_an_observed_unread_modified_residue": {
+    "3": 0,
+    "4": 0,
+    "positions3": [],
+    "positions4": []
+   },
+   "windows_in_gaps_made_only_of_observed_modified_residues": {
+    "3": 0,
+    "4": 0,
+    "positions3": [],
+    "positions4": []
+   },
+   "n_gaps": 0,
+   "gaps": [],
+   "study_outputs": "benchmarks/audit/kin_pair_1/results/pairs_supplement/BTK-1"
+  },
+  {
+   "pair_id": "BTK-2",
+   "entries": [
+    "7L5O",
+    "6J6M"
+   ],
+   "n_positions": 263,
+   "windows_with_values": {
+    "3": 259,
+    "4": 257
+   },
+   "windows_excluded_by_study_output": {
+    "3": 2,
+    "4": 3
+   },
+   "windows_in_gap_links_recomputed": {
+    "3": 2,
+    "4": 3
+   },
+   "gap_links_match_study_exclusions": true,
+   "windows_touching_a_gap_with_an_observed_unread_modified_residue": {
+    "3": 0,
+    "4": 0,
+    "positions3": [],
+    "positions4": []
+   },
+   "windows_in_gaps_made_only_of_observed_modified_residues": {
+    "3": 0,
+    "4": 0,
+    "positions3": [],
+    "positions4": []
+   },
+   "n_gaps": 1,
+   "gaps": [
+    {
+     "between_positions": [
+      17,
+      18
+     ],
+     "between_uniprot_indices": [
+      410,
+      414
+     ],
+     "between_deposited_A": [
+      "A:410",
+      "A:414"
+     ],
+     "between_deposited_B": [
+      "A:410",
+      "A:414"
+     ],
+     "skipped": [
+      {
+       "uniprot_index": 411,
+       "A": {
+        "state": "no residue aligned to this reference index in the deposited chain",
+        "remark_465": null
+       },
+       "B": {
+        "deposited": "A:411",
+        "resname": "GLY",
+        "state": "observed and read by the adapter in this chain"
+       }
+      },
+      {
+       "uniprot_index": 412,
+       "A": {
+        "state": "no residue aligned to this reference index in the deposited chain",
+        "remark_465": null
+       },
+       "B": {
+        "deposited": "A:412",
+        "resname": "GLN",
+        "state": "observed and read by the adapter in this chain"
+       }
+      },
+      {
+       "uniprot_index": 413,
+       "A": {
+        "state": "no residue aligned to this reference index in the deposited chain",
+        "remark_465": null
+       },
+       "B": {
+        "deposited": "A:413",
+        "resname": "PHE",
+        "state": "observed and read by the adapter in this chain"
+       }
+      }
+     ],
+     "contains_observed_unread_modified_residue": false,
+     "all_skipped_residues_observed_in_both_chains": false,
+     "gap_consists_only_of_observed_modified_residues": false,
+     "windows3_centres": [
+      17,
+      18
+     ],
+     "windows4_indices": [
+      16,
+      17,
+      18
+     ]
+    }
+   ],
+   "study_outputs": "benchmarks/audit/kin_pair_1/results/pairs_supplement/BTK-2"
+  }
+ ],
+ "decision_rule": "narrow support task if at least one observed modified residue with backbone is excluded by the adapter and at least one window touches a gap that contains it; no problem if no modified residue is lost; otherwise insufficient evidence",
+ "recommendation": {
+  "code": "narrow_support_task",
+  "text": "A narrowly scoped modified-residue support task is warranted."
+ }
+}
