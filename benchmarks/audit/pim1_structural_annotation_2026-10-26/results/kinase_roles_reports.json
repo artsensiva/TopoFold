@@ -1,0 +1,1272 @@
+{
+ "8R0Q": {
+  "accepted": true,
+  "report": {
+   "schema": "topofold_inputs.kinase_roles/1",
+   "engineering_note": "Engineering output; no biological or scientific validation is implied.",
+   "version": "0.1.0",
+   "chain": "A",
+   "reference": {
+    "accession": "P11309",
+    "isoform": "P11309-1",
+    "length": 313,
+    "sequence_sha256": "cbbfcc670c8d3cfe5351d9417fad177009931986ab5207bc8bd5898e389de502",
+    "source": "UniProt P11309 entry version 265"
+   },
+   "numbering": {
+    "scheme": "reference",
+    "reference_minus_label": 0,
+    "description": "labels are 1-based indices of the stated reference sequence"
+   },
+   "anchors_declared": {
+    "beta3_Lys": 67,
+    "alphaC_Glu": 89,
+    "HRD_H": 165,
+    "DFG_Asp": {
+     "window": [
+      168,
+      290
+     ]
+    }
+   },
+   "config": {
+    "min_identity": 0.9,
+    "min_aligned": 30,
+    "allow_role_mutations": false,
+    "scores": {
+     "match": 5,
+     "mismatch": -3,
+     "insertion_open": -8,
+     "insertion_extend": -2,
+     "deletion_open_at_break": -1,
+     "deletion_extend_at_break": 0,
+     "deletion_open_between_bonded": -8,
+     "deletion_extend_between_bonded": -2
+    }
+   },
+   "alignment": {
+    "score": 1326,
+    "aligned_pairs": 267,
+    "identical_pairs": 266,
+    "identity": 0.9962546816479401,
+    "observed_residues": 267,
+    "reference_span": [
+     33,
+     305
+    ],
+    "mutations": [
+     {
+      "resid": 250,
+      "icode": "",
+      "resname": "GLY",
+      "reference_index": 250,
+      "reference_aa": "R",
+      "observed_aa": "G"
+     }
+    ],
+    "insertions": [],
+    "unaligned_terminal": [],
+    "unobserved_reference_ranges": [
+     [
+      80,
+      85
+     ]
+    ],
+    "absent_between_bonded_residues": [],
+    "chain_breaks_before": [
+     {
+      "resid": 86,
+      "icode": "",
+      "resname": "VAL"
+     }
+    ],
+    "bonding_unknown": 0,
+    "insertion_code_residues": [],
+    "variant_residue_names": [
+     {
+      "resid": 261,
+      "icode": "",
+      "resname": "SEP",
+      "maps_to": "S"
+     }
+    ],
+    "author_numbering_diagnostic": {
+     "reference_index_minus_author_resid": {
+      "0": 267
+     },
+     "note": "reported for inspection only; author numbers are never used to place residues"
+    }
+   },
+   "anchor_checks": {
+    "DFG_Asp": {
+     "window_reference_index": [
+      168,
+      290
+     ],
+     "hits_reference_index": [
+      186
+     ],
+     "reference_index": 186,
+     "expected": "D-F-G",
+     "found": "DFG",
+     "passed": true
+    },
+    "beta3_Lys": {
+     "reference_index": 67,
+     "expected": "K",
+     "found": "K",
+     "passed": true
+    },
+    "alphaC_Glu": {
+     "reference_index": 89,
+     "expected": "E",
+     "found": "E",
+     "passed": true
+    },
+    "HRD_H": {
+     "reference_index": 165,
+     "expected": "H/Y-R-D",
+     "found": "HRD",
+     "passed": true
+    }
+   },
+   "anchor_order": {
+    "expected": "beta3_Lys < alphaC_Glu < HRD_H < DFG_Asp",
+    "passed": true
+   },
+   "anchor_spacing_reported_not_checked": {
+    "alphaC_Glu - beta3_Lys": 22,
+    "DFG_Asp - HRD_H": 21
+   },
+   "roles": {
+    "beta3_Lys": {
+     "reference_index": 67,
+     "reference_aa": "K",
+     "resid": 67,
+     "icode": "",
+     "resname": "LYS",
+     "status": "observed"
+    },
+    "alphaC_Glu": {
+     "reference_index": 89,
+     "reference_aa": "E",
+     "resid": 89,
+     "icode": "",
+     "resname": "GLU",
+     "status": "observed"
+    },
+    "alphaC_Glu_plus4": {
+     "reference_index": 93,
+     "reference_aa": "L",
+     "resid": 93,
+     "icode": "",
+     "resname": "LEU",
+     "status": "observed"
+    },
+    "XHRD": {
+     "reference_index": 164,
+     "reference_aa": "L",
+     "resid": 164,
+     "icode": "",
+     "resname": "LEU",
+     "status": "observed"
+    },
+    "XDFG_minus1": {
+     "reference_index": 184,
+     "reference_aa": "L",
+     "resid": 184,
+     "icode": "",
+     "resname": "LEU",
+     "status": "observed"
+    },
+    "XDFG": {
+     "reference_index": 185,
+     "reference_aa": "I",
+     "resid": 185,
+     "icode": "",
+     "resname": "ILE",
+     "status": "observed"
+    },
+    "DFG_Asp": {
+     "reference_index": 186,
+     "reference_aa": "D",
+     "resid": 186,
+     "icode": "",
+     "resname": "ASP",
+     "status": "observed"
+    },
+    "DFG_Phe": {
+     "reference_index": 187,
+     "reference_aa": "F",
+     "resid": 187,
+     "icode": "",
+     "resname": "PHE",
+     "status": "observed"
+    },
+    "DFG_Gly": {
+     "reference_index": 188,
+     "reference_aa": "G",
+     "resid": 188,
+     "icode": "",
+     "resname": "GLY",
+     "status": "observed"
+    },
+    "DFGxxX": {
+     "reference_index": 191,
+     "reference_aa": "A",
+     "resid": 191,
+     "icode": "",
+     "resname": "ALA",
+     "status": "observed"
+    }
+   },
+   "ambiguity_checks": {
+    "67": {
+     "for": [
+      "beta3_Lys",
+      "beta3_Lys_motif+0"
+     ],
+     "unique": true,
+     "best_alternative_score": 1305,
+     "score": 1326
+    },
+    "89": {
+     "for": [
+      "alphaC_Glu",
+      "alphaC_Glu_motif+0"
+     ],
+     "unique": true,
+     "best_alternative_score": 1305,
+     "score": 1326
+    },
+    "93": {
+     "for": [
+      "alphaC_Glu_plus4"
+     ],
+     "unique": true,
+     "best_alternative_score": 1305,
+     "score": 1326
+    },
+    "164": {
+     "for": [
+      "XHRD"
+     ],
+     "unique": true,
+     "best_alternative_score": 1305,
+     "score": 1326
+    },
+    "165": {
+     "for": [
+      "HRD_H_motif+0"
+     ],
+     "unique": true,
+     "best_alternative_score": 1305,
+     "score": 1326
+    },
+    "166": {
+     "for": [
+      "HRD_H_motif+1"
+     ],
+     "unique": true,
+     "best_alternative_score": 1305,
+     "score": 1326
+    },
+    "167": {
+     "for": [
+      "HRD_H_motif+2"
+     ],
+     "unique": true,
+     "best_alternative_score": 1305,
+     "score": 1326
+    },
+    "184": {
+     "for": [
+      "XDFG_minus1"
+     ],
+     "unique": true,
+     "best_alternative_score": 1305,
+     "score": 1326
+    },
+    "185": {
+     "for": [
+      "XDFG"
+     ],
+     "unique": true,
+     "best_alternative_score": 1305,
+     "score": 1326
+    },
+    "186": {
+     "for": [
+      "DFG_Asp",
+      "DFG_Asp_motif+0"
+     ],
+     "unique": true,
+     "best_alternative_score": 1305,
+     "score": 1326
+    },
+    "187": {
+     "for": [
+      "DFG_Phe",
+      "DFG_Asp_motif+1"
+     ],
+     "unique": true,
+     "best_alternative_score": 1305,
+     "score": 1326
+    },
+    "188": {
+     "for": [
+      "DFG_Gly",
+      "DFG_Asp_motif+2"
+     ],
+     "unique": true,
+     "best_alternative_score": 1305,
+     "score": 1326
+    },
+    "191": {
+     "for": [
+      "DFGxxX"
+     ],
+     "unique": true,
+     "best_alternative_score": 1305,
+     "score": 1326
+    }
+   },
+   "problems": [],
+   "accepted": true
+  }
+ },
+ "6NO9": {
+  "accepted": true,
+  "report": {
+   "schema": "topofold_inputs.kinase_roles/1",
+   "engineering_note": "Engineering output; no biological or scientific validation is implied.",
+   "version": "0.1.0",
+   "chain": "A",
+   "reference": {
+    "accession": "P11309",
+    "isoform": "P11309-1",
+    "length": 313,
+    "sequence_sha256": "cbbfcc670c8d3cfe5351d9417fad177009931986ab5207bc8bd5898e389de502",
+    "source": "UniProt P11309 entry version 265"
+   },
+   "numbering": {
+    "scheme": "reference",
+    "reference_minus_label": 0,
+    "description": "labels are 1-based indices of the stated reference sequence"
+   },
+   "anchors_declared": {
+    "beta3_Lys": 67,
+    "alphaC_Glu": 89,
+    "HRD_H": 165,
+    "DFG_Asp": {
+     "window": [
+      168,
+      290
+     ]
+    }
+   },
+   "config": {
+    "min_identity": 0.9,
+    "min_aligned": 30,
+    "allow_role_mutations": false,
+    "scores": {
+     "match": 5,
+     "mismatch": -3,
+     "insertion_open": -8,
+     "insertion_extend": -2,
+     "deletion_open_at_break": -1,
+     "deletion_extend_at_break": 0,
+     "deletion_open_between_bonded": -8,
+     "deletion_extend_between_bonded": -2
+    }
+   },
+   "alignment": {
+    "score": 1365,
+    "aligned_pairs": 273,
+    "identical_pairs": 273,
+    "identity": 1.0,
+    "observed_residues": 273,
+    "reference_span": [
+     33,
+     305
+    ],
+    "mutations": [],
+    "insertions": [],
+    "unaligned_terminal": [],
+    "unobserved_reference_ranges": [],
+    "absent_between_bonded_residues": [],
+    "chain_breaks_before": [],
+    "bonding_unknown": 0,
+    "insertion_code_residues": [],
+    "variant_residue_names": [],
+    "author_numbering_diagnostic": {
+     "reference_index_minus_author_resid": {
+      "0": 273
+     },
+     "note": "reported for inspection only; author numbers are never used to place residues"
+    }
+   },
+   "anchor_checks": {
+    "DFG_Asp": {
+     "window_reference_index": [
+      168,
+      290
+     ],
+     "hits_reference_index": [
+      186
+     ],
+     "reference_index": 186,
+     "expected": "D-F-G",
+     "found": "DFG",
+     "passed": true
+    },
+    "beta3_Lys": {
+     "reference_index": 67,
+     "expected": "K",
+     "found": "K",
+     "passed": true
+    },
+    "alphaC_Glu": {
+     "reference_index": 89,
+     "expected": "E",
+     "found": "E",
+     "passed": true
+    },
+    "HRD_H": {
+     "reference_index": 165,
+     "expected": "H/Y-R-D",
+     "found": "HRD",
+     "passed": true
+    }
+   },
+   "anchor_order": {
+    "expected": "beta3_Lys < alphaC_Glu < HRD_H < DFG_Asp",
+    "passed": true
+   },
+   "anchor_spacing_reported_not_checked": {
+    "alphaC_Glu - beta3_Lys": 22,
+    "DFG_Asp - HRD_H": 21
+   },
+   "roles": {
+    "beta3_Lys": {
+     "reference_index": 67,
+     "reference_aa": "K",
+     "resid": 67,
+     "icode": "",
+     "resname": "LYS",
+     "status": "observed"
+    },
+    "alphaC_Glu": {
+     "reference_index": 89,
+     "reference_aa": "E",
+     "resid": 89,
+     "icode": "",
+     "resname": "GLU",
+     "status": "observed"
+    },
+    "alphaC_Glu_plus4": {
+     "reference_index": 93,
+     "reference_aa": "L",
+     "resid": 93,
+     "icode": "",
+     "resname": "LEU",
+     "status": "observed"
+    },
+    "XHRD": {
+     "reference_index": 164,
+     "reference_aa": "L",
+     "resid": 164,
+     "icode": "",
+     "resname": "LEU",
+     "status": "observed"
+    },
+    "XDFG_minus1": {
+     "reference_index": 184,
+     "reference_aa": "L",
+     "resid": 184,
+     "icode": "",
+     "resname": "LEU",
+     "status": "observed"
+    },
+    "XDFG": {
+     "reference_index": 185,
+     "reference_aa": "I",
+     "resid": 185,
+     "icode": "",
+     "resname": "ILE",
+     "status": "observed"
+    },
+    "DFG_Asp": {
+     "reference_index": 186,
+     "reference_aa": "D",
+     "resid": 186,
+     "icode": "",
+     "resname": "ASP",
+     "status": "observed"
+    },
+    "DFG_Phe": {
+     "reference_index": 187,
+     "reference_aa": "F",
+     "resid": 187,
+     "icode": "",
+     "resname": "PHE",
+     "status": "observed"
+    },
+    "DFG_Gly": {
+     "reference_index": 188,
+     "reference_aa": "G",
+     "resid": 188,
+     "icode": "",
+     "resname": "GLY",
+     "status": "observed"
+    },
+    "DFGxxX": {
+     "reference_index": 191,
+     "reference_aa": "A",
+     "resid": 191,
+     "icode": "",
+     "resname": "ALA",
+     "status": "observed"
+    }
+   },
+   "ambiguity_checks": {
+    "67": {
+     "for": [
+      "beta3_Lys",
+      "beta3_Lys_motif+0"
+     ],
+     "unique": true,
+     "best_alternative_score": 1344,
+     "score": 1365
+    },
+    "89": {
+     "for": [
+      "alphaC_Glu",
+      "alphaC_Glu_motif+0"
+     ],
+     "unique": true,
+     "best_alternative_score": 1344,
+     "score": 1365
+    },
+    "93": {
+     "for": [
+      "alphaC_Glu_plus4"
+     ],
+     "unique": true,
+     "best_alternative_score": 1344,
+     "score": 1365
+    },
+    "164": {
+     "for": [
+      "XHRD"
+     ],
+     "unique": true,
+     "best_alternative_score": 1344,
+     "score": 1365
+    },
+    "165": {
+     "for": [
+      "HRD_H_motif+0"
+     ],
+     "unique": true,
+     "best_alternative_score": 1344,
+     "score": 1365
+    },
+    "166": {
+     "for": [
+      "HRD_H_motif+1"
+     ],
+     "unique": true,
+     "best_alternative_score": 1344,
+     "score": 1365
+    },
+    "167": {
+     "for": [
+      "HRD_H_motif+2"
+     ],
+     "unique": true,
+     "best_alternative_score": 1344,
+     "score": 1365
+    },
+    "184": {
+     "for": [
+      "XDFG_minus1"
+     ],
+     "unique": true,
+     "best_alternative_score": 1344,
+     "score": 1365
+    },
+    "185": {
+     "for": [
+      "XDFG"
+     ],
+     "unique": true,
+     "best_alternative_score": 1344,
+     "score": 1365
+    },
+    "186": {
+     "for": [
+      "DFG_Asp",
+      "DFG_Asp_motif+0"
+     ],
+     "unique": true,
+     "best_alternative_score": 1344,
+     "score": 1365
+    },
+    "187": {
+     "for": [
+      "DFG_Phe",
+      "DFG_Asp_motif+1"
+     ],
+     "unique": true,
+     "best_alternative_score": 1344,
+     "score": 1365
+    },
+    "188": {
+     "for": [
+      "DFG_Gly",
+      "DFG_Asp_motif+2"
+     ],
+     "unique": true,
+     "best_alternative_score": 1344,
+     "score": 1365
+    },
+    "191": {
+     "for": [
+      "DFGxxX"
+     ],
+     "unique": true,
+     "best_alternative_score": 1344,
+     "score": 1365
+    }
+   },
+   "problems": [],
+   "accepted": true
+  }
+ },
+ "6VRV": {
+  "accepted": true,
+  "report": {
+   "schema": "topofold_inputs.kinase_roles/1",
+   "engineering_note": "Engineering output; no biological or scientific validation is implied.",
+   "version": "0.1.0",
+   "chain": "A",
+   "reference": {
+    "accession": "P11309",
+    "isoform": "P11309-1",
+    "length": 313,
+    "sequence_sha256": "cbbfcc670c8d3cfe5351d9417fad177009931986ab5207bc8bd5898e389de502",
+    "source": "UniProt P11309 entry version 265"
+   },
+   "numbering": {
+    "scheme": "reference",
+    "reference_minus_label": 0,
+    "description": "labels are 1-based indices of the stated reference sequence"
+   },
+   "anchors_declared": {
+    "beta3_Lys": 67,
+    "alphaC_Glu": 89,
+    "HRD_H": 165,
+    "DFG_Asp": {
+     "window": [
+      168,
+      290
+     ]
+    }
+   },
+   "config": {
+    "min_identity": 0.9,
+    "min_aligned": 30,
+    "allow_role_mutations": false,
+    "scores": {
+     "match": 5,
+     "mismatch": -3,
+     "insertion_open": -8,
+     "insertion_extend": -2,
+     "deletion_open_at_break": -1,
+     "deletion_extend_at_break": 0,
+     "deletion_open_between_bonded": -8,
+     "deletion_extend_between_bonded": -2
+    }
+   },
+   "alignment": {
+    "score": 1355,
+    "aligned_pairs": 271,
+    "identical_pairs": 271,
+    "identity": 1.0,
+    "observed_residues": 271,
+    "reference_span": [
+     35,
+     305
+    ],
+    "mutations": [],
+    "insertions": [],
+    "unaligned_terminal": [],
+    "unobserved_reference_ranges": [],
+    "absent_between_bonded_residues": [],
+    "chain_breaks_before": [],
+    "bonding_unknown": 0,
+    "insertion_code_residues": [],
+    "variant_residue_names": [],
+    "author_numbering_diagnostic": {
+     "reference_index_minus_author_resid": {
+      "0": 271
+     },
+     "note": "reported for inspection only; author numbers are never used to place residues"
+    }
+   },
+   "anchor_checks": {
+    "DFG_Asp": {
+     "window_reference_index": [
+      168,
+      290
+     ],
+     "hits_reference_index": [
+      186
+     ],
+     "reference_index": 186,
+     "expected": "D-F-G",
+     "found": "DFG",
+     "passed": true
+    },
+    "beta3_Lys": {
+     "reference_index": 67,
+     "expected": "K",
+     "found": "K",
+     "passed": true
+    },
+    "alphaC_Glu": {
+     "reference_index": 89,
+     "expected": "E",
+     "found": "E",
+     "passed": true
+    },
+    "HRD_H": {
+     "reference_index": 165,
+     "expected": "H/Y-R-D",
+     "found": "HRD",
+     "passed": true
+    }
+   },
+   "anchor_order": {
+    "expected": "beta3_Lys < alphaC_Glu < HRD_H < DFG_Asp",
+    "passed": true
+   },
+   "anchor_spacing_reported_not_checked": {
+    "alphaC_Glu - beta3_Lys": 22,
+    "DFG_Asp - HRD_H": 21
+   },
+   "roles": {
+    "beta3_Lys": {
+     "reference_index": 67,
+     "reference_aa": "K",
+     "resid": 67,
+     "icode": "",
+     "resname": "LYS",
+     "status": "observed"
+    },
+    "alphaC_Glu": {
+     "reference_index": 89,
+     "reference_aa": "E",
+     "resid": 89,
+     "icode": "",
+     "resname": "GLU",
+     "status": "observed"
+    },
+    "alphaC_Glu_plus4": {
+     "reference_index": 93,
+     "reference_aa": "L",
+     "resid": 93,
+     "icode": "",
+     "resname": "LEU",
+     "status": "observed"
+    },
+    "XHRD": {
+     "reference_index": 164,
+     "reference_aa": "L",
+     "resid": 164,
+     "icode": "",
+     "resname": "LEU",
+     "status": "observed"
+    },
+    "XDFG_minus1": {
+     "reference_index": 184,
+     "reference_aa": "L",
+     "resid": 184,
+     "icode": "",
+     "resname": "LEU",
+     "status": "observed"
+    },
+    "XDFG": {
+     "reference_index": 185,
+     "reference_aa": "I",
+     "resid": 185,
+     "icode": "",
+     "resname": "ILE",
+     "status": "observed"
+    },
+    "DFG_Asp": {
+     "reference_index": 186,
+     "reference_aa": "D",
+     "resid": 186,
+     "icode": "",
+     "resname": "ASP",
+     "status": "observed"
+    },
+    "DFG_Phe": {
+     "reference_index": 187,
+     "reference_aa": "F",
+     "resid": 187,
+     "icode": "",
+     "resname": "PHE",
+     "status": "observed"
+    },
+    "DFG_Gly": {
+     "reference_index": 188,
+     "reference_aa": "G",
+     "resid": 188,
+     "icode": "",
+     "resname": "GLY",
+     "status": "observed"
+    },
+    "DFGxxX": {
+     "reference_index": 191,
+     "reference_aa": "A",
+     "resid": 191,
+     "icode": "",
+     "resname": "ALA",
+     "status": "observed"
+    }
+   },
+   "ambiguity_checks": {
+    "67": {
+     "for": [
+      "beta3_Lys",
+      "beta3_Lys_motif+0"
+     ],
+     "unique": true,
+     "best_alternative_score": 1334,
+     "score": 1355
+    },
+    "89": {
+     "for": [
+      "alphaC_Glu",
+      "alphaC_Glu_motif+0"
+     ],
+     "unique": true,
+     "best_alternative_score": 1334,
+     "score": 1355
+    },
+    "93": {
+     "for": [
+      "alphaC_Glu_plus4"
+     ],
+     "unique": true,
+     "best_alternative_score": 1334,
+     "score": 1355
+    },
+    "164": {
+     "for": [
+      "XHRD"
+     ],
+     "unique": true,
+     "best_alternative_score": 1334,
+     "score": 1355
+    },
+    "165": {
+     "for": [
+      "HRD_H_motif+0"
+     ],
+     "unique": true,
+     "best_alternative_score": 1334,
+     "score": 1355
+    },
+    "166": {
+     "for": [
+      "HRD_H_motif+1"
+     ],
+     "unique": true,
+     "best_alternative_score": 1334,
+     "score": 1355
+    },
+    "167": {
+     "for": [
+      "HRD_H_motif+2"
+     ],
+     "unique": true,
+     "best_alternative_score": 1334,
+     "score": 1355
+    },
+    "184": {
+     "for": [
+      "XDFG_minus1"
+     ],
+     "unique": true,
+     "best_alternative_score": 1334,
+     "score": 1355
+    },
+    "185": {
+     "for": [
+      "XDFG"
+     ],
+     "unique": true,
+     "best_alternative_score": 1334,
+     "score": 1355
+    },
+    "186": {
+     "for": [
+      "DFG_Asp",
+      "DFG_Asp_motif+0"
+     ],
+     "unique": true,
+     "best_alternative_score": 1334,
+     "score": 1355
+    },
+    "187": {
+     "for": [
+      "DFG_Phe",
+      "DFG_Asp_motif+1"
+     ],
+     "unique": true,
+     "best_alternative_score": 1334,
+     "score": 1355
+    },
+    "188": {
+     "for": [
+      "DFG_Gly",
+      "DFG_Asp_motif+2"
+     ],
+     "unique": true,
+     "best_alternative_score": 1334,
+     "score": 1355
+    },
+    "191": {
+     "for": [
+      "DFGxxX"
+     ],
+     "unique": true,
+     "best_alternative_score": 1334,
+     "score": 1355
+    }
+   },
+   "problems": [],
+   "accepted": true
+  }
+ },
+ "6L17": {
+  "accepted": true,
+  "report": {
+   "schema": "topofold_inputs.kinase_roles/1",
+   "engineering_note": "Engineering output; no biological or scientific validation is implied.",
+   "version": "0.1.0",
+   "chain": "A",
+   "reference": {
+    "accession": "P11309",
+    "isoform": "P11309-1",
+    "length": 313,
+    "sequence_sha256": "cbbfcc670c8d3cfe5351d9417fad177009931986ab5207bc8bd5898e389de502",
+    "source": "UniProt P11309 entry version 265"
+   },
+   "numbering": {
+    "scheme": "reference",
+    "reference_minus_label": 0,
+    "description": "labels are 1-based indices of the stated reference sequence"
+   },
+   "anchors_declared": {
+    "beta3_Lys": 67,
+    "alphaC_Glu": 89,
+    "HRD_H": 165,
+    "DFG_Asp": {
+     "window": [
+      168,
+      290
+     ]
+    }
+   },
+   "config": {
+    "min_identity": 0.9,
+    "min_aligned": 30,
+    "allow_role_mutations": false,
+    "scores": {
+     "match": 5,
+     "mismatch": -3,
+     "insertion_open": -8,
+     "insertion_extend": -2,
+     "deletion_open_at_break": -1,
+     "deletion_extend_at_break": 0,
+     "deletion_open_between_bonded": -8,
+     "deletion_extend_between_bonded": -2
+    }
+   },
+   "alignment": {
+    "score": 1365,
+    "aligned_pairs": 273,
+    "identical_pairs": 273,
+    "identity": 1.0,
+    "observed_residues": 273,
+    "reference_span": [
+     33,
+     305
+    ],
+    "mutations": [],
+    "insertions": [],
+    "unaligned_terminal": [],
+    "unobserved_reference_ranges": [],
+    "absent_between_bonded_residues": [],
+    "chain_breaks_before": [],
+    "bonding_unknown": 0,
+    "insertion_code_residues": [],
+    "variant_residue_names": [
+     {
+      "resid": 261,
+      "icode": "",
+      "resname": "SEP",
+      "maps_to": "S"
+     }
+    ],
+    "author_numbering_diagnostic": {
+     "reference_index_minus_author_resid": {
+      "0": 273
+     },
+     "note": "reported for inspection only; author numbers are never used to place residues"
+    }
+   },
+   "anchor_checks": {
+    "DFG_Asp": {
+     "window_reference_index": [
+      168,
+      290
+     ],
+     "hits_reference_index": [
+      186
+     ],
+     "reference_index": 186,
+     "expected": "D-F-G",
+     "found": "DFG",
+     "passed": true
+    },
+    "beta3_Lys": {
+     "reference_index": 67,
+     "expected": "K",
+     "found": "K",
+     "passed": true
+    },
+    "alphaC_Glu": {
+     "reference_index": 89,
+     "expected": "E",
+     "found": "E",
+     "passed": true
+    },
+    "HRD_H": {
+     "reference_index": 165,
+     "expected": "H/Y-R-D",
+     "found": "HRD",
+     "passed": true
+    }
+   },
+   "anchor_order": {
+    "expected": "beta3_Lys < alphaC_Glu < HRD_H < DFG_Asp",
+    "passed": true
+   },
+   "anchor_spacing_reported_not_checked": {
+    "alphaC_Glu - beta3_Lys": 22,
+    "DFG_Asp - HRD_H": 21
+   },
+   "roles": {
+    "beta3_Lys": {
+     "reference_index": 67,
+     "reference_aa": "K",
+     "resid": 67,
+     "icode": "",
+     "resname": "LYS",
+     "status": "observed"
+    },
+    "alphaC_Glu": {
+     "reference_index": 89,
+     "reference_aa": "E",
+     "resid": 89,
+     "icode": "",
+     "resname": "GLU",
+     "status": "observed"
+    },
+    "alphaC_Glu_plus4": {
+     "reference_index": 93,
+     "reference_aa": "L",
+     "resid": 93,
+     "icode": "",
+     "resname": "LEU",
+     "status": "observed"
+    },
+    "XHRD": {
+     "reference_index": 164,
+     "reference_aa": "L",
+     "resid": 164,
+     "icode": "",
+     "resname": "LEU",
+     "status": "observed"
+    },
+    "XDFG_minus1": {
+     "reference_index": 184,
+     "reference_aa": "L",
+     "resid": 184,
+     "icode": "",
+     "resname": "LEU",
+     "status": "observed"
+    },
+    "XDFG": {
+     "reference_index": 185,
+     "reference_aa": "I",
+     "resid": 185,
+     "icode": "",
+     "resname": "ILE",
+     "status": "observed"
+    },
+    "DFG_Asp": {
+     "reference_index": 186,
+     "reference_aa": "D",
+     "resid": 186,
+     "icode": "",
+     "resname": "ASP",
+     "status": "observed"
+    },
+    "DFG_Phe": {
+     "reference_index": 187,
+     "reference_aa": "F",
+     "resid": 187,
+     "icode": "",
+     "resname": "PHE",
+     "status": "observed"
+    },
+    "DFG_Gly": {
+     "reference_index": 188,
+     "reference_aa": "G",
+     "resid": 188,
+     "icode": "",
+     "resname": "GLY",
+     "status": "observed"
+    },
+    "DFGxxX": {
+     "reference_index": 191,
+     "reference_aa": "A",
+     "resid": 191,
+     "icode": "",
+     "resname": "ALA",
+     "status": "observed"
+    }
+   },
+   "ambiguity_checks": {
+    "67": {
+     "for": [
+      "beta3_Lys",
+      "beta3_Lys_motif+0"
+     ],
+     "unique": true,
+     "best_alternative_score": 1344,
+     "score": 1365
+    },
+    "89": {
+     "for": [
+      "alphaC_Glu",
+      "alphaC_Glu_motif+0"
+     ],
+     "unique": true,
+     "best_alternative_score": 1344,
+     "score": 1365
+    },
+    "93": {
+     "for": [
+      "alphaC_Glu_plus4"
+     ],
+     "unique": true,
+     "best_alternative_score": 1344,
+     "score": 1365
+    },
+    "164": {
+     "for": [
+      "XHRD"
+     ],
+     "unique": true,
+     "best_alternative_score": 1344,
+     "score": 1365
+    },
+    "165": {
+     "for": [
+      "HRD_H_motif+0"
+     ],
+     "unique": true,
+     "best_alternative_score": 1344,
+     "score": 1365
+    },
+    "166": {
+     "for": [
+      "HRD_H_motif+1"
+     ],
+     "unique": true,
+     "best_alternative_score": 1344,
+     "score": 1365
+    },
+    "167": {
+     "for": [
+      "HRD_H_motif+2"
+     ],
+     "unique": true,
+     "best_alternative_score": 1344,
+     "score": 1365
+    },
+    "184": {
+     "for": [
+      "XDFG_minus1"
+     ],
+     "unique": true,
+     "best_alternative_score": 1344,
+     "score": 1365
+    },
+    "185": {
+     "for": [
+      "XDFG"
+     ],
+     "unique": true,
+     "best_alternative_score": 1344,
+     "score": 1365
+    },
+    "186": {
+     "for": [
+      "DFG_Asp",
+      "DFG_Asp_motif+0"
+     ],
+     "unique": true,
+     "best_alternative_score": 1344,
+     "score": 1365
+    },
+    "187": {
+     "for": [
+      "DFG_Phe",
+      "DFG_Asp_motif+1"
+     ],
+     "unique": true,
+     "best_alternative_score": 1344,
+     "score": 1365
+    },
+    "188": {
+     "for": [
+      "DFG_Gly",
+      "DFG_Asp_motif+2"
+     ],
+     "unique": true,
+     "best_alternative_score": 1344,
+     "score": 1365
+    },
+    "191": {
+     "for": [
+      "DFGxxX"
+     ],
+     "unique": true,
+     "best_alternative_score": 1344,
+     "score": 1365
+    }
+   },
+   "problems": [],
+   "accepted": true
+  }
+ }
+}

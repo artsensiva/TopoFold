@@ -1,0 +1,2944 @@
+{
+ "id": "PIM1-STRUCTURAL-ANNOTATION-2026-10-26",
+ "design": "DESIGN.md (anchors and region-label rules fixed before this ran)",
+ "scope": "interpretation of existing comparison outputs; no score recomputed, no threshold changed, no structure selected; these pairs do not isolate phosphorylation, ligand or mutation effects",
+ "reference": {
+  "accession": "P11309",
+  "isoform": "P11309-1 (canonical)",
+  "entry": "PIM1_HUMAN",
+  "organism": "Homo sapiens",
+  "length": 313,
+  "sequence_sha256": "cbbfcc670c8d3cfe5351d9417fad177009931986ab5207bc8bd5898e389de502",
+  "fasta_sha256_now": "4de04d20da23a47f37bf552e96839afbe508c64f716308e266682bf5d482b68f",
+  "fasta_sha256_in_selection_record": "4de04d20da23a47f37bf552e96839afbe508c64f716308e266682bf5d482b68f",
+  "matches_selection_record": true,
+  "numbering_convention": "reference index = UniProt canonical position (Numbering.reference_index); author numbering is preserved and its offset reported, never applied"
+ },
+ "uniprot_annotation": {
+  "url": "https://rest.uniprot.org/uniprotkb/P11309.json",
+  "retrieved_utc": "2026-10-26T16:37:12+00:00",
+  "raw_sha256": "40fdcd36a2a9a0d7be769d3f54f8515640108efae9943cc93b617781c39a2c6a",
+  "entry_version": 265,
+  "last_annotation_update": "2026-09-02",
+  "features": {
+   "Domain": [
+    {
+     "start": 38,
+     "end": 290,
+     "description": "Protein kinase",
+     "evidence": [
+      "PROSITE-ProRule:PRU00159"
+     ]
+    }
+   ],
+   "Active site": [
+    {
+     "start": 167,
+     "end": 167,
+     "description": "Proton acceptor",
+     "evidence": [
+      "PROSITE-ProRule:PRU00159",
+      "PROSITE-ProRule:PRU10027"
+     ]
+    }
+   ],
+   "Binding site": [
+    {
+     "start": 44,
+     "end": 52,
+     "description": "",
+     "evidence": [
+      "PROSITE-ProRule:PRU00159"
+     ]
+    },
+    {
+     "start": 67,
+     "end": 67,
+     "description": "",
+     "evidence": [
+      "PubMed:15525646",
+      "PubMed:15657054",
+      "PubMed:15808862"
+     ]
+    },
+    {
+     "start": 121,
+     "end": 121,
+     "description": "",
+     "evidence": [
+      "PubMed:15525646",
+      "PubMed:15657054",
+      "PubMed:15808862"
+     ]
+    },
+    {
+     "start": 128,
+     "end": 128,
+     "description": "",
+     "evidence": [
+      "PubMed:15525646",
+      "PubMed:15657054",
+      "PubMed:15808862"
+     ]
+    }
+   ],
+   "Modified residue": [
+    {
+     "start": 8,
+     "end": 8,
+     "description": "Phosphoserine",
+     "evidence": [
+      "PubMed:15657054",
+      "PubMed:23186163"
+     ]
+    },
+    {
+     "start": 23,
+     "end": 23,
+     "description": "Phosphothreonine",
+     "evidence": [
+      "PubMed:15657054"
+     ]
+    },
+    {
+     "start": 98,
+     "end": 98,
+     "description": "Phosphoserine",
+     "evidence": [
+      "PubMed:15657054"
+     ]
+    },
+    {
+     "start": 261,
+     "end": 261,
+     "description": "Phosphoserine",
+     "evidence": [
+      "PubMed:15657054"
+     ]
+    }
+   ]
+  },
+  "note": "modified-residue and binding-site annotations are literature or proteomics curated annotations, not evidence of a functional state in these structures"
+ },
+ "structures": {
+  "8R0Q": {
+   "sha256": "6c9bd62287f5019101176443d4b7c9bdeb0a061069b119e80192d71bc5bd6439",
+   "pair_slot": "PIM1-1:A",
+   "chain": "A",
+   "identity": 0.9962546816479401,
+   "n_aligned": 267,
+   "author_minus_reference_offsets": [
+    0
+   ],
+   "mismatches": [
+    {
+     "resseq": 250,
+     "icode": "",
+     "observed": "GLY",
+     "uniprot": "R",
+     "uniprot_index": 250,
+     "seqadv": "ENGINEERED MUTATION"
+    }
+   ],
+   "dbref": [
+    {
+     "seq_begin": 1,
+     "seq_end": 312,
+     "db_begin": 1,
+     "db_end": 312
+    }
+   ],
+   "mapping_problems": [],
+   "deposited_secondary_structure": {
+    "helices": [
+     {
+      "id": "AA1",
+      "author_start": 72,
+      "author_end": 74,
+      "ref_start": 72,
+      "ref_end": 74,
+      "length": 3
+     },
+     {
+      "id": "AA2",
+      "author_start": 87,
+      "author_end": 97,
+      "ref_start": 87,
+      "ref_end": 97,
+      "length": 11
+     },
+     {
+      "id": "AA3",
+      "author_start": 129,
+      "author_end": 137,
+      "ref_start": 129,
+      "ref_end": 137,
+      "length": 9
+     },
+     {
+      "id": "AA4",
+      "author_start": 140,
+      "author_end": 161,
+      "ref_start": 140,
+      "ref_end": 161,
+      "length": 22
+     },
+     {
+      "id": "AA5",
+      "author_start": 169,
+      "author_end": 171,
+      "ref_start": 169,
+      "ref_end": 171,
+      "length": 3
+     },
+     {
+      "id": "AA6",
+      "author_start": 186,
+      "author_end": 190,
+      "ref_start": 186,
+      "ref_end": 190,
+      "length": 5
+     },
+     {
+      "id": "AA7",
+      "author_start": 204,
+      "author_end": 208,
+      "ref_start": 204,
+      "ref_end": 208,
+      "length": 5
+     },
+     {
+      "id": "AA8",
+      "author_start": 209,
+      "author_end": 216,
+      "ref_start": 209,
+      "ref_end": 216,
+      "length": 8
+     },
+     {
+      "id": "AA9",
+      "author_start": 219,
+      "author_end": 238,
+      "ref_start": 219,
+      "ref_end": 238,
+      "length": 20
+     },
+     {
+      "id": "AB1",
+      "author_start": 244,
+      "author_end": 251,
+      "ref_start": 244,
+      "ref_end": 251,
+      "length": 8
+     },
+     {
+      "id": "AB2",
+      "author_start": 260,
+      "author_end": 271,
+      "ref_start": 260,
+      "ref_end": 271,
+      "length": 12
+     },
+     {
+      "id": "AB3",
+      "author_start": 274,
+      "author_end": 278,
+      "ref_start": 274,
+      "ref_end": 278,
+      "length": 5
+     },
+     {
+      "id": "AB4",
+      "author_start": 280,
+      "author_end": 286,
+      "ref_start": 280,
+      "ref_end": 286,
+      "length": 7
+     },
+     {
+      "id": "AB5",
+      "author_start": 287,
+      "author_end": 291,
+      "ref_start": 287,
+      "ref_end": 291,
+      "length": 5
+     },
+     {
+      "id": "AB6",
+      "author_start": 295,
+      "author_end": 304,
+      "ref_start": 295,
+      "ref_end": 304,
+      "length": 10
+     }
+    ],
+    "strands": [
+     {
+      "id": "AA1/1",
+      "author_start": 38,
+      "author_end": 47,
+      "ref_start": 38,
+      "ref_end": 47
+     },
+     {
+      "id": "AA1/2",
+      "author_start": 50,
+      "author_end": 57,
+      "ref_start": 50,
+      "ref_end": 57
+     },
+     {
+      "id": "AA1/3",
+      "author_start": 62,
+      "author_end": 70,
+      "ref_start": 62,
+      "ref_end": 70
+     },
+     {
+      "id": "AA1/4",
+      "author_start": 115,
+      "author_end": 121,
+      "ref_start": 115,
+      "ref_end": 121
+     },
+     {
+      "id": "AA1/5",
+      "author_start": 106,
+      "author_end": 111,
+      "ref_start": 106,
+      "ref_end": 111
+     },
+     {
+      "id": "AA2/1",
+      "author_start": 126,
+      "author_end": 128,
+      "ref_start": 126,
+      "ref_end": 128
+     },
+     {
+      "id": "AA2/2",
+      "author_start": 173,
+      "author_end": 176,
+      "ref_start": 173,
+      "ref_end": 176
+     },
+     {
+      "id": "AA2/3",
+      "author_start": 181,
+      "author_end": 184,
+      "ref_start": 181,
+      "ref_end": 184
+     },
+     {
+      "id": "AA3/1",
+      "author_start": 163,
+      "author_end": 164,
+      "ref_start": 163,
+      "ref_end": 164
+     },
+     {
+      "id": "AA3/2",
+      "author_start": 191,
+      "author_end": 192,
+      "ref_start": 191,
+      "ref_end": 192
+     }
+    ]
+   }
+  },
+  "6NO9": {
+   "sha256": "0115a741b19f26b880b5f938c6db7ff36b1bd7084e888ea8813c3db652a4baf3",
+   "pair_slot": "PIM1-1:B",
+   "chain": "A",
+   "identity": 1.0,
+   "n_aligned": 273,
+   "author_minus_reference_offsets": [
+    0
+   ],
+   "mismatches": [],
+   "dbref": [
+    {
+     "seq_begin": 33,
+     "seq_end": 305,
+     "db_begin": 33,
+     "db_end": 305
+    }
+   ],
+   "mapping_problems": [],
+   "deposited_secondary_structure": {
+    "helices": [
+     {
+      "id": "AA1",
+      "author_start": 72,
+      "author_end": 74,
+      "ref_start": 72,
+      "ref_end": 74,
+      "length": 3
+     },
+     {
+      "id": "AA2",
+      "author_start": 88,
+      "author_end": 97,
+      "ref_start": 88,
+      "ref_end": 97,
+      "length": 10
+     },
+     {
+      "id": "AA3",
+      "author_start": 129,
+      "author_end": 137,
+      "ref_start": 129,
+      "ref_end": 137,
+      "length": 9
+     },
+     {
+      "id": "AA4",
+      "author_start": 140,
+      "author_end": 161,
+      "ref_start": 140,
+      "ref_end": 161,
+      "length": 22
+     },
+     {
+      "id": "AA5",
+      "author_start": 169,
+      "author_end": 171,
+      "ref_start": 169,
+      "ref_end": 171,
+      "length": 3
+     },
+     {
+      "id": "AA6",
+      "author_start": 204,
+      "author_end": 208,
+      "ref_start": 204,
+      "ref_end": 208,
+      "length": 5
+     },
+     {
+      "id": "AA7",
+      "author_start": 209,
+      "author_end": 216,
+      "ref_start": 209,
+      "ref_end": 216,
+      "length": 8
+     },
+     {
+      "id": "AA8",
+      "author_start": 219,
+      "author_end": 238,
+      "ref_start": 219,
+      "ref_end": 238,
+      "length": 20
+     },
+     {
+      "id": "AA9",
+      "author_start": 244,
+      "author_end": 251,
+      "ref_start": 244,
+      "ref_end": 251,
+      "length": 8
+     },
+     {
+      "id": "AB1",
+      "author_start": 260,
+      "author_end": 271,
+      "ref_start": 260,
+      "ref_end": 271,
+      "length": 12
+     },
+     {
+      "id": "AB2",
+      "author_start": 274,
+      "author_end": 278,
+      "ref_start": 274,
+      "ref_end": 278,
+      "length": 5
+     },
+     {
+      "id": "AB3",
+      "author_start": 280,
+      "author_end": 286,
+      "ref_start": 280,
+      "ref_end": 286,
+      "length": 7
+     },
+     {
+      "id": "AB4",
+      "author_start": 287,
+      "author_end": 291,
+      "ref_start": 287,
+      "ref_end": 291,
+      "length": 5
+     },
+     {
+      "id": "AB5",
+      "author_start": 295,
+      "author_end": 304,
+      "ref_start": 295,
+      "ref_end": 304,
+      "length": 10
+     }
+    ],
+    "strands": [
+     {
+      "id": "AA1/1",
+      "author_start": 38,
+      "author_end": 47,
+      "ref_start": 38,
+      "ref_end": 47
+     },
+     {
+      "id": "AA1/2",
+      "author_start": 50,
+      "author_end": 57,
+      "ref_start": 50,
+      "ref_end": 57
+     },
+     {
+      "id": "AA1/3",
+      "author_start": 63,
+      "author_end": 70,
+      "ref_start": 63,
+      "ref_end": 70
+     },
+     {
+      "id": "AA1/4",
+      "author_start": 115,
+      "author_end": 121,
+      "ref_start": 115,
+      "ref_end": 121
+     },
+     {
+      "id": "AA1/5",
+      "author_start": 106,
+      "author_end": 111,
+      "ref_start": 106,
+      "ref_end": 111
+     },
+     {
+      "id": "AA2/1",
+      "author_start": 77,
+      "author_end": 79,
+      "ref_start": 77,
+      "ref_end": 79
+     },
+     {
+      "id": "AA2/2",
+      "author_start": 85,
+      "author_end": 87,
+      "ref_start": 85,
+      "ref_end": 87
+     },
+     {
+      "id": "AA3/1",
+      "author_start": 126,
+      "author_end": 128,
+      "ref_start": 126,
+      "ref_end": 128
+     },
+     {
+      "id": "AA3/2",
+      "author_start": 173,
+      "author_end": 176,
+      "ref_start": 173,
+      "ref_end": 176
+     },
+     {
+      "id": "AA3/3",
+      "author_start": 181,
+      "author_end": 184,
+      "ref_start": 181,
+      "ref_end": 184
+     },
+     {
+      "id": "AA4/1",
+      "author_start": 163,
+      "author_end": 164,
+      "ref_start": 163,
+      "ref_end": 164
+     },
+     {
+      "id": "AA4/2",
+      "author_start": 191,
+      "author_end": 192,
+      "ref_start": 191,
+      "ref_end": 192
+     }
+    ]
+   }
+  },
+  "6VRV": {
+   "sha256": "5fb4eae4ba1612131cb57cb3a991b8fa40b6d5cdac0ec41242112943313a2aa2",
+   "pair_slot": "PIM1-2:A",
+   "chain": "A",
+   "identity": 1.0,
+   "n_aligned": 271,
+   "author_minus_reference_offsets": [
+    0
+   ],
+   "mismatches": [],
+   "dbref": [
+    {
+     "seq_begin": 33,
+     "seq_end": 306,
+     "db_begin": 33,
+     "db_end": 306
+    }
+   ],
+   "mapping_problems": [],
+   "deposited_secondary_structure": {
+    "helices": [
+     {
+      "id": "AA1",
+      "author_start": 72,
+      "author_end": 74,
+      "ref_start": 72,
+      "ref_end": 74,
+      "length": 3
+     },
+     {
+      "id": "AA2",
+      "author_start": 88,
+      "author_end": 96,
+      "ref_start": 88,
+      "ref_end": 96,
+      "length": 9
+     },
+     {
+      "id": "AA3",
+      "author_start": 129,
+      "author_end": 137,
+      "ref_start": 129,
+      "ref_end": 137,
+      "length": 9
+     },
+     {
+      "id": "AA4",
+      "author_start": 140,
+      "author_end": 161,
+      "ref_start": 140,
+      "ref_end": 161,
+      "length": 22
+     },
+     {
+      "id": "AA5",
+      "author_start": 169,
+      "author_end": 171,
+      "ref_start": 169,
+      "ref_end": 171,
+      "length": 3
+     },
+     {
+      "id": "AA6",
+      "author_start": 204,
+      "author_end": 208,
+      "ref_start": 204,
+      "ref_end": 208,
+      "length": 5
+     },
+     {
+      "id": "AA7",
+      "author_start": 209,
+      "author_end": 216,
+      "ref_start": 209,
+      "ref_end": 216,
+      "length": 8
+     },
+     {
+      "id": "AA8",
+      "author_start": 219,
+      "author_end": 238,
+      "ref_start": 219,
+      "ref_end": 238,
+      "length": 20
+     },
+     {
+      "id": "AA9",
+      "author_start": 244,
+      "author_end": 251,
+      "ref_start": 244,
+      "ref_end": 251,
+      "length": 8
+     },
+     {
+      "id": "AB1",
+      "author_start": 260,
+      "author_end": 271,
+      "ref_start": 260,
+      "ref_end": 271,
+      "length": 12
+     },
+     {
+      "id": "AB2",
+      "author_start": 274,
+      "author_end": 278,
+      "ref_start": 274,
+      "ref_end": 278,
+      "length": 5
+     },
+     {
+      "id": "AB3",
+      "author_start": 280,
+      "author_end": 286,
+      "ref_start": 280,
+      "ref_end": 286,
+      "length": 7
+     },
+     {
+      "id": "AB4",
+      "author_start": 287,
+      "author_end": 291,
+      "ref_start": 287,
+      "ref_end": 291,
+      "length": 5
+     },
+     {
+      "id": "AB5",
+      "author_start": 295,
+      "author_end": 304,
+      "ref_start": 295,
+      "ref_end": 304,
+      "length": 10
+     }
+    ],
+    "strands": [
+     {
+      "id": "AA1/1",
+      "author_start": 38,
+      "author_end": 47,
+      "ref_start": 38,
+      "ref_end": 47
+     },
+     {
+      "id": "AA1/2",
+      "author_start": 50,
+      "author_end": 57,
+      "ref_start": 50,
+      "ref_end": 57
+     },
+     {
+      "id": "AA1/3",
+      "author_start": 62,
+      "author_end": 70,
+      "ref_start": 62,
+      "ref_end": 70
+     },
+     {
+      "id": "AA1/4",
+      "author_start": 115,
+      "author_end": 121,
+      "ref_start": 115,
+      "ref_end": 121
+     },
+     {
+      "id": "AA1/5",
+      "author_start": 106,
+      "author_end": 111,
+      "ref_start": 106,
+      "ref_end": 111
+     },
+     {
+      "id": "AA2/1",
+      "author_start": 77,
+      "author_end": 79,
+      "ref_start": 77,
+      "ref_end": 79
+     },
+     {
+      "id": "AA2/2",
+      "author_start": 85,
+      "author_end": 87,
+      "ref_start": 85,
+      "ref_end": 87
+     },
+     {
+      "id": "AA3/1",
+      "author_start": 126,
+      "author_end": 128,
+      "ref_start": 126,
+      "ref_end": 128
+     },
+     {
+      "id": "AA3/2",
+      "author_start": 173,
+      "author_end": 176,
+      "ref_start": 173,
+      "ref_end": 176
+     },
+     {
+      "id": "AA3/3",
+      "author_start": 181,
+      "author_end": 184,
+      "ref_start": 181,
+      "ref_end": 184
+     },
+     {
+      "id": "AA4/1",
+      "author_start": 163,
+      "author_end": 164,
+      "ref_start": 163,
+      "ref_end": 164
+     },
+     {
+      "id": "AA4/2",
+      "author_start": 191,
+      "author_end": 192,
+      "ref_start": 191,
+      "ref_end": 192
+     }
+    ]
+   }
+  },
+  "6L17": {
+   "sha256": "3ad04425727d5c09458314151efa52eea07bd1c52d7f3f5be3326bd8d7501da8",
+   "pair_slot": "PIM1-2:B",
+   "chain": "A",
+   "identity": 1.0,
+   "n_aligned": 273,
+   "author_minus_reference_offsets": [
+    0
+   ],
+   "mismatches": [],
+   "dbref": [
+    {
+     "seq_begin": 29,
+     "seq_end": 313,
+     "db_begin": 29,
+     "db_end": 313
+    }
+   ],
+   "mapping_problems": [],
+   "deposited_secondary_structure": {
+    "helices": [
+     {
+      "id": "AA1",
+      "author_start": 33,
+      "author_end": 37,
+      "ref_start": 33,
+      "ref_end": 37,
+      "length": 5
+     },
+     {
+      "id": "AA2",
+      "author_start": 72,
+      "author_end": 74,
+      "ref_start": 72,
+      "ref_end": 74,
+      "length": 3
+     },
+     {
+      "id": "AA3",
+      "author_start": 88,
+      "author_end": 97,
+      "ref_start": 88,
+      "ref_end": 97,
+      "length": 10
+     },
+     {
+      "id": "AA4",
+      "author_start": 129,
+      "author_end": 137,
+      "ref_start": 129,
+      "ref_end": 137,
+      "length": 9
+     },
+     {
+      "id": "AA5",
+      "author_start": 140,
+      "author_end": 161,
+      "ref_start": 140,
+      "ref_end": 161,
+      "length": 22
+     },
+     {
+      "id": "AA6",
+      "author_start": 169,
+      "author_end": 171,
+      "ref_start": 169,
+      "ref_end": 171,
+      "length": 3
+     },
+     {
+      "id": "AA7",
+      "author_start": 204,
+      "author_end": 208,
+      "ref_start": 204,
+      "ref_end": 208,
+      "length": 5
+     },
+     {
+      "id": "AA8",
+      "author_start": 209,
+      "author_end": 216,
+      "ref_start": 209,
+      "ref_end": 216,
+      "length": 8
+     },
+     {
+      "id": "AA9",
+      "author_start": 219,
+      "author_end": 238,
+      "ref_start": 219,
+      "ref_end": 238,
+      "length": 20
+     },
+     {
+      "id": "AB1",
+      "author_start": 244,
+      "author_end": 251,
+      "ref_start": 244,
+      "ref_end": 251,
+      "length": 8
+     },
+     {
+      "id": "AB2",
+      "author_start": 260,
+      "author_end": 271,
+      "ref_start": 260,
+      "ref_end": 271,
+      "length": 12
+     },
+     {
+      "id": "AB3",
+      "author_start": 274,
+      "author_end": 278,
+      "ref_start": 274,
+      "ref_end": 278,
+      "length": 5
+     },
+     {
+      "id": "AB4",
+      "author_start": 280,
+      "author_end": 286,
+      "ref_start": 280,
+      "ref_end": 286,
+      "length": 7
+     },
+     {
+      "id": "AB5",
+      "author_start": 287,
+      "author_end": 291,
+      "ref_start": 287,
+      "ref_end": 291,
+      "length": 5
+     },
+     {
+      "id": "AB6",
+      "author_start": 295,
+      "author_end": 304,
+      "ref_start": 295,
+      "ref_end": 304,
+      "length": 10
+     }
+    ],
+    "strands": [
+     {
+      "id": "AA1/1",
+      "author_start": 38,
+      "author_end": 47,
+      "ref_start": 38,
+      "ref_end": 47
+     },
+     {
+      "id": "AA1/2",
+      "author_start": 50,
+      "author_end": 57,
+      "ref_start": 50,
+      "ref_end": 57
+     },
+     {
+      "id": "AA1/3",
+      "author_start": 62,
+      "author_end": 70,
+      "ref_start": 62,
+      "ref_end": 70
+     },
+     {
+      "id": "AA1/4",
+      "author_start": 115,
+      "author_end": 121,
+      "ref_start": 115,
+      "ref_end": 121
+     },
+     {
+      "id": "AA1/5",
+      "author_start": 106,
+      "author_end": 111,
+      "ref_start": 106,
+      "ref_end": 111
+     },
+     {
+      "id": "AA2/1",
+      "author_start": 77,
+      "author_end": 79,
+      "ref_start": 77,
+      "ref_end": 79
+     },
+     {
+      "id": "AA2/2",
+      "author_start": 85,
+      "author_end": 87,
+      "ref_start": 85,
+      "ref_end": 87
+     },
+     {
+      "id": "AA3/1",
+      "author_start": 126,
+      "author_end": 128,
+      "ref_start": 126,
+      "ref_end": 128
+     },
+     {
+      "id": "AA3/2",
+      "author_start": 173,
+      "author_end": 176,
+      "ref_start": 173,
+      "ref_end": 176
+     },
+     {
+      "id": "AA3/3",
+      "author_start": 181,
+      "author_end": 184,
+      "ref_start": 181,
+      "ref_end": 184
+     },
+     {
+      "id": "AA4/1",
+      "author_start": 163,
+      "author_end": 164,
+      "ref_start": 163,
+      "ref_end": 164
+     },
+     {
+      "id": "AA4/2",
+      "author_start": 191,
+      "author_end": 192,
+      "ref_start": 191,
+      "ref_end": 192
+     }
+    ]
+   }
+  }
+ },
+ "alphaC_glu_rule": {
+  "window": [
+   77,
+   97
+  ],
+  "contact_angstrom": 4.0,
+  "glu_candidates": [
+   {
+    "reference_index": 79,
+    "distances_angstrom": {
+     "8R0Q": null,
+     "6NO9": 19.89714926817407,
+     "6VRV": 20.898628878469516,
+     "6L17": 21.28679297122984
+    },
+    "qualifies_in_all_four": false
+   },
+   {
+    "reference_index": 89,
+    "distances_angstrom": {
+     "8R0Q": 2.6601640926830137,
+     "6NO9": 2.4384251064980442,
+     "6VRV": 2.5274415918078117,
+     "6L17": 2.601049788066349
+    },
+    "qualifies_in_all_four": true
+   }
+  ],
+  "qualifying": [
+   89
+  ],
+  "established": true
+ },
+ "dfg_window": {
+  "window": [
+   168,
+   290
+  ],
+  "hits": [
+   186
+  ]
+ },
+ "kinase_roles_helper": {
+  "ran": true,
+  "returncode": 0,
+  "stderr": "",
+  "anchors_declared": {
+   "beta3_Lys": 67,
+   "alphaC_Glu": 89,
+   "HRD_H": 165,
+   "DFG_Asp": [
+    168,
+    290
+   ]
+  },
+  "allow_role_mutations": false,
+  "per_structure": {
+   "8R0Q": {
+    "accepted": true,
+    "problems": [],
+    "anchor_checks": {
+     "DFG_Asp": {
+      "window_reference_index": [
+       168,
+       290
+      ],
+      "hits_reference_index": [
+       186
+      ],
+      "reference_index": 186,
+      "expected": "D-F-G",
+      "found": "DFG",
+      "passed": true
+     },
+     "beta3_Lys": {
+      "reference_index": 67,
+      "expected": "K",
+      "found": "K",
+      "passed": true
+     },
+     "alphaC_Glu": {
+      "reference_index": 89,
+      "expected": "E",
+      "found": "E",
+      "passed": true
+     },
+     "HRD_H": {
+      "reference_index": 165,
+      "expected": "H/Y-R-D",
+      "found": "HRD",
+      "passed": true
+     }
+    },
+    "anchor_order": {
+     "expected": "beta3_Lys < alphaC_Glu < HRD_H < DFG_Asp",
+     "passed": true
+    },
+    "roles": {
+     "beta3_Lys": {
+      "reference_index": 67,
+      "reference_aa": "K",
+      "resid": 67,
+      "icode": "",
+      "resname": "LYS",
+      "status": "observed"
+     },
+     "alphaC_Glu": {
+      "reference_index": 89,
+      "reference_aa": "E",
+      "resid": 89,
+      "icode": "",
+      "resname": "GLU",
+      "status": "observed"
+     },
+     "alphaC_Glu_plus4": {
+      "reference_index": 93,
+      "reference_aa": "L",
+      "resid": 93,
+      "icode": "",
+      "resname": "LEU",
+      "status": "observed"
+     },
+     "XHRD": {
+      "reference_index": 164,
+      "reference_aa": "L",
+      "resid": 164,
+      "icode": "",
+      "resname": "LEU",
+      "status": "observed"
+     },
+     "XDFG_minus1": {
+      "reference_index": 184,
+      "reference_aa": "L",
+      "resid": 184,
+      "icode": "",
+      "resname": "LEU",
+      "status": "observed"
+     },
+     "XDFG": {
+      "reference_index": 185,
+      "reference_aa": "I",
+      "resid": 185,
+      "icode": "",
+      "resname": "ILE",
+      "status": "observed"
+     },
+     "DFG_Asp": {
+      "reference_index": 186,
+      "reference_aa": "D",
+      "resid": 186,
+      "icode": "",
+      "resname": "ASP",
+      "status": "observed"
+     },
+     "DFG_Phe": {
+      "reference_index": 187,
+      "reference_aa": "F",
+      "resid": 187,
+      "icode": "",
+      "resname": "PHE",
+      "status": "observed"
+     },
+     "DFG_Gly": {
+      "reference_index": 188,
+      "reference_aa": "G",
+      "resid": 188,
+      "icode": "",
+      "resname": "GLY",
+      "status": "observed"
+     },
+     "DFGxxX": {
+      "reference_index": 191,
+      "reference_aa": "A",
+      "resid": 191,
+      "icode": "",
+      "resname": "ALA",
+      "status": "observed"
+     }
+    },
+    "n_ambiguity_checks": 13,
+    "all_unique": true,
+    "alignment": {
+     "identity": 0.9962546816479401,
+     "aligned_pairs": 267,
+     "n_variants": null
+    },
+    "variants_in_chain": null
+   },
+   "6NO9": {
+    "accepted": true,
+    "problems": [],
+    "anchor_checks": {
+     "DFG_Asp": {
+      "window_reference_index": [
+       168,
+       290
+      ],
+      "hits_reference_index": [
+       186
+      ],
+      "reference_index": 186,
+      "expected": "D-F-G",
+      "found": "DFG",
+      "passed": true
+     },
+     "beta3_Lys": {
+      "reference_index": 67,
+      "expected": "K",
+      "found": "K",
+      "passed": true
+     },
+     "alphaC_Glu": {
+      "reference_index": 89,
+      "expected": "E",
+      "found": "E",
+      "passed": true
+     },
+     "HRD_H": {
+      "reference_index": 165,
+      "expected": "H/Y-R-D",
+      "found": "HRD",
+      "passed": true
+     }
+    },
+    "anchor_order": {
+     "expected": "beta3_Lys < alphaC_Glu < HRD_H < DFG_Asp",
+     "passed": true
+    },
+    "roles": {
+     "beta3_Lys": {
+      "reference_index": 67,
+      "reference_aa": "K",
+      "resid": 67,
+      "icode": "",
+      "resname": "LYS",
+      "status": "observed"
+     },
+     "alphaC_Glu": {
+      "reference_index": 89,
+      "reference_aa": "E",
+      "resid": 89,
+      "icode": "",
+      "resname": "GLU",
+      "status": "observed"
+     },
+     "alphaC_Glu_plus4": {
+      "reference_index": 93,
+      "reference_aa": "L",
+      "resid": 93,
+      "icode": "",
+      "resname": "LEU",
+      "status": "observed"
+     },
+     "XHRD": {
+      "reference_index": 164,
+      "reference_aa": "L",
+      "resid": 164,
+      "icode": "",
+      "resname": "LEU",
+      "status": "observed"
+     },
+     "XDFG_minus1": {
+      "reference_index": 184,
+      "reference_aa": "L",
+      "resid": 184,
+      "icode": "",
+      "resname": "LEU",
+      "status": "observed"
+     },
+     "XDFG": {
+      "reference_index": 185,
+      "reference_aa": "I",
+      "resid": 185,
+      "icode": "",
+      "resname": "ILE",
+      "status": "observed"
+     },
+     "DFG_Asp": {
+      "reference_index": 186,
+      "reference_aa": "D",
+      "resid": 186,
+      "icode": "",
+      "resname": "ASP",
+      "status": "observed"
+     },
+     "DFG_Phe": {
+      "reference_index": 187,
+      "reference_aa": "F",
+      "resid": 187,
+      "icode": "",
+      "resname": "PHE",
+      "status": "observed"
+     },
+     "DFG_Gly": {
+      "reference_index": 188,
+      "reference_aa": "G",
+      "resid": 188,
+      "icode": "",
+      "resname": "GLY",
+      "status": "observed"
+     },
+     "DFGxxX": {
+      "reference_index": 191,
+      "reference_aa": "A",
+      "resid": 191,
+      "icode": "",
+      "resname": "ALA",
+      "status": "observed"
+     }
+    },
+    "n_ambiguity_checks": 13,
+    "all_unique": true,
+    "alignment": {
+     "identity": 1.0,
+     "aligned_pairs": 273,
+     "n_variants": null
+    },
+    "variants_in_chain": null
+   },
+   "6VRV": {
+    "accepted": true,
+    "problems": [],
+    "anchor_checks": {
+     "DFG_Asp": {
+      "window_reference_index": [
+       168,
+       290
+      ],
+      "hits_reference_index": [
+       186
+      ],
+      "reference_index": 186,
+      "expected": "D-F-G",
+      "found": "DFG",
+      "passed": true
+     },
+     "beta3_Lys": {
+      "reference_index": 67,
+      "expected": "K",
+      "found": "K",
+      "passed": true
+     },
+     "alphaC_Glu": {
+      "reference_index": 89,
+      "expected": "E",
+      "found": "E",
+      "passed": true
+     },
+     "HRD_H": {
+      "reference_index": 165,
+      "expected": "H/Y-R-D",
+      "found": "HRD",
+      "passed": true
+     }
+    },
+    "anchor_order": {
+     "expected": "beta3_Lys < alphaC_Glu < HRD_H < DFG_Asp",
+     "passed": true
+    },
+    "roles": {
+     "beta3_Lys": {
+      "reference_index": 67,
+      "reference_aa": "K",
+      "resid": 67,
+      "icode": "",
+      "resname": "LYS",
+      "status": "observed"
+     },
+     "alphaC_Glu": {
+      "reference_index": 89,
+      "reference_aa": "E",
+      "resid": 89,
+      "icode": "",
+      "resname": "GLU",
+      "status": "observed"
+     },
+     "alphaC_Glu_plus4": {
+      "reference_index": 93,
+      "reference_aa": "L",
+      "resid": 93,
+      "icode": "",
+      "resname": "LEU",
+      "status": "observed"
+     },
+     "XHRD": {
+      "reference_index": 164,
+      "reference_aa": "L",
+      "resid": 164,
+      "icode": "",
+      "resname": "LEU",
+      "status": "observed"
+     },
+     "XDFG_minus1": {
+      "reference_index": 184,
+      "reference_aa": "L",
+      "resid": 184,
+      "icode": "",
+      "resname": "LEU",
+      "status": "observed"
+     },
+     "XDFG": {
+      "reference_index": 185,
+      "reference_aa": "I",
+      "resid": 185,
+      "icode": "",
+      "resname": "ILE",
+      "status": "observed"
+     },
+     "DFG_Asp": {
+      "reference_index": 186,
+      "reference_aa": "D",
+      "resid": 186,
+      "icode": "",
+      "resname": "ASP",
+      "status": "observed"
+     },
+     "DFG_Phe": {
+      "reference_index": 187,
+      "reference_aa": "F",
+      "resid": 187,
+      "icode": "",
+      "resname": "PHE",
+      "status": "observed"
+     },
+     "DFG_Gly": {
+      "reference_index": 188,
+      "reference_aa": "G",
+      "resid": 188,
+      "icode": "",
+      "resname": "GLY",
+      "status": "observed"
+     },
+     "DFGxxX": {
+      "reference_index": 191,
+      "reference_aa": "A",
+      "resid": 191,
+      "icode": "",
+      "resname": "ALA",
+      "status": "observed"
+     }
+    },
+    "n_ambiguity_checks": 13,
+    "all_unique": true,
+    "alignment": {
+     "identity": 1.0,
+     "aligned_pairs": 271,
+     "n_variants": null
+    },
+    "variants_in_chain": null
+   },
+   "6L17": {
+    "accepted": true,
+    "problems": [],
+    "anchor_checks": {
+     "DFG_Asp": {
+      "window_reference_index": [
+       168,
+       290
+      ],
+      "hits_reference_index": [
+       186
+      ],
+      "reference_index": 186,
+      "expected": "D-F-G",
+      "found": "DFG",
+      "passed": true
+     },
+     "beta3_Lys": {
+      "reference_index": 67,
+      "expected": "K",
+      "found": "K",
+      "passed": true
+     },
+     "alphaC_Glu": {
+      "reference_index": 89,
+      "expected": "E",
+      "found": "E",
+      "passed": true
+     },
+     "HRD_H": {
+      "reference_index": 165,
+      "expected": "H/Y-R-D",
+      "found": "HRD",
+      "passed": true
+     }
+    },
+    "anchor_order": {
+     "expected": "beta3_Lys < alphaC_Glu < HRD_H < DFG_Asp",
+     "passed": true
+    },
+    "roles": {
+     "beta3_Lys": {
+      "reference_index": 67,
+      "reference_aa": "K",
+      "resid": 67,
+      "icode": "",
+      "resname": "LYS",
+      "status": "observed"
+     },
+     "alphaC_Glu": {
+      "reference_index": 89,
+      "reference_aa": "E",
+      "resid": 89,
+      "icode": "",
+      "resname": "GLU",
+      "status": "observed"
+     },
+     "alphaC_Glu_plus4": {
+      "reference_index": 93,
+      "reference_aa": "L",
+      "resid": 93,
+      "icode": "",
+      "resname": "LEU",
+      "status": "observed"
+     },
+     "XHRD": {
+      "reference_index": 164,
+      "reference_aa": "L",
+      "resid": 164,
+      "icode": "",
+      "resname": "LEU",
+      "status": "observed"
+     },
+     "XDFG_minus1": {
+      "reference_index": 184,
+      "reference_aa": "L",
+      "resid": 184,
+      "icode": "",
+      "resname": "LEU",
+      "status": "observed"
+     },
+     "XDFG": {
+      "reference_index": 185,
+      "reference_aa": "I",
+      "resid": 185,
+      "icode": "",
+      "resname": "ILE",
+      "status": "observed"
+     },
+     "DFG_Asp": {
+      "reference_index": 186,
+      "reference_aa": "D",
+      "resid": 186,
+      "icode": "",
+      "resname": "ASP",
+      "status": "observed"
+     },
+     "DFG_Phe": {
+      "reference_index": 187,
+      "reference_aa": "F",
+      "resid": 187,
+      "icode": "",
+      "resname": "PHE",
+      "status": "observed"
+     },
+     "DFG_Gly": {
+      "reference_index": 188,
+      "reference_aa": "G",
+      "resid": 188,
+      "icode": "",
+      "resname": "GLY",
+      "status": "observed"
+     },
+     "DFGxxX": {
+      "reference_index": 191,
+      "reference_aa": "A",
+      "resid": 191,
+      "icode": "",
+      "resname": "ALA",
+      "status": "observed"
+     }
+    },
+    "n_ambiguity_checks": 13,
+    "all_unique": true,
+    "alignment": {
+     "identity": 1.0,
+     "aligned_pairs": 273,
+     "n_variants": null
+    },
+    "variants_in_chain": null
+   }
+  },
+  "all_accepted": true
+ },
+ "landmarks_verified": [
+  {
+   "name": "UniProt protein kinase domain",
+   "start": 38,
+   "end": 290,
+   "source": "UniProt P11309 feature (PROSITE PRU00159)",
+   "kind": "range"
+  },
+  {
+   "name": "active site Asp (UniProt, proton acceptor); HRD Asp",
+   "start": 167,
+   "end": 167,
+   "source": "UniProt active site; helper checks HRD at 165-167",
+   "kind": "point"
+  },
+  {
+   "name": "beta3 Lys (UniProt ATP binding site)",
+   "start": 67,
+   "end": 67,
+   "source": "UniProt binding site; helper anchor",
+   "kind": "point"
+  },
+  {
+   "name": "alpha-C Glu anchor",
+   "start": 89,
+   "end": 89,
+   "source": "contact rule (4 structures) + helper motif check",
+   "kind": "point"
+  },
+  {
+   "name": "DFG Asp anchor (motif DFG)",
+   "start": 186,
+   "end": 186,
+   "source": "unique DFG in UniProt-bounded window; helper",
+   "kind": "point"
+  }
+ ],
+ "unverified": [
+  "activation loop extent",
+  "N-lobe/C-lobe boundary",
+  "conventional names of the helices after the DFG anchor",
+  "boundaries of every secondary-structure element beyond the deposited records",
+  "any functional role of residue 261 (UniProt lists it as a phosphoserine modified residue; the annotation is not evidence of a state here)"
+ ],
+ "pairs": {
+  "PIM1-1": {
+   "entries": [
+    "8R0Q",
+    "6NO9"
+   ],
+   "n_new_windows": {
+    "3": 3,
+    "4": 4
+   },
+   "new_windows": [
+    {
+     "window_residues": "3",
+     "position_index": 221,
+     "residues": [
+      {
+       "A": "A:259",
+       "B": "A:259",
+       "reference_index_A": 259,
+       "reference_index_B": 259,
+       "A_resname": "VAL",
+       "B_resname": "VAL",
+       "A_modification": null,
+       "B_modification": null,
+       "deposited_ss_A": "no deposited helix or strand",
+       "deposited_ss_B": "no deposited helix or strand"
+      },
+      {
+       "A": "A:260",
+       "B": "A:260",
+       "reference_index_A": 260,
+       "reference_index_B": 260,
+       "A_resname": "SER",
+       "B_resname": "SER",
+       "A_modification": null,
+       "B_modification": null,
+       "deposited_ss_A": "helix AB2",
+       "deposited_ss_B": "helix AB1"
+      },
+      {
+       "A": "A:261",
+       "B": "A:261",
+       "reference_index_A": 261,
+       "reference_index_B": 261,
+       "A_resname": "SEP",
+       "B_resname": "SER",
+       "A_modification": "SEP; parent SER (MODRES record, policy table); annotation: MODIFIED RESIDUE; record HETATM",
+       "B_modification": null,
+       "deposited_ss_A": "helix AB2",
+       "deposited_ss_B": "helix AB1"
+      }
+     ],
+     "reference_indices": [
+      259,
+      260,
+      261
+     ],
+     "same_reference_index_in_both": true,
+     "inside_uniprot_kinase_domain": true,
+     "relative_to_dfg_anchor": "C-terminal to the DFG anchor (reference 186); offsets [73, 74, 75]",
+     "values": {
+      "d_kappa": 0.0018311156544377205,
+      "d_i_i2": 0.016477850248071135,
+      "rmsd3": 0.008446569390227478
+     },
+     "units": {
+      "d_kappa": "rad",
+      "d_i_i2": "angstrom",
+      "rmsd3": "angstrom"
+     },
+     "ranks_in_new_run_of_windows_with_values": {
+      "d_kappa": {
+       "rank": 245,
+       "of": 263
+      },
+      "d_i_i2": {
+       "rank": 208,
+       "of": 263
+      },
+      "rmsd3": {
+       "rank": 224,
+       "of": 263
+      }
+     },
+     "name_difference_flag": true,
+     "contains_modified_residue": true,
+     "in_a_top10_of_any_metric": false
+    },
+    {
+     "window_residues": "3",
+     "position_index": 222,
+     "residues": [
+      {
+       "A": "A:260",
+       "B": "A:260",
+       "reference_index_A": 260,
+       "reference_index_B": 260,
+       "A_resname": "SER",
+       "B_resname": "SER",
+       "A_modification": null,
+       "B_modification": null,
+       "deposited_ss_A": "helix AB2",
+       "deposited_ss_B": "helix AB1"
+      },
+      {
+       "A": "A:261",
+       "B": "A:261",
+       "reference_index_A": 261,
+       "reference_index_B": 261,
+       "A_resname": "SEP",
+       "B_resname": "SER",
+       "A_modification": "SEP; parent SER (MODRES record, policy table); annotation: MODIFIED RESIDUE; record HETATM",
+       "B_modification": null,
+       "deposited_ss_A": "helix AB2",
+       "deposited_ss_B": "helix AB1"
+      },
+      {
+       "A": "A:262",
+       "B": "A:262",
+       "reference_index_A": 262,
+       "reference_index_B": 262,
+       "A_resname": "GLU",
+       "B_resname": "GLU",
+       "A_modification": null,
+       "B_modification": null,
+       "deposited_ss_A": "helix AB2",
+       "deposited_ss_B": "helix AB1"
+      }
+     ],
+     "reference_indices": [
+      260,
+      261,
+      262
+     ],
+     "same_reference_index_in_both": true,
+     "inside_uniprot_kinase_domain": true,
+     "relative_to_dfg_anchor": "C-terminal to the DFG anchor (reference 186); offsets [74, 75, 76]",
+     "values": {
+      "d_kappa": 0.008373693079028577,
+      "d_i_i2": 0.027141297161885625,
+      "rmsd3": 0.011955345960612573
+     },
+     "units": {
+      "d_kappa": "rad",
+      "d_i_i2": "angstrom",
+      "rmsd3": "angstrom"
+     },
+     "ranks_in_new_run_of_windows_with_values": {
+      "d_kappa": {
+       "rank": 200,
+       "of": 263
+      },
+      "d_i_i2": {
+       "rank": 165,
+       "of": 263
+      },
+      "rmsd3": {
+       "rank": 189,
+       "of": 263
+      }
+     },
+     "name_difference_flag": true,
+     "contains_modified_residue": true,
+     "in_a_top10_of_any_metric": false
+    },
+    {
+     "window_residues": "3",
+     "position_index": 223,
+     "residues": [
+      {
+       "A": "A:261",
+       "B": "A:261",
+       "reference_index_A": 261,
+       "reference_index_B": 261,
+       "A_resname": "SEP",
+       "B_resname": "SER",
+       "A_modification": "SEP; parent SER (MODRES record, policy table); annotation: MODIFIED RESIDUE; record HETATM",
+       "B_modification": null,
+       "deposited_ss_A": "helix AB2",
+       "deposited_ss_B": "helix AB1"
+      },
+      {
+       "A": "A:262",
+       "B": "A:262",
+       "reference_index_A": 262,
+       "reference_index_B": 262,
+       "A_resname": "GLU",
+       "B_resname": "GLU",
+       "A_modification": null,
+       "B_modification": null,
+       "deposited_ss_A": "helix AB2",
+       "deposited_ss_B": "helix AB1"
+      },
+      {
+       "A": "A:263",
+       "B": "A:263",
+       "reference_index_A": 263,
+       "reference_index_B": 263,
+       "A_resname": "CYS",
+       "B_resname": "CYS",
+       "A_modification": null,
+       "B_modification": null,
+       "deposited_ss_A": "helix AB2",
+       "deposited_ss_B": "helix AB1"
+      }
+     ],
+     "reference_indices": [
+      261,
+      262,
+      263
+     ],
+     "same_reference_index_in_both": true,
+     "inside_uniprot_kinase_domain": true,
+     "relative_to_dfg_anchor": "C-terminal to the DFG anchor (reference 186); offsets [75, 76, 77]",
+     "values": {
+      "d_kappa": 0.006587962809643466,
+      "d_i_i2": 0.002379315736146914,
+      "rmsd3": 0.009985592423626462
+     },
+     "units": {
+      "d_kappa": "rad",
+      "d_i_i2": "angstrom",
+      "rmsd3": "angstrom"
+     },
+     "ranks_in_new_run_of_windows_with_values": {
+      "d_kappa": {
+       "rank": 210,
+       "of": 263
+      },
+      "d_i_i2": {
+       "rank": 260,
+       "of": 263
+      },
+      "rmsd3": {
+       "rank": 209,
+       "of": 263
+      }
+     },
+     "name_difference_flag": true,
+     "contains_modified_residue": true,
+     "in_a_top10_of_any_metric": false
+    },
+    {
+     "window_residues": "4",
+     "position_index": 220,
+     "residues": [
+      {
+       "A": "A:258",
+       "B": "A:258",
+       "reference_index_A": 258,
+       "reference_index_B": 258,
+       "A_resname": "ARG",
+       "B_resname": "ARG",
+       "A_modification": null,
+       "B_modification": null,
+       "deposited_ss_A": "no deposited helix or strand",
+       "deposited_ss_B": "no deposited helix or strand"
+      },
+      {
+       "A": "A:259",
+       "B": "A:259",
+       "reference_index_A": 259,
+       "reference_index_B": 259,
+       "A_resname": "VAL",
+       "B_resname": "VAL",
+       "A_modification": null,
+       "B_modification": null,
+       "deposited_ss_A": "no deposited helix or strand",
+       "deposited_ss_B": "no deposited helix or strand"
+      },
+      {
+       "A": "A:260",
+       "B": "A:260",
+       "reference_index_A": 260,
+       "reference_index_B": 260,
+       "A_resname": "SER",
+       "B_resname": "SER",
+       "A_modification": null,
+       "B_modification": null,
+       "deposited_ss_A": "helix AB2",
+       "deposited_ss_B": "helix AB1"
+      },
+      {
+       "A": "A:261",
+       "B": "A:261",
+       "reference_index_A": 261,
+       "reference_index_B": 261,
+       "A_resname": "SEP",
+       "B_resname": "SER",
+       "A_modification": "SEP; parent SER (MODRES record, policy table); annotation: MODIFIED RESIDUE; record HETATM",
+       "B_modification": null,
+       "deposited_ss_A": "helix AB2",
+       "deposited_ss_B": "helix AB1"
+      }
+     ],
+     "reference_indices": [
+      258,
+      259,
+      260,
+      261
+     ],
+     "same_reference_index_in_both": true,
+     "inside_uniprot_kinase_domain": true,
+     "relative_to_dfg_anchor": "C-terminal to the DFG anchor (reference 186); offsets [72, 73, 74, 75]",
+     "values": {
+      "d_tau": 0.003005777129668541,
+      "d_i_i3": 0.0066455439696628815,
+      "rmsd4": 0.012207865098213318
+     },
+     "units": {
+      "d_tau": "rad",
+      "d_i_i3": "angstrom",
+      "rmsd4": "angstrom"
+     },
+     "ranks_in_new_run_of_windows_with_values": {
+      "d_tau": {
+       "rank": 241,
+       "of": 261
+      },
+      "d_i_i3": {
+       "rank": 235,
+       "of": 261
+      },
+      "rmsd4": {
+       "rank": 255,
+       "of": 261
+      }
+     },
+     "name_difference_flag": true,
+     "contains_modified_residue": true,
+     "in_a_top10_of_any_metric": false
+    },
+    {
+     "window_residues": "4",
+     "position_index": 221,
+     "residues": [
+      {
+       "A": "A:259",
+       "B": "A:259",
+       "reference_index_A": 259,
+       "reference_index_B": 259,
+       "A_resname": "VAL",
+       "B_resname": "VAL",
+       "A_modification": null,
+       "B_modification": null,
+       "deposited_ss_A": "no deposited helix or strand",
+       "deposited_ss_B": "no deposited helix or strand"
+      },
+      {
+       "A": "A:260",
+       "B": "A:260",
+       "reference_index_A": 260,
+       "reference_index_B": 260,
+       "A_resname": "SER",
+       "B_resname": "SER",
+       "A_modification": null,
+       "B_modification": null,
+       "deposited_ss_A": "helix AB2",
+       "deposited_ss_B": "helix AB1"
+      },
+      {
+       "A": "A:261",
+       "B": "A:261",
+       "reference_index_A": 261,
+       "reference_index_B": 261,
+       "A_resname": "SEP",
+       "B_resname": "SER",
+       "A_modification": "SEP; parent SER (MODRES record, policy table); annotation: MODIFIED RESIDUE; record HETATM",
+       "B_modification": null,
+       "deposited_ss_A": "helix AB2",
+       "deposited_ss_B": "helix AB1"
+      },
+      {
+       "A": "A:262",
+       "B": "A:262",
+       "reference_index_A": 262,
+       "reference_index_B": 262,
+       "A_resname": "GLU",
+       "B_resname": "GLU",
+       "A_modification": null,
+       "B_modification": null,
+       "deposited_ss_A": "helix AB2",
+       "deposited_ss_B": "helix AB1"
+      }
+     ],
+     "reference_indices": [
+      259,
+      260,
+      261,
+      262
+     ],
+     "same_reference_index_in_both": true,
+     "inside_uniprot_kinase_domain": true,
+     "relative_to_dfg_anchor": "C-terminal to the DFG anchor (reference 186); offsets [73, 74, 75, 76]",
+     "values": {
+      "d_tau": 0.004394976266453465,
+      "d_i_i3": 0.04469953355580536,
+      "rmsd4": 0.017613567092210954
+     },
+     "units": {
+      "d_tau": "rad",
+      "d_i_i3": "angstrom",
+      "rmsd4": "angstrom"
+     },
+     "ranks_in_new_run_of_windows_with_values": {
+      "d_tau": {
+       "rank": 232,
+       "of": 261
+      },
+      "d_i_i3": {
+       "rank": 144,
+       "of": 261
+      },
+      "rmsd4": {
+       "rank": 240,
+       "of": 261
+      }
+     },
+     "name_difference_flag": true,
+     "contains_modified_residue": true,
+     "in_a_top10_of_any_metric": false
+    },
+    {
+     "window_residues": "4",
+     "position_index": 222,
+     "residues": [
+      {
+       "A": "A:260",
+       "B": "A:260",
+       "reference_index_A": 260,
+       "reference_index_B": 260,
+       "A_resname": "SER",
+       "B_resname": "SER",
+       "A_modification": null,
+       "B_modification": null,
+       "deposited_ss_A": "helix AB2",
+       "deposited_ss_B": "helix AB1"
+      },
+      {
+       "A": "A:261",
+       "B": "A:261",
+       "reference_index_A": 261,
+       "reference_index_B": 261,
+       "A_resname": "SEP",
+       "B_resname": "SER",
+       "A_modification": "SEP; parent SER (MODRES record, policy table); annotation: MODIFIED RESIDUE; record HETATM",
+       "B_modification": null,
+       "deposited_ss_A": "helix AB2",
+       "deposited_ss_B": "helix AB1"
+      },
+      {
+       "A": "A:262",
+       "B": "A:262",
+       "reference_index_A": 262,
+       "reference_index_B": 262,
+       "A_resname": "GLU",
+       "B_resname": "GLU",
+       "A_modification": null,
+       "B_modification": null,
+       "deposited_ss_A": "helix AB2",
+       "deposited_ss_B": "helix AB1"
+      },
+      {
+       "A": "A:263",
+       "B": "A:263",
+       "reference_index_A": 263,
+       "reference_index_B": 263,
+       "A_resname": "CYS",
+       "B_resname": "CYS",
+       "A_modification": null,
+       "B_modification": null,
+       "deposited_ss_A": "helix AB2",
+       "deposited_ss_B": "helix AB1"
+      }
+     ],
+     "reference_indices": [
+      260,
+      261,
+      262,
+      263
+     ],
+     "same_reference_index_in_both": true,
+     "inside_uniprot_kinase_domain": true,
+     "relative_to_dfg_anchor": "C-terminal to the DFG anchor (reference 186); offsets [74, 75, 76, 77]",
+     "values": {
+      "d_tau": 0.01843063120474675,
+      "d_i_i3": 0.001987185607052133,
+      "rmsd4": 0.020975325335287294
+     },
+     "units": {
+      "d_tau": "rad",
+      "d_i_i3": "angstrom",
+      "rmsd4": "angstrom"
+     },
+     "ranks_in_new_run_of_windows_with_values": {
+      "d_tau": {
+       "rank": 164,
+       "of": 261
+      },
+      "d_i_i3": {
+       "rank": 252,
+       "of": 261
+      },
+      "rmsd4": {
+       "rank": 223,
+       "of": 261
+      }
+     },
+     "name_difference_flag": true,
+     "contains_modified_residue": true,
+     "in_a_top10_of_any_metric": false
+    },
+    {
+     "window_residues": "4",
+     "position_index": 223,
+     "residues": [
+      {
+       "A": "A:261",
+       "B": "A:261",
+       "reference_index_A": 261,
+       "reference_index_B": 261,
+       "A_resname": "SEP",
+       "B_resname": "SER",
+       "A_modification": "SEP; parent SER (MODRES record, policy table); annotation: MODIFIED RESIDUE; record HETATM",
+       "B_modification": null,
+       "deposited_ss_A": "helix AB2",
+       "deposited_ss_B": "helix AB1"
+      },
+      {
+       "A": "A:262",
+       "B": "A:262",
+       "reference_index_A": 262,
+       "reference_index_B": 262,
+       "A_resname": "GLU",
+       "B_resname": "GLU",
+       "A_modification": null,
+       "B_modification": null,
+       "deposited_ss_A": "helix AB2",
+       "deposited_ss_B": "helix AB1"
+      },
+      {
+       "A": "A:263",
+       "B": "A:263",
+       "reference_index_A": 263,
+       "reference_index_B": 263,
+       "A_resname": "CYS",
+       "B_resname": "CYS",
+       "A_modification": null,
+       "B_modification": null,
+       "deposited_ss_A": "helix AB2",
+       "deposited_ss_B": "helix AB1"
+      },
+      {
+       "A": "A:264",
+       "B": "A:264",
+       "reference_index_A": 264,
+       "reference_index_B": 264,
+       "A_resname": "GLN",
+       "B_resname": "GLN",
+       "A_modification": null,
+       "B_modification": null,
+       "deposited_ss_A": "helix AB2",
+       "deposited_ss_B": "helix AB1"
+      }
+     ],
+     "reference_indices": [
+      261,
+      262,
+      263,
+      264
+     ],
+     "same_reference_index_in_both": true,
+     "inside_uniprot_kinase_domain": true,
+     "relative_to_dfg_anchor": "C-terminal to the DFG anchor (reference 186); offsets [75, 76, 77, 78]",
+     "values": {
+      "d_tau": 0.02010059070348802,
+      "d_i_i3": 0.014544164942311255,
+      "rmsd4": 0.023268391518750667
+     },
+     "units": {
+      "d_tau": "rad",
+      "d_i_i3": "angstrom",
+      "rmsd4": "angstrom"
+     },
+     "ranks_in_new_run_of_windows_with_values": {
+      "d_tau": {
+       "rank": 155,
+       "of": 261
+      },
+      "d_i_i3": {
+       "rank": 216,
+       "of": 261
+      },
+      "rmsd4": {
+       "rank": 212,
+       "of": 261
+      }
+     },
+     "name_difference_flag": true,
+     "contains_modified_residue": true,
+     "in_a_top10_of_any_metric": false
+    }
+   ],
+   "descriptive": {
+    "recorded_in_KIN-PAIR-1": {
+     "3": {
+      "class": "redundant",
+      "overlap_O": 9,
+      "n_valid": 260
+     },
+     "4": {
+      "class": "complementary",
+      "overlap_O": 6,
+      "n_valid": 257
+     }
+    },
+    "reapplied_to_old_numeric_record": {
+     "3": {
+      "class": "redundant",
+      "overlap_O": 9,
+      "n_valid": 260
+     },
+     "4": {
+      "class": "complementary",
+      "overlap_O": 6,
+      "n_valid": 257
+     }
+    },
+    "reapplied_to_new_numeric_record": {
+     "3": {
+      "class": "redundant",
+      "overlap_O": 9,
+      "n_valid": 263
+     },
+     "4": {
+      "class": "complementary",
+      "overlap_O": 6,
+      "n_valid": 261
+     }
+    },
+    "old_reapplication_reproduces_recorded": true,
+    "classification_changed_by_the_added_windows": false,
+    "top10_old_still_in_top10_and_no_new_entrant": true,
+    "not_recomputed": "maximum trimmed-fit displacement and its location; global RMSD changed only by the refit with one more position (recorded in the phospho replay)"
+   }
+  },
+  "PIM1-2": {
+   "entries": [
+    "6VRV",
+    "6L17"
+   ],
+   "n_new_windows": {
+    "3": 3,
+    "4": 4
+   },
+   "new_windows": [
+    {
+     "window_residues": "3",
+     "position_index": 225,
+     "residues": [
+      {
+       "A": "A:259",
+       "B": "A:259",
+       "reference_index_A": 259,
+       "reference_index_B": 259,
+       "A_resname": "VAL",
+       "B_resname": "VAL",
+       "A_modification": null,
+       "B_modification": null,
+       "deposited_ss_A": "no deposited helix or strand",
+       "deposited_ss_B": "no deposited helix or strand"
+      },
+      {
+       "A": "A:260",
+       "B": "A:260",
+       "reference_index_A": 260,
+       "reference_index_B": 260,
+       "A_resname": "SER",
+       "B_resname": "SER",
+       "A_modification": null,
+       "B_modification": null,
+       "deposited_ss_A": "helix AB1",
+       "deposited_ss_B": "helix AB2"
+      },
+      {
+       "A": "A:261",
+       "B": "A:261",
+       "reference_index_A": 261,
+       "reference_index_B": 261,
+       "A_resname": "SER",
+       "B_resname": "SEP",
+       "A_modification": null,
+       "B_modification": "SEP; parent SER (MODRES record, policy table); annotation: MODIFIED RESIDUE; record HETATM",
+       "deposited_ss_A": "helix AB1",
+       "deposited_ss_B": "helix AB2"
+      }
+     ],
+     "reference_indices": [
+      259,
+      260,
+      261
+     ],
+     "same_reference_index_in_both": true,
+     "inside_uniprot_kinase_domain": true,
+     "relative_to_dfg_anchor": "C-terminal to the DFG anchor (reference 186); offsets [73, 74, 75]",
+     "values": {
+      "d_kappa": 0.009237482197559599,
+      "d_i_i2": 0.023648508448579797,
+      "rmsd3": 0.014369841278983423
+     },
+     "units": {
+      "d_kappa": "rad",
+      "d_i_i2": "angstrom",
+      "rmsd3": "angstrom"
+     },
+     "ranks_in_new_run_of_windows_with_values": {
+      "d_kappa": {
+       "rank": 209,
+       "of": 269
+      },
+      "d_i_i2": {
+       "rank": 199,
+       "of": 269
+      },
+      "rmsd3": {
+       "rank": 248,
+       "of": 269
+      }
+     },
+     "name_difference_flag": true,
+     "contains_modified_residue": true,
+     "in_a_top10_of_any_metric": false
+    },
+    {
+     "window_residues": "3",
+     "position_index": 226,
+     "residues": [
+      {
+       "A": "A:260",
+       "B": "A:260",
+       "reference_index_A": 260,
+       "reference_index_B": 260,
+       "A_resname": "SER",
+       "B_resname": "SER",
+       "A_modification": null,
+       "B_modification": null,
+       "deposited_ss_A": "helix AB1",
+       "deposited_ss_B": "helix AB2"
+      },
+      {
+       "A": "A:261",
+       "B": "A:261",
+       "reference_index_A": 261,
+       "reference_index_B": 261,
+       "A_resname": "SER",
+       "B_resname": "SEP",
+       "A_modification": null,
+       "B_modification": "SEP; parent SER (MODRES record, policy table); annotation: MODIFIED RESIDUE; record HETATM",
+       "deposited_ss_A": "helix AB1",
+       "deposited_ss_B": "helix AB2"
+      },
+      {
+       "A": "A:262",
+       "B": "A:262",
+       "reference_index_A": 262,
+       "reference_index_B": 262,
+       "A_resname": "GLU",
+       "B_resname": "GLU",
+       "A_modification": null,
+       "B_modification": null,
+       "deposited_ss_A": "helix AB1",
+       "deposited_ss_B": "helix AB2"
+      }
+     ],
+     "reference_indices": [
+      260,
+      261,
+      262
+     ],
+     "same_reference_index_in_both": true,
+     "inside_uniprot_kinase_domain": true,
+     "relative_to_dfg_anchor": "C-terminal to the DFG anchor (reference 186); offsets [74, 75, 76]",
+     "values": {
+      "d_kappa": 0.024880553735582733,
+      "d_i_i2": 0.05853133530633947,
+      "rmsd3": 0.03093462320778134
+     },
+     "units": {
+      "d_kappa": "rad",
+      "d_i_i2": "angstrom",
+      "rmsd3": "angstrom"
+     },
+     "ranks_in_new_run_of_windows_with_values": {
+      "d_kappa": {
+       "rank": 103,
+       "of": 269
+      },
+      "d_i_i2": {
+       "rank": 103,
+       "of": 269
+      },
+      "rmsd3": {
+       "rank": 150,
+       "of": 269
+      }
+     },
+     "name_difference_flag": true,
+     "contains_modified_residue": true,
+     "in_a_top10_of_any_metric": false
+    },
+    {
+     "window_residues": "3",
+     "position_index": 227,
+     "residues": [
+      {
+       "A": "A:261",
+       "B": "A:261",
+       "reference_index_A": 261,
+       "reference_index_B": 261,
+       "A_resname": "SER",
+       "B_resname": "SEP",
+       "A_modification": null,
+       "B_modification": "SEP; parent SER (MODRES record, policy table); annotation: MODIFIED RESIDUE; record HETATM",
+       "deposited_ss_A": "helix AB1",
+       "deposited_ss_B": "helix AB2"
+      },
+      {
+       "A": "A:262",
+       "B": "A:262",
+       "reference_index_A": 262,
+       "reference_index_B": 262,
+       "A_resname": "GLU",
+       "B_resname": "GLU",
+       "A_modification": null,
+       "B_modification": null,
+       "deposited_ss_A": "helix AB1",
+       "deposited_ss_B": "helix AB2"
+      },
+      {
+       "A": "A:263",
+       "B": "A:263",
+       "reference_index_A": 263,
+       "reference_index_B": 263,
+       "A_resname": "CYS",
+       "B_resname": "CYS",
+       "A_modification": null,
+       "B_modification": null,
+       "deposited_ss_A": "helix AB1",
+       "deposited_ss_B": "helix AB2"
+      }
+     ],
+     "reference_indices": [
+      261,
+      262,
+      263
+     ],
+     "same_reference_index_in_both": true,
+     "inside_uniprot_kinase_domain": true,
+     "relative_to_dfg_anchor": "C-terminal to the DFG anchor (reference 186); offsets [75, 76, 77]",
+     "values": {
+      "d_kappa": 0.05220772404818064,
+      "d_i_i2": 0.11878868070495496,
+      "rmsd3": 0.06183416416965019
+     },
+     "units": {
+      "d_kappa": "rad",
+      "d_i_i2": "angstrom",
+      "rmsd3": "angstrom"
+     },
+     "ranks_in_new_run_of_windows_with_values": {
+      "d_kappa": {
+       "rank": 43,
+       "of": 269
+      },
+      "d_i_i2": {
+       "rank": 39,
+       "of": 269
+      },
+      "rmsd3": {
+       "rank": 42,
+       "of": 269
+      }
+     },
+     "name_difference_flag": true,
+     "contains_modified_residue": true,
+     "in_a_top10_of_any_metric": false
+    },
+    {
+     "window_residues": "4",
+     "position_index": 224,
+     "residues": [
+      {
+       "A": "A:258",
+       "B": "A:258",
+       "reference_index_A": 258,
+       "reference_index_B": 258,
+       "A_resname": "ARG",
+       "B_resname": "ARG",
+       "A_modification": null,
+       "B_modification": null,
+       "deposited_ss_A": "no deposited helix or strand",
+       "deposited_ss_B": "no deposited helix or strand"
+      },
+      {
+       "A": "A:259",
+       "B": "A:259",
+       "reference_index_A": 259,
+       "reference_index_B": 259,
+       "A_resname": "VAL",
+       "B_resname": "VAL",
+       "A_modification": null,
+       "B_modification": null,
+       "deposited_ss_A": "no deposited helix or strand",
+       "deposited_ss_B": "no deposited helix or strand"
+      },
+      {
+       "A": "A:260",
+       "B": "A:260",
+       "reference_index_A": 260,
+       "reference_index_B": 260,
+       "A_resname": "SER",
+       "B_resname": "SER",
+       "A_modification": null,
+       "B_modification": null,
+       "deposited_ss_A": "helix AB1",
+       "deposited_ss_B": "helix AB2"
+      },
+      {
+       "A": "A:261",
+       "B": "A:261",
+       "reference_index_A": 261,
+       "reference_index_B": 261,
+       "A_resname": "SER",
+       "B_resname": "SEP",
+       "A_modification": null,
+       "B_modification": "SEP; parent SER (MODRES record, policy table); annotation: MODIFIED RESIDUE; record HETATM",
+       "deposited_ss_A": "helix AB1",
+       "deposited_ss_B": "helix AB2"
+      }
+     ],
+     "reference_indices": [
+      258,
+      259,
+      260,
+      261
+     ],
+     "same_reference_index_in_both": true,
+     "inside_uniprot_kinase_domain": true,
+     "relative_to_dfg_anchor": "C-terminal to the DFG anchor (reference 186); offsets [72, 73, 74, 75]",
+     "values": {
+      "d_tau": 0.018409744027894744,
+      "d_i_i3": 0.009816922845811149,
+      "rmsd4": 0.0182937096102666
+     },
+     "units": {
+      "d_tau": "rad",
+      "d_i_i3": "angstrom",
+      "rmsd4": "angstrom"
+     },
+     "ranks_in_new_run_of_windows_with_values": {
+      "d_tau": {
+       "rank": 176,
+       "of": 268
+      },
+      "d_i_i3": {
+       "rank": 247,
+       "of": 268
+      },
+      "rmsd4": {
+       "rank": 267,
+       "of": 268
+      }
+     },
+     "name_difference_flag": true,
+     "contains_modified_residue": true,
+     "in_a_top10_of_any_metric": false
+    },
+    {
+     "window_residues": "4",
+     "position_index": 225,
+     "residues": [
+      {
+       "A": "A:259",
+       "B": "A:259",
+       "reference_index_A": 259,
+       "reference_index_B": 259,
+       "A_resname": "VAL",
+       "B_resname": "VAL",
+       "A_modification": null,
+       "B_modification": null,
+       "deposited_ss_A": "no deposited helix or strand",
+       "deposited_ss_B": "no deposited helix or strand"
+      },
+      {
+       "A": "A:260",
+       "B": "A:260",
+       "reference_index_A": 260,
+       "reference_index_B": 260,
+       "A_resname": "SER",
+       "B_resname": "SER",
+       "A_modification": null,
+       "B_modification": null,
+       "deposited_ss_A": "helix AB1",
+       "deposited_ss_B": "helix AB2"
+      },
+      {
+       "A": "A:261",
+       "B": "A:261",
+       "reference_index_A": 261,
+       "reference_index_B": 261,
+       "A_resname": "SER",
+       "B_resname": "SEP",
+       "A_modification": null,
+       "B_modification": "SEP; parent SER (MODRES record, policy table); annotation: MODIFIED RESIDUE; record HETATM",
+       "deposited_ss_A": "helix AB1",
+       "deposited_ss_B": "helix AB2"
+      },
+      {
+       "A": "A:262",
+       "B": "A:262",
+       "reference_index_A": 262,
+       "reference_index_B": 262,
+       "A_resname": "GLU",
+       "B_resname": "GLU",
+       "A_modification": null,
+       "B_modification": null,
+       "deposited_ss_A": "helix AB1",
+       "deposited_ss_B": "helix AB2"
+      }
+     ],
+     "reference_indices": [
+      259,
+      260,
+      261,
+      262
+     ],
+     "same_reference_index_in_both": true,
+     "inside_uniprot_kinase_domain": true,
+     "relative_to_dfg_anchor": "C-terminal to the DFG anchor (reference 186); offsets [73, 74, 75, 76]",
+     "values": {
+      "d_tau": 0.01382656796388204,
+      "d_i_i3": 0.038700471862052055,
+      "rmsd4": 0.03044954344197655
+     },
+     "units": {
+      "d_tau": "rad",
+      "d_i_i3": "angstrom",
+      "rmsd4": "angstrom"
+     },
+     "ranks_in_new_run_of_windows_with_values": {
+      "d_tau": {
+       "rank": 195,
+       "of": 268
+      },
+      "d_i_i3": {
+       "rank": 155,
+       "of": 268
+      },
+      "rmsd4": {
+       "rank": 242,
+       "of": 268
+      }
+     },
+     "name_difference_flag": true,
+     "contains_modified_residue": true,
+     "in_a_top10_of_any_metric": false
+    },
+    {
+     "window_residues": "4",
+     "position_index": 226,
+     "residues": [
+      {
+       "A": "A:260",
+       "B": "A:260",
+       "reference_index_A": 260,
+       "reference_index_B": 260,
+       "A_resname": "SER",
+       "B_resname": "SER",
+       "A_modification": null,
+       "B_modification": null,
+       "deposited_ss_A": "helix AB1",
+       "deposited_ss_B": "helix AB2"
+      },
+      {
+       "A": "A:261",
+       "B": "A:261",
+       "reference_index_A": 261,
+       "reference_index_B": 261,
+       "A_resname": "SER",
+       "B_resname": "SEP",
+       "A_modification": null,
+       "B_modification": "SEP; parent SER (MODRES record, policy table); annotation: MODIFIED RESIDUE; record HETATM",
+       "deposited_ss_A": "helix AB1",
+       "deposited_ss_B": "helix AB2"
+      },
+      {
+       "A": "A:262",
+       "B": "A:262",
+       "reference_index_A": 262,
+       "reference_index_B": 262,
+       "A_resname": "GLU",
+       "B_resname": "GLU",
+       "A_modification": null,
+       "B_modification": null,
+       "deposited_ss_A": "helix AB1",
+       "deposited_ss_B": "helix AB2"
+      },
+      {
+       "A": "A:263",
+       "B": "A:263",
+       "reference_index_A": 263,
+       "reference_index_B": 263,
+       "A_resname": "CYS",
+       "B_resname": "CYS",
+       "A_modification": null,
+       "B_modification": null,
+       "deposited_ss_A": "helix AB1",
+       "deposited_ss_B": "helix AB2"
+      }
+     ],
+     "reference_indices": [
+      260,
+      261,
+      262,
+      263
+     ],
+     "same_reference_index_in_both": true,
+     "inside_uniprot_kinase_domain": true,
+     "relative_to_dfg_anchor": "C-terminal to the DFG anchor (reference 186); offsets [74, 75, 76, 77]",
+     "values": {
+      "d_tau": 0.043890289727930624,
+      "d_i_i3": 0.021686703957591646,
+      "rmsd4": 0.06308940960118532
+     },
+     "units": {
+      "d_tau": "rad",
+      "d_i_i3": "angstrom",
+      "rmsd4": "angstrom"
+     },
+     "ranks_in_new_run_of_windows_with_values": {
+      "d_tau": {
+       "rank": 93,
+       "of": 268
+      },
+      "d_i_i3": {
+       "rank": 205,
+       "of": 268
+      },
+      "rmsd4": {
+       "rank": 85,
+       "of": 268
+      }
+     },
+     "name_difference_flag": true,
+     "contains_modified_residue": true,
+     "in_a_top10_of_any_metric": false
+    },
+    {
+     "window_residues": "4",
+     "position_index": 227,
+     "residues": [
+      {
+       "A": "A:261",
+       "B": "A:261",
+       "reference_index_A": 261,
+       "reference_index_B": 261,
+       "A_resname": "SER",
+       "B_resname": "SEP",
+       "A_modification": null,
+       "B_modification": "SEP; parent SER (MODRES record, policy table); annotation: MODIFIED RESIDUE; record HETATM",
+       "deposited_ss_A": "helix AB1",
+       "deposited_ss_B": "helix AB2"
+      },
+      {
+       "A": "A:262",
+       "B": "A:262",
+       "reference_index_A": 262,
+       "reference_index_B": 262,
+       "A_resname": "GLU",
+       "B_resname": "GLU",
+       "A_modification": null,
+       "B_modification": null,
+       "deposited_ss_A": "helix AB1",
+       "deposited_ss_B": "helix AB2"
+      },
+      {
+       "A": "A:263",
+       "B": "A:263",
+       "reference_index_A": 263,
+       "reference_index_B": 263,
+       "A_resname": "CYS",
+       "B_resname": "CYS",
+       "A_modification": null,
+       "B_modification": null,
+       "deposited_ss_A": "helix AB1",
+       "deposited_ss_B": "helix AB2"
+      },
+      {
+       "A": "A:264",
+       "B": "A:264",
+       "reference_index_A": 264,
+       "reference_index_B": 264,
+       "A_resname": "GLN",
+       "B_resname": "GLN",
+       "A_modification": null,
+       "B_modification": null,
+       "deposited_ss_A": "helix AB1",
+       "deposited_ss_B": "helix AB2"
+      }
+     ],
+     "reference_indices": [
+      261,
+      262,
+      263,
+      264
+     ],
+     "same_reference_index_in_both": true,
+     "inside_uniprot_kinase_domain": true,
+     "relative_to_dfg_anchor": "C-terminal to the DFG anchor (reference 186); offsets [75, 76, 77, 78]",
+     "values": {
+      "d_tau": 0.023818166616382364,
+      "d_i_i3": 0.0583970118385313,
+      "rmsd4": 0.07211242313030941
+     },
+     "units": {
+      "d_tau": "rad",
+      "d_i_i3": "angstrom",
+      "rmsd4": "angstrom"
+     },
+     "ranks_in_new_run_of_windows_with_values": {
+      "d_tau": {
+       "rank": 145,
+       "of": 268
+      },
+      "d_i_i3": {
+       "rank": 110,
+       "of": 268
+      },
+      "rmsd4": {
+       "rank": 66,
+       "of": 268
+      }
+     },
+     "name_difference_flag": true,
+     "contains_modified_residue": true,
+     "in_a_top10_of_any_metric": false
+    }
+   ],
+   "descriptive": {
+    "recorded_in_KIN-PAIR-1": {
+     "3": {
+      "class": "redundant",
+      "overlap_O": 10,
+      "n_valid": 266
+     },
+     "4": {
+      "class": "redundant",
+      "overlap_O": 9,
+      "n_valid": 264
+     }
+    },
+    "reapplied_to_old_numeric_record": {
+     "3": {
+      "class": "redundant",
+      "overlap_O": 10,
+      "n_valid": 266
+     },
+     "4": {
+      "class": "redundant",
+      "overlap_O": 9,
+      "n_valid": 264
+     }
+    },
+    "reapplied_to_new_numeric_record": {
+     "3": {
+      "class": "redundant",
+      "overlap_O": 10,
+      "n_valid": 269
+     },
+     "4": {
+      "class": "redundant",
+      "overlap_O": 9,
+      "n_valid": 268
+     }
+    },
+    "old_reapplication_reproduces_recorded": true,
+    "classification_changed_by_the_added_windows": false,
+    "top10_old_still_in_top10_and_no_new_entrant": true,
+    "not_recomputed": "maximum trimmed-fit displacement and its location; global RMSD changed only by the refit with one more position (recorded in the phospho replay)"
+   }
+  }
+ }
+}
