@@ -37,6 +37,9 @@ def verify(result_dir) -> dict:
         actual = _sha256(path)
         checks.append({"kind": kind, "path": str(name), "status": "ok" if actual == expected else "mismatch",
                        "expected": expected, "actual": actual})
+    if (m.get("policies") or {}).get("numeric_record") and "numeric_record.json" not in m["outputs_sha256"]:
+        checks.append({"kind": "output", "path": "numeric_record.json", "status": "missing",
+                       "expected": "declared by policies.numeric_record but not listed with a hash", "actual": None})
     n_ok = sum(c["status"] == "ok" for c in checks)
     return {"result": str(d), "schema": m.get("schema"), "checks": checks, "n_checked": len(checks), "n_ok": n_ok,
             "n_mismatch": sum(c["status"] == "mismatch" for c in checks), "n_missing": sum(c["status"] == "missing" for c in checks),

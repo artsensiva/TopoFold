@@ -11,6 +11,7 @@ SPEC.json (relative paths are resolved against the directory of SPEC.json):
      "on_missing": "reject",            # or "exclude": absent residues are kept as missing rows and their windows excluded
      "resname_mismatch": "reject",      # or "flag": allowed (e.g. a point mutation), flagged in every table
      "altloc_sensitivity": "highest_occupancy",   # optional second altloc policy, applied to both structures
+     "numeric_record": true,            # optional: also write numeric_record.json, the computed values before six-figure display rounding
      "top_n": 10}
 
 Nothing is chosen for the user: every chain is named in the spec, with one primary chain per structure ("chain", or
@@ -39,10 +40,11 @@ from typing import Any
 import numpy as np
 
 from . import chain_variation as cv
+from . import numeric_record as nr
 from .compare import spearman, window_distances
 from .ensemble import _run, _sha256, exclusion_causes
 
-STRUCTPAIR_VERSION = "0.3.1"   # 0.3.1: an occupancy tie in the OPTIONAL altloc sensitivity is reported as unavailable, not fatal
+STRUCTPAIR_VERSION = "0.4.0"   # 0.4.0: opt-in numeric_record.json (full-precision window values); 0.3.1: an occupancy tie in the OPTIONAL altloc sensitivity is reported as unavailable, not fatal
 SCHEMA = "topofold_inputs.structpair/3"   # /2: 0.2.0 (advisory/1 semantics); /1: 0.1.0. Older records keep their meaning
 METRICS = ("d_kappa", "d_i_i2", "rmsd3", "d_tau", "d_i_i3", "rmsd4")
 FOUR = ("d_tau", "d_i_i3", "rmsd4")
@@ -156,6 +158,9 @@ def load_spec(path: Path) -> dict:
     spec.setdefault("resname_mismatch", "reject")
     spec.setdefault("altloc_sensitivity", None)
     spec.setdefault("top_n", 10)
+    spec.setdefault("numeric_record", False)
+    if not isinstance(spec["numeric_record"], bool):
+        raise SpecError("numeric_record must be true or false")
     try:
         spec["_variation"] = cv.parse_params(spec.get("chain_variation"))
     except cv.VariationError as e:
@@ -583,7 +588,9 @@ def report(spec: dict, summary: dict, manifest: dict, exclusions: list[dict], re
                  + f"; global RMSD {sens['global_rmsd_angstrom']:.3f} Å.")
     L += ["", "## Figure", "", "![structure pair](figure.png)" if manifest["figure"] == "written" else manifest["figure"],
           "", f"Files: `windows.csv` (all metrics with units in column names), `residues.csv`, `exclusions.csv`, "
-          f"`summary.json`, `manifest.json` (hashes and software). structpair {STRUCTPAIR_VERSION}.", ""]
+          f"`summary.json`, `manifest.json` (hashes and software)"
+          + (f", `{nr.FILE_NAME}` (computed values before display rounding)" if manifest["policies"].get("numeric_record") else "")
+          + f". structpair {STRUCTPAIR_VERSION}.", ""]
     return "\n".join(L)
 
 
@@ -647,6 +654,11 @@ def run(spec_path: Path, out: Path, adapter_python: str) -> dict:
     summary["metric_definitions"] = DESCRIPTION
     summary["units"] = {k: UNITS[k] for k in METRICS}
     summary["n_exclusion_rows"] = len(excl)
+    numeric = None
+    if spec["numeric_record"]:
+        numeric = nr.build(c, res_rows, excl, summary, UNITS, {"structpair_version": STRUCTPAIR_VERSION},
+                           {k: _sha256(spec["structures"][k]["path"]) for k in "AB"}, _sha256(spec_path))
+        (out / nr.FILE_NAME).write_text(nr.dumps(numeric))
     var = None
     var_fig = None
     if any(len(spec["structures"][k]["chains"]) > 1 for k in "AB"):
@@ -659,7 +671,8 @@ def run(spec_path: Path, out: Path, adapter_python: str) -> dict:
         summary["within_entry_variation"] = cv.unavailable_block()
     (out / "summary.json").write_text(json.dumps(summary, indent=1) + "\n")
     outputs = (["windows.csv", "residues.csv", "exclusions.csv", "summary.json"] + (["figure.png"] if fig_status == "written" else [])
-               + (["chain_variation.csv", "chains.csv"] if var else []) + (["chain_variation.png"] if var_fig == "written" else []))
+               + (["chain_variation.csv", "chains.csv"] if var else []) + (["chain_variation.png"] if var_fig == "written" else [])
+               + ([nr.FILE_NAME] if numeric else []))
     manifest = {
         "schema": SCHEMA, "name": spec.get("name"), "statement": LIMITS,
         "command": " ".join([Path(sys.executable).name, "-m", "topofold_inputs.structpair", *sys.argv[1:]]),
@@ -672,6 +685,7 @@ def run(spec_path: Path, out: Path, adapter_python: str) -> dict:
                            "pairs": [[f"{a[0]}{a[1]}", f"{b[0]}{b[1]}"] for a, b in spec["_pairs"]]},
         "policies": {"on_missing": spec["on_missing"], "resname_mismatch": spec["resname_mismatch"],
                      "altloc_sensitivity": spec["altloc_sensitivity"],
+                     "numeric_record": bool(numeric),
                      "altloc_sensitivity_outcome": ("not requested" if summary["altloc_sensitivity"] is None
                                                     else summary["altloc_sensitivity"]["status"]),
                      "chain_variation": spec["_variation"]},

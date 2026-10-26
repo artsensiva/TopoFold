@@ -1,0 +1,79 @@
+{
+ "id": "STRUCTPAIR-NUMERIC-RECORD-BTK2-REGRESSION-2026-10-26",
+ "note": "engineering regression; KIN-PAIR-1 is not reclassified",
+ "base": {
+  "verification_all_ok": true,
+  "record_equals_preformat_values_exactly": true,
+  "n_values": 3612,
+  "default_outputs_byte_identical_to_earlier_run": {
+   "windows.csv": true,
+   "residues.csv": true,
+   "exclusions.csv": true
+  }
+ },
+ "moved": {
+  "verification_all_ok": true,
+  "record_equals_preformat_values_exactly": true,
+  "n_values": 3612,
+  "default_outputs_byte_identical_to_earlier_run": {
+   "windows.csv": true,
+   "residues.csv": true,
+   "exclusions.csv": true
+  }
+ },
+ "worst_original_vs_transformed": {
+  "in_the_record": {
+   "difference": 1.686719670068726e-05,
+   "metric": "d_i_i2",
+   "position": 136
+  },
+  "in_the_csv": {
+   "difference": 0.0001000000000015433,
+   "metric": "d3_B",
+   "position": 19
+  }
+ },
+ "table_cells": [
+  {
+   "metric": "d3_B",
+   "position": 19,
+   "A_residue": "A:415",
+   "B_residue": "A:415",
+   "unit": "angstrom",
+   "base": {
+    "computed": 10.283958278114804,
+    "csv": "10.284",
+    "record": 10.283958278114804
+   },
+   "moved": {
+    "computed": 10.283949800914348,
+    "csv": "10.2839",
+    "record": 10.283949800914348
+   },
+   "difference_record": 8.47720045626943e-06,
+   "difference_csv": 0.0001000000000015433
+  },
+  {
+   "metric": "d_i_i2",
+   "position": 136,
+   "A_residue": "A:532",
+   "B_residue": "A:532",
+   "unit": "angstrom",
+   "base": {
+    "computed": 0.0659244483321455,
+    "csv": "0.0659244",
+    "record": 0.0659244483321455
+   },
+   "moved": {
+    "computed": 0.06594131552884619,
+    "csv": "0.0659413",
+    "record": 0.06594131552884619
+   },
+   "difference_record": 1.686719670068726e-05,
+   "difference_csv": 1.6900000000000248e-05
+  }
+ ],
+ "independent_float64_from_text_max_deviation_earlier_diagnosis": 2.4868995751603507e-14,
+ "float32_spacing_at_largest_transformed_coordinate": 1.52587890625e-05,
+ "interpretation": "the record preserves the computed values exactly; the remaining original-vs-transformed difference is the float32 coordinate step of the adapter, which the record does not remove"
+}

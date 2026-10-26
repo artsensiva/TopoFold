@@ -108,7 +108,8 @@ streamlit run apps/structpair_viewer/app.py --server.address localhost -- --resu
  "correspondence": {"same_numbering": "5-120,125-180"},
  "on_missing": "reject",
  "resname_mismatch": "reject",
- "altloc_sensitivity": "highest_occupancy"}
+ "altloc_sensitivity": "highest_occupancy",
+ "numeric_record": true}
 ```
 
 - **Paths:** relative paths are resolved against the spec file's directory.
@@ -135,6 +136,18 @@ streamlit run apps/structpair_viewer/app.py --server.address localhost -- --resu
   - A tie under the **primary** `altloc: highest_occupancy` is still an explicit refusal (exit 2, no outputs). Every other error stops
     the run as before.
   - Results written by versions 0.3.0 and earlier never contain this record (they stopped instead).
+- **Numeric record (optional, version 0.4.0; KNOWN_ISSUES m13b):** `"numeric_record": true` also writes `numeric_record.json`.
+  `windows.csv` rounds values to six significant figures for display (values of 10 Å or more therefore differ in steps of 1e-4); the
+  record keeps the computed float64 values exactly, per position and metric, with the position and residue identifiers, units, the
+  status of every missing value (`null` with a reason: excluded window or outside the window range; never zero), the global RMSD and
+  the altloc-sensitivity record (computed numbers, or "unavailable"/"not applicable", never a zero).
+  - **What it is:** computational precision of the values structpair computed. **What it is not:** higher experimental accuracy; it
+    does not recover precision lost earlier: the Cα adapter holds coordinates as float32 (a step of about 1.5e-5 Å at 150 Å), and the
+    values inherit that. Geometry, tolerances and the default outputs are unchanged; with the option off nothing is written.
+  - **Integrity:** the file is listed with its SHA-256 in `manifest.json`; `structpair_verify` (§3b) fails if it is modified, missing,
+    or declared (`policies.numeric_record`) without a hash. Read it with `topofold_inputs.numeric_record.read(result_dir)`, which also checks
+    the schema, array lengths, status consistency and the alignment of identifiers with `residues.csv`.
+  - Chain-variation values are not in this record (not needed for m13b).
 - **Residue names:** `resname_mismatch: "reject"` stops on any difference. `"flag"` allows it (for a point mutant,
   for example) and marks every affected window.
 
@@ -189,7 +202,7 @@ library only; no viewer needed):
 PYTHONPATH=python python -m topofold_inputs.structpair_verify ~/structpair_out/kras2 [--json check.json]
 ```
 
-It prints `ok`, `mismatch` or `missing` for each file and the counts (9 files for the KRAS example: 6 outputs, 2 inputs, 1 spec),
+It also checks `numeric_record.json` when the manifest declares it (a declared record without a listed hash fails). It prints `ok`, `mismatch` or `missing` for each file and the counts (9 files for the KRAS example: 6 outputs, 2 inputs, 1 spec),
 and exits 0 only if every listed file is present and matches. A file moved since the run (an input or the spec) shows as `missing`:
 that is a failure of the check, not a pass. `manifest.json` does not hash itself, so editing the manifest together with a file is not
 detected; keep a copy of the manifest's own hash if that matters. The viewer performs the same output check on every page update
@@ -217,6 +230,7 @@ detected; keep a copy of the manifest's own hash if that matters. The viewer per
     `residues.csv`), not residue numbers. The `location` column gives the author residues (here `A:59→A:68`). The viewer
     shows this translation in a `detail_reading` column, taken from `residues.csv`; the file itself is unchanged.
   - `manifest.json`: the hashes of inputs and outputs and the software versions.
+  - `numeric_record.json` (only if the spec asks for it, §3): the computed values before display rounding.
   - With several chains (§3a): `chain_variation.csv`, `chains.csv`, `chain_variation.png`. Read the statement at the top of
     the report section before using them.
 - **What a large value means:** the two coordinate sets differ locally there. Before reading biology into it, check:
