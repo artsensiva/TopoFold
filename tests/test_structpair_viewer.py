@@ -507,3 +507,36 @@ def test_app_shows_each_semantics_and_keeps_the_missing_values_visible(tmp_path)
     assert "not a calibrated noise floor" in " ".join(w.value for w in at.warning)
     var = _df(at, "between_median")
     assert var["withinB_max"].isna().all() and var["withinB_n"].eq(0).all()
+
+
+# --- AI trial finding F8: a break record names output row indices, not residue numbers ---------------------------------
+
+def test_break_record_indices_are_read_as_positions_from_recorded_fields_and_the_record_is_unchanged():
+    before = _sha(DEMO / "kras2/exclusions.csv")
+    res = R.load_result(DEMO / "kras2")
+    raw = list(csv.DictReader(open(DEMO / "kras2/exclusions.csv")))
+    assert list(res.exclusions["detail"]) == [r["detail"] for r in raw]              # the record itself is shown as written
+    assert len(res.exclusions) == 10
+    for _, e in res.exclusions.iterrows():
+        assert e["detail"] == "break between adjacent output residues 58 and 59" and e["location"] == "A:59→A:68"
+        assert e["detail_reading"] == ("'output residues 58 and 59' are positions 58 and 59 (row indices), not residue numbers: "
+                                       f"residues A:59 and A:68 in structure {e['structure']}.")
+    assert _sha(DEMO / "kras2/exclusions.csv") == before
+
+
+def test_break_record_reading_refuses_to_translate_when_the_fields_disagree():
+    r = R.load_result(DEMO / "kras2").residues
+    assert "does not match the recorded location A:10→A:11" in R.detail_reading(
+        "break between adjacent output residues 58 and 59", "A", "A:10→A:11", r)
+    assert "could not be found" in R.detail_reading("break between adjacent output residues 900 and 901", "A", "", r)
+    assert R.detail_reading("no adapter break record inside the window (provenance insufficient to name the cause)", "A", "", r) == ""
+
+
+def test_app_shows_the_reading_next_to_the_record():
+    at = _app(DEMO)
+    at.selectbox(key="result_choice").set_value("kras2").run()
+    ex = _df(at, "explanation")
+    assert "detail_reading" in ex.columns and ex["detail_reading"].str.contains("residues A:59 and A:68").all()
+    at.selectbox(key="focus").set_value(58).run()
+    warn = " ".join(w.value for w in at.warning)
+    assert "Record: break between adjacent output residues 58 and 59" in warn and "not residue numbers: residues A:59 and A:68" in warn

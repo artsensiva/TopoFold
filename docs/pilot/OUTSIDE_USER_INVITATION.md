@@ -1,37 +1,39 @@
-# DRAFT invitation — not sent. For the project owner to adapt and send.
+# Invitation for the first independent human trial of structpair (ready to send; not sent)
 
-**Subject:** Would you try a small descriptive MD comparison tool (about 1 hour)?
+The project owner sends this text with the three attachments or links listed in
+`docs/pilot/HUMAN_TRIAL_OWNER_CHECKLIST.md`. Replace the bracketed fields; nothing else needs editing. The earlier draft for the
+ensemble tool is in the git history of this file (before 2026-10-26).
+
+---
+
+**Subject:** Would you try a small structure-comparison tool and tell me where it is confusing? (human usability trial, 1–2 hours)
 
 Dear [name],
 
-I'm developing TopoFold, a research prototype for describing where local protein backbone geometry differs between
-groups of MD trajectories. Before going further, I'd value an outside computational scientist's view of whether it
-is usable and useful.
+I am developing TopoFold, a research prototype. One of its commands, `structpair`, compares two protein structures residue by
+residue on a correspondence you state: for every 3- and 4-residue window it reports local Cα backbone geometry, distance
+baselines and local RMSD, lists every excluded window with its cause, and records hashes of inputs and outputs. A local,
+read-only viewer shows the result. It is descriptive only: no statistics, no p-values and no claims about function.
 
-**What it does:** you give it named groups of trajectories (for example two conditions with several replicas each).
-It reports, residue by residue:
-- where local Cα geometry differs between groups, alongside how much replicas within a group differ from each other;
-- which regions were excluded, and why;
-- simple temporal-correlation diagnostics.
+Before going further I would value an outside computational scientist's view. **This is a usability trial of the software,
+not a biological validation**, and there is no right answer to find.
 
-It is descriptive only: no p-values or significance claims.
+**What I would ask (about 1–2 hours, on your own machine):**
+- install it in a fresh checkout and environment, following the guide;
+- run one comparison of two structures relevant to your own work (a documented fallback example is provided if you have none);
+- look at the result in the viewer and write, in your own words, what you think it means and what it does not show;
+- fill in the feedback form, noting where you got stuck, anything you had to work around, and any help you asked for.
 
-**Alternative, if you work with experimental structures rather than MD:** a second command compares two structures
-(one chain each, on a residue correspondence you state). For each 3- and 4-residue window it reports local backbone
-geometry, distance baselines and local RMSD, and it lists exclusions with their causes. It runs in seconds per pair.
-Guide: `docs/STRUCTPAIR_USER_GUIDE.md`; results can be browsed in a local, read-only viewer (§6 of the guide).
+Please work from the documentation alone at first. If you do ask me for help, that is fine; the form simply records it.
 
-**What I'd ask:**
-- **Run:** the documented example, then, if you can, one comparison of your own (any MD-readable trajectories or
-  mdCATH files you are allowed to use).
-- **Feedback:** a short form (about 15 minutes) on installation, preparing input, exclusions, reading the report, and
-  practical usefulness.
-- **Time:** about an hour in total.
-- **Your data:** nothing is shared with me unless you choose to send outputs.
+**Your data stay with you.** Nothing is uploaded. Send back only the feedback form, plus anything else you choose to share.
+I will not quote you or name you anywhere without your permission (form §6).
 
-**Materials:** the handoff guide, the feedback form and access to the repository: [link / attachment].
+**Materials:** the repository at commit `[COMMIT]` ([repository link]), the tester packet
+(`docs/pilot/STRUCTPAIR_HUMAN_TRIAL_PACKET.md`), the guide (`docs/STRUCTPAIR_USER_GUIDE.md`) and the feedback form
+(`docs/pilot/FEEDBACK_FORM.md`).
 
-Any finding, including "this was not useful", is helpful. Thank you for considering it.
+Any finding, including "this was not useful to me", helps. Thank you for considering it.
 
 Best regards,
 [Your name]

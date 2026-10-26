@@ -22,8 +22,9 @@ All of these use identical coordinates and residue coverage. It also reports:
 Status: v0.3.0. Version 0.1.0 was verified against two recorded KRAS studies
 (`benchmarks/audit/structpair_demo/README.md`); version 0.2.0 added explicitly named multiple chains and 0.3.0 corrected their advisory output (schema /3); every
 single-chain output is unchanged (`benchmarks/audit/structpair_chains_demo/README.md`). One external AI technical trial (checkpoint `6ce7b49`) and one bounded
-AI confirmation (`049a47f`) have been completed (`docs/pilot/PILOT_LOG.md`, entries 4 and 5). **No independent human
-trial has been completed.** If you are trying it, please use `docs/pilot/FEEDBACK_FORM.md`.
+AI confirmation (`049a47f`) have been completed, and two further independent AI technical trials of 0.3.0 (`19b5268`)
+(`docs/pilot/PILOT_LOG.md`, entries 4–6). **No independent human trial has been completed.** If you are trying it,
+please use `docs/pilot/STRUCTPAIR_HUMAN_TRIAL_PACKET.md` and `docs/pilot/FEEDBACK_FORM.md`.
 
 ## 1. What a clean checkout does not contain
 
@@ -200,7 +201,10 @@ detected; keep a copy of the manifest's own hash if that matters. The viewer per
   - `report.md`: the inputs, mapping, exclusions, largest windows, metric agreement and altloc sensitivity.
   - `windows.csv`: one row per window position; units are in the column names (`_rad`, `_angstrom`).
   - `residues.csv`: the mapping, residue status and altloc used.
-  - `exclusions.csv`: one row per excluded window, structure and cause.
+  - `exclusions.csv`: one row per excluded window, structure and cause. In a break record the `detail` text says
+    "break between adjacent output residues 58 and 59": those numbers are **row indices** (the `position` column of
+    `residues.csv`), not residue numbers. The `location` column gives the author residues (here `A:59→A:68`). The viewer
+    shows this translation in a `detail_reading` column, taken from `residues.csv`; the file itself is unchanged.
   - `manifest.json`: the hashes of inputs and outputs and the software versions.
   - With several chains (§3a): `chain_variation.csv`, `chains.csv`, `chain_variation.png`. Read the statement at the top of
     the report section before using them.

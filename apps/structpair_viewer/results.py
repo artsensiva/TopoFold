@@ -58,6 +58,30 @@ CAUSE_TEXT = {
 }
 
 
+_INDEX_DETAIL = re.compile(r"^break between adjacent output residues (\d+) and (\d+)")
+
+
+def detail_reading(detail: str, structure: str, location: str, residues: pd.DataFrame) -> str:
+    """Plain reading of an adapter break record, from recorded fields only (the record itself is shown unchanged).
+
+    The record names the two residues by their row index in the output (the `position` column of residues.csv), not by
+    author number. The reading looks both indices up in residues.csv for the record's structure and states them only if
+    they reproduce the recorded `location`; otherwise it says that they could not be matched."""
+    m = _INDEX_DETAIL.match(str(detail))
+    if not m:
+        return ""
+    i, j = (int(g) for g in m.groups())
+    col = f"{structure}_residue"
+    pos = residues.set_index("position")
+    if col not in pos.columns or i not in pos.index or j not in pos.index:
+        return f"'output residues {i} and {j}' are output row indices (positions); they could not be found in residues.csv."
+    a, b = pos.at[i, col], pos.at[j, col]
+    if f"{a}→{b}" != location:
+        return (f"'output residues {i} and {j}' are output row indices (positions); in residues.csv they are {a} and {b}, "
+                f"which does not match the recorded location {location}: read the raw record.")
+    return f"'output residues {i} and {j}' are positions {i} and {j} (row indices), not residue numbers: residues {a} and {b} in structure {structure}."
+
+
 class ResultError(ValueError):
     """The directory is not a readable, intact structpair result."""
 
@@ -155,6 +179,7 @@ def load_result(path: str | Path) -> StructpairResult:
         x["position"] = x["position"].astype(int)
         x["window_size"] = x["window_size"].astype(int)
     x["explanation"] = [CAUSE_TEXT.get(c, "No standard explanation; see the detail column.") for c in x["cause"]]
+    x["detail_reading"] = [detail_reading(d, s, loc, r) for d, s, loc in zip(x["detail"], x["structure"], x["location"])]
     notes = []
     if absent:
         notes.append(f"Optional outputs listed in the manifest but absent: {', '.join(absent)}")

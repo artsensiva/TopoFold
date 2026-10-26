@@ -38,7 +38,7 @@ report 5.121 Å global Cα RMSD over the same 282 Cα, the same dominant region 
 | F5 | No documented manifest check | Trial 2 | **Fixed**: `python -m topofold_inputs.structpair_verify` and guide §3b |
 | F6 | 3D view needs WebGL; port 8501 busy | Trial 2 | **Documented** (guide §6) and a one-sentence note in the viewer |
 | F7 | Downloader has no output option | Trial 1 | **Documented** (guide §2); no code change |
-| F8 | Exclusion `detail` text cites row indices (58 and 59) while `location` gives A:59→A:68 | Trial 2 | **Open**: the text comes from the frozen exclusion records; changing it alters result files |
+| F8 | Exclusion `detail` text cites row indices (58 and 59) while `location` gives A:59→A:68 | Trial 2 | **Clarified in the viewer (2026-10-26, D78)**: a `detail_reading` column translates the row indices through `residues.csv` and checks them against `location`; result files unchanged |
 | F9 | Explanation column truncated in the grid; wide tables clipped | Both | **Open** (interface redesign, kept separate) |
 | F10 | Window-position axes are indices, not residue numbers; hover needed | Both | **Open** (redesign) |
 | F11 | `chain_variation.png` axis text says one tick label per position; ticks are sparse | Trial 2 | **Open**: changing it alters regenerated figures |

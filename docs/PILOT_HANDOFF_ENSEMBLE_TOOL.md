@@ -134,4 +134,5 @@ A pilot run counts as successful only if the user, **without editing the impleme
 
 Record obstacles (commands, error messages, unclear outputs) in `docs/pilot/PILOT_LOG.md`. Entries 1–2 are internal
 (the implementer, then a separate agent), not independent user validation. Outside users: see
-`docs/pilot/OUTSIDE_USER_INVITATION.md` and `docs/pilot/FEEDBACK_FORM.md`.
+`docs/pilot/FEEDBACK_FORM.md`; the ensemble invitation draft is in the git history of
+`docs/pilot/OUTSIDE_USER_INVITATION.md` (before 2026-10-26), which now holds the structpair human-trial invitation.

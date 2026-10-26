@@ -230,7 +230,7 @@ with right:
         if len(ex):
             for _, e in ex.iterrows():
                 st.warning(f"Excluded in structure {e['structure']}: **{e['cause']}** at {e['location'] or 'n/a'}. "
-                           f"{e['explanation']} Record: {e['detail']} ({e['source']}).")
+                           f"{e['explanation']} Record: {e['detail']} ({e['source']}).{' ' + e['detail_reading'] if e['detail_reading'] else ''}")
         else:
             vals = {mk: res.windows.loc[res.windows.position == focus, METRICS[mk][0]].iloc[0]
                     for mk in METRICS if METRICS[mk][2] == (size or 3)}
@@ -312,9 +312,10 @@ with t_exc:
     else:
         st.markdown("One row per excluded window, structure and cause, from `exclusions.csv` (adapter break records, "
                     "residue status and feature reason codes). The explanation column describes the cause type; the "
-                    "detail column is the record itself.")
+                    "detail column is the record itself. In a break record, 'output residues' are row indices (the position column), "
+                    "not residue numbers; the reading column translates them using residues.csv.")
         st.dataframe(res.exclusions[["window_size", "position", "window_A", "structure", "cause", "location",
-                                     "explanation", "detail", "source"]], hide_index=True, key="exc_table")
+                                     "explanation", "detail", "detail_reading", "source"]], hide_index=True, key="exc_table")
 with t_res:
     mm = res.residues[res.residues["resname_mismatch"]]
     miss = res.residues[(res.residues["A_status"] != "present") | (res.residues["B_status"] != "present")]
