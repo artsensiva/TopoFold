@@ -11,6 +11,7 @@ SPEC.json (relative paths are resolved against the directory of SPEC.json):
      "on_missing": "reject",            # or "exclude": absent residues are kept as missing rows and their windows excluded
      "resname_mismatch": "reject",      # or "flag": allowed (e.g. a point mutation), flagged in every table
      "altloc_sensitivity": "highest_occupancy",   # optional second altloc policy, applied to both structures
+     "modified_residues": "phospho_pdb",   # optional: admit SEP, TPO, PTR documented by MODRES records (PDB files only); default "none"
      "numeric_record": true,            # optional: also write numeric_record.json, the computed values before six-figure display rounding
      "top_n": 10}
 
@@ -44,7 +45,7 @@ from . import numeric_record as nr
 from .compare import spearman, window_distances
 from .ensemble import _run, _sha256, exclusion_causes
 
-STRUCTPAIR_VERSION = "0.4.0"   # 0.4.0: opt-in numeric_record.json (full-precision window values); 0.3.1: an occupancy tie in the OPTIONAL altloc sensitivity is reported as unavailable, not fatal
+STRUCTPAIR_VERSION = "0.5.0"   # 0.5.0: opt-in modified_residues="phospho_pdb" (SEP, TPO, PTR; PDB format); 0.4.0: opt-in numeric_record.json (full-precision window values); 0.3.1: an occupancy tie in the OPTIONAL altloc sensitivity is reported as unavailable, not fatal
 SCHEMA = "topofold_inputs.structpair/3"   # /2: 0.2.0 (advisory/1 semantics); /1: 0.1.0. Older records keep their meaning
 METRICS = ("d_kappa", "d_i_i2", "rmsd3", "d_tau", "d_i_i3", "rmsd4")
 FOUR = ("d_tau", "d_i_i3", "rmsd4")
@@ -63,6 +64,7 @@ COLUMNS = [("kappa_A", "rad"), ("kappa_B", "rad"), ("d2_A", "angstrom"), ("d2_B"
 AGREEMENT_PAIRS = [("d_kappa", "d_i_i2"), ("d_kappa", "rmsd3"), ("d_i_i2", "rmsd3"),
                    ("d_tau", "d_i_i3"), ("d_tau", "rmsd4"), ("d_i_i3", "rmsd4")]
 ALTLOC_POLICIES = ("reject", "blank_then_A", "highest_occupancy")
+MODIFIED_POLICIES = ("none", "phospho_pdb")
 LIMITS = ("Two static structures: the values are direct geometric differences between these coordinate sets. They can "
           "reflect crystal form and packing, crystallization conditions, resolution, refinement, alternate "
           "conformations and coordinate error as well as any biological difference. No ensemble, population, kinetic, "
@@ -159,6 +161,9 @@ def load_spec(path: Path) -> dict:
     spec.setdefault("altloc_sensitivity", None)
     spec.setdefault("top_n", 10)
     spec.setdefault("numeric_record", False)
+    spec.setdefault("modified_residues", "none")
+    if spec["modified_residues"] not in MODIFIED_POLICIES:
+        raise SpecError(f"modified_residues must be one of {MODIFIED_POLICIES}")
     if not isinstance(spec["numeric_record"], bool):
         raise SpecError("numeric_record must be true or false")
     try:
@@ -202,7 +207,8 @@ def extract(spec: dict, key: str, altloc: str, work: Path, adapter_python: str, 
     err.unlink(missing_ok=True)
     try:
         _run(["-m", "topofold_inputs", s["path"], "--run-id", run_id, "--out", str(work), "--correspondence", str(corr),
-              "--on-missing", on_missing, "--altloc", altloc, "--error-json", str(err)], adapter_python)
+              "--on-missing", on_missing, "--altloc", altloc, "--error-json", str(err),
+              *(["--modified-residues", spec["modified_residues"]] if spec["modified_residues"] != "none" else [])], adapter_python)
     except RuntimeError as e:
         rec = None
         if err.is_file():
@@ -224,7 +230,7 @@ def extract(spec: dict, key: str, altloc: str, work: Path, adapter_python: str, 
             "frame_index": a["frame_index"], "kappa": feats.kappa[0], "tau": feats.tau[0],
             "kappa_valid": feats.kappa_valid[0], "tau_valid": feats.tau_valid[0],
             "kappa_reason": feats.kappa_reason, "tau_reason": feats.tau_reason, "residues": rep["residues"],
-            "breaks": rep["breaks"], "altloc_decisions": rep["altloc_decisions"],
+            "breaks": rep["breaks"], "altloc_decisions": rep["altloc_decisions"], "modified_block": rep.get("modified_residues"),
             "provenance": {"adapter_json_sha256": _sha256(js), "features_json_sha256": _sha256(work / f"{run_id}_features.json"),
                            "source_files": rep["provenance"]["source_files"], "adapter": rep["provenance"]["adapter"],
                            "adapter_software": rep["provenance"]["software"], "core": fdoc["provenance"]["core"],
@@ -338,7 +344,14 @@ def _rl(r: dict) -> str:
     return f"{r['chain']}:{r['resid']}{r.get('icode', '')}"
 
 
-def residue_rows(c: dict) -> tuple[list[dict], list[int]]:
+def _mod_text(r: dict) -> str:
+    m = r.get("modification")
+    if not m:
+        return ""
+    return (f"{m['deposited_name']}; parent {m['parent']} (MODRES record, policy table); annotation: {m['annotation'] or 'none'}; record {m['record_type']}")
+
+
+def residue_rows(c: dict, policy: bool = False) -> tuple[list[dict], list[int]]:
     rows, mismatch = [], []
     alt = {k: {(d["chain"], d["resid"], d.get("icode", "")): d["used"] for d in c[k]["altloc_decisions"]} for k in "AB"}
     for i, (ra, rb) in enumerate(zip(c["A"]["residues"], c["B"]["residues"])):
@@ -350,7 +363,7 @@ def residue_rows(c: dict) -> tuple[list[dict], list[int]]:
                      "A_altloc_used": alt["A"].get((ra["chain"], ra["resid"], ra.get("icode", "")), ""),
                      "B_residue": _rl(rb), "B_resname": rb.get("resname") or "", "B_status": rb["status"],
                      "B_altloc_used": alt["B"].get((rb["chain"], rb["resid"], rb.get("icode", "")), ""),
-                     "resname_mismatch": mm})
+                     "resname_mismatch": mm, **({"A_modification": _mod_text(ra), "B_modification": _mod_text(rb)} if policy else {})})
     return rows, mismatch
 
 
@@ -358,6 +371,8 @@ def window_rows(c: dict, res_rows: list[dict]) -> list[dict]:
     m, n = c["metrics"], len(res_rows)
     alt = {i for i, r in enumerate(res_rows) if r["A_altloc_used"] or r["B_altloc_used"]}
     mm = {i for i, r in enumerate(res_rows) if r["resname_mismatch"]}
+    modified = {i for i, r in enumerate(res_rows) if r.get("A_modification") or r.get("B_modification")}
+    with_mod = bool(res_rows) and "A_modification" in res_rows[0]
     rows = []
     for i in range(n):
         w3 = list(range(i - 1, i + 2)) if 1 <= i <= n - 2 else []
@@ -367,7 +382,8 @@ def window_rows(c: dict, res_rows: list[dict]) -> list[dict]:
                "window3_A": f"{res_rows[w3[0]]['A_residue']}..{res_rows[w3[-1]]['A_residue']}" if w3 else "",
                "window4_A": f"{res_rows[w4[0]]['A_residue']}..{res_rows[w4[-1]]['A_residue']}" if w4 else "",
                "altloc_in_window3": bool(set(w3) & alt), "altloc_in_window4": bool(set(w4) & alt),
-               "mismatch_in_window3": bool(set(w3) & mm), "mismatch_in_window4": bool(set(w4) & mm)}
+               "mismatch_in_window3": bool(set(w3) & mm), "mismatch_in_window4": bool(set(w4) & mm),
+               **({"modified_in_window3": bool(set(w3) & modified), "modified_in_window4": bool(set(w4) & modified)} if with_mod else {})}
         for k, unit in COLUMNS:
             row[f"{k}_{unit}"] = m[k][i]
         rows.append(row)
@@ -569,6 +585,17 @@ def report(spec: dict, summary: dict, manifest: dict, exclusions: list[dict], re
             L.append(f"| … {len(exclusions) - 60} more rows in `exclusions.csv` | | | | |")
     else:
         L.append("No window inside the mapped range was excluded.")
+    mod = summary.get("modified_residues")
+    if mod:
+        L += ["", "## Modified residues", "", f"Policy `{mod['policy']}`: {mod['scope']}. {mod['statement']}", ""]
+        if mod["retained"]:
+            L += ["| Structure | Residue | Deposited name | Parent (source) | Annotation | Record |", "|---|---|---|---|---|---|"]
+            L += [f"| {r['structure']} | {r['residue']} | {r['deposited_name']} | {r['parent']} ({r['parent_source']}) | {r['annotation'] or 'none'} | {r['record_type']} |" for r in mod["retained"]]
+        else:
+            L.append("No modified residue was retained.")
+        if mod["excluded"]:
+            L += ["", "Not admitted (in scope):", "", "| Structure | Residue | Name | Reason |", "|---|---|---|---|"]
+            L += [f"| {e['structure']} | {e['residue']} | {e['name']} | {e['reason']} |" for e in mod["excluded"]]
     sens = summary.get("altloc_sensitivity")
     L += ["", "## Alternate-conformation sensitivity", ""]
     if sens is None:
@@ -596,6 +623,23 @@ def report(spec: dict, summary: dict, manifest: dict, exclusions: list[dict], re
 
 # --- main ----------------------------------------------------------------------------------------------------------------
 
+def modified_block(policy: str, c: dict, res_rows: list[dict]) -> dict:
+    """Retained modified residues (deposited name, parent and its source, annotation) and the in-scope cases the policy did not admit."""
+    retained, excluded = [], []
+    for k in "AB":
+        for r, row in zip(c[k]["residues"], res_rows):
+            m = r.get("modification")
+            if m:
+                retained.append({"structure": k, "residue": _rl(r), "deposited_name": m["deposited_name"], "parent": m["parent"], "parent_source": m["parent_source"],
+                                 "annotation": m["annotation"], "record_type": m["record_type"]})
+        for e in (c[k].get("modified_block") or {}).get("excluded", []):
+            excluded.append({"structure": k, "residue": f"{e['chain']}:{e['resid']}{e['icode']}", "name": e["name"], "record_type": e["record_type"], "reason": e["reason"]})
+    return {"policy": policy, "scope": "SEP, TPO and PTR in PDB-format files with MODRES records; no other modified residue or format",
+            "statement": "The deposited residue name is kept; the parent is documentation for the correspondence and is not a rename (SEP versus SER stays a visible name difference). "
+                         "A modification annotation is not evidence of functional state or of any effect.",
+            "retained": retained, "excluded": excluded}
+
+
 def unavailable_sensitivity(policy: str, ties: list) -> dict:
     """The requested optional sensitivity could not be computed. No number is reported (in particular no zero)."""
     return {"policy": policy, "status": "unavailable: alternate locations tied on occupancy", "available": False, "values_reported": False,
@@ -614,7 +658,7 @@ def run(spec_path: Path, out: Path, adapter_python: str) -> dict:
     work = out / "work"
     work.mkdir(parents=True, exist_ok=True)
     c = compare(spec, {k: spec["structures"][k]["altloc"] for k in "AB"}, work, adapter_python, "primary")
-    res_rows, mismatch = residue_rows(c)
+    res_rows, mismatch = residue_rows(c, spec["modified_residues"] != "none")
     if mismatch and spec["resname_mismatch"] == "reject":
         raise SpecError("residue names differ at " + ", ".join(
             f"{res_rows[i]['A_residue']} {res_rows[i]['A_resname']} vs {res_rows[i]['B_residue']} {res_rows[i]['B_resname']}"
@@ -623,6 +667,8 @@ def run(spec_path: Path, out: Path, adapter_python: str) -> dict:
     excl = exclusion_rows(c, len(res_rows))
     summary = summarize(c, wrows, spec["top_n"])
     summary["global"] = c["global"]
+    if spec["modified_residues"] != "none":
+        summary["modified_residues"] = modified_block(spec["modified_residues"], c, res_rows)
     summary["altloc_sensitivity"] = None
     if spec["altloc_sensitivity"]:
         pol = spec["altloc_sensitivity"]
@@ -686,6 +732,10 @@ def run(spec_path: Path, out: Path, adapter_python: str) -> dict:
         "policies": {"on_missing": spec["on_missing"], "resname_mismatch": spec["resname_mismatch"],
                      "altloc_sensitivity": spec["altloc_sensitivity"],
                      "numeric_record": bool(numeric),
+                     "modified_residues": spec["modified_residues"],
+                     **({"modified_residues_outcome": f"{len(summary['modified_residues']['retained'])} retained, "
+                                                      f"{len(summary['modified_residues']['excluded'])} excluded"}
+                        if spec["modified_residues"] != "none" else {}),
                      "altloc_sensitivity_outcome": ("not requested" if summary["altloc_sensitivity"] is None
                                                     else summary["altloc_sensitivity"]["status"]),
                      "chain_variation": spec["_variation"]},

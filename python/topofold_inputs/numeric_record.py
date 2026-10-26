@@ -48,7 +48,8 @@ def build(c: dict, res_rows: list[dict], excl: list[dict], summary: dict, units:
         metrics[k] = {"unit": units.get(k) or units[k.rsplit("_", 1)[0]], "window_residues": size, "values": [None if v is None else float(v) for v in vals], "status": status}
     g = c["global"]
     return {"schema": NUMERIC_SCHEMA, "statement": STATEMENT, "n_positions": n,
-            "positions": [{"position": i, "A_residue": r["A_residue"], "B_residue": r["B_residue"], "A_resname": r["A_resname"], "B_resname": r["B_resname"]}
+            "positions": [{"position": i, "A_residue": r["A_residue"], "B_residue": r["B_residue"], "A_resname": r["A_resname"], "B_resname": r["B_resname"],
+                           **({"A_modification": r["A_modification"] or None, "B_modification": r["B_modification"] or None} if "A_modification" in r else {})}
                           for i, r in enumerate(res_rows)],
             "metrics": metrics,
             "global": {"rmsd_qcp_angstrom": float(g["rmsd_qcp_angstrom"]), "n_ca": int(g["n_ca"]),

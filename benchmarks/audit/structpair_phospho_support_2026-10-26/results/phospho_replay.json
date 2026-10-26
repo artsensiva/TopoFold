@@ -1,0 +1,396 @@
+{
+ "id": "PHOSPHO-SUPPORT-REPLAY-PIM1-2026-10-26",
+ "note": "engineering regression; KIN-PAIR-1 is not reclassified; no tolerance changed; not prospective validation",
+ "affected": {
+  "PIM1-1": {
+   "derived_spec": "benchmarks/audit/structpair_phospho_support_2026-10-26/results/derived_specs/PIM1-1_derived.json",
+   "original_spec": "benchmarks/audit/kin_pair_1/work/PIM1-1/spec.json (preserved)",
+   "entries": [
+    "8R0Q",
+    "6NO9"
+   ],
+   "expected": {
+    "n_positions": 267,
+    "admitted_modified_residues": {
+     "A": [
+      "A:261 SEP"
+     ],
+     "B": []
+    },
+    "excluded3": [
+     46,
+     47
+    ],
+    "excluded4": [
+     45,
+     46,
+     47
+    ]
+   },
+   "membership": {
+    "windows3_equal_expected": true,
+    "windows4_equal_expected": true,
+    "n_windows3": 263,
+    "n_windows4": 261,
+    "excluded3_equal_expected": true,
+    "excluded4_equal_expected": true,
+    "n_excluded_rows_by_cause": {
+     "numbering_discontinuity": 10
+    }
+   },
+   "values": {
+    "max_abs_deviation_vs_independent": {
+     "d_kappa": 6.6572491470573425e-06,
+     "d_i_i2": 1.5682347987322487e-05,
+     "rmsd3": 7.075632392779252e-06,
+     "d_tau": 7.2999718316313356e-06,
+     "d_i_i3": 1.628248747653771e-05,
+     "rmsd4": 5.542523383979259e-06
+    },
+    "missing_pattern_equal": true,
+    "global_rmsd_workflow": 0.5547263679654418,
+    "global_rmsd_independent": 0.5547262711933504,
+    "global_abs_deviation": 9.677209145131371e-08,
+    "tolerance": 0.0001,
+    "pass": true
+   },
+   "unchanged_windows": {
+    "old_windows_with_values": 517,
+    "found_in_new_with_the_same_identifiers": 517,
+    "values_exactly_equal": 517,
+    "old_windows_missing_in_new": 0,
+    "new_windows_not_in_old": 7,
+    "new_windows_not_in_old_contain_modified_position": true
+   },
+   "aggregates": {
+    "n_positions_old": 266,
+    "n_positions_new": 267,
+    "n_ca_old": 266,
+    "n_ca_new": 267,
+    "global_rmsd_old": 0.5557267140137949,
+    "global_rmsd_new": 0.5547263679654418,
+    "global_rmsd_change": -0.0010003460483530846,
+    "explanation": "one more C\u03b1 (the modified residue) enters the fit, so the global RMSD is refitted over n+1 positions; local metrics of unchanged windows do not depend on the global fit",
+    "n_windows_with_values_old": {
+     "d_kappa": 260,
+     "d_i_i2": 260,
+     "rmsd3": 260,
+     "d_tau": 257,
+     "d_i_i3": 257,
+     "rmsd4": 257
+    },
+    "n_windows_with_values_new": {
+     "d_kappa": 263,
+     "d_i_i2": 263,
+     "rmsd3": 263,
+     "d_tau": 261,
+     "d_i_i3": 261,
+     "rmsd4": 261
+    },
+    "top10_changes": {
+     "d_kappa": {
+      "top10_old_in_new_top10": 10,
+      "top10_new_not_in_old_top10": []
+     },
+     "rmsd3": {
+      "top10_old_in_new_top10": 10,
+      "top10_new_not_in_old_top10": []
+     },
+     "d_tau": {
+      "top10_old_in_new_top10": 10,
+      "top10_new_not_in_old_top10": []
+     },
+     "rmsd4": {
+      "top10_old_in_new_top10": 10,
+      "top10_new_not_in_old_top10": []
+     }
+    },
+    "altloc_sensitivity_old": {
+     "policy": "highest_occupancy",
+     "status": "computed",
+     "max_abs_change": {
+      "d_kappa": 0.0,
+      "d_i_i2": 0.0,
+      "rmsd3": 0.0,
+      "d_tau": 0.0,
+      "d_i_i3": 0.0,
+      "rmsd4": 0.0
+     },
+     "global_rmsd_angstrom": 0.5557267140137949
+    },
+    "altloc_sensitivity_new": {
+     "policy": "highest_occupancy",
+     "status": "computed",
+     "max_abs_change": {
+      "d_kappa": 0.0,
+      "d_i_i2": 0.0,
+      "rmsd3": 0.0,
+      "d_tau": 0.0,
+      "d_i_i3": 0.0,
+      "rmsd4": 0.0
+     },
+     "global_rmsd_angstrom": 0.5547263679654418
+    },
+    "modified_position_new": "A:261|A:261"
+   },
+   "modified_residues_block": {
+    "retained": [
+     {
+      "structure": "A",
+      "residue": "A:261",
+      "deposited_name": "SEP",
+      "parent": "SER",
+      "parent_source": "MODRES record for A:261 (parent SER) agrees with the policy table SEP->SER (wwPDB chemical components)",
+      "annotation": "MODIFIED RESIDUE",
+      "record_type": "HETATM"
+     }
+    ],
+    "excluded": []
+   },
+   "coverage": {
+    "positions": [
+     266,
+     267
+    ],
+    "windows3_with_values": [
+     260,
+     263
+    ],
+    "windows4_with_values": [
+     257,
+     261
+    ],
+    "excluded_windows3": [
+     4,
+     2
+    ],
+    "excluded_windows4": [
+     6,
+     3
+    ]
+   },
+   "structpair_version": "0.5.0",
+   "pass": true
+  },
+  "PIM1-2": {
+   "derived_spec": "benchmarks/audit/structpair_phospho_support_2026-10-26/results/derived_specs/PIM1-2_derived.json",
+   "original_spec": "benchmarks/audit/kin_pair_1/work/PIM1-2/spec.json (preserved)",
+   "entries": [
+    "6VRV",
+    "6L17"
+   ],
+   "expected": {
+    "n_positions": 271,
+    "admitted_modified_residues": {
+     "A": [],
+     "B": [
+      "A:261 SEP"
+     ]
+    },
+    "excluded3": [],
+    "excluded4": []
+   },
+   "membership": {
+    "windows3_equal_expected": true,
+    "windows4_equal_expected": true,
+    "n_windows3": 269,
+    "n_windows4": 268,
+    "excluded3_equal_expected": true,
+    "excluded4_equal_expected": true,
+    "n_excluded_rows_by_cause": {}
+   },
+   "values": {
+    "max_abs_deviation_vs_independent": {
+     "d_kappa": 2.079060157145207e-06,
+     "d_i_i2": 3.774364240705097e-06,
+     "rmsd3": 1.7436362514597348e-06,
+     "d_tau": 3.160848033922914e-06,
+     "d_i_i3": 6.007705927402185e-06,
+     "rmsd4": 1.7910512124172384e-06
+    },
+    "missing_pattern_equal": true,
+    "global_rmsd_workflow": 0.4502358281227477,
+    "global_rmsd_independent": 0.450235728598946,
+    "global_abs_deviation": 9.952380169986341e-08,
+    "tolerance": 0.0001,
+    "pass": true
+   },
+   "unchanged_windows": {
+    "old_windows_with_values": 530,
+    "found_in_new_with_the_same_identifiers": 530,
+    "values_exactly_equal": 530,
+    "old_windows_missing_in_new": 0,
+    "new_windows_not_in_old": 7,
+    "new_windows_not_in_old_contain_modified_position": true
+   },
+   "aggregates": {
+    "n_positions_old": 270,
+    "n_positions_new": 271,
+    "n_ca_old": 270,
+    "n_ca_new": 271,
+    "global_rmsd_old": 0.45085588637397855,
+    "global_rmsd_new": 0.4502358281227477,
+    "global_rmsd_change": -0.0006200582512308483,
+    "explanation": "one more C\u03b1 (the modified residue) enters the fit, so the global RMSD is refitted over n+1 positions; local metrics of unchanged windows do not depend on the global fit",
+    "n_windows_with_values_old": {
+     "d_kappa": 266,
+     "d_i_i2": 266,
+     "rmsd3": 266,
+     "d_tau": 264,
+     "d_i_i3": 264,
+     "rmsd4": 264
+    },
+    "n_windows_with_values_new": {
+     "d_kappa": 269,
+     "d_i_i2": 269,
+     "rmsd3": 269,
+     "d_tau": 268,
+     "d_i_i3": 268,
+     "rmsd4": 268
+    },
+    "top10_changes": {
+     "d_kappa": {
+      "top10_old_in_new_top10": 10,
+      "top10_new_not_in_old_top10": []
+     },
+     "rmsd3": {
+      "top10_old_in_new_top10": 10,
+      "top10_new_not_in_old_top10": []
+     },
+     "d_tau": {
+      "top10_old_in_new_top10": 10,
+      "top10_new_not_in_old_top10": []
+     },
+     "rmsd4": {
+      "top10_old_in_new_top10": 10,
+      "top10_new_not_in_old_top10": []
+     }
+    },
+    "altloc_sensitivity_old": {
+     "policy": "highest_occupancy",
+     "status": "not applicable: no alternate locations at the mapped C\u03b1 atoms"
+    },
+    "altloc_sensitivity_new": {
+     "policy": "highest_occupancy",
+     "status": "not applicable: no alternate locations at the mapped C\u03b1 atoms"
+    },
+    "modified_position_new": "A:261|A:261"
+   },
+   "modified_residues_block": {
+    "retained": [
+     {
+      "structure": "B",
+      "residue": "A:261",
+      "deposited_name": "SEP",
+      "parent": "SER",
+      "parent_source": "MODRES record for A:261 (parent SER) agrees with the policy table SEP->SER (wwPDB chemical components)",
+      "annotation": "MODIFIED RESIDUE",
+      "record_type": "HETATM"
+     }
+    ],
+    "excluded": []
+   },
+   "coverage": {
+    "positions": [
+     270,
+     271
+    ],
+    "windows3_with_values": [
+     266,
+     269
+    ],
+    "windows4_with_values": [
+     264,
+     268
+    ],
+    "excluded_windows3": [
+     2,
+     0
+    ],
+    "excluded_windows4": [
+     3,
+     0
+    ]
+   },
+   "structpair_version": "0.5.0",
+   "pass": true
+  }
+ },
+ "unaffected": {
+  "EGFR-1": {
+   "numeric_payload_identical": true,
+   "windows_csv_old_columns_identical": true,
+   "residues_exclusions_identical": true,
+   "added_columns_only_when_policy_on": [
+    "modified_in_window3",
+    "modified_in_window4"
+   ],
+   "modified_residues_retained": 0,
+   "expected_provenance_differences": [
+    "policies",
+    "spec sha256",
+    "output hashes"
+   ]
+  },
+  "EGFR-2": {
+   "numeric_payload_identical": true,
+   "windows_csv_old_columns_identical": true,
+   "residues_exclusions_identical": true,
+   "added_columns_only_when_policy_on": [
+    "modified_in_window3",
+    "modified_in_window4"
+   ],
+   "modified_residues_retained": 0,
+   "expected_provenance_differences": [
+    "policies",
+    "spec sha256",
+    "output hashes"
+   ]
+  },
+  "BTK-1": {
+   "numeric_payload_identical": true,
+   "windows_csv_old_columns_identical": true,
+   "residues_exclusions_identical": true,
+   "added_columns_only_when_policy_on": [
+    "modified_in_window3",
+    "modified_in_window4"
+   ],
+   "modified_residues_retained": 0,
+   "expected_provenance_differences": [
+    "policies",
+    "spec sha256",
+    "output hashes"
+   ]
+  },
+  "BTK-2": {
+   "numeric_payload_identical": true,
+   "windows_csv_old_columns_identical": true,
+   "residues_exclusions_identical": true,
+   "added_columns_only_when_policy_on": [
+    "modified_in_window3",
+    "modified_in_window4"
+   ],
+   "modified_residues_retained": 0,
+   "expected_provenance_differences": [
+    "policies",
+    "spec sha256",
+    "output hashes"
+   ]
+  }
+ },
+ "expected_written_before_structpair_on_derived_specs": {
+  "PIM1-1": {
+   "sha256": "eefb9d9fae1255ba6e3222316bd5255a5a94d1b28fb61b3631f81268dd6f818d",
+   "written_utc": "2026-10-26T16:10:47+00:00"
+  },
+  "PIM1-2": {
+   "sha256": "93f939dd28d6eb4971b9aff2721e5f4c7b938baa5592fcc5823ac29b188aa3c6",
+   "written_utc": "2026-10-26T16:10:47+00:00"
+  }
+ },
+ "resources": {
+  "cpu_seconds": 159.34856599999998,
+  "wall_seconds": 73.082343
+ },
+ "all_checks_pass": true
+}

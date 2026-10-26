@@ -32,12 +32,17 @@ from typing import Any, Iterable, Mapping, Sequence
 
 import numpy as np
 
-ADAPTER_VERSION = "0.1.0"
+ADAPTER_VERSION = "0.2.0"   # 0.2.0: opt-in modified_residues="phospho_pdb" (SEP, TPO, PTR); default output unchanged
 LENGTH_UNIT = "angstrom"
 TIME_UNIT = "ps"
 
 ALTLOC_POLICIES = ("reject", "blank_then_A", "highest_occupancy")
 PBC_POLICIES = ("none", "make_whole_sequential")
+MODIFIED_POLICIES = ("none", "phospho_pdb")
+# Documented parent identities of the phosphorylated amino acids supported by modified_residues="phospho_pdb" (wwPDB chemical component
+# records: SEP phosphoserine, TPO phosphothreonine, PTR O-phosphotyrosine). No other modified residue is supported.
+PHOSPHO_PARENTS = {"SEP": "SER", "TPO": "THR", "PTR": "TYR"}
+PEPTIDE_BOND_MAX_ANGSTROM = 2.0   # C(i-1)-N(i); used only to admit a modified residue, never for standard residues
 
 # Nominal resolution by format convention. Not read from the file; recorded so consumers know the claim's basis.
 _NOMINAL_RESOLUTION = {
@@ -169,6 +174,7 @@ def extract_ca(
     stop: int | None = None,
     step: int | None = None,
     assume_angstrom_if_undeclared: bool = False,
+    modified_residues: str = "none",
 ) -> CATrajectory:
     """Extract Cα coordinates (Å) for the residues of ``selection``, or for ``correspondence`` in its order.
 
@@ -197,6 +203,16 @@ def extract_ca(
         Consecutive Cα–Cα distances above this value in any frame are reported as geometric breaks.
     start, stop, step : int, optional
         Frame slice of the source trajectory.
+    modified_residues : {"none", "phospho_pdb"}
+        "none" (default): unchanged behaviour; the ``protein`` selection does not contain modified residue names, so
+        they are absent from the output. "phospho_pdb": residues named SEP, TPO or PTR in the chains the correspondence
+        names (all selected chains without one) are admitted if their MODRES record in the PDB-format topology file
+        names the residue and its parent (SER, THR, TYR), they carry N, CA and C atoms and are peptide-bonded to a neighbour
+        (C-N at most 2.0 Å; these checks apply to these residues only, never to standard residues). A residue without
+        N, CA and C, or without a peptide bond (a free component), is not admitted and is recorded under
+        ``modified_residues.excluded``; a bonded residue without a MODRES record, or whose record contradicts the table,
+        raises. The deposited residue name is kept and the parent and its source are recorded; nothing is renamed.
+        Other formats raise. Calcium ions and every other residue name are never considered.
     assume_angstrom_if_undeclared : bool
         Readers that declare no length unit (e.g. MDAnalysis MemoryReader) are rejected unless this is True, in which
         case the coordinates are taken to be in Å and the assumption is recorded.
@@ -220,19 +236,35 @@ def extract_ca(
         raise AdapterError("run_id must be a non-empty string")
     if not (max_ca_ca_angstrom > 0 and math.isfinite(max_ca_ca_angstrom)):
         raise AdapterError("max_ca_ca_angstrom must be a positive finite number")
+    if modified_residues not in MODIFIED_POLICIES:
+        raise AdapterError(f"unknown modified_residues policy {modified_residues!r}; expected one of {MODIFIED_POLICIES}")
 
     import MDAnalysis as mda
 
-    sel = universe.select_atoms(selection)
+    modres = None
+    if modified_residues == "phospho_pdb":
+        modres = _read_modres(universe)
+        sel = universe.select_atoms(f"({selection}) or (resname {' '.join(PHOSPHO_PARENTS)})")
+    else:
+        sel = universe.select_atoms(selection)
     if sel.n_atoms == 0:
         raise AdapterError(f"selection {selection!r} matched no atoms")
     chain_src = _chain_source(universe, sel, chain_attribute)
+    skip_ix: set = set()
+    mod_info: dict = {}
+    mod_report = {"admitted": [], "excluded": []}
+    if modres is not None:
+        scope = None if correspondence is None else {
+            (s if isinstance(s, ResidueSpec) else ResidueSpec.from_mapping(s)).chain for s in correspondence}
+        skip_ix, mod_info, mod_report = _classify_modified(universe, sel, chain_src, scope, altloc, modres)
 
     # --- residue identity (fixed once, reused for every frame) ---------------------------------------------------
     topo_res = []  # one entry per topology residue in the selection, topology order
     seen_keys: dict[tuple[str, int, str], int] = {}
     altloc_decisions = []
     for res in sel.residues:
+        if int(res.ix) in skip_ix:
+            continue                       # a modified-residue name that the policy did not admit (excluded or out of scope)
         atoms = res.atoms & sel
         chain = _chain_of(atoms, chain_src)
         icode = str(getattr(res, "icode", "") or "")
@@ -246,11 +278,11 @@ def extract_ca(
         try:
             ca_atom, decision = _choose_ca(atoms.select_atoms("name CA"), key, altloc)
         except AltlocTieError as first:
-            raise _all_ties(sel, chain_src, altloc, correspondence, first) from None
+            raise _all_ties(sel, chain_src, altloc, correspondence, first, skip_ix) from None
         if decision is not None:
             altloc_decisions.append(decision)
         topo_res.append({"key": key, "residue_ix": int(res.ix), "resname": str(res.resname),
-                         "segid": str(res.segment.segid), "atom": ca_atom})
+                         "segid": str(res.segment.segid), "atom": ca_atom, "modification": mod_info.get(int(res.ix))})
 
     # --- output order: topology order, or the caller's correspondence --------------------------------------------
     by_key = {r["key"]: r for r in topo_res}
@@ -284,6 +316,7 @@ def extract_ca(
             "atom_ix": None if ca is None else int(ca.ix),
             "altloc": None if ca is None else (str(getattr(ca, "altLoc", "") or "")),
             "status": status,
+            **({"modification": r["modification"]} if r is not None and r.get("modification") else {}),
         })
         atom_ix.append(-1 if ca is None else int(ca.ix))
     present = np.array([a >= 0 for a in atom_ix], dtype=bool)
@@ -378,7 +411,16 @@ def extract_ca(
                    "altloc": altloc, "pbc": pbc, "on_missing": on_missing,
                    "max_ca_ca_angstrom": max_ca_ca_angstrom, "frame_slice": [start, stop, step],
                    "correspondence_supplied": correspondence is not None,
-                   "assume_angstrom_if_undeclared": assume_angstrom_if_undeclared},
+                   "assume_angstrom_if_undeclared": assume_angstrom_if_undeclared,
+                   **({"modified_residues": modified_residues} if modres is not None else {})},
+        **({"modified_residues": {
+            "policy": modified_residues, "supported_parents": PHOSPHO_PARENTS,
+            "scope": "PDB-format topology; residues of the chains named by the correspondence (all selected chains without one)",
+            "checks": ("residue name in the table; MODRES record naming the residue and its parent; N, CA and C present; peptide-bonded to a neighbour "
+                       "(C-N at most 2.0 Å). The adapter's own continuity rules (missing Cα, chain boundary, numbering adjacency, Cα-Cα distance) apply "
+                       "to the admitted residue unchanged; they do not include peptide bonds. These extra checks apply to these residues only."),
+            "statement": "The deposited residue name is kept; the parent is documentation, not a rename. Annotation is not evidence of functional state.",
+            **mod_report}} if modres is not None else {}),
         "altloc_decisions": altloc_decisions,
         "pbc": {**pbc_stats, "box_present_in_any_frame": box_seen},
         "summary": {"residues": n_res, "present": int(present.sum()), "missing": int((~present).sum()),
@@ -418,7 +460,100 @@ def _chain_of(atoms, chain_src: str) -> str:
     return vals.pop()
 
 
-def _all_ties(sel, chain_src: str, policy: str, correspondence, first: "AltlocTieError") -> "AltlocTieError":
+def _read_modres(universe) -> dict:
+    """MODRES records of the PDB-format topology file: {(chain, resid, icode): {resname, parent, comment}}. Other formats raise."""
+    fn = getattr(universe, "filename", None)
+    if not fn or Path(str(fn)).suffix.lower() not in (".pdb", ".ent"):
+        raise AdapterError("modified_residues='phospho_pdb' needs a PDB-format topology file (.pdb or .ent) with MODRES records; "
+                           f"got {fn!r}. No other format or modified residue is supported.")
+    out = {}
+    with open(fn, "r", encoding="latin-1") as fh:
+        for ln in fh:
+            if ln.startswith("MODRES"):
+                try:
+                    out[(ln[16], int(ln[18:22]), ln[22].strip())] = {"resname": ln[12:15].strip(), "parent": ln[24:27].strip(), "comment": ln[29:70].strip()}
+                except ValueError:
+                    continue
+    return out
+
+
+def _min_distance(a, b):
+    if a.n_atoms == 0 or b.n_atoms == 0:
+        return None
+    return float(np.min(np.linalg.norm(a.positions[:, None, :] - b.positions[None, :, :], axis=-1)))
+
+
+def _classify_modified(universe, sel, chain_src: str, scope, altloc: str, modres: dict):
+    """Decide, for residues named SEP, TPO or PTR, admission (see extract_ca). Returns (residue indices to skip, {residue_ix: modification}, report)."""
+    universe.trajectory[0]
+    residues = list(sel.residues)
+    chains = [_chain_of(r.atoms & sel, chain_src) for r in residues]
+    skip, info, rep = set(), {}, {"admitted": [], "excluded": []}
+    for i, res in enumerate(residues):
+        name = str(res.resname)
+        if name not in PHOSPHO_PARENTS:
+            continue
+        chain = chains[i]
+        if scope is not None and chain not in scope:
+            skip.add(int(res.ix))
+            continue
+        icode = str(getattr(res, "icode", "") or "")
+        key = (chain, int(res.resid), icode)
+        atoms = res.atoms & sel
+        rec_type = str(atoms.record_types[0]) if hasattr(atoms, "record_types") else "unknown"
+        label = f"{chain}:{key[1]}{icode}"
+        base = {"chain": chain, "resid": key[1], "icode": icode, "name": name, "record_type": rec_type}
+        bb = {a: atoms.select_atoms(f"name {a}") for a in ("N", "CA", "C")}
+        missing = [a for a, g in bb.items() if g.n_atoms == 0]
+        if missing:
+            if "CA" in missing:
+                why = (f"not admitted: no Cα atom (the residue lacks {', '.join(missing)}); the policy requires N, CA and C, and a residue without Cα "
+                       "is a missing Cα, not a position")
+            else:
+                why = (f"not admitted: backbone atoms {', '.join(missing)} unavailable; the policy requires N, CA and C, and a Cα-only residue "
+                       "cannot be verified as polymer")
+            rep["excluded"].append({**base, "reason": why})
+            skip.add(int(res.ix))
+            continue
+        # N and C are chosen under the same altloc policy; only their positions are used here
+        try:
+            n_atom, _ = _choose_ca(bb["N"], key, altloc)
+            c_atom, _ = _choose_ca(bb["C"], key, altloc)
+        except AltlocTieError:
+            raise
+        except AdapterError as e:
+            raise AdapterError(f"modified residue {label} ({name}): backbone atom selection failed: {e}") from None
+        bonded = False
+        if i > 0 and chains[i - 1] == chain:
+            prev_c = (residues[i - 1].atoms & sel).select_atoms("name C")
+            d = _min_distance(prev_c, bb["N"])
+            bonded = bonded or (d is not None and d <= PEPTIDE_BOND_MAX_ANGSTROM)
+        if i + 1 < len(residues) and chains[i + 1] == chain:
+            nxt_n = (residues[i + 1].atoms & sel).select_atoms("name N")
+            d = _min_distance(bb["C"], nxt_n)
+            bonded = bonded or (d is not None and d <= PEPTIDE_BOND_MAX_ANGSTROM)
+        del n_atom, c_atom
+        if not bonded:
+            rep["excluded"].append({**base, "reason": "not admitted: not peptide-bonded to a neighbouring residue (C-N farther than 2.0 Å or no neighbour), "
+                                                       "so it is treated as a component, not a polymer residue"})
+            skip.add(int(res.ix))
+            continue
+        ann = modres.get(key)
+        if ann is None:
+            raise AdapterError(f"modified residue {label} ({name}) is bonded into the chain but has no MODRES record, so its parent identity cannot be "
+                               "documented; add the annotation or run without modified_residues")
+        if ann["resname"] != name or ann["parent"] != PHOSPHO_PARENTS[name]:
+            raise AdapterError(f"modified residue {label}: the MODRES record ({ann['resname']} with parent {ann['parent']}) contradicts the policy table "
+                               f"({name} with parent {PHOSPHO_PARENTS[name]}); refusing instead of guessing")
+        mod = {"deposited_name": name, "parent": PHOSPHO_PARENTS[name],
+               "parent_source": f"MODRES record for {label} (parent {ann['parent']}) agrees with the policy table {name}->{PHOSPHO_PARENTS[name]} (wwPDB chemical components)",
+               "annotation": ann["comment"], "record_type": rec_type, "chain": chain, "resid": key[1], "icode": icode}
+        info[int(res.ix)] = mod
+        rep["admitted"].append({**base, "parent": mod["parent"], "annotation": mod["annotation"], "parent_source": mod["parent_source"]})
+    return skip, info, rep
+
+
+def _all_ties(sel, chain_src: str, policy: str, correspondence, first: "AltlocTieError", skip_ix=()) -> "AltlocTieError":
     """Every tied residue of the selection (only ties are collected; any other problem met while scanning is left to the
     caller's normal error path), flagged by whether it lies in the correspondence."""
     wanted = None
@@ -426,6 +561,8 @@ def _all_ties(sel, chain_src: str, policy: str, correspondence, first: "AltlocTi
         wanted = {(s if isinstance(s, ResidueSpec) else ResidueSpec.from_mapping(s)).key for s in correspondence}
     ties = []
     for res in sel.residues:
+        if int(res.ix) in skip_ix:
+            continue
         atoms = res.atoms & sel
         try:
             chain = _chain_of(atoms, chain_src)

@@ -244,6 +244,13 @@ if VAR and VAR.get("status") in ("available", "partial"):
                + VAR["statement"])
 elif VAR:
     st.caption("Within-entry crystal-copy variation: unavailable (one chain per entry).")
+MOD = S.get("modified_residues")
+if isinstance(MOD, dict):
+    kept = "; ".join(f"{r['structure']} {r['residue']} {r['deposited_name']} (parent {r['parent']}, {r['annotation'] or 'no annotation text'})" for r in MOD["retained"]) or "none"
+    st.info(f"**Modified residues (policy `{MOD['policy']}`).** Retained: {kept}. Deposited names are not renamed to the parent, and SEP versus SER stays a visible "
+            "name difference in the tables; an annotation is not evidence of functional state.")
+    if MOD["excluded"]:
+        st.warning("**Modified-residue names excluded (not admitted by the policy):** " + "; ".join(f"{e['structure']} {e['residue']} {e['name']}: {e['reason']}" for e in MOD["excluded"]))
 ALT = S.get("altloc_sensitivity")
 if isinstance(ALT, dict) and ALT.get("available") is False:
     st.warning("**The requested alternate-conformation sensitivity is UNAVAILABLE (not zero).** " + ALT["reason"] + " " + ALT["why_not_partial"]

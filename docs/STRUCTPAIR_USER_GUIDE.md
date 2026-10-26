@@ -109,6 +109,7 @@ streamlit run apps/structpair_viewer/app.py --server.address localhost -- --resu
  "on_missing": "reject",
  "resname_mismatch": "reject",
  "altloc_sensitivity": "highest_occupancy",
+ "modified_residues": "phospho_pdb",
  "numeric_record": true}
 ```
 
@@ -136,6 +137,19 @@ streamlit run apps/structpair_viewer/app.py --server.address localhost -- --resu
   - A tie under the **primary** `altloc: highest_occupancy` is still an explicit refusal (exit 2, no outputs). Every other error stops
     the run as before.
   - Results written by versions 0.3.0 and earlier never contain this record (they stopped instead).
+- **Phosphorylated residues (optional, version 0.5.0; KNOWN_ISSUES m14):** `"modified_residues": "phospho_pdb"` admits residues named **SEP, TPO or PTR**
+  (parents SER, THR, TYR) that the default selection leaves out. **Only these three names, only PDB-format files** (`.pdb`/`.ent` with MODRES records); any other format
+  is refused under the policy, and no other modified residue is supported. Default is `"none"` (historical behaviour, nothing is added).
+  - **Admission, for these residues in the chains your correspondence names:** the MODRES record must name the residue and its parent as in the table; N, CA and C must be present;
+    and the residue must be peptide-bonded to a neighbour (C–N at most 2.0 Å). These extra checks apply to these residues only; standard residues and Cα-only inputs are not
+    subject to them. A named residue without N, CA and C (including a Cα-only file), or not bonded (a free component, never calcium or another name), is **not admitted** and is listed under
+    `modified_residues.excluded` (summary, report, viewer); a bonded one with **no MODRES record or a contradicting one is an explicit refusal**.
+  - **Identity is never rewritten:** the deposited name (SEP), the parent (SER) and its source, the annotation text, the record type (ATOM or HETATM), chain, author number and insertion code are kept in
+    the adapter report, `residues.csv` (`A_modification`, `B_modification`), `windows.csv` (`modified_in_window3/4`), `summary.json` (`modified_residues`), the manifest and the numeric record.
+    SEP versus SER remains a visible name difference: set `"resname_mismatch": "flag"` to compute, and every affected window is marked; the default `"reject"` refuses. Annotation is not evidence of functional state.
+  - **What continuity means:** the adapter's own rules, unchanged, are: unique residue keys, one Cα per residue under the altloc policy, a break for a missing Cα, a chain change, a numbering discontinuity,
+    or a Cα–Cα distance above 4.2 Å. It **never checked peptide bonds**; the C–N check above is an admission condition for SEP, TPO and PTR only.
+  - Your correspondence must list the modified residue's position explicitly (the policy admits it to the adapter output; it does not edit your correspondence). Alternate locations follow your altloc policy (also for N and C of these residues).
 - **Numeric record (optional, version 0.4.0; KNOWN_ISSUES m13b):** `"numeric_record": true` also writes `numeric_record.json`.
   `windows.csv` rounds values to six significant figures for display (values of 10 Å or more therefore differ in steps of 1e-4); the
   record keeps the computed float64 values exactly, per position and metric, with the position and residue identifiers, units, the
