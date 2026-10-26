@@ -5,23 +5,23 @@ the invitation personally; the project does not contact anyone.
 
 ## 1. Choose the tester
 A computational scientist who has not worked on TopoFold, has not seen its audit records or AI-trial reports, and works with
-protein structures. Record only what they permit (feedback form §6); otherwise the log calls them "outside tester 1".
+protein structures. Record only what they permit (structpair form §D); otherwise the log calls them "outside tester 1".
 
 ## 2. What to send (exactly)
 1. The invitation text in `docs/pilot/OUTSIDE_USER_INVITATION.md` (the part below the line), with `[name]`, `[Your name]`,
    `[repository link]` filled in and `[COMMIT]` replaced by the commit named in the handoff report of 2026-10-26.
 2. A link to the repository at that commit (branch `scientific-rebuild`).
 3. Three files, as links at that commit or as attachments: `docs/pilot/STRUCTPAIR_HUMAN_TRIAL_PACKET.md`,
-   `docs/STRUCTPAIR_USER_GUIDE.md`, `docs/pilot/FEEDBACK_FORM.md`.
+   `docs/STRUCTPAIR_USER_GUIDE.md`, `docs/pilot/STRUCTPAIR_FEEDBACK_FORM.md`. (Do not send `docs/pilot/FEEDBACK_FORM.md`: it is the
+   ensemble tool's form.)
 
 Do **not** send: expected results, the AI-trial reports or their archive, audit READMEs, the Abl demonstration, or any hint
 about which regions differ in the fallback example.
 
 ## 3. What to request back
-- The completed feedback form: §0 (trial record), §1–§6, and §7 (per-stage outcome, setup time, comparison chosen before
-  results, 3D view, exclusions, interpretation, anything misleading, viewer usability).
+- The completed `STRUCTPAIR_FEEDBACK_FORM.md`: A (trial record), B (per-stage outcome and time), C (setup time, comparison chosen
+  before results, 3D view, exclusions, interpretation, anything misleading, viewer usability, usefulness) and D (permission).
 - Optional: the spec, the stdout of each command, `manifest.json` of their run, screenshots.
-- Their permission answers (§6, items 15–16).
 
 ## 4. During the trial
 - Do not coach. If asked for help, answer only the question asked, and write down the time, the question and the answer;

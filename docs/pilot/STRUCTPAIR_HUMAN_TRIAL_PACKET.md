@@ -11,8 +11,8 @@ about 1–2 hours. Everything runs locally. Nothing is uploaded, and nothing is 
 
 ## What to do
 
-1. **Start the clock and keep notes as you go** in your copy of `docs/pilot/FEEDBACK_FORM.md` (§0 and the structpair section
-   at its end). Paste commands and error messages as they happened, including failed ones.
+1. **Start the clock and keep notes as you go** in your copy of `docs/pilot/STRUCTPAIR_FEEDBACK_FORM.md`, the only form for this
+   trial (do not use `docs/pilot/FEEDBACK_FORM.md`, which is for a different tool). Paste commands and error messages as they happened, including failed ones.
 2. **Fresh checkout and environment.** Clone the repository at the commit named in the invitation into a new directory and
    create a new Python environment for it. Do not reuse an existing TopoFold checkout or environment.
 3. **Install and check the installation** by following `docs/STRUCTPAIR_USER_GUIDE.md` §2, steps 1–4. That step runs a
@@ -32,7 +32,7 @@ about 1–2 hours. Everything runs locally. Nothing is uploaded, and nothing is 
 6. **Write your interpretation before reading anything else about the structures in this repository**: what the comparison
    shows, which exclusions there are and why, and what it does not show. Use only the outputs, the guide and your own
    knowledge.
-7. **Finish the form** (sections 0–6 and the structpair section) and stop the clock.
+7. **Finish the form** (all of sections A–D) and stop the clock.
 
 ## Rules for a fair trial
 

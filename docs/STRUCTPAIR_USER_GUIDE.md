@@ -24,7 +24,7 @@ Status: v0.3.0. Version 0.1.0 was verified against two recorded KRAS studies
 single-chain output is unchanged (`benchmarks/audit/structpair_chains_demo/README.md`). One external AI technical trial (checkpoint `6ce7b49`) and one bounded
 AI confirmation (`049a47f`) have been completed, and two further independent AI technical trials of 0.3.0 (`19b5268`)
 (`docs/pilot/PILOT_LOG.md`, entries 4–6). **No independent human trial has been completed.** If you are trying it,
-please use `docs/pilot/STRUCTPAIR_HUMAN_TRIAL_PACKET.md` and `docs/pilot/FEEDBACK_FORM.md`.
+please use `docs/pilot/STRUCTPAIR_HUMAN_TRIAL_PACKET.md` and `docs/pilot/STRUCTPAIR_FEEDBACK_FORM.md`.
 
 ## 1. What a clean checkout does not contain
 
@@ -274,7 +274,7 @@ streamlit run apps/structpair_viewer/app.py --server.address localhost -- --resu
 
 ## 7. Feedback
 
-Please record the following in `docs/pilot/FEEDBACK_FORM.md`, or send them to the project owner:
+Please record the following in `docs/pilot/STRUCTPAIR_FEEDBACK_FORM.md`, or send them to the project owner:
 - whether you completed the setup and a run on your own structures;
 - where you got stuck;
 - whether you could explain every exclusion from the outputs alone;

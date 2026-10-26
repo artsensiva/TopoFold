@@ -31,7 +31,7 @@ I will not quote you or name you anywhere without your permission (form §6).
 
 **Materials:** the repository at commit `[COMMIT]` ([repository link]), the tester packet
 (`docs/pilot/STRUCTPAIR_HUMAN_TRIAL_PACKET.md`), the guide (`docs/STRUCTPAIR_USER_GUIDE.md`) and the feedback form
-(`docs/pilot/FEEDBACK_FORM.md`).
+(`docs/pilot/STRUCTPAIR_FEEDBACK_FORM.md`).
 
 Any finding, including "this was not useful to me", helps. Thank you for considering it.
 

@@ -200,7 +200,7 @@ WebGL-capable headless Chrome. **Not concluded:** that the viewer has no other d
 ## Entry 7 — HUMAN USABILITY TRIAL of structpair: prepared, not started (2026-10-26)
 
 **No human trial has taken place.** Prepared for the owner to send: `docs/pilot/OUTSIDE_USER_INVITATION.md` (invitation),
-`docs/pilot/STRUCTPAIR_HUMAN_TRIAL_PACKET.md` (tester packet), `docs/pilot/FEEDBACK_FORM.md` §7 (per-stage record), and
+`docs/pilot/STRUCTPAIR_HUMAN_TRIAL_PACKET.md` (tester packet), `docs/pilot/STRUCTPAIR_FEEDBACK_FORM.md` (per-stage record; corrected 2026-10-26, D79), and
 `docs/pilot/HUMAN_TRIAL_OWNER_CHECKLIST.md` (what to send, what to request, how to record). It is a usability trial, not a
 biological validation. Viewer change before the trial: F8 clarified (D78). Open viewer findings carried into the trial
 without change: F9–F12 (`benchmarks/audit/ai_trials_structpair_0_3_0_2026-10-25/README.md`).
