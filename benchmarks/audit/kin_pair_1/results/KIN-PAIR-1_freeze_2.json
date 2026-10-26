@@ -1,0 +1,16 @@
+{
+ "study": "KIN-PAIR-1",
+ "stage": "analysis code and panel frozen before any structpair execution",
+ "utc": "2026-10-26T10:49:21+00:00",
+ "sha256": {
+  "protocol.json": "aa2b4d29edf59a834866db228bb0f6d0863e9cecb4786cff06a97d1dbf38245b",
+  "PROTOCOL.md": "01848523051b89c37d2f9f6550c6e5fa69ef8f20e591412599b572e61d3a70a2",
+  "kinpair.py": "bd7de673d2cd9101a42823fe6b8d4fcdf316278b8fdae63e18affcf6f6948e6d",
+  "select_panel.py": "b59bd4a1fc80eedd35f7c22db778ab2d9de34a6236bc83fda9999eeb142c7f8d",
+  "run_study.py": "1b8a02a0c9a6d7292be8e21f6d98105cb8928ef2baf240cba219bea5a1dc4fbc",
+  "results/KIN-PAIR-1_selection.json": "716641d38427f47b7239a00a9d93ebba93ae2e5e8bd669c65ff0aa275e50043c",
+  "results/KIN-PAIR-1_freeze_1.json": "b586b4689a8fe4feb8709f4760b6c45fcac21b638a0ff6da23a946e443e01538",
+  "results/KIN-PAIR-1_freeze_1a.json": "59f1fbf4753f7851c01e6c1a78aed04b360018d12708246fcb4895b378ba1a6b"
+ },
+ "results_present_at_freeze": []
+}

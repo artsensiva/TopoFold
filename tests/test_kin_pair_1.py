@@ -357,3 +357,66 @@ def test_independent_windows_agree_with_structpair_on_a_synthetic_pair_with_a_ga
             if got is not None:
                 worst = max(worst, abs(got - w[k][j]))
     assert worst < 1e-4
+
+
+# --- the analysis driver on a SYNTHETIC two-chain pair (needs the adapter interpreter) ---------------------------------
+
+def _two_chains(ref, coords_a, coords_b, skip_a=(), skip_b=()):
+    a = pdb_text(ref, 1, 21, 290, chain="A", coords=coords_a, skip=skip_a).replace("TER\nEND\n", "TER\n")
+    b = pdb_text(ref, 1, 21, 290, chain="B", coords=coords_b, skip=skip_b).replace("TER\nEND\n", "TER\n")
+    return a + b + "END\n"
+
+
+def test_run_study_passes_every_reference_on_a_synthetic_pair_and_flags_a_broken_one(tmp_path, monkeypatch):
+    py = _adapter_python()
+    if py is None:
+        pytest.skip("no interpreter with MDAnalysis available")
+    import hashlib
+    import run_study as rs
+    ref = ref_sequence()
+    rng = np.random.default_rng(11)
+    base = helix(270) + rng.normal(0, 0.05, (270, 3))
+    mk = lambda s_: base + rng.normal(0, s_, base.shape)   # noqa: E731
+    data = tmp_path / "data_pdb"
+    data.mkdir()
+    (data / "SYN1.pdb").write_text(_two_chains(ref, mk(0.04), mk(0.05)))
+    (data / "SYN2.pdb").write_text(_two_chains(ref, mk(0.08), mk(0.09), skip_a=(100,), skip_b=(100, 101)))
+    monkeypatch.setattr(rs, "DATA_DIR", data)
+    monkeypatch.setattr(rs, "WORK", tmp_path / "work")
+    monkeypatch.setattr(rs, "PAIRS_DIR", tmp_path / "pairs")
+    monkeypatch.setattr(rs, "ADAPTER_PY", py)
+
+    class Net:
+        def uniprot_fasta(self, acc):
+            return ref, "sha"
+    sha_ = lambda f: hashlib.sha256((data / f).read_bytes()).hexdigest()   # noqa: E731
+    pair = {"pair_id": "SYN-1", "gene": "SYN", "accession": "P99999", "A": "SYN1", "B": "SYN2", "chain_A": "A", "chain_B": "A",
+            "sha256_A": sha_("SYN1.pdb"), "sha256_B": sha_("SYN2.pdb"),
+            "meta_A": {"target_chains": ["A", "B"]}, "meta_B": {"target_chains": ["A", "B"]}}
+    r = rs.analyze_pair(pair, _protocol(), {"SYN": {"uniprot_fasta_sha256": "sha"}}, {}, Net())
+    assert r["outcome"] == "PASS", json.dumps(r["checks"], default=str)[:1500]
+    assert r["chains"]["A"]["used"] == ["A", "B"] and r["chains"]["B"]["used"] == ["A", "B"]
+    c = r["checks"]
+    assert c["R6_displacement"]["status"] == "compared" and c["R6_displacement"]["n_chain_pairings"] == 4
+    assert c["R7_rigid_motion"]["pass"] and c["R9_exclusions"]["n_rows"] > 0 and c["R9_exclusions"]["pass"]
+    assert r["correspondence"]["n_positions"] == 269 and c["R8_shifted_mapping"]["pass"]       # residue 100 of SYN2 chain A is absent
+    assert r["classification"]["3"]["class"] in ("redundant", "complementary")
+    # a corrupted file hash is an input failure, never silently analysed
+    pair_bad = dict(pair, sha256_A="0" * 64)
+    assert rs.analyze_pair(pair_bad, _protocol(), {}, {}, Net())["outcome"] == "INPUT_OR_MAPPING_FAILURE"
+    # a wrong reference sequence (here: shifted) is a mapping failure
+    class BadNet:
+        def uniprot_fasta(self, acc):
+            return ref[::-1], "sha"
+    assert rs.analyze_pair(pair, _protocol(), {}, {}, BadNet())["outcome"] == "INPUT_OR_MAPPING_FAILURE"
+
+
+def test_study_outcome_rule():
+    import run_study as rs
+    p = lambda o, g: {"outcome": o, "gene": g}   # noqa: E731
+    assert rs.study_outcome([]) == "NOT EXECUTABLE"
+    assert rs.study_outcome([p("INPUT_OR_MAPPING_FAILURE", "A")]) == "NOT EXECUTABLE"
+    assert rs.study_outcome([p("PASS", "A")] * 4 + [p("PASS", "B")] * 2) == "SUPPORTED ON THIS PANEL"
+    assert rs.study_outcome([p("PASS", "A")] * 4) == "PARTIAL"                       # one target only
+    assert rs.study_outcome([p("PASS", "A"), p("PASS", "B"), p("PASS", "B")]) == "PARTIAL"
+    assert rs.study_outcome([p("PASS", "A")] * 5 + [p("IMPLEMENTATION_FAILURE", "B")]) == "IMPLEMENTATION FAILURE"

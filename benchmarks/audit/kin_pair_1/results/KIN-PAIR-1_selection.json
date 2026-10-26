@@ -293,7 +293,408 @@
    "search_total": 156,
    "eligible_by_metadata": 156,
    "excluded_exposed_entries": [],
-   "status": "not examined (panel complete)"
+   "rank": 3,
+   "uniprot_sequence_length": 659,
+   "uniprot_fasta_sha256": "73f9b8a424de891082750627efd196fa34d05038b0aa41f1c71328c8408b5b49",
+   "examined_entries": [
+    {
+     "entry": "5P9J",
+     "resolution": 1.08,
+     "primary_ligand": "8E8",
+     "status": "excluded",
+     "reason": "263 aligned residues disagree with the DBREF numbering, first (394, 428, 394)",
+     "chain": "A",
+     "chain_read_counts": {
+      "A": 263
+     },
+     "n_read_mapped": 263,
+     "identity": 1.0,
+     "coverage": 1.0,
+     "n_aligned": 263,
+     "mismatches": [],
+     "dbref_segments": [
+      {
+       "seq_begin": 382,
+       "seq_end": 659,
+       "db_begin": 416,
+       "db_end": 693
+      }
+     ],
+     "sha256": "a20a1f69d7b8b7229e3f4d0e4079061494bf33cc81e31c4bdcbacd0a4c0a871b",
+     "n_models": 0,
+     "target_chains": [
+      "A"
+     ],
+     "release_date": "2017-05-24",
+     "space_group": "P 21 21 2",
+     "other_ligands": [],
+     "n_mutations_rcsb": 0
+    },
+    {
+     "entry": "6DI1",
+     "resolution": 1.1,
+     "primary_ligand": "GJD",
+     "status": "excluded",
+     "reason": "271 aligned residues disagree with the DBREF numbering, first (389, 423, 389)",
+     "chain": "A",
+     "chain_read_counts": {
+      "A": 271
+     },
+     "n_read_mapped": 271,
+     "identity": 1.0,
+     "coverage": 1.0,
+     "n_aligned": 271,
+     "mismatches": [],
+     "dbref_segments": [
+      {
+       "seq_begin": 389,
+       "seq_end": 659,
+       "db_begin": 423,
+       "db_end": 693
+      }
+     ],
+     "sha256": "a4bd78faf7f3b1d96282ada604c6bad1dfe88a0c339548d750aad630937af6a4",
+     "n_models": 0,
+     "target_chains": [
+      "A"
+     ],
+     "release_date": "2018-10-17",
+     "space_group": "P 21 21 2",
+     "other_ligands": [],
+     "n_mutations_rcsb": 0
+    },
+    {
+     "entry": "5P9I",
+     "resolution": 1.11,
+     "primary_ligand": "1E8",
+     "status": "excluded",
+     "reason": "271 aligned residues disagree with the DBREF numbering, first (389, 423, 389)",
+     "chain": "A",
+     "chain_read_counts": {
+      "A": 271
+     },
+     "n_read_mapped": 271,
+     "identity": 1.0,
+     "coverage": 1.0,
+     "n_aligned": 271,
+     "mismatches": [],
+     "dbref_segments": [
+      {
+       "seq_begin": 382,
+       "seq_end": 659,
+       "db_begin": 416,
+       "db_end": 693
+      }
+     ],
+     "sha256": "f3ef042dd4aa792938aaf52cd3ced1e0a2430d0f71a73da7fa61076c0834014e",
+     "n_models": 0,
+     "target_chains": [
+      "A"
+     ],
+     "release_date": "2017-05-24",
+     "space_group": "P 21 21 2",
+     "other_ligands": [],
+     "n_mutations_rcsb": 0
+    },
+    {
+     "entry": "6HRP",
+     "resolution": 1.12,
+     "primary_ligand": "GMQ",
+     "status": "excluded",
+     "reason": "263 aligned residues disagree with the DBREF numbering, first (396, 430, 396)",
+     "chain": "A",
+     "chain_read_counts": {
+      "A": 263
+     },
+     "n_read_mapped": 263,
+     "identity": 0.9847908745247148,
+     "coverage": 1.0,
+     "n_aligned": 263,
+     "mismatches": [
+      {
+       "resseq": 489,
+       "icode": "",
+       "observed": "ALA",
+       "uniprot": "M",
+       "uniprot_index": 489,
+       "seqadv": "ENGINEERED MUTATION"
+      },
+      {
+       "resseq": 492,
+       "icode": "",
+       "observed": "ALA",
+       "uniprot": "R",
+       "uniprot_index": 492,
+       "seqadv": "ENGINEERED MUTATION"
+      },
+      {
+       "resseq": 624,
+       "icode": "",
+       "observed": "ALA",
+       "uniprot": "E",
+       "uniprot_index": 624,
+       "seqadv": "ENGINEERED MUTATION"
+      },
+      {
+       "resseq": 625,
+       "icode": "",
+       "observed": "ALA",
+       "uniprot": "K",
+       "uniprot_index": 625,
+       "seqadv": "ENGINEERED MUTATION"
+      }
+     ],
+     "dbref_segments": [
+      {
+       "seq_begin": 378,
+       "seq_end": 659,
+       "db_begin": 412,
+       "db_end": 693
+      }
+     ],
+     "sha256": "83a4a74b4b4fa5aa36e9bbccd990accd74760cdcf3649f7c65ccf37d7ca31c8a",
+     "n_models": 0,
+     "target_chains": [
+      "A"
+     ],
+     "release_date": "2019-03-20",
+     "space_group": "P 21 21 2",
+     "other_ligands": [],
+     "n_mutations_rcsb": 4
+    },
+    {
+     "entry": "6E4F",
+     "resolution": 1.15,
+     "primary_ligand": "HRA",
+     "status": "paired",
+     "reason": "",
+     "chain": "A",
+     "chain_read_counts": {
+      "A": 270
+     },
+     "n_read_mapped": 270,
+     "identity": 1.0,
+     "coverage": 1.0,
+     "n_aligned": 270,
+     "mismatches": [],
+     "dbref_segments": [
+      {
+       "seq_begin": 387,
+       "seq_end": 659,
+       "db_begin": 387,
+       "db_end": 659
+      }
+     ],
+     "sha256": "ad770d384948b833f374b0cb8863d2ce1ee4d2934b2561bf8525ffeb6fc516f2",
+     "n_models": 0,
+     "target_chains": [
+      "A"
+     ],
+     "release_date": "2018-09-05",
+     "space_group": "P 21 21 2",
+     "other_ligands": [],
+     "n_mutations_rcsb": 0
+    },
+    {
+     "entry": "4RFZ",
+     "resolution": 1.17,
+     "primary_ligand": "3OV",
+     "status": "paired",
+     "reason": "",
+     "chain": "A",
+     "chain_read_counts": {
+      "A": 263
+     },
+     "n_read_mapped": 263,
+     "identity": 0.9847908745247148,
+     "coverage": 1.0,
+     "n_aligned": 263,
+     "mismatches": [
+      {
+       "resseq": 489,
+       "icode": "",
+       "observed": "ALA",
+       "uniprot": "M",
+       "uniprot_index": 489,
+       "seqadv": "ENGINEERED MUTATION"
+      },
+      {
+       "resseq": 492,
+       "icode": "",
+       "observed": "ALA",
+       "uniprot": "R",
+       "uniprot_index": 492,
+       "seqadv": "ENGINEERED MUTATION"
+      },
+      {
+       "resseq": 624,
+       "icode": "",
+       "observed": "ALA",
+       "uniprot": "E",
+       "uniprot_index": 624,
+       "seqadv": "ENGINEERED MUTATION"
+      },
+      {
+       "resseq": 625,
+       "icode": "",
+       "observed": "ALA",
+       "uniprot": "K",
+       "uniprot_index": 625,
+       "seqadv": "ENGINEERED MUTATION"
+      }
+     ],
+     "dbref_segments": [
+      {
+       "seq_begin": 378,
+       "seq_end": 659,
+       "db_begin": 378,
+       "db_end": 659
+      }
+     ],
+     "sha256": "bc8dc4307281f179b617b385685c9771e64055e266f1657ba5fcc9fc4f32d96e",
+     "n_models": 0,
+     "target_chains": [
+      "A"
+     ],
+     "release_date": "2014-12-24",
+     "space_group": "P 21 21 2",
+     "other_ligands": [],
+     "n_mutations_rcsb": 4
+    },
+    {
+     "entry": "7L5O",
+     "resolution": 1.21,
+     "primary_ligand": "R1L",
+     "status": "paired",
+     "reason": "",
+     "chain": "A",
+     "chain_read_counts": {
+      "A": 267
+     },
+     "n_read_mapped": 267,
+     "identity": 1.0,
+     "coverage": 1.0,
+     "n_aligned": 267,
+     "mismatches": [],
+     "dbref_segments": [
+      {
+       "seq_begin": 389,
+       "seq_end": 659,
+       "db_begin": 389,
+       "db_end": 659
+      }
+     ],
+     "sha256": "f3affba350c4540df597c626171a613ce743e84ef0288ea77fd6abb70fcca72c",
+     "n_models": 0,
+     "target_chains": [
+      "A"
+     ],
+     "release_date": "2022-06-29",
+     "space_group": "P 21 21 2",
+     "other_ligands": [],
+     "n_mutations_rcsb": 0
+    },
+    {
+     "entry": "5P9L",
+     "resolution": 1.25,
+     "primary_ligand": "7G9",
+     "status": "excluded",
+     "reason": "252 aligned residues disagree with the DBREF numbering, first (392, 426, 392)",
+     "chain": "A",
+     "chain_read_counts": {
+      "A": 252
+     },
+     "n_read_mapped": 252,
+     "identity": 1.0,
+     "coverage": 1.0,
+     "n_aligned": 252,
+     "mismatches": [],
+     "dbref_segments": [
+      {
+       "seq_begin": 382,
+       "seq_end": 659,
+       "db_begin": 416,
+       "db_end": 693
+      }
+     ],
+     "sha256": "8ccfadd244cfd5342fc54a55c8b0ab116dec2f4aa0c0eb9117eaa5bea3c24754",
+     "n_models": 0,
+     "target_chains": [
+      "A"
+     ],
+     "release_date": "2017-05-24",
+     "space_group": "P 21 21 2",
+     "other_ligands": [],
+     "n_mutations_rcsb": 0
+    },
+    {
+     "entry": "6DI9",
+     "resolution": 1.25,
+     "primary_ligand": "GJJ",
+     "status": "excluded",
+     "reason": "252 aligned residues disagree with the DBREF numbering, first (392, 426, 392)",
+     "chain": "A",
+     "chain_read_counts": {
+      "A": 252
+     },
+     "n_read_mapped": 252,
+     "identity": 1.0,
+     "coverage": 1.0,
+     "n_aligned": 252,
+     "mismatches": [],
+     "dbref_segments": [
+      {
+       "seq_begin": 389,
+       "seq_end": 659,
+       "db_begin": 423,
+       "db_end": 693
+      }
+     ],
+     "sha256": "d62004ac38434a0cc5846862e03169a132c095e475603e4725058ea04328cf5d",
+     "n_models": 0,
+     "target_chains": [
+      "A"
+     ],
+     "release_date": "2018-09-05",
+     "space_group": "P 21 21 2",
+     "other_ligands": [],
+     "n_mutations_rcsb": 0
+    },
+    {
+     "entry": "6J6M",
+     "resolution": 1.25,
+     "primary_ligand": "BA0",
+     "status": "paired",
+     "reason": "",
+     "chain": "A",
+     "chain_read_counts": {
+      "A": 267
+     },
+     "n_read_mapped": 267,
+     "identity": 1.0,
+     "coverage": 1.0,
+     "n_aligned": 267,
+     "mismatches": [],
+     "dbref_segments": [
+      {
+       "seq_begin": 393,
+       "seq_end": 659,
+       "db_begin": 393,
+       "db_end": 659
+      }
+     ],
+     "sha256": "f8e8fe158f0973813679ed676ec23d899c4e067ba0fe97b7dea81bdb5b09f921",
+     "n_models": 0,
+     "target_chains": [
+      "A"
+     ],
+     "release_date": "2019-10-23",
+     "space_group": "P 2 21 21",
+     "other_ligands": [],
+     "n_mutations_rcsb": 0
+    }
+   ],
+   "status": "selected"
   },
   "MAP2K1": {
    "accession": "Q02750",
@@ -870,14 +1271,90 @@
      "A"
     ]
    }
+  },
+  {
+   "gene": "BTK",
+   "accession": "Q06187",
+   "uniprot_sequence_length": 659,
+   "pair_id": "BTK-1",
+   "A": "6E4F",
+   "B": "4RFZ",
+   "chain_A": "A",
+   "chain_B": "A",
+   "sha256_A": "ad770d384948b833f374b0cb8863d2ce1ee4d2934b2561bf8525ffeb6fc516f2",
+   "sha256_B": "bc8dc4307281f179b617b385685c9771e64055e266f1657ba5fcc9fc4f32d96e",
+   "n_read_mapped_A": 270,
+   "n_read_mapped_B": 263,
+   "n_shared_positions": 263,
+   "span_not_shared": 0,
+   "meta_A": {
+    "resolution": 1.15,
+    "release_date": "2018-09-05",
+    "space_group": "P 21 21 2",
+    "primary_ligand": "HRA",
+    "other_ligands": [],
+    "n_mutations_rcsb": 0,
+    "target_chains": [
+     "A"
+    ]
+   },
+   "meta_B": {
+    "resolution": 1.17,
+    "release_date": "2014-12-24",
+    "space_group": "P 21 21 2",
+    "primary_ligand": "3OV",
+    "other_ligands": [],
+    "n_mutations_rcsb": 4,
+    "target_chains": [
+     "A"
+    ]
+   }
+  },
+  {
+   "gene": "BTK",
+   "accession": "Q06187",
+   "uniprot_sequence_length": 659,
+   "pair_id": "BTK-2",
+   "A": "7L5O",
+   "B": "6J6M",
+   "chain_A": "A",
+   "chain_B": "A",
+   "sha256_A": "f3affba350c4540df597c626171a613ce743e84ef0288ea77fd6abb70fcca72c",
+   "sha256_B": "f8e8fe158f0973813679ed676ec23d899c4e067ba0fe97b7dea81bdb5b09f921",
+   "n_read_mapped_A": 267,
+   "n_read_mapped_B": 267,
+   "n_shared_positions": 263,
+   "span_not_shared": 3,
+   "meta_A": {
+    "resolution": 1.21,
+    "release_date": "2022-06-29",
+    "space_group": "P 21 21 2",
+    "primary_ligand": "R1L",
+    "other_ligands": [],
+    "n_mutations_rcsb": 0,
+    "target_chains": [
+     "A"
+    ]
+   },
+   "meta_B": {
+    "resolution": 1.25,
+    "release_date": "2019-10-23",
+    "space_group": "P 2 21 21",
+    "primary_ligand": "BA0",
+    "other_ligands": [],
+    "n_mutations_rcsb": 0,
+    "target_chains": [
+     "A"
+    ]
+   }
   }
  ],
  "stop": null,
- "files_downloaded": 10,
- "bytes_downloaded": 3657879,
+ "files_downloaded": 20,
+ "bytes_downloaded": 7455645,
  "resources": {
-  "cpu_seconds": 1.2696880000000001,
-  "wall_seconds": 49.90913677215576
+  "cpu_seconds": 1.907991,
+  "wall_seconds": 80.4813461303711
  },
- "freeze_utc": "2026-10-26T10:39:09+00:00"
+ "freeze_utc": "2026-10-26T10:41:14+00:00"
 }

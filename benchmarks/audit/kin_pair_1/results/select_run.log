@@ -8,4 +8,14 @@
   PIM1 6NO9: usable 
   PIM1 6VRV: usable 
   PIM1 6L17: usable 
-panel: [('EGFR-1', '8A27', '8A2D'), ('EGFR-2', '5UG9', '5HG8'), ('PIM1-1', '8R0Q', '6NO9'), ('PIM1-2', '6VRV', '6L17')] | files 10 bytes 3657879
+  BTK 5P9J: excluded 263 aligned residues disagree with the DBREF numbering, first (394, 42
+  BTK 6DI1: excluded 271 aligned residues disagree with the DBREF numbering, first (389, 42
+  BTK 5P9I: excluded 271 aligned residues disagree with the DBREF numbering, first (389, 42
+  BTK 6HRP: excluded 263 aligned residues disagree with the DBREF numbering, first (396, 43
+  BTK 6E4F: usable 
+  BTK 4RFZ: usable 
+  BTK 7L5O: usable 
+  BTK 5P9L: excluded 252 aligned residues disagree with the DBREF numbering, first (392, 42
+  BTK 6DI9: excluded 252 aligned residues disagree with the DBREF numbering, first (392, 42
+  BTK 6J6M: usable 
+panel: [('EGFR-1', '8A27', '8A2D'), ('EGFR-2', '5UG9', '5HG8'), ('PIM1-1', '8R0Q', '6NO9'), ('PIM1-2', '6VRV', '6L17'), ('BTK-1', '6E4F', '4RFZ'), ('BTK-2', '7L5O', '6J6M')] | files 20 bytes 7455645
