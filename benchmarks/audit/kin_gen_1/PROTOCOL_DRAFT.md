@@ -1,3 +1,5 @@
+> **SUPERSEDED 2026-10-26 by `benchmarks/audit/kin_gen_2/PROTOCOL.md`** (reference-source re-check, one scoring procedure, development/evaluation separation by kinase). This draft was never frozen; its text below is preserved unchanged.
+
 # KIN-GEN-1: kinase-descriptor generalization (protocol DRAFT, 2026-10-24)
 
 **Status: DRAFT. Not frozen, not run.** No KinCoRe label file and no new structure has been downloaded.

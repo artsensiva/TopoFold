@@ -1,0 +1,11 @@
+{
+ "study": "KIN-GEN-2",
+ "stage": "freeze 1: protocol and reference-source check, before any structure is downloaded",
+ "utc": "2026-10-26T19:25:51+00:00",
+ "sha256": {
+  "PROTOCOL.md": "8f0fcf1e92a9b8adda6679fa728f3fdf2f10021dad6f23fb080de9fb1fb4c9f7",
+  "protocol.json": "e7c77384e1210cc03d24be94c912553dd049c47f1deddda4f2b7bab46d3ee91f",
+  "results/reference_source_check.json": "7a43a69805631520088734c9b206f623340ba9a11dc744fef0cfca0f8f368a59",
+  "reference_source_check.py": "b62e6a3cf13cdd9a96e66e3763db40a0565ae6fd2a9cc39eff46e78d6d8cd16f"
+ }
+}
