@@ -79,8 +79,11 @@ class Browser:
         self.click_xy(*box)
 
     def choose(self, label, option_prefix):
+        self.js(f"""[...document.querySelectorAll('[data-testid=stSelectbox]')]
+            .find(e => e.innerText.startsWith({json.dumps(label)})).scrollIntoView({{block: 'center'}})""")
+        time.sleep(0.6)                                  # let the scroll and any layout change finish before measuring
         box = self.js(f"""(() => {{ const w = [...document.querySelectorAll('[data-testid=stSelectbox]')]
-            .find(e => e.innerText.startsWith({json.dumps(label)})); w.scrollIntoView({{block: 'center'}});
+            .find(e => e.innerText.startsWith({json.dumps(label)}));
             const r = w.querySelector('button[aria-label=Open]').getBoundingClientRect();
             return [r.x + r.width / 2, r.y + r.height / 2]; }})()""")
         self.click_xy(*box)
