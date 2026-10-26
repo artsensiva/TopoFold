@@ -1,0 +1,51 @@
+{
+ "study": "KIN-PAIR-1",
+ "protocol_version": "1.0",
+ "status": "frozen before selection and before any structpair execution (freeze record: results/KIN-PAIR-1_freeze_1.json)",
+ "candidate_targets_file": "results/candidate_targets_verified.json",
+ "exposure_file": "results/exposure_history.json",
+ "entry_criteria": {
+  "method": "X-RAY DIFFRACTION",
+  "max_resolution_angstrom": 2.5,
+  "pdb_format_file_required": true,
+  "target_entity": "a protein polymer entity whose RCSB/SIFTS reference sequence identifier is the target UniProt accession"
+ },
+ "additive_comp_ids_not_primary_ligand": ["HOH","SO4","GOL","EDO","PEG","PGE","PG4","1PE","P6G","CL","NA","K","MG","ZN","CA","MN","CD","NI","CO","FE","BR","IOD","DMS","ACT","ACY","PO4","MPD","BME","FMT","TRS","EPE","MES","NO3","SCN","IMD","CIT","TLA","MLI","BU3","PEO","DTT","TCE","EOH","IPA","NH4","FLC","PGO","NAG","BOG","LDA","DOD","UNX","UNL","OXY","CO3","SO3","AZI","CAC","HEZ","OCT","SPD","SPM","FES","MYR","PLM","STE","OLA","TAR","MRD"],
+ "primary_ligand_rule": "among the entry's non-polymer entities whose component ID is not in additive_comp_ids_not_primary_ligand, the one with the largest RCSB formula weight (ties: component ID in alphabetical order); an entry without one has no primary ligand",
+ "target_ranking": "number of entries returned by the RCSB search (target accession, X-ray, resolution <= max, entry not in the exposed PDB IDs), descending; ties by UniProt accession ascending",
+ "targets_needed": 3,
+ "pairs_per_target": 2,
+ "max_targets_examined": 8,
+ "max_entries_examined_per_target": 25,
+ "max_files_downloaded_total": 40,
+ "max_scientific_download_mb": 100,
+ "pair_rule": "entries of the target ordered by (resolution ascending, PDB ID ascending); first usable entry E1 that is in no earlier pair; its partner is the first later usable entry with a primary ligand and a different primary ligand component ID that gives at least min_shared_positions shared mapped positions; pairs are disjoint",
+ "chain_rule": "among the chains of the target entity (RCSB auth_asym_ids) the one with the most residues read by the adapter (Cα present, adapter protein residue name); ties: alphabetical",
+ "quality": {
+  "identity_min": 0.98,
+  "alignment_coverage_min": 0.80,
+  "min_read_mapped_residues_per_chain": 200,
+  "min_shared_positions": 200,
+  "dbref_must_name_target_accession": true,
+  "name_differences_must_have_seqadv_record": true
+ },
+ "structpair": {
+  "correspondence": "explicit pairs: residues read in both chains that map to the same UniProt index (ordered by UniProt index)",
+  "on_missing": "exclude",
+  "resname_mismatch": "flag",
+  "altloc": "blank_then_A",
+  "altloc_sensitivity": "highest_occupancy",
+  "second_chain_rule": "the next chain by chain_rule of the same entity is added (chains list) only if every residue it shares with the primary chain's correspondence has the same author number to UniProt index mapping and it has at least 180 read mapped positions; otherwise the entry stays single-chain",
+  "advisory_min_difference": {},
+  "displacement_trim_fraction": 0.2
+ },
+ "tolerances": {
+  "numerical_reference_abs": 1e-4,
+  "numerical_reference_unit": "rad for d_kappa and d_tau; Å for distances, local RMSD, global RMSD and displacement",
+  "invariance_abs": 1e-4,
+  "tolerance_cause": "the adapter holds Cα positions as float32 (declared for the K1 comparison, 2026-10-25); the reference uses float64 parsed from the file text",
+  "shifted_mapping_identity_must_be_below": 0.5
+ },
+ "classification": {"top_k": 10, "min_valid_windows": 50, "redundant_if_overlap_at_least": 8},
+ "resources": {"max_cpu_hours_execution": 2.0}
+}

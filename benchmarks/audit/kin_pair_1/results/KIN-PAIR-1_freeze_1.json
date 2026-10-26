@@ -1,0 +1,14 @@
+{
+ "study": "KIN-PAIR-1",
+ "stage": "selection protocol and code frozen",
+ "utc": "2026-10-26T10:39:09+00:00",
+ "sha256": {
+  "protocol.json": "aa2b4d29edf59a834866db228bb0f6d0863e9cecb4786cff06a97d1dbf38245b",
+  "PROTOCOL.md": "6df58ed7bde63fde85ac4754d1e6e7d1270c5482db6eaff29cf1dad6bc992aec",
+  "select_panel.py": "1312a0a2d928e2536ecee8f601d76e682c2b9d9424068be6a0c30f105c85f345",
+  "kinpair.py": "bd7de673d2cd9101a42823fe6b8d4fcdf316278b8fdae63e18affcf6f6948e6d",
+  "results/candidate_targets_verified.json": "91da4183cdafb97d3defe45bb778813dc2bd21bb75f02cddca9da4190c115b90",
+  "results/exposure_history.json": "1863b38330cd7221d33d8820546fd1595ec062ff0a49e1ad65cc36cbf0fd322a"
+ },
+ "files_present_at_freeze": []
+}

@@ -205,3 +205,18 @@ WebGL-capable headless Chrome. **Not concluded:** that the viewer has no other d
 biological validation. Viewer change before the trial: F8 clarified (D78). Open viewer findings carried into the trial
 without change: F9–F12 (`benchmarks/audit/ai_trials_structpair_0_3_0_2026-10-25/README.md`).
 
+## Entry 8 — OWNER-REPORTED closure of the human-involved testing phase (2026-10-26)
+
+**Owner-reported; no underlying record is available to the project.** The owner declared the human-involved testing phase complete
+and reported successful use of structpair on the specific computer that was tested. Nothing else was provided to the project:
+there is **no** researcher report, **no** completed `STRUCTPAIR_FEEDBACK_FORM.md`, and **no** record of the commands, timings,
+assistance, consent, 3D-view outcome or observations. None of these is recorded here, and none is inferred.
+
+- **Limited conclusion that is recorded:** on one machine, one person (the owner's report) used the tool successfully. The per-stage
+  outcome classes (unaided, self-devised workaround, after assistance, not completed) cannot be assigned.
+- **Not concluded:** that the tool is usable by other people or on other platforms, that it is user-friendly in general or
+  production-ready, or that any result is biologically validated. This is not an independent human usability result.
+- **Unchanged evidence:** the two independent AI technical trials of 0.3.0 and the earlier AI trials keep their own records
+  (entries 4–6; `benchmarks/audit/ai_trials_structpair_0_3_0_2026-10-25/`). Viewer findings F9–F12 stay open.
+- **Next phase:** AI-only development (D80). No human-researcher participation is required for it.
+

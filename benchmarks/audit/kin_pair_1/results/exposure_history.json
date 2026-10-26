@@ -1,0 +1,563 @@
+{
+ "method": "PDB-ID-like tokens in the listed repository records and tracked .pdb/.cif file names; kept if RCSB confirms the entry",
+ "scan_globs": [
+  "docs/*.md",
+  "docs/pilot/*.md",
+  "benchmarks/audit/*/README.md",
+  "benchmarks/audit/*/run_spec.json",
+  "benchmarks/audit/*/PROTOCOL*.md",
+  "benchmarks/audit/*/results/*.json",
+  "benchmarks/README.md",
+  "README.md"
+ ],
+ "n_tokens": 182,
+ "n_rejected_not_in_rcsb": 11,
+ "entries": {
+  "11TH": [
+   "P0ABE7",
+   "P51679"
+  ],
+  "1A9U": [
+   "Q16539"
+  ],
+  "1AKE": [
+   "P69441"
+  ],
+  "1ATP": [
+   "P05132",
+   "P63248"
+  ],
+  "1CRN": [
+   "P01542"
+  ],
+  "1FIN": [
+   "P20248",
+   "P24941"
+  ],
+  "1HCK": [
+   "P24941"
+  ],
+  "1IEP": [
+   "P00520"
+  ],
+  "1J9O": [
+   "P47992"
+  ],
+  "1KV2": [
+   "Q16539"
+  ],
+  "1MQ4": [
+   "O14965"
+  ],
+  "1OPJ": [
+   "P00520"
+  ],
+  "1OPK": [
+   "P00520"
+  ],
+  "1UWH": [
+   "P15056"
+  ],
+  "1Y26": [],
+  "2F4J": [
+   "P00519"
+  ],
+  "2FO0": [
+   "P00519"
+  ],
+  "2GQG": [
+   "P00519"
+  ],
+  "2JP1": [
+   "P47992"
+  ],
+  "3A10": [
+   "Q9X181"
+  ],
+  "3K5V": [
+   "P00520"
+  ],
+  "3OTJ": [
+   "P00760",
+   "P00974"
+  ],
+  "4AKE": [
+   "P69441"
+  ],
+  "4OBE": [
+   "P01116"
+  ],
+  "5C1M": [
+   "P42866"
+  ],
+  "5PTI": [
+   "P00974"
+  ],
+  "5R7Y": [
+   "P0DTD1"
+  ],
+  "5R7Z": [
+   "P0DTD1"
+  ],
+  "5R80": [
+   "P0DTD1"
+  ],
+  "5R81": [
+   "P0DTD1"
+  ],
+  "5R82": [
+   "P0DTD1"
+  ],
+  "5R83": [
+   "P0DTD1"
+  ],
+  "5R84": [
+   "P0DTD1"
+  ],
+  "5RE4": [
+   "P0DTD1"
+  ],
+  "5RE5": [
+   "P0DTD1"
+  ],
+  "5RE6": [
+   "P0DTD1"
+  ],
+  "5RE7": [
+   "P0DTD1"
+  ],
+  "5RE8": [
+   "P0DTD1"
+  ],
+  "5RE9": [
+   "P0DTD1"
+  ],
+  "5REA": [
+   "P0DTD1"
+  ],
+  "5REB": [
+   "P0DTD1"
+  ],
+  "5REC": [
+   "P0DTD1"
+  ],
+  "5RED": [
+   "P0DTD1"
+  ],
+  "5REE": [
+   "P0DTD1"
+  ],
+  "5REF": [
+   "P0DTD1"
+  ],
+  "5REG": [
+   "P0DTD1"
+  ],
+  "5REH": [
+   "P0DTD1"
+  ],
+  "5REI": [
+   "P0DTD1"
+  ],
+  "5REJ": [
+   "P0DTD1"
+  ],
+  "5REK": [
+   "P0DTD1"
+  ],
+  "5REL": [
+   "P0DTD1"
+  ],
+  "5REM": [
+   "P0DTD1"
+  ],
+  "5REN": [
+   "P0DTD1"
+  ],
+  "5REO": [
+   "P0DTD1"
+  ],
+  "5REP": [
+   "P0DTD1"
+  ],
+  "5RER": [
+   "P0DTD1"
+  ],
+  "5RES": [
+   "P0DTD1"
+  ],
+  "5RET": [
+   "P0DTD1"
+  ],
+  "5REU": [
+   "P0DTD1"
+  ],
+  "5REV": [
+   "P0DTD1"
+  ],
+  "5REW": [
+   "P0DTD1"
+  ],
+  "5REX": [
+   "P0DTD1"
+  ],
+  "5REY": [
+   "P0DTD1"
+  ],
+  "5REZ": [
+   "P0DTD1"
+  ],
+  "5RF0": [
+   "P0DTD1"
+  ],
+  "5RF1": [
+   "P0DTD1"
+  ],
+  "5RF2": [
+   "P0DTD1"
+  ],
+  "5RF3": [
+   "P0DTD1"
+  ],
+  "5RF4": [
+   "P0DTD1"
+  ],
+  "5RF5": [
+   "P0DTD1"
+  ],
+  "5RF6": [
+   "P0DTD1"
+  ],
+  "5RF7": [
+   "P0DTD1"
+  ],
+  "5RF8": [
+   "P0DTD1"
+  ],
+  "5RF9": [
+   "P0DTD1"
+  ],
+  "5RFA": [
+   "P0DTD1"
+  ],
+  "5RFB": [
+   "P0DTD1"
+  ],
+  "5RFC": [
+   "P0DTD1"
+  ],
+  "5RFD": [
+   "P0DTD1"
+  ],
+  "5RFE": [
+   "P0DTD1"
+  ],
+  "5RFF": [
+   "P0DTD1"
+  ],
+  "5RFG": [
+   "P0DTD1"
+  ],
+  "5RFH": [
+   "P0DTD1"
+  ],
+  "5RFI": [
+   "P0DTD1"
+  ],
+  "5RFJ": [
+   "P0DTD1"
+  ],
+  "5RFK": [
+   "P0DTD1"
+  ],
+  "5RFL": [
+   "P0DTD1"
+  ],
+  "5RFM": [
+   "P0DTD1"
+  ],
+  "5RFN": [
+   "P0DTD1"
+  ],
+  "5RFO": [
+   "P0DTD1"
+  ],
+  "5RFP": [
+   "P0DTD1"
+  ],
+  "5RFQ": [
+   "P0DTD1"
+  ],
+  "5RFR": [
+   "P0DTD1"
+  ],
+  "5RFS": [
+   "P0DTD1"
+  ],
+  "5RFT": [
+   "P0DTD1"
+  ],
+  "5RFU": [
+   "P0DTD1"
+  ],
+  "5RFV": [
+   "P0DTD1"
+  ],
+  "5RFW": [
+   "P0DTD1"
+  ],
+  "5RFX": [
+   "P0DTD1"
+  ],
+  "5RFY": [
+   "P0DTD1"
+  ],
+  "5RFZ": [
+   "P0DTD1"
+  ],
+  "5RG0": [
+   "P0DTD1"
+  ],
+  "5RG1": [
+   "P0DTD1"
+  ],
+  "5RG2": [
+   "P0DTD1"
+  ],
+  "5RG3": [
+   "P0DTD1"
+  ],
+  "5RGG": [
+   "P0DTD1"
+  ],
+  "5RGH": [
+   "P0DTD1"
+  ],
+  "5RGI": [
+   "P0DTD1"
+  ],
+  "5RGJ": [
+   "P0DTD1"
+  ],
+  "5RGK": [
+   "P0DTD1"
+  ],
+  "5RGL": [
+   "P0DTD1"
+  ],
+  "5RGM": [
+   "P0DTD1"
+  ],
+  "5RGN": [
+   "P0DTD1"
+  ],
+  "5RGO": [
+   "P0DTD1"
+  ],
+  "5RGP": [
+   "P0DTD1"
+  ],
+  "5RGQ": [
+   "P0DTD1"
+  ],
+  "5RGR": [
+   "P0DTD1"
+  ],
+  "5RGS": [
+   "P0DTD1"
+  ],
+  "5RGT": [
+   "P0DTD1"
+  ],
+  "5RGU": [
+   "P0DTD1"
+  ],
+  "5RGV": [
+   "P0DTD1"
+  ],
+  "5RGW": [
+   "P0DTD1"
+  ],
+  "5RGX": [
+   "P0DTD1"
+  ],
+  "5RGY": [
+   "P0DTD1"
+  ],
+  "5RGZ": [
+   "P0DTD1"
+  ],
+  "5RH0": [
+   "P0DTD1"
+  ],
+  "5RH1": [
+   "P0DTD1"
+  ],
+  "5RH2": [
+   "P0DTD1"
+  ],
+  "5RH3": [
+   "P0DTD1"
+  ],
+  "5RH4": [
+   "P0DTD1"
+  ],
+  "5RH5": [
+   "P0DTD1"
+  ],
+  "5RH6": [
+   "P0DTD1"
+  ],
+  "5RH7": [
+   "P0DTD1"
+  ],
+  "5RH8": [
+   "P0DTD1"
+  ],
+  "5RH9": [
+   "P0DTD1"
+  ],
+  "5RHA": [
+   "P0DTD1"
+  ],
+  "5RHB": [
+   "P0DTD1"
+  ],
+  "5RHC": [
+   "P0DTD1"
+  ],
+  "5RHD": [
+   "P0DTD1"
+  ],
+  "5RHE": [
+   "P0DTD1"
+  ],
+  "5RHF": [
+   "P0DTD1"
+  ],
+  "5RL0": [
+   "P0DTD1"
+  ],
+  "5RL1": [
+   "P0DTD1"
+  ],
+  "5RL2": [
+   "P0DTD1"
+  ],
+  "5RL3": [
+   "P0DTD1"
+  ],
+  "5RL4": [
+   "P0DTD1"
+  ],
+  "5RL5": [
+   "P0DTD1"
+  ],
+  "5T35": [
+   "O60885",
+   "P40337",
+   "Q15369",
+   "Q15370"
+  ],
+  "5T3E": [
+   "A0A8X6EGY8"
+  ],
+  "5US4": [
+   "P01116"
+  ],
+  "5USJ": [
+   "P01116"
+  ],
+  "6LU7": [
+   "P0DTD1"
+  ],
+  "6RAD": [
+   "P0A1B9"
+  ],
+  "6Y84": [
+   "P0DTD1"
+  ],
+  "7MHF": [
+   "P0DTD1"
+  ],
+  "7MHG": [
+   "P0DTD1"
+  ],
+  "7MHH": [
+   "P0DTD1"
+  ],
+  "7MHI": [
+   "P0DTD1"
+  ],
+  "7MHJ": [
+   "P0DTD1"
+  ],
+  "7MHK": [
+   "P0DTD1"
+  ],
+  "7MHL": [
+   "P0DTD1"
+  ],
+  "7MHM": [
+   "P0DTD1"
+  ],
+  "7MHN": [
+   "P0DTD1"
+  ],
+  "7MHO": [
+   "P0DTD1"
+  ],
+  "7MHP": [
+   "P0DTD1"
+  ],
+  "7MHQ": [
+   "P0DTD1"
+  ],
+  "9O0N": [
+   "P01116"
+  ],
+  "9O0O": [
+   "P01116"
+  ],
+  "9PYS": [
+   "P0DTD1"
+  ],
+  "9PYT": [
+   "P0DTD1"
+  ],
+  "9U5T": [
+   "P01116"
+  ],
+  "9USB": [
+   "P01116"
+  ]
+ },
+ "exposed_uniprot_accessions": [
+  "A0A8X6EGY8",
+  "O14965",
+  "O60885",
+  "P00519",
+  "P00520",
+  "P00760",
+  "P00974",
+  "P01116",
+  "P01542",
+  "P05132",
+  "P0A1B9",
+  "P0ABE7",
+  "P0DTD1",
+  "P15056",
+  "P20248",
+  "P24941",
+  "P40337",
+  "P42866",
+  "P47992",
+  "P51679",
+  "P63248",
+  "P69441",
+  "Q15369",
+  "Q15370",
+  "Q16539",
+  "Q9X181"
+ ]
+}

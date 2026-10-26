@@ -1,0 +1,186 @@
+{
+ "EGFR": {
+  "accession": "P00533",
+  "uniprot_gene": "EGFR",
+  "organism_id": "9606",
+  "length": 1210,
+  "name": "Epidermal growth factor receptor (EC 2.7.10.1) (Proto-oncogene c-ErbB-1) (Receptor tyrosine-protein kinase erbB-1)",
+  "verified": true
+ },
+ "ERBB2": {
+  "accession": "P04626",
+  "uniprot_gene": "ERBB2",
+  "organism_id": "9606",
+  "length": 1255,
+  "name": "Receptor tyrosine-protein kinase erbB-2 (EC 2.7.10.1) (Metastatic lymph node gene 19 protein) (MLN 19) (Proto-oncogene Neu) (Proto-oncogene c-ErbB-2) (Tyrosine kinase-type cell surface receptor HER2) (p185erbB2) (CD antigen CD340)",
+  "verified": true
+ },
+ "MET": {
+  "accession": "P08581",
+  "uniprot_gene": "MET",
+  "organism_id": "9606",
+  "length": 1390,
+  "name": "Hepatocyte growth factor receptor (HGF receptor) (EC 2.7.10.1) (HGF/SF receptor) (Proto-oncogene c-Met) (Scatter factor receptor) (SF receptor) (Tyrosine-protein kinase Met)",
+  "verified": true
+ },
+ "ALK": {
+  "accession": "Q9UM73",
+  "uniprot_gene": "ALK",
+  "organism_id": "9606",
+  "length": 1620,
+  "name": "ALK tyrosine kinase receptor (EC 2.7.10.1) (Anaplastic lymphoma kinase) (CD antigen CD246)",
+  "verified": true
+ },
+ "KIT": {
+  "accession": "P10721",
+  "uniprot_gene": "KIT",
+  "organism_id": "9606",
+  "length": 976,
+  "name": "Mast/stem cell growth factor receptor Kit (SCFR) (EC 2.7.10.1) (Piebald trait protein) (PBT) (Proto-oncogene c-Kit) (Tyrosine-protein kinase Kit) (p145 c-kit) (v-kit Hardy-Zuckerman 4 feline sarcoma viral oncogene homolog) (CD antigen CD117)",
+  "verified": true
+ },
+ "FLT3": {
+  "accession": "P36888",
+  "uniprot_gene": "FLT3",
+  "organism_id": "9606",
+  "length": 993,
+  "name": "Receptor-type tyrosine-protein kinase FLT3 (EC 2.7.10.1) (FL cytokine receptor) (Fetal liver kinase-2) (FLK-2) (Fms-like tyrosine kinase 3) (FLT-3) (Stem cell tyrosine kinase 1) (STK-1) (CD antigen CD135)",
+  "verified": true
+ },
+ "FGFR1": {
+  "accession": "P11362",
+  "uniprot_gene": "FGFR1",
+  "organism_id": "9606",
+  "length": 822,
+  "name": "Fibroblast growth factor receptor 1 (FGFR-1) (EC 2.7.10.1) (Basic fibroblast growth factor receptor 1) (BFGFR) (bFGF-R-1) (Fms-like tyrosine kinase 2) (FLT-2) (N-sam) (CD antigen CD331)",
+  "verified": true
+ },
+ "KDR": {
+  "accession": "P35968",
+  "uniprot_gene": "KDR",
+  "organism_id": "9606",
+  "length": 1356,
+  "name": "Vascular endothelial growth factor receptor 2 (VEGFR-2) (EC 2.7.10.1) (Fetal liver kinase 1) (FLK-1) (Kinase insert domain receptor) (KDR) (Protein-tyrosine kinase receptor flk-1) (CD antigen CD309)",
+  "verified": true
+ },
+ "RET": {
+  "accession": "P07949",
+  "uniprot_gene": "RET",
+  "organism_id": "9606",
+  "length": 1114,
+  "name": "Proto-oncogene tyrosine-protein kinase receptor Ret (EC 2.7.10.1) (Cadherin family member 12) (Proto-oncogene c-Ret) [Cleaved into: Soluble RET kinase fragment; Extracellular cell-membrane anchored RET cadherin 120 kDa fragment]",
+  "verified": true
+ },
+ "SRC": {
+  "accession": "P12931",
+  "uniprot_gene": "SRC",
+  "organism_id": "9606",
+  "length": 536,
+  "name": "Proto-oncogene tyrosine-protein kinase Src (EC 2.7.10.2) (Proto-oncogene c-Src) (pp60c-src) (p60-Src)",
+  "verified": true
+ },
+ "LCK": {
+  "accession": "P06239",
+  "uniprot_gene": "LCK",
+  "organism_id": "9606",
+  "length": 509,
+  "name": "Tyrosine-protein kinase Lck (EC 2.7.10.2) (Leukocyte C-terminal Src kinase) (LSK) (Lymphocyte cell-specific protein-tyrosine kinase) (Protein YT16) (Proto-oncogene Lck) (T cell-specific protein-tyrosine kinase) (p56-LCK)",
+  "verified": true
+ },
+ "JAK2": {
+  "accession": "O60674",
+  "uniprot_gene": "JAK2",
+  "organism_id": "9606",
+  "length": 1132,
+  "name": "Tyrosine-protein kinase JAK2 (EC 2.7.10.2) (Janus kinase 2) (JAK-2)",
+  "verified": true
+ },
+ "BTK": {
+  "accession": "Q06187",
+  "uniprot_gene": "BTK",
+  "organism_id": "9606",
+  "length": 659,
+  "name": "Tyrosine-protein kinase BTK (EC 2.7.10.2) (Agammaglobulinemia tyrosine kinase) (ATK) (B-cell progenitor kinase) (BPK) (Bruton tyrosine kinase)",
+  "verified": true
+ },
+ "MAP2K1": {
+  "accession": "Q02750",
+  "uniprot_gene": "MAP2K1",
+  "organism_id": "9606",
+  "length": 393,
+  "name": "Dual specificity mitogen-activated protein kinase kinase 1 (MAP kinase kinase 1) (MAPKK 1) (MKK1) (EC 2.7.12.2) (ERK activator kinase 1) (MAPK/ERK kinase 1) (MEK 1)",
+  "verified": true
+ },
+ "CHEK1": {
+  "accession": "O14757",
+  "uniprot_gene": "CHEK1",
+  "organism_id": "9606",
+  "length": 476,
+  "name": "Serine/threonine-protein kinase Chk1 (EC 2.7.11.1) (CHK1 checkpoint homolog) (Cell cycle checkpoint kinase) (Checkpoint kinase-1)",
+  "verified": true
+ },
+ "PLK1": {
+  "accession": "P53350",
+  "uniprot_gene": "PLK1",
+  "organism_id": "9606",
+  "length": 603,
+  "name": "Serine/threonine-protein kinase PLK1 (EC 2.7.11.21) (Polo-like kinase 1) (PLK-1) (Serine/threonine-protein kinase 13) (STPK13)",
+  "verified": true
+ },
+ "AKT1": {
+  "accession": "P31749",
+  "uniprot_gene": "AKT1",
+  "organism_id": "9606",
+  "length": 480,
+  "name": "RAC-alpha serine/threonine-protein kinase (EC 2.7.11.1) (Protein kinase B) (PKB) (Protein kinase B alpha) (PKB alpha) (Proto-oncogene c-Akt) (RAC-PK-alpha)",
+  "verified": true
+ },
+ "CDK6": {
+  "accession": "Q00534",
+  "uniprot_gene": "CDK6",
+  "organism_id": "9606",
+  "length": 326,
+  "name": "Cyclin-dependent kinase 6 (EC 2.7.11.22) (Cell division protein kinase 6) (Serine/threonine-protein kinase PLSTIRE)",
+  "verified": true
+ },
+ "MAPK1": {
+  "accession": "P28482",
+  "uniprot_gene": "MAPK1",
+  "organism_id": "9606",
+  "length": 360,
+  "name": "Mitogen-activated protein kinase 1 (MAP kinase 1) (MAPK 1) (EC 2.7.11.24) (ERT1) (Extracellular signal-regulated kinase 2) (ERK-2) (MAP kinase isoform p42) (p42-MAPK) (Mitogen-activated protein kinase 2) (MAP kinase 2) (MAPK 2)",
+  "verified": true
+ },
+ "SYK": {
+  "accession": "P43405",
+  "uniprot_gene": "SYK",
+  "organism_id": "9606",
+  "length": 635,
+  "name": "Tyrosine-protein kinase SYK (EC 2.7.10.2) (Spleen tyrosine kinase) (p72-Syk)",
+  "verified": true
+ },
+ "IRAK4": {
+  "accession": "Q9NWZ3",
+  "uniprot_gene": "IRAK4",
+  "organism_id": "9606",
+  "length": 460,
+  "name": "Interleukin-1 receptor-associated kinase 4 (IRAK-4) (EC 2.7.11.1) (Renal carcinoma antigen NY-REN-64)",
+  "verified": true
+ },
+ "PIM1": {
+  "accession": "P11309",
+  "uniprot_gene": "PIM1",
+  "organism_id": "9606",
+  "length": 313,
+  "name": "Serine/threonine-protein kinase pim-1 (EC 2.7.11.1)",
+  "verified": true
+ },
+ "PDPK1": {
+  "accession": "O15530",
+  "uniprot_gene": "PDPK1",
+  "organism_id": "9606",
+  "length": 556,
+  "name": "3-phosphoinositide-dependent protein kinase 1 (hPDK1) (EC 2.7.11.1)",
+  "verified": true
+ }
+}
