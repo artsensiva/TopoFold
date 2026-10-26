@@ -1,0 +1,53 @@
+{
+ "source": "RCSB chemical component records (wwPDB CCD), metadata only, read 2026-10-26",
+ "components": {
+  "SEP": {
+   "name": "PHOSPHOSERINE",
+   "type": "L-peptide linking",
+   "parent": [
+    "SER"
+   ],
+   "formula": "C3 H8 N O6 P"
+  },
+  "TPO": {
+   "name": "PHOSPHOTHREONINE",
+   "type": "L-peptide linking",
+   "parent": [
+    "THR"
+   ],
+   "formula": "C4 H10 N O6 P"
+  },
+  "PTR": {
+   "name": "O-PHOSPHOTYROSINE",
+   "type": "L-peptide linking",
+   "parent": [
+    "TYR"
+   ],
+   "formula": "C9 H12 N O6 P"
+  },
+  "SER": {
+   "name": "SERINE",
+   "type": "L-peptide linking",
+   "parent": null,
+   "formula": "C3 H7 N O3"
+  },
+  "THR": {
+   "name": "THREONINE",
+   "type": "L-peptide linking",
+   "parent": null,
+   "formula": "C4 H9 N O3"
+  },
+  "TYR": {
+   "name": "TYROSINE",
+   "type": "L-peptide linking",
+   "parent": null,
+   "formula": "C9 H11 N O3"
+  },
+  "CA": {
+   "name": "CALCIUM ION",
+   "type": "non-polymer",
+   "parent": null,
+   "formula": "Ca"
+  }
+ }
+}
