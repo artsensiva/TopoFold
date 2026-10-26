@@ -32,6 +32,7 @@ def test_balanced_accuracy_weighted_ba_and_auroc():
 
 
 def test_group_fit_names_by_rule_and_assignment_uses_the_fitted_centroids_only():
+    pytest.importorskip("scipy")
     rng = np.random.default_rng(3)
     pts = np.vstack([rng.normal([6, 14.5], 0.4, (80, 2)), rng.normal([13.5, 11], 0.5, (20, 2)), rng.normal([7.5, 8.5], 0.4, (8, 2))])
     grp = g.fit_groups(pts)
