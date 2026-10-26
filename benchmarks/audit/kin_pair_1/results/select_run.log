@@ -1,0 +1,11 @@
+  EGFR 8A27: usable 
+  EGFR 8A2D: usable 
+  EGFR 5UG9: usable 
+  EGFR 5HG8: usable 
+  PIM1 3A99: excluded 273 aligned residues disagree with the DBREF numbering, first (33, 124
+  PIM1 3R04: excluded 271 aligned residues disagree with the DBREF numbering, first (35, 126
+  PIM1 8R0Q: usable 
+  PIM1 6NO9: usable 
+  PIM1 6VRV: usable 
+  PIM1 6L17: usable 
+panel: [('EGFR-1', '8A27', '8A2D'), ('EGFR-2', '5UG9', '5HG8'), ('PIM1-1', '8R0Q', '6NO9'), ('PIM1-2', '6VRV', '6L17')] | files 10 bytes 3657879

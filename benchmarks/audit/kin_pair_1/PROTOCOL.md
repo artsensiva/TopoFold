@@ -144,4 +144,13 @@ changed after outcomes are seen, and the study is not repeated with different ru
 
 ## Amendments
 
-(none)
+- **Amendment 1 (2026-10-26), made after the first selection run and before any structpair execution or any score.** The first run of
+  `select_panel.py run` (record kept as `results/KIN-PAIR-1_selection_run1_defective.json`, log `results/select_run1.log`) stopped after
+  two targets (EGFR, PIM1; 4 pairs) because the code compared the number of *pairs* with `targets_needed` (3) instead of the number
+  of selected *targets*. This contradicts section 5 (the first 3 targets that yield 2 usable disjoint pairs). The code was corrected
+  (`n_selected` counts targets) and a regression test added (`test_selection_stops_after_three_targets_not_three_pairs`). Nothing else
+  changed: the ranking, criteria, quality rules and tolerances are as frozen. The corrected run uses the same deterministic ranking, so
+  EGFR and PIM1 are selected again by the same rules and the third target is the next one that qualifies. The selection saw only RCSB
+  metadata, downloaded PDB files and sequence checks; no TopoFold score, window metric or plot had been computed. New freeze record:
+  `results/KIN-PAIR-1_freeze_1a.json`.
+

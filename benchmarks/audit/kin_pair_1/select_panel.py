@@ -19,7 +19,9 @@ HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
 import kinpair as kp  # noqa: E402
 
-FREEZE = HERE / "results/KIN-PAIR-1_freeze_1.json"
+FREEZE_1 = HERE / "results/KIN-PAIR-1_freeze_1.json"
+FREEZE_1A = HERE / "results/KIN-PAIR-1_freeze_1a.json"   # after protocol amendment 1
+FREEZE = FREEZE_1A if FREEZE_1A.exists() else FREEZE_1
 OUT = HERE / "results/KIN-PAIR-1_selection.json"
 DATA = HERE / "data_pdb"
 FROZEN_FILES = ["protocol.json", "PROTOCOL.md", "select_panel.py", "kinpair.py", "results/candidate_targets_verified.json",
@@ -166,9 +168,10 @@ def select(net, protocol, targets, exposed_ids, exposed_acc, log):
     ranked.sort(key=lambda t: (t[0], t[1]))
     rec["ranking"] = [{"rank": k + 1, "gene": g, "accession": a, "eligible_by_metadata": -n} for k, (n, a, g, _) in enumerate(ranked)]
     need = protocol["pairs_per_target"] * 2
+    n_selected = 0
     for k, (n, acc, gene, elig) in enumerate(ranked):
         t = rec["targets"][gene]
-        if len(rec["panel"]) >= protocol["targets_needed"]:
+        if n_selected >= protocol["targets_needed"]:
             t["status"] = "not examined (panel complete)"
             continue
         if k >= protocol["max_targets_examined"]:
@@ -192,6 +195,7 @@ def select(net, protocol, targets, exposed_ids, exposed_acc, log):
             t["reason"] = f"{len(pairs)} usable disjoint pair(s) found (< {protocol['pairs_per_target']})"
             continue
         t["status"] = "selected"
+        n_selected += 1
         for pr in pairs:
             rec["panel"].append({"gene": gene, "accession": acc, "uniprot_sequence_length": len(ref_seq), **pr})
     rec["files_downloaded"], rec["bytes_downloaded"] = net.files, net.bytes
@@ -265,11 +269,16 @@ def build_pairs(net, protocol, gene, acc, elig, ref_seq, log):
 
 def main():
     cmd = sys.argv[1] if len(sys.argv) > 1 else ""
-    if cmd == "freeze":
+    if cmd in ("freeze", "freeze-1a"):
         import datetime as dt
-        FREEZE.write_text(json.dumps({"study": "KIN-PAIR-1", "stage": "selection protocol and code frozen", "utc": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"),
+        target = FREEZE_1A if cmd == "freeze-1a" else FREEZE_1
+        if target.exists():
+            print("STOP: the freeze record exists and is never overwritten:", target)
+            return 1
+        target.write_text(json.dumps({"study": "KIN-PAIR-1", "stage": "selection protocol and code frozen" + (" (after amendment 1)" if cmd == "freeze-1a" else ""),
+                                      "amends": sha256_file(FREEZE_1) if cmd == "freeze-1a" else None, "utc": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"),
                                       "sha256": {f: sha256_file(HERE / f) for f in FROZEN_FILES}, "files_present_at_freeze": sorted(p.name for p in DATA.glob("*.pdb")) if DATA.exists() else []}, indent=1) + "\n")
-        print("frozen", FREEZE)
+        print("frozen", target)
         return 0
     if cmd != "run":
         print(__doc__)

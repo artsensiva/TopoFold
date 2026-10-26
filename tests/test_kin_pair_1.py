@@ -291,6 +291,18 @@ def test_selection_is_deterministic_excludes_exposed_entries_and_targets_and_rec
     assert all(p["n_shared_positions"] == 270 for p in rec["panel"])
 
 
+def test_selection_stops_after_three_targets_not_three_pairs():
+    ref = ref_sequence()
+    def ents(acc, pre):
+        return {f"{pre}{k}": {"res": 1.5 + 0.1 * k, "lig": f"L{k}", "text": pdb_text(ref, 1, 21, 290, acc=acc)} for k in range(1, 5)}
+    accs = ["P00001", "P00002", "P00003", "P00004"]
+    net = MockNet({a: {"ref": ref, "entries": ents(a, str(i + 1))} for i, a in enumerate(accs)})
+    rec = sel.select(net, _protocol(), [(f"T{i + 1}", a) for i, a in enumerate(accs)], set(), set(), lambda s: None)
+    assert len(rec["panel"]) == 6 and len({p["gene"] for p in rec["panel"]}) == 3          # 3 targets, 2 pairs each
+    assert [t["status"] for t in rec["targets"].values()].count("selected") == 3
+    assert rec["targets"]["T4"]["status"] == "not examined (panel complete)"
+
+
 def test_pair_partner_needs_a_different_primary_ligand():
     ref = ref_sequence()
     es = {e: {"res": r, "lig": lig, "text": pdb_text(ref, 1, 21, 290, acc="P00001")} for e, r, lig in

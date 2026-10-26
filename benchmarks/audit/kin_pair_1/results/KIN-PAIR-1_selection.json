@@ -1,0 +1,883 @@
+{
+ "targets": {
+  "EGFR": {
+   "accession": "P00533",
+   "search_total": 169,
+   "eligible_by_metadata": 169,
+   "excluded_exposed_entries": [],
+   "rank": 1,
+   "uniprot_sequence_length": 1210,
+   "uniprot_fasta_sha256": "684e2da1f3ef05d0ce90d0aefe9125c6f7e9cdcfeac27ae72ed35243b64a73e8",
+   "examined_entries": [
+    {
+     "entry": "8A27",
+     "resolution": 1.07,
+     "primary_ligand": "KY9",
+     "status": "paired",
+     "reason": "",
+     "chain": "A",
+     "chain_read_counts": {
+      "A": 269
+     },
+     "n_read_mapped": 269,
+     "identity": 1.0,
+     "coverage": 1.0,
+     "n_aligned": 269,
+     "mismatches": [],
+     "dbref_segments": [
+      {
+       "seq_begin": 700,
+       "seq_end": 1022,
+       "db_begin": 700,
+       "db_end": 1022
+      }
+     ],
+     "sha256": "9fba519399f7ef4818ab3eeae0597300d09a740170f2d387b5d4e42ab9fa059d",
+     "n_models": 0,
+     "target_chains": [
+      "A"
+     ],
+     "release_date": "2022-10-19",
+     "space_group": "C 1 2 1",
+     "other_ligands": [],
+     "n_mutations_rcsb": 0
+    },
+    {
+     "entry": "8A2D",
+     "resolution": 1.11,
+     "primary_ligand": "KXY",
+     "status": "paired",
+     "reason": "",
+     "chain": "A",
+     "chain_read_counts": {
+      "A": 281
+     },
+     "n_read_mapped": 281,
+     "identity": 0.9928825622775801,
+     "coverage": 1.0,
+     "n_aligned": 281,
+     "mismatches": [
+      {
+       "resseq": 858,
+       "icode": "",
+       "observed": "ARG",
+       "uniprot": "L",
+       "uniprot_index": 858,
+       "seqadv": "ENGINEERED MUTATION"
+      },
+      {
+       "resseq": 948,
+       "icode": "",
+       "observed": "ARG",
+       "uniprot": "V",
+       "uniprot_index": 948,
+       "seqadv": "ENGINEERED MUTATION"
+      }
+     ],
+     "dbref_segments": [
+      {
+       "seq_begin": 700,
+       "seq_end": 1022,
+       "db_begin": 700,
+       "db_end": 1022
+      }
+     ],
+     "sha256": "3fb105982609693f14d0b55e9baf525fc603fae988e9787cbd78d690e7d22c5c",
+     "n_models": 0,
+     "target_chains": [
+      "A"
+     ],
+     "release_date": "2022-10-19",
+     "space_group": "C 1 2 1",
+     "other_ligands": [],
+     "n_mutations_rcsb": 2
+    },
+    {
+     "entry": "5UG9",
+     "resolution": 1.33,
+     "primary_ligand": "8AM",
+     "status": "paired",
+     "reason": "",
+     "chain": "A",
+     "chain_read_counts": {
+      "A": 280
+     },
+     "n_read_mapped": 280,
+     "identity": 0.9892857142857143,
+     "coverage": 1.0,
+     "n_aligned": 280,
+     "mismatches": [
+      {
+       "resseq": 790,
+       "icode": "",
+       "observed": "MET",
+       "uniprot": "T",
+       "uniprot_index": 790,
+       "seqadv": "ENGINEERED MUTATION"
+      },
+      {
+       "resseq": 858,
+       "icode": "",
+       "observed": "ARG",
+       "uniprot": "L",
+       "uniprot_index": 858,
+       "seqadv": "ENGINEERED MUTATION"
+      },
+      {
+       "resseq": 948,
+       "icode": "",
+       "observed": "ARG",
+       "uniprot": "V",
+       "uniprot_index": 948,
+       "seqadv": "ENGINEERED MUTATION"
+      }
+     ],
+     "dbref_segments": [
+      {
+       "seq_begin": 695,
+       "seq_end": 1022,
+       "db_begin": 695,
+       "db_end": 1022
+      }
+     ],
+     "sha256": "24013b98bdebcef070c3c4834e726014467f4a7839fd316793fb76a647c3b41f",
+     "n_models": 0,
+     "target_chains": [
+      "A"
+     ],
+     "release_date": "2017-03-22",
+     "space_group": "P 21 21 21",
+     "other_ligands": [],
+     "n_mutations_rcsb": 3
+    },
+    {
+     "entry": "5HG8",
+     "resolution": 1.42,
+     "primary_ligand": "634",
+     "status": "paired",
+     "reason": "",
+     "chain": "A",
+     "chain_read_counts": {
+      "A": 300
+     },
+     "n_read_mapped": 300,
+     "identity": 0.99,
+     "coverage": 1.0,
+     "n_aligned": 300,
+     "mismatches": [
+      {
+       "resseq": 790,
+       "icode": "",
+       "observed": "MET",
+       "uniprot": "T",
+       "uniprot_index": 790,
+       "seqadv": "ENGINEERED MUTATION"
+      },
+      {
+       "resseq": 858,
+       "icode": "",
+       "observed": "ARG",
+       "uniprot": "L",
+       "uniprot_index": 858,
+       "seqadv": "ENGINEERED MUTATION"
+      },
+      {
+       "resseq": 948,
+       "icode": "",
+       "observed": "ARG",
+       "uniprot": "V",
+       "uniprot_index": 948,
+       "seqadv": "ENGINEERED MUTATION"
+      }
+     ],
+     "dbref_segments": [
+      {
+       "seq_begin": 695,
+       "seq_end": 1022,
+       "db_begin": 695,
+       "db_end": 1022
+      }
+     ],
+     "sha256": "8556a280ab40d2bf93fce6c5b0cbc40ac4d1fe2d3bbf84328a449dd634bd079b",
+     "n_models": 0,
+     "target_chains": [
+      "A"
+     ],
+     "release_date": "2016-02-03",
+     "space_group": "P 21 21 21",
+     "other_ligands": [],
+     "n_mutations_rcsb": 3
+    }
+   ],
+   "status": "selected"
+  },
+  "ERBB2": {
+   "accession": "P04626",
+   "search_total": 15,
+   "eligible_by_metadata": 15,
+   "excluded_exposed_entries": [],
+   "status": "not examined (panel complete)"
+  },
+  "MET": {
+   "accession": "P08581",
+   "search_total": 105,
+   "eligible_by_metadata": 105,
+   "excluded_exposed_entries": [],
+   "status": "not examined (panel complete)"
+  },
+  "ALK": {
+   "accession": "Q9UM73",
+   "search_total": 63,
+   "eligible_by_metadata": 63,
+   "excluded_exposed_entries": [],
+   "status": "not examined (panel complete)"
+  },
+  "KIT": {
+   "accession": "P10721",
+   "search_total": 54,
+   "eligible_by_metadata": 54,
+   "excluded_exposed_entries": [],
+   "status": "not examined (panel complete)"
+  },
+  "FLT3": {
+   "accession": "P36888",
+   "search_total": 4,
+   "eligible_by_metadata": 4,
+   "excluded_exposed_entries": [],
+   "status": "not examined (panel complete)"
+  },
+  "FGFR1": {
+   "accession": "P11362",
+   "search_total": 67,
+   "eligible_by_metadata": 67,
+   "excluded_exposed_entries": [],
+   "status": "not examined (panel complete)"
+  },
+  "KDR": {
+   "accession": "P35968",
+   "search_total": 37,
+   "eligible_by_metadata": 37,
+   "excluded_exposed_entries": [],
+   "status": "not examined (panel complete)"
+  },
+  "RET": {
+   "accession": "P07949",
+   "search_total": 20,
+   "eligible_by_metadata": 20,
+   "excluded_exposed_entries": [],
+   "status": "not examined (panel complete)"
+  },
+  "SRC": {
+   "accession": "P12931",
+   "search_total": 63,
+   "eligible_by_metadata": 63,
+   "excluded_exposed_entries": [],
+   "status": "not examined (panel complete)"
+  },
+  "LCK": {
+   "accession": "P06239",
+   "search_total": 43,
+   "eligible_by_metadata": 43,
+   "excluded_exposed_entries": [],
+   "status": "not examined (panel complete)"
+  },
+  "JAK2": {
+   "accession": "O60674",
+   "search_total": 153,
+   "eligible_by_metadata": 153,
+   "excluded_exposed_entries": [],
+   "status": "not examined (panel complete)"
+  },
+  "BTK": {
+   "accession": "Q06187",
+   "search_total": 156,
+   "eligible_by_metadata": 156,
+   "excluded_exposed_entries": [],
+   "status": "not examined (panel complete)"
+  },
+  "MAP2K1": {
+   "accession": "Q02750",
+   "search_total": 38,
+   "eligible_by_metadata": 38,
+   "excluded_exposed_entries": [],
+   "status": "not examined (panel complete)"
+  },
+  "CHEK1": {
+   "accession": "O14757",
+   "search_total": 152,
+   "eligible_by_metadata": 152,
+   "excluded_exposed_entries": [],
+   "status": "not examined (panel complete)"
+  },
+  "PLK1": {
+   "accession": "P53350",
+   "search_total": 71,
+   "eligible_by_metadata": 71,
+   "excluded_exposed_entries": [],
+   "status": "not examined (panel complete)"
+  },
+  "AKT1": {
+   "accession": "P31749",
+   "search_total": 43,
+   "eligible_by_metadata": 43,
+   "excluded_exposed_entries": [],
+   "status": "not examined (panel complete)"
+  },
+  "CDK6": {
+   "accession": "Q00534",
+   "search_total": 8,
+   "eligible_by_metadata": 8,
+   "excluded_exposed_entries": [],
+   "status": "not examined (panel complete)"
+  },
+  "MAPK1": {
+   "accession": "P28482",
+   "search_total": 142,
+   "eligible_by_metadata": 142,
+   "excluded_exposed_entries": [],
+   "status": "not examined (panel complete)"
+  },
+  "SYK": {
+   "accession": "P43405",
+   "search_total": 85,
+   "eligible_by_metadata": 85,
+   "excluded_exposed_entries": [],
+   "status": "not examined (panel complete)"
+  },
+  "IRAK4": {
+   "accession": "Q9NWZ3",
+   "search_total": 73,
+   "eligible_by_metadata": 73,
+   "excluded_exposed_entries": [],
+   "status": "not examined (panel complete)"
+  },
+  "PIM1": {
+   "accession": "P11309",
+   "search_total": 160,
+   "eligible_by_metadata": 160,
+   "excluded_exposed_entries": [],
+   "rank": 2,
+   "uniprot_sequence_length": 313,
+   "uniprot_fasta_sha256": "4de04d20da23a47f37bf552e96839afbe508c64f716308e266682bf5d482b68f",
+   "examined_entries": [
+    {
+     "entry": "3A99",
+     "resolution": 1.6,
+     "primary_ligand": "ANP",
+     "status": "excluded",
+     "reason": "273 aligned residues disagree with the DBREF numbering, first (33, 124, 33)",
+     "chain": "A",
+     "chain_read_counts": {
+      "A": 273
+     },
+     "n_read_mapped": 273,
+     "identity": 1.0,
+     "coverage": 1.0,
+     "n_aligned": 273,
+     "mismatches": [],
+     "dbref_segments": [
+      {
+       "seq_begin": 15,
+       "seq_end": 313,
+       "db_begin": 106,
+       "db_end": 404
+      }
+     ],
+     "sha256": "4e05341c3cc84a68c5d63c3f7416315fe5ab7e262616c25f309fdf0d50d86732",
+     "n_models": 0,
+     "target_chains": [
+      "A"
+     ],
+     "release_date": "2010-11-03",
+     "space_group": "P 65",
+     "other_ligands": [],
+     "n_mutations_rcsb": 0
+    },
+    {
+     "entry": "3R04",
+     "resolution": 1.7,
+     "primary_ligand": "UNQ",
+     "status": "excluded",
+     "reason": "271 aligned residues disagree with the DBREF numbering, first (35, 126, 35)",
+     "chain": "A",
+     "chain_read_counts": {
+      "A": 271
+     },
+     "n_read_mapped": 271,
+     "identity": 1.0,
+     "coverage": 1.0,
+     "n_aligned": 271,
+     "mismatches": [],
+     "dbref_segments": [
+      {
+       "seq_begin": 29,
+       "seq_end": 313,
+       "db_begin": 120,
+       "db_end": 404
+      }
+     ],
+     "sha256": "86ed02ec350ade429da7e883bef8657381fee444c0378684d76f3c4a1e7c8d24",
+     "n_models": 0,
+     "target_chains": [
+      "A"
+     ],
+     "release_date": "2011-05-11",
+     "space_group": "P 65",
+     "other_ligands": [],
+     "n_mutations_rcsb": 0
+    },
+    {
+     "entry": "8R0Q",
+     "resolution": 1.7,
+     "primary_ligand": "XGB",
+     "status": "paired",
+     "reason": "",
+     "chain": "A",
+     "chain_read_counts": {
+      "A": 266
+     },
+     "n_read_mapped": 266,
+     "identity": 0.9962546816479401,
+     "coverage": 1.0,
+     "n_aligned": 267,
+     "mismatches": [
+      {
+       "resseq": 250,
+       "icode": "",
+       "observed": "GLY",
+       "uniprot": "R",
+       "uniprot_index": 250,
+       "seqadv": "ENGINEERED MUTATION"
+      }
+     ],
+     "dbref_segments": [
+      {
+       "seq_begin": 1,
+       "seq_end": 312,
+       "db_begin": 1,
+       "db_end": 312
+      }
+     ],
+     "sha256": "6c9bd62287f5019101176443d4b7c9bdeb0a061069b119e80192d71bc5bd6439",
+     "n_models": 0,
+     "target_chains": [
+      "A"
+     ],
+     "release_date": "2024-11-13",
+     "space_group": "P 65",
+     "other_ligands": [],
+     "n_mutations_rcsb": 1
+    },
+    {
+     "entry": "6NO9",
+     "resolution": 1.712,
+     "primary_ligand": "KUV",
+     "status": "paired",
+     "reason": "",
+     "chain": "A",
+     "chain_read_counts": {
+      "A": 273
+     },
+     "n_read_mapped": 273,
+     "identity": 1.0,
+     "coverage": 1.0,
+     "n_aligned": 273,
+     "mismatches": [],
+     "dbref_segments": [
+      {
+       "seq_begin": 33,
+       "seq_end": 305,
+       "db_begin": 33,
+       "db_end": 305
+      }
+     ],
+     "sha256": "0115a741b19f26b880b5f938c6db7ff36b1bd7084e888ea8813c3db652a4baf3",
+     "n_models": 0,
+     "target_chains": [
+      "A"
+     ],
+     "release_date": "2019-02-27",
+     "space_group": "P 65",
+     "other_ligands": [],
+     "n_mutations_rcsb": 0
+    },
+    {
+     "entry": "6VRV",
+     "resolution": 1.74,
+     "primary_ligand": "WFY",
+     "status": "paired",
+     "reason": "",
+     "chain": "A",
+     "chain_read_counts": {
+      "A": 271
+     },
+     "n_read_mapped": 271,
+     "identity": 1.0,
+     "coverage": 1.0,
+     "n_aligned": 271,
+     "mismatches": [],
+     "dbref_segments": [
+      {
+       "seq_begin": 33,
+       "seq_end": 306,
+       "db_begin": 33,
+       "db_end": 306
+      }
+     ],
+     "sha256": "5fb4eae4ba1612131cb57cb3a991b8fa40b6d5cdac0ec41242112943313a2aa2",
+     "n_models": 0,
+     "target_chains": [
+      "A"
+     ],
+     "release_date": "2020-11-04",
+     "space_group": "P 65",
+     "other_ligands": [],
+     "n_mutations_rcsb": 0
+    },
+    {
+     "entry": "6L17",
+     "resolution": 1.75,
+     "primary_ligand": "E2X",
+     "status": "paired",
+     "reason": "",
+     "chain": "A",
+     "chain_read_counts": {
+      "A": 272
+     },
+     "n_read_mapped": 272,
+     "identity": 1.0,
+     "coverage": 1.0,
+     "n_aligned": 273,
+     "mismatches": [],
+     "dbref_segments": [
+      {
+       "seq_begin": 29,
+       "seq_end": 313,
+       "db_begin": 29,
+       "db_end": 313
+      }
+     ],
+     "sha256": "3ad04425727d5c09458314151efa52eea07bd1c52d7f3f5be3326bd8d7501da8",
+     "n_models": 0,
+     "target_chains": [
+      "A"
+     ],
+     "release_date": "2020-09-02",
+     "space_group": "P 65",
+     "other_ligands": [],
+     "n_mutations_rcsb": 0
+    }
+   ],
+   "status": "selected"
+  },
+  "PDPK1": {
+   "accession": "O15530",
+   "search_total": 57,
+   "eligible_by_metadata": 57,
+   "excluded_exposed_entries": [],
+   "status": "not examined (panel complete)"
+  }
+ },
+ "ranking": [
+  {
+   "rank": 1,
+   "gene": "EGFR",
+   "accession": "P00533",
+   "eligible_by_metadata": 169
+  },
+  {
+   "rank": 2,
+   "gene": "PIM1",
+   "accession": "P11309",
+   "eligible_by_metadata": 160
+  },
+  {
+   "rank": 3,
+   "gene": "BTK",
+   "accession": "Q06187",
+   "eligible_by_metadata": 156
+  },
+  {
+   "rank": 4,
+   "gene": "JAK2",
+   "accession": "O60674",
+   "eligible_by_metadata": 153
+  },
+  {
+   "rank": 5,
+   "gene": "CHEK1",
+   "accession": "O14757",
+   "eligible_by_metadata": 152
+  },
+  {
+   "rank": 6,
+   "gene": "MAPK1",
+   "accession": "P28482",
+   "eligible_by_metadata": 142
+  },
+  {
+   "rank": 7,
+   "gene": "MET",
+   "accession": "P08581",
+   "eligible_by_metadata": 105
+  },
+  {
+   "rank": 8,
+   "gene": "SYK",
+   "accession": "P43405",
+   "eligible_by_metadata": 85
+  },
+  {
+   "rank": 9,
+   "gene": "IRAK4",
+   "accession": "Q9NWZ3",
+   "eligible_by_metadata": 73
+  },
+  {
+   "rank": 10,
+   "gene": "PLK1",
+   "accession": "P53350",
+   "eligible_by_metadata": 71
+  },
+  {
+   "rank": 11,
+   "gene": "FGFR1",
+   "accession": "P11362",
+   "eligible_by_metadata": 67
+  },
+  {
+   "rank": 12,
+   "gene": "SRC",
+   "accession": "P12931",
+   "eligible_by_metadata": 63
+  },
+  {
+   "rank": 13,
+   "gene": "ALK",
+   "accession": "Q9UM73",
+   "eligible_by_metadata": 63
+  },
+  {
+   "rank": 14,
+   "gene": "PDPK1",
+   "accession": "O15530",
+   "eligible_by_metadata": 57
+  },
+  {
+   "rank": 15,
+   "gene": "KIT",
+   "accession": "P10721",
+   "eligible_by_metadata": 54
+  },
+  {
+   "rank": 16,
+   "gene": "LCK",
+   "accession": "P06239",
+   "eligible_by_metadata": 43
+  },
+  {
+   "rank": 17,
+   "gene": "AKT1",
+   "accession": "P31749",
+   "eligible_by_metadata": 43
+  },
+  {
+   "rank": 18,
+   "gene": "MAP2K1",
+   "accession": "Q02750",
+   "eligible_by_metadata": 38
+  },
+  {
+   "rank": 19,
+   "gene": "KDR",
+   "accession": "P35968",
+   "eligible_by_metadata": 37
+  },
+  {
+   "rank": 20,
+   "gene": "RET",
+   "accession": "P07949",
+   "eligible_by_metadata": 20
+  },
+  {
+   "rank": 21,
+   "gene": "ERBB2",
+   "accession": "P04626",
+   "eligible_by_metadata": 15
+  },
+  {
+   "rank": 22,
+   "gene": "CDK6",
+   "accession": "Q00534",
+   "eligible_by_metadata": 8
+  },
+  {
+   "rank": 23,
+   "gene": "FLT3",
+   "accession": "P36888",
+   "eligible_by_metadata": 4
+  }
+ ],
+ "panel": [
+  {
+   "gene": "EGFR",
+   "accession": "P00533",
+   "uniprot_sequence_length": 1210,
+   "pair_id": "EGFR-1",
+   "A": "8A27",
+   "B": "8A2D",
+   "chain_A": "A",
+   "chain_B": "A",
+   "sha256_A": "9fba519399f7ef4818ab3eeae0597300d09a740170f2d387b5d4e42ab9fa059d",
+   "sha256_B": "3fb105982609693f14d0b55e9baf525fc603fae988e9787cbd78d690e7d22c5c",
+   "n_read_mapped_A": 269,
+   "n_read_mapped_B": 281,
+   "n_shared_positions": 269,
+   "span_not_shared": 16,
+   "meta_A": {
+    "resolution": 1.07,
+    "release_date": "2022-10-19",
+    "space_group": "C 1 2 1",
+    "primary_ligand": "KY9",
+    "other_ligands": [],
+    "n_mutations_rcsb": 0,
+    "target_chains": [
+     "A"
+    ]
+   },
+   "meta_B": {
+    "resolution": 1.11,
+    "release_date": "2022-10-19",
+    "space_group": "C 1 2 1",
+    "primary_ligand": "KXY",
+    "other_ligands": [],
+    "n_mutations_rcsb": 2,
+    "target_chains": [
+     "A"
+    ]
+   }
+  },
+  {
+   "gene": "EGFR",
+   "accession": "P00533",
+   "uniprot_sequence_length": 1210,
+   "pair_id": "EGFR-2",
+   "A": "5UG9",
+   "B": "5HG8",
+   "chain_A": "A",
+   "chain_B": "A",
+   "sha256_A": "24013b98bdebcef070c3c4834e726014467f4a7839fd316793fb76a647c3b41f",
+   "sha256_B": "8556a280ab40d2bf93fce6c5b0cbc40ac4d1fe2d3bbf84328a449dd634bd079b",
+   "n_read_mapped_A": 280,
+   "n_read_mapped_B": 300,
+   "n_shared_positions": 280,
+   "span_not_shared": 4,
+   "meta_A": {
+    "resolution": 1.33,
+    "release_date": "2017-03-22",
+    "space_group": "P 21 21 21",
+    "primary_ligand": "8AM",
+    "other_ligands": [],
+    "n_mutations_rcsb": 3,
+    "target_chains": [
+     "A"
+    ]
+   },
+   "meta_B": {
+    "resolution": 1.42,
+    "release_date": "2016-02-03",
+    "space_group": "P 21 21 21",
+    "primary_ligand": "634",
+    "other_ligands": [],
+    "n_mutations_rcsb": 3,
+    "target_chains": [
+     "A"
+    ]
+   }
+  },
+  {
+   "gene": "PIM1",
+   "accession": "P11309",
+   "uniprot_sequence_length": 313,
+   "pair_id": "PIM1-1",
+   "A": "8R0Q",
+   "B": "6NO9",
+   "chain_A": "A",
+   "chain_B": "A",
+   "sha256_A": "6c9bd62287f5019101176443d4b7c9bdeb0a061069b119e80192d71bc5bd6439",
+   "sha256_B": "0115a741b19f26b880b5f938c6db7ff36b1bd7084e888ea8813c3db652a4baf3",
+   "n_read_mapped_A": 266,
+   "n_read_mapped_B": 273,
+   "n_shared_positions": 266,
+   "span_not_shared": 7,
+   "meta_A": {
+    "resolution": 1.7,
+    "release_date": "2024-11-13",
+    "space_group": "P 65",
+    "primary_ligand": "XGB",
+    "other_ligands": [],
+    "n_mutations_rcsb": 1,
+    "target_chains": [
+     "A"
+    ]
+   },
+   "meta_B": {
+    "resolution": 1.712,
+    "release_date": "2019-02-27",
+    "space_group": "P 65",
+    "primary_ligand": "KUV",
+    "other_ligands": [],
+    "n_mutations_rcsb": 0,
+    "target_chains": [
+     "A"
+    ]
+   }
+  },
+  {
+   "gene": "PIM1",
+   "accession": "P11309",
+   "uniprot_sequence_length": 313,
+   "pair_id": "PIM1-2",
+   "A": "6VRV",
+   "B": "6L17",
+   "chain_A": "A",
+   "chain_B": "A",
+   "sha256_A": "5fb4eae4ba1612131cb57cb3a991b8fa40b6d5cdac0ec41242112943313a2aa2",
+   "sha256_B": "3ad04425727d5c09458314151efa52eea07bd1c52d7f3f5be3326bd8d7501da8",
+   "n_read_mapped_A": 271,
+   "n_read_mapped_B": 272,
+   "n_shared_positions": 270,
+   "span_not_shared": 1,
+   "meta_A": {
+    "resolution": 1.74,
+    "release_date": "2020-11-04",
+    "space_group": "P 65",
+    "primary_ligand": "WFY",
+    "other_ligands": [],
+    "n_mutations_rcsb": 0,
+    "target_chains": [
+     "A"
+    ]
+   },
+   "meta_B": {
+    "resolution": 1.75,
+    "release_date": "2020-09-02",
+    "space_group": "P 65",
+    "primary_ligand": "E2X",
+    "other_ligands": [],
+    "n_mutations_rcsb": 0,
+    "target_chains": [
+     "A"
+    ]
+   }
+  }
+ ],
+ "stop": null,
+ "files_downloaded": 10,
+ "bytes_downloaded": 3657879,
+ "resources": {
+  "cpu_seconds": 1.2696880000000001,
+  "wall_seconds": 49.90913677215576
+ },
+ "freeze_utc": "2026-10-26T10:39:09+00:00"
+}

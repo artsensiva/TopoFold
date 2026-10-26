@@ -1,0 +1,26 @@
+{
+ "study": "KIN-PAIR-1",
+ "stage": "selection protocol and code frozen (after amendment 1)",
+ "amends": "b586b4689a8fe4feb8709f4760b6c45fcac21b638a0ff6da23a946e443e01538",
+ "utc": "2026-10-26T10:41:14+00:00",
+ "sha256": {
+  "protocol.json": "aa2b4d29edf59a834866db228bb0f6d0863e9cecb4786cff06a97d1dbf38245b",
+  "PROTOCOL.md": "01848523051b89c37d2f9f6550c6e5fa69ef8f20e591412599b572e61d3a70a2",
+  "select_panel.py": "b59bd4a1fc80eedd35f7c22db778ab2d9de34a6236bc83fda9999eeb142c7f8d",
+  "kinpair.py": "bd7de673d2cd9101a42823fe6b8d4fcdf316278b8fdae63e18affcf6f6948e6d",
+  "results/candidate_targets_verified.json": "91da4183cdafb97d3defe45bb778813dc2bd21bb75f02cddca9da4190c115b90",
+  "results/exposure_history.json": "1863b38330cd7221d33d8820546fd1595ec062ff0a49e1ad65cc36cbf0fd322a"
+ },
+ "files_present_at_freeze": [
+  "3A99.pdb",
+  "3R04.pdb",
+  "5HG8.pdb",
+  "5UG9.pdb",
+  "6L17.pdb",
+  "6NO9.pdb",
+  "6VRV.pdb",
+  "8A27.pdb",
+  "8A2D.pdb",
+  "8R0Q.pdb"
+ ]
+}
