@@ -1,0 +1,741 @@
+{
+ "ligand_frame_and_site_contacts": {
+  "axitinib": {
+   "ligand_heavy_atoms": 28,
+   "min_ligand_protein_heavy_atom_distance_A": 2.84734330385361,
+   "sites_within_4.5A_of_ligand": [
+    248,
+    253,
+    299,
+    315,
+    317
+   ],
+   "n_sites_within_4.5A": 5,
+   "n_sites_beyond_10A": 10
+  },
+  "bosutinib": {
+   "ligand_heavy_atoms": 36,
+   "min_ligand_protein_heavy_atom_distance_A": 3.15472161687842,
+   "sites_within_4.5A_of_ligand": [
+    248,
+    299,
+    315,
+    317
+   ],
+   "n_sites_within_4.5A": 4,
+   "n_sites_beyond_10A": 10
+  },
+  "dasatinib": {
+   "ligand_heavy_atoms": 33,
+   "min_ligand_protein_heavy_atom_distance_A": 2.9740648580688402,
+   "sites_within_4.5A_of_ligand": [
+    248,
+    299,
+    315,
+    317
+   ],
+   "n_sites_within_4.5A": 4,
+   "n_sites_beyond_10A": 11
+  },
+  "erlotinib": {
+   "ligand_heavy_atoms": 29,
+   "min_ligand_protein_heavy_atom_distance_A": 2.9640586549526957,
+   "sites_within_4.5A_of_ligand": [
+    248,
+    315,
+    317
+   ],
+   "n_sites_within_4.5A": 3,
+   "n_sites_beyond_10A": 11
+  },
+  "gefitnib": {
+   "ligand_heavy_atoms": 31,
+   "min_ligand_protein_heavy_atom_distance_A": 2.9410349028870755,
+   "sites_within_4.5A_of_ligand": [
+    248,
+    315,
+    317
+   ],
+   "n_sites_within_4.5A": 3,
+   "n_sites_beyond_10A": 11
+  },
+  "imatinib": {
+   "ligand_heavy_atoms": 37,
+   "min_ligand_protein_heavy_atom_distance_A": 2.8570275287438163,
+   "sites_within_4.5A_of_ligand": [
+    248,
+    253,
+    299,
+    315,
+    317,
+    359
+   ],
+   "n_sites_within_4.5A": 6,
+   "n_sites_beyond_10A": 6
+  },
+  "nilotinib": {
+   "ligand_heavy_atoms": 39,
+   "min_ligand_protein_heavy_atom_distance_A": 2.9036981058643114,
+   "sites_within_4.5A_of_ligand": [
+    248,
+    253,
+    299,
+    315,
+    317,
+    359
+   ],
+   "n_sites_within_4.5A": 6,
+   "n_sites_beyond_10A": 5
+  },
+  "ponatinib": {
+   "ligand_heavy_atoms": 39,
+   "min_ligand_protein_heavy_atom_distance_A": 2.789473159935403,
+   "sites_within_4.5A_of_ligand": [
+    248,
+    253,
+    299,
+    315,
+    317,
+    359
+   ],
+   "n_sites_within_4.5A": 6,
+   "n_sites_beyond_10A": 6
+  }
+ },
+ "schema": "topofold.abl-response-inputs-inspection/1",
+ "endpoint_table": {
+  "rows_in_sheet": 279,
+  "rows_with_full_values": 144,
+  "rows_without_values": 135,
+  "inhibitors": {
+   "axitinib": 26,
+   "bosutinib": 21,
+   "dasatinib": 21,
+   "erlotinib": 7,
+   "gefitinib": 6,
+   "imatinib": 21,
+   "nilotinib": 21,
+   "ponatinib": 21
+  },
+  "n_inhibitors": 8,
+  "mutations_with_values": 31,
+  "sites_with_values": 20,
+  "sites_in_sheet_all_rows": 23,
+  "mutations_per_site": {
+   "244": 1,
+   "248": 2,
+   "250": 1,
+   "252": 1,
+   "253": 2,
+   "255": 2,
+   "276": 1,
+   "279": 1,
+   "292": 1,
+   "299": 1,
+   "315": 3,
+   "317": 5,
+   "343": 1,
+   "351": 1,
+   "355": 1,
+   "359": 3,
+   "384": 1,
+   "396": 1,
+   "459": 1,
+   "486": 1
+  },
+  "wildtype_residue_matches_P00519_1a_numbering": {
+   "matches": 31,
+   "of": 31,
+   "mismatch": []
+  },
+  "ic50_nM_min": 0.021,
+  "ic50_nM_max": 10000.0,
+  "n_ic50_at_10000": 2,
+  "n_ic50_ge_10000": 2,
+  "ddg_exp_min": -1.73,
+  "ddg_exp_max": 5.08,
+  "n_resistant_ge_1.36": 19,
+  "unique_ic50_values_per_inhibitor": {
+   "axitinib": 26,
+   "bosutinib": 21,
+   "dasatinib": 14,
+   "erlotinib": 7,
+   "gefitinib": 6,
+   "imatinib": 20,
+   "nilotinib": 19,
+   "ponatinib": 10
+  },
+  "implied_wt_ic50_consistency_per_inhibitor": {
+   "axitinib": {
+    "implied_wt_ic50_nM_median": 824.6437737958793,
+    "max_abs_residual_kcal": 0.006147141244225163,
+    "n_rows_residual_gt_0.05": 0
+   },
+   "bosutinib": {
+    "implied_wt_ic50_nM_median": 70.95538417260578,
+    "max_abs_residual_kcal": 0.005047002034772836,
+    "n_rows_residual_gt_0.05": 0
+   },
+   "dasatinib": {
+    "implied_wt_ic50_nM_median": 2.0,
+    "max_abs_residual_kcal": 0.004950053305495361,
+    "n_rows_residual_gt_0.05": 0
+   },
+   "erlotinib": {
+    "implied_wt_ic50_nM_median": 75.8795512223151,
+    "max_abs_residual_kcal": 0.014086379750761546,
+    "n_rows_residual_gt_0.05": 0
+   },
+   "gefitinib": {
+    "implied_wt_ic50_nM_median": 480.30176620168487,
+    "max_abs_residual_kcal": 0.00978605826359158,
+    "n_rows_residual_gt_0.05": 0
+   },
+   "imatinib": {
+    "implied_wt_ic50_nM_median": 200.90517777279118,
+    "max_abs_residual_kcal": 0.005205358849821096,
+    "n_rows_residual_gt_0.05": 0
+   },
+   "nilotinib": {
+    "implied_wt_ic50_nM_median": 14.986247082504711,
+    "max_abs_residual_kcal": 0.005477163421812259,
+    "n_rows_residual_gt_0.05": 0
+   },
+   "ponatinib": {
+    "implied_wt_ic50_nM_median": 3.0075825084038024,
+    "max_abs_residual_kcal": 3.259564593888488,
+    "n_rows_residual_gt_0.05": 1
+   }
+  },
+  "rows_where_ddg_exp_disagrees_with_ic50_column": [
+   {
+    "inhibitor": "ponatinib",
+    "mutation": "G250E",
+    "ic50_nM": 0.021,
+    "ddg_exp_in_sheet": 0.3,
+    "ddg_from_ic50_and_implied_wt": -2.959564593888488,
+    "residual_kcal": -3.259564593888488
+   }
+  ],
+  "ic50_resolution_note": "IC50 values are given to integer nM in most rows; rows sharing one IC50 per inhibitor: {\"axitinib\": 0, \"bosutinib\": 0, \"dasatinib\": 7, \"erlotinib\": 0, \"gefitinib\": 0, \"imatinib\": 1, \"nilotinib\": 2, \"ponatinib\": 11}",
+  "erlotinib_gefitinib_values_equal_to_Davis_block": {
+   "erlotinib": {
+    "phosphorylated": 4,
+    "non_phosphorylated": 0,
+    "n_rows": 7
+   },
+   "gefitinib": {
+    "phosphorylated": 3,
+    "non_phosphorylated": 0,
+    "n_rows": 6
+   }
+  },
+  "resistant_records": 19,
+  "sites_with_any_resistant_record": 6,
+  "sites_with_any_resistant_record_list": [
+   248,
+   253,
+   255,
+   299,
+   315,
+   317
+  ],
+  "mutations_with_any_resistant_record": 10,
+  "inhibitors_with_any_resistant_record": [
+   "bosutinib",
+   "dasatinib",
+   "erlotinib",
+   "imatinib",
+   "nilotinib"
+  ],
+  "site_level_auroc_standard_error_if_true_auroc_0.8_hanley_mcneil": 0.1204049604350024
+ },
+ "structures": {
+  "axitinib": {
+   "file": "data_raw/hauser_s5_extracted/Supplementary_Data_5/renumbered/cAbl-axitinib_nowat-uniprot.pdb",
+   "sha256": "b6d78ca5f129912761eb1a3f86b432f8adcf76904dfb57743182ab2097f381a4",
+   "protein_chain": "B",
+   "n_chains": {
+    "B": 286
+   },
+   "construction": "co-crystal 4WA9 + homology/Prime completion",
+   "n_standard_residues_with_CA": 284,
+   "first_last": [
+    229,
+    512
+   ],
+   "gaps_in_numbering": [],
+   "mismatches_to_P00519_1a": [],
+   "nonstandard_protein_residue_names": [
+    "ACE",
+    "NME"
+   ],
+   "hetero_groups_and_ligand_residues": [],
+   "protein_heavy_atoms": 2314,
+   "has_hydrogens": true,
+   "mutation_sites_with_CA": 20,
+   "mutation_sites_total": 20,
+   "min_ligand_distance_A_per_site": {
+    "244": 11.956892985219865,
+    "248": 3.8272497736625453,
+    "250": 6.497793387758646,
+    "252": 5.553642274219691,
+    "253": 2.84734330385361,
+    "255": 5.07926234309668,
+    "276": 14.608139222707319,
+    "279": 8.746014266510201,
+    "292": 14.992242019791433,
+    "299": 4.41614542106575,
+    "315": 3.553800920141697,
+    "317": 3.560884141614272,
+    "343": 14.30562553333478,
+    "351": 12.97344389936612,
+    "355": 18.542822320509895,
+    "359": 13.926628744243883,
+    "384": 9.112947886386712,
+    "396": 13.284616951572225,
+    "459": 26.227601590881317,
+    "486": 17.130251977422866
+   }
+  },
+  "bosutinib": {
+   "file": "data_raw/hauser_s5_extracted/Supplementary_Data_5/renumbered/cAbl-bosutinib_nowat-uniprot.pdb",
+   "sha256": "96f55f8a4c17b8affdf37e5af9925d28ef2a8c9abb2333e9a50998bdf7b1a290",
+   "protein_chain": "A",
+   "n_chains": {
+    "A": 286
+   },
+   "construction": "co-crystal 3UE4 + homology/Prime completion",
+   "n_standard_residues_with_CA": 284,
+   "first_last": [
+    229,
+    512
+   ],
+   "gaps_in_numbering": [],
+   "mismatches_to_P00519_1a": [],
+   "nonstandard_protein_residue_names": [
+    "ACE",
+    "NME"
+   ],
+   "hetero_groups_and_ligand_residues": [],
+   "protein_heavy_atoms": 2314,
+   "has_hydrogens": true,
+   "mutation_sites_with_CA": 20,
+   "mutation_sites_total": 20,
+   "min_ligand_distance_A_per_site": {
+    "244": 8.91348190551818,
+    "248": 3.610519138572736,
+    "250": 6.357111222874746,
+    "252": 5.358586269717042,
+    "253": 6.879840122415629,
+    "255": 6.9480817273546815,
+    "276": 14.728189804249535,
+    "279": 10.93756395684158,
+    "292": 12.717040509096446,
+    "299": 3.324873654742385,
+    "315": 3.215588969380256,
+    "317": 3.7203731076331596,
+    "343": 12.66596909320404,
+    "351": 14.171943667330883,
+    "355": 18.71165954211438,
+    "359": 13.968898987035452,
+    "384": 9.39157376109031,
+    "396": 18.065774395524816,
+    "459": 27.51711014823322,
+    "486": 18.37682383084738
+   }
+  },
+  "dasatinib": {
+   "file": "data_raw/hauser_s5_extracted/Supplementary_Data_5/renumbered/cAbl-dasatinib-uniprot.pdb",
+   "sha256": "e60a11ef68583470e66fedf422e34669bd5dfbdf45a46eb5107f4dd32aa35298",
+   "protein_chain": "A",
+   "n_chains": {
+    "A": 286
+   },
+   "construction": "co-crystal 4XEY + homology/Prime completion",
+   "n_standard_residues_with_CA": 284,
+   "first_last": [
+    229,
+    512
+   ],
+   "gaps_in_numbering": [],
+   "mismatches_to_P00519_1a": [],
+   "nonstandard_protein_residue_names": [
+    "ACE",
+    "NME"
+   ],
+   "hetero_groups_and_ligand_residues": [],
+   "protein_heavy_atoms": 2314,
+   "has_hydrogens": true,
+   "mutation_sites_with_CA": 20,
+   "mutation_sites_total": 20,
+   "min_ligand_distance_A_per_site": {
+    "244": 9.407193372095634,
+    "248": 3.615243074815303,
+    "250": 6.354992170726881,
+    "252": 11.863369912887318,
+    "253": 9.743353908690786,
+    "255": 6.933412849383776,
+    "276": 17.954281054667714,
+    "279": 11.718378028549852,
+    "292": 11.989440921911248,
+    "299": 3.659369843292696,
+    "315": 3.053154966587842,
+    "317": 3.794847477830958,
+    "343": 14.26755448736748,
+    "351": 12.361275170871332,
+    "355": 16.719266349035774,
+    "359": 12.699774360593972,
+    "384": 8.33652361659223,
+    "396": 18.019104950579532,
+    "459": 28.180956493525912,
+    "486": 17.02043896173069
+   }
+  },
+  "erlotinib": {
+   "file": "data_raw/hauser_s5_extracted/Supplementary_Data_5/renumbered/cAbl-erlotinib_nowat-uniprot.pdb",
+   "sha256": "81186573829c3ddbe2af04e5fcb695e8c4617989e4cb3d6f3b7575e15aee166b",
+   "protein_chain": "A",
+   "n_chains": {
+    "A": 272
+   },
+   "construction": "docked into 3UE4 receptor (Glide-SP)",
+   "n_standard_residues_with_CA": 270,
+   "first_last": [
+    233,
+    502
+   ],
+   "gaps_in_numbering": [],
+   "mismatches_to_P00519_1a": [],
+   "nonstandard_protein_residue_names": [
+    "ACE",
+    "NME"
+   ],
+   "hetero_groups_and_ligand_residues": [],
+   "protein_heavy_atoms": 2203,
+   "has_hydrogens": true,
+   "mutation_sites_with_CA": 20,
+   "mutation_sites_total": 20,
+   "min_ligand_distance_A_per_site": {
+    "244": 9.511900077271632,
+    "248": 3.4837005884547563,
+    "250": 7.128899451528265,
+    "252": 4.886505260408507,
+    "253": 6.958648465039741,
+    "255": 7.039846205706483,
+    "276": 16.144274678039892,
+    "279": 12.564105187795905,
+    "292": 13.967200831949112,
+    "299": 5.641697779924055,
+    "315": 3.6325126125039087,
+    "317": 3.861659337642302,
+    "343": 12.789232036365588,
+    "351": 15.159520957470917,
+    "355": 20.170372615794676,
+    "359": 15.784597035401314,
+    "384": 10.58444681454822,
+    "396": 18.493242113269375,
+    "459": 25.908444270353243,
+    "486": 19.46857579434099
+   }
+  },
+  "gefitnib": {
+   "file": "data_raw/hauser_s5_extracted/Supplementary_Data_5/renumbered/cAbl-gefitnib_nowat-uniprot.pdb",
+   "sha256": "85e223a77dac4e3c0b730af4d89224b4f4655f0a2ad4751d1e7e017028df3c55",
+   "protein_chain": "A",
+   "n_chains": {
+    "A": 272
+   },
+   "construction": "docked into 3UE4 receptor (Glide-SP)",
+   "n_standard_residues_with_CA": 270,
+   "first_last": [
+    233,
+    502
+   ],
+   "gaps_in_numbering": [],
+   "mismatches_to_P00519_1a": [],
+   "nonstandard_protein_residue_names": [
+    "ACE",
+    "NME"
+   ],
+   "hetero_groups_and_ligand_residues": [],
+   "protein_heavy_atoms": 2203,
+   "has_hydrogens": true,
+   "mutation_sites_with_CA": 20,
+   "mutation_sites_total": 20,
+   "min_ligand_distance_A_per_site": {
+    "244": 10.532726217841228,
+    "248": 3.561255562298216,
+    "250": 6.916798839058427,
+    "252": 4.766575078607284,
+    "253": 6.270099177844001,
+    "255": 7.444586404226897,
+    "276": 15.08271308153808,
+    "279": 11.099258349097024,
+    "292": 13.36395130116838,
+    "299": 5.086085564557483,
+    "315": 3.5847306426006416,
+    "317": 3.735964401596991,
+    "343": 13.918593241057085,
+    "351": 14.967424233314157,
+    "355": 19.30001454662664,
+    "359": 14.250938000707185,
+    "384": 9.054184905335212,
+    "396": 17.379416224373017,
+    "459": 23.11556217097045,
+    "486": 18.983061014493945
+   }
+  },
+  "imatinib": {
+   "file": "data_raw/hauser_s5_extracted/Supplementary_Data_5/renumbered/cAbl-imatinib_nowat-uniprot.pdb",
+   "sha256": "75b3d5345f8f8b7d55d7b10e10ae7f09506d4b5112f1fd9263a55b6204cf0927",
+   "protein_chain": "B",
+   "n_chains": {
+    "B": 286
+   },
+   "construction": "co-crystal 1OPJ + Prime completion",
+   "n_standard_residues_with_CA": 284,
+   "first_last": [
+    229,
+    512
+   ],
+   "gaps_in_numbering": [],
+   "mismatches_to_P00519_1a": [],
+   "nonstandard_protein_residue_names": [
+    "ACE",
+    "NME"
+   ],
+   "hetero_groups_and_ligand_residues": [],
+   "protein_heavy_atoms": 2314,
+   "has_hydrogens": true,
+   "mutation_sites_with_CA": 20,
+   "mutation_sites_total": 20,
+   "min_ligand_distance_A_per_site": {
+    "244": 9.211589617975827,
+    "248": 4.077699445765961,
+    "250": 9.450419458944669,
+    "252": 7.003146889077799,
+    "253": 3.711369570657173,
+    "255": 7.1777912264149935,
+    "276": 18.022892528392877,
+    "279": 11.869418380864328,
+    "292": 8.8129209550523,
+    "299": 3.6780294397951683,
+    "315": 3.1386565820427057,
+    "317": 3.3460172997161917,
+    "343": 14.081882193087681,
+    "351": 8.050518852223126,
+    "355": 9.237954767696145,
+    "359": 3.962243391060169,
+    "384": 6.933701840287054,
+    "396": 15.8081828247272,
+    "459": 27.85138333709836,
+    "486": 11.92050555513481
+   }
+  },
+  "nilotinib": {
+   "file": "data_raw/hauser_s5_extracted/Supplementary_Data_5/renumbered/cAbl-nilotinib_nowat-uniprot.pdb",
+   "sha256": "3ab129d99c7a5da75dfcaec63b0a5fa9abc3f1255d1276ff25354a22b12c8bc1",
+   "protein_chain": "A",
+   "n_chains": {
+    "A": 286
+   },
+   "construction": "co-crystal 3CS9 + homology/Prime completion",
+   "n_standard_residues_with_CA": 284,
+   "first_last": [
+    229,
+    512
+   ],
+   "gaps_in_numbering": [],
+   "mismatches_to_P00519_1a": [],
+   "nonstandard_protein_residue_names": [
+    "ACE",
+    "NME"
+   ],
+   "hetero_groups_and_ligand_residues": [],
+   "protein_heavy_atoms": 2314,
+   "has_hydrogens": true,
+   "mutation_sites_with_CA": 20,
+   "mutation_sites_total": 20,
+   "min_ligand_distance_A_per_site": {
+    "244": 9.246651258699012,
+    "248": 3.582631405824495,
+    "250": 8.311560032869885,
+    "252": 7.11794469773403,
+    "253": 3.6298780861070243,
+    "255": 7.0315636170058236,
+    "276": 17.015206389873732,
+    "279": 8.95395092291665,
+    "292": 8.83019248091456,
+    "299": 3.439036098967269,
+    "315": 3.0284109645158788,
+    "317": 3.440090942111853,
+    "343": 13.640469351895485,
+    "351": 6.939454397861546,
+    "355": 9.589339667046943,
+    "359": 3.6427484472579215,
+    "384": 7.022841419966704,
+    "396": 17.206403358633672,
+    "459": 26.078697719403092,
+    "486": 11.306833520044414
+   }
+  },
+  "ponatinib": {
+   "file": "data_raw/hauser_s5_extracted/Supplementary_Data_5/renumbered/cAbl-ponatinib_nowat-uniprot.pdb",
+   "sha256": "6577b0656466ce5f119703ab1d67e26b70a8e08942575093912457152b74d7a5",
+   "protein_chain": "A",
+   "n_chains": {
+    "A": 286
+   },
+   "construction": "co-crystal 3OXZ + homology/Prime completion",
+   "n_standard_residues_with_CA": 284,
+   "first_last": [
+    229,
+    512
+   ],
+   "gaps_in_numbering": [],
+   "mismatches_to_P00519_1a": [],
+   "nonstandard_protein_residue_names": [
+    "ACE",
+    "NME"
+   ],
+   "hetero_groups_and_ligand_residues": [],
+   "protein_heavy_atoms": 2314,
+   "has_hydrogens": true,
+   "mutation_sites_with_CA": 20,
+   "mutation_sites_total": 20,
+   "min_ligand_distance_A_per_site": {
+    "244": 8.959044195113675,
+    "248": 3.542388444256219,
+    "250": 8.655908149350939,
+    "252": 6.927729822243362,
+    "253": 3.4656326247887246,
+    "255": 6.685658747647836,
+    "276": 16.51165826227033,
+    "279": 12.547368577514574,
+    "292": 8.181392894855987,
+    "299": 3.3662531262518005,
+    "315": 3.4107709934851975,
+    "317": 3.794333208878731,
+    "343": 13.25967282364086,
+    "351": 6.249164371337977,
+    "355": 9.293834938818314,
+    "359": 3.96368377522728,
+    "384": 9.061489297571347,
+    "396": 15.835459698726774,
+    "459": 26.065762492971505,
+    "486": 10.90640189705111
+   }
+  }
+ },
+ "encoded_wt_identity": {
+  "axitinib": {
+   "mutation_wt_identity_present": 31,
+   "of": 31
+  },
+  "bosutinib": {
+   "mutation_wt_identity_present": 31,
+   "of": 31
+  },
+  "dasatinib": {
+   "mutation_wt_identity_present": 31,
+   "of": 31
+  },
+  "erlotinib": {
+   "mutation_wt_identity_present": 31,
+   "of": 31
+  },
+  "gefitnib": {
+   "mutation_wt_identity_present": 31,
+   "of": 31
+  },
+  "imatinib": {
+   "mutation_wt_identity_present": 31,
+   "of": 31
+  },
+  "nilotinib": {
+   "mutation_wt_identity_present": 31,
+   "of": 31
+  },
+  "ponatinib": {
+   "mutation_wt_identity_present": 31,
+   "of": 31
+  }
+ },
+ "ca_trace_comparison": {
+  "residues_common_to_all_models": 270,
+  "first_last_common": [
+   233,
+   502
+  ],
+  "pairwise_rmsd_A": {
+   "axitinib|bosutinib": 1.3025197311963372,
+   "axitinib|dasatinib": 1.2997107353379824,
+   "axitinib|erlotinib": 1.3006864766361088,
+   "axitinib|gefitnib": 1.2989475185482484,
+   "axitinib|imatinib": 5.131613963301389,
+   "axitinib|nilotinib": 5.012931374695064,
+   "axitinib|ponatinib": 4.962927907157053,
+   "bosutinib|dasatinib": 0.7439699625889165,
+   "bosutinib|erlotinib": 0.21881366528518217,
+   "bosutinib|gefitnib": 0.21792144043528924,
+   "bosutinib|imatinib": 5.2703004932559345,
+   "bosutinib|nilotinib": 5.167020106522895,
+   "bosutinib|ponatinib": 5.110340587542799,
+   "dasatinib|erlotinib": 0.7512053418095366,
+   "dasatinib|gefitnib": 0.7518173897465019,
+   "dasatinib|imatinib": 5.171423575417677,
+   "dasatinib|nilotinib": 5.0766903844598,
+   "dasatinib|ponatinib": 5.032905311509267,
+   "erlotinib|gefitnib": 0.013939495553564805,
+   "erlotinib|imatinib": 5.270453411969133,
+   "erlotinib|nilotinib": 5.173041297865513,
+   "erlotinib|ponatinib": 5.1170226851219045,
+   "gefitnib|imatinib": 5.271791596996871,
+   "gefitnib|nilotinib": 5.17406890290417,
+   "gefitnib|ponatinib": 5.117952672174344,
+   "imatinib|nilotinib": 1.3449627708007634,
+   "imatinib|ponatinib": 1.3516580860940963,
+   "nilotinib|ponatinib": 0.7024085672267796
+  },
+  "min_A": 0.013939495553564805,
+  "max_A": 5.271791596996871,
+  "median_A": 4.987929640926058,
+  "coordinate_rounding_floor_A": 0.001,
+  "note": "Only wild-type models exist in the deposit; no mutant coordinates, so no mutant-versus-wild-type Ca comparison is possible from it."
+ },
+ "wat_vs_nowat_identical_protein_CA": {
+  "axitinib": {
+   "same_residues": true,
+   "max_abs_coordinate_difference_A": 0.0
+  },
+  "bosutinib": {
+   "same_residues": true,
+   "max_abs_coordinate_difference_A": 0.0
+  },
+  "imatinib": {
+   "same_residues": true,
+   "max_abs_coordinate_difference_A": 0.0
+  },
+  "nilotinib": {
+   "same_residues": true,
+   "max_abs_coordinate_difference_A": 0.0
+  },
+  "ponatinib": {
+   "same_residues": true,
+   "max_abs_coordinate_difference_A": 0.0
+  },
+  "erlotinib": {
+   "same_residues": true,
+   "max_abs_coordinate_difference_A": 0.10099999999999909
+  },
+  "gefitnib": {
+   "same_residues": true,
+   "max_abs_coordinate_difference_A": 0.10000000000000142
+  }
+ },
+ "mutant_structures_in_deposit": {
+  "files_matching_mutant_or_mutation_in_names": [],
+  "trajectory_files": []
+ }
+}
