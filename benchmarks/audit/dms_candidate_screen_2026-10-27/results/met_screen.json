@@ -1,0 +1,421 @@
+{
+ "schema": "topofold.dms-candidate-met/1",
+ "files": {
+  "WT_rosace_effect_all.tsv": "e0bc22afeec2bfa56142ee9c2d1bb98b270ffb7b43d503c9c48f1cf3bd26e4c3",
+  "LICENSE": "96a005d200e319abaa83e1f4ee8966fcac0706b4484518852c7e0677f4f6e244",
+  "P08581.fasta": "2d486d35ada5e590e8b783ec25e09c2125c067ab944e091b3cc53c1f6c8412c3"
+ },
+ "mapping": {
+  "dms_positions": 287,
+  "uniprot_residue_range": [
+   1059,
+   1345
+  ],
+  "wild_type_identity_all_positions": true
+ },
+ "conditions": [
+  "A458",
+  "Cabo",
+  "Camp",
+  "Crizo",
+  "DMSO",
+  "Gle",
+  "Glu",
+  "Mere",
+  "NVP",
+  "Savo",
+  "Tepo",
+  "Tiv"
+ ],
+ "possible_missense_per_condition": 5453,
+ "missense_variants_measured_in_all_12_conditions": 4364,
+ "per_condition": {
+  "A458": {
+   "missense_variants_with_effect": 4586,
+   "positions": 287,
+   "substitution_types": 21,
+   "paired_with_DMSO": 4463,
+   "flag_GOF": 53,
+   "flag_LOF": 2892,
+   "flag_alt": 2945,
+   "DMSO_LOF_among_paired": 2513,
+   "paired_and_not_DMSO_LOF": 1950
+  },
+  "Cabo": {
+   "missense_variants_with_effect": 4502,
+   "positions": 287,
+   "substitution_types": 21,
+   "paired_with_DMSO": 4442,
+   "flag_GOF": 70,
+   "flag_LOF": 2873,
+   "flag_alt": 2943,
+   "DMSO_LOF_among_paired": 2513,
+   "paired_and_not_DMSO_LOF": 1929
+  },
+  "Camp": {
+   "missense_variants_with_effect": 4484,
+   "positions": 287,
+   "substitution_types": 21,
+   "paired_with_DMSO": 4427,
+   "flag_GOF": 72,
+   "flag_LOF": 2824,
+   "flag_alt": 2896,
+   "DMSO_LOF_among_paired": 2513,
+   "paired_and_not_DMSO_LOF": 1914
+  },
+  "Crizo": {
+   "missense_variants_with_effect": 4676,
+   "positions": 287,
+   "substitution_types": 21,
+   "paired_with_DMSO": 4499,
+   "flag_GOF": 135,
+   "flag_LOF": 2917,
+   "flag_alt": 3052,
+   "DMSO_LOF_among_paired": 2513,
+   "paired_and_not_DMSO_LOF": 1986
+  },
+  "DMSO": {
+   "missense_variants_with_effect": 4618,
+   "positions": 287,
+   "substitution_types": 21,
+   "paired_with_DMSO": 4618,
+   "flag_GOF": 3,
+   "flag_LOF": 2513,
+   "flag_alt": 2516,
+   "DMSO_LOF_among_paired": 2513,
+   "paired_and_not_DMSO_LOF": 2105
+  },
+  "Gle": {
+   "missense_variants_with_effect": 4653,
+   "positions": 287,
+   "substitution_types": 21,
+   "paired_with_DMSO": 4492,
+   "flag_GOF": 53,
+   "flag_LOF": 2726,
+   "flag_alt": 2779,
+   "DMSO_LOF_among_paired": 2513,
+   "paired_and_not_DMSO_LOF": 1979
+  },
+  "Glu": {
+   "missense_variants_with_effect": 4535,
+   "positions": 287,
+   "substitution_types": 21,
+   "paired_with_DMSO": 4451,
+   "flag_GOF": 88,
+   "flag_LOF": 2772,
+   "flag_alt": 2860,
+   "DMSO_LOF_among_paired": 2513,
+   "paired_and_not_DMSO_LOF": 1938
+  },
+  "Mere": {
+   "missense_variants_with_effect": 4819,
+   "positions": 287,
+   "substitution_types": 21,
+   "paired_with_DMSO": 4549,
+   "flag_GOF": 57,
+   "flag_LOF": 2972,
+   "flag_alt": 3029,
+   "DMSO_LOF_among_paired": 2513,
+   "paired_and_not_DMSO_LOF": 2036
+  },
+  "NVP": {
+   "missense_variants_with_effect": 4466,
+   "positions": 287,
+   "substitution_types": 21,
+   "paired_with_DMSO": 4419,
+   "flag_GOF": 72,
+   "flag_LOF": 2681,
+   "flag_alt": 2753,
+   "DMSO_LOF_among_paired": 2513,
+   "paired_and_not_DMSO_LOF": 1906
+  },
+  "Savo": {
+   "missense_variants_with_effect": 4598,
+   "positions": 287,
+   "substitution_types": 21,
+   "paired_with_DMSO": 4480,
+   "flag_GOF": 62,
+   "flag_LOF": 2714,
+   "flag_alt": 2776,
+   "DMSO_LOF_among_paired": 2513,
+   "paired_and_not_DMSO_LOF": 1967
+  },
+  "Tepo": {
+   "missense_variants_with_effect": 4683,
+   "positions": 287,
+   "substitution_types": 21,
+   "paired_with_DMSO": 4510,
+   "flag_GOF": 57,
+   "flag_LOF": 2700,
+   "flag_alt": 2757,
+   "DMSO_LOF_among_paired": 2513,
+   "paired_and_not_DMSO_LOF": 1997
+  },
+  "Tiv": {
+   "missense_variants_with_effect": 4842,
+   "positions": 287,
+   "substitution_types": 21,
+   "paired_with_DMSO": 4544,
+   "flag_GOF": 54,
+   "flag_LOF": 2610,
+   "flag_alt": 2664,
+   "DMSO_LOF_among_paired": 2513,
+   "paired_and_not_DMSO_LOF": 2031
+  }
+ },
+ "synonymous_rows": 3246,
+ "rows_total": 58708,
+ "rows_with_non_numeric_effect": 0,
+ "inhibitor_dosing": "each inhibitor at its experimentally determined IC50 (article text): effects of different drugs are not on a common exposure scale",
+ "posterior_sd_of_filtered_scores": {
+  "file": "met_scores_filtered.tsv",
+  "rows": 48328,
+  "median_sd_inhibitor_missense": 0.4532695923505243,
+  "max_sd_inhibitor_missense": 0.6456581870157412,
+  "note": "the filtered file keeps fewer variants than the Rosace effect file; replicate-level values are not in the repository files read"
+ },
+ "download_ledger": {
+  "raw_files_bytes": 14997705,
+  "publisher_and_policy_pages_bytes": 1193502,
+  "total_bytes_upper_bound": 16191207,
+  "ceiling_bytes": 20000000,
+  "not_downloaded": [
+   "SRA reads PRJNA1136906",
+   "GitHub Machine_Learning folder (58.6 MB)",
+   "EX_rosace_effect_all.tsv and the unfiltered score tables"
+  ]
+ },
+ "structures": {
+  "2WGJ": {
+   "residues_differing_from_P08581_in_span": {},
+   "ligand_in_title": "crizotinib",
+   "method": "X-RAY DIFFRACTION",
+   "resolution_A": "2.00",
+   "chains": {
+    "A": {
+     "resolved_CA_in_scanned_span": 282,
+     "wt_identity_matches_P08581_at_pdb_number": 282,
+     "first_last_in_span": [
+      1059,
+      1344
+     ]
+    }
+   },
+   "hetero_groups": {
+    "VGH": 30
+   },
+   "sha256": "0bcef8d6f721ab33a9cb3f7728875a5d5c248f104c804891022f7389b9b82a60"
+  },
+  "6SDE": {
+   "residues_differing_from_P08581_in_span": {},
+   "ligand_in_title": "savolitinib",
+   "method": "X-RAY DIFFRACTION",
+   "resolution_A": "2.49",
+   "chains": {
+    "A": {
+     "resolved_CA_in_scanned_span": 267,
+     "wt_identity_matches_P08581_at_pdb_number": 267,
+     "first_last_in_span": [
+      1068,
+      1345
+     ]
+    }
+   },
+   "hetero_groups": {
+    "V0L": 26
+   },
+   "sha256": "e3feeb51658a06abea449db45511a5919dd3c879f163d07edc2cecc1cd34d9ce"
+  },
+  "4EEV": {
+   "residues_differing_from_P08581_in_span": {},
+   "ligand_in_title": "merestinib",
+   "method": "X-RAY DIFFRACTION",
+   "resolution_A": "1.80",
+   "chains": {
+    "A": {
+     "resolved_CA_in_scanned_span": 268,
+     "wt_identity_matches_P08581_at_pdb_number": 268,
+     "first_last_in_span": [
+      1059,
+      1345
+     ]
+    }
+   },
+   "hetero_groups": {
+    "L1X": 41
+   },
+   "sha256": "93921b822fd1b9d050656e47ecdd4c1590e4ff85fb78f5bee0a1ce6863123ca6"
+  },
+  "5T3Q": {
+   "residues_differing_from_P08581_in_span": {},
+   "ligand_in_title": "AMG-458",
+   "method": "X-RAY DIFFRACTION",
+   "resolution_A": "2.00",
+   "chains": {
+    "A": {
+     "resolved_CA_in_scanned_span": 263,
+     "wt_identity_matches_P08581_at_pdb_number": 263,
+     "first_last_in_span": [
+      1059,
+      1345
+     ]
+    }
+   },
+   "hetero_groups": {
+    "75H": 41
+   },
+   "sha256": "7bef51febf8d5d9bf88a41e590411c3e626c7c94fbe725767cac1e62a64c47b8"
+  },
+  "3RHK": {
+   "residues_differing_from_P08581_in_span": {},
+   "ligand_in_title": "tivantinib",
+   "method": "X-RAY DIFFRACTION",
+   "resolution_A": "1.94",
+   "chains": {
+    "A": {
+     "resolved_CA_in_scanned_span": 287,
+     "wt_identity_matches_P08581_at_pdb_number": 287,
+     "first_last_in_span": [
+      1059,
+      1345
+     ]
+    },
+    "B": {
+     "resolved_CA_in_scanned_span": 286,
+     "wt_identity_matches_P08581_at_pdb_number": 286,
+     "first_last_in_span": [
+      1059,
+      1344
+     ]
+    }
+   },
+   "hetero_groups": {
+    "M97": 56
+   },
+   "sha256": "e07579f78b1f818a063a9fd2f109607fcdc868851a7bb7c8e14a4d2ce125ba96"
+  },
+  "4R1V": {
+   "residues_differing_from_P08581_in_span": {},
+   "ligand_in_title": "tepotinib",
+   "method": "X-RAY DIFFRACTION",
+   "resolution_A": "1.20",
+   "chains": {
+    "A": {
+     "resolved_CA_in_scanned_span": 285,
+     "wt_identity_matches_P08581_at_pdb_number": 285,
+     "first_last_in_span": [
+      1059,
+      1345
+     ]
+    }
+   },
+   "hetero_groups": {
+    "3E8": 37,
+    "GBL": 18
+   },
+   "sha256": "996a9ee837ec5a5a59e44e046d72fe1bbd4ac7b483bc01b612a16204ff76126d"
+  },
+  "3QTI": {
+   "residues_differing_from_P08581_in_span": {
+    "A": [
+     [
+      1194,
+      "F",
+      "Y"
+     ],
+     [
+      1234,
+      "F",
+      "Y"
+     ]
+    ],
+    "B": [
+     [
+      1194,
+      "F",
+      "Y"
+     ],
+     [
+      1234,
+      "F",
+      "Y"
+     ]
+    ]
+   },
+   "ligand_in_title": "NVP-BVU972",
+   "method": "X-RAY DIFFRACTION",
+   "resolution_A": "2.00",
+   "chains": {
+    "A": {
+     "resolved_CA_in_scanned_span": 270,
+     "wt_identity_matches_P08581_at_pdb_number": 268,
+     "first_last_in_span": [
+      1059,
+      1345
+     ]
+    },
+    "B": {
+     "resolved_CA_in_scanned_span": 264,
+     "wt_identity_matches_P08581_at_pdb_number": 262,
+     "first_last_in_span": [
+      1059,
+      1345
+     ]
+    }
+   },
+   "hetero_groups": {
+    "3QT": 52,
+    "CL": 2,
+    "GOL": 6
+   },
+   "sha256": "56b97513c090ae2b4d6e61ea3100f59054290fb181b5f28c5333edb667ce9711"
+  },
+  "3DKC": {
+   "residues_differing_from_P08581_in_span": {
+    "A": [
+     [
+      1194,
+      "F",
+      "Y"
+     ],
+     [
+      1234,
+      "F",
+      "Y"
+     ],
+     [
+      1235,
+      "D",
+      "Y"
+     ]
+    ]
+   },
+   "ligand_in_title": "ATP-bound (no inhibitor)",
+   "method": "X-RAY DIFFRACTION",
+   "resolution_A": "1.52",
+   "chains": {
+    "A": {
+     "resolved_CA_in_scanned_span": 287,
+     "wt_identity_matches_P08581_at_pdb_number": 284,
+     "first_last_in_span": [
+      1059,
+      1345
+     ]
+    }
+   },
+   "hetero_groups": {
+    "MG": 1,
+    "CL": 1,
+    "ATP": 31
+   },
+   "sha256": "b91fd4bc0bcb9f63c74634649b8e979a7c6bf96b12951179a7acec04462f4874"
+  }
+ },
+ "docked_without_experimental_structure_per_article": [
+  "capmatinib",
+  "glumetinib",
+  "cabozantinib",
+  "glesatinib analog"
+ ],
+ "independent_source_groups": 1
+}

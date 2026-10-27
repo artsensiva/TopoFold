@@ -1,0 +1,103 @@
+{
+ "schema": "topofold.dms-candidate-screen/1",
+ "date": "2026-10-27",
+ "hauser_permissions_closure": {
+  "statements": [
+   {
+    "source": "Article page, Rights and permissions (https://www.nature.com/articles/s42003-018-0075-x)",
+    "quote": "Open Access This article is licensed under a Creative Commons Attribution 4.0 International License ... The images or other third party material in this article are included in the article's Creative Commons license, unless indicated otherwise in a credit line to the material. If material is not included in the article's Creative Commons license and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder.",
+    "scope": "the article and its included third-party material"
+   },
+   {
+    "source": "Journal policy page (https://www.nature.com/commsbio/editorial-policies/self-archiving-and-license-to-publish)",
+    "quote": "Open access articles in Communications Biology are published under a CC BY-NC-ND ... or CC BY ... licence.",
+    "scope": "licence options for articles; authors are not required to assign copyright"
+   },
+   {
+    "source": "Same article page: Supplementary Information link (media.springernature.com .../42003_2018_75_MOESM1_ESM.pdf)",
+    "quote": "(no licence statement attached to the link)",
+    "scope": "the page lists the official supplement without a separate notice"
+   },
+   {
+    "source": "Springer Nature licensing and copyright page and the reporting-standards page",
+    "quote": "(searched: no statement on the licence of supplementary files)",
+    "scope": "none found"
+   },
+   {
+    "source": "RCSB policies (https://www.rcsb.org/pages/policies)",
+    "quote": "data files contained in the PDB archive are available under the CC0 1.0 Universal (CC0 1.0) Public Domain Dedication",
+    "scope": "the starting PDB entries 4WA9, 3UE4, 4XEY, 1OPJ, 3CS9, 3OXZ only, not the prepared models"
+   },
+   {
+    "source": "GitHub repository kehauser/Predicting-resistance-... (commit d5c6c508)",
+    "quote": "licence field null; no licence file",
+    "scope": "the GitHub copies of the supplementary data and the prepared structural inputs (Supplementary Data 5)"
+   }
+  ],
+  "recorded_status": {
+   "article_text": "CC BY 4.0 (stated)",
+   "official_supplement_PDF": "no separate statement found; unresolved",
+   "GitHub_copies_and_prepared_models": "no licence stated; unresolved",
+   "starting_PDB_entries": "CC0 (wwPDB policy)",
+   "third_party_source_values": "unresolved"
+  },
+  "note": "No legal conclusion is drawn. Clearer terms alone would not make the Hauser table a strong validation dataset: the scientific limitations of D90 stand."
+ },
+ "candidates": [
+  {
+   "candidate": "A. MET kinase domain inhibitor DMS (Estevam et al., eLife 2025; Ba/F3 TPR-MET)",
+   "access_terms": "Article: Creative Commons Attribution (Crossref: CC BY 4.0). Repository fraser-lab/MET_kinase_Inhibitor_DMS (commit c2052b97): LICENSE = MIT, copyright Fraser Lab 2024; article data statement: 'Original data files, analysis, and source code is available at' that repository; raw reads at SRA PRJNA1136906 (not downloaded). The MIT text refers to 'Software and associated documentation files'; whether it is the stated licence of the data tables is not spelled out.",
+   "endpoint": "Rosace effect (log2 fitness scale; wild-type synonymous = 0) per variant and condition; 12 conditions: DMSO + 11 inhibitors, each dosed at its experimentally determined IC50 (not a common exposure scale); IL-3 withdrawal selection. Posterior sd of the filtered scores: median 0.45, max 0.65 (replicate values not in the files read).",
+   "counts": "measured: 287 positions (UniProt P08581 1059-1345, wild-type identity verified at all positions), 11 inhibitors, 4618 DMSO missense variants of 5453 possible, 4466-4842 per inhibitor; 4364 variants in all 12 conditions; 1 source group (one laboratory, one assay system)",
+   "function_control": "DMSO condition per variant: 2513 of 4618 DMSO missense variants (54%) are flagged loss-of-function, so the drug effect is interpretable only for the 1906-2036 DMSO-tolerated variants per inhibitor; expression and folding are not measured separately",
+   "structures": "8 PDB entries downloaded (X-ray, 1.20-2.49 \u00c5): experimental ligand complexes for 7 inhibitors (2WGJ, 6SDE, 4EEV, 5T3Q, 3RHK, 4R1V, 3QTI) plus ATP-bound 3DKC; 4 inhibitors (capmatinib, glumetinib, cabozantinib, glesatinib analog) have no experimental structure (docked per the article; poses not in the files read); resolved scanned-span residues per entry 263-287 of 287; engineered differences from P08581: 3QTI Y1194F, Y1234F; 3DKC Y1194F, Y1234F, Y1235D",
+   "evaluation": "unit = variant-drug; group = position (287); dependent across the ~19 substitutions of a position and across drugs (shared libraries and DMSO control); drug confounded with template; single assay and laboratory, so no transfer claim beyond it",
+   "exposure": "published XGBoost models in the repository (14 features incl. ESM-1b log-likelihood ratio, stability, distance, conformation; test = two held-out inhibitors, 20% of positions, two amino acids); ESM-1b correlation reported 0.50 (DMSO) against 0.28 (inhibitor-treated). MET structures were used as evaluation entries in KIN-GEN-2 (a different task).",
+   "verdict": "qualifies for an exploratory comparison"
+  },
+  {
+   "candidate": "B. MaveDB urn:mavedb:00000091-a-1 (BRAF vemurafenib resistance)",
+   "access_terms": "MaveDB record: licence field null; no primary publication or DOI in the record",
+   "endpoint": "log enrichment, median over synonymous codons, two replicates; 'only a small subset of variants were reported'",
+   "counts": "measured: 73 variants, 1 drug, target sequence 119 residues",
+   "function_control": "none stated",
+   "structures": "not assessed (stopped at access and provenance)",
+   "evaluation": "one drug: template-drug confounding cannot be separated; too few units for a position-grouped comparison",
+   "exposure": "unknown (no publication linked)",
+   "verdict": "does not qualify: one drug, partial reporting, no licence field, no linked source"
+  },
+  {
+   "candidate": "C. Persky et al., Nat. Struct. Mol. Biol. 2020 (inhibitor-resistance DMS of several kinases)",
+   "access_terms": "subscription article (Crossref licence element: Springer TDM only; Europe PMC: not open access); no data repository or supplementary table reached within the bounds",
+   "endpoint": "not read",
+   "counts": "not read",
+   "function_control": "not read",
+   "structures": "not read",
+   "evaluation": "not assessed",
+   "exposure": "unknown",
+   "verdict": "not evaluated: essential access missing within the bounded search"
+  }
+ ],
+ "decision": {
+  "value": "proceed (exploratory)",
+  "dataset": "A. MET kinase domain inhibitor DMS",
+  "conditions": [
+   "use is based on the stated CC BY article licence and the repository's MIT licence file; the owner confirms this basis before any real-data run",
+   "inhibitor-wise analysis only (doses differ per drug); analysis restricted to DMSO-tolerated variants",
+   "primary inhibitors limited to those with experimental ligand-bound structures",
+   "published models and feature files of the authors are excluded as inputs"
+  ]
+ },
+ "download_ledger": {
+  "raw_files_bytes": 14997705,
+  "publisher_and_policy_pages_bytes": 1193502,
+  "total_bytes_upper_bound": 16191207,
+  "ceiling_bytes": 20000000,
+  "not_downloaded": [
+   "SRA reads PRJNA1136906",
+   "GitHub Machine_Learning folder (58.6 MB)",
+   "EX_rosace_effect_all.tsv and the unfiltered score tables"
+  ]
+ },
+ "ceiling_bytes": 20000000
+}
