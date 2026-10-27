@@ -1,0 +1,201 @@
+{
+ "schema": "topofold.abl-response-corrections/1",
+ "date": "2026-10-27",
+ "supersedes_statements_in": [
+  "REPORT.md (intake of 2026-10-27, preserved unchanged)",
+  "results/abl_response_intake_record.json (preserved unchanged)",
+  "docs/DECISION_LOG.md D89"
+ ],
+ "corrections": [
+  {
+   "id": "C1",
+   "original": "144 variant-drug \u0394\u0394G records presented as one endpoint with a binding-free-energy reading in places",
+   "correction": "Three separate cohorts by assay and source: 105 Ba/F3 cell-viability IC50 records for five inhibitors (Schrock 2013), 26 axitinib IC50 records (Pemovska 2015; assay not verified), 13 erlotinib/gefitinib binding-constant records (Davis 2011; phosphorylated Abl; constructs not verified). Their transformed values are not pooled. Even within the cell-viability cohort \u0394\u0394G is a log-potency shift expressed in kcal/mol at 300 K under the authors' assumptions, not a binding free energy."
+  },
+  {
+   "id": "C2",
+   "original": "wild-type IC50 'implied' from the sheet; 'the sheet gives no wild-type IC50'",
+   "correction": "Two different things are separated. (i) Reproducing the published transformation: the official SI states the wild-type IC50 for six inhibitors (axitinib 823, bosutinib 71, dasatinib 2, imatinib 201, nilotinib 15, ponatinib 3 nM) and these agree with the values implied by the sheet (e.g. 71 vs 70.96 nM); SI and GitHub sheet agree on 131/131 IC50 values and 144/144 \u0394\u0394G values. For erlotinib and gefitinib the denominators (inferred 75.9 and 480.3 nM) equal the phosphorylated-Abl wild-type values in the Hauser reproduction of the Davis data (76 and 480 nM), not the Davis paper itself. (ii) Independently verifying the original wild-type and mutant measurements: not done; only the abstract's stated ranges and the compilations were seen."
+  },
+  {
+   "id": "C3",
+   "original": "ponatinib G250E recorded as an unresolved discrepancy within the sheet",
+   "correction": "The same IC50 (0.021 nM) and \u0394\u0394G (0.3 kcal/mol) appear in the official SI, and 0.021 nM lies outside the ponatinib range 3-16 nM stated in the Schrock abstract, while 0.3 kcal/mol corresponds to about 5.0 nM given the wild-type value 3 nM. The record is excluded from the primary cohort; its origin remains unresolved."
+  },
+  {
+   "id": "C4",
+   "original": "'Only a large improvement could be detected' from a site-level AUROC standard error of 0.12 at a true AUROC of 0.8",
+   "correction": "Withdrawn. The calculation assumed a true AUROC of 0.8, a binary label per position and independent positions; none of these was the proposed prediction unit, endpoint or metric, so it does not establish what improvement is detectable, and no sample-count threshold is treated as evidence of adequate power."
+  },
+  {
+   "id": "C5",
+   "original": "'Internal analysis: conditional'",
+   "correction": "Replaced by: unresolved. No source notice read states reuse terms for the data files; see the notice table. No legal conclusion is drawn and no permission is assumed."
+  },
+  {
+   "id": "C6",
+   "original": "two censored values; five inhibitors trace to a conference abstract that was not read",
+   "correction": "The abstract was read (Crossref metadata): assay 'engineered Ba/F3 cells, cell viability at 72 hours', 21 single mutants, five inhibitors, IC50 ranges that match the sheet (table below), and T315I reported only as '>4000' for the non-ponatinib inhibitors while the compilation gives numbers (bosutinib 4338, dasatinib 10000, imatinib 9773, nilotinib 8091). These four, plus imatinib L248R stored at 10,000 nM, are flagged as censored or bound-like and are treated in a sensitivity subset; whether the numbers are exact values or ceilings is unresolved."
+  }
+ ],
+ "permission_notices": [
+  {
+   "item": "Hauser et al. 2018 article",
+   "notice": "'Open Access This article is licensed under a Creative Commons Attribution 4.0 International License ... The images or other third party material in this article are included in the article's Creative Commons license, unless indicated otherwise in a credit line to the material.'",
+   "establishes": "CC BY 4.0 for the article and its included material",
+   "does_not_establish": "terms for the GitHub files, the supplementary PDF or the third-party source values"
+  },
+  {
+   "item": "Hauser Data availability statement",
+   "notice": "'All relevant data are publicly available: compiled experimental datasets, input files for Prime and FEP+, and computational results that support our findings can be found at GitHub ...'",
+   "establishes": "the authors made these files publicly available",
+   "does_not_establish": "any licence or reuse terms"
+  },
+  {
+   "item": "GitHub repository kehauser/Predicting-resistance-... (commit d5c6c508)",
+   "notice": "licence field null in the API; no licence file in the 6-file tree; README: 'houses supplementary data files associated with the publication'",
+   "establishes": "public availability",
+   "does_not_establish": "reuse, redistribution or commercial terms"
+  },
+  {
+   "item": "Official supplementary PDF (Springer ESM MOESM1)",
+   "notice": "text searched for licence, copyright, creative, permission, reuse: no match",
+   "establishes": "no notice in the file",
+   "does_not_establish": "its terms (the article's licence statement does not mention it)"
+  },
+  {
+   "item": "Schrock et al. 2013 abstract (Crossref metadata)",
+   "notice": "no licence element in the Crossref record; the publisher page returned a challenge page to a non-browser client",
+   "establishes": "a metadata abstract was read",
+   "does_not_establish": "terms"
+  },
+  {
+   "item": "Pemovska et al. 2015 and Davis et al. 2011",
+   "notice": "not accessed (publisher supplementary URLs returned HTTP 403; articles not open access per Europe PMC)",
+   "establishes": "nothing",
+   "does_not_establish": "assay details, tables or terms"
+  }
+ ],
+ "permissions_status": {
+  "internal_evaluation": "unresolved",
+  "publication_of_derived_results": "unresolved for the data files (the article text is CC BY 4.0)",
+  "redistribution_of_derived_files": "unresolved",
+  "later_commercial_use": "unresolved"
+ },
+ "downloads": {
+  "new_files": {
+   "hauser2018_SI_MOESM1.pdf": {
+    "bytes": 179176,
+    "sha256": "5d57d5e5d25b6c632ae7b58e8806a1a3886bc9acc5f63ecca7a03da7250d36f4"
+   },
+   "crossref_schrock2013.json": {
+    "bytes": 7915,
+    "sha256": "641a35f224ca95f6b6d61e02a06258ca6dcfb52b99fc4b29aad471f44253ab6b"
+   }
+  },
+  "new_bytes": 187091,
+  "cumulative_bytes_upper_bound": 17418900,
+  "correction_ceiling_bytes": 20000000,
+  "blocked_not_bypassed": [
+   "Springer ESM for Pemovska 2015 and Davis 2011 (HTTP 403)",
+   "ASH page for the Schrock abstract (challenge page)",
+   "Zenodo Data S3 (832 MB, not downloaded)"
+  ]
+ },
+ "primary_candidate": {
+  "definition": "Ba/F3 cell-viability IC50 (72 h) of the five Schrock inhibitors, 21 substitutions, minus the excluded record",
+  "after_exclusion": {
+   "records": 104,
+   "substitutions": 21,
+   "positions": 13,
+   "drugs": 5,
+   "templates": 5,
+   "source_groups": 1,
+   "records_per_position": {
+    "244": 5,
+    "248": 10,
+    "250": 4,
+    "253": 5,
+    "255": 10,
+    "299": 5,
+    "315": 10,
+    "317": 20,
+    "351": 5,
+    "355": 5,
+    "359": 15,
+    "396": 5,
+    "459": 5
+   },
+   "resistant_records": 18,
+   "positions_with_resistant_record": [
+    248,
+    253,
+    255,
+    299,
+    315,
+    317
+   ]
+  },
+  "sensitivity_subset": {
+   "records": 99,
+   "substitutions": 21,
+   "positions": 13,
+   "drugs": 5,
+   "templates": 5,
+   "source_groups": 1,
+   "records_per_position": {
+    "244": 5,
+    "248": 9,
+    "250": 4,
+    "253": 5,
+    "255": 10,
+    "299": 5,
+    "315": 6,
+    "317": 20,
+    "351": 5,
+    "355": 5,
+    "359": 15,
+    "396": 5,
+    "459": 5
+   },
+   "resistant_records": 13,
+   "positions_with_resistant_record": [
+    248,
+    253,
+    255,
+    299,
+    315,
+    317
+   ]
+  },
+  "flagged": [
+   "bosutinib:T315I",
+   "dasatinib:T315I",
+   "imatinib:L248R",
+   "imatinib:T315I",
+   "nilotinib:T315I"
+  ],
+  "excluded": [
+   {
+    "id": "ponatinib:G250E",
+    "reason": "unresolved discrepancy: IC50 outside the source abstract's stated range and inconsistent with the \u0394\u0394G (also in the official SI)"
+   }
+  ]
+ },
+ "implementation_decision": {
+  "data_dependent_feature_export": "not run",
+  "reasons": [
+   "reuse terms for the structure and endpoint files are unresolved",
+   "original per-record values and wild-type measurements are not independently seen",
+   "one record is an unresolved discrepancy and five are censored or bound-like"
+  ],
+  "synthetic_only_tests": "none added: no builder exists yet; feature definitions to be fixed after the terms and cohort decisions"
+ },
+ "missing_evidence": [
+  "a statement of reuse terms for the GitHub files, the supplementary PDF and the third-party values (owner decision; no one was contacted)",
+  "the Schrock figure data (per-record Ba/F3 IC50 and the wild-type measurement) from the full source",
+  "the origin of the ponatinib G250E value",
+  "whether the T315I values are exact IC50 values or ceilings",
+  "the Pemovska and Davis tables for the secondary cohorts"
+ ]
+}
