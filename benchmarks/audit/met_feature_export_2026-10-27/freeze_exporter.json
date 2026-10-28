@@ -1,0 +1,10 @@
+{
+ "schema": "topofold.met-export-freeze/1",
+ "files": {
+  "met_export.py": "261a1cfa1cf252b580a80857ee92d3e28d57a91cb8183e2b5c82d2d11e1398ac",
+  "CONTRACT.json": "f9285ba300334974fbc7f675e659859f2c1bbb03d1dcf52e01dfc57c10c65c59",
+  "data/BLOSUM62.txt": "85510d3846ee6d5f4778e425cf8daf6e0dbb889b306f2d13434e1254780efb40",
+  "data/P08581.fasta": "2d486d35ada5e590e8b783ec25e09c2125c067ab944e091b3cc53c1f6c8412c3",
+  "../../../tests/test_met_export.py": "966cd06f536d010dc5427f42be6ab89b5dfaeee69d8a573cf84206649cb62ae2"
+ }
+}

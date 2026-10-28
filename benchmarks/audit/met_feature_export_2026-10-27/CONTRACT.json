@@ -1,0 +1,196 @@
+{
+ "contract_version": "1.0",
+ "scope": "Wild-type template site context for the MET kinase domain. The geometric and ligand features describe the experimental wild-type inhibitor complex; they do not measure mutation-induced structural change. Masking of an engineered template residue does not remove possible wider effects of the engineered residue on the template.",
+ "reference": {
+  "accession": "P08581",
+  "file": "data/P08581.fasta",
+  "sha256": "2d486d35ada5e590e8b783ec25e09c2125c067ab944e091b3cc53c1f6c8412c3",
+  "source": "UniProt REST fasta, fetched 2026-10-27 (sequence version 4, 1390 residues)",
+  "span_uniprot": [
+   1059,
+   1345
+  ],
+  "dms_position_offset": 1058,
+  "substitutions": "19 per position (the 20 standard residues minus the wild-type residue)"
+ },
+ "window": {
+  "half_width": 4,
+  "n_ca": 9,
+  "kappa_vertices": 7,
+  "tau_hinges": 6,
+  "pair_distances": 36
+ },
+ "drugs": [
+  {
+   "name": "crizotinib",
+   "code": "Crizo",
+   "pdb": "2WGJ",
+   "inhibitor_component": "VGH",
+   "article_class": "type I",
+   "input_file": "../dms_candidate_screen_2026-10-27/data_raw/pdb/2WGJ.pdb",
+   "input_sha256": "0bcef8d6f721ab33a9cb3f7728875a5d5c248f104c804891022f7389b9b82a60"
+  },
+  {
+   "name": "savolitinib",
+   "code": "Savo",
+   "pdb": "6SDE",
+   "inhibitor_component": "V0L",
+   "article_class": "type I",
+   "input_file": "../dms_candidate_screen_2026-10-27/data_raw/pdb/6SDE.pdb",
+   "input_sha256": "e3feeb51658a06abea449db45511a5919dd3c879f163d07edc2cecc1cd34d9ce"
+  },
+  {
+   "name": "merestinib",
+   "code": "Mere",
+   "pdb": "4EEV",
+   "inhibitor_component": "L1X",
+   "article_class": "type II",
+   "input_file": "../dms_candidate_screen_2026-10-27/data_raw/pdb/4EEV.pdb",
+   "input_sha256": "93921b822fd1b9d050656e47ecdd4c1590e4ff85fb78f5bee0a1ce6863123ca6"
+  },
+  {
+   "name": "AMG-458",
+   "code": "A458",
+   "pdb": "5T3Q",
+   "inhibitor_component": "75H",
+   "article_class": "type I-1/2",
+   "input_file": "../dms_candidate_screen_2026-10-27/data_raw/pdb/5T3Q.pdb",
+   "input_sha256": "7bef51febf8d5d9bf88a41e590411c3e626c7c94fbe725767cac1e62a64c47b8"
+  },
+  {
+   "name": "tepotinib",
+   "code": "Tepo",
+   "pdb": "4R1V",
+   "inhibitor_component": "3E8",
+   "article_class": "type I",
+   "input_file": "../dms_candidate_screen_2026-10-27/data_raw/pdb/4R1V.pdb",
+   "input_sha256": "996a9ee837ec5a5a59e44e046d72fe1bbd4ac7b483bc01b612a16204ff76126d"
+  },
+  {
+   "name": "NVP-BVU972",
+   "code": "NVP",
+   "pdb": "3QTI",
+   "inhibitor_component": "3QT",
+   "article_class": "type I",
+   "input_file": "../dms_candidate_screen_2026-10-27/data_raw/pdb/3QTI.pdb",
+   "input_sha256": "56b97513c090ae2b4d6e61ea3100f59054290fb181b5f28c5333edb667ce9711"
+  }
+ ],
+ "chain_rule": "the chain with the most residues having a C\u03b1 with a blank insertion code and a residue number in 1055-1349; ties go to the alphabetically first chain",
+ "ligand_rule": "exactly one HETATM residue with the entry's inhibitor component in the chosen chain; zero or several raises an error; waters, ions, crystallization additives and other components are ignored",
+ "model_rule": "first MODEL only; one conformer per residue: each atom takes its blank location, else 'A'; an atom with neither is missing; residues with any altloc atom are flagged (not masked)",
+ "residue_status_vocabulary": [
+  "ok",
+  "missing",
+  "insertion_code",
+  "engineered",
+  "missing_CA"
+ ],
+ "residue_rules": {
+  "missing": "no residue with this number in the chosen chain",
+  "insertion_code": "any residue number carrying an insertion-coded residue is excluded (conservative)",
+  "engineered": "residue name differs from the reference residue at that number (substitution or non-standard residue such as MSE)",
+  "missing_CA": "residue present without a C\u03b1",
+  "incomplete_side_chain": "a heavy atom expected for the residue type is absent after the conformer rule (flag; masks ligand-context features of that residue only)",
+  "chain_break": "consecutive residue numbers both present with C\u03b1-C\u03b1 distance above 4.2 A"
+ },
+ "propagation": "a nine-C\u03b1 window (positions p-4..p+4) is masked, for the angular block and the distance block alike, if any residue in it is missing, engineered, insertion-coded, lacks a C\u03b1 or a chain break lies inside it; the ligand-context block of position p is masked if residue p is missing, engineered, insertion-coded or has an incomplete side chain; no value is imputed",
+ "blocks": {
+  "M": {
+   "cols": [
+    "wt",
+    "mut",
+    "vol_wt",
+    "vol_mut",
+    "dvol",
+    "kd_wt",
+    "kd_mut",
+    "dkd",
+    "charge_wt",
+    "charge_mut",
+    "dcharge",
+    "blosum62",
+    "to_pro",
+    "from_pro",
+    "to_gly",
+    "from_gly"
+   ],
+   "definitions": {
+    "vol": "residue volume in solution, A^3, Zamyatnin 1972 Prog Biophys Mol Biol 24:107-123 (values checked against the GPM tabulation of that table)",
+    "kd": "Kyte-Doolittle hydropathy, J Mol Biol 157:105-132 (1982) (values checked against ExPASy ProtScale)",
+    "charge": "formal side-chain charge near pH 7: Asp -1, Glu -1, Lys +1, Arg +1, all others 0 (His 0 by convention)",
+    "blosum62": "NCBI BLOSUM62 file, data/BLOSUM62.txt (sha256 pinned)",
+    "d*": "mutant minus wild type"
+   }
+  },
+  "L": {
+   "cols": [
+    "L_min_heavy_dist_A",
+    "L_min_sidechain_dist_A",
+    "L_n_contact_atoms_4p5",
+    "L_ca_min_dist_A"
+   ],
+   "definitions": {
+    "L_min_heavy_dist_A": "minimum distance, A, between any heavy atom of the wild-type residue and any heavy atom of the ligand",
+    "L_min_sidechain_dist_A": "minimum distance, A, between side-chain heavy atoms (CB onward) and ligand heavy atoms; missing with reason no_side_chain for glycine",
+    "L_n_contact_atoms_4p5": "number of heavy atoms of the wild-type residue within 4.5 A of any ligand heavy atom",
+    "L_ca_min_dist_A": "distance, A, from the C\u03b1 to the nearest ligand heavy atom"
+   }
+  },
+  "T": {
+   "cols": [
+    "kappa_v1..kappa_v7",
+    "tau_sin_h1..tau_sin_h6",
+    "tau_cos_h1..tau_cos_h6"
+   ],
+   "definitions": {
+    "kappa": "turning angle, radians in [0, pi], at the seven interior vertices of the nine-C\u03b1 window (core compute_ca_features; checked against the numpy reference within 1e-4)",
+    "tau": "signed torsion between consecutive osculating planes at the six hinges, represented as sin and cos (circular quantity); bond lengths are not included"
+   }
+  },
+  "C": {
+   "cols": [
+    "d_i_j for 0<=i<j<=8"
+   ],
+   "definitions": {
+    "d_i_j": "Euclidean distance, A, between window C\u03b1 i and j (36 values) from exactly the nine coordinates used by T"
+   }
+  },
+  "D": {
+   "cols": [
+    "drug",
+    "pdb",
+    "chain",
+    "ligand_component",
+    "ligand_resseq",
+    "article_class"
+   ]
+  }
+ },
+ "reason_vocabulary": [
+  "ok",
+  "missing_residue:<n>",
+  "insertion_code:<n>",
+  "engineered_residue:<n>",
+  "missing_CA:<n>",
+  "chain_break:<n>-<n+1>",
+  "incomplete_side_chain:<n>",
+  "no_side_chain",
+  "degenerate_geometry"
+ ],
+ "units": {
+  "distance": "angstrom",
+  "angle": "radian",
+  "volume": "angstrom^3",
+  "hydropathy": "Kyte-Doolittle units",
+  "charge": "elementary charge"
+ },
+ "source_terms": {
+  "PDB_entries": "wwPDB data files are available under CC0 1.0 (RCSB policies page, read 2026-10-27)",
+  "UniProt_sequence": "UniProt licence is stated by UniProt as CC BY 4.0; its licence page needs JavaScript and was not re-read in this task; attribution kept",
+  "BLOSUM62": "NCBI BLAST matrices file; no licence text read",
+  "literature_scales": "published numeric tables, cited",
+  "assay_tables": "not consumed by the exporter; their terms are unresolved and unaffected",
+  "commercial_rights": "no commercial data rights are inferred from any approval"
+ }
+}
