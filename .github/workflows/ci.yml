@@ -69,7 +69,7 @@ jobs:
       - name: KIN-GEN-2 and MET exporter tests with SciPy (only tests needing git-ignored public data may skip)
         run: |
           python -m pip install scipy
-          python -m pytest tests/test_kin_gen_2.py tests/test_met_export.py -v -rs --junitxml=kin-gen-2-tests.xml
+          python -m pytest tests/test_kin_gen_2.py tests/test_met_export.py tests/test_met_export_results.py -v -rs --junitxml=kin-gen-2-tests.xml
           python tests/check_junit_skips.py kin-gen-2-tests.xml test_real_structure_window_d1_d2 test_real_entries_chain_ligand
 
   viewer:

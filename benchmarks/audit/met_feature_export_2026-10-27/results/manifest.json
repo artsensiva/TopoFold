@@ -1,0 +1,633 @@
+{
+ "schema": "topofold.met-export-manifest/1",
+ "contract_version": "1.0",
+ "scope": "Wild-type template site context for the MET kinase domain. The geometric and ligand features describe the experimental wild-type inhibitor complex; they do not measure mutation-induced structural change. Masking of an engineered template residue does not remove possible wider effects of the engineered residue on the template.",
+ "freeze": {
+  "met_export.py": "261a1cfa1cf252b580a80857ee92d3e28d57a91cb8183e2b5c82d2d11e1398ac",
+  "CONTRACT.json": "f9285ba300334974fbc7f675e659859f2c1bbb03d1dcf52e01dfc57c10c65c59",
+  "data/BLOSUM62.txt": "85510d3846ee6d5f4778e425cf8daf6e0dbb889b306f2d13434e1254780efb40",
+  "data/P08581.fasta": "2d486d35ada5e590e8b783ec25e09c2125c067ab944e091b3cc53c1f6c8412c3",
+  "../../../tests/test_met_export.py": "966cd06f536d010dc5427f42be6ab89b5dfaeee69d8a573cf84206649cb62ae2"
+ },
+ "units": {
+  "distance": "angstrom",
+  "angle": "radian",
+  "volume": "angstrom^3",
+  "hydropathy": "Kyte-Doolittle units",
+  "charge": "elementary charge"
+ },
+ "reference": {
+  "accession": "P08581",
+  "file": "data/P08581.fasta",
+  "sha256": "2d486d35ada5e590e8b783ec25e09c2125c067ab944e091b3cc53c1f6c8412c3",
+  "source": "UniProt REST fasta, fetched 2026-10-27 (sequence version 4, 1390 residues)",
+  "span_uniprot": [
+   1059,
+   1345
+  ],
+  "dms_position_offset": 1058,
+  "substitutions": "19 per position (the 20 standard residues minus the wild-type residue)"
+ },
+ "row_universe": {
+  "rows": 32718,
+  "positions": 287,
+  "substitutions_per_position": 19,
+  "drugs": 6
+ },
+ "tables": {
+  "features_structure.csv": {
+   "rows": 1722,
+   "sha256": "4de859dcf8b8e4294cebdaceeb60ea063e778a794c184ea2bcfa1c3cabe39b50"
+  },
+  "features_mutation.csv": {
+   "rows": 380,
+   "sha256": "d804713910cdd2e9a839ed16cb4eff0757ca754f0b6b7f9f5a468e50ac81ca11"
+  },
+  "row_universe.csv": {
+   "rows": 32718,
+   "sha256": "13676fb41a4128a1358f85f145472067f2a5268da98223d1df943514060b2793"
+  },
+  "coverage.csv": {
+   "rows": 18,
+   "sha256": "8e385a979a5ba40bb2805af287dfe962ba7beb03a5d6a1ee91e6aba731498a33"
+  }
+ },
+ "entries": {
+  "Crizo": {
+   "chain": "A",
+   "ligand": {
+    "component": "VGH",
+    "chain": "A",
+    "resseq": 2346,
+    "icode": " ",
+    "heavy_atoms": 30
+   },
+   "flagged_residues": {
+    "missing": [
+     1099,
+     1100,
+     1101,
+     1102,
+     1346,
+     1347,
+     1348,
+     1349
+    ],
+    "insertion_code": [],
+    "engineered": [],
+    "missing_CA": [
+     1345
+    ]
+   },
+   "engineered_detail": {},
+   "incomplete_side_chain_residues": [],
+   "altloc_residues": [],
+   "chain_breaks_after": [],
+   "residues_considered": [
+    1055,
+    1349
+   ],
+   "pdb": "2WGJ",
+   "input_sha256": "0bcef8d6f721ab33a9cb3f7728875a5d5c248f104c804891022f7389b9b82a60"
+  },
+  "Savo": {
+   "chain": "A",
+   "ligand": {
+    "component": "V0L",
+    "chain": "A",
+    "resseq": 1401,
+    "icode": " ",
+    "heavy_atoms": 26
+   },
+   "flagged_residues": {
+    "missing": [
+     1055,
+     1056,
+     1057,
+     1058,
+     1059,
+     1060,
+     1061,
+     1062,
+     1063,
+     1064,
+     1065,
+     1066,
+     1067,
+     1099,
+     1100,
+     1101,
+     1102,
+     1103,
+     1116,
+     1117,
+     1118,
+     1119,
+     1150,
+     1151,
+     1347,
+     1348,
+     1349
+    ],
+    "insertion_code": [],
+    "engineered": [],
+    "missing_CA": []
+   },
+   "engineered_detail": {},
+   "incomplete_side_chain_residues": [
+    1232,
+    1240,
+    1244,
+    1259
+   ],
+   "altloc_residues": [],
+   "chain_breaks_after": [],
+   "residues_considered": [
+    1055,
+    1349
+   ],
+   "pdb": "6SDE",
+   "input_sha256": "e3feeb51658a06abea449db45511a5919dd3c879f163d07edc2cecc1cd34d9ce"
+  },
+  "Mere": {
+   "chain": "A",
+   "ligand": {
+    "component": "L1X",
+    "chain": "A",
+    "resseq": 1401,
+    "icode": " ",
+    "heavy_atoms": 41
+   },
+   "flagged_residues": {
+    "missing": [
+     1225,
+     1226,
+     1227,
+     1228,
+     1229,
+     1230,
+     1231,
+     1232,
+     1233,
+     1234,
+     1235,
+     1236,
+     1237,
+     1238,
+     1239,
+     1240,
+     1241,
+     1242,
+     1243,
+     1347,
+     1348,
+     1349
+    ],
+    "insertion_code": [],
+    "engineered": [],
+    "missing_CA": []
+   },
+   "engineered_detail": {},
+   "incomplete_side_chain_residues": [
+    1086,
+    1089,
+    1101,
+    1148,
+    1150,
+    1244,
+    1286,
+    1288,
+    1314
+   ],
+   "altloc_residues": [
+    1067,
+    1070,
+    1075,
+    1080,
+    1111,
+    1338
+   ],
+   "chain_breaks_after": [],
+   "residues_considered": [
+    1055,
+    1349
+   ],
+   "pdb": "4EEV",
+   "input_sha256": "93921b822fd1b9d050656e47ecdd4c1590e4ff85fb78f5bee0a1ce6863123ca6"
+  },
+  "A458": {
+   "chain": "A",
+   "ligand": {
+    "component": "75H",
+    "chain": "A",
+    "resseq": 1401,
+    "icode": " ",
+    "heavy_atoms": 41
+   },
+   "flagged_residues": {
+    "missing": [
+     1086,
+     1087,
+     1223,
+     1224,
+     1225,
+     1226,
+     1227,
+     1228,
+     1229,
+     1230,
+     1231,
+     1232,
+     1233,
+     1234,
+     1235,
+     1236,
+     1237,
+     1238,
+     1239,
+     1240,
+     1241,
+     1242,
+     1243,
+     1244
+    ],
+    "insertion_code": [],
+    "engineered": [],
+    "missing_CA": []
+   },
+   "engineered_detail": {},
+   "incomplete_side_chain_residues": [],
+   "altloc_residues": [],
+   "chain_breaks_after": [],
+   "residues_considered": [
+    1055,
+    1349
+   ],
+   "pdb": "5T3Q",
+   "input_sha256": "7bef51febf8d5d9bf88a41e590411c3e626c7c94fbe725767cac1e62a64c47b8"
+  },
+  "Tepo": {
+   "chain": "A",
+   "ligand": {
+    "component": "3E8",
+    "chain": "A",
+    "resseq": 1401,
+    "icode": " ",
+    "heavy_atoms": 37
+   },
+   "flagged_residues": {
+    "missing": [
+     1150,
+     1151,
+     1346,
+     1347,
+     1348,
+     1349
+    ],
+    "insertion_code": [],
+    "engineered": [],
+    "missing_CA": []
+   },
+   "engineered_detail": {},
+   "incomplete_side_chain_residues": [],
+   "altloc_residues": [
+    1074,
+    1107,
+    1133,
+    1145,
+    1170,
+    1211,
+    1316,
+    1338
+   ],
+   "chain_breaks_after": [],
+   "residues_considered": [
+    1055,
+    1349
+   ],
+   "pdb": "4R1V",
+   "input_sha256": "996a9ee837ec5a5a59e44e046d72fe1bbd4ac7b483bc01b612a16204ff76126d"
+  },
+  "NVP": {
+   "chain": "A",
+   "ligand": {
+    "component": "3QT",
+    "chain": "A",
+    "resseq": 1,
+    "icode": " ",
+    "heavy_atoms": 26
+   },
+   "flagged_residues": {
+    "missing": [
+     1100,
+     1101,
+     1102,
+     1103,
+     1235,
+     1236,
+     1237,
+     1238,
+     1239,
+     1240,
+     1241,
+     1242,
+     1243,
+     1244,
+     1287,
+     1288,
+     1289
+    ],
+    "insertion_code": [],
+    "engineered": [
+     1194,
+     1234
+    ],
+    "missing_CA": []
+   },
+   "engineered_detail": {
+    "1194": "PHE",
+    "1234": "PHE"
+   },
+   "incomplete_side_chain_residues": [
+    1061,
+    1064,
+    1114,
+    1123,
+    1286
+   ],
+   "altloc_residues": [],
+   "chain_breaks_after": [],
+   "residues_considered": [
+    1055,
+    1349
+   ],
+   "pdb": "3QTI",
+   "input_sha256": "56b97513c090ae2b4d6e61ea3100f59054290fb181b5f28c5333edb667ce9711"
+  }
+ },
+ "coverage": {
+  "Crizo": {
+   "L": {
+    "positions": 287,
+    "ok": 282,
+    "masked": 5,
+    "reasons_incl_multiple_per_position": {
+     "no_side_chain": 18,
+     "missing_residue": 4,
+     "missing_CA": 1
+    }
+   },
+   "T": {
+    "positions": 287,
+    "ok": 270,
+    "masked": 17,
+    "reasons_incl_multiple_per_position": {
+     "missing_residue": 46,
+     "missing_CA": 5
+    }
+   },
+   "C": {
+    "positions": 287,
+    "ok": 270,
+    "masked": 17,
+    "reasons_incl_multiple_per_position": {
+     "missing_residue": 46,
+     "missing_CA": 5
+    }
+   }
+  },
+  "Savo": {
+   "L": {
+    "positions": 287,
+    "ok": 263,
+    "masked": 24,
+    "reasons_incl_multiple_per_position": {
+     "missing_residue": 20,
+     "no_side_chain": 16,
+     "incomplete_side_chain": 4
+    }
+   },
+   "T": {
+    "positions": 287,
+    "ok": 236,
+    "masked": 51,
+    "reasons_incl_multiple_per_position": {
+     "missing_residue": 186
+    }
+   },
+   "C": {
+    "positions": 287,
+    "ok": 236,
+    "masked": 51,
+    "reasons_incl_multiple_per_position": {
+     "missing_residue": 186
+    }
+   }
+  },
+  "Mere": {
+   "L": {
+    "positions": 287,
+    "ok": 259,
+    "masked": 28,
+    "reasons_incl_multiple_per_position": {
+     "no_side_chain": 18,
+     "incomplete_side_chain": 9,
+     "missing_residue": 19
+    }
+   },
+   "T": {
+    "positions": 287,
+    "ok": 257,
+    "masked": 30,
+    "reasons_incl_multiple_per_position": {
+     "missing_residue": 177
+    }
+   },
+   "C": {
+    "positions": 287,
+    "ok": 257,
+    "masked": 30,
+    "reasons_incl_multiple_per_position": {
+     "missing_residue": 177
+    }
+   }
+  },
+  "A458": {
+   "L": {
+    "positions": 287,
+    "ok": 263,
+    "masked": 24,
+    "reasons_incl_multiple_per_position": {
+     "no_side_chain": 16,
+     "missing_residue": 24
+    }
+   },
+   "T": {
+    "positions": 287,
+    "ok": 247,
+    "masked": 40,
+    "reasons_incl_multiple_per_position": {
+     "missing_residue": 216
+    }
+   },
+   "C": {
+    "positions": 287,
+    "ok": 247,
+    "masked": 40,
+    "reasons_incl_multiple_per_position": {
+     "missing_residue": 216
+    }
+   }
+  },
+  "Tepo": {
+   "L": {
+    "positions": 287,
+    "ok": 285,
+    "masked": 2,
+    "reasons_incl_multiple_per_position": {
+     "no_side_chain": 18,
+     "missing_residue": 2
+    }
+   },
+   "T": {
+    "positions": 287,
+    "ok": 273,
+    "masked": 14,
+    "reasons_incl_multiple_per_position": {
+     "missing_residue": 28
+    }
+   },
+   "C": {
+    "positions": 287,
+    "ok": 273,
+    "masked": 14,
+    "reasons_incl_multiple_per_position": {
+     "missing_residue": 28
+    }
+   }
+  },
+  "NVP": {
+   "L": {
+    "positions": 287,
+    "ok": 263,
+    "masked": 24,
+    "reasons_incl_multiple_per_position": {
+     "incomplete_side_chain": 5,
+     "no_side_chain": 17,
+     "missing_residue": 17,
+     "engineered_residue": 2
+    }
+   },
+   "T": {
+    "positions": 287,
+    "ok": 236,
+    "masked": 51,
+    "reasons_incl_multiple_per_position": {
+     "missing_residue": 153,
+     "engineered_residue": 18
+    }
+   },
+   "C": {
+    "positions": 287,
+    "ok": 236,
+    "masked": 51,
+    "reasons_incl_multiple_per_position": {
+     "missing_residue": 153,
+     "engineered_residue": 18
+    }
+   }
+  }
+ },
+ "block_definitions": {
+  "M": {
+   "cols": [
+    "wt",
+    "mut",
+    "vol_wt",
+    "vol_mut",
+    "dvol",
+    "kd_wt",
+    "kd_mut",
+    "dkd",
+    "charge_wt",
+    "charge_mut",
+    "dcharge",
+    "blosum62",
+    "to_pro",
+    "from_pro",
+    "to_gly",
+    "from_gly"
+   ],
+   "definitions": {
+    "vol": "residue volume in solution, A^3, Zamyatnin 1972 Prog Biophys Mol Biol 24:107-123 (values checked against the GPM tabulation of that table)",
+    "kd": "Kyte-Doolittle hydropathy, J Mol Biol 157:105-132 (1982) (values checked against ExPASy ProtScale)",
+    "charge": "formal side-chain charge near pH 7: Asp -1, Glu -1, Lys +1, Arg +1, all others 0 (His 0 by convention)",
+    "blosum62": "NCBI BLOSUM62 file, data/BLOSUM62.txt (sha256 pinned)",
+    "d*": "mutant minus wild type"
+   }
+  },
+  "L": {
+   "cols": [
+    "L_min_heavy_dist_A",
+    "L_min_sidechain_dist_A",
+    "L_n_contact_atoms_4p5",
+    "L_ca_min_dist_A"
+   ],
+   "definitions": {
+    "L_min_heavy_dist_A": "minimum distance, A, between any heavy atom of the wild-type residue and any heavy atom of the ligand",
+    "L_min_sidechain_dist_A": "minimum distance, A, between side-chain heavy atoms (CB onward) and ligand heavy atoms; missing with reason no_side_chain for glycine",
+    "L_n_contact_atoms_4p5": "number of heavy atoms of the wild-type residue within 4.5 A of any ligand heavy atom",
+    "L_ca_min_dist_A": "distance, A, from the C\u03b1 to the nearest ligand heavy atom"
+   }
+  },
+  "T": {
+   "cols": [
+    "kappa_v1..kappa_v7",
+    "tau_sin_h1..tau_sin_h6",
+    "tau_cos_h1..tau_cos_h6"
+   ],
+   "definitions": {
+    "kappa": "turning angle, radians in [0, pi], at the seven interior vertices of the nine-C\u03b1 window (core compute_ca_features; checked against the numpy reference within 1e-4)",
+    "tau": "signed torsion between consecutive osculating planes at the six hinges, represented as sin and cos (circular quantity); bond lengths are not included"
+   }
+  },
+  "C": {
+   "cols": [
+    "d_i_j for 0<=i<j<=8"
+   ],
+   "definitions": {
+    "d_i_j": "Euclidean distance, A, between window C\u03b1 i and j (36 values) from exactly the nine coordinates used by T"
+   }
+  },
+  "D": {
+   "cols": [
+    "drug",
+    "pdb",
+    "chain",
+    "ligand_component",
+    "ligand_resseq",
+    "article_class"
+   ]
+  }
+ },
+ "reason_vocabulary": [
+  "ok",
+  "missing_residue:<n>",
+  "insertion_code:<n>",
+  "engineered_residue:<n>",
+  "missing_CA:<n>",
+  "chain_break:<n>-<n+1>",
+  "incomplete_side_chain:<n>",
+  "no_side_chain",
+  "degenerate_geometry"
+ ],
+ "source_terms": {
+  "PDB_entries": "wwPDB data files are available under CC0 1.0 (RCSB policies page, read 2026-10-27)",
+  "UniProt_sequence": "UniProt licence is stated by UniProt as CC BY 4.0; its licence page needs JavaScript and was not re-read in this task; attribution kept",
+  "BLOSUM62": "NCBI BLAST matrices file; no licence text read",
+  "literature_scales": "published numeric tables, cited",
+  "assay_tables": "not consumed by the exporter; their terms are unresolved and unaffected",
+  "commercial_rights": "no commercial data rights are inferred from any approval"
+ },
+ "wider_engineered_template_effects_not_removed_by_masking": true
+}

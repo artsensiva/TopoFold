@@ -1,0 +1,166 @@
+{
+ "schema": "topofold.met-eval-plan/1",
+ "status": "unfrozen plan; no outcome table has been read for it; scoring not started",
+ "inputs": {
+  "features": {
+   "features_structure.csv": "4de859dcf8b8e4294cebdaceeb60ea063e778a794c184ea2bcfa1c3cabe39b50",
+   "features_mutation.csv": "d804713910cdd2e9a839ed16cb4eff0757ca754f0b6b7f9f5a468e50ac81ca11",
+   "row_universe.csv": "13676fb41a4128a1358f85f145472067f2a5268da98223d1df943514060b2793",
+   "coverage.csv": "8e385a979a5ba40bb2805af287dfe962ba7beb03a5d6a1ee91e6aba731498a33"
+  },
+  "exporter_freeze": {
+   "met_export.py": "261a1cfa1cf252b580a80857ee92d3e28d57a91cb8183e2b5c82d2d11e1398ac",
+   "CONTRACT.json": "f9285ba300334974fbc7f675e659859f2c1bbb03d1dcf52e01dfc57c10c65c59",
+   "data/BLOSUM62.txt": "85510d3846ee6d5f4778e425cf8daf6e0dbb889b306f2d13434e1254780efb40",
+   "data/P08581.fasta": "2d486d35ada5e590e8b783ec25e09c2125c067ab944e091b3cc53c1f6c8412c3",
+   "../../../tests/test_met_export.py": "966cd06f536d010dc5427f42be6ab89b5dfaeee69d8a573cf84206649cb62ae2"
+  },
+  "assay_table": {
+   "file": "WT_rosace_effect_all.tsv",
+   "repository": "fraser-lab/MET_kinase_Inhibitor_DMS",
+   "commit": "c2052b97e12859e71cebd4ccd947c02e1084bc51",
+   "sha256": "e0bc22afeec2bfa56142ee9c2d1bb98b270ffb7b43d503c9c48f1cf3bd26e4c3",
+   "terms": "article CC BY; repository MIT licence file; whether the MIT text governs the data tables is not spelled out; owner confirmation of this basis is required before the run; no commercial data rights are inferred"
+  },
+  "uncertainty_table": {
+   "file": "met_scores_filtered.tsv",
+   "sha256": "1a866db3cbc93f7d1d649d085c5e3a59e294c9cf464802583a0236a499660b86"
+  }
+ },
+ "construct": "Ba/F3 cells expressing the wild-type (exon 14 retained) TPR-MET intracellular domain fusion, IL-3 withdrawal; the exon 14-skipped library (EX_ files) is not used",
+ "endpoint": {
+  "name": "gamma",
+  "definition": "ROSACE_effects(inhibitor) - ROSACE_effects(DMSO) for the same variant (the article's gamma = beta_inh - beta_DMSO; log2 fitness scale; wild-type synonymous = 0; each inhibitor dosed at its own IC50, so drugs are modelled separately)",
+  "drugs": [
+   "Crizo",
+   "Savo",
+   "Mere",
+   "A458",
+   "Tepo",
+   "NVP"
+  ],
+  "excluded_drugs": [
+   "tivantinib (MET-independent activity per the article)",
+   "capmatinib, glumetinib, cabozantinib, glesatinib analog (no experimental complex)"
+  ]
+ },
+ "eligibility": {
+  "rule": "missense variant with numeric effects in both the inhibitor and the DMSO condition and ROSACE.LOF == FALSE in DMSO (the file's own flag); position inside 1059-1345; no outcome-based filtering otherwise",
+  "expected_eligible_variants_per_drug_from_screen": {
+   "Crizo": 1986,
+   "Savo": 1967,
+   "Mere": 2036,
+   "A458": 1950,
+   "Tepo": 1997,
+   "NVP": 1906
+  }
+ },
+ "missing_data": {
+  "policy": "exporter masks are final; no imputation. Primary comparison on the common complete-case rows of each drug (L, T and C all available); the same rows and folds for every feature set. The only analysis-side fill: L_min_sidechain_dist_A at glycine sites takes L_min_heavy_dist_A, with an indicator column (documented, training-independent). Missingness (unresolved loops, engineered template residues) is not random: results apply to resolved regions only; coverage by region is reported",
+  "positions_with_all_blocks_per_drug": {
+   "Crizo": 270,
+   "Savo": 232,
+   "Mere": 249,
+   "A458": 247,
+   "Tepo": 273,
+   "NVP": 232
+  },
+  "positions_with_all_blocks_in_every_drug": 172
+ },
+ "uncertainty_handling": {
+  "posterior_sd": "approximate sd_gamma = sqrt(sd_inh^2 + sd_DMSO^2) from the filtered table, independence assumed although controls are shared; used only for a sensitivity restricted to variants with sd_gamma at or below the median, and as context for the MSE scale. It does not establish a smallest detectable improvement."
+ },
+ "feature_sets": {
+  "F0": "mutation properties (14 numeric M columns) + drug baseline (per-drug model intercept)",
+  "F1": "F0 + ligand/site context L (4 columns + glycine indicator)",
+  "F2": "F1 + 36 C\u03b1 distances (C)",
+  "F3": "F1 + TopoFold angular features T (7 kappa, 6 sin tau, 6 cos tau)",
+  "F4_optional_external": "F1 + ESM-1b log-likelihood ratio taken from the authors' pre-binning feature file (inputs only; their predictions and model outputs excluded); requires one pinned download of that file (about 7 MB) and verification of the column before use"
+ },
+ "comparisons": [
+  {
+   "id": "C1",
+   "test": "F1 vs F0",
+   "meaning": "what ordinary ligand/site context adds"
+  },
+  {
+   "id": "C2",
+   "test": "F2 vs F1",
+   "meaning": "C\u03b1 distances beyond context"
+  },
+  {
+   "id": "C3",
+   "test": "F3 vs F1",
+   "meaning": "TopoFold angular features beyond context (primary)"
+  },
+  {
+   "id": "C4",
+   "test": "F3 vs F2",
+   "meaning": "equal-coordinate head-to-head of the two geometry encodings (primary)"
+  },
+  {
+   "id": "C5_optional",
+   "test": "F4+T vs F4",
+   "meaning": "angular features beyond a language-model baseline"
+  }
+ ],
+ "folds": {
+  "outer": "10 contiguous blocks of positions (29 or 28 each), identical for all feature sets, drugs and models",
+  "buffer": "training excludes positions within 8 residues of the held-out block on both sides (windows span 4 residues each side, so windows overlap up to separation 8)",
+  "inner": "5 contiguous blocks over the training positions with the same buffer, for ridge alpha only",
+  "grouping": "all substitutions and all drugs at a position are held out together",
+  "limits": "blocking is in sequence; residues close in space but distant in sequence stay correlated; shared DMSO control and libraries make drugs correlated, so the six drugs are not six independent replicates"
+ },
+ "models": {
+  "ridge": "per-drug ridge, features standardized on training rows only, alpha in {0.1, 1, 10, 100, 1000} chosen by the inner blocks",
+  "gbm": "per-drug HistGradientBoostingRegressor(max_depth=3, learning_rate=0.05, max_iter=200, min_samples_leaf=20, l2_regularization=1.0, random_state=0), no tuning",
+  "no_other_models": true
+ },
+ "primary_metric": {
+  "name": "mean squared error of gamma",
+  "aggregation": "within a drug, squared errors averaged per position then over held-out positions with equal position weight; then equal-weight mean over the six drugs",
+  "difference": "Delta = MSE(a) - MSE(b); negative favours a",
+  "secondary": [
+   "relative MSE reduction",
+   "per-drug Pearson and Spearman correlation (comparable in kind to the correlations the authors report, not on their splits)",
+   "per-block and per-drug Delta"
+  ]
+ },
+ "decision_rule": {
+  "consistent_improvement": "Delta < 0 AND the 95% percentile interval of a moving-block bootstrap (blocks of 20 consecutive positions, all drugs resampled together, 2000 resamples) excludes 0 AND Delta < 0 in at least 8 of 10 outer blocks AND in at least 5 of 6 drugs",
+  "no_improvement": "Delta >= 0, or Delta < 0 in at most 5 of 10 outer blocks",
+  "inconclusive": "otherwise",
+  "claim_requires": "the same classification for both ridge and GBM; five pre-specified comparisons, no multiplicity correction claimed; intervals are descriptive (coverage not assumed)",
+  "practical_usefulness": "separate from the statistical statement: the owner sets a practical threshold on relative MSE reduction before scoring (proposed default 5%); a statistically consistent improvement below it is reported as not practically useful"
+ },
+ "external_benchmark": {
+  "authors_model": "XGBoost on 14 interpretable features including ESM-1b LLR and structural features computed from Umol-predicted inhibitor-bound mutant complexes; trained with 8192 feature combinations; test = all variants of one type I and one type II inhibitor, 20% of positions and two amino acids",
+  "fair_and_cheap": [
+   "arm F4 (ESM LLR as an input feature) against F1 under our protocol",
+   "descriptive side-by-side of per-inhibitor correlations with the published values, labelled as different splits",
+   "no recreation of their model or of Umol structures"
+  ],
+  "not_permitted": "any claim of superiority over the authors' model; their strongest competitor uses mutant-complex structure predictions that our wild-type-template features do not have"
+ },
+ "budget": {
+  "cpu_minutes_max": 20,
+  "ram_gb_max": 2,
+  "downloads": "none required; optional one file of about 7 MB for arm F4",
+  "estimate": "per-drug ridge and shallow GBM on a few thousand rows: about 2 CPU-minutes"
+ },
+ "acceptance_conditions": [
+  "plan, evaluation code and tests hash-frozen before the first scoring run",
+  "all input hashes match this plan; exporter freeze verified",
+  "identical row sets and folds across all feature sets (asserted)",
+  "buffer and grouping tests pass on synthetic data (no training row within 8 residues of a held-out block; all substitutions and drugs of a position in the same fold)",
+  "no outcome-dependent feature or row selection; scaling and tuning inside training folds only (tested with a leakage probe on synthetic data)",
+  "results JSON contains every comparison, per-block and per-drug values, coverage and exclusions; report generated from it",
+  "stop and report if any gate fails; a negative or inconclusive outcome completes the task"
+ ],
+ "commands_for_the_next_task": [
+  "ulimit -t 1800   # 30 CPU-minute hard cap",
+  ".venv/bin/python benchmarks/audit/met_eval_2026-10-28/evaluate.py freeze",
+  ".venv/bin/python benchmarks/audit/met_eval_2026-10-28/evaluate.py run",
+  ".venv/bin/python -m pytest tests/test_met_eval.py -q"
+ ]
+}
