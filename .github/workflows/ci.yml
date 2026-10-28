@@ -150,3 +150,9 @@ jobs:
 
       - name: Run fair-baseline audit reproduction
         run: python benchmarks/audit/fair_baseline.py
+
+      - name: MET evaluator synthetic tests (scikit-learn available; no skips allowed)
+        run: |
+          python -m pip install pytest
+          python -m pytest tests/test_met_eval.py -q --junitxml=met-eval-tests.xml
+          python tests/check_junit_skips.py met-eval-tests.xml

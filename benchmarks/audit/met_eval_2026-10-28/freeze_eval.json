@@ -1,0 +1,26 @@
+{
+ "schema": "topofold.met-eval-freeze/1",
+ "files": {
+  "plan.json": "88884fe1526aec6187a1689bbec3e47ed029633f30d3aabc75c4b673fd8590f6",
+  "evaluate.py": "59ce5a3c66267466f22d4d31bd63b806065313924d7f7925ca1fc45b373458d8",
+  "../../../tests/test_met_eval.py": "03231b603cf30e0418355c5cb11318f751df2107fa306836104f417852a6a3ab"
+ },
+ "inputs": {
+  "WT_rosace_effect_all.tsv": "e0bc22afeec2bfa56142ee9c2d1bb98b270ffb7b43d503c9c48f1cf3bd26e4c3",
+  "met_scores_filtered.tsv": "1a866db3cbc93f7d1d649d085c5e3a59e294c9cf464802583a0236a499660b86",
+  "all_features_all_data_pre_binning.csv": "c48fa14ae540407612497109c3255c33a9a4fa3f2866dd951104919b7f1b5e29",
+  "exporter_tables": {
+   "features_structure.csv": "4de859dcf8b8e4294cebdaceeb60ea063e778a794c184ea2bcfa1c3cabe39b50",
+   "features_mutation.csv": "d804713910cdd2e9a839ed16cb4eff0757ca754f0b6b7f9f5a468e50ac81ca11",
+   "row_universe.csv": "13676fb41a4128a1358f85f145472067f2a5268da98223d1df943514060b2793",
+   "coverage.csv": "8e385a979a5ba40bb2805af287dfe962ba7beb03a5d6a1ee91e6aba731498a33"
+  },
+  "exporter_freeze": {
+   "met_export.py": "261a1cfa1cf252b580a80857ee92d3e28d57a91cb8183e2b5c82d2d11e1398ac",
+   "CONTRACT.json": "f9285ba300334974fbc7f675e659859f2c1bbb03d1dcf52e01dfc57c10c65c59",
+   "data/BLOSUM62.txt": "85510d3846ee6d5f4778e425cf8daf6e0dbb889b306f2d13434e1254780efb40",
+   "data/P08581.fasta": "2d486d35ada5e590e8b783ec25e09c2125c067ab944e091b3cc53c1f6c8412c3",
+   "../../../tests/test_met_export.py": "966cd06f536d010dc5427f42be6ab89b5dfaeee69d8a573cf84206649cb62ae2"
+  }
+ }
+}

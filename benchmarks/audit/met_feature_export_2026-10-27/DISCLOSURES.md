@@ -1,0 +1,3 @@
+# Disclosures (dated)
+
+**2026-10-28, accidental second export.** After the first and intended real export (frozen exporter 6094572, run once), `met_export.py run` was executed a second time by mistake while checking the committed files. No code, contract or input changed (the freeze check passed); the regenerated `features_structure.csv`, `features_mutation.csv`, `row_universe.csv` and `coverage.csv` have the same SHA-256 values as the manifest of the first run, which `tests/test_met_export_results.py` checks. The second run therefore also served as an unplanned determinism check; it is disclosed here and no history was rewritten. Two executions took place; one was intended.

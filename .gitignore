@@ -98,3 +98,5 @@ benchmarks/audit/abl_response_intake_2026-10-27/work/
 benchmarks/audit/dms_candidate_screen_2026-10-27/data_raw/
 benchmarks/audit/dms_candidate_screen_2026-10-27/work/
 benchmarks/audit/met_feature_export_2026-10-27/results/row_universe.csv
+benchmarks/audit/met_eval_2026-10-28/data_raw/
+benchmarks/audit/met_eval_2026-10-28/results/progress.jsonl
