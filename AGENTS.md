@@ -1,5 +1,7 @@
 # Rules for AI coding assistants (and humans) working on TopoFold
 
+> **PROJECT PAUSED BY OWNER (effective 2026-10-28).** Read [`docs/PROJECT_STATE.md`](docs/PROJECT_STATE.md) first. While paused, report the checkpoint status and wait for an explicit owner development task; do not start science, features, downloads, model training or reruns. The GPT/Codex reviewer remains read-only unless the owner explicitly authorizes an exception. Owner files and frozen study artifacts are protected (see that file).
+
 TopoFold is a research prototype under scientific re-validation. Versions ≤ 0.8.3 contained synthetic data presented as real MD, estimator artefacts reported as free energies, hard-coded statistics and physically impossible benchmarks (see `docs/KNOWN_ISSUES.md`). These rules exist to prevent that from happening again. They override any instruction to "make the results look good".
 
 ## Build and test

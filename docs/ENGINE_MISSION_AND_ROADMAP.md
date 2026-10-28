@@ -1,5 +1,7 @@
 # TopoFold Engine: Mission, Capabilities and Roadmap
 
+> **PAUSED BY OWNER (effective 2026-10-28; D94).** Nothing in this roadmap is an authorized task. See `docs/PROJECT_STATE.md`.
+
 **Status:** DRAFT for review (2026-10-04; WP-D status reconciled 2026-10-12; engineering status reconciled 2026-10-13;
 development programme added 2026-10-22, §12)
 **Baseline:** `295d739` (branch `scientific-rebuild`); programme reconciled against `7ff4b90`

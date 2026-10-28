@@ -1,5 +1,8 @@
 # TopoFold
 
+> [!NOTE]
+> **Project status: PAUSED BY OWNER (effective 2026-10-28).** No development task is running or authorized. The canonical restart document is [`docs/PROJECT_STATE.md`](docs/PROJECT_STATE.md); results and their limits are in [`docs/DECISION_LOG.md`](docs/DECISION_LOG.md) and [`benchmarks/audit/README.md`](benchmarks/audit/README.md).
+
 **SE(3)-invariant local geometry of biomolecular backbones, in Rust with Python bindings.**
 
 [![Rust](https://img.shields.io/badge/rust-1.80%2B-orange.svg)](https://www.rust-lang.org)
